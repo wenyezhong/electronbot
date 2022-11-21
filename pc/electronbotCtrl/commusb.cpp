@@ -14,6 +14,7 @@ commUSB::commUSB()
 }
 commUSB::~commUSB()
 {
+    CloseElectronbotUSB();
     libusb_free_device_list(devs,1);
     libusb_exit(NULL);
 }
@@ -98,6 +99,15 @@ void commUSB::openElectronbotUSB(int vid,int pid)
      res=libusb_claim_interface(handle, 2);
      res<0?qDebug("=======================claim interface error"):qDebug("=========================claim interface success");
 
+}
+void commUSB::CloseElectronbotUSB(void)
+{
+    if(handle)
+    {
+        libusb_release_interface (handle, 2);
+        libusb_close (handle);
+        handle =  NULL;
+    }
 }
 int commUSB::ReadElectronbotUSB(uint8_t *ptr,uint32_t len)
 {

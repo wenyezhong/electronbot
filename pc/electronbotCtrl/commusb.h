@@ -13,6 +13,7 @@ public:
     void openElectronbotUSB(int vid,int pid);
     int ReadElectronbotUSB(uint8_t *ptr,uint32_t len);
     int WriteElectronbotUSB(uint8_t *ptr,uint32_t len);
+    void CloseElectronbotUSB(void);
 private:
     libusb_device **devs;
     libusb_device_handle *handle;

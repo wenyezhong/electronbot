@@ -31,6 +31,7 @@ MainWindow::~MainWindow()
 }
 void MainWindow::reconnectElectronbotUSB(void)
 {
+    electronbot_usb->CloseElectronbotUSB();
     delete electronbot_usb;
     electronbot_usb = new commUSB;
     electronbot_usb->openElectronbotUSB(0x1209,0x0d32);
@@ -38,12 +39,18 @@ void MainWindow::reconnectElectronbotUSB(void)
 }
 void MainWindow::on_pushButton_clicked()
 {
+    int ret;
     uint8_t buf[512];
     buf[0] = 0x12;
     buf[1] = 0x13;
     buf[2] = 0x14;
     buf[3] = 0x15;
-    electronbot_usb->WriteElectronbotUSB(buf,512);
+    ret=electronbot_usb->WriteElectronbotUSB(buf,512);
+    if(ret<0)
+    {
+        qDebug("reconnect!");
+        reconnectElectronbotUSB();
+    }
     //usb->test_my_usb_devices(0x1209,0x0d32);
 }
 void MainWindow::RecvUSBTask()
