@@ -15,10 +15,15 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void reconnectElectronbotUSB(void);
 
 private slots:
     void on_pushButton_clicked();
     void RecvUSBTask();
+    void on_openFile_clicked();
+
+    void on_sendFile_clicked();
+
 private:
     Ui::MainWindow *ui;
      commUSB *electronbot_usb;

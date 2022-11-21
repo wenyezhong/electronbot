@@ -275,9 +275,10 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len, uint8_t endpoint_pair)
 {
   /* USER CODE BEGIN 6 */
   int i;
-  for(i=0 ; i<*Len; i++)
+  printf("len=%u\r\n",*Len);
+/*   for(i=0 ; i<*Len; i++)
     printf("%.2x ",Buf[i]);
-  printf("\r\n");
+  printf("\r\n"); */
   if(Buf[0]==0x12)
     recvFlag = 1;
   USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0],endpoint_pair);

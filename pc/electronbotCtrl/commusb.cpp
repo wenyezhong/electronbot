@@ -17,6 +17,7 @@ commUSB::~commUSB()
     libusb_free_device_list(devs,1);
     libusb_exit(NULL);
 }
+
 void commUSB::print_dev(void)
 {
     libusb_device *dev;
@@ -98,9 +99,9 @@ void commUSB::openElectronbotUSB(int vid,int pid)
      res<0?qDebug("=======================claim interface error"):qDebug("=========================claim interface success");
 
 }
-void commUSB::ReadElectronbotUSB(uint8_t *ptr,uint32_t len)
+int commUSB::ReadElectronbotUSB(uint8_t *ptr,uint32_t len)
 {
-    int res;
+    int res=0;
     int size=0;
     if(handle)
     {
@@ -121,11 +122,12 @@ void commUSB::ReadElectronbotUSB(uint8_t *ptr,uint32_t len)
             qDebug("   %s\n", libusb_strerror((enum libusb_error)res));
         }
     }
+    return res;
 
 }
-void commUSB::WriteElectronbotUSB(uint8_t *ptr,uint32_t len)
+int commUSB::WriteElectronbotUSB(uint8_t *ptr,uint32_t len)
 {
-    int res;
+    int res=0;
     int size=0;
 
     if(handle)
@@ -144,6 +146,7 @@ void commUSB::WriteElectronbotUSB(uint8_t *ptr,uint32_t len)
             qDebug("   %s\n", libusb_strerror((enum libusb_error)res));
         }
     }
+    return res;
 
 }
 void commUSB::test_my_usb_devices(int vid,int pid)

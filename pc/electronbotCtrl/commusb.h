@@ -11,8 +11,8 @@ public:
     void print_dev(void);
     void test_my_usb_devices(int vid,int pid);
     void openElectronbotUSB(int vid,int pid);
-    void ReadElectronbotUSB(uint8_t *ptr,uint32_t len);
-    void WriteElectronbotUSB(uint8_t *ptr,uint32_t len);
+    int ReadElectronbotUSB(uint8_t *ptr,uint32_t len);
+    int WriteElectronbotUSB(uint8_t *ptr,uint32_t len);
 private:
     libusb_device **devs;
     libusb_device_handle *handle;
