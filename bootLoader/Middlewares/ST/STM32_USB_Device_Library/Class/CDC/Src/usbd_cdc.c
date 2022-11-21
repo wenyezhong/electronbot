@@ -59,7 +59,7 @@ EndBSPDependencies */
 #include "usbd_cdc.h"
 #include "usbd_ctlreq.h"
 #include "usbd_desc.h"
-
+#include <stdio.h>
 /** @addtogroup STM32_USB_DEVICE_LIBRARY
   * @{
   */
@@ -111,7 +111,7 @@ static uint8_t *USBD_CDC_GetHSCfgDesc(uint16_t *length);
 static uint8_t *USBD_CDC_GetOtherSpeedCfgDesc(uint16_t *length);
 static uint8_t *USBD_CDC_GetOtherSpeedCfgDesc(uint16_t *length);
 uint8_t *USBD_CDC_GetDeviceQualifierDescriptor(uint16_t *length);
-#endif /* USE_USBD_COMPOSITE
+#endif /* USE_USBD_COMPOSITE*/
 
 
 /* static uint8_t  USBD_CDC_Init (USBD_HandleTypeDef *pdev, uint8_t cfgidx);
@@ -436,6 +436,7 @@ static uint8_t USBD_CDC_Init(USBD_HandleTypeDef *pdev, uint8_t cfgidx)
   ((USBD_CDC_ItfTypeDef *)pdev->pUserData[pdev->classId])->Init();
 
   /* Init Xfer states */
+  // printf("%s:%d\r\n",__FUNCTION__,__LINE__);
   hcdc->CDC_Tx.State =0;
   hcdc->CDC_Rx.State =0;
   hcdc->ODRIVE_Tx.State =0;
@@ -516,9 +517,11 @@ static uint8_t USBD_CDC_DeInit(USBD_HandleTypeDef *pdev, uint8_t cfgidx)
   (void)USBD_LL_CloseEP(pdev, CDCCmdEpAdd);
 
 /* Close EP IN */
-  USBD_LL_CloseEP(pdev,ODRIVE_IN_EP);  
+  USBD_LL_CloseEP(pdev,ODRIVE_IN_EP);
+  pdev->ep_out[ODRIVE_IN_EP & 0xFU].is_used = 0U;  
   /* Close EP OUT */
   USBD_LL_CloseEP(pdev,ODRIVE_OUT_EP); 
+  pdev->ep_out[ODRIVE_OUT_EP & 0xFU].is_used = 0U;
 
   pdev->ep_in[CDCCmdEpAdd & 0xFU].is_used = 0U;
   pdev->ep_in[CDCCmdEpAdd & 0xFU].bInterval = 0U;
@@ -656,35 +659,38 @@ static uint8_t USBD_CDC_DataIn(USBD_HandleTypeDef *pdev, uint8_t epnum)
 
   if (pdev->pClassDataCmsit[pdev->classId] == NULL)
   {
+    // printf("%s:%d\r\n",__FUNCTION__,__LINE__);
     return (uint8_t)USBD_FAIL;
   }
 
   hcdc = (USBD_CDC_HandleTypeDef *)pdev->pClassDataCmsit[pdev->classId];
-
-  if ((pdev->ep_in[epnum & 0xFU].total_length > 0U) &&
-      ((pdev->ep_in[epnum & 0xFU].total_length % hpcd->IN_ep[epnum & 0xFU].maxpacket) == 0U))
+  // printf("%s:%s:%d %x\r\n",__FILE__,__FUNCTION__,__LINE__,epnum);
+  if (epnum == CDC_OUT_EP)
   {
-    /* Update the packet total length */
-    pdev->ep_in[epnum & 0xFU].total_length = 0U;
-
-    /* Send ZLP */
-    (void)USBD_LL_Transmit(pdev, epnum, NULL, 0U);
-  }
-  else
-  {
-    
-    if (epnum == CDC_OUT_EP)
+	  if ((pdev->ep_in[epnum & 0xFU].total_length > 0U) &&
+	      ((pdev->ep_in[epnum & 0xFU].total_length % hpcd->IN_ep[epnum & 0xFU].maxpacket) == 0U))
     {
+      // Update the packet total length
+      pdev->ep_in[epnum & 0xFU].total_length = 0U;
+      // printf("%s:%s:%d\r\n",__FILE__,__FUNCTION__,__LINE__);
+      //Send ZLP 
+      (void)USBD_LL_Transmit(pdev, epnum, NULL, 0U);
+    }
+	  else
+	  {
+	    //printf("%x\r\n",epnum);	    
       hcdc->CDC_Tx.State = 0;
       if(((USBD_CDC_ItfTypeDef *)pdev->pUserData[pdev->classId])->TransmitCplt != NULL)
       {
         ((USBD_CDC_ItfTypeDef *)pdev->pUserData[pdev->classId])->TransmitCplt(hcdc->CDC_Tx.Buffer, &hcdc->CDC_Tx.Length, epnum);
-      }
-    }
-    if (epnum == ODRIVE_OUT_EP)
-      hcdc->ODRIVE_Tx.State = 0;
+      }	    
+	    
+	  }
   }
-
+  if (epnum == ODRIVE_OUT_EP)
+  {
+    hcdc->ODRIVE_Tx.State = 0;    
+  }
   return (uint8_t)USBD_OK;
 }
 
@@ -927,9 +933,9 @@ uint8_t  USBD_CDC_SetTxBuffer  (USBD_HandleTypeDef   *pdev,
   USBD_CDC_HandleTypeDef   *hcdc = (USBD_CDC_HandleTypeDef*) pdev->pClassData;
   
   USBD_CDC_EP_HandleTypeDef* hEP_Tx;
-  if (endpoint_pair == CDC_OUT_EP) {
+  if (endpoint_pair == CDC_IN_EP) {
     hEP_Tx = &hcdc->CDC_Tx;
-  } else if (endpoint_pair == ODRIVE_OUT_EP) {
+  } else if (endpoint_pair == ODRIVE_IN_EP) {
     hEP_Tx = &hcdc->ODRIVE_Tx;
   } else {
     return USBD_FAIL;
@@ -985,26 +991,29 @@ uint8_t USBD_CDC_TransmitPacket(USBD_HandleTypeDef *pdev,uint8_t endpoint_pair)
 #endif /* USE_USBD_COMPOSITE */
   if (pdev->pClassDataCmsit[pdev->classId] == NULL)
   {
+    // printf("%s:%d\r\n",__FUNCTION__,__LINE__);
     return (uint8_t)USBD_FAIL;
   }
   USBD_CDC_EP_HandleTypeDef* hEP_Tx;
   uint8_t in_ep;
-  if (endpoint_pair == CDC_OUT_EP) {
+  if (endpoint_pair == CDC_IN_EP) {
     hEP_Tx = &hcdc->CDC_Tx;
     in_ep = CDC_IN_EP;
-  } else if (endpoint_pair == ODRIVE_OUT_EP) {
+  } else if (endpoint_pair == ODRIVE_IN_EP) {
     hEP_Tx = &hcdc->ODRIVE_Tx;
     in_ep = ODRIVE_IN_EP;
   } else {
+    // printf("%s:%d\r\n",__FUNCTION__,__LINE__);
     return USBD_FAIL;
   }
   if (hEP_Tx->State == 0U)
   {
+    // printf("%s:%d\r\n",__FUNCTION__,__LINE__);
     /* Tx Transfer in progress */
     hEP_Tx->State = 1U;
 
     /* Update the packet total length */
-    pdev->ep_in[CDCInEpAdd & 0xFU].total_length = hEP_Tx->Length;
+    pdev->ep_in[in_ep & 0xFU].total_length = hEP_Tx->Length;
 
     /* Transmit next packet */
     (void)USBD_LL_Transmit(pdev, in_ep, hEP_Tx->Buffer, hEP_Tx->Length);

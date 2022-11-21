@@ -25,6 +25,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include<stdio.h>
+#include "usbd_cdc_if.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -83,7 +84,7 @@ void early_start_checks(void) {
     NVIC_SystemReset();
   }*/
 } 
-
+int recvFlag=0;
 /* USER CODE END 0 */
 
 /**
@@ -111,11 +112,11 @@ int main(void)
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
-
+  MX_UART4_Init();
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USB_DEVICE_Init();
-  MX_UART4_Init();
+  
   /* USER CODE BEGIN 2 */
   printf("bootLoader begin...\r\n");
   /* USER CODE END 2 */
@@ -126,8 +127,13 @@ int main(void)
   {
     uint32_t timeStart=HAL_GetTick();
     while(HAL_GetTick()-timeStart<1000);
-    printf("bootLoader run...\r\n");
-    CDC_Transmit_FS("hello wenyz", 11);
+    // printf("bootLoader run...\r\n");
+    if(recvFlag)
+    {
+      uint8_t ret=CDC_Transmit_FS((uint8_t*)"hello wenyz",11,ODRIVE_IN_EP);
+      printf("ret=%d\r\n",ret);
+      // recvFlag = 0;
+    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

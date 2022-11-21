@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include<QTimer>
 #include "commusb.h"
 namespace Ui {
 class MainWindow;
@@ -17,10 +18,11 @@ public:
 
 private slots:
     void on_pushButton_clicked();
-
+    void RecvUSBTask();
 private:
     Ui::MainWindow *ui;
-     commUSB *usb;
+     commUSB *electronbot_usb;
+     QTimer *recvUSB_Timer;
 };
 
 #endif // MAINWINDOW_H

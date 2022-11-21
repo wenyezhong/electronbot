@@ -10,8 +10,14 @@ public:
     ~commUSB();
     void print_dev(void);
     void test_my_usb_devices(int vid,int pid);
+    void openElectronbotUSB(int vid,int pid);
+    void ReadElectronbotUSB(uint8_t *ptr,uint32_t len);
+    void WriteElectronbotUSB(uint8_t *ptr,uint32_t len);
 private:
     libusb_device **devs;
+    libusb_device_handle *handle;
+    int8_t endpoint_in = 0;
+    int8_t endpoint_out = 0;
 };
 
 #endif // COMMUSB_H
