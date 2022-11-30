@@ -1,0 +1,881 @@
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f0xx_ll_flash.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.LL_FLASH_Program_TwoBtye,"ax",%progbits
+  18              		.align	1
+  19              		.syntax unified
+  20              		.code	16
+  21              		.thumb_func
+  23              	LL_FLASH_Program_TwoBtye:
+  24              	.LVL0:
+  25              	.LFB898:
+  26              		.file 1 "Src/stm32f0xx_ll_flash.c"
+   1:Src/stm32f0xx_ll_flash.c **** #include "stm32f0xx_ll_flash.h"
+   2:Src/stm32f0xx_ll_flash.c **** #include "main.h"
+   3:Src/stm32f0xx_ll_flash.c **** 
+   4:Src/stm32f0xx_ll_flash.c **** void static LL_FLASH_Program_TwoBtye(uint32_t flash_addr,uint16_t data)
+   5:Src/stm32f0xx_ll_flash.c **** {
+  27              		.loc 1 5 1 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		.loc 1 5 1 is_stmt 0 view .LVU1
+  32 0000 10B5     		push	{r4, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+   6:Src/stm32f0xx_ll_flash.c **** 	LL_FLASH_EnableProgram(FLASH);
+  37              		.loc 1 6 2 is_stmt 1 view .LVU2
+  38              	.LVL1:
+  39              	.LBB34:
+  40              	.LBI34:
+  41              		.file 2 "Inc/stm32f0xx_ll_flash.h"
+   1:Inc/stm32f0xx_ll_flash.h **** #ifndef __STM32F0xx_LL_FLASH_EX_H
+   2:Inc/stm32f0xx_ll_flash.h **** #define __STM32F0xx_LL_FLASH_EX_H
+   3:Inc/stm32f0xx_ll_flash.h **** 
+   4:Inc/stm32f0xx_ll_flash.h **** #include "stm32f0xx.h"
+   5:Inc/stm32f0xx_ll_flash.h **** #include "stm32f0xx_ll_flash.h"
+   6:Inc/stm32f0xx_ll_flash.h **** typedef enum {
+   7:Inc/stm32f0xx_ll_flash.h **** 	LL_OK=0U,
+   8:Inc/stm32f0xx_ll_flash.h **** 	LL_ERROR=1U,
+   9:Inc/stm32f0xx_ll_flash.h **** 	LL_BUSY = 2U,
+  10:Inc/stm32f0xx_ll_flash.h **** 	LL_TIMEOUT=3U
+  11:Inc/stm32f0xx_ll_flash.h **** }LL_StatusTypeDef;
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s 			page 2
+
+
+  12:Inc/stm32f0xx_ll_flash.h **** 
+  13:Inc/stm32f0xx_ll_flash.h **** 
+  14:Inc/stm32f0xx_ll_flash.h **** typedef struct
+  15:Inc/stm32f0xx_ll_flash.h **** {
+  16:Inc/stm32f0xx_ll_flash.h ****   uint32_t TypeErase;   /*!< TypeErase: Mass erase or page erase.
+  17:Inc/stm32f0xx_ll_flash.h ****                              This parameter can be a value of @ref FLASHEx_Type_Erase */
+  18:Inc/stm32f0xx_ll_flash.h **** 
+  19:Inc/stm32f0xx_ll_flash.h ****   uint32_t PageAddress; /*!< PageAdress: Initial FLASH page address to erase when mass erase is dis
+  20:Inc/stm32f0xx_ll_flash.h ****                              This parameter must be a number between Min_Data = FLASH_BASE and Max_
+  21:Inc/stm32f0xx_ll_flash.h ****   
+  22:Inc/stm32f0xx_ll_flash.h ****   uint32_t NbPages;     /*!< NbPages: Number of pagess to be erased.
+  23:Inc/stm32f0xx_ll_flash.h ****                              This parameter must be a value between Min_Data = 1 and Max_Data = (ma
+  24:Inc/stm32f0xx_ll_flash.h ****                                                           
+  25:Inc/stm32f0xx_ll_flash.h **** } FLASH_EraseInitTypeDef;
+  26:Inc/stm32f0xx_ll_flash.h **** 
+  27:Inc/stm32f0xx_ll_flash.h **** #define FLASH_FLAG_BSY             FLASH_SR_BSY            /*!< FLASH Busy flag                    
+  28:Inc/stm32f0xx_ll_flash.h **** #define FLASH_FLAG_PGERR           FLASH_SR_PGERR          /*!< FLASH Programming error flag    */
+  29:Inc/stm32f0xx_ll_flash.h **** #define FLASH_FLAG_WRPERR          FLASH_SR_WRPERR         /*!< FLASH Write protected error flag   
+  30:Inc/stm32f0xx_ll_flash.h **** #define FLASH_FLAG_EOP             FLASH_SR_EOP            /*!< FLASH End of Operation flag        
+  31:Inc/stm32f0xx_ll_flash.h **** 
+  32:Inc/stm32f0xx_ll_flash.h **** #define FLASH_TYPEERASE_PAGES          FLASH_CR_PER         /*!< FLASH_CR_PER          */
+  33:Inc/stm32f0xx_ll_flash.h **** #define FLASH_TYPEERASE_MASSERASE      FLASH_CR_MER            /*!< MASSERASE              */
+  34:Inc/stm32f0xx_ll_flash.h **** 
+  35:Inc/stm32f0xx_ll_flash.h **** 
+  36:Inc/stm32f0xx_ll_flash.h **** #if defined(STM32F030x6) || defined(STM32F030x8) || defined(STM32F031x6) || defined(STM32F038xx) \
+  37:Inc/stm32f0xx_ll_flash.h ****  || defined(STM32F051x8) || defined(STM32F042x6) || defined(STM32F048xx) || defined(STM32F058xx) ||
+  38:Inc/stm32f0xx_ll_flash.h **** #define FLASH_PAGE_SIZE          0x400U
+  39:Inc/stm32f0xx_ll_flash.h **** #endif /* STM32F030x6 || STM32F030x8 || STM32F031x6 || STM32F051x8 || STM32F042x6 || STM32F048xx ||
+  40:Inc/stm32f0xx_ll_flash.h **** 
+  41:Inc/stm32f0xx_ll_flash.h **** #if defined(STM32F071xB) || defined(STM32F072xB) || defined(STM32F078xx) || defined(STM32F070xB) \
+  42:Inc/stm32f0xx_ll_flash.h ****  || defined(STM32F091xC) || defined(STM32F098xx) || defined(STM32F030xC)
+  43:Inc/stm32f0xx_ll_flash.h **** #define FLASH_PAGE_SIZE          0x800U
+  44:Inc/stm32f0xx_ll_flash.h **** #endif /* STM32F071xB || STM32F072xB || STM32F078xx || STM32F091xC || STM32F098xx || STM32F030xC */
+  45:Inc/stm32f0xx_ll_flash.h **** 
+  46:Inc/stm32f0xx_ll_flash.h **** typedef enum {
+  47:Inc/stm32f0xx_ll_flash.h **** 	ProgaraType_DATA64,
+  48:Inc/stm32f0xx_ll_flash.h **** 	ProgaraType_DATA32,
+  49:Inc/stm32f0xx_ll_flash.h **** 	ProgaraType_DATA16
+  50:Inc/stm32f0xx_ll_flash.h **** }ProgaramDataType;
+  51:Inc/stm32f0xx_ll_flash.h **** 
+  52:Inc/stm32f0xx_ll_flash.h **** typedef enum {\
+  53:Inc/stm32f0xx_ll_flash.h **** 	FLASH_Lock=1U,Flash_Unlock=!FLASH_Lock\
+  54:Inc/stm32f0xx_ll_flash.h **** }FlashStates;
+  55:Inc/stm32f0xx_ll_flash.h **** 
+  56:Inc/stm32f0xx_ll_flash.h ****   /* Set the OBL_Launch bit to launch the option byte loading */
+  57:Inc/stm32f0xx_ll_flash.h **** __STATIC_INLINE void LL_FLASH_SET_OBL_Launch(FLASH_TypeDef *FLASHx)
+  58:Inc/stm32f0xx_ll_flash.h **** {
+  59:Inc/stm32f0xx_ll_flash.h ****   SET_BIT(FLASHx->CR, FLASH_CR_OBL_LAUNCH);
+  60:Inc/stm32f0xx_ll_flash.h **** }
+  61:Inc/stm32f0xx_ll_flash.h **** __STATIC_INLINE void LL_FLASH_Lock(FLASH_TypeDef *FLASHx)
+  62:Inc/stm32f0xx_ll_flash.h **** {
+  63:Inc/stm32f0xx_ll_flash.h ****   SET_BIT(FLASHx->CR, FLASH_CR_LOCK);
+  64:Inc/stm32f0xx_ll_flash.h **** }
+  65:Inc/stm32f0xx_ll_flash.h **** 
+  66:Inc/stm32f0xx_ll_flash.h **** 
+  67:Inc/stm32f0xx_ll_flash.h ****   /* @brief  Set flash erase type.
+  68:Inc/stm32f0xx_ll_flash.h ****   * @param  FLASH_TYPEERASE specifies the FLASH flags to clear.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s 			page 3
+
+
+  69:Inc/stm32f0xx_ll_flash.h ****   *          This parameter can be any combination of the following values:
+  70:Inc/stm32f0xx_ll_flash.h ****   *            @arg @ref FLASH_TYPEERASE_PAGES         PAGES Erase
+  71:Inc/stm32f0xx_ll_flash.h ****   *            @arg @ref FLASH_TYPEERASE_MASSERASE      FLASH Write protected error flag 
+  72:Inc/stm32f0xx_ll_flash.h ****   * @retval none*/
+  73:Inc/stm32f0xx_ll_flash.h **** 
+  74:Inc/stm32f0xx_ll_flash.h **** __STATIC_INLINE void LL_FLASH_SetTypeErase(FLASH_TypeDef *FLASHx,uint32_t FLASH_TYPEERASE)
+  75:Inc/stm32f0xx_ll_flash.h **** {
+  76:Inc/stm32f0xx_ll_flash.h ****   SET_BIT(FLASHx->CR, FLASH_TYPEERASE);
+  77:Inc/stm32f0xx_ll_flash.h **** }
+  78:Inc/stm32f0xx_ll_flash.h ****   /* @brief  Set flash erase ADDR.
+  79:Inc/stm32f0xx_ll_flash.h ****   *          This parameter can be any combination of the following values:
+  80:Inc/stm32f0xx_ll_flash.h ****   *            @arg @ref EraseADDR         uint32_t value
+  81:Inc/stm32f0xx_ll_flash.h ****   * @retval none*/
+  82:Inc/stm32f0xx_ll_flash.h **** 
+  83:Inc/stm32f0xx_ll_flash.h **** __STATIC_INLINE void LL_FLASH_SetEraseADDR(FLASH_TypeDef *FLASHx,uint32_t EraseADDR)
+  84:Inc/stm32f0xx_ll_flash.h **** {
+  85:Inc/stm32f0xx_ll_flash.h ****   WRITE_REG(FLASHx->AR, EraseADDR);
+  86:Inc/stm32f0xx_ll_flash.h **** }
+  87:Inc/stm32f0xx_ll_flash.h ****   /* @brief  Set flash erase ADDR.
+  88:Inc/stm32f0xx_ll_flash.h ****   *          This parameter can be any combination of the following values:
+  89:Inc/stm32f0xx_ll_flash.h ****   *            @arg @ref EraseADDR         uint32_t value
+  90:Inc/stm32f0xx_ll_flash.h ****   * @retval none*/
+  91:Inc/stm32f0xx_ll_flash.h **** 
+  92:Inc/stm32f0xx_ll_flash.h **** __STATIC_INLINE void LL_FLASH_StartErase(FLASH_TypeDef *FLASHx)
+  93:Inc/stm32f0xx_ll_flash.h **** {
+  94:Inc/stm32f0xx_ll_flash.h ****   SET_BIT(FLASHx->CR, FLASH_CR_STRT);
+  95:Inc/stm32f0xx_ll_flash.h **** }
+  96:Inc/stm32f0xx_ll_flash.h **** 
+  97:Inc/stm32f0xx_ll_flash.h ****   /* @brief  Clear the specified FLASH flag.
+  98:Inc/stm32f0xx_ll_flash.h ****   * @param  __FLAG__ specifies the FLASH flags to clear.
+  99:Inc/stm32f0xx_ll_flash.h ****   *          This parameter can be any combination of the following values:
+ 100:Inc/stm32f0xx_ll_flash.h ****   *            @arg @ref FLASH_FLAG_EOP         FLASH End of Operation flag 
+ 101:Inc/stm32f0xx_ll_flash.h ****   *            @arg @ref FLASH_FLAG_WRPERR      FLASH Write protected error flag 
+ 102:Inc/stm32f0xx_ll_flash.h ****   *            @arg @ref FLASH_FLAG_PGERR       FLASH Programming error flag
+ 103:Inc/stm32f0xx_ll_flash.h ****   * @retval none*/
+ 104:Inc/stm32f0xx_ll_flash.h **** 
+ 105:Inc/stm32f0xx_ll_flash.h **** __STATIC_INLINE void LL_FLASH_ClearFlag(FLASH_TypeDef *FLASHx,uint32_t STATE_FLAG)
+ 106:Inc/stm32f0xx_ll_flash.h **** {
+ 107:Inc/stm32f0xx_ll_flash.h ****   WRITE_REG(FLASHx->SR, STATE_FLAG);
+ 108:Inc/stm32f0xx_ll_flash.h **** }
+ 109:Inc/stm32f0xx_ll_flash.h **** 
+ 110:Inc/stm32f0xx_ll_flash.h ****   /*get bit flash bsy*/
+ 111:Inc/stm32f0xx_ll_flash.h **** __STATIC_INLINE uint32_t LL_FLASH_IsActiveFlag_BSY(FLASH_TypeDef *FLASHx)
+ 112:Inc/stm32f0xx_ll_flash.h **** {
+ 113:Inc/stm32f0xx_ll_flash.h ****   return (READ_BIT(FLASHx->SR, FLASH_SR_BSY) == (FLASH_SR_BSY));
+ 114:Inc/stm32f0xx_ll_flash.h **** }
+ 115:Inc/stm32f0xx_ll_flash.h **** /*get end of operation bilt*/
+ 116:Inc/stm32f0xx_ll_flash.h **** __STATIC_INLINE uint32_t LL_FLASH_IsActiveFlag_EOP(FLASH_TypeDef *FLASHx)
+ 117:Inc/stm32f0xx_ll_flash.h **** {
+ 118:Inc/stm32f0xx_ll_flash.h ****   return (READ_BIT(FLASHx->SR, FLASH_SR_EOP) == (FLASH_SR_EOP));
+ 119:Inc/stm32f0xx_ll_flash.h **** }
+ 120:Inc/stm32f0xx_ll_flash.h **** /*clear end of operation bilt*/
+ 121:Inc/stm32f0xx_ll_flash.h **** __STATIC_INLINE void LL_FLASH_ClearFlag_EOP(FLASH_TypeDef *FLASHx)
+ 122:Inc/stm32f0xx_ll_flash.h **** {
+ 123:Inc/stm32f0xx_ll_flash.h ****   SET_BIT(FLASHx->SR, FLASH_SR_EOP);//EOP bit Set clear
+ 124:Inc/stm32f0xx_ll_flash.h **** }
+ 125:Inc/stm32f0xx_ll_flash.h ****   /* @brief  Set flash erase type.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s 			page 4
+
+
+ 126:Inc/stm32f0xx_ll_flash.h ****   * @param  FLASH_TYPEERASE specifies the FLASH flags to clear.
+ 127:Inc/stm32f0xx_ll_flash.h ****   *          This parameter can be any combination of the following values:
+ 128:Inc/stm32f0xx_ll_flash.h ****   *            @arg @ref FLASH_TYPEERASE_PAGES         PAGES Erase
+ 129:Inc/stm32f0xx_ll_flash.h ****   *            @arg @ref FLASH_TYPEERASE_MASSERASE      FLASH Write protected error flag 
+ 130:Inc/stm32f0xx_ll_flash.h ****   * @retval none*/
+ 131:Inc/stm32f0xx_ll_flash.h **** __STATIC_INLINE void LL_FLASH_DisenableErase(FLASH_TypeDef *FLASHx,uint32_t FLASH_TYPEERASE)
+ 132:Inc/stm32f0xx_ll_flash.h **** {
+ 133:Inc/stm32f0xx_ll_flash.h ****   CLEAR_BIT(FLASHx->CR, FLASH_TYPEERASE);
+ 134:Inc/stm32f0xx_ll_flash.h **** }
+ 135:Inc/stm32f0xx_ll_flash.h **** 
+ 136:Inc/stm32f0xx_ll_flash.h **** /*EnableProgram*/
+ 137:Inc/stm32f0xx_ll_flash.h **** __STATIC_INLINE void LL_FLASH_EnableProgram(FLASH_TypeDef *FLASHx)
+  42              		.loc 2 137 22 view .LVU3
+  43              	.LBB35:
+ 138:Inc/stm32f0xx_ll_flash.h **** {
+ 139:Inc/stm32f0xx_ll_flash.h ****   SET_BIT(FLASHx->CR,FLASH_CR_PG);
+  44              		.loc 2 139 3 view .LVU4
+  45 0002 034A     		ldr	r2, .L2
+  46 0004 1369     		ldr	r3, [r2, #16]
+  47 0006 0124     		movs	r4, #1
+  48 0008 2343     		orrs	r3, r4
+  49 000a 1361     		str	r3, [r2, #16]
+  50              	.LVL2:
+  51              		.loc 2 139 3 is_stmt 0 view .LVU5
+  52              	.LBE35:
+  53              	.LBE34:
+   7:Src/stm32f0xx_ll_flash.c **** 	*(__IO uint16_t*)(flash_addr) = data;
+  54              		.loc 1 7 2 is_stmt 1 view .LVU6
+  55              		.loc 1 7 32 is_stmt 0 view .LVU7
+  56 000c 0180     		strh	r1, [r0]
+   8:Src/stm32f0xx_ll_flash.c **** }
+  57              		.loc 1 8 1 view .LVU8
+  58              		@ sp needed
+  59 000e 10BD     		pop	{r4, pc}
+  60              	.L3:
+  61              		.align	2
+  62              	.L2:
+  63 0010 00200240 		.word	1073881088
+  64              		.cfi_endproc
+  65              	.LFE898:
+  67              		.section	.text.LL_Flash_Unlock,"ax",%progbits
+  68              		.align	1
+  69              		.global	LL_Flash_Unlock
+  70              		.syntax unified
+  71              		.code	16
+  72              		.thumb_func
+  74              	LL_Flash_Unlock:
+  75              	.LFB899:
+   9:Src/stm32f0xx_ll_flash.c **** 
+  10:Src/stm32f0xx_ll_flash.c **** LL_StatusTypeDef LL_Flash_Unlock(void)
+  11:Src/stm32f0xx_ll_flash.c **** {
+  76              		.loc 1 11 1 is_stmt 1 view -0
+  77              		.cfi_startproc
+  78              		@ args = 0, pretend = 0, frame = 0
+  79              		@ frame_needed = 0, uses_anonymous_args = 0
+  80              		@ link register save eliminated.
+  81              	.L5:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s 			page 5
+
+
+  12:Src/stm32f0xx_ll_flash.c **** 	while (LL_FLASH_IsActiveFlag_BSY(FLASH))  
+  13:Src/stm32f0xx_ll_flash.c **** 	{
+  14:Src/stm32f0xx_ll_flash.c **** 	} 
+  82              		.loc 1 14 2 discriminator 1 view .LVU10
+  12:Src/stm32f0xx_ll_flash.c **** 	while (LL_FLASH_IsActiveFlag_BSY(FLASH))  
+  83              		.loc 1 12 8 discriminator 1 view .LVU11
+  84              	.LVL3:
+  85              	.LBB36:
+  86              	.LBI36:
+ 111:Inc/stm32f0xx_ll_flash.h **** {
+  87              		.loc 2 111 26 discriminator 1 view .LVU12
+  88              	.LBB37:
+ 113:Inc/stm32f0xx_ll_flash.h **** }
+  89              		.loc 2 113 3 discriminator 1 view .LVU13
+ 113:Inc/stm32f0xx_ll_flash.h **** }
+  90              		.loc 2 113 11 is_stmt 0 discriminator 1 view .LVU14
+  91 0000 074B     		ldr	r3, .L8
+  92 0002 DB68     		ldr	r3, [r3, #12]
+  93              	.LVL4:
+ 113:Inc/stm32f0xx_ll_flash.h **** }
+  94              		.loc 2 113 11 discriminator 1 view .LVU15
+  95              	.LBE37:
+  96              	.LBE36:
+  12:Src/stm32f0xx_ll_flash.c **** 	while (LL_FLASH_IsActiveFlag_BSY(FLASH))  
+  97              		.loc 1 12 8 discriminator 1 view .LVU16
+  98 0004 DB07     		lsls	r3, r3, #31
+  99 0006 FBD4     		bmi	.L5
+  15:Src/stm32f0xx_ll_flash.c **** 	if (LL_FLASH_LockState(FLASH)) 
+ 100              		.loc 1 15 2 is_stmt 1 view .LVU17
+ 101              	.LVL5:
+ 102              	.LBB38:
+ 103              	.LBI38:
+ 140:Inc/stm32f0xx_ll_flash.h **** }
+ 141:Inc/stm32f0xx_ll_flash.h **** /*DisenableProgram*/
+ 142:Inc/stm32f0xx_ll_flash.h **** __STATIC_INLINE void LL_FLASH_DisenableProgram(FLASH_TypeDef *FLASHx)
+ 143:Inc/stm32f0xx_ll_flash.h **** {
+ 144:Inc/stm32f0xx_ll_flash.h ****   CLEAR_BIT(FLASHx->CR,FLASH_CR_PG);
+ 145:Inc/stm32f0xx_ll_flash.h **** }
+ 146:Inc/stm32f0xx_ll_flash.h **** /*read flash's states of lock or unlock*/
+ 147:Inc/stm32f0xx_ll_flash.h **** __STATIC_INLINE FlashStates LL_FLASH_LockState(FLASH_TypeDef *FLASHx)
+ 104              		.loc 2 147 29 view .LVU18
+ 105              	.LBB39:
+ 148:Inc/stm32f0xx_ll_flash.h **** {
+ 149:Inc/stm32f0xx_ll_flash.h **** 	return (FlashStates)(READ_BIT(FLASHx->CR,FLASH_CR_LOCK));
+ 106              		.loc 2 149 2 view .LVU19
+ 107              		.loc 2 149 23 is_stmt 0 view .LVU20
+ 108 0008 054B     		ldr	r3, .L8
+ 109 000a 1B69     		ldr	r3, [r3, #16]
+ 110              	.LVL6:
+ 111              		.loc 2 149 23 view .LVU21
+ 112              	.LBE39:
+ 113              	.LBE38:
+ 114              		.loc 1 15 5 view .LVU22
+ 115 000c 1B06     		lsls	r3, r3, #24
+ 116 000e 01D4     		bmi	.L7
+ 117              	.L6:
+  16:Src/stm32f0xx_ll_flash.c **** 	{ 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s 			page 6
+
+
+  17:Src/stm32f0xx_ll_flash.c **** 		LL_FLASh_SetKey(FLASH,FLASH_KEY1);
+  18:Src/stm32f0xx_ll_flash.c **** 		LL_FLASh_SetKey(FLASH,FLASH_KEY2);
+  19:Src/stm32f0xx_ll_flash.c **** 	}
+  20:Src/stm32f0xx_ll_flash.c **** 	return LL_OK;
+ 118              		.loc 1 20 2 is_stmt 1 view .LVU23
+  21:Src/stm32f0xx_ll_flash.c **** }
+ 119              		.loc 1 21 1 is_stmt 0 view .LVU24
+ 120 0010 0020     		movs	r0, #0
+ 121              		@ sp needed
+ 122 0012 7047     		bx	lr
+ 123              	.L7:
+  17:Src/stm32f0xx_ll_flash.c **** 		LL_FLASh_SetKey(FLASH,FLASH_KEY2);
+ 124              		.loc 1 17 3 is_stmt 1 view .LVU25
+ 125              	.LVL7:
+ 126              	.LBB40:
+ 127              	.LBI40:
+ 150:Inc/stm32f0xx_ll_flash.h **** }
+ 151:Inc/stm32f0xx_ll_flash.h **** /*set key for flash*/
+ 152:Inc/stm32f0xx_ll_flash.h **** __STATIC_INLINE void LL_FLASh_SetKey(FLASH_TypeDef *FLASHx,uint32_t key)
+ 128              		.loc 2 152 22 view .LVU26
+ 129              	.LBB41:
+ 153:Inc/stm32f0xx_ll_flash.h **** {
+ 154:Inc/stm32f0xx_ll_flash.h **** 	WRITE_REG(FLASH->KEYR,key);
+ 130              		.loc 2 154 2 view .LVU27
+ 131 0014 024B     		ldr	r3, .L8
+ 132 0016 034A     		ldr	r2, .L8+4
+ 133 0018 5A60     		str	r2, [r3, #4]
+ 134              	.LVL8:
+ 135              		.loc 2 154 2 is_stmt 0 view .LVU28
+ 136              	.LBE41:
+ 137              	.LBE40:
+  18:Src/stm32f0xx_ll_flash.c **** 	}
+ 138              		.loc 1 18 3 is_stmt 1 view .LVU29
+ 139              	.LBB42:
+ 140              	.LBI42:
+ 152:Inc/stm32f0xx_ll_flash.h **** {
+ 141              		.loc 2 152 22 view .LVU30
+ 142              	.LBB43:
+ 143              		.loc 2 154 2 view .LVU31
+ 144 001a 034A     		ldr	r2, .L8+8
+ 145 001c 5A60     		str	r2, [r3, #4]
+ 155:Inc/stm32f0xx_ll_flash.h **** }
+ 146              		.loc 2 155 1 is_stmt 0 view .LVU32
+ 147 001e F7E7     		b	.L6
+ 148              	.L9:
+ 149              		.align	2
+ 150              	.L8:
+ 151 0020 00200240 		.word	1073881088
+ 152 0024 23016745 		.word	1164378403
+ 153 0028 AB89EFCD 		.word	-839939669
+ 154              	.LBE43:
+ 155              	.LBE42:
+ 156              		.cfi_endproc
+ 157              	.LFE899:
+ 159              		.section	.text.LL_Flash_PageErase,"ax",%progbits
+ 160              		.align	1
+ 161              		.global	LL_Flash_PageErase
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s 			page 7
+
+
+ 162              		.syntax unified
+ 163              		.code	16
+ 164              		.thumb_func
+ 166              	LL_Flash_PageErase:
+ 167              	.LVL9:
+ 168              	.LFB900:
+  22:Src/stm32f0xx_ll_flash.c **** 
+  23:Src/stm32f0xx_ll_flash.c **** LL_StatusTypeDef LL_Flash_PageErase(uint32_t page_addr,uint16_t Nb)
+  24:Src/stm32f0xx_ll_flash.c **** {
+ 169              		.loc 1 24 1 is_stmt 1 view -0
+ 170              		.cfi_startproc
+ 171              		@ args = 0, pretend = 0, frame = 0
+ 172              		@ frame_needed = 0, uses_anonymous_args = 0
+ 173              		.loc 1 24 1 is_stmt 0 view .LVU34
+ 174 0000 10B5     		push	{r4, lr}
+ 175              	.LCFI1:
+ 176              		.cfi_def_cfa_offset 8
+ 177              		.cfi_offset 4, -8
+ 178              		.cfi_offset 14, -4
+  25:Src/stm32f0xx_ll_flash.c **** 	uint32_t End_addr =  10* FLASH_PAGE_SIZE +page_addr;
+ 179              		.loc 1 25 2 is_stmt 1 view .LVU35
+ 180              		.loc 1 25 11 is_stmt 0 view .LVU36
+ 181 0002 A023     		movs	r3, #160
+ 182 0004 9B01     		lsls	r3, r3, #6
+ 183 0006 C118     		adds	r1, r0, r3
+ 184              	.LVL10:
+  26:Src/stm32f0xx_ll_flash.c **** 	uint32_t Start_addr = page_addr;
+ 185              		.loc 1 26 2 is_stmt 1 view .LVU37
+  27:Src/stm32f0xx_ll_flash.c **** 	for(;Start_addr < End_addr;(Start_addr += FLASH_PAGE_SIZE))
+ 186              		.loc 1 27 2 view .LVU38
+ 187              	.L11:
+ 188              		.loc 1 27 7 discriminator 1 view .LVU39
+ 189              		.loc 1 27 2 is_stmt 0 discriminator 1 view .LVU40
+ 190 0008 8842     		cmp	r0, r1
+ 191 000a 1FD2     		bcs	.L16
+  28:Src/stm32f0xx_ll_flash.c ****     {
+  29:Src/stm32f0xx_ll_flash.c ****         LL_FLASH_SetTypeErase(FLASH,FLASH_TYPEERASE_PAGES);
+ 192              		.loc 1 29 9 is_stmt 1 view .LVU41
+ 193              	.LVL11:
+ 194              	.LBB44:
+ 195              	.LBI44:
+  74:Inc/stm32f0xx_ll_flash.h **** {
+ 196              		.loc 2 74 22 view .LVU42
+ 197              	.LBB45:
+  76:Inc/stm32f0xx_ll_flash.h **** }
+ 198              		.loc 2 76 3 view .LVU43
+ 199 000c 114B     		ldr	r3, .L17
+ 200 000e 1A69     		ldr	r2, [r3, #16]
+ 201 0010 0224     		movs	r4, #2
+ 202 0012 2243     		orrs	r2, r4
+ 203 0014 1A61     		str	r2, [r3, #16]
+ 204              	.LVL12:
+  76:Inc/stm32f0xx_ll_flash.h **** }
+ 205              		.loc 2 76 3 is_stmt 0 view .LVU44
+ 206              	.LBE45:
+ 207              	.LBE44:
+  30:Src/stm32f0xx_ll_flash.c **** 		LL_FLASH_SetEraseADDR(FLASH,Start_addr);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s 			page 8
+
+
+ 208              		.loc 1 30 3 is_stmt 1 view .LVU45
+ 209              	.LBB46:
+ 210              	.LBI46:
+  83:Inc/stm32f0xx_ll_flash.h **** {
+ 211              		.loc 2 83 22 view .LVU46
+ 212              	.LBB47:
+  85:Inc/stm32f0xx_ll_flash.h **** }
+ 213              		.loc 2 85 3 view .LVU47
+ 214 0016 5861     		str	r0, [r3, #20]
+ 215              	.LVL13:
+  85:Inc/stm32f0xx_ll_flash.h **** }
+ 216              		.loc 2 85 3 is_stmt 0 view .LVU48
+ 217              	.LBE47:
+ 218              	.LBE46:
+  31:Src/stm32f0xx_ll_flash.c **** 		LL_FLASH_StartErase(FLASH); 
+ 219              		.loc 1 31 3 is_stmt 1 view .LVU49
+ 220              	.LBB48:
+ 221              	.LBI48:
+  92:Inc/stm32f0xx_ll_flash.h **** {
+ 222              		.loc 2 92 22 view .LVU50
+ 223              	.LBB49:
+  94:Inc/stm32f0xx_ll_flash.h **** }
+ 224              		.loc 2 94 3 view .LVU51
+ 225 0018 1A69     		ldr	r2, [r3, #16]
+ 226 001a 3E34     		adds	r4, r4, #62
+ 227 001c 2243     		orrs	r2, r4
+ 228 001e 1A61     		str	r2, [r3, #16]
+ 229              	.LVL14:
+ 230              	.L12:
+  94:Inc/stm32f0xx_ll_flash.h **** }
+ 231              		.loc 2 94 3 is_stmt 0 view .LVU52
+ 232              	.LBE49:
+ 233              	.LBE48:
+  32:Src/stm32f0xx_ll_flash.c **** 		while (LL_FLASH_IsActiveFlag_BSY(FLASH)) 
+  33:Src/stm32f0xx_ll_flash.c **** 		{ 
+  34:Src/stm32f0xx_ll_flash.c **** 		} 
+ 234              		.loc 1 34 3 is_stmt 1 discriminator 1 view .LVU53
+  32:Src/stm32f0xx_ll_flash.c **** 		while (LL_FLASH_IsActiveFlag_BSY(FLASH)) 
+ 235              		.loc 1 32 9 discriminator 1 view .LVU54
+ 236              	.LBB50:
+ 237              	.LBI50:
+ 111:Inc/stm32f0xx_ll_flash.h **** {
+ 238              		.loc 2 111 26 discriminator 1 view .LVU55
+ 239              	.LBB51:
+ 113:Inc/stm32f0xx_ll_flash.h **** }
+ 240              		.loc 2 113 3 discriminator 1 view .LVU56
+ 113:Inc/stm32f0xx_ll_flash.h **** }
+ 241              		.loc 2 113 11 is_stmt 0 discriminator 1 view .LVU57
+ 242 0020 0C4B     		ldr	r3, .L17
+ 243 0022 DB68     		ldr	r3, [r3, #12]
+ 244              	.LVL15:
+ 113:Inc/stm32f0xx_ll_flash.h **** }
+ 245              		.loc 2 113 11 discriminator 1 view .LVU58
+ 246              	.LBE51:
+ 247              	.LBE50:
+  32:Src/stm32f0xx_ll_flash.c **** 		while (LL_FLASH_IsActiveFlag_BSY(FLASH)) 
+ 248              		.loc 1 32 9 discriminator 1 view .LVU59
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s 			page 9
+
+
+ 249 0024 DB07     		lsls	r3, r3, #31
+ 250 0026 FBD4     		bmi	.L12
+  35:Src/stm32f0xx_ll_flash.c **** 		if (LL_FLASH_IsActiveFlag_EOP(FLASH)) 
+ 251              		.loc 1 35 3 is_stmt 1 view .LVU60
+ 252              	.LVL16:
+ 253              	.LBB52:
+ 254              	.LBI52:
+ 116:Inc/stm32f0xx_ll_flash.h **** {
+ 255              		.loc 2 116 26 view .LVU61
+ 256              	.LBB53:
+ 118:Inc/stm32f0xx_ll_flash.h **** }
+ 257              		.loc 2 118 3 view .LVU62
+ 118:Inc/stm32f0xx_ll_flash.h **** }
+ 258              		.loc 2 118 11 is_stmt 0 view .LVU63
+ 259 0028 0A4B     		ldr	r3, .L17
+ 260 002a DB68     		ldr	r3, [r3, #12]
+ 261              	.LVL17:
+ 118:Inc/stm32f0xx_ll_flash.h **** }
+ 262              		.loc 2 118 11 view .LVU64
+ 263              	.LBE53:
+ 264              	.LBE52:
+ 265              		.loc 1 35 6 view .LVU65
+ 266 002c 9B06     		lsls	r3, r3, #26
+ 267 002e 0FD5     		bpl	.L15
+  36:Src/stm32f0xx_ll_flash.c **** 		{ 
+  37:Src/stm32f0xx_ll_flash.c **** 			LL_FLASH_ClearFlag_EOP(FLASH);; 
+ 268              		.loc 1 37 4 is_stmt 1 view .LVU66
+ 269              	.LVL18:
+ 270              	.LBB54:
+ 271              	.LBI54:
+ 121:Inc/stm32f0xx_ll_flash.h **** {
+ 272              		.loc 2 121 22 view .LVU67
+ 273              	.LBB55:
+ 123:Inc/stm32f0xx_ll_flash.h **** }
+ 274              		.loc 2 123 3 view .LVU68
+ 275 0030 084B     		ldr	r3, .L17
+ 276 0032 DA68     		ldr	r2, [r3, #12]
+ 277 0034 2024     		movs	r4, #32
+ 278 0036 2243     		orrs	r2, r4
+ 279 0038 DA60     		str	r2, [r3, #12]
+ 280              	.LVL19:
+ 123:Inc/stm32f0xx_ll_flash.h **** }
+ 281              		.loc 2 123 3 is_stmt 0 view .LVU69
+ 282              	.LBE55:
+ 283              	.LBE54:
+ 284              		.loc 1 37 34 is_stmt 1 view .LVU70
+  38:Src/stm32f0xx_ll_flash.c **** 		} 
+  39:Src/stm32f0xx_ll_flash.c **** 		else
+  40:Src/stm32f0xx_ll_flash.c **** 		{ 
+  41:Src/stm32f0xx_ll_flash.c **** 			return LL_ERROR;
+  42:Src/stm32f0xx_ll_flash.c **** 		}
+  43:Src/stm32f0xx_ll_flash.c **** 		LL_FLASH_DisenableErase(FLASH,FLASH_TYPEERASE_PAGES);
+ 285              		.loc 1 43 3 view .LVU71
+ 286              	.LBB56:
+ 287              	.LBI56:
+ 131:Inc/stm32f0xx_ll_flash.h **** {
+ 288              		.loc 2 131 22 view .LVU72
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s 			page 10
+
+
+ 289              	.LBB57:
+ 133:Inc/stm32f0xx_ll_flash.h **** }
+ 290              		.loc 2 133 3 view .LVU73
+ 291 003a 1A69     		ldr	r2, [r3, #16]
+ 292 003c 1E3C     		subs	r4, r4, #30
+ 293 003e A243     		bics	r2, r4
+ 294 0040 1A61     		str	r2, [r3, #16]
+ 295              	.LVL20:
+ 133:Inc/stm32f0xx_ll_flash.h **** }
+ 296              		.loc 2 133 3 is_stmt 0 view .LVU74
+ 297              	.LBE57:
+ 298              	.LBE56:
+  27:Src/stm32f0xx_ll_flash.c ****     {
+ 299              		.loc 1 27 29 is_stmt 1 view .LVU75
+  27:Src/stm32f0xx_ll_flash.c ****     {
+ 300              		.loc 1 27 41 is_stmt 0 view .LVU76
+ 301 0042 8023     		movs	r3, #128
+ 302 0044 DB00     		lsls	r3, r3, #3
+ 303 0046 9C46     		mov	ip, r3
+ 304 0048 6044     		add	r0, r0, ip
+ 305              	.LVL21:
+  27:Src/stm32f0xx_ll_flash.c ****     {
+ 306              		.loc 1 27 41 view .LVU77
+ 307 004a DDE7     		b	.L11
+ 308              	.L16:
+  44:Src/stm32f0xx_ll_flash.c ****     }
+  45:Src/stm32f0xx_ll_flash.c **** 	return LL_OK;
+ 309              		.loc 1 45 9 view .LVU78
+ 310 004c 0020     		movs	r0, #0
+ 311              	.LVL22:
+ 312              	.L13:
+  46:Src/stm32f0xx_ll_flash.c **** }
+ 313              		.loc 1 46 1 view .LVU79
+ 314              		@ sp needed
+ 315 004e 10BD     		pop	{r4, pc}
+ 316              	.LVL23:
+ 317              	.L15:
+  41:Src/stm32f0xx_ll_flash.c **** 		}
+ 318              		.loc 1 41 11 view .LVU80
+ 319 0050 0120     		movs	r0, #1
+ 320              	.LVL24:
+  41:Src/stm32f0xx_ll_flash.c **** 		}
+ 321              		.loc 1 41 11 view .LVU81
+ 322 0052 FCE7     		b	.L13
+ 323              	.L18:
+ 324              		.align	2
+ 325              	.L17:
+ 326 0054 00200240 		.word	1073881088
+ 327              		.cfi_endproc
+ 328              	.LFE900:
+ 330              		.section	.text.LL_FLASH_Program,"ax",%progbits
+ 331              		.align	1
+ 332              		.global	LL_FLASH_Program
+ 333              		.syntax unified
+ 334              		.code	16
+ 335              		.thumb_func
+ 337              	LL_FLASH_Program:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s 			page 11
+
+
+ 338              	.LVL25:
+ 339              	.LFB901:
+  47:Src/stm32f0xx_ll_flash.c **** 
+  48:Src/stm32f0xx_ll_flash.c **** LL_StatusTypeDef LL_FLASH_Program(ProgaramDataType ProgramType,uint32_t flash_addr,uint64_t data)
+  49:Src/stm32f0xx_ll_flash.c **** {
+ 340              		.loc 1 49 1 is_stmt 1 view -0
+ 341              		.cfi_startproc
+ 342              		@ args = 0, pretend = 0, frame = 0
+ 343              		@ frame_needed = 0, uses_anonymous_args = 0
+ 344              		.loc 1 49 1 is_stmt 0 view .LVU83
+ 345 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 346              	.LCFI2:
+ 347              		.cfi_def_cfa_offset 20
+ 348              		.cfi_offset 4, -20
+ 349              		.cfi_offset 5, -16
+ 350              		.cfi_offset 6, -12
+ 351              		.cfi_offset 7, -8
+ 352              		.cfi_offset 14, -4
+ 353 0002 C646     		mov	lr, r8
+ 354 0004 00B5     		push	{lr}
+ 355              	.LCFI3:
+ 356              		.cfi_def_cfa_offset 24
+ 357              		.cfi_offset 8, -24
+ 358 0006 0D00     		movs	r5, r1
+ 359 0008 9046     		mov	r8, r2
+ 360 000a 1E00     		movs	r6, r3
+  50:Src/stm32f0xx_ll_flash.c **** 	
+  51:Src/stm32f0xx_ll_flash.c **** 	uint8_t index = 0U;
+ 361              		.loc 1 51 2 is_stmt 1 view .LVU84
+ 362              	.LVL26:
+  52:Src/stm32f0xx_ll_flash.c **** 	uint8_t nbiterations = 0U;
+ 363              		.loc 1 52 2 view .LVU85
+  53:Src/stm32f0xx_ll_flash.c **** 	
+  54:Src/stm32f0xx_ll_flash.c **** 	if(ProgramType == ProgaraType_DATA16)
+ 364              		.loc 1 54 2 view .LVU86
+ 365              		.loc 1 54 4 is_stmt 0 view .LVU87
+ 366 000c 0228     		cmp	r0, #2
+ 367 000e 06D0     		beq	.L27
+  55:Src/stm32f0xx_ll_flash.c **** 		nbiterations = 1U;
+  56:Src/stm32f0xx_ll_flash.c **** 	else if(ProgramType == ProgaraType_DATA32)
+ 368              		.loc 1 56 7 is_stmt 1 view .LVU88
+ 369              		.loc 1 56 9 is_stmt 0 view .LVU89
+ 370 0010 0128     		cmp	r0, #1
+ 371 0012 02D0     		beq	.L30
+  57:Src/stm32f0xx_ll_flash.c **** 		nbiterations = 2U;
+  58:Src/stm32f0xx_ll_flash.c **** 	else
+  59:Src/stm32f0xx_ll_flash.c **** 		nbiterations = 4U;
+ 372              		.loc 1 59 16 view .LVU90
+ 373 0014 0427     		movs	r7, #4
+ 374              	.L20:
+ 375              	.LVL27:
+  60:Src/stm32f0xx_ll_flash.c **** 	for(index = 0U; index < nbiterations; index++)
+ 376              		.loc 1 60 2 is_stmt 1 view .LVU91
+ 377              		.loc 1 60 12 is_stmt 0 view .LVU92
+ 378 0016 0024     		movs	r4, #0
+ 379              		.loc 1 60 2 view .LVU93
+ 380 0018 11E0     		b	.L21
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s 			page 12
+
+
+ 381              	.LVL28:
+ 382              	.L30:
+  57:Src/stm32f0xx_ll_flash.c **** 		nbiterations = 2U;
+ 383              		.loc 1 57 16 view .LVU94
+ 384 001a 0227     		movs	r7, #2
+ 385 001c FBE7     		b	.L20
+ 386              	.L27:
+  55:Src/stm32f0xx_ll_flash.c **** 		nbiterations = 1U;
+ 387              		.loc 1 55 16 view .LVU95
+ 388 001e 0127     		movs	r7, #1
+ 389 0020 F9E7     		b	.L20
+ 390              	.LVL29:
+ 391              	.L22:
+  61:Src/stm32f0xx_ll_flash.c **** 	{
+  62:Src/stm32f0xx_ll_flash.c **** 		 LL_FLASH_Program_TwoBtye((flash_addr + (2U*index)), (uint16_t)(data >> (16U*index)));
+ 392              		.loc 1 62 72 discriminator 3 view .LVU96
+ 393 0022 2022     		movs	r2, #32
+ 394 0024 D21A     		subs	r2, r2, r3
+ 395 0026 3100     		movs	r1, r6
+ 396 0028 9140     		lsls	r1, r1, r2
+ 397 002a 0A00     		movs	r2, r1
+ 398 002c 4146     		mov	r1, r8
+ 399 002e D940     		lsrs	r1, r1, r3
+ 400 0030 1143     		orrs	r1, r2
+ 401              	.L23:
+ 402              		.loc 1 62 4 discriminator 3 view .LVU97
+ 403 0032 89B2     		uxth	r1, r1
+ 404 0034 4019     		adds	r0, r0, r5
+ 405 0036 FFF7FEFF 		bl	LL_FLASH_Program_TwoBtye
+ 406              	.LVL30:
+  60:Src/stm32f0xx_ll_flash.c **** 	for(index = 0U; index < nbiterations; index++)
+ 407              		.loc 1 60 40 is_stmt 1 discriminator 3 view .LVU98
+  60:Src/stm32f0xx_ll_flash.c **** 	for(index = 0U; index < nbiterations; index++)
+ 408              		.loc 1 60 45 is_stmt 0 discriminator 3 view .LVU99
+ 409 003a 0134     		adds	r4, r4, #1
+ 410              	.LVL31:
+  60:Src/stm32f0xx_ll_flash.c **** 	for(index = 0U; index < nbiterations; index++)
+ 411              		.loc 1 60 45 discriminator 3 view .LVU100
+ 412 003c E4B2     		uxtb	r4, r4
+ 413              	.LVL32:
+ 414              	.L21:
+  60:Src/stm32f0xx_ll_flash.c **** 	for(index = 0U; index < nbiterations; index++)
+ 415              		.loc 1 60 18 is_stmt 1 discriminator 1 view .LVU101
+  60:Src/stm32f0xx_ll_flash.c **** 	for(index = 0U; index < nbiterations; index++)
+ 416              		.loc 1 60 2 is_stmt 0 discriminator 1 view .LVU102
+ 417 003e BC42     		cmp	r4, r7
+ 418 0040 08D2     		bcs	.L25
+ 419              		.loc 1 62 4 is_stmt 1 discriminator 3 view .LVU103
+ 420              		.loc 1 62 46 is_stmt 0 discriminator 3 view .LVU104
+ 421 0042 6000     		lsls	r0, r4, #1
+ 422              		.loc 1 62 79 discriminator 3 view .LVU105
+ 423 0044 2301     		lsls	r3, r4, #4
+ 424              		.loc 1 62 72 discriminator 3 view .LVU106
+ 425 0046 2022     		movs	r2, #32
+ 426 0048 5242     		rsbs	r2, r2, #0
+ 427 004a 9A18     		adds	r2, r3, r2
+ 428 004c E9D4     		bmi	.L22
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s 			page 13
+
+
+ 429 004e 3100     		movs	r1, r6
+ 430 0050 D140     		lsrs	r1, r1, r2
+ 431 0052 EEE7     		b	.L23
+ 432              	.L25:
+  63:Src/stm32f0xx_ll_flash.c **** 	}
+  64:Src/stm32f0xx_ll_flash.c **** 	
+  65:Src/stm32f0xx_ll_flash.c **** 	while (LL_FLASH_IsActiveFlag_BSY(FLASH)) 
+  66:Src/stm32f0xx_ll_flash.c **** 	{
+  67:Src/stm32f0xx_ll_flash.c **** 	}
+ 433              		.loc 1 67 2 is_stmt 1 discriminator 1 view .LVU107
+  65:Src/stm32f0xx_ll_flash.c **** 	{
+ 434              		.loc 1 65 8 discriminator 1 view .LVU108
+ 435              	.LVL33:
+ 436              	.LBB58:
+ 437              	.LBI58:
+ 111:Inc/stm32f0xx_ll_flash.h **** {
+ 438              		.loc 2 111 26 discriminator 1 view .LVU109
+ 439              	.LBB59:
+ 113:Inc/stm32f0xx_ll_flash.h **** }
+ 440              		.loc 2 113 3 discriminator 1 view .LVU110
+ 113:Inc/stm32f0xx_ll_flash.h **** }
+ 441              		.loc 2 113 11 is_stmt 0 discriminator 1 view .LVU111
+ 442 0054 0B4B     		ldr	r3, .L31
+ 443 0056 DB68     		ldr	r3, [r3, #12]
+ 444              	.LVL34:
+ 113:Inc/stm32f0xx_ll_flash.h **** }
+ 445              		.loc 2 113 11 discriminator 1 view .LVU112
+ 446              	.LBE59:
+ 447              	.LBE58:
+  65:Src/stm32f0xx_ll_flash.c **** 	{
+ 448              		.loc 1 65 8 discriminator 1 view .LVU113
+ 449 0058 DB07     		lsls	r3, r3, #31
+ 450 005a FBD4     		bmi	.L25
+  68:Src/stm32f0xx_ll_flash.c **** 	if (LL_FLASH_IsActiveFlag_EOP(FLASH))	
+ 451              		.loc 1 68 2 is_stmt 1 view .LVU114
+ 452              	.LVL35:
+ 453              	.LBB60:
+ 454              	.LBI60:
+ 116:Inc/stm32f0xx_ll_flash.h **** {
+ 455              		.loc 2 116 26 view .LVU115
+ 456              	.LBB61:
+ 118:Inc/stm32f0xx_ll_flash.h **** }
+ 457              		.loc 2 118 3 view .LVU116
+ 118:Inc/stm32f0xx_ll_flash.h **** }
+ 458              		.loc 2 118 11 is_stmt 0 view .LVU117
+ 459 005c 094B     		ldr	r3, .L31
+ 460 005e DB68     		ldr	r3, [r3, #12]
+ 461              	.LVL36:
+ 118:Inc/stm32f0xx_ll_flash.h **** }
+ 462              		.loc 2 118 11 view .LVU118
+ 463              	.LBE61:
+ 464              	.LBE60:
+ 465              		.loc 1 68 5 view .LVU119
+ 466 0060 9B06     		lsls	r3, r3, #26
+ 467 0062 0CD5     		bpl	.L29
+  69:Src/stm32f0xx_ll_flash.c **** 	{
+  70:Src/stm32f0xx_ll_flash.c **** 		LL_FLASH_ClearFlag_EOP(FLASH);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s 			page 14
+
+
+ 468              		.loc 1 70 3 is_stmt 1 view .LVU120
+ 469              	.LVL37:
+ 470              	.LBB62:
+ 471              	.LBI62:
+ 121:Inc/stm32f0xx_ll_flash.h **** {
+ 472              		.loc 2 121 22 view .LVU121
+ 473              	.LBB63:
+ 123:Inc/stm32f0xx_ll_flash.h **** }
+ 474              		.loc 2 123 3 view .LVU122
+ 475 0064 074B     		ldr	r3, .L31
+ 476 0066 DA68     		ldr	r2, [r3, #12]
+ 477 0068 2021     		movs	r1, #32
+ 478 006a 0A43     		orrs	r2, r1
+ 479 006c DA60     		str	r2, [r3, #12]
+ 480              	.LVL38:
+ 123:Inc/stm32f0xx_ll_flash.h **** }
+ 481              		.loc 2 123 3 is_stmt 0 view .LVU123
+ 482              	.LBE63:
+ 483              	.LBE62:
+  71:Src/stm32f0xx_ll_flash.c **** 	}
+  72:Src/stm32f0xx_ll_flash.c **** 	else
+  73:Src/stm32f0xx_ll_flash.c **** 	{
+  74:Src/stm32f0xx_ll_flash.c **** 		return LL_ERROR;
+  75:Src/stm32f0xx_ll_flash.c **** 	}
+  76:Src/stm32f0xx_ll_flash.c **** 	LL_FLASH_DisenableProgram(FLASH);
+ 484              		.loc 1 76 2 is_stmt 1 view .LVU124
+ 485              	.LBB64:
+ 486              	.LBI64:
+ 142:Inc/stm32f0xx_ll_flash.h **** {
+ 487              		.loc 2 142 22 view .LVU125
+ 488              	.LBB65:
+ 144:Inc/stm32f0xx_ll_flash.h **** }
+ 489              		.loc 2 144 3 view .LVU126
+ 490 006e 1A69     		ldr	r2, [r3, #16]
+ 491 0070 1F39     		subs	r1, r1, #31
+ 492 0072 8A43     		bics	r2, r1
+ 493 0074 1A61     		str	r2, [r3, #16]
+ 494              	.LVL39:
+ 144:Inc/stm32f0xx_ll_flash.h **** }
+ 495              		.loc 2 144 3 is_stmt 0 view .LVU127
+ 496              	.LBE65:
+ 497              	.LBE64:
+  77:Src/stm32f0xx_ll_flash.c **** 	return LL_OK;
+ 498              		.loc 1 77 2 is_stmt 1 view .LVU128
+ 499              		.loc 1 77 9 is_stmt 0 view .LVU129
+ 500 0076 0020     		movs	r0, #0
+ 501              	.L26:
+  78:Src/stm32f0xx_ll_flash.c **** }
+ 502              		.loc 1 78 1 view .LVU130
+ 503              		@ sp needed
+ 504              	.LVL40:
+ 505              	.LVL41:
+ 506              	.LVL42:
+ 507              		.loc 1 78 1 view .LVU131
+ 508 0078 80BC     		pop	{r7}
+ 509 007a B846     		mov	r8, r7
+ 510 007c F0BD     		pop	{r4, r5, r6, r7, pc}
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s 			page 15
+
+
+ 511              	.LVL43:
+ 512              	.L29:
+  74:Src/stm32f0xx_ll_flash.c **** 	}
+ 513              		.loc 1 74 10 view .LVU132
+ 514 007e 0120     		movs	r0, #1
+ 515 0080 FAE7     		b	.L26
+ 516              	.L32:
+ 517 0082 C046     		.align	2
+ 518              	.L31:
+ 519 0084 00200240 		.word	1073881088
+ 520              		.cfi_endproc
+ 521              	.LFE901:
+ 523              		.text
+ 524              	.Letext0:
+ 525              		.file 3 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 526              		.file 4 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 527              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h"
+ 528              		.file 6 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h"
+ 529              		.file 7 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f0xx_ll_flash.c
+C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s:18     .text.LL_FLASH_Program_TwoBtye:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s:23     .text.LL_FLASH_Program_TwoBtye:00000000 LL_FLASH_Program_TwoBtye
+C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s:63     .text.LL_FLASH_Program_TwoBtye:00000010 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s:68     .text.LL_Flash_Unlock:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s:74     .text.LL_Flash_Unlock:00000000 LL_Flash_Unlock
+C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s:151    .text.LL_Flash_Unlock:00000020 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s:160    .text.LL_Flash_PageErase:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s:166    .text.LL_Flash_PageErase:00000000 LL_Flash_PageErase
+C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s:326    .text.LL_Flash_PageErase:00000054 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s:331    .text.LL_FLASH_Program:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s:337    .text.LL_FLASH_Program:00000000 LL_FLASH_Program
+C:\Users\ADMINI~1\AppData\Local\Temp\ccmFlXdc.s:519    .text.LL_FLASH_Program:00000084 $d
+
+NO UNDEFINED SYMBOLS

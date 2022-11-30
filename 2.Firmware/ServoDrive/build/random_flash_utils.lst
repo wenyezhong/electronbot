@@ -1,0 +1,720 @@
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"random_flash_utils.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.eeprom_buffered_read_byte,"ax",%progbits
+  18              		.align	1
+  19              		.global	eeprom_buffered_read_byte
+  20              		.syntax unified
+  21              		.code	16
+  22              		.thumb_func
+  24              	eeprom_buffered_read_byte:
+  25              		.fnstart
+  26              	.LVL0:
+  27              	.LFB42:
+  28              		.file 1 "Src/random_flash_utils.cpp"
+   1:Src/random_flash_utils.cpp **** #ifndef __STM32_EEPROM_HPP
+   2:Src/random_flash_utils.cpp **** #define __STM32_EEPROM_HPP
+   3:Src/random_flash_utils.cpp **** 
+   4:Src/random_flash_utils.cpp **** #include <string.h>
+   5:Src/random_flash_utils.cpp **** #include "random_flash_utils.h"
+   6:Src/random_flash_utils.cpp **** 
+   7:Src/random_flash_utils.cpp **** #ifdef __cplusplus
+   8:Src/random_flash_utils.cpp **** extern "C" {
+   9:Src/random_flash_utils.cpp **** 
+  10:Src/random_flash_utils.cpp **** #endif
+  11:Src/random_flash_utils.cpp **** 
+  12:Src/random_flash_utils.cpp **** /* Be able to change FLASH_BANK_NUMBER to use if relevant */
+  13:Src/random_flash_utils.cpp **** #if !defined(FLASH_BANK_NUMBER) && \
+  14:Src/random_flash_utils.cpp ****     (defined(STM32F0xx) || defined(STM32F1xx) || defined(STM32G4xx) || \
+  15:Src/random_flash_utils.cpp ****      defined(STM32H7xx) || defined(STM32L4xx) || defined(STM32L5xx))
+  16:Src/random_flash_utils.cpp **** /* For STM32F0xx, FLASH_BANK_1 is not defined only FLASH_BANK1_END is defined */
+  17:Src/random_flash_utils.cpp **** #if defined(STM32F0xx)
+  18:Src/random_flash_utils.cpp **** #define FLASH_BANK_1 1U
+  19:Src/random_flash_utils.cpp **** #endif
+  20:Src/random_flash_utils.cpp **** #if defined(FLASH_BANK_2)
+  21:Src/random_flash_utils.cpp **** #define FLASH_BANK_NUMBER   FLASH_BANK_2
+  22:Src/random_flash_utils.cpp **** #else
+  23:Src/random_flash_utils.cpp **** #define FLASH_BANK_NUMBER   FLASH_BANK_1
+  24:Src/random_flash_utils.cpp **** #endif /* FLASH_BANK_2 */
+  25:Src/random_flash_utils.cpp **** #ifndef FLASH_BANK_NUMBER
+  26:Src/random_flash_utils.cpp **** #error "FLASH_BANK_NUMBER could not be defined"
+  27:Src/random_flash_utils.cpp **** #endif
+  28:Src/random_flash_utils.cpp **** #endif /* !FLASH_BANK_NUMBER */
+  29:Src/random_flash_utils.cpp **** 
+  30:Src/random_flash_utils.cpp **** /* Be able to change FLASH_DATA_SECTOR to use if relevant */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s 			page 2
+
+
+  31:Src/random_flash_utils.cpp **** #if defined(STM32F2xx) || defined(STM32F4xx) || defined(STM32F7xx) || \
+  32:Src/random_flash_utils.cpp ****     defined(STM32H7xx)
+  33:Src/random_flash_utils.cpp **** #if !defined(FLASH_DATA_SECTOR)
+  34:Src/random_flash_utils.cpp **** #define FLASH_DATA_SECTOR   ((uint32_t)(FLASH_SECTOR_TOTAL - 1))
+  35:Src/random_flash_utils.cpp **** #else
+  36:Src/random_flash_utils.cpp **** #ifndef FLASH_BASE_ADDRESS
+  37:Src/random_flash_utils.cpp **** #error "FLASH_BASE_ADDRESS have to be defined when FLASH_DATA_SECTOR is defined"
+  38:Src/random_flash_utils.cpp **** #endif
+  39:Src/random_flash_utils.cpp **** #endif /* !FLASH_DATA_SECTOR */
+  40:Src/random_flash_utils.cpp **** #endif /* STM32F2xx || STM32F4xx || STM32F7xx */
+  41:Src/random_flash_utils.cpp **** 
+  42:Src/random_flash_utils.cpp **** /* Be able to change FLASH_PAGE_NUMBER to use if relevant */
+  43:Src/random_flash_utils.cpp **** #if !defined(FLASH_PAGE_NUMBER) && \
+  44:Src/random_flash_utils.cpp ****     (defined (STM32G0xx) || defined(STM32G4xx) || defined (STM32L4xx) || \
+  45:Src/random_flash_utils.cpp ****      defined (STM32L5xx) || defined(STM32WBxx))
+  46:Src/random_flash_utils.cpp **** #define FLASH_PAGE_NUMBER   ((uint32_t)((FLASH_SIZE / FLASH_PAGE_SIZE) - 1))
+  47:Src/random_flash_utils.cpp **** #endif /* !FLASH_PAGE_NUMBER */
+  48:Src/random_flash_utils.cpp **** 
+  49:Src/random_flash_utils.cpp **** /* Be able to change FLASH_END to use */
+  50:Src/random_flash_utils.cpp **** 
+  51:Src/random_flash_utils.cpp **** #define FLASH_END  FLASH_BANK1_END
+  52:Src/random_flash_utils.cpp **** 
+  53:Src/random_flash_utils.cpp **** #if !defined(FLASH_END)
+  54:Src/random_flash_utils.cpp **** #if defined (STM32F0xx) || defined (STM32F1xx)
+  55:Src/random_flash_utils.cpp **** #if defined (FLASH_BANK2_END) && (FLASH_BANK_NUMBER == FLASH_BANK_2)
+  56:Src/random_flash_utils.cpp **** #define FLASH_END  FLASH_BANK2_END
+  57:Src/random_flash_utils.cpp **** #elif defined (FLASH_BANK1_END) && (FLASH_BANK_NUMBER == FLASH_BANK_1)
+  58:Src/random_flash_utils.cpp **** #define FLASH_END  FLASH_BANK1_END
+  59:Src/random_flash_utils.cpp **** #endif
+  60:Src/random_flash_utils.cpp **** 
+  61:Src/random_flash_utils.cpp **** #elif defined (STM32F3xx)
+  62:Src/random_flash_utils.cpp **** static inline uint32_t get_flash_end(void)
+  63:Src/random_flash_utils.cpp **** {
+  64:Src/random_flash_utils.cpp ****   uint32_t size;
+  65:Src/random_flash_utils.cpp ****   switch ((*((uint16_t *)FLASH_SIZE_DATA_REGISTER))) {
+  66:Src/random_flash_utils.cpp ****     case 0x200U:
+  67:Src/random_flash_utils.cpp ****       size = 0x0807FFFFU;
+  68:Src/random_flash_utils.cpp ****       break;
+  69:Src/random_flash_utils.cpp ****     case 0x100U:
+  70:Src/random_flash_utils.cpp ****       size = 0x0803FFFFU;
+  71:Src/random_flash_utils.cpp ****       break;
+  72:Src/random_flash_utils.cpp ****     case 0x80U:
+  73:Src/random_flash_utils.cpp ****       size = 0x0801FFFFU;
+  74:Src/random_flash_utils.cpp ****       break;
+  75:Src/random_flash_utils.cpp ****     case 0x40U:
+  76:Src/random_flash_utils.cpp ****       size = 0x0800FFFFU;
+  77:Src/random_flash_utils.cpp ****       break;
+  78:Src/random_flash_utils.cpp ****     case 0x20U:
+  79:Src/random_flash_utils.cpp ****       size = 0x08007FFFU;
+  80:Src/random_flash_utils.cpp ****       break;
+  81:Src/random_flash_utils.cpp ****     default:
+  82:Src/random_flash_utils.cpp ****       size = 0x08003FFFU;
+  83:Src/random_flash_utils.cpp ****       break;
+  84:Src/random_flash_utils.cpp ****   }
+  85:Src/random_flash_utils.cpp ****   return size;
+  86:Src/random_flash_utils.cpp **** }
+  87:Src/random_flash_utils.cpp **** #define FLASH_END  get_flash_end()
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s 			page 3
+
+
+  88:Src/random_flash_utils.cpp **** #elif defined(STM32G0xx) || defined(STM32G4xx) || defined (STM32L4xx) || \
+  89:Src/random_flash_utils.cpp ****       defined (STM32L5xx) || defined(STM32WBxx)
+  90:Src/random_flash_utils.cpp **** /* If FLASH_PAGE_NUMBER is defined by user, this is not really end of the flash */
+  91:Src/random_flash_utils.cpp **** #define FLASH_END  ((uint32_t)(FLASH_BASE + (((FLASH_PAGE_NUMBER +1) * FLASH_PAGE_SIZE))-1))
+  92:Src/random_flash_utils.cpp **** #elif defined(EEPROM_RETRAM_MODE)
+  93:Src/random_flash_utils.cpp **** #define FLASH_END  ((uint32_t)(EEPROM_RETRAM_START_ADDRESS + EEPROM_RETRAM_MODE_SIZE -1))
+  94:Src/random_flash_utils.cpp **** #elif defined(DATA_EEPROM_END)
+  95:Src/random_flash_utils.cpp **** #define FLASH_END DATA_EEPROM_END
+  96:Src/random_flash_utils.cpp **** #endif
+  97:Src/random_flash_utils.cpp **** #ifndef FLASH_END
+  98:Src/random_flash_utils.cpp **** #error "FLASH_END could not be defined"
+  99:Src/random_flash_utils.cpp **** #endif
+ 100:Src/random_flash_utils.cpp **** #endif /* FLASH_END */
+ 101:Src/random_flash_utils.cpp **** 
+ 102:Src/random_flash_utils.cpp **** /* Be able to change FLASH_BASE_ADDRESS to use */
+ 103:Src/random_flash_utils.cpp **** #ifndef FLASH_BASE_ADDRESS
+ 104:Src/random_flash_utils.cpp **** /*
+ 105:Src/random_flash_utils.cpp ****  * By default, Use the last page of the flash to store data
+ 106:Src/random_flash_utils.cpp ****  * in order to prevent overwritting
+ 107:Src/random_flash_utils.cpp ****  * program data
+ 108:Src/random_flash_utils.cpp ****  */
+ 109:Src/random_flash_utils.cpp **** #if defined(EEPROM_RETRAM_MODE)
+ 110:Src/random_flash_utils.cpp **** #define FLASH_BASE_ADDRESS  EEPROM_RETRAM_START_ADDRESS
+ 111:Src/random_flash_utils.cpp **** #else
+ 112:Src/random_flash_utils.cpp **** #define FLASH_BASE_ADDRESS  ((uint32_t)((FLASH_END + 1) - FLASH_PAGE_SIZE))
+ 113:Src/random_flash_utils.cpp **** #endif
+ 114:Src/random_flash_utils.cpp **** #ifndef FLASH_BASE_ADDRESS
+ 115:Src/random_flash_utils.cpp **** #error "FLASH_BASE_ADDRESS could not be defined"
+ 116:Src/random_flash_utils.cpp **** #endif
+ 117:Src/random_flash_utils.cpp **** #endif /* FLASH_BASE_ADDRESS */
+ 118:Src/random_flash_utils.cpp **** 
+ 119:Src/random_flash_utils.cpp **** #if !defined(DATA_EEPROM_BASE)
+ 120:Src/random_flash_utils.cpp **** static uint8_t eeprom_buffer[E2END + 1] __attribute__((aligned(8))) = {0};
+ 121:Src/random_flash_utils.cpp **** #endif
+ 122:Src/random_flash_utils.cpp **** 
+ 123:Src/random_flash_utils.cpp **** /**
+ 124:Src/random_flash_utils.cpp ****   * @brief  Function reads a byte from emulated eeprom (flash)
+ 125:Src/random_flash_utils.cpp ****   * @param  pos : address to read
+ 126:Src/random_flash_utils.cpp ****   * @retval byte : data read from eeprom
+ 127:Src/random_flash_utils.cpp ****   */
+ 128:Src/random_flash_utils.cpp **** uint8_t eeprom_read_byte(const uint32_t pos)
+ 129:Src/random_flash_utils.cpp **** {
+ 130:Src/random_flash_utils.cpp **** #if defined(DATA_EEPROM_BASE)
+ 131:Src/random_flash_utils.cpp ****     __IO uint8_t data = 0;
+ 132:Src/random_flash_utils.cpp ****     if (pos <= (DATA_EEPROM_END - DATA_EEPROM_BASE)) {
+ 133:Src/random_flash_utils.cpp ****       /* with actual EEPROM, pos is a relative address */
+ 134:Src/random_flash_utils.cpp ****       data = *(__IO uint8_t *)(DATA_EEPROM_BASE + pos);
+ 135:Src/random_flash_utils.cpp ****     }
+ 136:Src/random_flash_utils.cpp ****     return (uint8_t)data;
+ 137:Src/random_flash_utils.cpp **** #else
+ 138:Src/random_flash_utils.cpp ****     eeprom_buffer_fill();
+ 139:Src/random_flash_utils.cpp ****     return eeprom_buffered_read_byte(pos);
+ 140:Src/random_flash_utils.cpp **** #endif /* _EEPROM_BASE */
+ 141:Src/random_flash_utils.cpp **** }
+ 142:Src/random_flash_utils.cpp **** 
+ 143:Src/random_flash_utils.cpp **** /**
+ 144:Src/random_flash_utils.cpp ****   * @brief  Function writes a byte to emulated eeprom (flash)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s 			page 4
+
+
+ 145:Src/random_flash_utils.cpp ****   * @param  pos : address to write
+ 146:Src/random_flash_utils.cpp ****   * @param  value : value to write
+ 147:Src/random_flash_utils.cpp ****   * @retval none
+ 148:Src/random_flash_utils.cpp ****   */
+ 149:Src/random_flash_utils.cpp **** void eeprom_write_byte(uint32_t pos, uint8_t value)
+ 150:Src/random_flash_utils.cpp **** {
+ 151:Src/random_flash_utils.cpp **** #if defined(DATA_EEPROM_BASE)
+ 152:Src/random_flash_utils.cpp ****     /* with actual EEPROM, pos is a relative address */
+ 153:Src/random_flash_utils.cpp ****     if (pos <= (DATA_EEPROM_END - DATA_EEPROM_BASE)) {
+ 154:Src/random_flash_utils.cpp ****       if (HAL_FLASHEx_DATAEEPROM_Unlock() == HAL_OK) {
+ 155:Src/random_flash_utils.cpp ****         HAL_FLASHEx_DATAEEPROM_Program(FLASH_TYPEPROGRAMDATA_BYTE, (pos + DATA_EEPROM_BASE), (uint3
+ 156:Src/random_flash_utils.cpp ****         HAL_FLASHEx_DATAEEPROM_Lock();
+ 157:Src/random_flash_utils.cpp ****       }
+ 158:Src/random_flash_utils.cpp ****     }
+ 159:Src/random_flash_utils.cpp **** #else
+ 160:Src/random_flash_utils.cpp ****     eeprom_buffered_write_byte(pos, value);
+ 161:Src/random_flash_utils.cpp ****     eeprom_buffer_flush();
+ 162:Src/random_flash_utils.cpp **** #endif /* _EEPROM_BASE */
+ 163:Src/random_flash_utils.cpp **** }
+ 164:Src/random_flash_utils.cpp **** 
+ 165:Src/random_flash_utils.cpp **** #if !defined(DATA_EEPROM_BASE)
+ 166:Src/random_flash_utils.cpp **** 
+ 167:Src/random_flash_utils.cpp **** /**
+ 168:Src/random_flash_utils.cpp ****   * @brief  Function reads a byte from the eeprom buffer
+ 169:Src/random_flash_utils.cpp ****   * @param  pos : address to read
+ 170:Src/random_flash_utils.cpp ****   * @retval byte : data read from eeprom
+ 171:Src/random_flash_utils.cpp ****   */
+ 172:Src/random_flash_utils.cpp **** uint8_t eeprom_buffered_read_byte(const uint32_t pos)
+ 173:Src/random_flash_utils.cpp **** {
+  29              		.loc 1 173 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+ 174:Src/random_flash_utils.cpp ****     return eeprom_buffer[pos];
+  34              		.loc 1 174 5 view .LVU1
+  35              		.loc 1 174 29 is_stmt 0 view .LVU2
+  36 0000 014B     		ldr	r3, .L2
+  37 0002 185C     		ldrb	r0, [r3, r0]
+  38              	.LVL1:
+ 175:Src/random_flash_utils.cpp **** }
+  39              		.loc 1 175 1 view .LVU3
+  40              		@ sp needed
+  41 0004 7047     		bx	lr
+  42              	.L3:
+  43 0006 C046     		.align	2
+  44              	.L2:
+  45 0008 00000000 		.word	_ZL13eeprom_buffer
+  46              		.cfi_endproc
+  47              	.LFE42:
+  48              		.cantunwind
+  49              		.fnend
+  51              		.section	.text.eeprom_buffered_write_byte,"ax",%progbits
+  52              		.align	1
+  53              		.global	eeprom_buffered_write_byte
+  54              		.syntax unified
+  55              		.code	16
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s 			page 5
+
+
+  56              		.thumb_func
+  58              	eeprom_buffered_write_byte:
+  59              		.fnstart
+  60              	.LVL2:
+  61              	.LFB43:
+ 176:Src/random_flash_utils.cpp **** 
+ 177:Src/random_flash_utils.cpp **** /**
+ 178:Src/random_flash_utils.cpp ****   * @brief  Function writes a byte to the eeprom buffer
+ 179:Src/random_flash_utils.cpp ****   * @param  pos : address to write
+ 180:Src/random_flash_utils.cpp ****   * @param  value : value to write
+ 181:Src/random_flash_utils.cpp ****   * @retval none
+ 182:Src/random_flash_utils.cpp ****   */
+ 183:Src/random_flash_utils.cpp **** void eeprom_buffered_write_byte(uint32_t pos, uint8_t value)
+ 184:Src/random_flash_utils.cpp **** {
+  62              		.loc 1 184 1 is_stmt 1 view -0
+  63              		.cfi_startproc
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66              		@ link register save eliminated.
+ 185:Src/random_flash_utils.cpp ****     eeprom_buffer[pos] = value;
+  67              		.loc 1 185 5 view .LVU5
+  68              		.loc 1 185 24 is_stmt 0 view .LVU6
+  69 0000 014B     		ldr	r3, .L5
+  70 0002 1954     		strb	r1, [r3, r0]
+ 186:Src/random_flash_utils.cpp **** }
+  71              		.loc 1 186 1 view .LVU7
+  72              		@ sp needed
+  73 0004 7047     		bx	lr
+  74              	.L6:
+  75 0006 C046     		.align	2
+  76              	.L5:
+  77 0008 00000000 		.word	_ZL13eeprom_buffer
+  78              		.cfi_endproc
+  79              	.LFE43:
+  80              		.cantunwind
+  81              		.fnend
+  83              		.section	.text.eeprom_buffer_fill,"ax",%progbits
+  84              		.align	1
+  85              		.global	eeprom_buffer_fill
+  86              		.syntax unified
+  87              		.code	16
+  88              		.thumb_func
+  90              	eeprom_buffer_fill:
+  91              		.fnstart
+  92              	.LFB44:
+ 187:Src/random_flash_utils.cpp **** 
+ 188:Src/random_flash_utils.cpp **** /**
+ 189:Src/random_flash_utils.cpp ****   * @brief  This function copies the data from flash into the buffer
+ 190:Src/random_flash_utils.cpp ****   * @param  none
+ 191:Src/random_flash_utils.cpp ****   * @retval none
+ 192:Src/random_flash_utils.cpp ****   */
+ 193:Src/random_flash_utils.cpp **** void eeprom_buffer_fill(void)
+ 194:Src/random_flash_utils.cpp **** {
+  93              		.loc 1 194 1 is_stmt 1 view -0
+  94              		.cfi_startproc
+  95              		@ args = 0, pretend = 0, frame = 0
+  96              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s 			page 6
+
+
+  97 0000 10B5     		push	{r4, lr}
+  98              	.LCFI0:
+  99              		.cfi_def_cfa_offset 8
+ 100              		.cfi_offset 4, -8
+ 101              		.cfi_offset 14, -4
+ 195:Src/random_flash_utils.cpp ****     memcpy(eeprom_buffer, (uint8_t*) (FLASH_BASE_ADDRESS), E2END + 1);
+ 102              		.loc 1 195 5 view .LVU9
+ 103              		.loc 1 195 11 is_stmt 0 view .LVU10
+ 104 0002 8022     		movs	r2, #128
+ 105 0004 D200     		lsls	r2, r2, #3
+ 106 0006 0249     		ldr	r1, .L8
+ 107 0008 0248     		ldr	r0, .L8+4
+ 108 000a FFF7FEFF 		bl	memcpy
+ 109              	.LVL3:
+ 196:Src/random_flash_utils.cpp **** }
+ 110              		.loc 1 196 1 view .LVU11
+ 111              		@ sp needed
+ 112 000e 10BD     		pop	{r4, pc}
+ 113              	.L9:
+ 114              		.align	2
+ 115              	.L8:
+ 116 0010 007C0008 		.word	134249472
+ 117 0014 00000000 		.word	_ZL13eeprom_buffer
+ 118              		.cfi_endproc
+ 119              	.LFE44:
+ 120              		.cantunwind
+ 121              		.fnend
+ 123              		.section	.text.eeprom_read_byte,"ax",%progbits
+ 124              		.align	1
+ 125              		.global	eeprom_read_byte
+ 126              		.syntax unified
+ 127              		.code	16
+ 128              		.thumb_func
+ 130              	eeprom_read_byte:
+ 131              		.fnstart
+ 132              	.LVL4:
+ 133              	.LFB40:
+ 129:Src/random_flash_utils.cpp **** #if defined(DATA_EEPROM_BASE)
+ 134              		.loc 1 129 1 is_stmt 1 view -0
+ 135              		.cfi_startproc
+ 136              		@ args = 0, pretend = 0, frame = 0
+ 137              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129:Src/random_flash_utils.cpp **** #if defined(DATA_EEPROM_BASE)
+ 138              		.loc 1 129 1 is_stmt 0 view .LVU13
+ 139 0000 10B5     		push	{r4, lr}
+ 140              	.LCFI1:
+ 141              		.cfi_def_cfa_offset 8
+ 142              		.cfi_offset 4, -8
+ 143              		.cfi_offset 14, -4
+ 144 0002 0400     		movs	r4, r0
+ 138:Src/random_flash_utils.cpp ****     return eeprom_buffered_read_byte(pos);
+ 145              		.loc 1 138 5 is_stmt 1 view .LVU14
+ 138:Src/random_flash_utils.cpp ****     return eeprom_buffered_read_byte(pos);
+ 146              		.loc 1 138 23 is_stmt 0 view .LVU15
+ 147 0004 FFF7FEFF 		bl	eeprom_buffer_fill
+ 148              	.LVL5:
+ 139:Src/random_flash_utils.cpp **** #endif /* _EEPROM_BASE */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s 			page 7
+
+
+ 149              		.loc 1 139 5 is_stmt 1 view .LVU16
+ 139:Src/random_flash_utils.cpp **** #endif /* _EEPROM_BASE */
+ 150              		.loc 1 139 37 is_stmt 0 view .LVU17
+ 151 0008 2000     		movs	r0, r4
+ 152 000a FFF7FEFF 		bl	eeprom_buffered_read_byte
+ 153              	.LVL6:
+ 141:Src/random_flash_utils.cpp **** 
+ 154              		.loc 1 141 1 view .LVU18
+ 155              		@ sp needed
+ 156              	.LVL7:
+ 141:Src/random_flash_utils.cpp **** 
+ 157              		.loc 1 141 1 view .LVU19
+ 158 000e 10BD     		pop	{r4, pc}
+ 159              		.cfi_endproc
+ 160              	.LFE40:
+ 161              		.cantunwind
+ 162              		.fnend
+ 164              		.section	.text.eeprom_buffer_flush,"ax",%progbits
+ 165              		.align	1
+ 166              		.global	eeprom_buffer_flush
+ 167              		.syntax unified
+ 168              		.code	16
+ 169              		.thumb_func
+ 171              	eeprom_buffer_flush:
+ 172              		.fnstart
+ 173              	.LFB45:
+ 197:Src/random_flash_utils.cpp **** 
+ 198:Src/random_flash_utils.cpp **** #if defined(EEPROM_RETRAM_MODE)
+ 199:Src/random_flash_utils.cpp **** 
+ 200:Src/random_flash_utils.cpp **** /**
+ 201:Src/random_flash_utils.cpp ****   * @brief  This function writes the buffer content into the flash
+ 202:Src/random_flash_utils.cpp ****   * @param  none
+ 203:Src/random_flash_utils.cpp ****   * @retval none
+ 204:Src/random_flash_utils.cpp ****   */
+ 205:Src/random_flash_utils.cpp **** void eeprom_buffer_flush(void)
+ 206:Src/random_flash_utils.cpp **** {
+ 207:Src/random_flash_utils.cpp ****   memcpy((uint8_t *)(FLASH_BASE_ADDRESS), eeprom_buffer, E2END + 1);
+ 208:Src/random_flash_utils.cpp **** }
+ 209:Src/random_flash_utils.cpp **** 
+ 210:Src/random_flash_utils.cpp **** #else /* defined(EEPROM_RETRAM_MODE) */
+ 211:Src/random_flash_utils.cpp **** 
+ 212:Src/random_flash_utils.cpp **** /**
+ 213:Src/random_flash_utils.cpp ****   * @brief  This function writes the buffer content into the flash
+ 214:Src/random_flash_utils.cpp ****   * @param  none
+ 215:Src/random_flash_utils.cpp ****   * @retval none
+ 216:Src/random_flash_utils.cpp ****   */
+ 217:Src/random_flash_utils.cpp **** void eeprom_buffer_flush(void)
+ 218:Src/random_flash_utils.cpp **** {
+ 174              		.loc 1 218 1 is_stmt 1 view -0
+ 175              		.cfi_startproc
+ 176              		@ args = 0, pretend = 0, frame = 24
+ 177              		@ frame_needed = 0, uses_anonymous_args = 0
+ 178 0000 30B5     		push	{r4, r5, lr}
+ 179              		.save {r4, r5, lr}
+ 180              	.LCFI2:
+ 181              		.cfi_def_cfa_offset 12
+ 182              		.cfi_offset 4, -12
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s 			page 8
+
+
+ 183              		.cfi_offset 5, -8
+ 184              		.cfi_offset 14, -4
+ 185              		.pad #28
+ 186 0002 87B0     		sub	sp, sp, #28
+ 187              	.LCFI3:
+ 188              		.cfi_def_cfa_offset 40
+ 219:Src/random_flash_utils.cpp ****     FLASH_EraseInitTypeDef EraseInitStruct;
+ 189              		.loc 1 219 5 view .LVU21
+ 220:Src/random_flash_utils.cpp ****     uint32_t offset = 0;
+ 190              		.loc 1 220 5 view .LVU22
+ 191              	.LVL8:
+ 221:Src/random_flash_utils.cpp ****     uint32_t address = FLASH_BASE_ADDRESS;
+ 192              		.loc 1 221 5 view .LVU23
+ 222:Src/random_flash_utils.cpp ****     uint32_t address_end = FLASH_BASE_ADDRESS + E2END;
+ 193              		.loc 1 222 5 view .LVU24
+ 223:Src/random_flash_utils.cpp **** #if defined (STM32F0xx) || defined (STM32F1xx) || defined (STM32F3xx) || \
+ 224:Src/random_flash_utils.cpp ****     defined (STM32G0xx) || defined (STM32G4xx) || \
+ 225:Src/random_flash_utils.cpp ****     defined (STM32L4xx) || defined (STM32L5xx) || defined (STM32WBxx)
+ 226:Src/random_flash_utils.cpp ****     uint32_t pageError = 0;
+ 227:Src/random_flash_utils.cpp ****     uint64_t data = 0;
+ 228:Src/random_flash_utils.cpp **** 
+ 229:Src/random_flash_utils.cpp ****     /* ERASING page */
+ 230:Src/random_flash_utils.cpp ****     EraseInitStruct.TypeErase = FLASH_TYPEERASE_PAGES;
+ 231:Src/random_flash_utils.cpp **** #if defined (STM32F1xx) || defined (STM32G4xx) || defined (STM32L4xx) || \
+ 232:Src/random_flash_utils.cpp ****     defined (STM32L5xx)
+ 233:Src/random_flash_utils.cpp ****     EraseInitStruct.Banks = FLASH_BANK_NUMBER;
+ 234:Src/random_flash_utils.cpp **** #endif
+ 235:Src/random_flash_utils.cpp **** #if defined (STM32G0xx) || defined (STM32G4xx) || defined (STM32L4xx) || \
+ 236:Src/random_flash_utils.cpp ****     defined (STM32L5xx) || defined (STM32WBxx)
+ 237:Src/random_flash_utils.cpp ****     EraseInitStruct.Page = FLASH_PAGE_NUMBER;
+ 238:Src/random_flash_utils.cpp **** #else
+ 239:Src/random_flash_utils.cpp ****     EraseInitStruct.PageAddress = FLASH_BASE_ADDRESS;
+ 240:Src/random_flash_utils.cpp **** #endif
+ 241:Src/random_flash_utils.cpp ****     EraseInitStruct.NbPages = 1;
+ 242:Src/random_flash_utils.cpp **** 
+ 243:Src/random_flash_utils.cpp ****     if (HAL_FLASH_Unlock() == HAL_OK)
+ 244:Src/random_flash_utils.cpp ****     {
+ 245:Src/random_flash_utils.cpp **** #if defined (STM32G0xx) || defined (STM32G4xx) || defined (STM32L4xx) || \
+ 246:Src/random_flash_utils.cpp ****       defined (STM32L5xx) || defined (STM32WBxx)
+ 247:Src/random_flash_utils.cpp ****         __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_ALL_ERRORS);
+ 248:Src/random_flash_utils.cpp **** #else
+ 249:Src/random_flash_utils.cpp ****         __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_WRPERR | FLASH_FLAG_PGERR);
+ 250:Src/random_flash_utils.cpp **** #endif
+ 251:Src/random_flash_utils.cpp ****         if (HAL_FLASHEx_Erase(&EraseInitStruct, &pageError) == HAL_OK)
+ 252:Src/random_flash_utils.cpp ****         {
+ 253:Src/random_flash_utils.cpp ****             while (address <= address_end)
+ 254:Src/random_flash_utils.cpp ****             {
+ 255:Src/random_flash_utils.cpp **** 
+ 256:Src/random_flash_utils.cpp ****                 data = *((uint64_t*) ((uint8_t*) eeprom_buffer + offset));
+ 257:Src/random_flash_utils.cpp **** 
+ 258:Src/random_flash_utils.cpp ****                 if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_DOUBLEWORD, address, data) == HAL_OK)
+ 259:Src/random_flash_utils.cpp ****                 {
+ 260:Src/random_flash_utils.cpp ****                     address += 8;
+ 261:Src/random_flash_utils.cpp ****                     offset += 8;
+ 262:Src/random_flash_utils.cpp ****                 } else
+ 263:Src/random_flash_utils.cpp ****                 {
+ 264:Src/random_flash_utils.cpp ****                     address = address_end + 1;
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s 			page 9
+
+
+ 265:Src/random_flash_utils.cpp ****                 }
+ 266:Src/random_flash_utils.cpp ****             }
+ 267:Src/random_flash_utils.cpp ****         }
+ 268:Src/random_flash_utils.cpp ****         HAL_FLASH_Lock();
+ 269:Src/random_flash_utils.cpp ****     }
+ 270:Src/random_flash_utils.cpp **** #else
+ 271:Src/random_flash_utils.cpp ****     uint32_t SectorError = 0;
+ 194              		.loc 1 271 5 view .LVU25
+ 195              		.loc 1 271 14 is_stmt 0 view .LVU26
+ 196 0004 0023     		movs	r3, #0
+ 197 0006 0293     		str	r3, [sp, #8]
+ 272:Src/random_flash_utils.cpp **** #if defined(STM32H7xx)
+ 273:Src/random_flash_utils.cpp ****     uint64_t data[4] = {0x0000};
+ 274:Src/random_flash_utils.cpp **** #else
+ 275:Src/random_flash_utils.cpp ****     uint32_t data = 0;
+ 198              		.loc 1 275 5 is_stmt 1 view .LVU27
+ 199              		.loc 1 275 14 is_stmt 0 view .LVU28
+ 200 0008 0193     		str	r3, [sp, #4]
+ 276:Src/random_flash_utils.cpp **** #endif
+ 277:Src/random_flash_utils.cpp **** 
+ 278:Src/random_flash_utils.cpp ****     /* ERASING page */
+ 279:Src/random_flash_utils.cpp **** #if defined(STM32H7xx)
+ 280:Src/random_flash_utils.cpp ****     EraseInitStruct.Banks = FLASH_BANK_NUMBER;
+ 281:Src/random_flash_utils.cpp **** #endif
+ 282:Src/random_flash_utils.cpp ****     EraseInitStruct.NbPages = 1;
+ 201              		.loc 1 282 5 is_stmt 1 view .LVU29
+ 202              		.loc 1 282 29 is_stmt 0 view .LVU30
+ 203 000a 0133     		adds	r3, r3, #1
+ 204 000c 0593     		str	r3, [sp, #20]
+ 283:Src/random_flash_utils.cpp **** 
+ 284:Src/random_flash_utils.cpp ****     HAL_FLASH_Unlock();
+ 205              		.loc 1 284 5 is_stmt 1 view .LVU31
+ 206              		.loc 1 284 21 is_stmt 0 view .LVU32
+ 207 000e FFF7FEFF 		bl	HAL_FLASH_Unlock
+ 208              	.LVL9:
+ 285:Src/random_flash_utils.cpp **** 
+ 286:Src/random_flash_utils.cpp ****     if (HAL_FLASHEx_Erase(&EraseInitStruct, &SectorError) == HAL_OK)
+ 209              		.loc 1 286 5 is_stmt 1 view .LVU33
+ 210              		.loc 1 286 26 is_stmt 0 view .LVU34
+ 211 0012 02A9     		add	r1, sp, #8
+ 212 0014 03A8     		add	r0, sp, #12
+ 213 0016 FFF7FEFF 		bl	HAL_FLASHEx_Erase
+ 214              	.LVL10:
+ 215              		.loc 1 286 5 view .LVU35
+ 216 001a 0028     		cmp	r0, #0
+ 217 001c 15D1     		bne	.L12
+ 221:Src/random_flash_utils.cpp ****     uint32_t address_end = FLASH_BASE_ADDRESS + E2END;
+ 218              		.loc 1 221 14 view .LVU36
+ 219 001e 0D4C     		ldr	r4, .L14
+ 220:Src/random_flash_utils.cpp ****     uint32_t address = FLASH_BASE_ADDRESS;
+ 220              		.loc 1 220 14 view .LVU37
+ 221 0020 0025     		movs	r5, #0
+ 222              	.LVL11:
+ 223              	.L13:
+ 287:Src/random_flash_utils.cpp ****     {
+ 288:Src/random_flash_utils.cpp ****         while (address <= address_end)
+ 224              		.loc 1 288 9 is_stmt 1 view .LVU38
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s 			page 10
+
+
+ 225              		.loc 1 288 24 view .LVU39
+ 226 0022 0D4B     		ldr	r3, .L14+4
+ 227 0024 9C42     		cmp	r4, r3
+ 228 0026 10D8     		bhi	.L12
+ 289:Src/random_flash_utils.cpp ****         {
+ 290:Src/random_flash_utils.cpp **** #if defined(STM32H7xx)
+ 291:Src/random_flash_utils.cpp ****             /* 256 bits */
+ 292:Src/random_flash_utils.cpp ****             memcpy(&data, eeprom_buffer + offset, 8 * sizeof(uint32_t));
+ 293:Src/random_flash_utils.cpp ****             if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_FLASHWORD, address, (uint32_t)data) == HAL_OK) 
+ 294:Src/random_flash_utils.cpp ****               address += 32;
+ 295:Src/random_flash_utils.cpp ****               offset += 32;
+ 296:Src/random_flash_utils.cpp **** #else
+ 297:Src/random_flash_utils.cpp ****             memcpy(&data, eeprom_buffer + offset, sizeof(uint32_t));
+ 229              		.loc 1 297 13 view .LVU40
+ 230              		.loc 1 297 19 is_stmt 0 view .LVU41
+ 231 0028 0C49     		ldr	r1, .L14+8
+ 232 002a 6918     		adds	r1, r5, r1
+ 233 002c 0422     		movs	r2, #4
+ 234 002e 01A8     		add	r0, sp, #4
+ 235 0030 FFF7FEFF 		bl	memcpy
+ 236              	.LVL12:
+ 298:Src/random_flash_utils.cpp ****             if (HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, address, data) == HAL_OK)
+ 237              		.loc 1 298 13 is_stmt 1 view .LVU42
+ 238              		.loc 1 298 34 is_stmt 0 view .LVU43
+ 239 0034 019A     		ldr	r2, [sp, #4]
+ 240 0036 0023     		movs	r3, #0
+ 241 0038 2100     		movs	r1, r4
+ 242 003a 0220     		movs	r0, #2
+ 243 003c FFF7FEFF 		bl	HAL_FLASH_Program
+ 244              	.LVL13:
+ 245              		.loc 1 298 13 view .LVU44
+ 246 0040 0028     		cmp	r0, #0
+ 247 0042 02D1     		bne	.L12
+ 299:Src/random_flash_utils.cpp ****             {
+ 300:Src/random_flash_utils.cpp ****                 address += 4;
+ 248              		.loc 1 300 17 is_stmt 1 view .LVU45
+ 249              		.loc 1 300 25 is_stmt 0 view .LVU46
+ 250 0044 0434     		adds	r4, r4, #4
+ 251              	.LVL14:
+ 301:Src/random_flash_utils.cpp ****                 offset += 4;
+ 252              		.loc 1 301 17 is_stmt 1 view .LVU47
+ 253              		.loc 1 301 24 is_stmt 0 view .LVU48
+ 254 0046 0435     		adds	r5, r5, #4
+ 255              	.LVL15:
+ 256              		.loc 1 301 24 view .LVU49
+ 257 0048 EBE7     		b	.L13
+ 258              	.LVL16:
+ 259              	.L12:
+ 302:Src/random_flash_utils.cpp **** #endif
+ 303:Src/random_flash_utils.cpp ****             } else
+ 304:Src/random_flash_utils.cpp ****             {
+ 305:Src/random_flash_utils.cpp ****                 address = address_end + 1;
+ 306:Src/random_flash_utils.cpp ****             }
+ 307:Src/random_flash_utils.cpp ****         }
+ 308:Src/random_flash_utils.cpp ****     }
+ 309:Src/random_flash_utils.cpp ****     HAL_FLASH_Lock();
+ 260              		.loc 1 309 5 is_stmt 1 view .LVU50
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s 			page 11
+
+
+ 261              		.loc 1 309 19 is_stmt 0 view .LVU51
+ 262 004a FFF7FEFF 		bl	HAL_FLASH_Lock
+ 263              	.LVL17:
+ 310:Src/random_flash_utils.cpp **** #endif
+ 311:Src/random_flash_utils.cpp **** }
+ 264              		.loc 1 311 1 view .LVU52
+ 265 004e 07B0     		add	sp, sp, #28
+ 266              		@ sp needed
+ 267 0050 30BD     		pop	{r4, r5, pc}
+ 268              	.L15:
+ 269 0052 C046     		.align	2
+ 270              	.L14:
+ 271 0054 007C0008 		.word	134249472
+ 272 0058 FF7F0008 		.word	134250495
+ 273 005c 00000000 		.word	_ZL13eeprom_buffer
+ 274              		.cfi_endproc
+ 275              	.LFE45:
+ 276              		.fnend
+ 278              		.section	.text.eeprom_write_byte,"ax",%progbits
+ 279              		.align	1
+ 280              		.global	eeprom_write_byte
+ 281              		.syntax unified
+ 282              		.code	16
+ 283              		.thumb_func
+ 285              	eeprom_write_byte:
+ 286              		.fnstart
+ 287              	.LVL18:
+ 288              	.LFB41:
+ 150:Src/random_flash_utils.cpp **** #if defined(DATA_EEPROM_BASE)
+ 289              		.loc 1 150 1 is_stmt 1 view -0
+ 290              		.cfi_startproc
+ 291              		@ args = 0, pretend = 0, frame = 0
+ 292              		@ frame_needed = 0, uses_anonymous_args = 0
+ 150:Src/random_flash_utils.cpp **** #if defined(DATA_EEPROM_BASE)
+ 293              		.loc 1 150 1 is_stmt 0 view .LVU54
+ 294 0000 10B5     		push	{r4, lr}
+ 295              		.save {r4, lr}
+ 296              	.LCFI4:
+ 297              		.cfi_def_cfa_offset 8
+ 298              		.cfi_offset 4, -8
+ 299              		.cfi_offset 14, -4
+ 160:Src/random_flash_utils.cpp ****     eeprom_buffer_flush();
+ 300              		.loc 1 160 5 is_stmt 1 view .LVU55
+ 160:Src/random_flash_utils.cpp ****     eeprom_buffer_flush();
+ 301              		.loc 1 160 31 is_stmt 0 view .LVU56
+ 302 0002 FFF7FEFF 		bl	eeprom_buffered_write_byte
+ 303              	.LVL19:
+ 161:Src/random_flash_utils.cpp **** #endif /* _EEPROM_BASE */
+ 304              		.loc 1 161 5 is_stmt 1 view .LVU57
+ 161:Src/random_flash_utils.cpp **** #endif /* _EEPROM_BASE */
+ 305              		.loc 1 161 24 is_stmt 0 view .LVU58
+ 306 0006 FFF7FEFF 		bl	eeprom_buffer_flush
+ 307              	.LVL20:
+ 163:Src/random_flash_utils.cpp **** 
+ 308              		.loc 1 163 1 view .LVU59
+ 309              		@ sp needed
+ 310 000a 10BD     		pop	{r4, pc}
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s 			page 12
+
+
+ 311              		.cfi_endproc
+ 312              	.LFE41:
+ 313              		.fnend
+ 315              		.section	.bss._ZL13eeprom_buffer,"aw",%nobits
+ 316              		.align	3
+ 319              	_ZL13eeprom_buffer:
+ 320 0000 00000000 		.space	1024
+ 320      00000000 
+ 320      00000000 
+ 320      00000000 
+ 320      00000000 
+ 321              		.text
+ 322              	.Letext0:
+ 323              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 324              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 325              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h"
+ 326              		.file 5 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
+ 327              		.file 6 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash_ex.h"
+ 328              		.file 7 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
+ 329              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_flash.h"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 random_flash_utils.cpp
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:18     .text.eeprom_buffered_read_byte:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:24     .text.eeprom_buffered_read_byte:00000000 eeprom_buffered_read_byte
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:45     .text.eeprom_buffered_read_byte:00000008 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:319    .bss._ZL13eeprom_buffer:00000000 _ZL13eeprom_buffer
+.ARM.exidx.text.eeprom_buffered_read_byte:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:52     .text.eeprom_buffered_write_byte:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:58     .text.eeprom_buffered_write_byte:00000000 eeprom_buffered_write_byte
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:77     .text.eeprom_buffered_write_byte:00000008 $d
+.ARM.exidx.text.eeprom_buffered_write_byte:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:84     .text.eeprom_buffer_fill:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:90     .text.eeprom_buffer_fill:00000000 eeprom_buffer_fill
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:116    .text.eeprom_buffer_fill:00000010 $d
+.ARM.exidx.text.eeprom_buffer_fill:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:124    .text.eeprom_read_byte:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:130    .text.eeprom_read_byte:00000000 eeprom_read_byte
+ .ARM.exidx.text.eeprom_read_byte:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:165    .text.eeprom_buffer_flush:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:171    .text.eeprom_buffer_flush:00000000 eeprom_buffer_flush
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:271    .text.eeprom_buffer_flush:00000054 $d
+.ARM.exidx.text.eeprom_buffer_flush:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:279    .text.eeprom_write_byte:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:285    .text.eeprom_write_byte:00000000 eeprom_write_byte
+.ARM.exidx.text.eeprom_write_byte:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccNXlwDY.s:316    .bss._ZL13eeprom_buffer:00000000 $d
+
+UNDEFINED SYMBOLS
+memcpy
+HAL_FLASH_Unlock
+HAL_FLASHEx_Erase
+HAL_FLASH_Program
+HAL_FLASH_Lock
+__aeabi_unwind_cpp_pr0
