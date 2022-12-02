@@ -1,5 +1,0 @@
----- ClassType Matches (4 in 3 files) ----
-USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].ClassType = CLASS_TYPE_CDC;
-USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].ClassType = CLASS_TYPE_WINUSB;
-USBD_UnRegisterClassComposite in usbd_core.c (Middlewares\ST\STM32_USB_Device_Library\Core\Src) :       pdev->tclasslist[pdev->classId].ClassType = CLASS_TYPE_NONE;
-{anonUSBD_CompositeElementTypeDef} in usbd_def.h (Middlewares\ST\STM32_USB_Device_Library\Core\Inc) :   USBD_CompositeClassTypeDef   ClassType;
