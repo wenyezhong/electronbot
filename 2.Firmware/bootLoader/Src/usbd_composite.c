@@ -85,7 +85,7 @@ __ALIGN_BEGIN uint8_t USBD_CMPSIT_FS_DeviceDesc[USB_LEN_DEV_DESC] __ALIGN_END =
 	LOBYTE(USBD_CMPSIT_PID_FS),		  /*idProduct*/
 	HIBYTE(USBD_CMPSIT_PID_FS),		  /*idProduct*/
 	0x00, 					  /*bcdDevice rel. 2.00*/
-	0x02, 					  /* bNumInterfaces */
+	0x02, 					  
 	USBD_IDX_MFC_STR, 		  /*Index of manufacturer  string*/
 	USBD_IDX_PRODUCT_STR, 	  /*Index of product string*/
 	USBD_IDX_SERIAL_STR,		  /*Index of serial number string*/
@@ -387,7 +387,7 @@ __ALIGN_BEGIN static uint8_t USBD_CMPSIT_CfgDesc[USB_CMPSIT_CONFIG_DESC_SIZ] __A
   0x00,                                            /* bInterfaceClass: MSC Class */
   0x01,                                            /* bInterfaceSubClass : SCSI transparent*/
   0x00,                                            /* nInterfaceProtocol */
-  0x07,                                            /* iInterface: */
+  0x00,                                            /* iInterface: */
   /********************  Mass Storage Endpoints ********************/
   //92
   0x07,                                            /* Endpoint descriptor length = 7 */
@@ -510,12 +510,29 @@ void USBD_CMPST_ClearConfDesc(USBD_HandleTypeDef *pdev)
 }
 
 #endif
-
+__ALIGN_BEGIN uint8_t USBD_MS_OS_StringDescriptor[]  __ALIGN_END =
+{
+  0x12,           //  bLength           1 0x12  Length of the descriptor
+  0x03,           //  bDescriptorType   1 0x03  Descriptor type
+                  //  qwSignature      14 ‘MSFT100’ Signature field
+  0x4D, 0x00,     //  'M'
+  0x53, 0x00,     //  'S'
+  0x46, 0x00,     //  'F'
+  0x54, 0x00,     //  'T'
+  0x31, 0x00,     //  '1'
+  0x30, 0x00,     //  '0'
+  0x30, 0x00,     //  '0'
+  MS_VendorCode,  //  bMS_VendorCode    1 Vendor-specific Vendor code
+  0x00            //  bPad              1 0x00  Pad field
+};
 uint8_t * USBD_UsrStrDescriptor(struct _USBD_HandleTypeDef *pdev, uint8_t index,  uint16_t *length)
 {
   *length = 0;  
   printf("index=%d\r\n",index);
-  if (USBD_IDX_CDC_INTF_STR == index) {
+  if (USBD_IDX_MICROSOFT_DESC_STR == index) {
+    *length = sizeof (USBD_MS_OS_StringDescriptor);
+    return USBD_MS_OS_StringDescriptor;
+  } else if (USBD_IDX_CDC_INTF_STR == index) {
     USBD_GetString((uint8_t *)USBD_CDC_INTERFACE_STRING_FS, USBD_CMPSIT_StrDesc, length);
     return USBD_CMPSIT_StrDesc;
   }  

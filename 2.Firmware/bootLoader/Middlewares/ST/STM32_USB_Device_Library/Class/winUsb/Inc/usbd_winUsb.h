@@ -126,6 +126,7 @@ extern USBD_ClassTypeDef USBD_WinUsb;
 //#define USBD_CDC_CLASS &USBD_CDC
 
 extern USBD_WinUsb_ItfTypeDef USBD_WinUsb_Interface_fops_FS;
+extern uint8_t  USBD_WinUSBComm_SetupVendor(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req);
 /**
   * @}
   */

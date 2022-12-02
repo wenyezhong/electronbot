@@ -108,7 +108,7 @@ extern "C" {
 
 #define USBD_IDX_CDC_INTF_STR                           0x06U
 #define USBD_IDX_WIN_USB_INTF_STR                       0x07U
-
+#define  USBD_IDX_MICROSOFT_DESC_STR                    0xEE
 
 #define  USB_REQ_TYPE_STANDARD                          0x00U
 #define  USB_REQ_TYPE_CLASS                             0x20U

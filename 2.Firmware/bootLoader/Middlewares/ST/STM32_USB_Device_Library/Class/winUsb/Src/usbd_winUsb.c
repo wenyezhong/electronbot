@@ -104,6 +104,170 @@ USBD_ClassTypeDef  USBD_WinUsb =
 };
 
 
+#define NUM_INTERFACES 1
+
+#if NUM_INTERFACES == 2
+#define USB_WINUSBCOMM_COMPAT_ID_OS_DESC_SIZ       (16 + 24 + 24)
+#else
+#define USB_WINUSBCOMM_COMPAT_ID_OS_DESC_SIZ       (16 + 24)
+#endif
+
+
+// This associates winusb driver with the device
+__ALIGN_BEGIN uint8_t USBD_WinUSBComm_Extended_Compat_ID_OS_Desc[USB_WINUSBCOMM_COMPAT_ID_OS_DESC_SIZ]  __ALIGN_END =
+{
+                                                    //    +-- Offset in descriptor
+                                                    //    |             +-- Size
+                                                    //    v             v
+  USB_WINUSBCOMM_COMPAT_ID_OS_DESC_SIZ, 0, 0, 0,    //    0 dwLength    4 DWORD The length, in bytes, of the complete extended compat ID descriptor
+  0x00, 0x01,                                       //    4 bcdVersion  2 BCD The descriptor’s version number, in binary coded decimal (BCD) format
+  0x04, 0x00,                                       //    6 wIndex      2 WORD  An index that identifies the particular OS feature descriptor
+  NUM_INTERFACES,                                   //    8 bCount      1 BYTE  The number of custom property sections
+  0, 0, 0, 0, 0, 0, 0,                              //    9 RESERVED    7 BYTEs Reserved
+                                                    //    =====================
+                                                    //                 16
+
+                                                    //   +-- Offset from function section start
+                                                    //   |                        +-- Size
+                                                    //   v                        v
+  2,                                                //   0  bFirstInterfaceNumber 1 BYTE  The interface or function number
+  0,                                                //   1  RESERVED              1 BYTE  Reserved
+  0x57, 0x49, 0x4E, 0x55, 0x53, 0x42, 0x00, 0x00,   //   2  compatibleID          8 BYTEs The function’s compatible ID      ("WINUSB")
+  0, 0, 0, 0, 0, 0, 0, 0,                           //  10  subCompatibleID       8 BYTEs The function’s subcompatible ID
+  0, 0, 0, 0, 0, 0,                                 //  18  RESERVED              6 BYTEs Reserved
+                                                    //  =================================
+                                                    //                           24
+#if NUM_INTERFACES == 2
+                                                    //   +-- Offset from function section start
+                                                    //   |                        +-- Size
+                                                    //   v                        v
+  2,                                                //   0  bFirstInterfaceNumber 1 BYTE  The interface or function number
+  0,                                                //   1  RESERVED              1 BYTE  Reserved
+  0x57, 0x49, 0x4E, 0x55, 0x53, 0x42, 0x00, 0x00,   //   2  compatibleID          8 BYTEs The function’s compatible ID      ("WINUSB")
+  0, 0, 0, 0, 0, 0, 0, 0,                           //  10  subCompatibleID       8 BYTEs The function’s subcompatible ID
+  0, 0, 0, 0, 0, 0,                                 //  18  RESERVED              6 BYTEs Reserved
+                                                    //  =================================
+                                                    //                           24
+#endif
+};
+// Properties are added to:
+// HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USB\VID_xxxx&PID_xxxx\sssssssss\Device Parameters
+// Use USBDeview or similar to uninstall
+
+__ALIGN_BEGIN uint8_t USBD_WinUSBComm_Extended_Properties_OS_Desc[0xB6]  __ALIGN_END =
+{
+  0xB6, 0x00, 0x00, 0x00,   // 0 dwLength   4 DWORD The length, in bytes, of the complete extended properties descriptor
+  0x00, 0x01,               // 4 bcdVersion 2 BCD   The descriptor’s version number, in binary coded decimal (BCD) format
+  0x05, 0x00,               // 6 wIndex     2 WORD  The index for extended properties OS descriptors
+  0x02, 0x00,               // 8 wCount     2 WORD  The number of custom property sections that follow the header section
+                            // ====================
+                            //             10
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  0x84, 0x00, 0x00, 0x00,   //  0       dwSize                  4 DWORD             The size of this custom properties section
+  0x01, 0x00, 0x00, 0x00,   //  4       dwPropertyDataType      4 DWORD             Property data format
+  0x28, 0x00,               //  8       wPropertyNameLength     2 DWORD             Property name length
+                            // ========================================
+                            //                                 10
+                            // 10       bPropertyName         PNL WCHAR[]           The property name
+  'D',0, 'e',0, 'v',0, 'i',0, 'c',0, 'e',0, 'I',0, 'n',0,
+  't',0, 'e',0, 'r',0, 'f',0, 'a',0, 'c',0, 'e',0, 'G',0,
+  'U',0, 'I',0, 'D',0, 0,0,
+                            // ========================================
+                            //                                 40 (0x28)
+
+  0x4E, 0x00, 0x00, 0x00,   // 10 + PNL dwPropertyDataLength    4 DWORD             Length of the buffer holding the property data
+                            // ========================================
+                            //                                  4
+    // 14 + PNL bPropertyData         PDL Format-dependent  Property data
+  '{',0, 'E',0, 'A',0, '0',0, 'B',0, 'D',0, '5',0, 'C',0,
+  '3',0, '-',0, '5',0, '0',0, 'F',0, '3',0, '-',0, '4',0,
+  '8',0, '8',0, '8',0, '-',0, '8',0, '4',0, 'B',0, '4',0,
+  '-',0, '7',0, '4',0, 'E',0, '5',0, '0',0, 'E',0, '1',0,
+  '6',0, '4',0, '9',0, 'D',0, 'B',0, '}',0,  0 ,0,
+                            // ========================================
+                            //                                 78 (0x4E)
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  0x3E, 0x00, 0x00, 0x00,   //  0 dwSize 0x00000030 (62 bytes)
+  0x01, 0x00, 0x00, 0x00,   //  4 dwPropertyDataType 0x00000001 (Unicode string)
+  0x0C, 0x00,               //  8 wPropertyNameLength 0x000C (12 bytes)
+                            // ========================================
+                            //                                  10
+  'L',0, 'a',0, 'b',0, 'e',0, 'l',0, 0,0,
+                            // 10 bPropertyName “Label”
+                            // ========================================
+                            //                                  12
+  0x24, 0x00, 0x00, 0x00,   // 22 dwPropertyDataLength 0x00000016 (36 bytes)
+                            // ========================================
+                            //                                  4
+  'O',0, 'D',0, 'r',0, 'i',0, 'v',0, 'e',0, 0,0
+                            // 26 bPropertyData “ODrive”
+                            // ========================================
+                            //                                  14
+
+};
+
+static uint8_t  USBD_WinUSBComm_GetMSExtendedCompatIDOSDescriptor (USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
+{
+  switch (req->wIndex)
+  {
+  case 0x04:
+    USBD_CtlSendData (pdev, USBD_WinUSBComm_Extended_Compat_ID_OS_Desc, req->wLength);
+    break;
+  default:
+   USBD_CtlError(pdev , req);
+   return USBD_FAIL;
+  }
+  return USBD_OK;
+}
+static uint8_t  USBD_WinUSBComm_GetMSExtendedPropertiesOSDescriptor (USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
+{
+  uint8_t byInterfaceIndex = (uint8_t)req->wValue;
+  if ( req->wIndex != 0x05 )
+  {
+    USBD_CtlError(pdev , req);
+    return USBD_FAIL;
+  }
+  switch ( byInterfaceIndex )
+  {
+  case 0:
+#if NUM_INTERFACES == 2
+  case 1:
+#endif
+    USBD_CtlSendData (pdev, USBD_WinUSBComm_Extended_Properties_OS_Desc, req->wLength);
+    break;
+  default:
+    USBD_CtlError(pdev , req);
+    return USBD_FAIL;
+  }
+  return USBD_OK;
+}
+static uint8_t  USBD_WinUSBComm_SetupVendorDevice(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
+{
+  USBD_CtlError(pdev , req);
+  return USBD_FAIL;
+}
+static uint8_t  USBD_WinUSBComm_SetupVendorInterface(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
+{
+  USBD_CtlError(pdev , req);
+  // TODO: check if this is important
+  return USBD_FAIL;
+}
+uint8_t  USBD_WinUSBComm_SetupVendor(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
+{
+  switch ( req->bmRequest & USB_REQ_RECIPIENT_MASK )
+  {
+  case USB_REQ_RECIPIENT_DEVICE:
+    return ( MS_VendorCode == req->bRequest ) ? USBD_WinUSBComm_GetMSExtendedCompatIDOSDescriptor(pdev, req) : USBD_WinUSBComm_SetupVendorDevice(pdev, req);
+  case USB_REQ_RECIPIENT_INTERFACE:
+    return ( MS_VendorCode == req->bRequest ) ? USBD_WinUSBComm_GetMSExtendedPropertiesOSDescriptor(pdev, req) : USBD_WinUSBComm_SetupVendorInterface(pdev, req);
+  case USB_REQ_RECIPIENT_ENDPOINT:
+    // fall through
+  default:
+    break;
+  }
+  USBD_CtlError(pdev , req);
+  return USBD_FAIL;
+}
 static uint8_t WinUsbInEpAdd = WIN_USB_EPIN_ADDR;
 static uint8_t WinUsbOutEpAdd = WIN_USB_EPOUT_ADDR;
 
@@ -179,18 +343,157 @@ static uint8_t USBD_WinUsb_DeInit(USBD_HandleTypeDef *pdev, uint8_t cfgidx)
 }
 static uint8_t USBD_WinUsb_Setup(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
 {
-	return (uint8_t)USBD_OK;
+	USBD_WinUsb_HandleTypeDef *hcdc = (USBD_WinUsb_HandleTypeDef *)pdev->pClassDataCmsit[pdev->classId];
+  uint16_t len;
+  uint8_t ifalt = 0U;
+  uint16_t status_info = 0U;
+  USBD_StatusTypeDef ret = USBD_OK;
+
+  if (hcdc == NULL)
+  {
+    return (uint8_t)USBD_FAIL;
+  }
+ printf("bmRequest=%x\r\n",req->bmRequest);
+  switch (req->bmRequest & USB_REQ_TYPE_MASK)
+  {
+    case USB_REQ_TYPE_CLASS:
+      if (req->wLength != 0U)
+      {
+        if ((req->bmRequest & 0x80U) != 0U)
+        {
+          printf("control......1\r\n");
+          /* ((USBD_CDC_ItfTypeDef *)pdev->pUserData[pdev->classId])->Control(req->bRequest,
+                                                                           (uint8_t *)hcdc->data,
+                                                                           req->wLength);
+
+          len = MIN(CDC_REQ_MAX_DATA_SIZE, req->wLength);
+          (void)USBD_CtlSendData(pdev, (uint8_t *)hcdc->data, len); */
+        }
+        else
+        {
+          hcdc->CmdOpCode = req->bRequest;
+          hcdc->CmdLength = (uint8_t)MIN(req->wLength, USB_MAX_EP0_SIZE);
+
+          (void)USBD_CtlPrepareRx(pdev, (uint8_t *)hcdc->data, hcdc->CmdLength);
+        }
+      }
+      else
+      {
+        printf("control......2\r\n");
+        // ((USBD_CDC_ItfTypeDef *)pdev->pUserData[pdev->classId])->Control(req->bRequest,(uint8_t *)req, 0U);
+      }
+      break;
+
+    case USB_REQ_TYPE_STANDARD:
+      switch (req->bRequest)
+      {
+        case USB_REQ_GET_STATUS:
+          if (pdev->dev_state == USBD_STATE_CONFIGURED)
+          {
+            (void)USBD_CtlSendData(pdev, (uint8_t *)&status_info, 2U);
+          }
+          else
+          {
+            USBD_CtlError(pdev, req);
+            ret = USBD_FAIL;
+          }
+          break;
+
+        case USB_REQ_GET_INTERFACE:
+          if (pdev->dev_state == USBD_STATE_CONFIGURED)
+          {
+            (void)USBD_CtlSendData(pdev, &ifalt, 1U);
+          }
+          else
+          {
+            USBD_CtlError(pdev, req);
+            ret = USBD_FAIL;
+          }
+          break;
+
+        case USB_REQ_SET_INTERFACE:
+          if (pdev->dev_state != USBD_STATE_CONFIGURED)
+          {
+            USBD_CtlError(pdev, req);
+            ret = USBD_FAIL;
+          }
+          break;
+
+        case USB_REQ_CLEAR_FEATURE:
+          break;
+
+        default:
+          USBD_CtlError(pdev, req);
+          ret = USBD_FAIL;
+          break;
+      }     
+      break;
+     case USB_REQ_TYPE_VENDOR:{
+        USBD_WinUSBComm_SetupVendor(pdev, req);
+      }break;
+
+    default:
+      USBD_CtlError(pdev, req);
+      ret = USBD_FAIL;
+      break;
+  }
+
+  return (uint8_t)ret;
 
 }
 static uint8_t USBD_WinUsb_DataIn(USBD_HandleTypeDef *pdev, uint8_t epnum)
 {
-	return (uint8_t)USBD_OK;
+  USBD_WinUsb_HandleTypeDef *hcdc;
+  PCD_HandleTypeDef *hpcd = (PCD_HandleTypeDef *)pdev->pData;
+
+  if (pdev->pClassDataCmsit[pdev->classId] == NULL)
+  {
+    return (uint8_t)USBD_FAIL;
+  }
+
+  hcdc = (USBD_WinUsb_HandleTypeDef *)pdev->pClassDataCmsit[pdev->classId];
+
+  if ((pdev->ep_in[epnum & 0xFU].total_length > 0U) &&
+      ((pdev->ep_in[epnum & 0xFU].total_length % hpcd->IN_ep[epnum & 0xFU].maxpacket) == 0U))
+  {
+    /* Update the packet total length */
+    pdev->ep_in[epnum & 0xFU].total_length = 0U;
+
+    /* Send ZLP */
+    (void)USBD_LL_Transmit(pdev, epnum, NULL, 0U);
+  }
+  else
+  {
+    hcdc->TxState = 0U;
+
+    if (((USBD_WinUsb_ItfTypeDef *)pdev->pUserData[pdev->classId])->TransmitCplt != NULL)
+    {
+      ((USBD_WinUsb_ItfTypeDef *)pdev->pUserData[pdev->classId])->TransmitCplt(hcdc->TxBuffer, &hcdc->TxLength, epnum);
+    }
+  }
+
+  return (uint8_t)USBD_OK;	
 
 }
 
 static uint8_t USBD_WinUsb_DataOut(USBD_HandleTypeDef *pdev, uint8_t epnum)
 {
-	return (uint8_t)USBD_OK;
+  USBD_WinUsb_HandleTypeDef *hcdc = (USBD_WinUsb_HandleTypeDef *)pdev->pClassDataCmsit[pdev->classId];
+
+  if (pdev->pClassDataCmsit[pdev->classId] == NULL)
+  {
+    return (uint8_t)USBD_FAIL;
+  }
+
+  /* Get the received data length */
+  hcdc->RxLength = USBD_LL_GetRxDataSize(pdev, epnum);
+
+  /* USB data will be immediately processed, this allow next USB traffic being
+  NAKed till the end of the application Xfer */
+
+  ((USBD_WinUsb_ItfTypeDef *)pdev->pUserData[pdev->classId])->Receive(hcdc->RxBuffer, &hcdc->RxLength);
+
+  return (uint8_t)USBD_OK;
 
 }
 static uint8_t USBD_WinUsb_EP0_RxReady(USBD_HandleTypeDef *pdev)
@@ -232,7 +535,21 @@ uint8_t USBD_WinUsb_SetRxBuffer(USBD_HandleTypeDef *pdev, uint8_t *pbuff)
 	return (uint8_t)USBD_OK;
 }
 
+uint8_t USBD_WinUsb_ReceivePacket(USBD_HandleTypeDef *pdev)
+{
+  USBD_WinUsb_HandleTypeDef *hcdc = (USBD_WinUsb_HandleTypeDef *)pdev->pClassDataCmsit[pdev->classId];
 
+  if (pdev->pClassDataCmsit[pdev->classId] == NULL)
+  {
+    return (uint8_t)USBD_FAIL;
+  }
+
+ 
+    /* Prepare Out endpoint to receive next packet */
+ (void)USBD_LL_PrepareReceive(pdev, WinUsbOutEpAdd, hcdc->RxBuffer,WIN_DATA_FS_OUT_PACKET_SIZE);
+
+  return (uint8_t)USBD_OK;
+}
 static int8_t WinUsb_Init_FS(void)
 {
   /* USER CODE BEGIN 3 */
@@ -249,14 +566,35 @@ static int8_t WinUsb_DeInit_FS(void)
   /* USER CODE END 4 */
 }
 
-
+static int8_t WinUsb_Receive_FS(uint8_t* Buf, uint32_t *Len)
+{
+  /* USER CODE BEGIN 6 */
+  int i;
+  for(i=0 ; i<*Len; i++)
+    printf("%.2x ",Buf[i]);
+  printf("\r\n");
+  USBD_WinUsb_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
+  USBD_WinUsb_ReceivePacket(&hUsbDeviceFS);
+  return (USBD_OK);
+  /* USER CODE END 6 */
+}
+static int8_t WinUsb_TransmitCplt_FS(uint8_t *Buf, uint32_t *Len, uint8_t epnum)
+{
+  uint8_t result = USBD_OK;
+  /* USER CODE BEGIN 13 */
+  UNUSED(Buf);
+  UNUSED(Len);
+  UNUSED(epnum);
+  /* USER CODE END 13 */
+  return result;
+}
 USBD_WinUsb_ItfTypeDef USBD_WinUsb_Interface_fops_FS =
 {
   WinUsb_Init_FS,
   WinUsb_DeInit_FS,
   NULL,
-  NULL,
-  NULL
+  WinUsb_Receive_FS,
+  WinUsb_TransmitCplt_FS
 };
 
 

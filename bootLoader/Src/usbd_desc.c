@@ -161,6 +161,7 @@ __ALIGN_BEGIN uint8_t USBD_StrDesc[USBD_MAX_STR_DESC_SIZ] __ALIGN_END;
 uint8_t * USBD_UsrStrDescriptor(struct _USBD_HandleTypeDef *pdev, uint8_t index,  uint16_t *length)
 {
   *length = 0;
+  printf("index = %x\r\n",index);
   if (USBD_IDX_MICROSOFT_DESC_STR == index) {
     *length = sizeof (USBD_MS_OS_StringDescriptor);
     return USBD_MS_OS_StringDescriptor;
