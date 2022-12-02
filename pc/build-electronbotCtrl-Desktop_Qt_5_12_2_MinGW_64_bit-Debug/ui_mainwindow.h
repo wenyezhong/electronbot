@@ -15,6 +15,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -25,6 +26,9 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QPushButton *pushButton;
+    QPushButton *openFile;
+    QPushButton *sendFile;
+    QTextEdit *pathTextEdit;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -33,16 +37,28 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(400, 300);
+        MainWindow->resize(570, 371);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(250, 180, 75, 23));
+        pushButton->setGeometry(QRect(480, 270, 75, 23));
+        openFile = new QPushButton(centralWidget);
+        openFile->setObjectName(QString::fromUtf8("openFile"));
+        openFile->setGeometry(QRect(370, 60, 75, 23));
+        sendFile = new QPushButton(centralWidget);
+        sendFile->setObjectName(QString::fromUtf8("sendFile"));
+        sendFile->setGeometry(QRect(380, 130, 75, 23));
+        pathTextEdit = new QTextEdit(centralWidget);
+        pathTextEdit->setObjectName(QString::fromUtf8("pathTextEdit"));
+        pathTextEdit->setGeometry(QRect(30, 60, 301, 31));
+        pathTextEdit->setInputMethodHints(Qt::ImhNone);
+        pathTextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        pathTextEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 23));
+        menuBar->setGeometry(QRect(0, 0, 570, 23));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -59,7 +75,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
+        pushButton->setText(QApplication::translate("MainWindow", "testSend", nullptr));
+        openFile->setText(QApplication::translate("MainWindow", "\346\211\223\345\274\200\346\226\207\344\273\266", nullptr));
+        sendFile->setText(QApplication::translate("MainWindow", "\347\203\247\345\275\225", nullptr));
     } // retranslateUi
 
 };

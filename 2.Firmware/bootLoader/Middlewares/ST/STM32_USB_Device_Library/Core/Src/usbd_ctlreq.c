@@ -561,7 +561,7 @@ static void USBD_GetDescriptor(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *r
 
           for (uint32_t idx = 0U; (idx < pdev->NumClasses); idx++)
           {
-            printf("USBD_GetDescriptor\r\n");
+            
             if (pdev->pClass[idx]->GetUsrStrDescriptor != NULL)
             {
               pdev->classId = idx;

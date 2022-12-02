@@ -87,8 +87,7 @@ extern "C" {
 typedef struct _USBD_WinUsb_Itf
 {
   int8_t (* Init)(void);
-  int8_t (* DeInit)(void);
-  int8_t (* Control)(uint8_t cmd, uint8_t *pbuf, uint16_t length);
+  int8_t (* DeInit)(void);  
   int8_t (* Receive)(uint8_t *Buf, uint32_t *Len);
   int8_t (* TransmitCplt)(uint8_t *Buf, uint32_t *Len, uint8_t epnum);
 } USBD_WinUsb_ItfTypeDef;
@@ -126,7 +125,6 @@ extern USBD_ClassTypeDef USBD_WinUsb;
 //#define USBD_CDC_CLASS &USBD_CDC
 
 extern USBD_WinUsb_ItfTypeDef USBD_WinUsb_Interface_fops_FS;
-extern uint8_t  USBD_WinUSBComm_SetupVendor(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req);
 /**
   * @}
   */

@@ -252,7 +252,7 @@ static uint8_t  USBD_WinUSBComm_SetupVendorInterface(USBD_HandleTypeDef *pdev, U
   // TODO: check if this is important
   return USBD_FAIL;
 }
-uint8_t  USBD_WinUSBComm_SetupVendor(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
+static uint8_t  USBD_WinUSBComm_SetupVendor(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
 {
   switch ( req->bmRequest & USB_REQ_RECIPIENT_MASK )
   {
@@ -344,91 +344,17 @@ static uint8_t USBD_WinUsb_DeInit(USBD_HandleTypeDef *pdev, uint8_t cfgidx)
 static uint8_t USBD_WinUsb_Setup(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
 {
 	USBD_WinUsb_HandleTypeDef *hcdc = (USBD_WinUsb_HandleTypeDef *)pdev->pClassDataCmsit[pdev->classId];
-  uint16_t len;
-  uint8_t ifalt = 0U;
-  uint16_t status_info = 0U;
+   
   USBD_StatusTypeDef ret = USBD_OK;
 
   if (hcdc == NULL)
   {
     return (uint8_t)USBD_FAIL;
   }
- printf("bmRequest=%x\r\n",req->bmRequest);
-  switch (req->bmRequest & USB_REQ_TYPE_MASK)
+//  printf("winusb bmRequest=%x\r\n",req->bmRequest);
+ switch (req->bmRequest & USB_REQ_TYPE_MASK)
   {
-    case USB_REQ_TYPE_CLASS:
-      if (req->wLength != 0U)
-      {
-        if ((req->bmRequest & 0x80U) != 0U)
-        {
-          printf("control......1\r\n");
-          /* ((USBD_CDC_ItfTypeDef *)pdev->pUserData[pdev->classId])->Control(req->bRequest,
-                                                                           (uint8_t *)hcdc->data,
-                                                                           req->wLength);
-
-          len = MIN(CDC_REQ_MAX_DATA_SIZE, req->wLength);
-          (void)USBD_CtlSendData(pdev, (uint8_t *)hcdc->data, len); */
-        }
-        else
-        {
-          hcdc->CmdOpCode = req->bRequest;
-          hcdc->CmdLength = (uint8_t)MIN(req->wLength, USB_MAX_EP0_SIZE);
-
-          (void)USBD_CtlPrepareRx(pdev, (uint8_t *)hcdc->data, hcdc->CmdLength);
-        }
-      }
-      else
-      {
-        printf("control......2\r\n");
-        // ((USBD_CDC_ItfTypeDef *)pdev->pUserData[pdev->classId])->Control(req->bRequest,(uint8_t *)req, 0U);
-      }
-      break;
-
-    case USB_REQ_TYPE_STANDARD:
-      switch (req->bRequest)
-      {
-        case USB_REQ_GET_STATUS:
-          if (pdev->dev_state == USBD_STATE_CONFIGURED)
-          {
-            (void)USBD_CtlSendData(pdev, (uint8_t *)&status_info, 2U);
-          }
-          else
-          {
-            USBD_CtlError(pdev, req);
-            ret = USBD_FAIL;
-          }
-          break;
-
-        case USB_REQ_GET_INTERFACE:
-          if (pdev->dev_state == USBD_STATE_CONFIGURED)
-          {
-            (void)USBD_CtlSendData(pdev, &ifalt, 1U);
-          }
-          else
-          {
-            USBD_CtlError(pdev, req);
-            ret = USBD_FAIL;
-          }
-          break;
-
-        case USB_REQ_SET_INTERFACE:
-          if (pdev->dev_state != USBD_STATE_CONFIGURED)
-          {
-            USBD_CtlError(pdev, req);
-            ret = USBD_FAIL;
-          }
-          break;
-
-        case USB_REQ_CLEAR_FEATURE:
-          break;
-
-        default:
-          USBD_CtlError(pdev, req);
-          ret = USBD_FAIL;
-          break;
-      }     
-      break;
-     case USB_REQ_TYPE_VENDOR:{
+    case USB_REQ_TYPE_VENDOR:{
         USBD_WinUSBComm_SetupVendor(pdev, req);
       }break;
 
@@ -550,6 +476,33 @@ uint8_t USBD_WinUsb_ReceivePacket(USBD_HandleTypeDef *pdev)
 
   return (uint8_t)USBD_OK;
 }
+
+uint8_t USBD_WinUsb_TransmitPacket(USBD_HandleTypeDef *pdev)
+{
+  USBD_WinUsb_HandleTypeDef *hcdc = (USBD_WinUsb_HandleTypeDef *)pdev->pClassDataCmsit[pdev->classId];
+  USBD_StatusTypeDef ret = USBD_BUSY;
+
+  if (pdev->pClassDataCmsit[pdev->classId] == NULL)
+  {
+    return (uint8_t)USBD_FAIL;
+  }
+
+  if (hcdc->TxState == 0U)
+  {
+    /* Tx Transfer in progress */
+    hcdc->TxState = 1U;
+
+    /* Update the packet total length */
+    pdev->ep_in[WinUsbInEpAdd & 0xFU].total_length = hcdc->TxLength;
+
+    /* Transmit next packet */
+    (void)USBD_LL_Transmit(pdev, WinUsbInEpAdd, hcdc->TxBuffer, hcdc->TxLength);
+
+    ret = USBD_OK;
+  }
+
+  return (uint8_t)ret;
+}
 static int8_t WinUsb_Init_FS(void)
 {
   /* USER CODE BEGIN 3 */
@@ -565,7 +518,19 @@ static int8_t WinUsb_DeInit_FS(void)
   return (USBD_OK);
   /* USER CODE END 4 */
 }
-
+uint8_t WinUsb_Transmit_FS(uint8_t* Buf, uint16_t Len)
+{
+  uint8_t result = USBD_OK;
+  /* USER CODE BEGIN 7 */
+  USBD_WinUsb_HandleTypeDef *hcdc = (USBD_WinUsb_HandleTypeDef*)hUsbDeviceFS.pClassData;
+  if (hcdc->TxState != 0){
+    return USBD_BUSY;
+  }
+  USBD_WinUsb_SetTxBuffer(&hUsbDeviceFS, Buf, Len);
+  result = USBD_WinUsb_TransmitPacket(&hUsbDeviceFS);
+  /* USER CODE END 7 */
+  return result;
+}
 static int8_t WinUsb_Receive_FS(uint8_t* Buf, uint32_t *Len)
 {
   /* USER CODE BEGIN 6 */
@@ -591,8 +556,7 @@ static int8_t WinUsb_TransmitCplt_FS(uint8_t *Buf, uint32_t *Len, uint8_t epnum)
 USBD_WinUsb_ItfTypeDef USBD_WinUsb_Interface_fops_FS =
 {
   WinUsb_Init_FS,
-  WinUsb_DeInit_FS,
-  NULL,
+  WinUsb_DeInit_FS, 
   WinUsb_Receive_FS,
   WinUsb_TransmitCplt_FS
 };
@@ -612,6 +576,7 @@ uint8_t USBD_WinUsb_RegisterInterface(USBD_HandleTypeDef *pdev,
   pdev->classId ++;
   return (uint8_t)USBD_OK;
 }
+
 /**
   * @}
   */

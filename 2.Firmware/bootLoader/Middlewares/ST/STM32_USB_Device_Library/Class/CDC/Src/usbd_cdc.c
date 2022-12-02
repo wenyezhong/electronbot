@@ -433,7 +433,7 @@ static uint8_t USBD_CDC_DeInit(USBD_HandleTypeDef *pdev, uint8_t cfgidx)
   * @retval status
   */
 
-extern uint8_t  USBD_WinUSBComm_SetupVendor(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req);
+
 static uint8_t USBD_CDC_Setup(USBD_HandleTypeDef *pdev,
                               USBD_SetupReqTypedef *req)
 {
@@ -520,11 +520,7 @@ static uint8_t USBD_CDC_Setup(USBD_HandleTypeDef *pdev,
           ret = USBD_FAIL;
           break;
       }
-      break;
-    case USB_REQ_TYPE_VENDOR:{
-        printf("USB_REQ_TYPE_VENDOR");
-        USBD_WinUSBComm_SetupVendor(pdev, req);
-      }break;
+      break;    
     default:
       USBD_CtlError(pdev, req);
       ret = USBD_FAIL;
