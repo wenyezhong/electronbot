@@ -45,8 +45,16 @@ extern "C" {
 #define WIN_USB_EPOUT_ADDR  0x03
 
 // #define WIN_USB_MAX_PACKET_SIZE  64U
-#define WIN_DATA_FS_IN_PACKET_SIZE                  64U
-#define WIN_DATA_FS_OUT_PACKET_SIZE                 64U
+
+#define WIN_DATA_HS_MAX_PACKET_SIZE                 512U  /* Endpoint IN & OUT Packet size */
+#define WIN_DATA_FS_MAX_PACKET_SIZE                 64U  /* Endpoint IN & OUT Packet size */
+
+#define WIN_DATA_FS_IN_PACKET_SIZE                  WIN_DATA_FS_MAX_PACKET_SIZE
+#define WIN_DATA_FS_OUT_PACKET_SIZE                 WIN_DATA_FS_MAX_PACKET_SIZE
+
+#define WIN_DATA_HS_IN_PACKET_SIZE                  WIN_DATA_HS_MAX_PACKET_SIZE
+#define WIN_DATA_HS_OUT_PACKET_SIZE                 WIN_DATA_HS_MAX_PACKET_SIZE
+
 #define winAPP_RX_DATA_SIZE  2048
 #define winAPP_TX_DATA_SIZE  2048
 #define WinUsb_DATA_MAX_PACKET_SIZE  512U

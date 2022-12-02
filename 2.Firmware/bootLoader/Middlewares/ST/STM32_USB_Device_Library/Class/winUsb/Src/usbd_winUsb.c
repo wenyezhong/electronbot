@@ -289,9 +289,18 @@ static uint8_t USBD_WinUsb_Init(USBD_HandleTypeDef *pdev, uint8_t cfgidx)
 
   pdev->pClassDataCmsit[pdev->classId] = (void *)hcdc;
   pdev->pClassData = pdev->pClassDataCmsit[pdev->classId];
+  if (pdev->dev_speed == USBD_SPEED_HIGH)
+  {
+    USBD_LL_OpenEP(pdev,WIN_USB_EPIN_ADDR,USBD_EP_TYPE_BULK,WIN_DATA_HS_IN_PACKET_SIZE);
+    USBD_LL_OpenEP(pdev,WIN_USB_EPOUT_ADDR,USBD_EP_TYPE_BULK,WIN_DATA_HS_OUT_PACKET_SIZE);
+  }
+  else
+  {
+    USBD_LL_OpenEP(pdev,WIN_USB_EPIN_ADDR,USBD_EP_TYPE_BULK,WIN_DATA_FS_IN_PACKET_SIZE);
+    USBD_LL_OpenEP(pdev,WIN_USB_EPOUT_ADDR,USBD_EP_TYPE_BULK,WIN_DATA_FS_OUT_PACKET_SIZE);
 
-  USBD_LL_OpenEP(pdev,WIN_USB_EPIN_ADDR,USBD_EP_TYPE_BULK,WIN_DATA_FS_IN_PACKET_SIZE);
-  USBD_LL_OpenEP(pdev,WIN_USB_EPOUT_ADDR,USBD_EP_TYPE_BULK,WIN_DATA_FS_OUT_PACKET_SIZE);
+  }
+  
   
   pdev->ep_in[WinUsbInEpAdd & 0xFU].is_used = 1U;
   pdev->ep_in[WinUsbOutEpAdd & 0xFU].is_used = 1U;
@@ -310,11 +319,20 @@ static uint8_t USBD_WinUsb_Init(USBD_HandleTypeDef *pdev, uint8_t cfgidx)
   {
     return (uint8_t)USBD_EMEM;
   }
-
-  USBD_LL_PrepareReceive(pdev,
+  if (pdev->dev_speed == USBD_SPEED_HIGH)
+  {
+    USBD_LL_PrepareReceive(pdev,
+                          WIN_USB_EPOUT_ADDR,
+                          hcdc->RxBuffer,
+                          WIN_DATA_HS_OUT_PACKET_SIZE);
+  }
+  else
+  {
+    USBD_LL_PrepareReceive(pdev,
                           WIN_USB_EPOUT_ADDR,
                           hcdc->RxBuffer,
                           WIN_DATA_FS_OUT_PACKET_SIZE);
+  }
   return (uint8_t)USBD_OK;
 
 }
@@ -469,12 +487,19 @@ uint8_t USBD_WinUsb_ReceivePacket(USBD_HandleTypeDef *pdev)
   {
     return (uint8_t)USBD_FAIL;
   }
-
- 
+  if (pdev->dev_speed == USBD_SPEED_HIGH)
+  {
     /* Prepare Out endpoint to receive next packet */
- (void)USBD_LL_PrepareReceive(pdev, WinUsbOutEpAdd, hcdc->RxBuffer,WIN_DATA_FS_OUT_PACKET_SIZE);
-
-  return (uint8_t)USBD_OK;
+    (void)USBD_LL_PrepareReceive(pdev, WinUsbOutEpAdd, hcdc->RxBuffer,
+                                 WIN_DATA_HS_OUT_PACKET_SIZE);
+  }
+  else
+  {
+    /* Prepare Out endpoint to receive next packet */
+    (void)USBD_LL_PrepareReceive(pdev, WinUsbOutEpAdd, hcdc->RxBuffer,
+                                 WIN_DATA_FS_OUT_PACKET_SIZE);
+  }
+ return (uint8_t)USBD_OK;
 }
 
 uint8_t USBD_WinUsb_TransmitPacket(USBD_HandleTypeDef *pdev)
