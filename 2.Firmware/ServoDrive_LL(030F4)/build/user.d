@@ -1,4 +1,4 @@
-build/main1.o: Src/main1.cpp Inc/common_inc.h Inc/main.h \
+build/user.o: Src/user.cpp Inc/common_inc.h Inc/main.h \
  Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h \
  Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h \
  Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h \
@@ -18,7 +18,8 @@ build/main1.o: Src/main1.cpp Inc/common_inc.h Inc/main.h \
  Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h \
  Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_usart.h \
  Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_gpio.h Inc/adc.h Inc/i2c.h \
- Inc/tim.h Inc/configurations.h Inc/motor.h
+ Inc/tim.h Inc/configurations.h Inc/random_flash_interface.h \
+ Inc/random_flash_utils.h Inc/stm32f0xx_ll_flash.h Inc/motor.h
 Inc/common_inc.h:
 Inc/main.h:
 Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h:
@@ -46,4 +47,7 @@ Inc/adc.h:
 Inc/i2c.h:
 Inc/tim.h:
 Inc/configurations.h:
+Inc/random_flash_interface.h:
+Inc/random_flash_utils.h:
+Inc/stm32f0xx_ll_flash.h:
 Inc/motor.h:

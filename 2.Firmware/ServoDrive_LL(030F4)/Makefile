@@ -83,9 +83,9 @@ Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_tim.c \
 Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_usart.c
 
 
-C++_SOURCES = Src/main1.cpp \
-Src/motor.cpp
-#Src/random_flash_utils.cpp
+C++_SOURCES = Src/user.cpp \
+Src/motor.cpp \
+Src/random_flash_utils.cpp
 
 # ASM sources
 ASM_SOURCES =  \

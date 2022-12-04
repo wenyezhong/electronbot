@@ -58,9 +58,9 @@ __STATIC_INLINE void LL_FLASH_SET_OBL_Launch(FLASH_TypeDef *FLASHx)
 {
   SET_BIT(FLASHx->CR, FLASH_CR_OBL_LAUNCH);
 }
-__STATIC_INLINE void LL_FLASH_Lock(FLASH_TypeDef *FLASHx)
+__STATIC_INLINE void LL_FLASH_Lock(void)
 {
-  SET_BIT(FLASHx->CR, FLASH_CR_LOCK);
+  SET_BIT(FLASH->CR, FLASH_CR_LOCK);
 }
 
 
@@ -156,6 +156,6 @@ __STATIC_INLINE void LL_FLASh_SetKey(FLASH_TypeDef *FLASHx,uint32_t key)
 
 
 LL_StatusTypeDef LL_Flash_Unlock(void);
-LL_StatusTypeDef LL_Flash_PageErase(uint32_t page_addr,uint16_t NbPages);
+LL_StatusTypeDef LL_Flash_PageErase(FLASH_EraseInitTypeDef *pEraseInit, uint32_t *PageError);
 LL_StatusTypeDef LL_FLASH_Program(ProgaramDataType ProgramType,uint32_t flash_addr,uint64_t data);
 #endif

@@ -27,7 +27,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
+// #include <stdio.h>
 #include "common_inc.h"
 /* USER CODE END Includes */
 
@@ -59,7 +59,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-int _write(int fd, char *ch, int len)
+/* int _write(int fd, char *ch, int len)
 {
   int i;
   for(i=0;i<len;i++)
@@ -72,7 +72,7 @@ int _write(int fd, char *ch, int len)
   // HAL_UART_Transmit(&huart1, (uint8_t*)ch, len, 0xFFFF);
   
   return len;
-}
+} */
 /* USER CODE END 0 */
 
 /**
@@ -111,10 +111,10 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM3_Init();
   MX_ADC_Init();
-  MX_I2C1_Init();
+  // MX_I2C1_Init();
   MX_TIM14_Init();
   /* USER CODE BEGIN 2 */
-  printf("hello ServoDrive coming...\r\n");
+  // printf("hello ServoDrive coming...\r\n");
 
   // LL_TIM_EnableIT_UPDATE(TIM14);
   // LL_TIM_EnableCounter(TIM14);

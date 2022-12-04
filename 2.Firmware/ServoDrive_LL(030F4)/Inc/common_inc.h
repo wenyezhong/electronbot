@@ -15,7 +15,7 @@ extern "C" {
 // #include "flash.h"
 
 
-void Main();
+void Main(void);
 
 extern uint64_t serialNumber;
 extern char serialNumberStr[13];

@@ -20,14 +20,17 @@ LL_StatusTypeDef LL_Flash_Unlock(void)
 	return LL_OK;
 }
 
-LL_StatusTypeDef LL_Flash_PageErase(uint32_t page_addr,uint16_t Nb)
+LL_StatusTypeDef LL_Flash_PageErase(FLASH_EraseInitTypeDef *pEraseInit, uint32_t *PageError)
 {
-	uint32_t End_addr =  10* FLASH_PAGE_SIZE +page_addr;
-	uint32_t Start_addr = page_addr;
-	for(;Start_addr < End_addr;(Start_addr += FLASH_PAGE_SIZE))
+	
+	uint32_t address = 0U;
+
+	for(address = pEraseInit->PageAddress;
+            address < ((pEraseInit->NbPages * FLASH_PAGE_SIZE) + pEraseInit->PageAddress);
+            address += FLASH_PAGE_SIZE)
     {
         LL_FLASH_SetTypeErase(FLASH,FLASH_TYPEERASE_PAGES);
-		LL_FLASH_SetEraseADDR(FLASH,Start_addr);
+		LL_FLASH_SetEraseADDR(FLASH,address);
 		LL_FLASH_StartErase(FLASH); 
 		while (LL_FLASH_IsActiveFlag_BSY(FLASH)) 
 		{ 
@@ -38,6 +41,7 @@ LL_StatusTypeDef LL_Flash_PageErase(uint32_t page_addr,uint16_t Nb)
 		} 
 		else
 		{ 
+			*PageError = address;
 			return LL_ERROR;
 		}
 		LL_FLASH_DisenableErase(FLASH,FLASH_TYPEERASE_PAGES);

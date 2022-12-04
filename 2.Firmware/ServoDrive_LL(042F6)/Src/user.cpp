@@ -15,7 +15,7 @@ void Main(void)
     
     if (boardConfig.configStatus != CONFIG_OK) // use default settings
     {
-        printf("config not\r\n");
+        // printf("config not\r\n");
         boardConfig = BoardConfig_t{
             .configStatus = CONFIG_OK,
             .nodeId = 12, // 7bit address, has to be even number
@@ -36,7 +36,7 @@ void Main(void)
     }
     else
     {
-        printf("configed\r\n");
+        // printf("configed\r\n");
     }
     motor.SetTorqueLimit(boardConfig.toqueLimit);
     motor.mechanicalAngleMin = boardConfig.mechanicalAngleMin;
@@ -57,24 +57,24 @@ void Main(void)
     LL_TIM_OC_SetCompareCH2(TIM3,0);
 
     // Start receive data
-    /* MY_I2C1_Init(boardConfig.nodeId);
+    MY_I2C1_Init(boardConfig.nodeId);
     LL_mDelay(10);
     // Start control loop at 200Hz
     LL_TIM_EnableIT_UPDATE(TIM14);
-    LL_TIM_EnableCounter(TIM14); */
+    LL_TIM_EnableCounter(TIM14);
 
 
     while (1)
     {
-        /* if (boardConfig.configStatus == CONFIG_COMMIT)
+        if (boardConfig.configStatus == CONFIG_COMMIT)
         {
             boardConfig.configStatus = CONFIG_OK;
             eeprom.put(0, boardConfig);
         } else if (boardConfig.configStatus == CONFIG_RESTORE)
         {
             eeprom.put(0, boardConfig);
-            HAL_NVIC_SystemReset();
-        } */
+            NVIC_SystemReset();
+        }
     /* for debug */
        //LL_GPIO_TogglePin(GPIOA,GPIO_PIN_1);
     }

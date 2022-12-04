@@ -4,7 +4,7 @@
 #include <string.h>
 #include "random_flash_utils.h"
 #include "stm32f0xx_ll_flash.h"
-
+// #include <stdio.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -221,7 +221,9 @@ void eeprom_buffer_flush(void)
     FLASH_EraseInitTypeDef EraseInitStruct;
     uint32_t offset = 0;
     uint32_t address = FLASH_BASE_ADDRESS;
+    // printf("address=%x\r\n",address);
     uint32_t address_end = FLASH_BASE_ADDRESS + E2END;
+    // printf("address_end=%x\r\n",address_end);
 #if defined (STM32F0xx) || defined (STM32F1xx) || defined (STM32F3xx) || \
     defined (STM32G0xx) || defined (STM32G4xx) || \
     defined (STM32L4xx) || defined (STM32L5xx) || defined (STM32WBxx)
@@ -285,19 +287,19 @@ void eeprom_buffer_flush(void)
 
     LL_Flash_Unlock();
 
-    if (LL_FLASHEx_Erase(&EraseInitStruct, &SectorError) == LL_OK)
+    if (LL_Flash_PageErase(&EraseInitStruct, &SectorError) == LL_OK)
     {
         while (address <= address_end)
         {
 #if defined(STM32H7xx)
-            /* 256 bits */
+            // 256 bits
             memcpy(&data, eeprom_buffer + offset, 8 * sizeof(uint32_t));
             if (LL_FLASH_Program(FLASH_TYPEPROGRAM_FLASHWORD, address, (uint32_t)data) == LL_OK) {
               address += 32;
               offset += 32;
 #else
             memcpy(&data, eeprom_buffer + offset, sizeof(uint32_t));
-            if (LL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, address, data) == LL_OK)
+            if (LL_FLASH_Program(ProgaraType_DATA32, address, data) == LL_OK)
             {
                 address += 4;
                 offset += 4;

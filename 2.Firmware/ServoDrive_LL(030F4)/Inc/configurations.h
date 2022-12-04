@@ -42,7 +42,7 @@ extern BoardConfig_t boardConfig;
 }
 /*---------------------------- C++ Scope ---------------------------*/
 
-// #include "random_flash_interface.h"
+#include "random_flash_interface.h"
 #include "motor.h"
 
 

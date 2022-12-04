@@ -1,19 +1,21 @@
 #include <cstring>
 #include "common_inc.h"
 #include "configurations.h"
-
+#include <stdio.h>
 Motor motor;
 BoardConfig_t boardConfig;
 
 
 /* Default Entry -------------------------------------------------------*/
-void Main()
+void Main(void)
 {
     // Read data from Flash
-    /* EEPROM eeprom;
+    EEPROM eeprom;
     eeprom.get(0, boardConfig);
+    
     if (boardConfig.configStatus != CONFIG_OK) // use default settings
     {
+        // printf("config not\r\n");
         boardConfig = BoardConfig_t{
             .configStatus = CONFIG_OK,
             .nodeId = 12, // 7bit address, has to be even number
@@ -32,6 +34,10 @@ void Main()
         };
         eeprom.put(0, boardConfig);
     }
+    else
+    {
+        // printf("configed\r\n");
+    }
     motor.SetTorqueLimit(boardConfig.toqueLimit);
     motor.mechanicalAngleMin = boardConfig.mechanicalAngleMin;
     motor.mechanicalAngleMax = boardConfig.mechanicalAngleMax;
@@ -42,7 +48,7 @@ void Main()
     motor.dce.kv = boardConfig.dceKv;
     motor.dce.kd = boardConfig.dceKd;
     motor.dce.setPointPos = boardConfig.initPos;
-    motor.SetEnable(boardConfig.enableMotorOnBoot); */
+    motor.SetEnable(boardConfig.enableMotorOnBoot);
     // Init PWM
     LL_TIM_EnableCounter(TIM3);
     LL_TIM_CC_EnableChannel(TIM3,LL_TIM_CHANNEL_CH1);
@@ -60,15 +66,15 @@ void Main()
 
     while (1)
     {
-        /* if (boardConfig.configStatus == CONFIG_COMMIT)
+        if (boardConfig.configStatus == CONFIG_COMMIT)
         {
             boardConfig.configStatus = CONFIG_OK;
             eeprom.put(0, boardConfig);
         } else if (boardConfig.configStatus == CONFIG_RESTORE)
         {
             eeprom.put(0, boardConfig);
-            HAL_NVIC_SystemReset();
-        } */
+            NVIC_SystemReset();
+        }
     /* for debug */
        //LL_GPIO_TogglePin(GPIOA,GPIO_PIN_1);
     }
