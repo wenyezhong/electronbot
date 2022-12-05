@@ -102,9 +102,9 @@ __STATIC_INLINE void LL_FLASH_StartErase(FLASH_TypeDef *FLASHx)
   *            @arg @ref FLASH_FLAG_PGERR       FLASH Programming error flag
   * @retval none*/
 
-__STATIC_INLINE void LL_FLASH_ClearFlag(FLASH_TypeDef *FLASHx,uint32_t STATE_FLAG)
+__STATIC_INLINE void LL_FLASH_ClearFlag(uint32_t STATE_FLAG)
 {
-  WRITE_REG(FLASHx->SR, STATE_FLAG);
+  WRITE_REG(FLASH->SR, STATE_FLAG);
 }
 
   /*get bit flash bsy*/

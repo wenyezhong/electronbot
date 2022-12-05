@@ -37,7 +37,7 @@ $(info board version: $(CONFIG_BOARD_VERSION))
 ######################################
 # target
 ######################################
-TARGET = ServoDrive_LL
+TARGET = ServoDrive
 
 
 ######################################
@@ -141,7 +141,8 @@ C_DEFS =  \
 -DVDD_VALUE=3300 \
 -DPREFETCH_ENABLE=1 \
 -DINSTRUCTION_CACHE_ENABLE=0 \
--DDATA_CACHE_ENABLE=0
+-DDATA_CACHE_ENABLE=0 \
+-DSTM32F0xx
 
 
 # AS includes

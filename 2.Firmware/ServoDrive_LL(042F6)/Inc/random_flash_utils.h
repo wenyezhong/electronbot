@@ -48,8 +48,8 @@ extern "C" {
 
 
 /* Exported macro ------------------------------------------------------------*/
-#define FLASH_USER_START_ADDR       0x08007800UL // 256B
-#define FLASH_USER_END_ADDR         0x08007bFFUL
+#define FLASH_USER_START_ADDR       0x08008000UL // 256B
+#define FLASH_USER_END_ADDR         0x08007FFFUL
 /* Exported functions ------------------------------------------------------- */
 
 uint8_t eeprom_read_byte(uint32_t pos);

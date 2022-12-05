@@ -244,22 +244,22 @@ void eeprom_buffer_flush(void)
 #endif
     EraseInitStruct.NbPages = 1;
 
-    if (LL_FLASH_Unlock() == LL_OK)
+    if (LL_Flash_Unlock() == LL_OK)  
     {
 #if defined (STM32G0xx) || defined (STM32G4xx) || defined (STM32L4xx) || \
       defined (STM32L5xx) || defined (STM32WBxx)
-        __LL_FLASH_CLEAR_FLAG(FLASH_FLAG_ALL_ERRORS);
+        LL_FLASH_ClearFlag(FLASH_FLAG_ALL_ERRORS);
 #else
-        __LL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_WRPERR | FLASH_FLAG_PGERR);
+        LL_FLASH_ClearFlag(FLASH_FLAG_EOP | FLASH_FLAG_WRPERR | FLASH_FLAG_PGERR);
 #endif
-        if (LL_FLASHEx_Erase(&EraseInitStruct, &pageError) == LL_OK)
+        if (LL_Flash_PageErase(&EraseInitStruct, &pageError) == LL_OK)
         {
             while (address <= address_end)
             {
 
                 data = *((uint64_t*) ((uint8_t*) eeprom_buffer + offset));
 
-                if (LL_FLASH_Program(FLASH_TYPEPROGRAM_DOUBLEWORD, address, data) == LL_OK)
+                if (LL_FLASH_Program(ProgaraType_DATA64, address, data) == LL_OK)
                 {
                     address += 8;
                     offset += 8;

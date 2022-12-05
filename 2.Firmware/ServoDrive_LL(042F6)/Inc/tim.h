@@ -40,7 +40,7 @@ void MX_TIM3_Init(void);
 void MX_TIM14_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-
+void TIM14_PeriodElapsedCallback(void);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus
