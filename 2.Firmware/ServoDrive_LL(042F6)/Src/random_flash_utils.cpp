@@ -221,9 +221,9 @@ void eeprom_buffer_flush(void)
     FLASH_EraseInitTypeDef EraseInitStruct;
     uint32_t offset = 0;
     uint32_t address = FLASH_BASE_ADDRESS;
-    printf("address=%x\r\n",address);
+    // printf("address=%x\r\n",address);
     uint32_t address_end = FLASH_BASE_ADDRESS + E2END;
-    printf("address_end=%x\r\n",address_end);
+    // printf("address_end=%x\r\n",address_end);
 #if defined (STM32F0xx) || defined (STM32F1xx) || defined (STM32F3xx) || \
     defined (STM32G0xx) || defined (STM32G4xx) || \
     defined (STM32L4xx) || defined (STM32L5xx) || defined (STM32WBxx)

@@ -1,0 +1,546 @@
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"usbd_storage_if.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.STORAGE_Init_HS,"ax",%progbits
+  20              		.align	1
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	STORAGE_Init_HS:
+  26              	.LVL0:
+  27              	.LFB134:
+  28              		.file 1 "Src/usbd_storage_if.c"
+   1:Src/usbd_storage_if.c **** /* USER CODE BEGIN Header */
+   2:Src/usbd_storage_if.c **** /**
+   3:Src/usbd_storage_if.c ****   ******************************************************************************
+   4:Src/usbd_storage_if.c ****   * @file           : usbd_storage_if.c
+   5:Src/usbd_storage_if.c ****   * @version        : v1.0_Cube
+   6:Src/usbd_storage_if.c ****   * @brief          : Memory management layer.
+   7:Src/usbd_storage_if.c ****   ******************************************************************************
+   8:Src/usbd_storage_if.c ****   * @attention
+   9:Src/usbd_storage_if.c ****   *
+  10:Src/usbd_storage_if.c ****   * Copyright (c) 2022 STMicroelectronics.
+  11:Src/usbd_storage_if.c ****   * All rights reserved.
+  12:Src/usbd_storage_if.c ****   *
+  13:Src/usbd_storage_if.c ****   * This software is licensed under terms that can be found in the LICENSE file
+  14:Src/usbd_storage_if.c ****   * in the root directory of this software component.
+  15:Src/usbd_storage_if.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  16:Src/usbd_storage_if.c ****   *
+  17:Src/usbd_storage_if.c ****   ******************************************************************************
+  18:Src/usbd_storage_if.c ****   */
+  19:Src/usbd_storage_if.c **** /* USER CODE END Header */
+  20:Src/usbd_storage_if.c **** 
+  21:Src/usbd_storage_if.c **** /* Includes ------------------------------------------------------------------*/
+  22:Src/usbd_storage_if.c **** #include "usbd_storage_if.h"
+  23:Src/usbd_storage_if.c **** 
+  24:Src/usbd_storage_if.c **** /* USER CODE BEGIN INCLUDE */
+  25:Src/usbd_storage_if.c **** 
+  26:Src/usbd_storage_if.c **** /* USER CODE END INCLUDE */
+  27:Src/usbd_storage_if.c **** 
+  28:Src/usbd_storage_if.c **** /* Private typedef -----------------------------------------------------------*/
+  29:Src/usbd_storage_if.c **** /* Private define ------------------------------------------------------------*/
+  30:Src/usbd_storage_if.c **** /* Private macro -------------------------------------------------------------*/
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s 			page 2
+
+
+  31:Src/usbd_storage_if.c **** 
+  32:Src/usbd_storage_if.c **** /* USER CODE BEGIN PV */
+  33:Src/usbd_storage_if.c **** /* Private variables ---------------------------------------------------------*/
+  34:Src/usbd_storage_if.c **** 
+  35:Src/usbd_storage_if.c **** /* USER CODE END PV */
+  36:Src/usbd_storage_if.c **** 
+  37:Src/usbd_storage_if.c **** /** @addtogroup STM32_USB_OTG_DEVICE_LIBRARY
+  38:Src/usbd_storage_if.c ****   * @brief Usb device.
+  39:Src/usbd_storage_if.c ****   * @{
+  40:Src/usbd_storage_if.c ****   */
+  41:Src/usbd_storage_if.c **** 
+  42:Src/usbd_storage_if.c **** /** @defgroup USBD_STORAGE
+  43:Src/usbd_storage_if.c ****   * @brief Usb mass storage device module
+  44:Src/usbd_storage_if.c ****   * @{
+  45:Src/usbd_storage_if.c ****   */
+  46:Src/usbd_storage_if.c **** 
+  47:Src/usbd_storage_if.c **** /** @defgroup USBD_STORAGE_Private_TypesDefinitions
+  48:Src/usbd_storage_if.c ****   * @brief Private types.
+  49:Src/usbd_storage_if.c ****   * @{
+  50:Src/usbd_storage_if.c ****   */
+  51:Src/usbd_storage_if.c **** 
+  52:Src/usbd_storage_if.c **** /* USER CODE BEGIN PRIVATE_TYPES */
+  53:Src/usbd_storage_if.c **** 
+  54:Src/usbd_storage_if.c **** /* USER CODE END PRIVATE_TYPES */
+  55:Src/usbd_storage_if.c **** 
+  56:Src/usbd_storage_if.c **** /**
+  57:Src/usbd_storage_if.c ****   * @}
+  58:Src/usbd_storage_if.c ****   */
+  59:Src/usbd_storage_if.c **** 
+  60:Src/usbd_storage_if.c **** /** @defgroup USBD_STORAGE_Private_Defines
+  61:Src/usbd_storage_if.c ****   * @brief Private defines.
+  62:Src/usbd_storage_if.c ****   * @{
+  63:Src/usbd_storage_if.c ****   */
+  64:Src/usbd_storage_if.c **** 
+  65:Src/usbd_storage_if.c **** #define STORAGE_LUN_NBR                  1
+  66:Src/usbd_storage_if.c **** #define STORAGE_BLK_NBR                  0x10000
+  67:Src/usbd_storage_if.c **** #define STORAGE_BLK_SIZ                  0x200
+  68:Src/usbd_storage_if.c **** 
+  69:Src/usbd_storage_if.c **** /* USER CODE BEGIN PRIVATE_DEFINES */
+  70:Src/usbd_storage_if.c **** 
+  71:Src/usbd_storage_if.c **** /* USER CODE END PRIVATE_DEFINES */
+  72:Src/usbd_storage_if.c **** 
+  73:Src/usbd_storage_if.c **** /**
+  74:Src/usbd_storage_if.c ****   * @}
+  75:Src/usbd_storage_if.c ****   */
+  76:Src/usbd_storage_if.c **** 
+  77:Src/usbd_storage_if.c **** /** @defgroup USBD_STORAGE_Private_Macros
+  78:Src/usbd_storage_if.c ****   * @brief Private macros.
+  79:Src/usbd_storage_if.c ****   * @{
+  80:Src/usbd_storage_if.c ****   */
+  81:Src/usbd_storage_if.c **** 
+  82:Src/usbd_storage_if.c **** /* USER CODE BEGIN PRIVATE_MACRO */
+  83:Src/usbd_storage_if.c **** 
+  84:Src/usbd_storage_if.c **** /* USER CODE END PRIVATE_MACRO */
+  85:Src/usbd_storage_if.c **** 
+  86:Src/usbd_storage_if.c **** /**
+  87:Src/usbd_storage_if.c ****   * @}
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s 			page 3
+
+
+  88:Src/usbd_storage_if.c ****   */
+  89:Src/usbd_storage_if.c **** 
+  90:Src/usbd_storage_if.c **** /** @defgroup USBD_STORAGE_Private_Variables
+  91:Src/usbd_storage_if.c ****   * @brief Private variables.
+  92:Src/usbd_storage_if.c ****   * @{
+  93:Src/usbd_storage_if.c ****   */
+  94:Src/usbd_storage_if.c **** 
+  95:Src/usbd_storage_if.c **** /* USER CODE BEGIN INQUIRY_DATA_HS */
+  96:Src/usbd_storage_if.c **** /** USB Mass storage Standard Inquiry Data. */
+  97:Src/usbd_storage_if.c **** const int8_t STORAGE_Inquirydata_HS[] = {/* 36 */
+  98:Src/usbd_storage_if.c **** 
+  99:Src/usbd_storage_if.c ****   /* LUN 0 */
+ 100:Src/usbd_storage_if.c ****   0x00,
+ 101:Src/usbd_storage_if.c ****   0x80,
+ 102:Src/usbd_storage_if.c ****   0x02,
+ 103:Src/usbd_storage_if.c ****   0x02,
+ 104:Src/usbd_storage_if.c ****   (STANDARD_INQUIRY_DATA_LEN - 5),
+ 105:Src/usbd_storage_if.c ****   0x00,
+ 106:Src/usbd_storage_if.c ****   0x00,
+ 107:Src/usbd_storage_if.c ****   0x00,
+ 108:Src/usbd_storage_if.c ****   'S', 'T', 'M', ' ', ' ', ' ', ' ', ' ', /* Manufacturer : 8 bytes */
+ 109:Src/usbd_storage_if.c ****   'P', 'r', 'o', 'd', 'u', 'c', 't', ' ', /* Product      : 16 Bytes */
+ 110:Src/usbd_storage_if.c ****   ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
+ 111:Src/usbd_storage_if.c ****   '0', '.', '0' ,'1'                      /* Version      : 4 Bytes */
+ 112:Src/usbd_storage_if.c **** };
+ 113:Src/usbd_storage_if.c **** /* USER CODE END INQUIRY_DATA_HS */
+ 114:Src/usbd_storage_if.c **** 
+ 115:Src/usbd_storage_if.c **** /* USER CODE BEGIN PRIVATE_VARIABLES */
+ 116:Src/usbd_storage_if.c **** 
+ 117:Src/usbd_storage_if.c **** /* USER CODE END PRIVATE_VARIABLES */
+ 118:Src/usbd_storage_if.c **** 
+ 119:Src/usbd_storage_if.c **** /**
+ 120:Src/usbd_storage_if.c ****   * @}
+ 121:Src/usbd_storage_if.c ****   */
+ 122:Src/usbd_storage_if.c **** 
+ 123:Src/usbd_storage_if.c **** /** @defgroup USBD_STORAGE_Exported_Variables
+ 124:Src/usbd_storage_if.c ****   * @brief Public variables.
+ 125:Src/usbd_storage_if.c ****   * @{
+ 126:Src/usbd_storage_if.c ****   */
+ 127:Src/usbd_storage_if.c **** 
+ 128:Src/usbd_storage_if.c **** extern USBD_HandleTypeDef hUsbDeviceHS;
+ 129:Src/usbd_storage_if.c **** 
+ 130:Src/usbd_storage_if.c **** /* USER CODE BEGIN EXPORTED_VARIABLES */
+ 131:Src/usbd_storage_if.c **** 
+ 132:Src/usbd_storage_if.c **** /* USER CODE END EXPORTED_VARIABLES */
+ 133:Src/usbd_storage_if.c **** 
+ 134:Src/usbd_storage_if.c **** /**
+ 135:Src/usbd_storage_if.c ****   * @}
+ 136:Src/usbd_storage_if.c ****   */
+ 137:Src/usbd_storage_if.c **** 
+ 138:Src/usbd_storage_if.c **** /** @defgroup USBD_STORAGE_Private_FunctionPrototypes
+ 139:Src/usbd_storage_if.c ****   * @brief Private functions declaration.
+ 140:Src/usbd_storage_if.c ****   * @{
+ 141:Src/usbd_storage_if.c ****   */
+ 142:Src/usbd_storage_if.c **** 
+ 143:Src/usbd_storage_if.c **** static int8_t STORAGE_Init_HS(uint8_t lun);
+ 144:Src/usbd_storage_if.c **** static int8_t STORAGE_GetCapacity_HS(uint8_t lun, uint32_t *block_num, uint16_t *block_size);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s 			page 4
+
+
+ 145:Src/usbd_storage_if.c **** static int8_t STORAGE_IsReady_HS(uint8_t lun);
+ 146:Src/usbd_storage_if.c **** static int8_t STORAGE_IsWriteProtected_HS(uint8_t lun);
+ 147:Src/usbd_storage_if.c **** static int8_t STORAGE_Read_HS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t blk_len);
+ 148:Src/usbd_storage_if.c **** static int8_t STORAGE_Write_HS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t blk_len);
+ 149:Src/usbd_storage_if.c **** static int8_t STORAGE_GetMaxLun_HS(void);
+ 150:Src/usbd_storage_if.c **** 
+ 151:Src/usbd_storage_if.c **** /* USER CODE BEGIN PRIVATE_FUNCTIONS_DECLARATION */
+ 152:Src/usbd_storage_if.c **** 
+ 153:Src/usbd_storage_if.c **** /* USER CODE END PRIVATE_FUNCTIONS_DECLARATION */
+ 154:Src/usbd_storage_if.c **** 
+ 155:Src/usbd_storage_if.c **** /**
+ 156:Src/usbd_storage_if.c ****   * @}
+ 157:Src/usbd_storage_if.c ****   */
+ 158:Src/usbd_storage_if.c **** 
+ 159:Src/usbd_storage_if.c **** USBD_StorageTypeDef USBD_Storage_Interface_fops_HS =
+ 160:Src/usbd_storage_if.c **** {
+ 161:Src/usbd_storage_if.c ****   STORAGE_Init_HS,
+ 162:Src/usbd_storage_if.c ****   STORAGE_GetCapacity_HS,
+ 163:Src/usbd_storage_if.c ****   STORAGE_IsReady_HS,
+ 164:Src/usbd_storage_if.c ****   STORAGE_IsWriteProtected_HS,
+ 165:Src/usbd_storage_if.c ****   STORAGE_Read_HS,
+ 166:Src/usbd_storage_if.c ****   STORAGE_Write_HS,
+ 167:Src/usbd_storage_if.c ****   STORAGE_GetMaxLun_HS,
+ 168:Src/usbd_storage_if.c ****   (int8_t *)STORAGE_Inquirydata_HS
+ 169:Src/usbd_storage_if.c **** };
+ 170:Src/usbd_storage_if.c **** 
+ 171:Src/usbd_storage_if.c **** /* Private functions ---------------------------------------------------------*/
+ 172:Src/usbd_storage_if.c **** 
+ 173:Src/usbd_storage_if.c **** /**
+ 174:Src/usbd_storage_if.c ****   * @brief  Initializes the storage unit (medium).
+ 175:Src/usbd_storage_if.c ****   * @param  lun: Logical unit number.
+ 176:Src/usbd_storage_if.c ****   * @retval USBD_OK if all operations are OK else USBD_FAIL
+ 177:Src/usbd_storage_if.c ****   */
+ 178:Src/usbd_storage_if.c **** int8_t STORAGE_Init_HS(uint8_t lun)
+ 179:Src/usbd_storage_if.c **** {
+  29              		.loc 1 179 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+ 180:Src/usbd_storage_if.c ****   /* USER CODE BEGIN 9 */
+ 181:Src/usbd_storage_if.c ****   UNUSED(lun);
+  34              		.loc 1 181 3 view .LVU1
+ 182:Src/usbd_storage_if.c **** 
+ 183:Src/usbd_storage_if.c ****   return (USBD_OK);
+  35              		.loc 1 183 3 view .LVU2
+ 184:Src/usbd_storage_if.c ****   /* USER CODE END 9 */
+ 185:Src/usbd_storage_if.c **** }
+  36              		.loc 1 185 1 is_stmt 0 view .LVU3
+  37 0000 0020     		movs	r0, #0
+  38              	.LVL1:
+  39              		.loc 1 185 1 view .LVU4
+  40 0002 7047     		bx	lr
+  41              		.cfi_endproc
+  42              	.LFE134:
+  44              		.section	.text.STORAGE_GetCapacity_HS,"ax",%progbits
+  45              		.align	1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s 			page 5
+
+
+  46              		.syntax unified
+  47              		.thumb
+  48              		.thumb_func
+  50              	STORAGE_GetCapacity_HS:
+  51              	.LVL2:
+  52              	.LFB135:
+ 186:Src/usbd_storage_if.c **** 
+ 187:Src/usbd_storage_if.c **** /**
+ 188:Src/usbd_storage_if.c ****   * @brief  Returns the medium capacity.
+ 189:Src/usbd_storage_if.c ****   * @param  lun: Logical unit number.
+ 190:Src/usbd_storage_if.c ****   * @param  block_num: Number of total block number.
+ 191:Src/usbd_storage_if.c ****   * @param  block_size: Block size.
+ 192:Src/usbd_storage_if.c ****   * @retval USBD_OK if all operations are OK else USBD_FAIL
+ 193:Src/usbd_storage_if.c ****   */
+ 194:Src/usbd_storage_if.c **** int8_t STORAGE_GetCapacity_HS(uint8_t lun, uint32_t *block_num, uint16_t *block_size)
+ 195:Src/usbd_storage_if.c **** {
+  53              		.loc 1 195 1 is_stmt 1 view -0
+  54              		.cfi_startproc
+  55              		@ args = 0, pretend = 0, frame = 0
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57              		@ link register save eliminated.
+ 196:Src/usbd_storage_if.c ****   /* USER CODE BEGIN 10 */
+ 197:Src/usbd_storage_if.c ****   UNUSED(lun);
+  58              		.loc 1 197 3 view .LVU6
+ 198:Src/usbd_storage_if.c **** 
+ 199:Src/usbd_storage_if.c ****   *block_num  = STORAGE_BLK_NBR;
+  59              		.loc 1 199 3 view .LVU7
+  60              		.loc 1 199 15 is_stmt 0 view .LVU8
+  61 0000 4FF48033 		mov	r3, #65536
+  62 0004 0B60     		str	r3, [r1]
+ 200:Src/usbd_storage_if.c ****   *block_size = STORAGE_BLK_SIZ;
+  63              		.loc 1 200 3 is_stmt 1 view .LVU9
+  64              		.loc 1 200 15 is_stmt 0 view .LVU10
+  65 0006 4FF40073 		mov	r3, #512
+  66 000a 1380     		strh	r3, [r2]	@ movhi
+ 201:Src/usbd_storage_if.c ****   return (USBD_OK);
+  67              		.loc 1 201 3 is_stmt 1 view .LVU11
+ 202:Src/usbd_storage_if.c ****   /* USER CODE END 10 */
+ 203:Src/usbd_storage_if.c **** }
+  68              		.loc 1 203 1 is_stmt 0 view .LVU12
+  69 000c 0020     		movs	r0, #0
+  70              	.LVL3:
+  71              		.loc 1 203 1 view .LVU13
+  72 000e 7047     		bx	lr
+  73              		.cfi_endproc
+  74              	.LFE135:
+  76              		.section	.text.STORAGE_IsReady_HS,"ax",%progbits
+  77              		.align	1
+  78              		.syntax unified
+  79              		.thumb
+  80              		.thumb_func
+  82              	STORAGE_IsReady_HS:
+  83              	.LVL4:
+  84              	.LFB136:
+ 204:Src/usbd_storage_if.c **** 
+ 205:Src/usbd_storage_if.c **** /**
+ 206:Src/usbd_storage_if.c ****   * @brief   Checks whether the medium is ready.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s 			page 6
+
+
+ 207:Src/usbd_storage_if.c ****   * @param  lun:  Logical unit number.
+ 208:Src/usbd_storage_if.c ****   * @retval USBD_OK if all operations are OK else USBD_FAIL
+ 209:Src/usbd_storage_if.c ****   */
+ 210:Src/usbd_storage_if.c **** int8_t STORAGE_IsReady_HS(uint8_t lun)
+ 211:Src/usbd_storage_if.c **** {
+  85              		.loc 1 211 1 is_stmt 1 view -0
+  86              		.cfi_startproc
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89              		@ link register save eliminated.
+ 212:Src/usbd_storage_if.c ****   /* USER CODE BEGIN 11 */
+ 213:Src/usbd_storage_if.c ****   UNUSED(lun);
+  90              		.loc 1 213 3 view .LVU15
+ 214:Src/usbd_storage_if.c **** 
+ 215:Src/usbd_storage_if.c ****   return (USBD_OK);
+  91              		.loc 1 215 3 view .LVU16
+ 216:Src/usbd_storage_if.c ****   /* USER CODE END 11 */
+ 217:Src/usbd_storage_if.c **** }
+  92              		.loc 1 217 1 is_stmt 0 view .LVU17
+  93 0000 0020     		movs	r0, #0
+  94              	.LVL5:
+  95              		.loc 1 217 1 view .LVU18
+  96 0002 7047     		bx	lr
+  97              		.cfi_endproc
+  98              	.LFE136:
+ 100              		.section	.text.STORAGE_IsWriteProtected_HS,"ax",%progbits
+ 101              		.align	1
+ 102              		.syntax unified
+ 103              		.thumb
+ 104              		.thumb_func
+ 106              	STORAGE_IsWriteProtected_HS:
+ 107              	.LVL6:
+ 108              	.LFB137:
+ 218:Src/usbd_storage_if.c **** 
+ 219:Src/usbd_storage_if.c **** /**
+ 220:Src/usbd_storage_if.c ****   * @brief  Checks whether the medium is write protected.
+ 221:Src/usbd_storage_if.c ****   * @param  lun: Logical unit number.
+ 222:Src/usbd_storage_if.c ****   * @retval USBD_OK if all operations are OK else USBD_FAIL
+ 223:Src/usbd_storage_if.c ****   */
+ 224:Src/usbd_storage_if.c **** int8_t STORAGE_IsWriteProtected_HS(uint8_t lun)
+ 225:Src/usbd_storage_if.c **** {
+ 109              		.loc 1 225 1 is_stmt 1 view -0
+ 110              		.cfi_startproc
+ 111              		@ args = 0, pretend = 0, frame = 0
+ 112              		@ frame_needed = 0, uses_anonymous_args = 0
+ 113              		@ link register save eliminated.
+ 226:Src/usbd_storage_if.c ****   /* USER CODE BEGIN 12 */
+ 227:Src/usbd_storage_if.c ****   return (USBD_OK);
+ 114              		.loc 1 227 3 view .LVU20
+ 228:Src/usbd_storage_if.c ****   /* USER CODE END 12 */
+ 229:Src/usbd_storage_if.c **** }
+ 115              		.loc 1 229 1 is_stmt 0 view .LVU21
+ 116 0000 0020     		movs	r0, #0
+ 117              	.LVL7:
+ 118              		.loc 1 229 1 view .LVU22
+ 119 0002 7047     		bx	lr
+ 120              		.cfi_endproc
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s 			page 7
+
+
+ 121              	.LFE137:
+ 123              		.section	.text.STORAGE_Read_HS,"ax",%progbits
+ 124              		.align	1
+ 125              		.syntax unified
+ 126              		.thumb
+ 127              		.thumb_func
+ 129              	STORAGE_Read_HS:
+ 130              	.LVL8:
+ 131              	.LFB138:
+ 230:Src/usbd_storage_if.c **** 
+ 231:Src/usbd_storage_if.c **** /**
+ 232:Src/usbd_storage_if.c ****   * @brief  Reads data from the medium.
+ 233:Src/usbd_storage_if.c ****   * @param  lun: Logical unit number.
+ 234:Src/usbd_storage_if.c ****   * @param  buf: data buffer.
+ 235:Src/usbd_storage_if.c ****   * @param  blk_addr: Logical block address.
+ 236:Src/usbd_storage_if.c ****   * @param  blk_len: Blocks number.
+ 237:Src/usbd_storage_if.c ****   * @retval USBD_OK if all operations are OK else USBD_FAIL
+ 238:Src/usbd_storage_if.c ****   */
+ 239:Src/usbd_storage_if.c **** int8_t STORAGE_Read_HS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t blk_len)
+ 240:Src/usbd_storage_if.c **** {
+ 132              		.loc 1 240 1 is_stmt 1 view -0
+ 133              		.cfi_startproc
+ 134              		@ args = 0, pretend = 0, frame = 0
+ 135              		@ frame_needed = 0, uses_anonymous_args = 0
+ 136              		@ link register save eliminated.
+ 241:Src/usbd_storage_if.c ****   /* USER CODE BEGIN 13 */
+ 242:Src/usbd_storage_if.c ****   UNUSED(lun);
+ 137              		.loc 1 242 3 view .LVU24
+ 243:Src/usbd_storage_if.c ****   UNUSED(buf);
+ 138              		.loc 1 243 3 view .LVU25
+ 244:Src/usbd_storage_if.c ****   UNUSED(blk_addr);
+ 139              		.loc 1 244 3 view .LVU26
+ 245:Src/usbd_storage_if.c ****   UNUSED(blk_len);
+ 140              		.loc 1 245 3 view .LVU27
+ 246:Src/usbd_storage_if.c **** 
+ 247:Src/usbd_storage_if.c ****   return (USBD_OK);
+ 141              		.loc 1 247 3 view .LVU28
+ 248:Src/usbd_storage_if.c ****   /* USER CODE END 13 */
+ 249:Src/usbd_storage_if.c **** }
+ 142              		.loc 1 249 1 is_stmt 0 view .LVU29
+ 143 0000 0020     		movs	r0, #0
+ 144              	.LVL9:
+ 145              		.loc 1 249 1 view .LVU30
+ 146 0002 7047     		bx	lr
+ 147              		.cfi_endproc
+ 148              	.LFE138:
+ 150              		.section	.text.STORAGE_Write_HS,"ax",%progbits
+ 151              		.align	1
+ 152              		.syntax unified
+ 153              		.thumb
+ 154              		.thumb_func
+ 156              	STORAGE_Write_HS:
+ 157              	.LVL10:
+ 158              	.LFB139:
+ 250:Src/usbd_storage_if.c **** 
+ 251:Src/usbd_storage_if.c **** /**
+ 252:Src/usbd_storage_if.c ****   * @brief  Writes data into the medium.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s 			page 8
+
+
+ 253:Src/usbd_storage_if.c ****   * @param  lun: Logical unit number.
+ 254:Src/usbd_storage_if.c ****   * @param  buf: data buffer.
+ 255:Src/usbd_storage_if.c ****   * @param  blk_addr: Logical block address.
+ 256:Src/usbd_storage_if.c ****   * @param  blk_len: Blocks number.
+ 257:Src/usbd_storage_if.c ****   * @retval USBD_OK if all operations are OK else USBD_FAIL
+ 258:Src/usbd_storage_if.c ****   */
+ 259:Src/usbd_storage_if.c **** int8_t STORAGE_Write_HS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t blk_len)
+ 260:Src/usbd_storage_if.c **** {
+ 159              		.loc 1 260 1 is_stmt 1 view -0
+ 160              		.cfi_startproc
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 0, uses_anonymous_args = 0
+ 163              		@ link register save eliminated.
+ 261:Src/usbd_storage_if.c ****   /* USER CODE BEGIN 14 */
+ 262:Src/usbd_storage_if.c ****   UNUSED(lun);
+ 164              		.loc 1 262 3 view .LVU32
+ 263:Src/usbd_storage_if.c ****   UNUSED(buf);
+ 165              		.loc 1 263 3 view .LVU33
+ 264:Src/usbd_storage_if.c ****   UNUSED(blk_addr);
+ 166              		.loc 1 264 3 view .LVU34
+ 265:Src/usbd_storage_if.c ****   UNUSED(blk_len);
+ 167              		.loc 1 265 3 view .LVU35
+ 266:Src/usbd_storage_if.c **** 
+ 267:Src/usbd_storage_if.c ****   return (USBD_OK);
+ 168              		.loc 1 267 3 view .LVU36
+ 268:Src/usbd_storage_if.c ****   /* USER CODE END 14 */
+ 269:Src/usbd_storage_if.c **** }
+ 169              		.loc 1 269 1 is_stmt 0 view .LVU37
+ 170 0000 0020     		movs	r0, #0
+ 171              	.LVL11:
+ 172              		.loc 1 269 1 view .LVU38
+ 173 0002 7047     		bx	lr
+ 174              		.cfi_endproc
+ 175              	.LFE139:
+ 177              		.section	.text.STORAGE_GetMaxLun_HS,"ax",%progbits
+ 178              		.align	1
+ 179              		.syntax unified
+ 180              		.thumb
+ 181              		.thumb_func
+ 183              	STORAGE_GetMaxLun_HS:
+ 184              	.LFB140:
+ 270:Src/usbd_storage_if.c **** 
+ 271:Src/usbd_storage_if.c **** /**
+ 272:Src/usbd_storage_if.c ****   * @brief  Returns the Max Supported LUNs.
+ 273:Src/usbd_storage_if.c ****   * @param  None
+ 274:Src/usbd_storage_if.c ****   * @retval Lun(s) number.
+ 275:Src/usbd_storage_if.c ****   */
+ 276:Src/usbd_storage_if.c **** int8_t STORAGE_GetMaxLun_HS(void)
+ 277:Src/usbd_storage_if.c **** {
+ 185              		.loc 1 277 1 is_stmt 1 view -0
+ 186              		.cfi_startproc
+ 187              		@ args = 0, pretend = 0, frame = 0
+ 188              		@ frame_needed = 0, uses_anonymous_args = 0
+ 189              		@ link register save eliminated.
+ 278:Src/usbd_storage_if.c ****   /* USER CODE BEGIN 15 */
+ 279:Src/usbd_storage_if.c ****   return (STORAGE_LUN_NBR - 1);
+ 190              		.loc 1 279 3 view .LVU40
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s 			page 9
+
+
+ 280:Src/usbd_storage_if.c ****   /* USER CODE END 15 */
+ 281:Src/usbd_storage_if.c **** }
+ 191              		.loc 1 281 1 is_stmt 0 view .LVU41
+ 192 0000 0020     		movs	r0, #0
+ 193 0002 7047     		bx	lr
+ 194              		.cfi_endproc
+ 195              	.LFE140:
+ 197              		.global	USBD_Storage_Interface_fops_HS
+ 198              		.global	STORAGE_Inquirydata_HS
+ 199              		.section	.data.USBD_Storage_Interface_fops_HS,"aw"
+ 200              		.align	2
+ 203              	USBD_Storage_Interface_fops_HS:
+ 204 0000 00000000 		.word	STORAGE_Init_HS
+ 205 0004 00000000 		.word	STORAGE_GetCapacity_HS
+ 206 0008 00000000 		.word	STORAGE_IsReady_HS
+ 207 000c 00000000 		.word	STORAGE_IsWriteProtected_HS
+ 208 0010 00000000 		.word	STORAGE_Read_HS
+ 209 0014 00000000 		.word	STORAGE_Write_HS
+ 210 0018 00000000 		.word	STORAGE_GetMaxLun_HS
+ 211 001c 00000000 		.word	STORAGE_Inquirydata_HS
+ 212              		.section	.rodata.STORAGE_Inquirydata_HS,"a"
+ 213              		.align	2
+ 216              	STORAGE_Inquirydata_HS:
+ 217 0000 00800202 		.ascii	"\000\200\002\002\037\000\000\000STM     Product    "
+ 217      1F000000 
+ 217      53544D20 
+ 217      20202020 
+ 217      50726F64 
+ 218 001b 20202020 		.ascii	"     0.01"
+ 218      20302E30 
+ 218      31
+ 219              		.text
+ 220              	.Letext0:
+ 221              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 222              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 223              		.file 4 "Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc.h"
+ 224              		.file 5 "Inc/usbd_storage_if.h"
+ 225              		.file 6 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 usbd_storage_if.c
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:20     .text.STORAGE_Init_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:25     .text.STORAGE_Init_HS:00000000 STORAGE_Init_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:45     .text.STORAGE_GetCapacity_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:50     .text.STORAGE_GetCapacity_HS:00000000 STORAGE_GetCapacity_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:77     .text.STORAGE_IsReady_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:82     .text.STORAGE_IsReady_HS:00000000 STORAGE_IsReady_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:101    .text.STORAGE_IsWriteProtected_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:106    .text.STORAGE_IsWriteProtected_HS:00000000 STORAGE_IsWriteProtected_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:124    .text.STORAGE_Read_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:129    .text.STORAGE_Read_HS:00000000 STORAGE_Read_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:151    .text.STORAGE_Write_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:156    .text.STORAGE_Write_HS:00000000 STORAGE_Write_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:178    .text.STORAGE_GetMaxLun_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:183    .text.STORAGE_GetMaxLun_HS:00000000 STORAGE_GetMaxLun_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:203    .data.USBD_Storage_Interface_fops_HS:00000000 USBD_Storage_Interface_fops_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:216    .rodata.STORAGE_Inquirydata_HS:00000000 STORAGE_Inquirydata_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:200    .data.USBD_Storage_Interface_fops_HS:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccdTEkLo.s:213    .rodata.STORAGE_Inquirydata_HS:00000000 $d
+
+NO UNDEFINED SYMBOLS

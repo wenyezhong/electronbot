@@ -114,7 +114,7 @@ int main(void)
   MX_TIM3_Init();  
   
   /* USER CODE BEGIN 2 */
-  printf("hello ServoDrive coming...\r\n");
+  // printf("hello ServoDrive coming...\r\n");
   /* USER CODE END 2 */
 
   /* Infinite loop */

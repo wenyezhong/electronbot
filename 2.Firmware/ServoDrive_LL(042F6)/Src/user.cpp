@@ -15,7 +15,7 @@ void Main(void)
     
     if (boardConfig.configStatus != CONFIG_OK) // use default settings
     {
-        printf("config not\r\n");
+        //printf("config not\r\n");
         boardConfig = BoardConfig_t{
             .configStatus = CONFIG_OK,
             .nodeId = 12, // 7bit address, has to be even number
@@ -36,7 +36,7 @@ void Main(void)
     }
     else
     {
-        printf("configed\r\n");
+        // printf("configed\r\n");
     }
     motor.SetTorqueLimit(boardConfig.toqueLimit);
     motor.mechanicalAngleMin = boardConfig.mechanicalAngleMin;
@@ -94,7 +94,10 @@ void I2C_SlaveDMARxCpltCallback()
     ErrorStatus state;
 
     float valF = *((float*) (i2cDataRx + 1));
-
+    int i;
+    /*for(i =0;i<5;i++)
+        printf("%.2x ",i2cDataRx[i]);
+    printf("\r\n");*/
     i2cDataTx[0] = i2cDataRx[0];
     switch (i2cDataRx[0])
     {
