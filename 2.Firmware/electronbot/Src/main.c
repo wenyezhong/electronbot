@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "i2c.h"
+#include "spi.h"
 #include "usart.h"
 #include "usb_device.h"
 #include "gpio.h"
@@ -26,6 +27,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
+#include "w25q32.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -109,9 +111,11 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   MX_USART1_UART_Init();
-  // MX_USB_DEVICE_Init();
+  MX_USB_DEVICE_Init();
+  MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
   printf("hello electronbot coming...\r\n");
+  SpiFlash_Init();
   /* i2cTxData[0]=0x21;
   i2cTxData[1]=0x02;
   TransmitAndReceiveI2cPacket(0); 
@@ -125,8 +129,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-    HAL_StatusTypeDef sta=HAL_UART_Receive(&huart1, i2cTxData, 6, 0xffffffff);
+     /*  HAL_StatusTypeDef sta=HAL_UART_Receive(&huart1, i2cTxData, 6, 0xffffffff);
     if(sta == HAL_OK)
     {
        for(i =0;i<6;i++)
@@ -137,7 +140,8 @@ int main(void)
         printf("%.2x ",i2cRxData[i]);
       printf("\r\n");
 
-    }
+    } */
+    /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
