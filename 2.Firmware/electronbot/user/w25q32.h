@@ -48,4 +48,7 @@ void FlashPage_Write(uint16_t pageAddr,uint8_t *ptr,uint32_t pageSize);
 void FlashChip_Erase(void);
 void FlashSector_Erase(uint16_t sectorAddr);
 void FlashFastRead(uint32_t addr,uint8_t *ptr,uint32_t len);
+
+void write_sector(uint32_t blk_addr,uint8_t *buf, uint16_t blk_len);
+void read_sector(uint32_t blk_addr,uint8_t *buf, uint16_t blk_len);
 #endif

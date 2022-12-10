@@ -41,7 +41,8 @@ build/usbd_storage_if.o: Src/usbd_storage_if.c Inc/usbd_storage_if.h \
  Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h \
  Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc_scsi.h \
  Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
- Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h
+ Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
+ user/w25q32.h Inc/spi.h Inc/gpio.h
 Inc/usbd_storage_if.h:
 Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc.h:
 Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc_bot.h:
@@ -89,3 +90,6 @@ Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h:
 Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc_scsi.h:
 Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:
 Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
+user/w25q32.h:
+Inc/spi.h:
+Inc/gpio.h:

@@ -1,0 +1,1313 @@
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"user.cpp"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef,"axG",%progbits,_ZN5RobotC5E
+  20              		.align	1
+  21              		.weak	_ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	_ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:
+  27              		.fnstart
+  28              	.LVL0:
+  29              	.LFB477:
+  30              		.file 1 "Bsp/robot.h"
+   1:Bsp/robot.h   **** #ifndef ELECTRONBOT_FW_ROBOT_H
+   2:Bsp/robot.h   **** #define ELECTRONBOT_FW_ROBOT_H
+   3:Bsp/robot.h   **** 
+   4:Bsp/robot.h   **** #include "stm32f4xx.h"
+   5:Bsp/robot.h   **** #include "screen.h"
+   6:Bsp/robot.h   **** #include "i2c.h"
+   7:Bsp/robot.h   **** 
+   8:Bsp/robot.h   **** 
+   9:Bsp/robot.h   **** 
+  10:Bsp/robot.h   **** #define ANY 0
+  11:Bsp/robot.h   **** 
+  12:Bsp/robot.h   **** class Robot
+  13:Bsp/robot.h   **** {
+  14:Bsp/robot.h   **** public:
+  15:Bsp/robot.h   ****     Robot(SPI_HandleTypeDef* _screenSpi, I2C_HandleTypeDef* _motorI2c) :
+  31              		.loc 1 15 5 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		.loc 1 15 5 is_stmt 0 view .LVU1
+  36 0000 70B5     		push	{r4, r5, r6, lr}
+  37              		.save {r4, r5, r6, lr}
+  38              	.LCFI0:
+  39              		.cfi_def_cfa_offset 16
+  40              		.cfi_offset 4, -16
+  41              		.cfi_offset 5, -12
+  42              		.cfi_offset 6, -8
+  43              		.cfi_offset 14, -4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 2
+
+
+  44 0002 0646     		mov	r6, r0
+  45              	.LVL1:
+  46              	.LBB12:
+  47              	.LBB13:
+  48              	.LBI13:
+  16:Bsp/robot.h   ****         screenSpi(_screenSpi), motorI2c(_motorI2c)
+  17:Bsp/robot.h   ****     {
+  18:Bsp/robot.h   ****         lcd = new Screen(screenSpi);
+  19:Bsp/robot.h   **** 
+  20:Bsp/robot.h   ****         /********* Need to adjust parameters for specific hardware *********/
+  21:Bsp/robot.h   ****         joint[ANY] = JointStatus_t{
+  22:Bsp/robot.h   ****             0,
+  23:Bsp/robot.h   ****             -180,
+  24:Bsp/robot.h   ****             180,
+  25:Bsp/robot.h   ****             90
+  26:Bsp/robot.h   ****         };
+  27:Bsp/robot.h   **** 
+  28:Bsp/robot.h   ****         joint[1] = JointStatus_t{ // Head
+  29:Bsp/robot.h   ****             2,
+  30:Bsp/robot.h   ****             70,
+  31:Bsp/robot.h   ****             95,
+  32:Bsp/robot.h   ****             0,
+  33:Bsp/robot.h   ****             -15,
+  34:Bsp/robot.h   ****             15,
+  35:Bsp/robot.h   ****             true
+  36:Bsp/robot.h   ****             // electron.SetJointId(electron.joint[ANY], 2);
+  37:Bsp/robot.h   ****             // electron.SetJointInitAngle(electron.joint[ANY], 0);
+  38:Bsp/robot.h   ****             // electron.SetJointKp(electron.joint[ANY], 30);
+  39:Bsp/robot.h   ****             // electron.SetJointKi(electron.joint[ANY], 0.4);
+  40:Bsp/robot.h   ****             // electron.SetJointKd(electron.joint[ANY], 200);
+  41:Bsp/robot.h   ****             // electron.SetJointTorqueLimit(electron.joint[ANY], 0.5);
+  42:Bsp/robot.h   ****             // electron.SetJointEnable(electron.joint[ANY], true);
+  43:Bsp/robot.h   ****         };
+  44:Bsp/robot.h   **** 
+  45:Bsp/robot.h   ****         joint[2] = JointStatus_t{ // Left arm roll
+  46:Bsp/robot.h   ****             4,
+  47:Bsp/robot.h   ****             -9,
+  48:Bsp/robot.h   ****             3,
+  49:Bsp/robot.h   ****             0,
+  50:Bsp/robot.h   ****             0,
+  51:Bsp/robot.h   ****             30,
+  52:Bsp/robot.h   ****             false
+  53:Bsp/robot.h   ****             // electron.SetJointId(electron.joint[ANY], 4);
+  54:Bsp/robot.h   ****             // electron.SetJointInitAngle(electron.joint[ANY], 0);
+  55:Bsp/robot.h   ****             // electron.SetJointKp(electron.joint[ANY], 50);
+  56:Bsp/robot.h   ****             // electron.SetJointKi(electron.joint[ANY], 0.8);
+  57:Bsp/robot.h   ****             // electron.SetJointKd(electron.joint[ANY], 600);
+  58:Bsp/robot.h   ****             // electron.SetJointTorqueLimit(electron.joint[ANY], 1);
+  59:Bsp/robot.h   ****             // electron.SetJointEnable(electron.joint[ANY], true);
+  60:Bsp/robot.h   ****         };
+  61:Bsp/robot.h   **** 
+  62:Bsp/robot.h   ****         joint[3] = JointStatus_t{ // Left arm pitch
+  63:Bsp/robot.h   ****             6,
+  64:Bsp/robot.h   ****             -16,
+  65:Bsp/robot.h   ****             117,
+  66:Bsp/robot.h   ****             0,
+  67:Bsp/robot.h   ****             -20,
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 3
+
+
+  68:Bsp/robot.h   ****             180,
+  69:Bsp/robot.h   ****             false
+  70:Bsp/robot.h   ****             // electron.SetJointId(electron.joint[ANY],6);
+  71:Bsp/robot.h   ****             // electron.SetJointInitAngle(electron.joint[ANY], 0);
+  72:Bsp/robot.h   ****             // electron.SetJointKp(electron.joint[ANY], 50);
+  73:Bsp/robot.h   ****             // electron.SetJointKi(electron.joint[ANY], 0.8);
+  74:Bsp/robot.h   ****             // electron.SetJointKd(electron.joint[ANY], 300);
+  75:Bsp/robot.h   ****             // electron.SetJointTorqueLimit(electron.joint[ANY], 0.5);
+  76:Bsp/robot.h   ****             // electron.SetJointEnable(electron.joint[ANY], true);
+  77:Bsp/robot.h   ****         };
+  78:Bsp/robot.h   **** 
+  79:Bsp/robot.h   ****         joint[4] = JointStatus_t{ // Right arm roll
+  80:Bsp/robot.h   ****             8,
+  81:Bsp/robot.h   ****             133,
+  82:Bsp/robot.h   ****             141,
+  83:Bsp/robot.h   ****             0,
+  84:Bsp/robot.h   ****             0,
+  85:Bsp/robot.h   ****             30,
+  86:Bsp/robot.h   ****             true
+  87:Bsp/robot.h   ****             // electron.SetJointId(electron.joint[ANY], 8);
+  88:Bsp/robot.h   ****             // electron.SetJointInitAngle(electron.joint[ANY], 0);
+  89:Bsp/robot.h   ****             // electron.SetJointKp(electron.joint[ANY], 50);
+  90:Bsp/robot.h   ****             // electron.SetJointKi(electron.joint[ANY], 0.8);
+  91:Bsp/robot.h   ****             // electron.SetJointKd(electron.joint[ANY], 600);
+  92:Bsp/robot.h   ****             // electron.SetJointTorqueLimit(electron.joint[ANY], 1);
+  93:Bsp/robot.h   ****             // electron.SetJointEnable(electron.joint[ANY], true);
+  94:Bsp/robot.h   ****         };
+  95:Bsp/robot.h   **** 
+  96:Bsp/robot.h   ****         joint[5] = JointStatus_t{ // Right arm pitch
+  97:Bsp/robot.h   ****             10,
+  98:Bsp/robot.h   ****             15,
+  99:Bsp/robot.h   ****             150,
+ 100:Bsp/robot.h   ****             0,
+ 101:Bsp/robot.h   ****             -20,
+ 102:Bsp/robot.h   ****             180,
+ 103:Bsp/robot.h   ****             true
+ 104:Bsp/robot.h   ****             // electron.SetJointId(electron.joint[ANY],10);
+ 105:Bsp/robot.h   ****             // electron.SetJointInitAngle(electron.joint[ANY], 0);
+ 106:Bsp/robot.h   ****             // electron.SetJointKp(electron.joint[ANY], 50);
+ 107:Bsp/robot.h   ****             // electron.SetJointKi(electron.joint[ANY], 0.8);
+ 108:Bsp/robot.h   ****             // electron.SetJointKd(electron.joint[ANY], 300);
+ 109:Bsp/robot.h   ****             // electron.SetJointTorqueLimit(electron.joint[ANY], 0.5);
+ 110:Bsp/robot.h   ****             // electron.SetJointEnable(electron.joint[ANY], true);
+ 111:Bsp/robot.h   ****         };
+ 112:Bsp/robot.h   **** 
+ 113:Bsp/robot.h   ****         joint[6] = JointStatus_t{ // Body
+ 114:Bsp/robot.h   ****             12,
+ 115:Bsp/robot.h   ****             0,
+ 116:Bsp/robot.h   ****             180,
+ 117:Bsp/robot.h   ****             0,
+ 118:Bsp/robot.h   ****             -90,
+ 119:Bsp/robot.h   ****             90,
+ 120:Bsp/robot.h   ****             false
+ 121:Bsp/robot.h   ****             // electron.SetJointId(electron.joint[ANY],12);
+ 122:Bsp/robot.h   ****             // electron.SetJointInitAngle(electron.joint[ANY], 0);
+ 123:Bsp/robot.h   ****             // electron.SetJointKp(electron.joint[ANY], 150);
+ 124:Bsp/robot.h   ****             // electron.SetJointKi(electron.joint[ANY], 0.8);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 4
+
+
+ 125:Bsp/robot.h   ****             // electron.SetJointKd(electron.joint[ANY], 300);
+ 126:Bsp/robot.h   ****             // electron.SetJointTorqueLimit(electron.joint[ANY], 0.5);
+ 127:Bsp/robot.h   ****             // electron.SetJointEnable(electron.joint[ANY], true);
+ 128:Bsp/robot.h   ****         };
+ 129:Bsp/robot.h   ****         /********* Need to adjust parameters for specific hardware *********/
+ 130:Bsp/robot.h   ****     }
+ 131:Bsp/robot.h   **** 
+ 132:Bsp/robot.h   **** 
+ 133:Bsp/robot.h   ****     struct UsbBuffer_t
+  49              		.loc 1 133 12 is_stmt 1 view .LVU2
+  50              	.LBB14:
+  51 0004 00F5A833 		add	r3, r0, #86016
+  52 0008 0020     		movs	r0, #0
+  53              	.LVL2:
+  54              		.loc 1 133 12 is_stmt 0 view .LVU3
+  55 000a A3F8E001 		strh	r0, [r3, #480]	@ movhi
+  56 000e 83F8E201 		strb	r0, [r3, #482]
+  57 0012 C3F8E401 		str	r0, [r3, #484]
+  58              	.LVL3:
+  59              		.loc 1 133 12 view .LVU4
+  60              	.LBE14:
+  61              	.LBE13:
+  16:Bsp/robot.h   ****         screenSpi(_screenSpi), motorI2c(_motorI2c)
+  62              		.loc 1 16 50 view .LVU5
+  63 0016 03F5F473 		add	r3, r3, #488
+  64 001a 4FF0060C 		mov	ip, #6
+  65 001e 04E0     		b	.L3
+  66              	.L5:
+  67              	.LVL4:
+  68              	.LBB15:
+  69              	.LBI15:
+ 134:Bsp/robot.h   ****     {
+ 135:Bsp/robot.h   ****         uint8_t extraDataTx[32];
+ 136:Bsp/robot.h   ****         uint8_t rxData[2][60 * 240 * 3 + 32]; // 43232bytes, 43200 of which are lcd buffer
+ 137:Bsp/robot.h   ****         volatile uint16_t receivedPacketLen = 0;
+ 138:Bsp/robot.h   ****         volatile uint8_t pingPongIndex = 0;
+ 139:Bsp/robot.h   ****         volatile uint32_t rxDataOffset = 0;
+ 140:Bsp/robot.h   ****     };
+ 141:Bsp/robot.h   ****     UsbBuffer_t usbBuffer;
+ 142:Bsp/robot.h   **** 
+ 143:Bsp/robot.h   **** 
+ 144:Bsp/robot.h   ****     struct JointStatus_t
+  70              		.loc 1 144 12 is_stmt 1 view .LVU6
+  71              	.LBB16:
+  72 0020 0020     		movs	r0, #0
+  73 0022 1876     		strb	r0, [r3, #24]
+  74              	.LVL5:
+  75              		.loc 1 144 12 is_stmt 0 view .LVU7
+  76              	.LBE16:
+  77              	.LBE15:
+  16:Bsp/robot.h   ****         screenSpi(_screenSpi), motorI2c(_motorI2c)
+  78              		.loc 1 16 50 view .LVU8
+  79 0024 1C33     		adds	r3, r3, #28
+  16:Bsp/robot.h   ****         screenSpi(_screenSpi), motorI2c(_motorI2c)
+  80              		.loc 1 16 50 is_stmt 1 view .LVU9
+  81 0026 0CF1FF3C 		add	ip, ip, #-1
+  82              	.L3:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 5
+
+
+  16:Bsp/robot.h   ****         screenSpi(_screenSpi), motorI2c(_motorI2c)
+  83              		.loc 1 16 50 discriminator 4 view .LVU10
+  84 002a BCF1000F 		cmp	ip, #0
+  85 002e F7DA     		bge	.L5
+  16:Bsp/robot.h   ****         screenSpi(_screenSpi), motorI2c(_motorI2c)
+  86              		.loc 1 16 50 is_stmt 0 discriminator 2 view .LVU11
+  87 0030 06F5A834 		add	r4, r6, #86016
+  88 0034 C4F8B012 		str	r1, [r4, #688]
+  89 0038 C4F8B422 		str	r2, [r4, #692]
+  18:Bsp/robot.h   **** 
+  90              		.loc 1 18 9 is_stmt 1 discriminator 2 view .LVU12
+  18:Bsp/robot.h   **** 
+  91              		.loc 1 18 35 is_stmt 0 discriminator 2 view .LVU13
+  92 003c 0C20     		movs	r0, #12
+  93 003e FFF7FEFF 		bl	_Znwj
+  94              	.LVL6:
+  18:Bsp/robot.h   **** 
+  95              		.loc 1 18 35 discriminator 2 view .LVU14
+  96 0042 D4F8B022 		ldr	r2, [r4, #688]
+  97              	.LVL7:
+  98              	.LBB17:
+  99              	.LBI17:
+ 100              		.file 2 "Bsp/screen.h"
+   1:Bsp/screen.h  **** #ifndef ELECTRONBOT_FW_SCREEN_H
+   2:Bsp/screen.h  **** #define ELECTRONBOT_FW_SCREEN_H
+   3:Bsp/screen.h  **** 
+   4:Bsp/screen.h  **** #include "stm32f4xx.h"
+   5:Bsp/screen.h  **** #include "main.h"
+   6:Bsp/screen.h  **** #include "spi.h"
+   7:Bsp/screen.h  **** 
+   8:Bsp/screen.h  **** 
+   9:Bsp/screen.h  **** class Screen
+  10:Bsp/screen.h  **** {
+  11:Bsp/screen.h  **** public:
+  12:Bsp/screen.h  ****     explicit Screen(SPI_HandleTypeDef* _spi) :
+ 101              		.loc 2 12 14 is_stmt 1 discriminator 2 view .LVU15
+ 102              	.LBB18:
+  13:Bsp/screen.h  ****         spi(_spi)
+ 103              		.loc 2 13 17 is_stmt 0 discriminator 2 view .LVU16
+ 104 0046 0023     		movs	r3, #0
+ 105 0048 0370     		strb	r3, [r0]
+ 106 004a 4260     		str	r2, [r0, #4]
+ 107 004c 0372     		strb	r3, [r0, #8]
+ 108 004e 0223     		movs	r3, #2
+ 109 0050 4372     		strb	r3, [r0, #9]
+ 110              	.LVL8:
+ 111              		.loc 2 13 17 discriminator 2 view .LVU17
+ 112              	.LBE18:
+ 113              	.LBE17:
+  18:Bsp/robot.h   **** 
+ 114              		.loc 1 18 13 discriminator 2 view .LVU18
+ 115 0052 C4F8AC02 		str	r0, [r4, #684]
+  21:Bsp/robot.h   ****             0,
+ 116              		.loc 1 21 9 is_stmt 1 discriminator 2 view .LVU19
+  21:Bsp/robot.h   ****             0,
+ 117              		.loc 1 21 20 is_stmt 0 discriminator 2 view .LVU20
+ 118 0056 2A4D     		ldr	r5, .L6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 6
+
+
+ 119 0058 04F5F47C 		add	ip, r4, #488
+ 120 005c AE46     		mov	lr, r5
+ 121 005e BEE80F00 		ldmia	lr!, {r0, r1, r2, r3}
+ 122 0062 ACE80F00 		stmia	ip!, {r0, r1, r2, r3}
+ 123 0066 9EE80700 		ldm	lr, {r0, r1, r2}
+ 124 006a 8CE80700 		stm	ip, {r0, r1, r2}
+  28:Bsp/robot.h   ****             2,
+ 125              		.loc 1 28 9 is_stmt 1 discriminator 2 view .LVU21
+  28:Bsp/robot.h   ****             2,
+ 126              		.loc 1 28 18 is_stmt 0 discriminator 2 view .LVU22
+ 127 006e 04F5017C 		add	ip, r4, #516
+ 128 0072 05F11C0E 		add	lr, r5, #28
+ 129 0076 BEE80F00 		ldmia	lr!, {r0, r1, r2, r3}
+ 130 007a ACE80F00 		stmia	ip!, {r0, r1, r2, r3}
+ 131 007e 9EE80700 		ldm	lr, {r0, r1, r2}
+ 132 0082 8CE80700 		stm	ip, {r0, r1, r2}
+  45:Bsp/robot.h   ****             4,
+ 133              		.loc 1 45 9 is_stmt 1 discriminator 2 view .LVU23
+  45:Bsp/robot.h   ****             4,
+ 134              		.loc 1 45 18 is_stmt 0 discriminator 2 view .LVU24
+ 135 0086 04F5087C 		add	ip, r4, #544
+ 136 008a 05F1380E 		add	lr, r5, #56
+ 137 008e BEE80F00 		ldmia	lr!, {r0, r1, r2, r3}
+ 138 0092 ACE80F00 		stmia	ip!, {r0, r1, r2, r3}
+ 139 0096 9EE80700 		ldm	lr, {r0, r1, r2}
+ 140 009a 8CE80700 		stm	ip, {r0, r1, r2}
+  62:Bsp/robot.h   ****             6,
+ 141              		.loc 1 62 9 is_stmt 1 discriminator 2 view .LVU25
+  62:Bsp/robot.h   ****             6,
+ 142              		.loc 1 62 18 is_stmt 0 discriminator 2 view .LVU26
+ 143 009e 04F50F7C 		add	ip, r4, #572
+ 144 00a2 05F1540E 		add	lr, r5, #84
+ 145 00a6 BEE80F00 		ldmia	lr!, {r0, r1, r2, r3}
+ 146 00aa ACE80F00 		stmia	ip!, {r0, r1, r2, r3}
+ 147 00ae 9EE80700 		ldm	lr, {r0, r1, r2}
+ 148 00b2 8CE80700 		stm	ip, {r0, r1, r2}
+  79:Bsp/robot.h   ****             8,
+ 149              		.loc 1 79 9 is_stmt 1 discriminator 2 view .LVU27
+  79:Bsp/robot.h   ****             8,
+ 150              		.loc 1 79 18 is_stmt 0 discriminator 2 view .LVU28
+ 151 00b6 04F5167C 		add	ip, r4, #600
+ 152 00ba 05F1700E 		add	lr, r5, #112
+ 153 00be BEE80F00 		ldmia	lr!, {r0, r1, r2, r3}
+ 154 00c2 ACE80F00 		stmia	ip!, {r0, r1, r2, r3}
+ 155 00c6 9EE80700 		ldm	lr, {r0, r1, r2}
+ 156 00ca 8CE80700 		stm	ip, {r0, r1, r2}
+  96:Bsp/robot.h   ****             10,
+ 157              		.loc 1 96 9 is_stmt 1 discriminator 2 view .LVU29
+  96:Bsp/robot.h   ****             10,
+ 158              		.loc 1 96 18 is_stmt 0 discriminator 2 view .LVU30
+ 159 00ce 04F51D7C 		add	ip, r4, #628
+ 160 00d2 05F18C0E 		add	lr, r5, #140
+ 161 00d6 BEE80F00 		ldmia	lr!, {r0, r1, r2, r3}
+ 162 00da ACE80F00 		stmia	ip!, {r0, r1, r2, r3}
+ 163 00de 9EE80700 		ldm	lr, {r0, r1, r2}
+ 164 00e2 8CE80700 		stm	ip, {r0, r1, r2}
+ 113:Bsp/robot.h   ****             12,
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 7
+
+
+ 165              		.loc 1 113 9 is_stmt 1 discriminator 2 view .LVU31
+ 113:Bsp/robot.h   ****             12,
+ 166              		.loc 1 113 18 is_stmt 0 discriminator 2 view .LVU32
+ 167 00e6 04F52474 		add	r4, r4, #656
+ 168 00ea 05F1A80C 		add	ip, r5, #168
+ 169 00ee BCE80F00 		ldmia	ip!, {r0, r1, r2, r3}
+ 170 00f2 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 171 00f4 9CE80700 		ldm	ip, {r0, r1, r2}
+ 172 00f8 84E80700 		stm	r4, {r0, r1, r2}
+ 173              	.LBE12:
+ 130:Bsp/robot.h   **** 
+ 174              		.loc 1 130 5 discriminator 2 view .LVU33
+ 175 00fc 3046     		mov	r0, r6
+ 176 00fe 70BD     		pop	{r4, r5, r6, pc}
+ 177              	.LVL9:
+ 178              	.L7:
+ 130:Bsp/robot.h   **** 
+ 179              		.loc 1 130 5 discriminator 2 view .LVU34
+ 180              		.align	2
+ 181              	.L6:
+ 182 0100 00000000 		.word	.LANCHOR0
+ 183              		.cfi_endproc
+ 184              	.LFE477:
+ 185              		.fnend
+ 187              		.weak	_ZN5RobotC1EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
+ 188              		.thumb_set _ZN5RobotC1EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef,_ZN5RobotC2EP19__SPI_HandleTypeD
+ 189              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+ 190              		.align	1
+ 191              		.syntax unified
+ 192              		.thumb
+ 193              		.thumb_func
+ 195              	_Z41__static_initialization_and_destruction_0ii:
+ 196              		.fnstart
+ 197              	.LVL10:
+ 198              	.LFB481:
+ 199              		.file 3 "UserApp/user.cpp"
+   1:UserApp/user.cpp **** #include <cmath>
+   2:UserApp/user.cpp **** #include "common_inc.h"
+   3:UserApp/user.cpp **** #include "screen.h"
+   4:UserApp/user.cpp **** #include "robot.h"
+   5:UserApp/user.cpp **** #include <stdio.h>
+   6:UserApp/user.cpp **** 
+   7:UserApp/user.cpp **** Robot electron(&hspi1, &hi2c1);
+   8:UserApp/user.cpp **** float jointSetPoints[6];
+   9:UserApp/user.cpp **** bool isEnabled = false;
+  10:UserApp/user.cpp **** /* Thread Definitions -----------------------------------------------------*/
+  11:UserApp/user.cpp **** 
+  12:UserApp/user.cpp **** 
+  13:UserApp/user.cpp **** /* Timer Callbacks -------------------------------------------------------*/
+  14:UserApp/user.cpp **** 
+  15:UserApp/user.cpp **** 
+  16:UserApp/user.cpp **** /* Default Entry -------------------------------------------------------*/
+  17:UserApp/user.cpp **** void Main(void)
+  18:UserApp/user.cpp **** {
+  19:UserApp/user.cpp ****     HAL_Delay(2000);
+  20:UserApp/user.cpp ****     electron.lcd->Init(Screen::DEGREE_0);
+  21:UserApp/user.cpp ****     electron.lcd->SetWindow(0, 239, 0, 239);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 8
+
+
+  22:UserApp/user.cpp ****     // printf("11111111\r\n");
+  23:UserApp/user.cpp **** 
+  24:UserApp/user.cpp ****     // electron.UpdateJointAngle(electron.joint[1], 0);
+  25:UserApp/user.cpp ****     electron.UpdateJointAngle(electron.joint[2], 0);
+  26:UserApp/user.cpp ****     electron.UpdateJointAngle(electron.joint[3], 0);
+  27:UserApp/user.cpp ****     /* electron.UpdateJointAngle(electron.joint[4], 0);
+  28:UserApp/user.cpp ****     electron.UpdateJointAngle(electron.joint[5], 0);
+  29:UserApp/user.cpp ****     electron.UpdateJointAngle(electron.joint[6], 0); */
+  30:UserApp/user.cpp **** 
+  31:UserApp/user.cpp ****     float t = 0;
+  32:UserApp/user.cpp **** 
+  33:UserApp/user.cpp ****     while (true)
+  34:UserApp/user.cpp ****     {
+  35:UserApp/user.cpp **** #if 1
+  36:UserApp/user.cpp ****         for (int p = 0; p < 4; p++)
+  37:UserApp/user.cpp ****         {
+  38:UserApp/user.cpp ****             // send joint angles
+  39:UserApp/user.cpp ****             for (int j = 0; j < 6; j++)
+  40:UserApp/user.cpp ****                 for (int i = 0; i < 4; i++)
+  41:UserApp/user.cpp ****                 {
+  42:UserApp/user.cpp ****                     auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
+  43:UserApp/user.cpp ****                     electron.usbBuffer.extraDataTx[j * 4 + i + 1] = *(b + i);
+  44:UserApp/user.cpp ****                 }
+  45:UserApp/user.cpp ****             // printf("222222\r\n");
+  46:UserApp/user.cpp ****             electron.SendUsbPacket(electron.usbBuffer.extraDataTx, 32);
+  47:UserApp/user.cpp **** 
+  48:UserApp/user.cpp ****             electron.ReceiveUsbPacketUntilSizeIs(224); // last packet is 224bytes
+  49:UserApp/user.cpp ****             // printf("33333\r\n");
+  50:UserApp/user.cpp ****             // get joint angles
+  51:UserApp/user.cpp ****             uint8_t* ptr = electron.GetExtraDataRxPtr();
+  52:UserApp/user.cpp ****             if (isEnabled != (bool) ptr[0])
+  53:UserApp/user.cpp ****             {
+  54:UserApp/user.cpp ****                 isEnabled = ptr[0];
+  55:UserApp/user.cpp ****                 // electron.SetJointEnable(electron.joint[1], isEnabled);
+  56:UserApp/user.cpp ****                 electron.SetJointEnable(electron.joint[2], isEnabled);
+  57:UserApp/user.cpp ****                 electron.SetJointEnable(electron.joint[3], isEnabled);
+  58:UserApp/user.cpp ****           /*       electron.SetJointEnable(electron.joint[4], isEnabled);
+  59:UserApp/user.cpp ****                 electron.SetJointEnable(electron.joint[5], isEnabled);
+  60:UserApp/user.cpp ****                 electron.SetJointEnable(electron.joint[6], isEnabled); */
+  61:UserApp/user.cpp ****             }
+  62:UserApp/user.cpp ****             for (int j = 0; j < 6; j++)
+  63:UserApp/user.cpp ****             {
+  64:UserApp/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+  65:UserApp/user.cpp ****             }
+  66:UserApp/user.cpp ****             // printf("44444444\r\n");
+  67:UserApp/user.cpp ****             while (electron.lcd->isBusy);
+  68:UserApp/user.cpp ****             // printf("555555555\r\n");
+  69:UserApp/user.cpp ****             // memset(electron.GetLcdBufferPtr(),255,60 * 240 * 3);
+  70:UserApp/user.cpp ****             if (p == 0)
+  71:UserApp/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),
+  72:UserApp/user.cpp ****                                                60 * 240 * 3);
+  73:UserApp/user.cpp ****             else
+  74:UserApp/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),
+  75:UserApp/user.cpp ****                                                60 * 240 * 3, true);
+  76:UserApp/user.cpp **** 			// printf("tttttt\r\n");
+  77:UserApp/user.cpp ****         }
+  78:UserApp/user.cpp ****         HAL_Delay(1);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 9
+
+
+  79:UserApp/user.cpp **** #endif
+  80:UserApp/user.cpp **** 
+  81:UserApp/user.cpp **** 
+  82:UserApp/user.cpp ****         t += 0.01;
+  83:UserApp/user.cpp **** 
+  84:UserApp/user.cpp ****         // electron.UpdateJointAngle(electron.joint[1], jointSetPoints[0]);
+  85:UserApp/user.cpp ****         electron.UpdateJointAngle(electron.joint[2], jointSetPoints[1]);
+  86:UserApp/user.cpp ****         electron.UpdateJointAngle(electron.joint[3], jointSetPoints[2]);
+  87:UserApp/user.cpp ****      /*    electron.UpdateJointAngle(electron.joint[4], jointSetPoints[3]);
+  88:UserApp/user.cpp ****         electron.UpdateJointAngle(electron.joint[5], jointSetPoints[4]);
+  89:UserApp/user.cpp ****         electron.UpdateJointAngle(electron.joint[6], jointSetPoints[5]); */
+  90:UserApp/user.cpp **** 
+  91:UserApp/user.cpp ****         HAL_Delay(1);
+  92:UserApp/user.cpp **** 
+  93:UserApp/user.cpp **** //      electron.UpdateJointAngle(electron.joint[ANY], 65 + 75 * std::sin(t));
+  94:UserApp/user.cpp **** 
+  95:UserApp/user.cpp ****         printf("%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n",
+  96:UserApp/user.cpp ****                jointSetPoints[0], jointSetPoints[1], jointSetPoints[2],
+  97:UserApp/user.cpp ****                jointSetPoints[3], jointSetPoints[4], jointSetPoints[5]);
+  98:UserApp/user.cpp ****     }
+  99:UserApp/user.cpp **** }
+ 100:UserApp/user.cpp **** 
+ 101:UserApp/user.cpp **** 
+ 102:UserApp/user.cpp **** extern "C"
+ 103:UserApp/user.cpp **** void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef* hspi)
+ 104:UserApp/user.cpp **** {
+ 105:UserApp/user.cpp ****     electron.lcd->isBusy = false;
+ 106:UserApp/user.cpp **** }...
+ 200              		.loc 3 106 1 is_stmt 1 view -0
+ 201              		.cfi_startproc
+ 202              		@ args = 0, pretend = 0, frame = 0
+ 203              		@ frame_needed = 0, uses_anonymous_args = 0
+ 204              		.loc 3 106 1 is_stmt 0 view .LVU36
+ 205 0000 0128     		cmp	r0, #1
+ 206 0002 00D0     		beq	.L14
+ 207 0004 7047     		bx	lr
+ 208              	.L14:
+ 209              		.loc 3 106 1 discriminator 1 view .LVU37
+ 210 0006 08B5     		push	{r3, lr}
+ 211              	.LCFI1:
+ 212              		.cfi_def_cfa_offset 8
+ 213              		.cfi_offset 3, -8
+ 214              		.cfi_offset 14, -4
+ 215              		.loc 3 106 1 discriminator 1 view .LVU38
+ 216 0008 4FF6FF73 		movw	r3, #65535
+ 217 000c 9942     		cmp	r1, r3
+ 218 000e 00D0     		beq	.L15
+ 219              	.LVL11:
+ 220              	.L8:
+ 221              		.loc 3 106 1 view .LVU39
+ 222 0010 08BD     		pop	{r3, pc}
+ 223              	.LVL12:
+ 224              	.L15:
+   7:UserApp/user.cpp **** Robot electron(&hspi1, &hi2c1);
+ 225              		.loc 3 7 30 view .LVU40
+ 226 0012 034A     		ldr	r2, .L16
+ 227 0014 0349     		ldr	r1, .L16+4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 10
+
+
+ 228              	.LVL13:
+   7:UserApp/user.cpp **** Robot electron(&hspi1, &hi2c1);
+ 229              		.loc 3 7 30 view .LVU41
+ 230 0016 0448     		ldr	r0, .L16+8
+ 231              	.LVL14:
+   7:UserApp/user.cpp **** Robot electron(&hspi1, &hi2c1);
+ 232              		.loc 3 7 30 view .LVU42
+ 233 0018 FFF7FEFF 		bl	_ZN5RobotC1EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
+ 234              	.LVL15:
+ 235              		.loc 3 106 1 view .LVU43
+ 236 001c F8E7     		b	.L8
+ 237              	.L17:
+ 238 001e 00BF     		.align	2
+ 239              	.L16:
+ 240 0020 00000000 		.word	hi2c1
+ 241 0024 00000000 		.word	hspi1
+ 242 0028 00000000 		.word	electron
+ 243              		.cfi_endproc
+ 244              	.LFE481:
+ 245              		.cantunwind
+ 246              		.fnend
+ 248              		.global	__aeabi_f2d
+ 249              		.section	.rodata.Main.str1.4,"aMS",%progbits,1
+ 250              		.align	2
+ 251              	.LC7:
+ 252 0000 252E3266 		.ascii	"%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\012\000"
+ 252      2C252E32 
+ 252      662C252E 
+ 252      32662C25 
+ 252      2E32662C 
+ 253              		.section	.text.Main,"ax",%progbits
+ 254              		.align	1
+ 255              		.global	Main
+ 256              		.syntax unified
+ 257              		.thumb
+ 258              		.thumb_func
+ 260              	Main:
+ 261              		.fnstart
+ 262              	.LFB479:
+  18:UserApp/user.cpp **** {
+ 263              		.loc 3 18 1 is_stmt 1 view -0
+ 264              		.cfi_startproc
+ 265              		@ args = 0, pretend = 0, frame = 0
+ 266              		@ frame_needed = 0, uses_anonymous_args = 0
+ 267 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 268              		.save {r4, r5, r6, r7, r8, r9, r10, lr}
+ 269              	.LCFI2:
+ 270              		.cfi_def_cfa_offset 32
+ 271              		.cfi_offset 4, -32
+ 272              		.cfi_offset 5, -28
+ 273              		.cfi_offset 6, -24
+ 274              		.cfi_offset 7, -20
+ 275              		.cfi_offset 8, -16
+ 276              		.cfi_offset 9, -12
+ 277              		.cfi_offset 10, -8
+ 278              		.cfi_offset 14, -4
+ 279 0004 2DED028B 		vpush.64	{d8}
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 11
+
+
+ 280              		.vsave {d8}
+ 281              	.LCFI3:
+ 282              		.cfi_def_cfa_offset 40
+ 283              		.cfi_offset 80, -40
+ 284              		.cfi_offset 81, -36
+ 285              		.pad #40
+ 286 0008 8AB0     		sub	sp, sp, #40
+ 287              	.LCFI4:
+ 288              		.cfi_def_cfa_offset 80
+  19:UserApp/user.cpp ****     HAL_Delay(2000);
+ 289              		.loc 3 19 5 view .LVU45
+  19:UserApp/user.cpp ****     HAL_Delay(2000);
+ 290              		.loc 3 19 14 is_stmt 0 view .LVU46
+ 291 000a 4FF4FA60 		mov	r0, #2000
+ 292 000e FFF7FEFF 		bl	HAL_Delay
+ 293              	.LVL16:
+  20:UserApp/user.cpp ****     electron.lcd->Init(Screen::DEGREE_0);
+ 294              		.loc 3 20 5 is_stmt 1 view .LVU47
+  20:UserApp/user.cpp ****     electron.lcd->Init(Screen::DEGREE_0);
+ 295              		.loc 3 20 14 is_stmt 0 view .LVU48
+ 296 0012 664C     		ldr	r4, .L35
+ 297 0014 04F5A835 		add	r5, r4, #86016
+  20:UserApp/user.cpp ****     electron.lcd->Init(Screen::DEGREE_0);
+ 298              		.loc 3 20 23 view .LVU49
+ 299 0018 0021     		movs	r1, #0
+ 300 001a D5F8AC02 		ldr	r0, [r5, #684]
+ 301 001e FFF7FEFF 		bl	_ZN6Screen4InitENS_13Orientation_tE
+ 302              	.LVL17:
+  21:UserApp/user.cpp ****     electron.lcd->SetWindow(0, 239, 0, 239);
+ 303              		.loc 3 21 5 is_stmt 1 view .LVU50
+  21:UserApp/user.cpp ****     electron.lcd->SetWindow(0, 239, 0, 239);
+ 304              		.loc 3 21 28 is_stmt 0 view .LVU51
+ 305 0022 EF22     		movs	r2, #239
+ 306 0024 0092     		str	r2, [sp]
+ 307 0026 0023     		movs	r3, #0
+ 308 0028 1946     		mov	r1, r3
+ 309 002a D5F8AC02 		ldr	r0, [r5, #684]
+ 310 002e FFF7FEFF 		bl	_ZN6Screen9SetWindowEtttt
+ 311              	.LVL18:
+  25:UserApp/user.cpp ****     electron.UpdateJointAngle(electron.joint[2], 0);
+ 312              		.loc 3 25 5 is_stmt 1 view .LVU52
+  25:UserApp/user.cpp ****     electron.UpdateJointAngle(electron.joint[2], 0);
+ 313              		.loc 3 25 30 is_stmt 0 view .LVU53
+ 314 0032 9FED5F8A 		vldr.32	s16, .L35+4
+ 315 0036 B0EE480A 		vmov.f32	s0, s16
+ 316 003a 05F50871 		add	r1, r5, #544
+ 317 003e 2046     		mov	r0, r4
+ 318 0040 FFF7FEFF 		bl	_ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf
+ 319              	.LVL19:
+  26:UserApp/user.cpp ****     electron.UpdateJointAngle(electron.joint[3], 0);
+ 320              		.loc 3 26 5 is_stmt 1 view .LVU54
+  26:UserApp/user.cpp ****     electron.UpdateJointAngle(electron.joint[3], 0);
+ 321              		.loc 3 26 30 is_stmt 0 view .LVU55
+ 322 0044 B0EE480A 		vmov.f32	s0, s16
+ 323 0048 05F50F71 		add	r1, r5, #572
+ 324 004c 2046     		mov	r0, r4
+ 325 004e FFF7FEFF 		bl	_ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 12
+
+
+ 326              	.LVL20:
+  31:UserApp/user.cpp ****     float t = 0;
+ 327              		.loc 3 31 5 is_stmt 1 view .LVU56
+  31:UserApp/user.cpp ****     float t = 0;
+ 328              		.loc 3 31 5 is_stmt 0 view .LVU57
+ 329 0052 A9E0     		b	.L30
+ 330              	.LVL21:
+ 331              	.L32:
+ 332              	.LBB19:
+ 333              	.LBB20:
+ 334              	.LBB21:
+ 335              	.LBB22:
+ 336              	.LBB23:
+ 337              	.LBB24:
+  42:UserApp/user.cpp ****                     auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
+ 338              		.loc 3 42 21 is_stmt 1 discriminator 2 view .LVU58
+  42:UserApp/user.cpp ****                     auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
+ 339              		.loc 3 42 67 is_stmt 0 discriminator 2 view .LVU59
+ 340 0054 0CF10103 		add	r3, ip, #1
+  42:UserApp/user.cpp ****                     auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
+ 341              		.loc 3 42 27 discriminator 2 view .LVU60
+ 342 0058 C3EBC303 		rsb	r3, r3, r3, lsl #3
+ 343 005c 9B00     		lsls	r3, r3, #2
+ 344 005e 03F5A833 		add	r3, r3, #86016
+ 345 0062 03F5F873 		add	r3, r3, #496
+ 346 0066 5148     		ldr	r0, .L35
+ 347 0068 0344     		add	r3, r3, r0
+ 348 006a 0433     		adds	r3, r3, #4
+ 349              	.LVL22:
+  43:UserApp/user.cpp ****                     electron.usbBuffer.extraDataTx[j * 4 + i + 1] = *(b + i);
+ 350              		.loc 3 43 21 is_stmt 1 discriminator 2 view .LVU61
+  43:UserApp/user.cpp ****                     electron.usbBuffer.extraDataTx[j * 4 + i + 1] = *(b + i);
+ 351              		.loc 3 43 58 is_stmt 0 discriminator 2 view .LVU62
+ 352 006c 02EB8C01 		add	r1, r2, ip, lsl #2
+  43:UserApp/user.cpp ****                     electron.usbBuffer.extraDataTx[j * 4 + i + 1] = *(b + i);
+ 353              		.loc 3 43 62 discriminator 2 view .LVU63
+ 354 0070 0131     		adds	r1, r1, #1
+  43:UserApp/user.cpp ****                     electron.usbBuffer.extraDataTx[j * 4 + i + 1] = *(b + i);
+ 355              		.loc 3 43 69 discriminator 2 view .LVU64
+ 356 0072 9B5C     		ldrb	r3, [r3, r2]	@ zero_extendqisi2
+ 357              	.LVL23:
+  43:UserApp/user.cpp ****                     electron.usbBuffer.extraDataTx[j * 4 + i + 1] = *(b + i);
+ 358              		.loc 3 43 67 discriminator 2 view .LVU65
+ 359 0074 4354     		strb	r3, [r0, r1]
+ 360              	.LBE24:
+  40:UserApp/user.cpp ****                 for (int i = 0; i < 4; i++)
+ 361              		.loc 3 40 17 is_stmt 1 discriminator 2 view .LVU66
+ 362 0076 0132     		adds	r2, r2, #1
+ 363              	.LVL24:
+ 364              	.L22:
+  40:UserApp/user.cpp ****                 for (int i = 0; i < 4; i++)
+ 365              		.loc 3 40 35 discriminator 3 view .LVU67
+ 366 0078 032A     		cmp	r2, #3
+ 367 007a EBDD     		ble	.L32
+ 368              	.LBE23:
+  39:UserApp/user.cpp ****             for (int j = 0; j < 6; j++)
+ 369              		.loc 3 39 13 discriminator 2 view .LVU68
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 13
+
+
+ 370 007c 0CF1010C 		add	ip, ip, #1
+ 371              	.LVL25:
+ 372              	.L23:
+  39:UserApp/user.cpp ****             for (int j = 0; j < 6; j++)
+ 373              		.loc 3 39 31 discriminator 1 view .LVU69
+ 374 0080 BCF1050F 		cmp	ip, #5
+ 375 0084 01DC     		bgt	.L20
+ 376              	.LBB25:
+  40:UserApp/user.cpp ****                 for (int i = 0; i < 4; i++)
+ 377              		.loc 3 40 26 is_stmt 0 view .LVU70
+ 378 0086 0022     		movs	r2, #0
+ 379 0088 F6E7     		b	.L22
+ 380              	.L20:
+ 381              	.LBE25:
+ 382              	.LBE22:
+  46:UserApp/user.cpp ****             electron.SendUsbPacket(electron.usbBuffer.extraDataTx, 32);
+ 383              		.loc 3 46 13 is_stmt 1 view .LVU71
+  46:UserApp/user.cpp ****             electron.SendUsbPacket(electron.usbBuffer.extraDataTx, 32);
+ 384              		.loc 3 46 35 is_stmt 0 view .LVU72
+ 385 008a 484D     		ldr	r5, .L35
+ 386 008c 2022     		movs	r2, #32
+ 387 008e 2946     		mov	r1, r5
+ 388 0090 2846     		mov	r0, r5
+ 389 0092 FFF7FEFF 		bl	_ZN5Robot13SendUsbPacketEPhm
+ 390              	.LVL26:
+  48:UserApp/user.cpp ****             electron.ReceiveUsbPacketUntilSizeIs(224); // last packet is 224bytes
+ 391              		.loc 3 48 13 is_stmt 1 view .LVU73
+  48:UserApp/user.cpp ****             electron.ReceiveUsbPacketUntilSizeIs(224); // last packet is 224bytes
+ 392              		.loc 3 48 49 is_stmt 0 view .LVU74
+ 393 0096 E021     		movs	r1, #224
+ 394 0098 2846     		mov	r0, r5
+ 395 009a FFF7FEFF 		bl	_ZN5Robot27ReceiveUsbPacketUntilSizeIsEm
+ 396              	.LVL27:
+  51:UserApp/user.cpp ****             uint8_t* ptr = electron.GetExtraDataRxPtr();
+ 397              		.loc 3 51 13 is_stmt 1 view .LVU75
+  51:UserApp/user.cpp ****             uint8_t* ptr = electron.GetExtraDataRxPtr();
+ 398              		.loc 3 51 54 is_stmt 0 view .LVU76
+ 399 009e 2846     		mov	r0, r5
+ 400 00a0 FFF7FEFF 		bl	_ZN5Robot17GetExtraDataRxPtrEv
+ 401              	.LVL28:
+ 402 00a4 0646     		mov	r6, r0
+ 403              	.LVL29:
+  52:UserApp/user.cpp ****             if (isEnabled != (bool) ptr[0])
+ 404              		.loc 3 52 13 is_stmt 1 view .LVU77
+  52:UserApp/user.cpp ****             if (isEnabled != (bool) ptr[0])
+ 405              		.loc 3 52 27 is_stmt 0 view .LVU78
+ 406 00a6 434B     		ldr	r3, .L35+8
+ 407 00a8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  52:UserApp/user.cpp ****             if (isEnabled != (bool) ptr[0])
+ 408              		.loc 3 52 42 view .LVU79
+ 409 00aa 0278     		ldrb	r2, [r0]	@ zero_extendqisi2
+  52:UserApp/user.cpp ****             if (isEnabled != (bool) ptr[0])
+ 410              		.loc 3 52 30 view .LVU80
+ 411 00ac 003A     		subs	r2, r2, #0
+ 412 00ae 18BF     		it	ne
+ 413 00b0 0122     		movne	r2, #1
+  52:UserApp/user.cpp ****             if (isEnabled != (bool) ptr[0])
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 14
+
+
+ 414              		.loc 3 52 13 view .LVU81
+ 415 00b2 9342     		cmp	r3, r2
+ 416 00b4 0BD1     		bne	.L33
+ 417              	.LVL30:
+ 418              	.L24:
+ 419              	.LBB27:
+ 420              	.LBB26:
+  40:UserApp/user.cpp ****                 for (int i = 0; i < 4; i++)
+ 421              		.loc 3 40 26 discriminator 3 view .LVU82
+ 422 00b6 0023     		movs	r3, #0
+ 423              	.L26:
+ 424              	.LVL31:
+  40:UserApp/user.cpp ****                 for (int i = 0; i < 4; i++)
+ 425              		.loc 3 40 26 discriminator 3 view .LVU83
+ 426              	.LBE26:
+ 427              	.LBE27:
+ 428              	.LBB28:
+  62:UserApp/user.cpp ****             for (int j = 0; j < 6; j++)
+ 429              		.loc 3 62 31 is_stmt 1 discriminator 3 view .LVU84
+ 430 00b8 052B     		cmp	r3, #5
+ 431 00ba 14DC     		bgt	.L25
+  64:UserApp/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+ 432              		.loc 3 64 17 discriminator 2 view .LVU85
+  64:UserApp/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+ 433              		.loc 3 64 57 is_stmt 0 discriminator 2 view .LVU86
+ 434 00bc 9D00     		lsls	r5, r3, #2
+  64:UserApp/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+ 435              		.loc 3 64 61 discriminator 2 view .LVU87
+ 436 00be 691C     		adds	r1, r5, #1
+ 437 00c0 3144     		add	r1, r1, r6
+  64:UserApp/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+ 438              		.loc 3 64 37 discriminator 2 view .LVU88
+ 439 00c2 0968     		ldr	r1, [r1]	@ float
+  64:UserApp/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+ 440              		.loc 3 64 35 discriminator 2 view .LVU89
+ 441 00c4 3C4A     		ldr	r2, .L35+12
+ 442 00c6 2A44     		add	r2, r2, r5
+ 443 00c8 1160     		str	r1, [r2]	@ float
+  62:UserApp/user.cpp ****             for (int j = 0; j < 6; j++)
+ 444              		.loc 3 62 13 is_stmt 1 discriminator 2 view .LVU90
+ 445 00ca 0133     		adds	r3, r3, #1
+ 446              	.LVL32:
+  62:UserApp/user.cpp ****             for (int j = 0; j < 6; j++)
+ 447              		.loc 3 62 13 is_stmt 0 discriminator 2 view .LVU91
+ 448 00cc F4E7     		b	.L26
+ 449              	.LVL33:
+ 450              	.L33:
+  62:UserApp/user.cpp ****             for (int j = 0; j < 6; j++)
+ 451              		.loc 3 62 13 discriminator 2 view .LVU92
+ 452              	.LBE28:
+  54:UserApp/user.cpp ****                 isEnabled = ptr[0];
+ 453              		.loc 3 54 17 is_stmt 1 view .LVU93
+  54:UserApp/user.cpp ****                 isEnabled = ptr[0];
+ 454              		.loc 3 54 27 is_stmt 0 view .LVU94
+ 455 00ce 394F     		ldr	r7, .L35+8
+ 456 00d0 3A70     		strb	r2, [r7]
+  56:UserApp/user.cpp ****                 electron.SetJointEnable(electron.joint[2], isEnabled);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 15
+
+
+ 457              		.loc 3 56 17 is_stmt 1 view .LVU95
+  56:UserApp/user.cpp ****                 electron.SetJointEnable(electron.joint[2], isEnabled);
+ 458              		.loc 3 56 40 is_stmt 0 view .LVU96
+ 459 00d2 3A49     		ldr	r1, .L35+16
+ 460 00d4 2846     		mov	r0, r5
+ 461              	.LVL34:
+  56:UserApp/user.cpp ****                 electron.SetJointEnable(electron.joint[2], isEnabled);
+ 462              		.loc 3 56 40 view .LVU97
+ 463 00d6 FFF7FEFF 		bl	_ZN5Robot14SetJointEnableERNS_13JointStatus_tEb
+ 464              	.LVL35:
+  57:UserApp/user.cpp ****                 electron.SetJointEnable(electron.joint[3], isEnabled);
+ 465              		.loc 3 57 17 is_stmt 1 view .LVU98
+  57:UserApp/user.cpp ****                 electron.SetJointEnable(electron.joint[3], isEnabled);
+ 466              		.loc 3 57 40 is_stmt 0 view .LVU99
+ 467 00da 3A78     		ldrb	r2, [r7]	@ zero_extendqisi2
+ 468 00dc 3849     		ldr	r1, .L35+20
+ 469 00de 2846     		mov	r0, r5
+ 470 00e0 FFF7FEFF 		bl	_ZN5Robot14SetJointEnableERNS_13JointStatus_tEb
+ 471              	.LVL36:
+ 472 00e4 E7E7     		b	.L24
+ 473              	.L25:
+  67:UserApp/user.cpp ****             while (electron.lcd->isBusy);
+ 474              		.loc 3 67 13 is_stmt 1 view .LVU100
+  67:UserApp/user.cpp ****             while (electron.lcd->isBusy);
+ 475              		.loc 3 67 34 view .LVU101
+  67:UserApp/user.cpp ****             while (electron.lcd->isBusy);
+ 476              		.loc 3 67 29 is_stmt 0 view .LVU102
+ 477 00e6 374B     		ldr	r3, .L35+24
+ 478 00e8 D3F8AC52 		ldr	r5, [r3, #684]
+  67:UserApp/user.cpp ****             while (electron.lcd->isBusy);
+ 479              		.loc 3 67 34 view .LVU103
+ 480 00ec 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 481 00ee 002B     		cmp	r3, #0
+ 482 00f0 F9D1     		bne	.L25
+  70:UserApp/user.cpp ****             if (p == 0)
+ 483              		.loc 3 70 13 is_stmt 1 view .LVU104
+ 484 00f2 7CB1     		cbz	r4, .L34
+  74:UserApp/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),
+ 485              		.loc 3 74 17 view .LVU105
+  74:UserApp/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),
+ 486              		.loc 3 74 47 is_stmt 0 view .LVU106
+ 487 00f4 2D48     		ldr	r0, .L35
+ 488 00f6 FFF7FEFF 		bl	_ZN5Robot15GetLcdBufferPtrEv
+ 489              	.LVL37:
+ 490 00fa 0146     		mov	r1, r0
+ 491 00fc 0123     		movs	r3, #1
+ 492 00fe 4AF6C002 		movw	r2, #43200
+ 493 0102 2846     		mov	r0, r5
+ 494 0104 FFF7FEFF 		bl	_ZN6Screen16WriteFrameBufferEPhmb
+ 495              	.LVL38:
+ 496              	.L28:
+ 497              	.LBE21:
+  36:UserApp/user.cpp ****         for (int p = 0; p < 4; p++)
+ 498              		.loc 3 36 9 is_stmt 1 discriminator 2 view .LVU107
+ 499 0108 0134     		adds	r4, r4, #1
+ 500              	.LVL39:
+ 501              	.L29:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 16
+
+
+  36:UserApp/user.cpp ****         for (int p = 0; p < 4; p++)
+ 502              		.loc 3 36 27 discriminator 1 view .LVU108
+ 503 010a 032C     		cmp	r4, #3
+ 504 010c 0DDC     		bgt	.L19
+ 505              	.LBB30:
+ 506              	.LBB29:
+  39:UserApp/user.cpp ****             for (int j = 0; j < 6; j++)
+ 507              		.loc 3 39 22 is_stmt 0 view .LVU109
+ 508 010e 4FF0000C 		mov	ip, #0
+ 509 0112 B5E7     		b	.L23
+ 510              	.LVL40:
+ 511              	.L34:
+  39:UserApp/user.cpp ****             for (int j = 0; j < 6; j++)
+ 512              		.loc 3 39 22 view .LVU110
+ 513              	.LBE29:
+  71:UserApp/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),
+ 514              		.loc 3 71 17 is_stmt 1 view .LVU111
+  71:UserApp/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),
+ 515              		.loc 3 71 47 is_stmt 0 view .LVU112
+ 516 0114 2548     		ldr	r0, .L35
+ 517 0116 FFF7FEFF 		bl	_ZN5Robot15GetLcdBufferPtrEv
+ 518              	.LVL41:
+ 519 011a 0146     		mov	r1, r0
+ 520 011c 0023     		movs	r3, #0
+ 521 011e 4AF6C002 		movw	r2, #43200
+ 522 0122 2846     		mov	r0, r5
+ 523 0124 FFF7FEFF 		bl	_ZN6Screen16WriteFrameBufferEPhmb
+ 524              	.LVL42:
+ 525 0128 EEE7     		b	.L28
+ 526              	.LVL43:
+ 527              	.L19:
+  71:UserApp/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),
+ 528              		.loc 3 71 47 view .LVU113
+ 529              	.LBE30:
+ 530              	.LBE20:
+  78:UserApp/user.cpp ****         HAL_Delay(1);
+ 531              		.loc 3 78 9 is_stmt 1 view .LVU114
+  78:UserApp/user.cpp ****         HAL_Delay(1);
+ 532              		.loc 3 78 18 is_stmt 0 view .LVU115
+ 533 012a 0120     		movs	r0, #1
+ 534 012c FFF7FEFF 		bl	HAL_Delay
+ 535              	.LVL44:
+  82:UserApp/user.cpp ****         t += 0.01;
+ 536              		.loc 3 82 9 is_stmt 1 view .LVU116
+  85:UserApp/user.cpp ****         electron.UpdateJointAngle(electron.joint[2], jointSetPoints[1]);
+ 537              		.loc 3 85 9 view .LVU117
+  85:UserApp/user.cpp ****         electron.UpdateJointAngle(electron.joint[2], jointSetPoints[1]);
+ 538              		.loc 3 85 34 is_stmt 0 view .LVU118
+ 539 0130 214C     		ldr	r4, .L35+12
+ 540              	.LVL45:
+  85:UserApp/user.cpp ****         electron.UpdateJointAngle(electron.joint[2], jointSetPoints[1]);
+ 541              		.loc 3 85 34 view .LVU119
+ 542 0132 1E4D     		ldr	r5, .L35
+ 543 0134 94ED010A 		vldr.32	s0, [r4, #4]
+ 544 0138 2049     		ldr	r1, .L35+16
+ 545 013a 2846     		mov	r0, r5
+ 546 013c FFF7FEFF 		bl	_ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 17
+
+
+ 547              	.LVL46:
+  86:UserApp/user.cpp ****         electron.UpdateJointAngle(electron.joint[3], jointSetPoints[2]);
+ 548              		.loc 3 86 9 is_stmt 1 view .LVU120
+  86:UserApp/user.cpp ****         electron.UpdateJointAngle(electron.joint[3], jointSetPoints[2]);
+ 549              		.loc 3 86 34 is_stmt 0 view .LVU121
+ 550 0140 94ED020A 		vldr.32	s0, [r4, #8]
+ 551 0144 1E49     		ldr	r1, .L35+20
+ 552 0146 2846     		mov	r0, r5
+ 553 0148 FFF7FEFF 		bl	_ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf
+ 554              	.LVL47:
+  91:UserApp/user.cpp ****         HAL_Delay(1);
+ 555              		.loc 3 91 9 is_stmt 1 view .LVU122
+  91:UserApp/user.cpp ****         HAL_Delay(1);
+ 556              		.loc 3 91 18 is_stmt 0 view .LVU123
+ 557 014c 0120     		movs	r0, #1
+ 558 014e FFF7FEFF 		bl	HAL_Delay
+ 559              	.LVL48:
+  95:UserApp/user.cpp ****         printf("%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n",
+ 560              		.loc 3 95 9 is_stmt 1 view .LVU124
+  96:UserApp/user.cpp ****                jointSetPoints[0], jointSetPoints[1], jointSetPoints[2],
+ 561              		.loc 3 96 51 is_stmt 0 view .LVU125
+ 562 0152 6668     		ldr	r6, [r4, #4]	@ float
+  96:UserApp/user.cpp ****                jointSetPoints[0], jointSetPoints[1], jointSetPoints[2],
+ 563              		.loc 3 96 70 view .LVU126
+ 564 0154 A768     		ldr	r7, [r4, #8]	@ float
+  97:UserApp/user.cpp ****                jointSetPoints[3], jointSetPoints[4], jointSetPoints[5]);
+ 565              		.loc 3 97 32 view .LVU127
+ 566 0156 D4F80C80 		ldr	r8, [r4, #12]	@ float
+  97:UserApp/user.cpp ****                jointSetPoints[3], jointSetPoints[4], jointSetPoints[5]);
+ 567              		.loc 3 97 51 view .LVU128
+ 568 015a D4F81090 		ldr	r9, [r4, #16]	@ float
+  97:UserApp/user.cpp ****                jointSetPoints[3], jointSetPoints[4], jointSetPoints[5]);
+ 569              		.loc 3 97 70 view .LVU129
+ 570 015e D4F814A0 		ldr	r10, [r4, #20]	@ float
+  95:UserApp/user.cpp ****         printf("%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n",
+ 571              		.loc 3 95 15 view .LVU130
+ 572 0162 2068     		ldr	r0, [r4]	@ float
+ 573 0164 FFF7FEFF 		bl	__aeabi_f2d
+ 574              	.LVL49:
+ 575 0168 0446     		mov	r4, r0
+ 576 016a 0D46     		mov	r5, r1
+ 577 016c 5046     		mov	r0, r10	@ float
+ 578 016e FFF7FEFF 		bl	__aeabi_f2d
+ 579              	.LVL50:
+ 580 0172 CDE90801 		strd	r0, [sp, #32]
+ 581 0176 4846     		mov	r0, r9	@ float
+ 582 0178 FFF7FEFF 		bl	__aeabi_f2d
+ 583              	.LVL51:
+ 584 017c CDE90601 		strd	r0, [sp, #24]
+ 585 0180 4046     		mov	r0, r8	@ float
+ 586 0182 FFF7FEFF 		bl	__aeabi_f2d
+ 587              	.LVL52:
+ 588 0186 CDE90401 		strd	r0, [sp, #16]
+ 589 018a 3846     		mov	r0, r7	@ float
+ 590 018c FFF7FEFF 		bl	__aeabi_f2d
+ 591              	.LVL53:
+ 592 0190 CDE90201 		strd	r0, [sp, #8]
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 18
+
+
+ 593 0194 3046     		mov	r0, r6	@ float
+ 594 0196 FFF7FEFF 		bl	__aeabi_f2d
+ 595              	.LVL54:
+ 596 019a CDE90001 		strd	r0, [sp]
+ 597 019e 2246     		mov	r2, r4
+ 598 01a0 2B46     		mov	r3, r5
+ 599 01a2 0948     		ldr	r0, .L35+28
+ 600 01a4 FFF7FEFF 		bl	printf
+ 601              	.LVL55:
+ 602              	.LBE19:
+  33:UserApp/user.cpp ****     while (true)
+ 603              		.loc 3 33 5 is_stmt 1 view .LVU131
+ 604              	.L30:
+  33:UserApp/user.cpp ****     while (true)
+ 605              		.loc 3 33 5 view .LVU132
+ 606              	.LBB32:
+  36:UserApp/user.cpp ****         for (int p = 0; p < 4; p++)
+ 607              		.loc 3 36 9 view .LVU133
+ 608              	.LBB31:
+  36:UserApp/user.cpp ****         for (int p = 0; p < 4; p++)
+ 609              		.loc 3 36 18 is_stmt 0 view .LVU134
+ 610 01a8 0024     		movs	r4, #0
+ 611 01aa AEE7     		b	.L29
+ 612              	.L36:
+ 613              		.align	2
+ 614              	.L35:
+ 615 01ac 00000000 		.word	electron
+ 616 01b0 00000000 		.word	0
+ 617 01b4 00000000 		.word	.LANCHOR1
+ 618 01b8 00000000 		.word	.LANCHOR2
+ 619 01bc 20520100 		.word	electron+86560
+ 620 01c0 3C520100 		.word	electron+86588
+ 621 01c4 00500100 		.word	electron+86016
+ 622 01c8 00000000 		.word	.LC7
+ 623              	.LBE31:
+ 624              	.LBE32:
+ 625              		.cfi_endproc
+ 626              	.LFE479:
+ 627              		.fnend
+ 629              		.section	.text.HAL_SPI_TxCpltCallback,"ax",%progbits
+ 630              		.align	1
+ 631              		.global	HAL_SPI_TxCpltCallback
+ 632              		.syntax unified
+ 633              		.thumb
+ 634              		.thumb_func
+ 636              	HAL_SPI_TxCpltCallback:
+ 637              		.fnstart
+ 638              	.LVL56:
+ 639              	.LFB480:
+ 104:UserApp/user.cpp **** {
+ 640              		.loc 3 104 1 is_stmt 1 view -0
+ 641              		.cfi_startproc
+ 642              		@ args = 0, pretend = 0, frame = 0
+ 643              		@ frame_needed = 0, uses_anonymous_args = 0
+ 644              		@ link register save eliminated.
+ 105:UserApp/user.cpp ****     electron.lcd->isBusy = false;
+ 645              		.loc 3 105 5 view .LVU136
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 19
+
+
+ 105:UserApp/user.cpp ****     electron.lcd->isBusy = false;
+ 646              		.loc 3 105 14 is_stmt 0 view .LVU137
+ 647 0000 024B     		ldr	r3, .L38
+ 648 0002 D3F8AC32 		ldr	r3, [r3, #684]
+ 105:UserApp/user.cpp ****     electron.lcd->isBusy = false;
+ 649              		.loc 3 105 26 view .LVU138
+ 650 0006 0022     		movs	r2, #0
+ 651 0008 1A70     		strb	r2, [r3]
+ 652              		.loc 3 106 1 view .LVU139
+ 653 000a 7047     		bx	lr
+ 654              	.L39:
+ 655              		.align	2
+ 656              	.L38:
+ 657 000c 00500100 		.word	electron+86016
+ 658              		.cfi_endproc
+ 659              	.LFE480:
+ 660              		.cantunwind
+ 661              		.fnend
+ 663              		.section	.text._GLOBAL__sub_I_electron,"ax",%progbits
+ 664              		.align	1
+ 665              		.syntax unified
+ 666              		.thumb
+ 667              		.thumb_func
+ 669              	_GLOBAL__sub_I_electron:
+ 670              		.fnstart
+ 671              	.LFB482:
+ 672              		.loc 3 106 1 is_stmt 1 view -0
+ 673              		.cfi_startproc
+ 674              		@ args = 0, pretend = 0, frame = 0
+ 675              		@ frame_needed = 0, uses_anonymous_args = 0
+ 676 0000 08B5     		push	{r3, lr}
+ 677              	.LCFI5:
+ 678              		.cfi_def_cfa_offset 8
+ 679              		.cfi_offset 3, -8
+ 680              		.cfi_offset 14, -4
+ 681              		.loc 3 106 1 is_stmt 0 view .LVU141
+ 682 0002 4FF6FF71 		movw	r1, #65535
+ 683 0006 0120     		movs	r0, #1
+ 684 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 685              	.LVL57:
+ 686 000c 08BD     		pop	{r3, pc}
+ 687              		.cfi_endproc
+ 688              	.LFE482:
+ 689              		.cantunwind
+ 690              		.fnend
+ 692              		.section	.init_array,"aw",%init_array
+ 693              		.align	2
+ 694 0000 00000000 		.word	_GLOBAL__sub_I_electron(target1)
+ 695              		.global	isEnabled
+ 696              		.global	jointSetPoints
+ 697              		.global	electron
+ 698              		.section	.rodata
+ 699              		.align	2
+ 700              		.set	.LANCHOR0,. + 0
+ 701              	.LC0:
+ 702 0000 00       		.byte	0
+ 703 0001 000000   		.space	3
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 20
+
+
+ 704 0004 000034C3 		.word	-1020002304
+ 705 0008 00003443 		.word	1127481344
+ 706 000c 0000B442 		.word	1119092736
+ 707 0010 00000000 		.word	0
+ 708 0014 00000000 		.word	0
+ 709 0018 00       		.byte	0
+ 710 0019 000000   		.space	3
+ 711              	.LC1:
+ 712 001c 02       		.byte	2
+ 713 001d 000000   		.space	3
+ 714 0020 00008C42 		.word	1116471296
+ 715 0024 0000BE42 		.word	1119748096
+ 716 0028 00000000 		.word	0
+ 717 002c 000070C1 		.word	-1049624576
+ 718 0030 00007041 		.word	1097859072
+ 719 0034 01       		.byte	1
+ 720 0035 000000   		.space	3
+ 721              	.LC2:
+ 722 0038 04       		.byte	4
+ 723 0039 000000   		.space	3
+ 724 003c 000010C1 		.word	-1055916032
+ 725 0040 00004040 		.word	1077936128
+ 726 0044 00000000 		.word	0
+ 727 0048 00000000 		.word	0
+ 728 004c 0000F041 		.word	1106247680
+ 729 0050 00       		.byte	0
+ 730 0051 000000   		.space	3
+ 731              	.LC3:
+ 732 0054 06       		.byte	6
+ 733 0055 000000   		.space	3
+ 734 0058 000080C1 		.word	-1048576000
+ 735 005c 0000EA42 		.word	1122631680
+ 736 0060 00000000 		.word	0
+ 737 0064 0000A0C1 		.word	-1046478848
+ 738 0068 00003443 		.word	1127481344
+ 739 006c 00       		.byte	0
+ 740 006d 000000   		.space	3
+ 741              	.LC4:
+ 742 0070 08       		.byte	8
+ 743 0071 000000   		.space	3
+ 744 0074 00000543 		.word	1124401152
+ 745 0078 00000D43 		.word	1124925440
+ 746 007c 00000000 		.word	0
+ 747 0080 00000000 		.word	0
+ 748 0084 0000F041 		.word	1106247680
+ 749 0088 01       		.byte	1
+ 750 0089 000000   		.space	3
+ 751              	.LC5:
+ 752 008c 0A       		.byte	10
+ 753 008d 000000   		.space	3
+ 754 0090 00007041 		.word	1097859072
+ 755 0094 00001643 		.word	1125515264
+ 756 0098 00000000 		.word	0
+ 757 009c 0000A0C1 		.word	-1046478848
+ 758 00a0 00003443 		.word	1127481344
+ 759 00a4 01       		.byte	1
+ 760 00a5 000000   		.space	3
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 21
+
+
+ 761              	.LC6:
+ 762 00a8 0C       		.byte	12
+ 763 00a9 000000   		.space	3
+ 764 00ac 00000000 		.word	0
+ 765 00b0 00003443 		.word	1127481344
+ 766 00b4 00000000 		.word	0
+ 767 00b8 0000B4C2 		.word	-1028390912
+ 768 00bc 0000B442 		.word	1119092736
+ 769 00c0 00       		.byte	0
+ 770 00c1 000000   		.space	3
+ 771              		.section	.bss.electron,"aw",%nobits
+ 772              		.align	2
+ 775              	electron:
+ 776 0000 00000000 		.space	86760
+ 776      00000000 
+ 776      00000000 
+ 776      00000000 
+ 776      00000000 
+ 777              		.section	.bss.isEnabled,"aw",%nobits
+ 778              		.set	.LANCHOR1,. + 0
+ 781              	isEnabled:
+ 782 0000 00       		.space	1
+ 783              		.section	.bss.jointSetPoints,"aw",%nobits
+ 784              		.align	2
+ 785              		.set	.LANCHOR2,. + 0
+ 788              	jointSetPoints:
+ 789 0000 00000000 		.space	24
+ 789      00000000 
+ 789      00000000 
+ 789      00000000 
+ 789      00000000 
+ 790              		.text
+ 791              	.Letext0:
+ 792              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 793              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 794              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 795              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 796              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 797              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\lib\\gcc\\arm-none-eabi\
+ 798              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 799              		.file 11 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 800              		.file 12 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 801              		.file 13 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 802              		.file 14 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+ 803              		.file 15 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 804              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 805              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 806              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
+ 807              		.file 19 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 808              		.file 20 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 809              		.file 21 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 810              		.file 22 "Core/Inc/spi.h"
+ 811              		.file 23 "Core/Inc/i2c.h"
+ 812              		.file 24 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 813              		.file 25 "<built-in>"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s 			page 22
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 user.cpp
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:20     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:26     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 _ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:182    .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000100 $d
+.ARM.exidx.text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:26     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 _ZN5RobotC1EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:190    .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:195    .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:240    .text._Z41__static_initialization_and_destruction_0ii:00000020 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:775    .bss.electron:00000000 electron
+.ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:250    .rodata.Main.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:254    .text.Main:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:260    .text.Main:00000000 Main
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:615    .text.Main:000001ac $d
+             .ARM.extab.text.Main:00000000 $d
+             .ARM.exidx.text.Main:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:630    .text.HAL_SPI_TxCpltCallback:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:636    .text.HAL_SPI_TxCpltCallback:00000000 HAL_SPI_TxCpltCallback
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:657    .text.HAL_SPI_TxCpltCallback:0000000c $d
+.ARM.exidx.text.HAL_SPI_TxCpltCallback:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:664    .text._GLOBAL__sub_I_electron:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:669    .text._GLOBAL__sub_I_electron:00000000 _GLOBAL__sub_I_electron
+.ARM.exidx.text._GLOBAL__sub_I_electron:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:693    .init_array:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:781    .bss.isEnabled:00000000 isEnabled
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:788    .bss.jointSetPoints:00000000 jointSetPoints
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:699    .rodata:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:772    .bss.electron:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:782    .bss.isEnabled:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctyMSfL.s:784    .bss.jointSetPoints:00000000 $d
+                           .group:00000000 _ZN5RobotC5EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
+
+UNDEFINED SYMBOLS
+_Znwj
+__aeabi_unwind_cpp_pr0
+hi2c1
+hspi1
+__aeabi_f2d
+HAL_Delay
+_ZN6Screen4InitENS_13Orientation_tE
+_ZN6Screen9SetWindowEtttt
+_ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf
+_ZN5Robot13SendUsbPacketEPhm
+_ZN5Robot27ReceiveUsbPacketUntilSizeIsEm
+_ZN5Robot17GetExtraDataRxPtrEv
+_ZN5Robot14SetJointEnableERNS_13JointStatus_tEb
+_ZN5Robot15GetLcdBufferPtrEv
+_ZN6Screen16WriteFrameBufferEPhmb
+printf
+__aeabi_unwind_cpp_pr1

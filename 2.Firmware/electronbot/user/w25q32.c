@@ -18,9 +18,9 @@ void SPI2_Write(uint8_t dat)
 uint8_t SPI2_Read(void)
 {
     uint8_t rx_dat;
-    // uint8_t tx_dat=0xff;
-    // HAL_SPI_TransmitReceive(&hspi1, &tx_dat, &rx_dat, 1, 0xff);
-    HAL_SPI_Receive(&hspi1, &rx_dat, 1, 20);
+    uint8_t tx_dat=0xff;
+    HAL_SPI_TransmitReceive(&hspi1, &tx_dat, &rx_dat, 1, 0xff);
+    // HAL_SPI_Receive(&hspi1, &rx_dat, 1, 20);
     return rx_dat;
 }
 
@@ -39,7 +39,7 @@ void SpiFlash_Init(void)
     FlashGet_ElectronicInfo(&flashInfo);
     printf("ManufacturerID=%02X\r\n",flashInfo.ManufacturerID);
     printf("DeviceID=%02X\r\n",flashInfo.DeviceID[0]);
-    if((flashInfo.ManufacturerID==0xEF)&&(flashInfo.DeviceID[0]==0x17))
+    if(flashInfo.ManufacturerID==0xEF)
     {
         printf("\tFlash Info: WINBOND SPI FLASH\r\n");
     }
@@ -50,6 +50,15 @@ void SpiFlash_Init(void)
     {
         printf("\tFlashType:W25Q128  FlashSize:128Mbit\r\n\tTotal 256 Blocks  16 Sectors/Block  4KB/Sector\r\n");
     }
+    else if((flashInfo.DeviceID[0]==0x40)&&(flashInfo.DeviceID[1]==0x16))
+    {
+        printf("\tFlashType:W25Q32  FlashSize:32Mbit\r\n\tTotal 64 Blocks  16 Sectors/Block  4KB/Sector\r\n");
+    }
+    else
+    {
+
+    }
+    // FlashChip_Erase();
 
 #if 0    
     FlashEnter_DeepPowerDown();
@@ -76,17 +85,33 @@ void FlashWait_Busy(void)
 }
 void FlashGet_Info(flashInfoTypedef * pFlashInfo)
 {
+    uint8_t tx_data[7];
+    uint8_t rx_data[7];
 //	    FlashWait_Busy();
     FLASH_CS_Low();    
-    SPI2_Write(RDID_CMD);
+    /* SPI2_Write(RDID_CMD);
     pFlashInfo->ManufacturerID=SPI2_Read();
     pFlashInfo->DeviceID[0]=SPI2_Read();
-    pFlashInfo->DeviceID[1]=SPI2_Read();
+    pFlashInfo->DeviceID[1]=SPI2_Read(); */
+
+    
+    tx_data[0] = RDID_CMD;
+    tx_data[1] = DUMMY_BYTE;
+    tx_data[2] = DUMMY_BYTE;
+    tx_data[3] = DUMMY_BYTE;
+  
+    HAL_SPI_TransmitReceive(&hspi1, tx_data, rx_data, 4, 500);
+    pFlashInfo->ManufacturerID = rx_data[1];
+    pFlashInfo->DeviceID[0] = rx_data[2];
+    pFlashInfo->DeviceID[1] = rx_data[3];
+
     FLASH_CS_High();    
 }
 void FlashGet_ElectronicInfo(flashInfoTypedef * pFlashInfo)
 {
-    int i;
+    // int i;
+    uint8_t tx_data[7];
+    uint8_t rx_data[7];
 	// FlashWait_Busy();
     FLASH_CS_Low();
    
@@ -96,8 +121,7 @@ void FlashGet_ElectronicInfo(flashInfoTypedef * pFlashInfo)
     SPI2_Write(0x00);  //manufacturer's ID first
     pFlashInfo->ManufacturerID=SPI2_Read();
     pFlashInfo->DeviceID[0]=SPI2_Read(); */
-    uint8_t tx_data[7];
-    uint8_t rx_data[7];
+    
     tx_data[0] = REMS_CMD;
     tx_data[1] = DUMMY_BYTE;
     tx_data[2] = DUMMY_BYTE;
@@ -168,7 +192,7 @@ void FlashPage_Write(uint16_t pageAddr,uint8_t *ptr,uint32_t pageSize)
 //	    addr=pageAddr*FLASH_PAGE_SIZE;
     addr=((uint32_t)pageAddr)<<8;  
     FlashWait_Busy();
-    FlashWriteEnable();  
+    FlashWriteEnable();
     FLASH_CS_Low();
     SPI2_Write(PP_CMD); 
     SPI2_Write(addr>>16);
@@ -176,8 +200,7 @@ void FlashPage_Write(uint16_t pageAddr,uint8_t *ptr,uint32_t pageSize)
     SPI2_Write(addr); 
     for(i=0;i<pageSize;i++)
         SPI2_Write(*ptr++); 
-    FLASH_CS_High();  
-    
+    FLASH_CS_High();    
 }
 void FlashChip_Erase(void)
 {
@@ -278,6 +301,31 @@ void FlashFastRead(uint32_t addr,uint8_t *ptr,uint32_t len)
         *ptr++=SPI2_Read(); 
     FLASH_CS_High();    
 }
+// 读一个扇区 4K
+void read_sector(uint32_t blk_addr,uint8_t *buf, uint16_t blk_len)
+{
+    uint32_t page_addr;
+    int i;
+    // addr = blk_addr*4096;
+    page_addr = blk_addr*16;
+    for(i = 0; i < 16; i++)
+    {
+        FlashPage_Read(page_addr+i,buf+i*256,256);
+    }
+}
+// 写一个扇区 4K
+void write_sector(uint32_t blk_addr,uint8_t *buf, uint16_t blk_len)
+{
+    uint32_t page_addr;
+    int i;
+    // addr = blk_addr*4096;
+    FlashSector_Erase(blk_addr);
+    page_addr = blk_addr*16;
+    for(i = 0; i < 16; i++)
+    {
+        FlashPage_Write(page_addr+i,buf+i*256,256);
+    }
+}
 #if 0
 void FlashDoubleRead(u32 addr,u8 *ptr,u32 len)
 {
@@ -297,5 +345,6 @@ void FlashDoubleRead(u32 addr,u8 *ptr,u32 len)
     }
     FLASH_CS_High();    
 }
+
 #endif
 

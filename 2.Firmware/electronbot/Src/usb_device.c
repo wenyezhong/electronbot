@@ -27,7 +27,8 @@
 #include "usbd_storage_if.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "usbd_composite.h"
+#include "usbd_winUsb.h"
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN PV */
@@ -68,7 +69,7 @@ void MX_USB_DEVICE_Init(void)
   /* USER CODE END USB_DEVICE_Init_PreTreatment */
 
   /* Init Device Library, add supported class and start the library. */
-  if (USBD_Init(&hUsbDeviceHS, &HS_Desc, DEVICE_HS) != USBD_OK)
+  /* if (USBD_Init(&hUsbDeviceHS, &HS_Desc, DEVICE_HS) != USBD_OK)
   {
     Error_Handler();
   }
@@ -79,7 +80,32 @@ void MX_USB_DEVICE_Init(void)
   if (USBD_MSC_RegisterStorage(&hUsbDeviceHS, &USBD_Storage_Interface_fops_HS) != USBD_OK)
   {
     Error_Handler();
+  } */
+
+  if (USBD_Init(&hUsbDeviceHS, &usbCmpsitFS_Desc, DEVICE_HS) != USBD_OK)
+  {
+    Error_Handler();
   }
+  if(USBD_RegisterClassComposite(&hUsbDeviceHS, &USBD_MSC,CLASS_TYPE_MSC,0) != USBD_OK)
+  {
+    Error_Handler();
+  }
+
+  if(USBD_MSC_RegisterStorage(&hUsbDeviceHS, &USBD_Storage_Interface_fops_HS) != USBD_OK)
+  {
+    Error_Handler();
+  }
+  
+  if(USBD_RegisterClassComposite(&hUsbDeviceHS, &USBD_WinUsb,CLASS_TYPE_WINUSB,0) != USBD_OK)
+  {
+    Error_Handler();
+  }
+
+  if(USBD_WinUsb_RegisterInterface(&hUsbDeviceHS, &USBD_WinUsb_Interface_fops_FS) != USBD_OK)
+  {
+    Error_Handler();
+  }
+
   if (USBD_Start(&hUsbDeviceHS) != USBD_OK)
   {
     Error_Handler();

@@ -22,7 +22,7 @@
 #include "usbd_storage_if.h"
 
 /* USER CODE BEGIN INCLUDE */
-
+#include "w25q32.h"
 /* USER CODE END INCLUDE */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -63,8 +63,8 @@
   */
 
 #define STORAGE_LUN_NBR                  1
-#define STORAGE_BLK_NBR                  0x10000
-#define STORAGE_BLK_SIZ                  0x200
+#define STORAGE_BLK_NBR                  1024
+#define STORAGE_BLK_SIZ                  4096
 
 /* USER CODE BEGIN PRIVATE_DEFINES */
 
@@ -239,11 +239,17 @@ int8_t STORAGE_IsWriteProtected_HS(uint8_t lun)
 int8_t STORAGE_Read_HS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t blk_len)
 {
   /* USER CODE BEGIN 13 */
+  int i;
   UNUSED(lun);
   UNUSED(buf);
   UNUSED(blk_addr);
   UNUSED(blk_len);
-
+  // printf("r pageAddr=%d  blk_len=%d\r\n",blk_addr,blk_len);
+  //for( i = 0; i < blk_len; i++)
+  {
+    read_sector(blk_addr,buf,blk_len*STORAGE_BLK_SIZ);
+    //  FlashPage_Read(blk_addr*STORAGE_BLK_SIZ,buf,STORAGE_BLK_SIZ);
+  } 
   return (USBD_OK);
   /* USER CODE END 13 */
 }
@@ -259,11 +265,19 @@ int8_t STORAGE_Read_HS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t bl
 int8_t STORAGE_Write_HS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t blk_len)
 {
   /* USER CODE BEGIN 14 */
+  int i;
   UNUSED(lun);
   UNUSED(buf);
   UNUSED(blk_addr);
   UNUSED(blk_len);
-
+  // printf("w pageAddr=%d  blk_len=%d\r\n",blk_addr,blk_len);
+  //for( i = 0; i < blk_len; i++)  
+  {
+    write_sector(blk_addr,buf,blk_len*STORAGE_BLK_SIZ);
+    /*  FlashSector_Erase(blk_addr);
+     FlashPage_Write(blk_addr*STORAGE_BLK_SIZ,buf,STORAGE_BLK_SIZ); */
+  } 
+  // FlashPage_Write(blk_addr,buf,blk_len);
   return (USBD_OK);
   /* USER CODE END 14 */
 }

@@ -43,7 +43,8 @@ build/usb_device.o: Src/usb_device.c Inc/usb_device.h \
  Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc_bot.h \
  Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc_scsi.h \
  Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
- Inc/usbd_storage_if.h
+ Inc/usbd_storage_if.h Inc/usbd_composite.h \
+ Middlewares/ST/STM32_USB_Device_Library/Class/winUsb/Inc/usbd_winUsb.h
 Inc/usb_device.h:
 Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h:
@@ -93,3 +94,5 @@ Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc_bot.h:
 Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc_scsi.h:
 Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
 Inc/usbd_storage_if.h:
+Inc/usbd_composite.h:
+Middlewares/ST/STM32_USB_Device_Library/Class/winUsb/Inc/usbd_winUsb.h:

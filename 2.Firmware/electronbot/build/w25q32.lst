@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 1
   41              		.cfi_def_cfa_offset 16
   42 0004 8DF80700 		strb	r0, [sp, #7]
   16:user/w25q32.c ****     HAL_SPI_Transmit(&hspi1, &dat, 1, 0xff);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 2
 
 
   43              		.loc 1 16 5 is_stmt 1 view .LVU2
@@ -101,48 +101,53 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 1
   79              	.LCFI3:
   80              		.cfi_def_cfa_offset 4
   81              		.cfi_offset 14, -4
-  82 0002 83B0     		sub	sp, sp, #12
+  82 0002 85B0     		sub	sp, sp, #20
   83              	.LCFI4:
-  84              		.cfi_def_cfa_offset 16
+  84              		.cfi_def_cfa_offset 24
   20:user/w25q32.c ****     uint8_t rx_dat;
   85              		.loc 1 20 5 view .LVU6
-  21:user/w25q32.c ****     // uint8_t tx_dat=0xff;
-  22:user/w25q32.c ****     // HAL_SPI_TransmitReceive(&hspi1, &tx_dat, &rx_dat, 1, 0xff);
-  23:user/w25q32.c ****     HAL_SPI_Receive(&hspi1, &rx_dat, 1, 20);
-  86              		.loc 1 23 5 view .LVU7
-  87 0004 1423     		movs	r3, #20
-  88 0006 0122     		movs	r2, #1
-  89 0008 0DF10701 		add	r1, sp, #7
-  90 000c 0348     		ldr	r0, .L7
-  91 000e FFF7FEFF 		bl	HAL_SPI_Receive
-  92              	.LVL3:
+  21:user/w25q32.c ****     uint8_t tx_dat=0xff;
+  86              		.loc 1 21 5 view .LVU7
+  87              		.loc 1 21 13 is_stmt 0 view .LVU8
+  88 0004 FF23     		movs	r3, #255
+  89 0006 8DF80E30 		strb	r3, [sp, #14]
+  22:user/w25q32.c ****     HAL_SPI_TransmitReceive(&hspi1, &tx_dat, &rx_dat, 1, 0xff);
+  90              		.loc 1 22 5 is_stmt 1 view .LVU9
+  91 000a 0093     		str	r3, [sp]
+  92 000c 0123     		movs	r3, #1
+  93 000e 0DF10F02 		add	r2, sp, #15
+  94 0012 0DF10E01 		add	r1, sp, #14
+  95 0016 0448     		ldr	r0, .L7
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 3
+
+
+  96 0018 FFF7FEFF 		bl	HAL_SPI_TransmitReceive
+  97              	.LVL3:
+  23:user/w25q32.c ****     // HAL_SPI_Receive(&hspi1, &rx_dat, 1, 20);
   24:user/w25q32.c ****     return rx_dat;
-  93              		.loc 1 24 5 view .LVU8
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 3
-
-
+  98              		.loc 1 24 5 view .LVU10
   25:user/w25q32.c **** }
-  94              		.loc 1 25 1 is_stmt 0 view .LVU9
-  95 0012 9DF80700 		ldrb	r0, [sp, #7]	@ zero_extendqisi2
-  96 0016 03B0     		add	sp, sp, #12
-  97              	.LCFI5:
-  98              		.cfi_def_cfa_offset 4
-  99              		@ sp needed
- 100 0018 5DF804FB 		ldr	pc, [sp], #4
- 101              	.L8:
- 102              		.align	2
- 103              	.L7:
- 104 001c 00000000 		.word	hspi1
- 105              		.cfi_endproc
- 106              	.LFE134:
- 108              		.section	.text.FlashWait_Busy,"ax",%progbits
- 109              		.align	1
- 110              		.global	FlashWait_Busy
- 111              		.syntax unified
- 112              		.thumb
- 113              		.thumb_func
- 115              	FlashWait_Busy:
- 116              	.LFB136:
+  99              		.loc 1 25 1 is_stmt 0 view .LVU11
+ 100 001c 9DF80F00 		ldrb	r0, [sp, #15]	@ zero_extendqisi2
+ 101 0020 05B0     		add	sp, sp, #20
+ 102              	.LCFI5:
+ 103              		.cfi_def_cfa_offset 4
+ 104              		@ sp needed
+ 105 0022 5DF804FB 		ldr	pc, [sp], #4
+ 106              	.L8:
+ 107 0026 00BF     		.align	2
+ 108              	.L7:
+ 109 0028 00000000 		.word	hspi1
+ 110              		.cfi_endproc
+ 111              	.LFE134:
+ 113              		.section	.text.FlashWait_Busy,"ax",%progbits
+ 114              		.align	1
+ 115              		.global	FlashWait_Busy
+ 116              		.syntax unified
+ 117              		.thumb
+ 118              		.thumb_func
+ 120              	FlashWait_Busy:
+ 121              	.LFB136:
   26:user/w25q32.c **** 
   27:user/w25q32.c **** void SpiFlash_Init(void)
   28:user/w25q32.c **** {
@@ -159,7 +164,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 1
   39:user/w25q32.c ****     FlashGet_ElectronicInfo(&flashInfo);
   40:user/w25q32.c ****     printf("ManufacturerID=%02X\r\n",flashInfo.ManufacturerID);
   41:user/w25q32.c ****     printf("DeviceID=%02X\r\n",flashInfo.DeviceID[0]);
-  42:user/w25q32.c ****     if((flashInfo.ManufacturerID==0xEF)&&(flashInfo.DeviceID[0]==0x17))
+  42:user/w25q32.c ****     if(flashInfo.ManufacturerID==0xEF)
   43:user/w25q32.c ****     {
   44:user/w25q32.c ****         printf("\tFlash Info: WINBOND SPI FLASH\r\n");
   45:user/w25q32.c ****     }
@@ -170,1689 +175,1932 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 1
   50:user/w25q32.c ****     {
   51:user/w25q32.c ****         printf("\tFlashType:W25Q128  FlashSize:128Mbit\r\n\tTotal 256 Blocks  16 Sectors/Block  4KB
   52:user/w25q32.c ****     }
-  53:user/w25q32.c **** 
-  54:user/w25q32.c **** #if 0    
-  55:user/w25q32.c ****     FlashEnter_DeepPowerDown();
-  56:user/w25q32.c ****     tmp=FlashReleaseFrom_DeepPowerDownE();
-  57:user/w25q32.c ****     printf("ElectronicSignature=%02x\r\n",tmp);  //��ӡ���Ϊ: 0x14
-  58:user/w25q32.c **** #endif    
-  59:user/w25q32.c **** }
-  60:user/w25q32.c **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 4
+  53:user/w25q32.c ****     else if((flashInfo.DeviceID[0]==0x40)&&(flashInfo.DeviceID[1]==0x16))
+  54:user/w25q32.c ****     {
+  55:user/w25q32.c ****         printf("\tFlashType:W25Q32  FlashSize:32Mbit\r\n\tTotal 64 Blocks  16 Sectors/Block  4KB/Se
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 4
 
 
-  61:user/w25q32.c **** void FlashWait_Busy(void)
-  62:user/w25q32.c **** {
- 117              		.loc 1 62 1 is_stmt 1 view -0
- 118              		.cfi_startproc
- 119              		@ args = 0, pretend = 0, frame = 0
- 120              		@ frame_needed = 0, uses_anonymous_args = 0
- 121 0000 10B5     		push	{r4, lr}
- 122              	.LCFI6:
- 123              		.cfi_def_cfa_offset 8
- 124              		.cfi_offset 4, -8
- 125              		.cfi_offset 14, -4
-  63:user/w25q32.c ****     uint8_t flashSta;
- 126              		.loc 1 63 5 view .LVU11
-  64:user/w25q32.c ****     uint32_t retry=0;
- 127              		.loc 1 64 5 view .LVU12
- 128              	.LVL4:
-  65:user/w25q32.c ****     FLASH_CS_Low();
- 129              		.loc 1 65 5 view .LVU13
- 130 0002 0022     		movs	r2, #0
- 131 0004 1021     		movs	r1, #16
- 132 0006 0C48     		ldr	r0, .L13
- 133 0008 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 134              	.LVL5:
- 135              		.loc 1 65 19 view .LVU14
-  66:user/w25q32.c ****     SPI2_Write(RDSD_CMD);
- 136              		.loc 1 66 5 view .LVU15
- 137 000c 0520     		movs	r0, #5
- 138 000e FFF7FEFF 		bl	SPI2_Write
- 139              	.LVL6:
-  64:user/w25q32.c ****     uint32_t retry=0;
- 140              		.loc 1 64 14 is_stmt 0 view .LVU16
- 141 0012 0024     		movs	r4, #0
- 142              	.LVL7:
- 143              	.L11:
-  67:user/w25q32.c ****     do{
- 144              		.loc 1 67 5 is_stmt 1 view .LVU17
-  68:user/w25q32.c ****         
-  69:user/w25q32.c ****         flashSta=SPI2_Read();
- 145              		.loc 1 69 9 view .LVU18
- 146              		.loc 1 69 18 is_stmt 0 view .LVU19
- 147 0014 FFF7FEFF 		bl	SPI2_Read
- 148              	.LVL8:
-  70:user/w25q32.c ****         if(retry++>FLASH_BUSY_TIMEOUT)
- 149              		.loc 1 70 9 is_stmt 1 view .LVU20
- 150 0018 2246     		mov	r2, r4
- 151              		.loc 1 70 17 is_stmt 0 view .LVU21
- 152 001a 0134     		adds	r4, r4, #1
- 153              	.LVL9:
- 154              		.loc 1 70 11 view .LVU22
- 155 001c 44F62063 		movw	r3, #20000
- 156 0020 9A42     		cmp	r2, r3
- 157 0022 02D8     		bhi	.L10
-  71:user/w25q32.c ****             break;
-  72:user/w25q32.c ****         //printf("flashSta=%02x----%d\r\n",flashSta,retry);
-  73:user/w25q32.c ****     }while(flashSta&0x01);
- 158              		.loc 1 73 11 is_stmt 1 view .LVU23
- 159              		.loc 1 73 5 is_stmt 0 view .LVU24
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 5
+  56:user/w25q32.c ****     }
+  57:user/w25q32.c ****     else
+  58:user/w25q32.c ****     {
+  59:user/w25q32.c **** 
+  60:user/w25q32.c ****     }
+  61:user/w25q32.c ****     // FlashChip_Erase();
+  62:user/w25q32.c **** 
+  63:user/w25q32.c **** #if 0    
+  64:user/w25q32.c ****     FlashEnter_DeepPowerDown();
+  65:user/w25q32.c ****     tmp=FlashReleaseFrom_DeepPowerDownE();
+  66:user/w25q32.c ****     printf("ElectronicSignature=%02x\r\n",tmp);  //��ӡ���Ϊ: 0x14
+  67:user/w25q32.c **** #endif    
+  68:user/w25q32.c **** }
+  69:user/w25q32.c **** 
+  70:user/w25q32.c **** void FlashWait_Busy(void)
+  71:user/w25q32.c **** {
+ 122              		.loc 1 71 1 is_stmt 1 view -0
+ 123              		.cfi_startproc
+ 124              		@ args = 0, pretend = 0, frame = 0
+ 125              		@ frame_needed = 0, uses_anonymous_args = 0
+ 126 0000 10B5     		push	{r4, lr}
+ 127              	.LCFI6:
+ 128              		.cfi_def_cfa_offset 8
+ 129              		.cfi_offset 4, -8
+ 130              		.cfi_offset 14, -4
+  72:user/w25q32.c ****     uint8_t flashSta;
+ 131              		.loc 1 72 5 view .LVU13
+  73:user/w25q32.c ****     uint32_t retry=0;
+ 132              		.loc 1 73 5 view .LVU14
+ 133              	.LVL4:
+  74:user/w25q32.c ****     FLASH_CS_Low();
+ 134              		.loc 1 74 5 view .LVU15
+ 135 0002 0022     		movs	r2, #0
+ 136 0004 1021     		movs	r1, #16
+ 137 0006 0C48     		ldr	r0, .L13
+ 138 0008 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 139              	.LVL5:
+ 140              		.loc 1 74 19 view .LVU16
+  75:user/w25q32.c ****     SPI2_Write(RDSD_CMD);
+ 141              		.loc 1 75 5 view .LVU17
+ 142 000c 0520     		movs	r0, #5
+ 143 000e FFF7FEFF 		bl	SPI2_Write
+ 144              	.LVL6:
+  73:user/w25q32.c ****     uint32_t retry=0;
+ 145              		.loc 1 73 14 is_stmt 0 view .LVU18
+ 146 0012 0024     		movs	r4, #0
+ 147              	.LVL7:
+ 148              	.L11:
+  76:user/w25q32.c ****     do{
+ 149              		.loc 1 76 5 is_stmt 1 view .LVU19
+  77:user/w25q32.c ****         
+  78:user/w25q32.c ****         flashSta=SPI2_Read();
+ 150              		.loc 1 78 9 view .LVU20
+ 151              		.loc 1 78 18 is_stmt 0 view .LVU21
+ 152 0014 FFF7FEFF 		bl	SPI2_Read
+ 153              	.LVL8:
+  79:user/w25q32.c ****         if(retry++>FLASH_BUSY_TIMEOUT)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 5
 
 
- 160 0024 10F0010F 		tst	r0, #1
- 161 0028 F4D1     		bne	.L11
- 162              	.L10:
-  74:user/w25q32.c ****     //printf("%d\r\n",retry);
-  75:user/w25q32.c ****     FLASH_CS_High();    
- 163              		.loc 1 75 5 is_stmt 1 view .LVU25
- 164 002a 0122     		movs	r2, #1
- 165 002c 1021     		movs	r1, #16
- 166 002e 0248     		ldr	r0, .L13
- 167              	.LVL10:
- 168              		.loc 1 75 5 is_stmt 0 view .LVU26
- 169 0030 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 170              	.LVL11:
-  76:user/w25q32.c **** }
- 171              		.loc 1 76 1 view .LVU27
- 172 0034 10BD     		pop	{r4, pc}
- 173              	.LVL12:
- 174              	.L14:
- 175              		.loc 1 76 1 view .LVU28
- 176 0036 00BF     		.align	2
- 177              	.L13:
- 178 0038 00000240 		.word	1073872896
- 179              		.cfi_endproc
- 180              	.LFE136:
- 182              		.section	.text.FlashGet_Info,"ax",%progbits
- 183              		.align	1
- 184              		.global	FlashGet_Info
- 185              		.syntax unified
- 186              		.thumb
- 187              		.thumb_func
- 189              	FlashGet_Info:
- 190              	.LVL13:
- 191              	.LFB137:
-  77:user/w25q32.c **** void FlashGet_Info(flashInfoTypedef * pFlashInfo)
-  78:user/w25q32.c **** {
- 192              		.loc 1 78 1 is_stmt 1 view -0
- 193              		.cfi_startproc
- 194              		@ args = 0, pretend = 0, frame = 0
- 195              		@ frame_needed = 0, uses_anonymous_args = 0
- 196              		.loc 1 78 1 is_stmt 0 view .LVU30
- 197 0000 38B5     		push	{r3, r4, r5, lr}
- 198              	.LCFI7:
- 199              		.cfi_def_cfa_offset 16
- 200              		.cfi_offset 3, -16
- 201              		.cfi_offset 4, -12
- 202              		.cfi_offset 5, -8
- 203              		.cfi_offset 14, -4
- 204 0002 0446     		mov	r4, r0
-  79:user/w25q32.c **** //	    FlashWait_Busy();
-  80:user/w25q32.c ****     FLASH_CS_Low();    
- 205              		.loc 1 80 5 is_stmt 1 view .LVU31
- 206 0004 0B4D     		ldr	r5, .L17
- 207 0006 0022     		movs	r2, #0
- 208 0008 1021     		movs	r1, #16
- 209 000a 2846     		mov	r0, r5
- 210              	.LVL14:
- 211              		.loc 1 80 5 is_stmt 0 view .LVU32
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 6
+ 154              		.loc 1 79 9 is_stmt 1 view .LVU22
+ 155 0018 2246     		mov	r2, r4
+ 156              		.loc 1 79 17 is_stmt 0 view .LVU23
+ 157 001a 0134     		adds	r4, r4, #1
+ 158              	.LVL9:
+ 159              		.loc 1 79 11 view .LVU24
+ 160 001c 44F62063 		movw	r3, #20000
+ 161 0020 9A42     		cmp	r2, r3
+ 162 0022 02D8     		bhi	.L10
+  80:user/w25q32.c ****             break;
+  81:user/w25q32.c ****         //printf("flashSta=%02x----%d\r\n",flashSta,retry);
+  82:user/w25q32.c ****     }while(flashSta&0x01);
+ 163              		.loc 1 82 11 is_stmt 1 view .LVU25
+ 164              		.loc 1 82 5 is_stmt 0 view .LVU26
+ 165 0024 10F0010F 		tst	r0, #1
+ 166 0028 F4D1     		bne	.L11
+ 167              	.L10:
+  83:user/w25q32.c ****     //printf("%d\r\n",retry);
+  84:user/w25q32.c ****     FLASH_CS_High();    
+ 168              		.loc 1 84 5 is_stmt 1 view .LVU27
+ 169 002a 0122     		movs	r2, #1
+ 170 002c 1021     		movs	r1, #16
+ 171 002e 0248     		ldr	r0, .L13
+ 172              	.LVL10:
+ 173              		.loc 1 84 5 is_stmt 0 view .LVU28
+ 174 0030 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 175              	.LVL11:
+  85:user/w25q32.c **** }
+ 176              		.loc 1 85 1 view .LVU29
+ 177 0034 10BD     		pop	{r4, pc}
+ 178              	.LVL12:
+ 179              	.L14:
+ 180              		.loc 1 85 1 view .LVU30
+ 181 0036 00BF     		.align	2
+ 182              	.L13:
+ 183 0038 00000240 		.word	1073872896
+ 184              		.cfi_endproc
+ 185              	.LFE136:
+ 187              		.section	.text.FlashGet_Info,"ax",%progbits
+ 188              		.align	1
+ 189              		.global	FlashGet_Info
+ 190              		.syntax unified
+ 191              		.thumb
+ 192              		.thumb_func
+ 194              	FlashGet_Info:
+ 195              	.LVL13:
+ 196              	.LFB137:
+  86:user/w25q32.c **** void FlashGet_Info(flashInfoTypedef * pFlashInfo)
+  87:user/w25q32.c **** {
+ 197              		.loc 1 87 1 is_stmt 1 view -0
+ 198              		.cfi_startproc
+ 199              		@ args = 0, pretend = 0, frame = 16
+ 200              		@ frame_needed = 0, uses_anonymous_args = 0
+ 201              		.loc 1 87 1 is_stmt 0 view .LVU32
+ 202 0000 30B5     		push	{r4, r5, lr}
+ 203              	.LCFI7:
+ 204              		.cfi_def_cfa_offset 12
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 6
 
 
- 212 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
- 213              	.LVL15:
- 214              		.loc 1 80 19 is_stmt 1 view .LVU33
-  81:user/w25q32.c ****     SPI2_Write(RDID_CMD);
- 215              		.loc 1 81 5 view .LVU34
- 216 0010 9F20     		movs	r0, #159
- 217 0012 FFF7FEFF 		bl	SPI2_Write
- 218              	.LVL16:
-  82:user/w25q32.c ****     pFlashInfo->ManufacturerID=SPI2_Read();
- 219              		.loc 1 82 5 view .LVU35
- 220              		.loc 1 82 32 is_stmt 0 view .LVU36
- 221 0016 FFF7FEFF 		bl	SPI2_Read
- 222              	.LVL17:
- 223              		.loc 1 82 31 view .LVU37
- 224 001a 2070     		strb	r0, [r4]
-  83:user/w25q32.c ****     pFlashInfo->DeviceID[0]=SPI2_Read();
- 225              		.loc 1 83 5 is_stmt 1 view .LVU38
- 226              		.loc 1 83 29 is_stmt 0 view .LVU39
- 227 001c FFF7FEFF 		bl	SPI2_Read
- 228              	.LVL18:
- 229              		.loc 1 83 28 view .LVU40
- 230 0020 6070     		strb	r0, [r4, #1]
-  84:user/w25q32.c ****     pFlashInfo->DeviceID[1]=SPI2_Read();
- 231              		.loc 1 84 5 is_stmt 1 view .LVU41
- 232              		.loc 1 84 29 is_stmt 0 view .LVU42
- 233 0022 FFF7FEFF 		bl	SPI2_Read
- 234              	.LVL19:
- 235              		.loc 1 84 28 view .LVU43
- 236 0026 A070     		strb	r0, [r4, #2]
-  85:user/w25q32.c ****     FLASH_CS_High();    
- 237              		.loc 1 85 5 is_stmt 1 view .LVU44
- 238 0028 0122     		movs	r2, #1
- 239 002a 1021     		movs	r1, #16
- 240 002c 2846     		mov	r0, r5
- 241 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
- 242              	.LVL20:
-  86:user/w25q32.c **** }
- 243              		.loc 1 86 1 is_stmt 0 view .LVU45
- 244 0032 38BD     		pop	{r3, r4, r5, pc}
- 245              	.LVL21:
- 246              	.L18:
- 247              		.loc 1 86 1 view .LVU46
- 248              		.align	2
- 249              	.L17:
- 250 0034 00000240 		.word	1073872896
- 251              		.cfi_endproc
- 252              	.LFE137:
- 254              		.section	.text.FlashGet_ElectronicInfo,"ax",%progbits
- 255              		.align	1
- 256              		.global	FlashGet_ElectronicInfo
- 257              		.syntax unified
- 258              		.thumb
- 259              		.thumb_func
- 261              	FlashGet_ElectronicInfo:
- 262              	.LVL22:
- 263              	.LFB138:
-  87:user/w25q32.c **** void FlashGet_ElectronicInfo(flashInfoTypedef * pFlashInfo)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 7
+ 205              		.cfi_offset 4, -12
+ 206              		.cfi_offset 5, -8
+ 207              		.cfi_offset 14, -4
+ 208 0002 87B0     		sub	sp, sp, #28
+ 209              	.LCFI8:
+ 210              		.cfi_def_cfa_offset 40
+ 211 0004 0446     		mov	r4, r0
+  88:user/w25q32.c ****     uint8_t tx_data[7];
+ 212              		.loc 1 88 5 is_stmt 1 view .LVU33
+  89:user/w25q32.c ****     uint8_t rx_data[7];
+ 213              		.loc 1 89 5 view .LVU34
+  90:user/w25q32.c **** //	    FlashWait_Busy();
+  91:user/w25q32.c ****     FLASH_CS_Low();    
+ 214              		.loc 1 91 5 view .LVU35
+ 215 0006 144D     		ldr	r5, .L17
+ 216 0008 0022     		movs	r2, #0
+ 217 000a 1021     		movs	r1, #16
+ 218 000c 2846     		mov	r0, r5
+ 219              	.LVL14:
+ 220              		.loc 1 91 5 is_stmt 0 view .LVU36
+ 221 000e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 222              	.LVL15:
+ 223              		.loc 1 91 19 is_stmt 1 view .LVU37
+  92:user/w25q32.c ****     /* SPI2_Write(RDID_CMD);
+  93:user/w25q32.c ****     pFlashInfo->ManufacturerID=SPI2_Read();
+  94:user/w25q32.c ****     pFlashInfo->DeviceID[0]=SPI2_Read();
+  95:user/w25q32.c ****     pFlashInfo->DeviceID[1]=SPI2_Read(); */
+  96:user/w25q32.c **** 
+  97:user/w25q32.c ****     
+  98:user/w25q32.c ****     tx_data[0] = RDID_CMD;
+ 224              		.loc 1 98 5 view .LVU38
+ 225              		.loc 1 98 16 is_stmt 0 view .LVU39
+ 226 0012 9F23     		movs	r3, #159
+ 227 0014 8DF81030 		strb	r3, [sp, #16]
+  99:user/w25q32.c ****     tx_data[1] = DUMMY_BYTE;
+ 228              		.loc 1 99 5 is_stmt 1 view .LVU40
+ 229              		.loc 1 99 16 is_stmt 0 view .LVU41
+ 230 0018 FF23     		movs	r3, #255
+ 231 001a 8DF81130 		strb	r3, [sp, #17]
+ 100:user/w25q32.c ****     tx_data[2] = DUMMY_BYTE;
+ 232              		.loc 1 100 5 is_stmt 1 view .LVU42
+ 233              		.loc 1 100 16 is_stmt 0 view .LVU43
+ 234 001e 8DF81230 		strb	r3, [sp, #18]
+ 101:user/w25q32.c ****     tx_data[3] = DUMMY_BYTE;
+ 235              		.loc 1 101 5 is_stmt 1 view .LVU44
+ 236              		.loc 1 101 16 is_stmt 0 view .LVU45
+ 237 0022 8DF81330 		strb	r3, [sp, #19]
+ 102:user/w25q32.c ****   
+ 103:user/w25q32.c ****     HAL_SPI_TransmitReceive(&hspi1, tx_data, rx_data, 4, 500);
+ 238              		.loc 1 103 5 is_stmt 1 view .LVU46
+ 239 0026 4FF4FA73 		mov	r3, #500
+ 240 002a 0093     		str	r3, [sp]
+ 241 002c 0423     		movs	r3, #4
+ 242 002e 02AA     		add	r2, sp, #8
+ 243 0030 04A9     		add	r1, sp, #16
+ 244 0032 0A48     		ldr	r0, .L17+4
+ 245 0034 FFF7FEFF 		bl	HAL_SPI_TransmitReceive
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 7
 
 
-  88:user/w25q32.c **** {
- 264              		.loc 1 88 1 is_stmt 1 view -0
- 265              		.cfi_startproc
- 266              		@ args = 0, pretend = 0, frame = 16
- 267              		@ frame_needed = 0, uses_anonymous_args = 0
- 268              		.loc 1 88 1 is_stmt 0 view .LVU48
- 269 0000 30B5     		push	{r4, r5, lr}
- 270              	.LCFI8:
+ 246              	.LVL16:
+ 104:user/w25q32.c ****     pFlashInfo->ManufacturerID = rx_data[1];
+ 247              		.loc 1 104 5 view .LVU47
+ 248              		.loc 1 104 41 is_stmt 0 view .LVU48
+ 249 0038 9DF80930 		ldrb	r3, [sp, #9]	@ zero_extendqisi2
+ 250              		.loc 1 104 32 view .LVU49
+ 251 003c 2370     		strb	r3, [r4]
+ 105:user/w25q32.c ****     pFlashInfo->DeviceID[0] = rx_data[2];
+ 252              		.loc 1 105 5 is_stmt 1 view .LVU50
+ 253              		.loc 1 105 38 is_stmt 0 view .LVU51
+ 254 003e 9DF80A30 		ldrb	r3, [sp, #10]	@ zero_extendqisi2
+ 255              		.loc 1 105 29 view .LVU52
+ 256 0042 6370     		strb	r3, [r4, #1]
+ 106:user/w25q32.c ****     pFlashInfo->DeviceID[1] = rx_data[3];
+ 257              		.loc 1 106 5 is_stmt 1 view .LVU53
+ 258              		.loc 1 106 38 is_stmt 0 view .LVU54
+ 259 0044 9DF80B30 		ldrb	r3, [sp, #11]	@ zero_extendqisi2
+ 260              		.loc 1 106 29 view .LVU55
+ 261 0048 A370     		strb	r3, [r4, #2]
+ 107:user/w25q32.c **** 
+ 108:user/w25q32.c ****     FLASH_CS_High();    
+ 262              		.loc 1 108 5 is_stmt 1 view .LVU56
+ 263 004a 0122     		movs	r2, #1
+ 264 004c 1021     		movs	r1, #16
+ 265 004e 2846     		mov	r0, r5
+ 266 0050 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 267              	.LVL17:
+ 109:user/w25q32.c **** }
+ 268              		.loc 1 109 1 is_stmt 0 view .LVU57
+ 269 0054 07B0     		add	sp, sp, #28
+ 270              	.LCFI9:
  271              		.cfi_def_cfa_offset 12
- 272              		.cfi_offset 4, -12
- 273              		.cfi_offset 5, -8
- 274              		.cfi_offset 14, -4
- 275 0002 87B0     		sub	sp, sp, #28
- 276              	.LCFI9:
- 277              		.cfi_def_cfa_offset 40
- 278 0004 0446     		mov	r4, r0
-  89:user/w25q32.c ****     int i;
- 279              		.loc 1 89 5 is_stmt 1 view .LVU49
-  90:user/w25q32.c **** 	// FlashWait_Busy();
-  91:user/w25q32.c ****     FLASH_CS_Low();
- 280              		.loc 1 91 5 view .LVU50
- 281 0006 154D     		ldr	r5, .L21
- 282 0008 0022     		movs	r2, #0
- 283 000a 1021     		movs	r1, #16
- 284 000c 2846     		mov	r0, r5
- 285              	.LVL23:
- 286              		.loc 1 91 5 is_stmt 0 view .LVU51
- 287 000e FFF7FEFF 		bl	HAL_GPIO_WritePin
- 288              	.LVL24:
- 289              		.loc 1 91 19 is_stmt 1 view .LVU52
-  92:user/w25q32.c ****    
-  93:user/w25q32.c ****     /* SPI2_Write(REMS_CMD);
-  94:user/w25q32.c ****     SPI2_Write(DUMMY_BYTE);
-  95:user/w25q32.c ****     SPI2_Write(DUMMY_BYTE);
-  96:user/w25q32.c ****     SPI2_Write(0x00);  //manufacturer's ID first
-  97:user/w25q32.c ****     pFlashInfo->ManufacturerID=SPI2_Read();
-  98:user/w25q32.c ****     pFlashInfo->DeviceID[0]=SPI2_Read(); */
-  99:user/w25q32.c ****     uint8_t tx_data[7];
- 290              		.loc 1 99 5 view .LVU53
- 100:user/w25q32.c ****     uint8_t rx_data[7];
- 291              		.loc 1 100 5 view .LVU54
- 101:user/w25q32.c ****     tx_data[0] = REMS_CMD;
- 292              		.loc 1 101 5 view .LVU55
- 293              		.loc 1 101 16 is_stmt 0 view .LVU56
- 294 0012 9023     		movs	r3, #144
- 295 0014 8DF81030 		strb	r3, [sp, #16]
- 102:user/w25q32.c ****     tx_data[1] = DUMMY_BYTE;
- 296              		.loc 1 102 5 is_stmt 1 view .LVU57
- 297              		.loc 1 102 16 is_stmt 0 view .LVU58
- 298 0018 FF23     		movs	r3, #255
- 299 001a 8DF81130 		strb	r3, [sp, #17]
- 103:user/w25q32.c ****     tx_data[2] = DUMMY_BYTE;
- 300              		.loc 1 103 5 is_stmt 1 view .LVU59
- 301              		.loc 1 103 16 is_stmt 0 view .LVU60
- 302 001e 8DF81230 		strb	r3, [sp, #18]
- 104:user/w25q32.c ****     tx_data[3] = 0x00;
- 303              		.loc 1 104 5 is_stmt 1 view .LVU61
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 8
+ 272              		@ sp needed
+ 273 0056 30BD     		pop	{r4, r5, pc}
+ 274              	.LVL18:
+ 275              	.L18:
+ 276              		.loc 1 109 1 view .LVU58
+ 277              		.align	2
+ 278              	.L17:
+ 279 0058 00000240 		.word	1073872896
+ 280 005c 00000000 		.word	hspi1
+ 281              		.cfi_endproc
+ 282              	.LFE137:
+ 284              		.section	.text.FlashGet_ElectronicInfo,"ax",%progbits
+ 285              		.align	1
+ 286              		.global	FlashGet_ElectronicInfo
+ 287              		.syntax unified
+ 288              		.thumb
+ 289              		.thumb_func
+ 291              	FlashGet_ElectronicInfo:
+ 292              	.LVL19:
+ 293              	.LFB138:
+ 110:user/w25q32.c **** void FlashGet_ElectronicInfo(flashInfoTypedef * pFlashInfo)
+ 111:user/w25q32.c **** {
+ 294              		.loc 1 111 1 is_stmt 1 view -0
+ 295              		.cfi_startproc
+ 296              		@ args = 0, pretend = 0, frame = 16
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 8
 
 
- 304              		.loc 1 104 16 is_stmt 0 view .LVU62
- 305 0022 0022     		movs	r2, #0
- 306 0024 8DF81320 		strb	r2, [sp, #19]
- 105:user/w25q32.c ****     tx_data[4] = DUMMY_BYTE;
- 307              		.loc 1 105 5 is_stmt 1 view .LVU63
- 308              		.loc 1 105 16 is_stmt 0 view .LVU64
- 309 0028 8DF81430 		strb	r3, [sp, #20]
- 106:user/w25q32.c ****     tx_data[5] = DUMMY_BYTE;
- 310              		.loc 1 106 5 is_stmt 1 view .LVU65
- 311              		.loc 1 106 16 is_stmt 0 view .LVU66
- 312 002c 8DF81530 		strb	r3, [sp, #21]
- 107:user/w25q32.c ****     HAL_SPI_TransmitReceive(&hspi1, tx_data, rx_data, 6, 500);
- 313              		.loc 1 107 5 is_stmt 1 view .LVU67
- 314 0030 4FF4FA73 		mov	r3, #500
- 315 0034 0093     		str	r3, [sp]
- 316 0036 0623     		movs	r3, #6
- 317 0038 02AA     		add	r2, sp, #8
- 318 003a 04A9     		add	r1, sp, #16
- 319 003c 0848     		ldr	r0, .L21+4
- 320 003e FFF7FEFF 		bl	HAL_SPI_TransmitReceive
- 321              	.LVL25:
- 108:user/w25q32.c ****     pFlashInfo->ManufacturerID=rx_data[4];
- 322              		.loc 1 108 5 view .LVU68
- 323              		.loc 1 108 39 is_stmt 0 view .LVU69
- 324 0042 9DF80C30 		ldrb	r3, [sp, #12]	@ zero_extendqisi2
- 325              		.loc 1 108 31 view .LVU70
- 326 0046 2370     		strb	r3, [r4]
- 109:user/w25q32.c ****     pFlashInfo->DeviceID[0]=rx_data[5];
- 327              		.loc 1 109 5 is_stmt 1 view .LVU71
- 328              		.loc 1 109 36 is_stmt 0 view .LVU72
- 329 0048 9DF80D30 		ldrb	r3, [sp, #13]	@ zero_extendqisi2
- 330              		.loc 1 109 28 view .LVU73
- 331 004c 6370     		strb	r3, [r4, #1]
- 110:user/w25q32.c ****     
- 111:user/w25q32.c ****     FLASH_CS_High();
- 332              		.loc 1 111 5 is_stmt 1 view .LVU74
- 333 004e 0122     		movs	r2, #1
- 334 0050 1021     		movs	r1, #16
- 335 0052 2846     		mov	r0, r5
- 336 0054 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 337              	.LVL26:
- 112:user/w25q32.c **** }
- 338              		.loc 1 112 1 is_stmt 0 view .LVU75
- 339 0058 07B0     		add	sp, sp, #28
- 340              	.LCFI10:
- 341              		.cfi_def_cfa_offset 12
- 342              		@ sp needed
- 343 005a 30BD     		pop	{r4, r5, pc}
- 344              	.LVL27:
- 345              	.L22:
- 346              		.loc 1 112 1 view .LVU76
- 347              		.align	2
- 348              	.L21:
- 349 005c 00000240 		.word	1073872896
- 350 0060 00000000 		.word	hspi1
- 351              		.cfi_endproc
- 352              	.LFE138:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 9
+ 297              		@ frame_needed = 0, uses_anonymous_args = 0
+ 298              		.loc 1 111 1 is_stmt 0 view .LVU60
+ 299 0000 30B5     		push	{r4, r5, lr}
+ 300              	.LCFI10:
+ 301              		.cfi_def_cfa_offset 12
+ 302              		.cfi_offset 4, -12
+ 303              		.cfi_offset 5, -8
+ 304              		.cfi_offset 14, -4
+ 305 0002 87B0     		sub	sp, sp, #28
+ 306              	.LCFI11:
+ 307              		.cfi_def_cfa_offset 40
+ 308 0004 0446     		mov	r4, r0
+ 112:user/w25q32.c ****     // int i;
+ 113:user/w25q32.c ****     uint8_t tx_data[7];
+ 309              		.loc 1 113 5 is_stmt 1 view .LVU61
+ 114:user/w25q32.c ****     uint8_t rx_data[7];
+ 310              		.loc 1 114 5 view .LVU62
+ 115:user/w25q32.c **** 	// FlashWait_Busy();
+ 116:user/w25q32.c ****     FLASH_CS_Low();
+ 311              		.loc 1 116 5 view .LVU63
+ 312 0006 154D     		ldr	r5, .L21
+ 313 0008 0022     		movs	r2, #0
+ 314 000a 1021     		movs	r1, #16
+ 315 000c 2846     		mov	r0, r5
+ 316              	.LVL20:
+ 317              		.loc 1 116 5 is_stmt 0 view .LVU64
+ 318 000e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 319              	.LVL21:
+ 320              		.loc 1 116 19 is_stmt 1 view .LVU65
+ 117:user/w25q32.c ****    
+ 118:user/w25q32.c ****     /* SPI2_Write(REMS_CMD);
+ 119:user/w25q32.c ****     SPI2_Write(DUMMY_BYTE);
+ 120:user/w25q32.c ****     SPI2_Write(DUMMY_BYTE);
+ 121:user/w25q32.c ****     SPI2_Write(0x00);  //manufacturer's ID first
+ 122:user/w25q32.c ****     pFlashInfo->ManufacturerID=SPI2_Read();
+ 123:user/w25q32.c ****     pFlashInfo->DeviceID[0]=SPI2_Read(); */
+ 124:user/w25q32.c ****     
+ 125:user/w25q32.c ****     tx_data[0] = REMS_CMD;
+ 321              		.loc 1 125 5 view .LVU66
+ 322              		.loc 1 125 16 is_stmt 0 view .LVU67
+ 323 0012 9023     		movs	r3, #144
+ 324 0014 8DF81030 		strb	r3, [sp, #16]
+ 126:user/w25q32.c ****     tx_data[1] = DUMMY_BYTE;
+ 325              		.loc 1 126 5 is_stmt 1 view .LVU68
+ 326              		.loc 1 126 16 is_stmt 0 view .LVU69
+ 327 0018 FF23     		movs	r3, #255
+ 328 001a 8DF81130 		strb	r3, [sp, #17]
+ 127:user/w25q32.c ****     tx_data[2] = DUMMY_BYTE;
+ 329              		.loc 1 127 5 is_stmt 1 view .LVU70
+ 330              		.loc 1 127 16 is_stmt 0 view .LVU71
+ 331 001e 8DF81230 		strb	r3, [sp, #18]
+ 128:user/w25q32.c ****     tx_data[3] = 0x00;
+ 332              		.loc 1 128 5 is_stmt 1 view .LVU72
+ 333              		.loc 1 128 16 is_stmt 0 view .LVU73
+ 334 0022 0022     		movs	r2, #0
+ 335 0024 8DF81320 		strb	r2, [sp, #19]
+ 129:user/w25q32.c ****     tx_data[4] = DUMMY_BYTE;
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 9
 
 
- 354              		.section	.rodata.SpiFlash_Init.str1.4,"aMS",%progbits,1
- 355              		.align	2
- 356              	.LC0:
- 357 0000 4D616E75 		.ascii	"ManufacturerID=%02X\015\012\000"
- 357      66616374 
- 357      75726572 
- 357      49443D25 
- 357      3032580D 
- 358 0016 0000     		.align	2
- 359              	.LC1:
- 360 0018 44657669 		.ascii	"DeviceID=%02X\015\012\000"
- 360      63654944 
- 360      3D253032 
- 360      580D0A00 
- 361              		.align	2
- 362              	.LC2:
- 363 0028 09466C61 		.ascii	"\011Flash Info: WINBOND SPI FLASH\015\000"
- 363      73682049 
- 363      6E666F3A 
- 363      2057494E 
- 363      424F4E44 
- 364              		.align	2
- 365              	.LC3:
- 366 0048 44657669 		.ascii	"DeviceID=%02X%02X\015\012\000"
- 366      63654944 
- 366      3D253032 
- 366      58253032 
- 366      580D0A00 
- 367              		.align	2
- 368              	.LC4:
- 369 005c 09466C61 		.ascii	"\011FlashType:W25Q128  FlashSize:128Mbit\015\012\011"
- 369      73685479 
- 369      70653A57 
- 369      32355131 
- 369      32382020 
- 370 0084 546F7461 		.ascii	"Total 256 Blocks  16 Sectors/Block  4KB/Sector\015\000"
- 370      6C203235 
- 370      3620426C 
- 370      6F636B73 
- 370      20203136 
- 371              		.section	.text.SpiFlash_Init,"ax",%progbits
- 372              		.align	1
- 373              		.global	SpiFlash_Init
- 374              		.syntax unified
- 375              		.thumb
- 376              		.thumb_func
- 378              	SpiFlash_Init:
- 379              	.LFB135:
-  28:user/w25q32.c ****     flashInfoTypedef flashInfo;   
- 380              		.loc 1 28 1 is_stmt 1 view -0
- 381              		.cfi_startproc
- 382              		@ args = 0, pretend = 0, frame = 8
- 383              		@ frame_needed = 0, uses_anonymous_args = 0
- 384 0000 00B5     		push	{lr}
- 385              	.LCFI11:
- 386              		.cfi_def_cfa_offset 4
- 387              		.cfi_offset 14, -4
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 10
-
-
- 388 0002 83B0     		sub	sp, sp, #12
- 389              	.LCFI12:
- 390              		.cfi_def_cfa_offset 16
-  29:user/w25q32.c ****     //WP
- 391              		.loc 1 29 5 view .LVU78
-  39:user/w25q32.c ****     printf("ManufacturerID=%02X\r\n",flashInfo.ManufacturerID);
- 392              		.loc 1 39 5 view .LVU79
- 393 0004 01A8     		add	r0, sp, #4
- 394 0006 FFF7FEFF 		bl	FlashGet_ElectronicInfo
- 395              	.LVL28:
-  40:user/w25q32.c ****     printf("DeviceID=%02X\r\n",flashInfo.DeviceID[0]);
- 396              		.loc 1 40 5 view .LVU80
- 397 000a 9DF80410 		ldrb	r1, [sp, #4]	@ zero_extendqisi2
- 398 000e 1948     		ldr	r0, .L29
- 399 0010 FFF7FEFF 		bl	printf
- 400              	.LVL29:
-  41:user/w25q32.c ****     if((flashInfo.ManufacturerID==0xEF)&&(flashInfo.DeviceID[0]==0x17))
- 401              		.loc 1 41 5 view .LVU81
- 402 0014 9DF80510 		ldrb	r1, [sp, #5]	@ zero_extendqisi2
- 403 0018 1748     		ldr	r0, .L29+4
- 404 001a FFF7FEFF 		bl	printf
- 405              	.LVL30:
-  42:user/w25q32.c ****     {
- 406              		.loc 1 42 5 view .LVU82
-  42:user/w25q32.c ****     {
- 407              		.loc 1 42 18 is_stmt 0 view .LVU83
- 408 001e 9DF80430 		ldrb	r3, [sp, #4]	@ zero_extendqisi2
-  42:user/w25q32.c ****     {
- 409              		.loc 1 42 7 view .LVU84
- 410 0022 EF2B     		cmp	r3, #239
- 411 0024 15D0     		beq	.L27
- 412              	.L24:
-  46:user/w25q32.c ****     printf("ManufacturerID=%02X\r\n",flashInfo.ManufacturerID);
- 413              		.loc 1 46 5 is_stmt 1 view .LVU85
- 414 0026 01A8     		add	r0, sp, #4
- 415 0028 FFF7FEFF 		bl	FlashGet_Info
- 416              	.LVL31:
-  47:user/w25q32.c ****     printf("DeviceID=%02X%02X\r\n",flashInfo.DeviceID[0],flashInfo.DeviceID[1]);
- 417              		.loc 1 47 5 view .LVU86
- 418 002c 9DF80410 		ldrb	r1, [sp, #4]	@ zero_extendqisi2
- 419 0030 1048     		ldr	r0, .L29
- 420 0032 FFF7FEFF 		bl	printf
- 421              	.LVL32:
-  48:user/w25q32.c ****     if((flashInfo.DeviceID[0]==0x40)&&(flashInfo.DeviceID[1]==0x18))
- 422              		.loc 1 48 5 view .LVU87
- 423 0036 9DF80620 		ldrb	r2, [sp, #6]	@ zero_extendqisi2
- 424 003a 9DF80510 		ldrb	r1, [sp, #5]	@ zero_extendqisi2
- 425 003e 0F48     		ldr	r0, .L29+8
- 426 0040 FFF7FEFF 		bl	printf
- 427              	.LVL33:
-  49:user/w25q32.c ****     {
- 428              		.loc 1 49 5 view .LVU88
-  49:user/w25q32.c ****     {
- 429              		.loc 1 49 27 is_stmt 0 view .LVU89
- 430 0044 9DF80530 		ldrb	r3, [sp, #5]	@ zero_extendqisi2
-  49:user/w25q32.c ****     {
- 431              		.loc 1 49 7 view .LVU90
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 11
-
-
- 432 0048 402B     		cmp	r3, #64
- 433 004a 0AD0     		beq	.L28
- 434              	.L23:
-  59:user/w25q32.c **** 
- 435              		.loc 1 59 1 view .LVU91
- 436 004c 03B0     		add	sp, sp, #12
- 437              	.LCFI13:
- 438              		.cfi_remember_state
- 439              		.cfi_def_cfa_offset 4
- 440              		@ sp needed
- 441 004e 5DF804FB 		ldr	pc, [sp], #4
- 442              	.L27:
- 443              	.LCFI14:
- 444              		.cfi_restore_state
-  42:user/w25q32.c ****     {
- 445              		.loc 1 42 61 discriminator 1 view .LVU92
- 446 0052 9DF80530 		ldrb	r3, [sp, #5]	@ zero_extendqisi2
-  42:user/w25q32.c ****     {
- 447              		.loc 1 42 40 discriminator 1 view .LVU93
- 448 0056 172B     		cmp	r3, #23
- 449 0058 E5D1     		bne	.L24
-  44:user/w25q32.c ****     }
- 450              		.loc 1 44 9 is_stmt 1 view .LVU94
- 451 005a 0948     		ldr	r0, .L29+12
- 452 005c FFF7FEFF 		bl	puts
- 453              	.LVL34:
- 454 0060 E1E7     		b	.L24
- 455              	.L28:
-  49:user/w25q32.c ****     {
- 456              		.loc 1 49 58 is_stmt 0 discriminator 1 view .LVU95
- 457 0062 9DF80630 		ldrb	r3, [sp, #6]	@ zero_extendqisi2
-  49:user/w25q32.c ****     {
- 458              		.loc 1 49 37 discriminator 1 view .LVU96
- 459 0066 182B     		cmp	r3, #24
- 460 0068 F0D1     		bne	.L23
-  51:user/w25q32.c ****     }
- 461              		.loc 1 51 9 is_stmt 1 view .LVU97
- 462 006a 0648     		ldr	r0, .L29+16
- 463 006c FFF7FEFF 		bl	puts
- 464              	.LVL35:
-  59:user/w25q32.c **** 
- 465              		.loc 1 59 1 is_stmt 0 view .LVU98
- 466 0070 ECE7     		b	.L23
- 467              	.L30:
- 468 0072 00BF     		.align	2
- 469              	.L29:
- 470 0074 00000000 		.word	.LC0
- 471 0078 18000000 		.word	.LC1
- 472 007c 48000000 		.word	.LC3
- 473 0080 28000000 		.word	.LC2
- 474 0084 5C000000 		.word	.LC4
- 475              		.cfi_endproc
- 476              	.LFE135:
- 478              		.section	.text.FlashEnter_DeepPowerDown,"ax",%progbits
- 479              		.align	1
- 480              		.global	FlashEnter_DeepPowerDown
- 481              		.syntax unified
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 12
-
-
- 482              		.thumb
- 483              		.thumb_func
- 485              	FlashEnter_DeepPowerDown:
- 486              	.LFB139:
- 113:user/w25q32.c **** void FlashEnter_DeepPowerDown(void)
- 114:user/w25q32.c **** {
- 487              		.loc 1 114 1 is_stmt 1 view -0
- 488              		.cfi_startproc
- 489              		@ args = 0, pretend = 0, frame = 0
- 490              		@ frame_needed = 0, uses_anonymous_args = 0
- 491 0000 10B5     		push	{r4, lr}
- 492              	.LCFI15:
- 493              		.cfi_def_cfa_offset 8
- 494              		.cfi_offset 4, -8
- 495              		.cfi_offset 14, -4
- 115:user/w25q32.c ****     FLASH_CS_Low();
- 496              		.loc 1 115 5 view .LVU100
- 497 0002 074C     		ldr	r4, .L33
- 498 0004 0022     		movs	r2, #0
- 499 0006 1021     		movs	r1, #16
- 500 0008 2046     		mov	r0, r4
- 501 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 502              	.LVL36:
- 503              		.loc 1 115 19 view .LVU101
- 116:user/w25q32.c ****     SPI2_Write(DP_CMD);   
- 504              		.loc 1 116 5 view .LVU102
- 505 000e B920     		movs	r0, #185
- 506 0010 FFF7FEFF 		bl	SPI2_Write
- 507              	.LVL37:
- 117:user/w25q32.c ****     FLASH_CS_High();    
- 508              		.loc 1 117 5 view .LVU103
- 509 0014 0122     		movs	r2, #1
- 510 0016 1021     		movs	r1, #16
- 511 0018 2046     		mov	r0, r4
- 512 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 513              	.LVL38:
- 118:user/w25q32.c **** }
- 514              		.loc 1 118 1 is_stmt 0 view .LVU104
- 515 001e 10BD     		pop	{r4, pc}
- 516              	.L34:
- 517              		.align	2
- 518              	.L33:
- 519 0020 00000240 		.word	1073872896
- 520              		.cfi_endproc
- 521              	.LFE139:
- 523              		.section	.text.FlashReleaseFrom_DeepPowerDown,"ax",%progbits
- 524              		.align	1
- 525              		.global	FlashReleaseFrom_DeepPowerDown
- 526              		.syntax unified
- 527              		.thumb
- 528              		.thumb_func
- 530              	FlashReleaseFrom_DeepPowerDown:
- 531              	.LFB140:
- 119:user/w25q32.c **** void FlashReleaseFrom_DeepPowerDown(void)
- 120:user/w25q32.c **** {
- 532              		.loc 1 120 1 is_stmt 1 view -0
- 533              		.cfi_startproc
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 13
-
-
- 534              		@ args = 0, pretend = 0, frame = 0
- 535              		@ frame_needed = 0, uses_anonymous_args = 0
- 536 0000 10B5     		push	{r4, lr}
- 537              	.LCFI16:
- 538              		.cfi_def_cfa_offset 8
- 539              		.cfi_offset 4, -8
- 540              		.cfi_offset 14, -4
- 121:user/w25q32.c ****     FLASH_CS_Low();
- 541              		.loc 1 121 5 view .LVU106
- 542 0002 074C     		ldr	r4, .L37
- 543 0004 0022     		movs	r2, #0
- 544 0006 1021     		movs	r1, #16
- 545 0008 2046     		mov	r0, r4
- 546 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 547              	.LVL39:
- 548              		.loc 1 121 19 view .LVU107
- 122:user/w25q32.c ****     SPI2_Write(RDP_CMD);   
- 549              		.loc 1 122 5 view .LVU108
- 550 000e AB20     		movs	r0, #171
- 551 0010 FFF7FEFF 		bl	SPI2_Write
- 552              	.LVL40:
- 123:user/w25q32.c ****     FLASH_CS_High();    
- 553              		.loc 1 123 5 view .LVU109
- 554 0014 0122     		movs	r2, #1
- 555 0016 1021     		movs	r1, #16
- 556 0018 2046     		mov	r0, r4
- 557 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 558              	.LVL41:
- 124:user/w25q32.c **** }
- 559              		.loc 1 124 1 is_stmt 0 view .LVU110
- 560 001e 10BD     		pop	{r4, pc}
- 561              	.L38:
- 562              		.align	2
- 563              	.L37:
- 564 0020 00000240 		.word	1073872896
- 565              		.cfi_endproc
- 566              	.LFE140:
- 568              		.section	.text.FlashReleaseFrom_DeepPowerDownE,"ax",%progbits
- 569              		.align	1
- 570              		.global	FlashReleaseFrom_DeepPowerDownE
- 571              		.syntax unified
- 572              		.thumb
- 573              		.thumb_func
- 575              	FlashReleaseFrom_DeepPowerDownE:
- 576              	.LFB141:
- 125:user/w25q32.c **** uint8_t FlashReleaseFrom_DeepPowerDownE(void)
- 126:user/w25q32.c **** {   
- 577              		.loc 1 126 1 is_stmt 1 view -0
- 578              		.cfi_startproc
- 579              		@ args = 0, pretend = 0, frame = 0
- 580              		@ frame_needed = 0, uses_anonymous_args = 0
- 581 0000 38B5     		push	{r3, r4, r5, lr}
- 582              	.LCFI17:
- 583              		.cfi_def_cfa_offset 16
- 584              		.cfi_offset 3, -16
- 585              		.cfi_offset 4, -12
- 586              		.cfi_offset 5, -8
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 14
-
-
- 587              		.cfi_offset 14, -4
- 127:user/w25q32.c ****     uint8_t ElectronicSignature;
- 588              		.loc 1 127 5 view .LVU112
- 128:user/w25q32.c ****     FLASH_CS_Low();
- 589              		.loc 1 128 5 view .LVU113
- 590 0002 0E4D     		ldr	r5, .L41
- 591 0004 0022     		movs	r2, #0
- 592 0006 1021     		movs	r1, #16
- 593 0008 2846     		mov	r0, r5
- 594 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 595              	.LVL42:
- 596              		.loc 1 128 19 view .LVU114
- 129:user/w25q32.c ****     SPI2_Write(RES_CMD);
- 597              		.loc 1 129 5 view .LVU115
- 598 000e AB20     		movs	r0, #171
- 599 0010 FFF7FEFF 		bl	SPI2_Write
- 600              	.LVL43:
- 130:user/w25q32.c ****     SPI2_Write(DUMMY_BYTE);
- 601              		.loc 1 130 5 view .LVU116
- 602 0014 FF20     		movs	r0, #255
- 603 0016 FFF7FEFF 		bl	SPI2_Write
- 604              	.LVL44:
- 131:user/w25q32.c ****     SPI2_Write(DUMMY_BYTE);
- 605              		.loc 1 131 5 view .LVU117
- 606 001a FF20     		movs	r0, #255
- 607 001c FFF7FEFF 		bl	SPI2_Write
- 608              	.LVL45:
- 132:user/w25q32.c ****     SPI2_Write(DUMMY_BYTE);
- 609              		.loc 1 132 5 view .LVU118
- 610 0020 FF20     		movs	r0, #255
- 611 0022 FFF7FEFF 		bl	SPI2_Write
- 612              	.LVL46:
- 133:user/w25q32.c ****     ElectronicSignature=SPI2_Read();
- 613              		.loc 1 133 5 view .LVU119
- 614              		.loc 1 133 25 is_stmt 0 view .LVU120
- 615 0026 FFF7FEFF 		bl	SPI2_Read
- 616              	.LVL47:
- 617 002a 0446     		mov	r4, r0
- 618              	.LVL48:
- 134:user/w25q32.c ****     FLASH_CS_High();    
- 619              		.loc 1 134 5 is_stmt 1 view .LVU121
- 620 002c 0122     		movs	r2, #1
- 621 002e 1021     		movs	r1, #16
- 622 0030 2846     		mov	r0, r5
- 623 0032 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 624              	.LVL49:
- 135:user/w25q32.c ****     return ElectronicSignature;
- 625              		.loc 1 135 5 view .LVU122
+ 336              		.loc 1 129 5 is_stmt 1 view .LVU74
+ 337              		.loc 1 129 16 is_stmt 0 view .LVU75
+ 338 0028 8DF81430 		strb	r3, [sp, #20]
+ 130:user/w25q32.c ****     tx_data[5] = DUMMY_BYTE;
+ 339              		.loc 1 130 5 is_stmt 1 view .LVU76
+ 340              		.loc 1 130 16 is_stmt 0 view .LVU77
+ 341 002c 8DF81530 		strb	r3, [sp, #21]
+ 131:user/w25q32.c ****     HAL_SPI_TransmitReceive(&hspi1, tx_data, rx_data, 6, 500);
+ 342              		.loc 1 131 5 is_stmt 1 view .LVU78
+ 343 0030 4FF4FA73 		mov	r3, #500
+ 344 0034 0093     		str	r3, [sp]
+ 345 0036 0623     		movs	r3, #6
+ 346 0038 02AA     		add	r2, sp, #8
+ 347 003a 04A9     		add	r1, sp, #16
+ 348 003c 0848     		ldr	r0, .L21+4
+ 349 003e FFF7FEFF 		bl	HAL_SPI_TransmitReceive
+ 350              	.LVL22:
+ 132:user/w25q32.c ****     pFlashInfo->ManufacturerID=rx_data[4];
+ 351              		.loc 1 132 5 view .LVU79
+ 352              		.loc 1 132 39 is_stmt 0 view .LVU80
+ 353 0042 9DF80C30 		ldrb	r3, [sp, #12]	@ zero_extendqisi2
+ 354              		.loc 1 132 31 view .LVU81
+ 355 0046 2370     		strb	r3, [r4]
+ 133:user/w25q32.c ****     pFlashInfo->DeviceID[0]=rx_data[5];
+ 356              		.loc 1 133 5 is_stmt 1 view .LVU82
+ 357              		.loc 1 133 36 is_stmt 0 view .LVU83
+ 358 0048 9DF80D30 		ldrb	r3, [sp, #13]	@ zero_extendqisi2
+ 359              		.loc 1 133 28 view .LVU84
+ 360 004c 6370     		strb	r3, [r4, #1]
+ 134:user/w25q32.c ****     
+ 135:user/w25q32.c ****     FLASH_CS_High();
+ 361              		.loc 1 135 5 is_stmt 1 view .LVU85
+ 362 004e 0122     		movs	r2, #1
+ 363 0050 1021     		movs	r1, #16
+ 364 0052 2846     		mov	r0, r5
+ 365 0054 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 366              	.LVL23:
  136:user/w25q32.c **** }
- 626              		.loc 1 136 1 is_stmt 0 view .LVU123
- 627 0036 2046     		mov	r0, r4
- 628 0038 38BD     		pop	{r3, r4, r5, pc}
- 629              	.LVL50:
- 630              	.L42:
- 631              		.loc 1 136 1 view .LVU124
- 632 003a 00BF     		.align	2
- 633              	.L41:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 15
+ 367              		.loc 1 136 1 is_stmt 0 view .LVU86
+ 368 0058 07B0     		add	sp, sp, #28
+ 369              	.LCFI12:
+ 370              		.cfi_def_cfa_offset 12
+ 371              		@ sp needed
+ 372 005a 30BD     		pop	{r4, r5, pc}
+ 373              	.LVL24:
+ 374              	.L22:
+ 375              		.loc 1 136 1 view .LVU87
+ 376              		.align	2
+ 377              	.L21:
+ 378 005c 00000240 		.word	1073872896
+ 379 0060 00000000 		.word	hspi1
+ 380              		.cfi_endproc
+ 381              	.LFE138:
+ 383              		.section	.rodata.SpiFlash_Init.str1.4,"aMS",%progbits,1
+ 384              		.align	2
+ 385              	.LC0:
+ 386 0000 4D616E75 		.ascii	"ManufacturerID=%02X\015\012\000"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 10
 
 
- 634 003c 00000240 		.word	1073872896
- 635              		.cfi_endproc
- 636              	.LFE141:
- 638              		.section	.text.FlashWriteEnable,"ax",%progbits
- 639              		.align	1
- 640              		.global	FlashWriteEnable
- 641              		.syntax unified
- 642              		.thumb
- 643              		.thumb_func
- 645              	FlashWriteEnable:
- 646              	.LFB142:
- 137:user/w25q32.c **** void FlashWriteEnable(void)
+ 386      66616374 
+ 386      75726572 
+ 386      49443D25 
+ 386      3032580D 
+ 387 0016 0000     		.align	2
+ 388              	.LC1:
+ 389 0018 44657669 		.ascii	"DeviceID=%02X\015\012\000"
+ 389      63654944 
+ 389      3D253032 
+ 389      580D0A00 
+ 390              		.align	2
+ 391              	.LC2:
+ 392 0028 09466C61 		.ascii	"\011Flash Info: WINBOND SPI FLASH\015\000"
+ 392      73682049 
+ 392      6E666F3A 
+ 392      2057494E 
+ 392      424F4E44 
+ 393              		.align	2
+ 394              	.LC3:
+ 395 0048 44657669 		.ascii	"DeviceID=%02X%02X\015\012\000"
+ 395      63654944 
+ 395      3D253032 
+ 395      58253032 
+ 395      580D0A00 
+ 396              		.align	2
+ 397              	.LC4:
+ 398 005c 09466C61 		.ascii	"\011FlashType:W25Q128  FlashSize:128Mbit\015\012\011"
+ 398      73685479 
+ 398      70653A57 
+ 398      32355131 
+ 398      32382020 
+ 399 0084 546F7461 		.ascii	"Total 256 Blocks  16 Sectors/Block  4KB/Sector\015\000"
+ 399      6C203235 
+ 399      3620426C 
+ 399      6F636B73 
+ 399      20203136 
+ 400              		.align	2
+ 401              	.LC5:
+ 402 00b4 09466C61 		.ascii	"\011FlashType:W25Q32  FlashSize:32Mbit\015\012\011T"
+ 402      73685479 
+ 402      70653A57 
+ 402      32355133 
+ 402      32202046 
+ 403 00db 6F74616C 		.ascii	"otal 64 Blocks  16 Sectors/Block  4KB/Sector\015\000"
+ 403      20363420 
+ 403      426C6F63 
+ 403      6B732020 
+ 403      31362053 
+ 404              		.section	.text.SpiFlash_Init,"ax",%progbits
+ 405              		.align	1
+ 406              		.global	SpiFlash_Init
+ 407              		.syntax unified
+ 408              		.thumb
+ 409              		.thumb_func
+ 411              	SpiFlash_Init:
+ 412              	.LFB135:
+  28:user/w25q32.c ****     flashInfoTypedef flashInfo;   
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 11
+
+
+ 413              		.loc 1 28 1 is_stmt 1 view -0
+ 414              		.cfi_startproc
+ 415              		@ args = 0, pretend = 0, frame = 8
+ 416              		@ frame_needed = 0, uses_anonymous_args = 0
+ 417 0000 00B5     		push	{lr}
+ 418              	.LCFI13:
+ 419              		.cfi_def_cfa_offset 4
+ 420              		.cfi_offset 14, -4
+ 421 0002 83B0     		sub	sp, sp, #12
+ 422              	.LCFI14:
+ 423              		.cfi_def_cfa_offset 16
+  29:user/w25q32.c ****     //WP
+ 424              		.loc 1 29 5 view .LVU89
+  39:user/w25q32.c ****     printf("ManufacturerID=%02X\r\n",flashInfo.ManufacturerID);
+ 425              		.loc 1 39 5 view .LVU90
+ 426 0004 01A8     		add	r0, sp, #4
+ 427 0006 FFF7FEFF 		bl	FlashGet_ElectronicInfo
+ 428              	.LVL25:
+  40:user/w25q32.c ****     printf("DeviceID=%02X\r\n",flashInfo.DeviceID[0]);
+ 429              		.loc 1 40 5 view .LVU91
+ 430 000a 9DF80410 		ldrb	r1, [sp, #4]	@ zero_extendqisi2
+ 431 000e 1C48     		ldr	r0, .L31
+ 432 0010 FFF7FEFF 		bl	printf
+ 433              	.LVL26:
+  41:user/w25q32.c ****     if(flashInfo.ManufacturerID==0xEF)
+ 434              		.loc 1 41 5 view .LVU92
+ 435 0014 9DF80510 		ldrb	r1, [sp, #5]	@ zero_extendqisi2
+ 436 0018 1A48     		ldr	r0, .L31+4
+ 437 001a FFF7FEFF 		bl	printf
+ 438              	.LVL27:
+  42:user/w25q32.c ****     {
+ 439              		.loc 1 42 5 view .LVU93
+  42:user/w25q32.c ****     {
+ 440              		.loc 1 42 17 is_stmt 0 view .LVU94
+ 441 001e 9DF80430 		ldrb	r3, [sp, #4]	@ zero_extendqisi2
+  42:user/w25q32.c ****     {
+ 442              		.loc 1 42 7 view .LVU95
+ 443 0022 EF2B     		cmp	r3, #239
+ 444 0024 17D0     		beq	.L28
+ 445              	.L24:
+  46:user/w25q32.c ****     printf("ManufacturerID=%02X\r\n",flashInfo.ManufacturerID);
+ 446              		.loc 1 46 5 is_stmt 1 view .LVU96
+ 447 0026 01A8     		add	r0, sp, #4
+ 448 0028 FFF7FEFF 		bl	FlashGet_Info
+ 449              	.LVL28:
+  47:user/w25q32.c ****     printf("DeviceID=%02X%02X\r\n",flashInfo.DeviceID[0],flashInfo.DeviceID[1]);
+ 450              		.loc 1 47 5 view .LVU97
+ 451 002c 9DF80410 		ldrb	r1, [sp, #4]	@ zero_extendqisi2
+ 452 0030 1348     		ldr	r0, .L31
+ 453 0032 FFF7FEFF 		bl	printf
+ 454              	.LVL29:
+  48:user/w25q32.c ****     if((flashInfo.DeviceID[0]==0x40)&&(flashInfo.DeviceID[1]==0x18))
+ 455              		.loc 1 48 5 view .LVU98
+ 456 0036 9DF80620 		ldrb	r2, [sp, #6]	@ zero_extendqisi2
+ 457 003a 9DF80510 		ldrb	r1, [sp, #5]	@ zero_extendqisi2
+ 458 003e 1248     		ldr	r0, .L31+8
+ 459 0040 FFF7FEFF 		bl	printf
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 12
+
+
+ 460              	.LVL30:
+  49:user/w25q32.c ****     {
+ 461              		.loc 1 49 5 view .LVU99
+  49:user/w25q32.c ****     {
+ 462              		.loc 1 49 27 is_stmt 0 view .LVU100
+ 463 0044 9DF80530 		ldrb	r3, [sp, #5]	@ zero_extendqisi2
+  49:user/w25q32.c ****     {
+ 464              		.loc 1 49 7 view .LVU101
+ 465 0048 402B     		cmp	r3, #64
+ 466 004a 08D0     		beq	.L29
+ 467              	.L25:
+  53:user/w25q32.c ****     {
+ 468              		.loc 1 53 10 is_stmt 1 view .LVU102
+  53:user/w25q32.c ****     {
+ 469              		.loc 1 53 12 is_stmt 0 view .LVU103
+ 470 004c 402B     		cmp	r3, #64
+ 471 004e 0ED0     		beq	.L30
+ 472              	.L23:
+  68:user/w25q32.c **** 
+ 473              		.loc 1 68 1 view .LVU104
+ 474 0050 03B0     		add	sp, sp, #12
+ 475              	.LCFI15:
+ 476              		.cfi_remember_state
+ 477              		.cfi_def_cfa_offset 4
+ 478              		@ sp needed
+ 479 0052 5DF804FB 		ldr	pc, [sp], #4
+ 480              	.L28:
+ 481              	.LCFI16:
+ 482              		.cfi_restore_state
+  44:user/w25q32.c ****     }
+ 483              		.loc 1 44 9 is_stmt 1 view .LVU105
+ 484 0056 0D48     		ldr	r0, .L31+12
+ 485 0058 FFF7FEFF 		bl	puts
+ 486              	.LVL31:
+ 487 005c E3E7     		b	.L24
+ 488              	.L29:
+  49:user/w25q32.c ****     {
+ 489              		.loc 1 49 58 is_stmt 0 discriminator 1 view .LVU106
+ 490 005e 9DF80620 		ldrb	r2, [sp, #6]	@ zero_extendqisi2
+  49:user/w25q32.c ****     {
+ 491              		.loc 1 49 37 discriminator 1 view .LVU107
+ 492 0062 182A     		cmp	r2, #24
+ 493 0064 F2D1     		bne	.L25
+  51:user/w25q32.c ****     }
+ 494              		.loc 1 51 9 is_stmt 1 view .LVU108
+ 495 0066 0A48     		ldr	r0, .L31+16
+ 496 0068 FFF7FEFF 		bl	puts
+ 497              	.LVL32:
+ 498 006c F0E7     		b	.L23
+ 499              	.L30:
+  53:user/w25q32.c ****     {
+ 500              		.loc 1 53 63 is_stmt 0 discriminator 1 view .LVU109
+ 501 006e 9DF80630 		ldrb	r3, [sp, #6]	@ zero_extendqisi2
+  53:user/w25q32.c ****     {
+ 502              		.loc 1 53 42 discriminator 1 view .LVU110
+ 503 0072 162B     		cmp	r3, #22
+ 504 0074 ECD1     		bne	.L23
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 13
+
+
+  55:user/w25q32.c ****     }
+ 505              		.loc 1 55 9 is_stmt 1 view .LVU111
+ 506 0076 0748     		ldr	r0, .L31+20
+ 507 0078 FFF7FEFF 		bl	puts
+ 508              	.LVL33:
+  60:user/w25q32.c ****     // FlashChip_Erase();
+ 509              		.loc 1 60 5 view .LVU112
+  68:user/w25q32.c **** 
+ 510              		.loc 1 68 1 is_stmt 0 view .LVU113
+ 511 007c E8E7     		b	.L23
+ 512              	.L32:
+ 513 007e 00BF     		.align	2
+ 514              	.L31:
+ 515 0080 00000000 		.word	.LC0
+ 516 0084 18000000 		.word	.LC1
+ 517 0088 48000000 		.word	.LC3
+ 518 008c 28000000 		.word	.LC2
+ 519 0090 5C000000 		.word	.LC4
+ 520 0094 B4000000 		.word	.LC5
+ 521              		.cfi_endproc
+ 522              	.LFE135:
+ 524              		.section	.text.FlashEnter_DeepPowerDown,"ax",%progbits
+ 525              		.align	1
+ 526              		.global	FlashEnter_DeepPowerDown
+ 527              		.syntax unified
+ 528              		.thumb
+ 529              		.thumb_func
+ 531              	FlashEnter_DeepPowerDown:
+ 532              	.LFB139:
+ 137:user/w25q32.c **** void FlashEnter_DeepPowerDown(void)
  138:user/w25q32.c **** {
- 647              		.loc 1 138 1 is_stmt 1 view -0
- 648              		.cfi_startproc
- 649              		@ args = 0, pretend = 0, frame = 0
- 650              		@ frame_needed = 0, uses_anonymous_args = 0
- 651 0000 10B5     		push	{r4, lr}
- 652              	.LCFI18:
- 653              		.cfi_def_cfa_offset 8
- 654              		.cfi_offset 4, -8
- 655              		.cfi_offset 14, -4
+ 533              		.loc 1 138 1 is_stmt 1 view -0
+ 534              		.cfi_startproc
+ 535              		@ args = 0, pretend = 0, frame = 0
+ 536              		@ frame_needed = 0, uses_anonymous_args = 0
+ 537 0000 10B5     		push	{r4, lr}
+ 538              	.LCFI17:
+ 539              		.cfi_def_cfa_offset 8
+ 540              		.cfi_offset 4, -8
+ 541              		.cfi_offset 14, -4
  139:user/w25q32.c ****     FLASH_CS_Low();
- 656              		.loc 1 139 5 view .LVU126
- 657 0002 074C     		ldr	r4, .L45
- 658 0004 0022     		movs	r2, #0
- 659 0006 1021     		movs	r1, #16
- 660 0008 2046     		mov	r0, r4
- 661 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 662              	.LVL51:
- 663              		.loc 1 139 19 view .LVU127
- 140:user/w25q32.c ****     SPI2_Write(WREN_CMD);   
- 664              		.loc 1 140 5 view .LVU128
- 665 000e 0620     		movs	r0, #6
- 666 0010 FFF7FEFF 		bl	SPI2_Write
- 667              	.LVL52:
+ 542              		.loc 1 139 5 view .LVU115
+ 543 0002 074C     		ldr	r4, .L35
+ 544 0004 0022     		movs	r2, #0
+ 545 0006 1021     		movs	r1, #16
+ 546 0008 2046     		mov	r0, r4
+ 547 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 548              	.LVL34:
+ 549              		.loc 1 139 19 view .LVU116
+ 140:user/w25q32.c ****     SPI2_Write(DP_CMD);   
+ 550              		.loc 1 140 5 view .LVU117
+ 551 000e B920     		movs	r0, #185
+ 552 0010 FFF7FEFF 		bl	SPI2_Write
+ 553              	.LVL35:
  141:user/w25q32.c ****     FLASH_CS_High();    
- 668              		.loc 1 141 5 view .LVU129
- 669 0014 0122     		movs	r2, #1
- 670 0016 1021     		movs	r1, #16
- 671 0018 2046     		mov	r0, r4
- 672 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 673              	.LVL53:
+ 554              		.loc 1 141 5 view .LVU118
+ 555 0014 0122     		movs	r2, #1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 14
+
+
+ 556 0016 1021     		movs	r1, #16
+ 557 0018 2046     		mov	r0, r4
+ 558 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 559              	.LVL36:
  142:user/w25q32.c **** }
- 674              		.loc 1 142 1 is_stmt 0 view .LVU130
- 675 001e 10BD     		pop	{r4, pc}
- 676              	.L46:
- 677              		.align	2
- 678              	.L45:
- 679 0020 00000240 		.word	1073872896
- 680              		.cfi_endproc
- 681              	.LFE142:
- 683              		.section	.text.FlashWriteDisable,"ax",%progbits
- 684              		.align	1
- 685              		.global	FlashWriteDisable
- 686              		.syntax unified
- 687              		.thumb
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 16
-
-
- 688              		.thumb_func
- 690              	FlashWriteDisable:
- 691              	.LFB143:
- 143:user/w25q32.c **** void FlashWriteDisable(void)
+ 560              		.loc 1 142 1 is_stmt 0 view .LVU119
+ 561 001e 10BD     		pop	{r4, pc}
+ 562              	.L36:
+ 563              		.align	2
+ 564              	.L35:
+ 565 0020 00000240 		.word	1073872896
+ 566              		.cfi_endproc
+ 567              	.LFE139:
+ 569              		.section	.text.FlashReleaseFrom_DeepPowerDown,"ax",%progbits
+ 570              		.align	1
+ 571              		.global	FlashReleaseFrom_DeepPowerDown
+ 572              		.syntax unified
+ 573              		.thumb
+ 574              		.thumb_func
+ 576              	FlashReleaseFrom_DeepPowerDown:
+ 577              	.LFB140:
+ 143:user/w25q32.c **** void FlashReleaseFrom_DeepPowerDown(void)
  144:user/w25q32.c **** {
- 692              		.loc 1 144 1 is_stmt 1 view -0
- 693              		.cfi_startproc
- 694              		@ args = 0, pretend = 0, frame = 0
- 695              		@ frame_needed = 0, uses_anonymous_args = 0
- 696 0000 10B5     		push	{r4, lr}
- 697              	.LCFI19:
- 698              		.cfi_def_cfa_offset 8
- 699              		.cfi_offset 4, -8
- 700              		.cfi_offset 14, -4
+ 578              		.loc 1 144 1 is_stmt 1 view -0
+ 579              		.cfi_startproc
+ 580              		@ args = 0, pretend = 0, frame = 0
+ 581              		@ frame_needed = 0, uses_anonymous_args = 0
+ 582 0000 10B5     		push	{r4, lr}
+ 583              	.LCFI18:
+ 584              		.cfi_def_cfa_offset 8
+ 585              		.cfi_offset 4, -8
+ 586              		.cfi_offset 14, -4
  145:user/w25q32.c ****     FLASH_CS_Low();
- 701              		.loc 1 145 5 view .LVU132
- 702 0002 074C     		ldr	r4, .L49
- 703 0004 0022     		movs	r2, #0
- 704 0006 1021     		movs	r1, #16
- 705 0008 2046     		mov	r0, r4
- 706 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 707              	.LVL54:
- 708              		.loc 1 145 19 view .LVU133
- 146:user/w25q32.c ****     SPI2_Write(WRDI_CMD);   
- 709              		.loc 1 146 5 view .LVU134
- 710 000e 0420     		movs	r0, #4
- 711 0010 FFF7FEFF 		bl	SPI2_Write
- 712              	.LVL55:
+ 587              		.loc 1 145 5 view .LVU121
+ 588 0002 074C     		ldr	r4, .L39
+ 589 0004 0022     		movs	r2, #0
+ 590 0006 1021     		movs	r1, #16
+ 591 0008 2046     		mov	r0, r4
+ 592 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 593              	.LVL37:
+ 594              		.loc 1 145 19 view .LVU122
+ 146:user/w25q32.c ****     SPI2_Write(RDP_CMD);   
+ 595              		.loc 1 146 5 view .LVU123
+ 596 000e AB20     		movs	r0, #171
+ 597 0010 FFF7FEFF 		bl	SPI2_Write
+ 598              	.LVL38:
  147:user/w25q32.c ****     FLASH_CS_High();    
- 713              		.loc 1 147 5 view .LVU135
- 714 0014 0122     		movs	r2, #1
- 715 0016 1021     		movs	r1, #16
- 716 0018 2046     		mov	r0, r4
- 717 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 718              	.LVL56:
+ 599              		.loc 1 147 5 view .LVU124
+ 600 0014 0122     		movs	r2, #1
+ 601 0016 1021     		movs	r1, #16
+ 602 0018 2046     		mov	r0, r4
+ 603 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 604              	.LVL39:
  148:user/w25q32.c **** }
- 719              		.loc 1 148 1 is_stmt 0 view .LVU136
- 720 001e 10BD     		pop	{r4, pc}
- 721              	.L50:
- 722              		.align	2
- 723              	.L49:
- 724 0020 00000240 		.word	1073872896
- 725              		.cfi_endproc
- 726              	.LFE143:
- 728              		.section	.text.FlashWrite_StaRegister,"ax",%progbits
- 729              		.align	1
- 730              		.global	FlashWrite_StaRegister
- 731              		.syntax unified
- 732              		.thumb
- 733              		.thumb_func
- 735              	FlashWrite_StaRegister:
- 736              	.LVL57:
- 737              	.LFB144:
- 149:user/w25q32.c **** void FlashWrite_StaRegister(uint8_t flashSta)
- 150:user/w25q32.c **** {
- 738              		.loc 1 150 1 is_stmt 1 view -0
+ 605              		.loc 1 148 1 is_stmt 0 view .LVU125
+ 606 001e 10BD     		pop	{r4, pc}
+ 607              	.L40:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 15
+
+
+ 608              		.align	2
+ 609              	.L39:
+ 610 0020 00000240 		.word	1073872896
+ 611              		.cfi_endproc
+ 612              	.LFE140:
+ 614              		.section	.text.FlashReleaseFrom_DeepPowerDownE,"ax",%progbits
+ 615              		.align	1
+ 616              		.global	FlashReleaseFrom_DeepPowerDownE
+ 617              		.syntax unified
+ 618              		.thumb
+ 619              		.thumb_func
+ 621              	FlashReleaseFrom_DeepPowerDownE:
+ 622              	.LFB141:
+ 149:user/w25q32.c **** uint8_t FlashReleaseFrom_DeepPowerDownE(void)
+ 150:user/w25q32.c **** {   
+ 623              		.loc 1 150 1 is_stmt 1 view -0
+ 624              		.cfi_startproc
+ 625              		@ args = 0, pretend = 0, frame = 0
+ 626              		@ frame_needed = 0, uses_anonymous_args = 0
+ 627 0000 38B5     		push	{r3, r4, r5, lr}
+ 628              	.LCFI19:
+ 629              		.cfi_def_cfa_offset 16
+ 630              		.cfi_offset 3, -16
+ 631              		.cfi_offset 4, -12
+ 632              		.cfi_offset 5, -8
+ 633              		.cfi_offset 14, -4
+ 151:user/w25q32.c ****     uint8_t ElectronicSignature;
+ 634              		.loc 1 151 5 view .LVU127
+ 152:user/w25q32.c ****     FLASH_CS_Low();
+ 635              		.loc 1 152 5 view .LVU128
+ 636 0002 0E4D     		ldr	r5, .L43
+ 637 0004 0022     		movs	r2, #0
+ 638 0006 1021     		movs	r1, #16
+ 639 0008 2846     		mov	r0, r5
+ 640 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 641              	.LVL40:
+ 642              		.loc 1 152 19 view .LVU129
+ 153:user/w25q32.c ****     SPI2_Write(RES_CMD);
+ 643              		.loc 1 153 5 view .LVU130
+ 644 000e AB20     		movs	r0, #171
+ 645 0010 FFF7FEFF 		bl	SPI2_Write
+ 646              	.LVL41:
+ 154:user/w25q32.c ****     SPI2_Write(DUMMY_BYTE);
+ 647              		.loc 1 154 5 view .LVU131
+ 648 0014 FF20     		movs	r0, #255
+ 649 0016 FFF7FEFF 		bl	SPI2_Write
+ 650              	.LVL42:
+ 155:user/w25q32.c ****     SPI2_Write(DUMMY_BYTE);
+ 651              		.loc 1 155 5 view .LVU132
+ 652 001a FF20     		movs	r0, #255
+ 653 001c FFF7FEFF 		bl	SPI2_Write
+ 654              	.LVL43:
+ 156:user/w25q32.c ****     SPI2_Write(DUMMY_BYTE);
+ 655              		.loc 1 156 5 view .LVU133
+ 656 0020 FF20     		movs	r0, #255
+ 657 0022 FFF7FEFF 		bl	SPI2_Write
+ 658              	.LVL44:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 16
+
+
+ 157:user/w25q32.c ****     ElectronicSignature=SPI2_Read();
+ 659              		.loc 1 157 5 view .LVU134
+ 660              		.loc 1 157 25 is_stmt 0 view .LVU135
+ 661 0026 FFF7FEFF 		bl	SPI2_Read
+ 662              	.LVL45:
+ 663 002a 0446     		mov	r4, r0
+ 664              	.LVL46:
+ 158:user/w25q32.c ****     FLASH_CS_High();    
+ 665              		.loc 1 158 5 is_stmt 1 view .LVU136
+ 666 002c 0122     		movs	r2, #1
+ 667 002e 1021     		movs	r1, #16
+ 668 0030 2846     		mov	r0, r5
+ 669 0032 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 670              	.LVL47:
+ 159:user/w25q32.c ****     return ElectronicSignature;
+ 671              		.loc 1 159 5 view .LVU137
+ 160:user/w25q32.c **** }
+ 672              		.loc 1 160 1 is_stmt 0 view .LVU138
+ 673 0036 2046     		mov	r0, r4
+ 674 0038 38BD     		pop	{r3, r4, r5, pc}
+ 675              	.LVL48:
+ 676              	.L44:
+ 677              		.loc 1 160 1 view .LVU139
+ 678 003a 00BF     		.align	2
+ 679              	.L43:
+ 680 003c 00000240 		.word	1073872896
+ 681              		.cfi_endproc
+ 682              	.LFE141:
+ 684              		.section	.text.FlashWriteEnable,"ax",%progbits
+ 685              		.align	1
+ 686              		.global	FlashWriteEnable
+ 687              		.syntax unified
+ 688              		.thumb
+ 689              		.thumb_func
+ 691              	FlashWriteEnable:
+ 692              	.LFB142:
+ 161:user/w25q32.c **** void FlashWriteEnable(void)
+ 162:user/w25q32.c **** {
+ 693              		.loc 1 162 1 is_stmt 1 view -0
+ 694              		.cfi_startproc
+ 695              		@ args = 0, pretend = 0, frame = 0
+ 696              		@ frame_needed = 0, uses_anonymous_args = 0
+ 697 0000 10B5     		push	{r4, lr}
+ 698              	.LCFI20:
+ 699              		.cfi_def_cfa_offset 8
+ 700              		.cfi_offset 4, -8
+ 701              		.cfi_offset 14, -4
+ 163:user/w25q32.c ****     FLASH_CS_Low();
+ 702              		.loc 1 163 5 view .LVU141
+ 703 0002 074C     		ldr	r4, .L47
+ 704 0004 0022     		movs	r2, #0
+ 705 0006 1021     		movs	r1, #16
+ 706 0008 2046     		mov	r0, r4
+ 707 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 708              	.LVL49:
+ 709              		.loc 1 163 19 view .LVU142
+ 164:user/w25q32.c ****     SPI2_Write(WREN_CMD);   
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 17
+
+
+ 710              		.loc 1 164 5 view .LVU143
+ 711 000e 0620     		movs	r0, #6
+ 712 0010 FFF7FEFF 		bl	SPI2_Write
+ 713              	.LVL50:
+ 165:user/w25q32.c ****     FLASH_CS_High();    
+ 714              		.loc 1 165 5 view .LVU144
+ 715 0014 0122     		movs	r2, #1
+ 716 0016 1021     		movs	r1, #16
+ 717 0018 2046     		mov	r0, r4
+ 718 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 719              	.LVL51:
+ 166:user/w25q32.c **** }
+ 720              		.loc 1 166 1 is_stmt 0 view .LVU145
+ 721 001e 10BD     		pop	{r4, pc}
+ 722              	.L48:
+ 723              		.align	2
+ 724              	.L47:
+ 725 0020 00000240 		.word	1073872896
+ 726              		.cfi_endproc
+ 727              	.LFE142:
+ 729              		.section	.text.FlashWriteDisable,"ax",%progbits
+ 730              		.align	1
+ 731              		.global	FlashWriteDisable
+ 732              		.syntax unified
+ 733              		.thumb
+ 734              		.thumb_func
+ 736              	FlashWriteDisable:
+ 737              	.LFB143:
+ 167:user/w25q32.c **** void FlashWriteDisable(void)
+ 168:user/w25q32.c **** {
+ 738              		.loc 1 168 1 is_stmt 1 view -0
  739              		.cfi_startproc
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 17
-
-
  740              		@ args = 0, pretend = 0, frame = 0
  741              		@ frame_needed = 0, uses_anonymous_args = 0
- 742              		.loc 1 150 1 is_stmt 0 view .LVU138
- 743 0000 38B5     		push	{r3, r4, r5, lr}
- 744              	.LCFI20:
- 745              		.cfi_def_cfa_offset 16
- 746              		.cfi_offset 3, -16
- 747              		.cfi_offset 4, -12
- 748              		.cfi_offset 5, -8
- 749              		.cfi_offset 14, -4
- 750 0002 0446     		mov	r4, r0
- 151:user/w25q32.c ****     FLASH_CS_Low();
- 751              		.loc 1 151 5 is_stmt 1 view .LVU139
- 752 0004 084D     		ldr	r5, .L53
- 753 0006 0022     		movs	r2, #0
- 754 0008 1021     		movs	r1, #16
- 755 000a 2846     		mov	r0, r5
- 756              	.LVL58:
- 757              		.loc 1 151 5 is_stmt 0 view .LVU140
- 758 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
- 759              	.LVL59:
- 760              		.loc 1 151 19 is_stmt 1 view .LVU141
- 152:user/w25q32.c ****     SPI2_Write(WRSR_CMD); 
- 761              		.loc 1 152 5 view .LVU142
- 762 0010 0120     		movs	r0, #1
- 763 0012 FFF7FEFF 		bl	SPI2_Write
- 764              	.LVL60:
- 153:user/w25q32.c ****     SPI2_Write(flashSta); 
- 765              		.loc 1 153 5 view .LVU143
- 766 0016 2046     		mov	r0, r4
- 767 0018 FFF7FEFF 		bl	SPI2_Write
- 768              	.LVL61:
- 154:user/w25q32.c ****     FLASH_CS_High();    
- 769              		.loc 1 154 5 view .LVU144
- 770 001c 0122     		movs	r2, #1
- 771 001e 1021     		movs	r1, #16
- 772 0020 2846     		mov	r0, r5
- 773 0022 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 774              	.LVL62:
- 155:user/w25q32.c **** }
- 775              		.loc 1 155 1 is_stmt 0 view .LVU145
- 776 0026 38BD     		pop	{r3, r4, r5, pc}
- 777              	.L54:
- 778              		.align	2
- 779              	.L53:
- 780 0028 00000240 		.word	1073872896
- 781              		.cfi_endproc
- 782              	.LFE144:
- 784              		.section	.text.FlashPage_Write,"ax",%progbits
- 785              		.align	1
- 786              		.global	FlashPage_Write
- 787              		.syntax unified
- 788              		.thumb
- 789              		.thumb_func
- 791              	FlashPage_Write:
- 792              	.LVL63:
- 793              	.LFB145:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 18
+ 742 0000 10B5     		push	{r4, lr}
+ 743              	.LCFI21:
+ 744              		.cfi_def_cfa_offset 8
+ 745              		.cfi_offset 4, -8
+ 746              		.cfi_offset 14, -4
+ 169:user/w25q32.c ****     FLASH_CS_Low();
+ 747              		.loc 1 169 5 view .LVU147
+ 748 0002 074C     		ldr	r4, .L51
+ 749 0004 0022     		movs	r2, #0
+ 750 0006 1021     		movs	r1, #16
+ 751 0008 2046     		mov	r0, r4
+ 752 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 753              	.LVL52:
+ 754              		.loc 1 169 19 view .LVU148
+ 170:user/w25q32.c ****     SPI2_Write(WRDI_CMD);   
+ 755              		.loc 1 170 5 view .LVU149
+ 756 000e 0420     		movs	r0, #4
+ 757 0010 FFF7FEFF 		bl	SPI2_Write
+ 758              	.LVL53:
+ 171:user/w25q32.c ****     FLASH_CS_High();    
+ 759              		.loc 1 171 5 view .LVU150
+ 760 0014 0122     		movs	r2, #1
+ 761 0016 1021     		movs	r1, #16
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 18
 
 
- 156:user/w25q32.c **** /*---- F L A S H   P A G E _   W R I T E ----
- 157:user/w25q32.c **** �����ܡ���****
- 158:user/w25q32.c **** ����������pageAddr:ҳ��ַ���ں������ٳ���ҳ��С
- 159:user/w25q32.c ****           *ptr:     ָ��Ҫд�����ݵ���ַ��
- 160:user/w25q32.c ****           pageSize: ҳ�Ĵ�С��һ���� FLASH_PAGE_SIZE 
- 161:user/w25q32.c **** �����ء���****
- 162:user/w25q32.c **** ��˵���������ڴ�flash ����������ĵ�ַλΪ24bit ��
- 163:user/w25q32.c ****           ���С��ҳ��Χ����ҳ����ԭ���洢�����ݲ��
- 164:user/w25q32.c **** --------------����:��ҵ��   2012��10��23�����ڶ�13:52:53-------
- 165:user/w25q32.c **** void FlashPage_Write(uint16_t pageAddr,uint8_t *ptr,uint32_t pageSize)
- 166:user/w25q32.c **** {
- 794              		.loc 1 166 1 is_stmt 1 view -0
- 795              		.cfi_startproc
- 796              		@ args = 0, pretend = 0, frame = 0
- 797              		@ frame_needed = 0, uses_anonymous_args = 0
- 798              		.loc 1 166 1 is_stmt 0 view .LVU147
- 799 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 800              	.LCFI21:
- 801              		.cfi_def_cfa_offset 24
- 802              		.cfi_offset 3, -24
- 803              		.cfi_offset 4, -20
- 804              		.cfi_offset 5, -16
- 805              		.cfi_offset 6, -12
- 806              		.cfi_offset 7, -8
- 807              		.cfi_offset 14, -4
- 808 0002 0546     		mov	r5, r0
- 809 0004 0C46     		mov	r4, r1
- 810 0006 1646     		mov	r6, r2
- 167:user/w25q32.c ****     uint32_t addr,i;
- 811              		.loc 1 167 5 is_stmt 1 view .LVU148
- 168:user/w25q32.c **** //	    addr=pageAddr*FLASH_PAGE_SIZE;
- 169:user/w25q32.c ****     addr=((uint32_t)pageAddr)<<8;  
- 812              		.loc 1 169 5 view .LVU149
- 813              		.loc 1 169 9 is_stmt 0 view .LVU150
- 814 0008 0702     		lsls	r7, r0, #8
- 815              	.LVL64:
- 170:user/w25q32.c ****     FlashWait_Busy();
- 816              		.loc 1 170 5 is_stmt 1 view .LVU151
- 817 000a FFF7FEFF 		bl	FlashWait_Busy
- 818              	.LVL65:
- 171:user/w25q32.c ****     FlashWriteEnable();  
- 819              		.loc 1 171 5 view .LVU152
- 820 000e FFF7FEFF 		bl	FlashWriteEnable
- 821              	.LVL66:
- 172:user/w25q32.c ****     FLASH_CS_Low();
- 822              		.loc 1 172 5 view .LVU153
- 823 0012 0022     		movs	r2, #0
- 824 0014 1021     		movs	r1, #16
- 825 0016 0F48     		ldr	r0, .L59
- 826 0018 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 827              	.LVL67:
- 828              		.loc 1 172 19 view .LVU154
- 173:user/w25q32.c ****     SPI2_Write(PP_CMD); 
- 829              		.loc 1 173 5 view .LVU155
- 830 001c 0220     		movs	r0, #2
- 831 001e FFF7FEFF 		bl	SPI2_Write
- 832              	.LVL68:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 19
+ 762 0018 2046     		mov	r0, r4
+ 763 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 764              	.LVL54:
+ 172:user/w25q32.c **** }
+ 765              		.loc 1 172 1 is_stmt 0 view .LVU151
+ 766 001e 10BD     		pop	{r4, pc}
+ 767              	.L52:
+ 768              		.align	2
+ 769              	.L51:
+ 770 0020 00000240 		.word	1073872896
+ 771              		.cfi_endproc
+ 772              	.LFE143:
+ 774              		.section	.text.FlashWrite_StaRegister,"ax",%progbits
+ 775              		.align	1
+ 776              		.global	FlashWrite_StaRegister
+ 777              		.syntax unified
+ 778              		.thumb
+ 779              		.thumb_func
+ 781              	FlashWrite_StaRegister:
+ 782              	.LVL55:
+ 783              	.LFB144:
+ 173:user/w25q32.c **** void FlashWrite_StaRegister(uint8_t flashSta)
+ 174:user/w25q32.c **** {
+ 784              		.loc 1 174 1 is_stmt 1 view -0
+ 785              		.cfi_startproc
+ 786              		@ args = 0, pretend = 0, frame = 0
+ 787              		@ frame_needed = 0, uses_anonymous_args = 0
+ 788              		.loc 1 174 1 is_stmt 0 view .LVU153
+ 789 0000 38B5     		push	{r3, r4, r5, lr}
+ 790              	.LCFI22:
+ 791              		.cfi_def_cfa_offset 16
+ 792              		.cfi_offset 3, -16
+ 793              		.cfi_offset 4, -12
+ 794              		.cfi_offset 5, -8
+ 795              		.cfi_offset 14, -4
+ 796 0002 0446     		mov	r4, r0
+ 175:user/w25q32.c ****     FLASH_CS_Low();
+ 797              		.loc 1 175 5 is_stmt 1 view .LVU154
+ 798 0004 084D     		ldr	r5, .L55
+ 799 0006 0022     		movs	r2, #0
+ 800 0008 1021     		movs	r1, #16
+ 801 000a 2846     		mov	r0, r5
+ 802              	.LVL56:
+ 803              		.loc 1 175 5 is_stmt 0 view .LVU155
+ 804 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 805              	.LVL57:
+ 806              		.loc 1 175 19 is_stmt 1 view .LVU156
+ 176:user/w25q32.c ****     SPI2_Write(WRSR_CMD); 
+ 807              		.loc 1 176 5 view .LVU157
+ 808 0010 0120     		movs	r0, #1
+ 809 0012 FFF7FEFF 		bl	SPI2_Write
+ 810              	.LVL58:
+ 177:user/w25q32.c ****     SPI2_Write(flashSta); 
+ 811              		.loc 1 177 5 view .LVU158
+ 812 0016 2046     		mov	r0, r4
+ 813 0018 FFF7FEFF 		bl	SPI2_Write
+ 814              	.LVL59:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 19
 
 
- 174:user/w25q32.c ****     SPI2_Write(addr>>16);
- 833              		.loc 1 174 5 view .LVU156
- 834 0022 380C     		lsrs	r0, r7, #16
- 835 0024 FFF7FEFF 		bl	SPI2_Write
- 836              	.LVL69:
- 175:user/w25q32.c ****     SPI2_Write(addr>>8);
- 837              		.loc 1 175 5 view .LVU157
- 838 0028 E8B2     		uxtb	r0, r5
- 839 002a FFF7FEFF 		bl	SPI2_Write
- 840              	.LVL70:
- 176:user/w25q32.c ****     SPI2_Write(addr); 
- 841              		.loc 1 176 5 view .LVU158
- 842 002e 0020     		movs	r0, #0
- 843 0030 FFF7FEFF 		bl	SPI2_Write
- 844              	.LVL71:
- 177:user/w25q32.c ****     for(i=0;i<pageSize;i++)
- 845              		.loc 1 177 5 view .LVU159
- 846              		.loc 1 177 10 is_stmt 0 view .LVU160
- 847 0034 0025     		movs	r5, #0
- 848              		.loc 1 177 5 view .LVU161
- 849 0036 04E0     		b	.L56
- 850              	.LVL72:
- 851              	.L57:
- 178:user/w25q32.c ****         SPI2_Write(*ptr++); 
- 852              		.loc 1 178 9 is_stmt 1 discriminator 3 view .LVU162
- 853              		.loc 1 178 9 is_stmt 0 discriminator 3 view .LVU163
- 854 0038 14F8010B 		ldrb	r0, [r4], #1	@ zero_extendqisi2
- 855              	.LVL73:
- 856              		.loc 1 178 9 discriminator 3 view .LVU164
- 857 003c FFF7FEFF 		bl	SPI2_Write
- 858              	.LVL74:
- 177:user/w25q32.c ****     for(i=0;i<pageSize;i++)
- 859              		.loc 1 177 24 is_stmt 1 discriminator 3 view .LVU165
- 177:user/w25q32.c ****     for(i=0;i<pageSize;i++)
- 860              		.loc 1 177 25 is_stmt 0 discriminator 3 view .LVU166
- 861 0040 0135     		adds	r5, r5, #1
- 862              	.LVL75:
- 863              	.L56:
- 177:user/w25q32.c ****     for(i=0;i<pageSize;i++)
- 864              		.loc 1 177 13 is_stmt 1 discriminator 1 view .LVU167
- 177:user/w25q32.c ****     for(i=0;i<pageSize;i++)
- 865              		.loc 1 177 5 is_stmt 0 discriminator 1 view .LVU168
- 866 0042 B542     		cmp	r5, r6
- 867 0044 F8D3     		bcc	.L57
- 179:user/w25q32.c ****     FLASH_CS_High();  
- 868              		.loc 1 179 5 is_stmt 1 view .LVU169
- 869 0046 0122     		movs	r2, #1
- 870 0048 1021     		movs	r1, #16
- 871 004a 0248     		ldr	r0, .L59
- 872 004c FFF7FEFF 		bl	HAL_GPIO_WritePin
- 873              	.LVL76:
- 180:user/w25q32.c ****     
- 181:user/w25q32.c **** }
- 874              		.loc 1 181 1 is_stmt 0 view .LVU170
- 875 0050 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 876              	.LVL77:
- 877              	.L60:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 20
+ 178:user/w25q32.c ****     FLASH_CS_High();    
+ 815              		.loc 1 178 5 view .LVU159
+ 816 001c 0122     		movs	r2, #1
+ 817 001e 1021     		movs	r1, #16
+ 818 0020 2846     		mov	r0, r5
+ 819 0022 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 820              	.LVL60:
+ 179:user/w25q32.c **** }
+ 821              		.loc 1 179 1 is_stmt 0 view .LVU160
+ 822 0026 38BD     		pop	{r3, r4, r5, pc}
+ 823              	.L56:
+ 824              		.align	2
+ 825              	.L55:
+ 826 0028 00000240 		.word	1073872896
+ 827              		.cfi_endproc
+ 828              	.LFE144:
+ 830              		.section	.text.FlashPage_Write,"ax",%progbits
+ 831              		.align	1
+ 832              		.global	FlashPage_Write
+ 833              		.syntax unified
+ 834              		.thumb
+ 835              		.thumb_func
+ 837              	FlashPage_Write:
+ 838              	.LVL61:
+ 839              	.LFB145:
+ 180:user/w25q32.c **** /*---- F L A S H   P A G E _   W R I T E ----
+ 181:user/w25q32.c **** �����ܡ���****
+ 182:user/w25q32.c **** ����������pageAddr:ҳ��ַ���ں������ٳ���ҳ��С
+ 183:user/w25q32.c ****           *ptr:     ָ��Ҫд�����ݵ���ַ��
+ 184:user/w25q32.c ****           pageSize: ҳ�Ĵ�С��һ���� FLASH_PAGE_SIZE 
+ 185:user/w25q32.c **** �����ء���****
+ 186:user/w25q32.c **** ��˵���������ڴ�flash ����������ĵ�ַλΪ24bit ��
+ 187:user/w25q32.c ****           ���С��ҳ��Χ����ҳ����ԭ���洢�����ݲ��
+ 188:user/w25q32.c **** --------------����:��ҵ��   2012��10��23�����ڶ�13:52:53-------
+ 189:user/w25q32.c **** void FlashPage_Write(uint16_t pageAddr,uint8_t *ptr,uint32_t pageSize)
+ 190:user/w25q32.c **** {
+ 840              		.loc 1 190 1 is_stmt 1 view -0
+ 841              		.cfi_startproc
+ 842              		@ args = 0, pretend = 0, frame = 0
+ 843              		@ frame_needed = 0, uses_anonymous_args = 0
+ 844              		.loc 1 190 1 is_stmt 0 view .LVU162
+ 845 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 846              	.LCFI23:
+ 847              		.cfi_def_cfa_offset 24
+ 848              		.cfi_offset 3, -24
+ 849              		.cfi_offset 4, -20
+ 850              		.cfi_offset 5, -16
+ 851              		.cfi_offset 6, -12
+ 852              		.cfi_offset 7, -8
+ 853              		.cfi_offset 14, -4
+ 854 0002 0546     		mov	r5, r0
+ 855 0004 0C46     		mov	r4, r1
+ 856 0006 1646     		mov	r6, r2
+ 191:user/w25q32.c ****     uint32_t addr,i;
+ 857              		.loc 1 191 5 is_stmt 1 view .LVU163
+ 192:user/w25q32.c **** //	    addr=pageAddr*FLASH_PAGE_SIZE;
+ 193:user/w25q32.c ****     addr=((uint32_t)pageAddr)<<8;  
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 20
 
 
- 878              		.loc 1 181 1 view .LVU171
- 879 0052 00BF     		.align	2
- 880              	.L59:
- 881 0054 00000240 		.word	1073872896
- 882              		.cfi_endproc
- 883              	.LFE145:
- 885              		.section	.text.FlashChip_Erase,"ax",%progbits
- 886              		.align	1
- 887              		.global	FlashChip_Erase
- 888              		.syntax unified
- 889              		.thumb
- 890              		.thumb_func
- 892              	FlashChip_Erase:
- 893              	.LFB146:
- 182:user/w25q32.c **** void FlashChip_Erase(void)
- 183:user/w25q32.c **** {
- 894              		.loc 1 183 1 is_stmt 1 view -0
- 895              		.cfi_startproc
- 896              		@ args = 0, pretend = 0, frame = 0
- 897              		@ frame_needed = 0, uses_anonymous_args = 0
- 898 0000 10B5     		push	{r4, lr}
- 899              	.LCFI22:
- 900              		.cfi_def_cfa_offset 8
- 901              		.cfi_offset 4, -8
- 902              		.cfi_offset 14, -4
- 184:user/w25q32.c ****     FlashWait_Busy();
- 903              		.loc 1 184 5 view .LVU173
- 904 0002 FFF7FEFF 		bl	FlashWait_Busy
- 905              	.LVL78:
- 185:user/w25q32.c ****     FlashWriteEnable();    
- 906              		.loc 1 185 5 view .LVU174
- 907 0006 FFF7FEFF 		bl	FlashWriteEnable
- 908              	.LVL79:
- 186:user/w25q32.c ****     FLASH_CS_Low();
- 909              		.loc 1 186 5 view .LVU175
- 910 000a 074C     		ldr	r4, .L63
- 911 000c 0022     		movs	r2, #0
- 912 000e 1021     		movs	r1, #16
- 913 0010 2046     		mov	r0, r4
- 914 0012 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 915              	.LVL80:
- 916              		.loc 1 186 19 view .LVU176
- 187:user/w25q32.c ****     SPI2_Write(CE_CMD);     
- 917              		.loc 1 187 5 view .LVU177
- 918 0016 6020     		movs	r0, #96
- 919 0018 FFF7FEFF 		bl	SPI2_Write
- 920              	.LVL81:
- 188:user/w25q32.c ****     FLASH_CS_High();    
- 921              		.loc 1 188 5 view .LVU178
- 922 001c 0122     		movs	r2, #1
- 923 001e 1021     		movs	r1, #16
- 924 0020 2046     		mov	r0, r4
- 925 0022 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 926              	.LVL82:
- 189:user/w25q32.c **** }
- 927              		.loc 1 189 1 is_stmt 0 view .LVU179
- 928 0026 10BD     		pop	{r4, pc}
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 21
+ 858              		.loc 1 193 5 view .LVU164
+ 859              		.loc 1 193 9 is_stmt 0 view .LVU165
+ 860 0008 0702     		lsls	r7, r0, #8
+ 861              	.LVL62:
+ 194:user/w25q32.c ****     FlashWait_Busy();
+ 862              		.loc 1 194 5 is_stmt 1 view .LVU166
+ 863 000a FFF7FEFF 		bl	FlashWait_Busy
+ 864              	.LVL63:
+ 195:user/w25q32.c ****     FlashWriteEnable();
+ 865              		.loc 1 195 5 view .LVU167
+ 866 000e FFF7FEFF 		bl	FlashWriteEnable
+ 867              	.LVL64:
+ 196:user/w25q32.c ****     FLASH_CS_Low();
+ 868              		.loc 1 196 5 view .LVU168
+ 869 0012 0022     		movs	r2, #0
+ 870 0014 1021     		movs	r1, #16
+ 871 0016 0F48     		ldr	r0, .L61
+ 872 0018 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 873              	.LVL65:
+ 874              		.loc 1 196 19 view .LVU169
+ 197:user/w25q32.c ****     SPI2_Write(PP_CMD); 
+ 875              		.loc 1 197 5 view .LVU170
+ 876 001c 0220     		movs	r0, #2
+ 877 001e FFF7FEFF 		bl	SPI2_Write
+ 878              	.LVL66:
+ 198:user/w25q32.c ****     SPI2_Write(addr>>16);
+ 879              		.loc 1 198 5 view .LVU171
+ 880 0022 380C     		lsrs	r0, r7, #16
+ 881 0024 FFF7FEFF 		bl	SPI2_Write
+ 882              	.LVL67:
+ 199:user/w25q32.c ****     SPI2_Write(addr>>8);
+ 883              		.loc 1 199 5 view .LVU172
+ 884 0028 E8B2     		uxtb	r0, r5
+ 885 002a FFF7FEFF 		bl	SPI2_Write
+ 886              	.LVL68:
+ 200:user/w25q32.c ****     SPI2_Write(addr); 
+ 887              		.loc 1 200 5 view .LVU173
+ 888 002e 0020     		movs	r0, #0
+ 889 0030 FFF7FEFF 		bl	SPI2_Write
+ 890              	.LVL69:
+ 201:user/w25q32.c ****     for(i=0;i<pageSize;i++)
+ 891              		.loc 1 201 5 view .LVU174
+ 892              		.loc 1 201 10 is_stmt 0 view .LVU175
+ 893 0034 0025     		movs	r5, #0
+ 894              		.loc 1 201 5 view .LVU176
+ 895 0036 04E0     		b	.L58
+ 896              	.LVL70:
+ 897              	.L59:
+ 202:user/w25q32.c ****         SPI2_Write(*ptr++); 
+ 898              		.loc 1 202 9 is_stmt 1 discriminator 3 view .LVU177
+ 899              		.loc 1 202 9 is_stmt 0 discriminator 3 view .LVU178
+ 900 0038 14F8010B 		ldrb	r0, [r4], #1	@ zero_extendqisi2
+ 901              	.LVL71:
+ 902              		.loc 1 202 9 discriminator 3 view .LVU179
+ 903 003c FFF7FEFF 		bl	SPI2_Write
+ 904              	.LVL72:
+ 201:user/w25q32.c ****     for(i=0;i<pageSize;i++)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 21
 
 
- 929              	.L64:
- 930              		.align	2
- 931              	.L63:
- 932 0028 00000240 		.word	1073872896
- 933              		.cfi_endproc
- 934              	.LFE146:
- 936              		.section	.text.FlashBlock_Erase,"ax",%progbits
- 937              		.align	1
- 938              		.global	FlashBlock_Erase
- 939              		.syntax unified
- 940              		.thumb
- 941              		.thumb_func
- 943              	FlashBlock_Erase:
- 944              	.LVL83:
- 945              	.LFB147:
- 190:user/w25q32.c **** /*---- F L A S H   B L O C K _   E R A S E ----
- 191:user/w25q32.c **** �����ܡ���****
- 192:user/w25q32.c **** ����������block: 0~256
- 193:user/w25q32.c **** �����ء���****
- 194:user/w25q32.c **** ��˵������****
- 195:user/w25q32.c **** --------------����:��ҵ��   2012��10��23�����ڶ�14:43:05-------
- 196:user/w25q32.c **** void FlashBlock_Erase(uint8_t blockAddr)
- 197:user/w25q32.c **** {
- 946              		.loc 1 197 1 is_stmt 1 view -0
- 947              		.cfi_startproc
- 948              		@ args = 0, pretend = 0, frame = 0
- 949              		@ frame_needed = 0, uses_anonymous_args = 0
- 950              		.loc 1 197 1 is_stmt 0 view .LVU181
- 951 0000 38B5     		push	{r3, r4, r5, lr}
- 952              	.LCFI23:
- 953              		.cfi_def_cfa_offset 16
- 954              		.cfi_offset 3, -16
- 955              		.cfi_offset 4, -12
- 956              		.cfi_offset 5, -8
- 957              		.cfi_offset 14, -4
- 958 0002 0446     		mov	r4, r0
- 198:user/w25q32.c ****     uint32_t addr;//,i;
- 959              		.loc 1 198 5 is_stmt 1 view .LVU182
- 199:user/w25q32.c **** //	    addr=blockAddr*16*4096;  //ÿ��block��16��������ÿ������
- 200:user/w25q32.c ****     
- 201:user/w25q32.c **** 
- 202:user/w25q32.c ****     addr=((uint32_t)blockAddr)<<16;
- 960              		.loc 1 202 5 view .LVU183
- 203:user/w25q32.c ****     FlashWait_Busy();
- 961              		.loc 1 203 5 view .LVU184
- 962 0004 FFF7FEFF 		bl	FlashWait_Busy
- 963              	.LVL84:
- 204:user/w25q32.c ****     FlashWriteEnable();
- 964              		.loc 1 204 5 view .LVU185
- 965 0008 FFF7FEFF 		bl	FlashWriteEnable
- 966              	.LVL85:
- 205:user/w25q32.c ****     FLASH_CS_Low();
- 967              		.loc 1 205 5 view .LVU186
- 968 000c 0B4D     		ldr	r5, .L67
- 969 000e 0022     		movs	r2, #0
- 970 0010 1021     		movs	r1, #16
- 971 0012 2846     		mov	r0, r5
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 22
+ 905              		.loc 1 201 24 is_stmt 1 discriminator 3 view .LVU180
+ 201:user/w25q32.c ****     for(i=0;i<pageSize;i++)
+ 906              		.loc 1 201 25 is_stmt 0 discriminator 3 view .LVU181
+ 907 0040 0135     		adds	r5, r5, #1
+ 908              	.LVL73:
+ 909              	.L58:
+ 201:user/w25q32.c ****     for(i=0;i<pageSize;i++)
+ 910              		.loc 1 201 13 is_stmt 1 discriminator 1 view .LVU182
+ 201:user/w25q32.c ****     for(i=0;i<pageSize;i++)
+ 911              		.loc 1 201 5 is_stmt 0 discriminator 1 view .LVU183
+ 912 0042 B542     		cmp	r5, r6
+ 913 0044 F8D3     		bcc	.L59
+ 203:user/w25q32.c ****     FLASH_CS_High();    
+ 914              		.loc 1 203 5 is_stmt 1 view .LVU184
+ 915 0046 0122     		movs	r2, #1
+ 916 0048 1021     		movs	r1, #16
+ 917 004a 0248     		ldr	r0, .L61
+ 918 004c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 919              	.LVL74:
+ 204:user/w25q32.c **** }
+ 920              		.loc 1 204 1 is_stmt 0 view .LVU185
+ 921 0050 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 922              	.LVL75:
+ 923              	.L62:
+ 924              		.loc 1 204 1 view .LVU186
+ 925 0052 00BF     		.align	2
+ 926              	.L61:
+ 927 0054 00000240 		.word	1073872896
+ 928              		.cfi_endproc
+ 929              	.LFE145:
+ 931              		.section	.text.FlashChip_Erase,"ax",%progbits
+ 932              		.align	1
+ 933              		.global	FlashChip_Erase
+ 934              		.syntax unified
+ 935              		.thumb
+ 936              		.thumb_func
+ 938              	FlashChip_Erase:
+ 939              	.LFB146:
+ 205:user/w25q32.c **** void FlashChip_Erase(void)
+ 206:user/w25q32.c **** {
+ 940              		.loc 1 206 1 is_stmt 1 view -0
+ 941              		.cfi_startproc
+ 942              		@ args = 0, pretend = 0, frame = 0
+ 943              		@ frame_needed = 0, uses_anonymous_args = 0
+ 944 0000 10B5     		push	{r4, lr}
+ 945              	.LCFI24:
+ 946              		.cfi_def_cfa_offset 8
+ 947              		.cfi_offset 4, -8
+ 948              		.cfi_offset 14, -4
+ 207:user/w25q32.c ****     FlashWait_Busy();
+ 949              		.loc 1 207 5 view .LVU188
+ 950 0002 FFF7FEFF 		bl	FlashWait_Busy
+ 951              	.LVL76:
+ 208:user/w25q32.c ****     FlashWriteEnable();    
+ 952              		.loc 1 208 5 view .LVU189
+ 953 0006 FFF7FEFF 		bl	FlashWriteEnable
+ 954              	.LVL77:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 22
 
 
- 972 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 973              	.LVL86:
- 974              		.loc 1 205 19 view .LVU187
- 206:user/w25q32.c ****     SPI2_Write(BE_CMD); 
- 975              		.loc 1 206 5 view .LVU188
- 976 0018 5220     		movs	r0, #82
- 977 001a FFF7FEFF 		bl	SPI2_Write
- 978              	.LVL87:
- 207:user/w25q32.c ****     SPI2_Write(addr>>16);
- 979              		.loc 1 207 5 view .LVU189
- 980 001e 2046     		mov	r0, r4
- 981 0020 FFF7FEFF 		bl	SPI2_Write
- 982              	.LVL88:
- 208:user/w25q32.c ****     SPI2_Write(addr>>8);
- 983              		.loc 1 208 5 view .LVU190
- 984 0024 0020     		movs	r0, #0
- 985 0026 FFF7FEFF 		bl	SPI2_Write
- 986              	.LVL89:
- 209:user/w25q32.c ****     SPI2_Write(addr); 
- 987              		.loc 1 209 5 view .LVU191
- 988 002a 0020     		movs	r0, #0
- 989 002c FFF7FEFF 		bl	SPI2_Write
- 990              	.LVL90:
- 210:user/w25q32.c ****     FLASH_CS_High();    
- 991              		.loc 1 210 5 view .LVU192
- 992 0030 0122     		movs	r2, #1
- 993 0032 1021     		movs	r1, #16
- 994 0034 2846     		mov	r0, r5
- 995 0036 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 996              	.LVL91:
- 211:user/w25q32.c **** }
- 997              		.loc 1 211 1 is_stmt 0 view .LVU193
- 998 003a 38BD     		pop	{r3, r4, r5, pc}
- 999              	.L68:
- 1000              		.align	2
- 1001              	.L67:
- 1002 003c 00000240 		.word	1073872896
- 1003              		.cfi_endproc
- 1004              	.LFE147:
- 1006              		.section	.text.FlashSector_Erase,"ax",%progbits
- 1007              		.align	1
- 1008              		.global	FlashSector_Erase
- 1009              		.syntax unified
- 1010              		.thumb
- 1011              		.thumb_func
- 1013              	FlashSector_Erase:
- 1014              	.LVL92:
- 1015              	.LFB148:
- 212:user/w25q32.c **** /*---- F L A S H   S E C T O R _   E R A S E ----
- 213:user/w25q32.c **** �����ܡ���****
- 214:user/w25q32.c **** ����������sectorAddr: 0~4096
- 215:user/w25q32.c **** �����ء���****
- 216:user/w25q32.c **** ��˵������****
- 217:user/w25q32.c **** --------------����:��ҵ��   2012��10��23�����ڶ�14:45:28-------
- 218:user/w25q32.c **** void FlashSector_Erase(uint16_t sectorAddr)
- 219:user/w25q32.c **** {
- 1016              		.loc 1 219 1 is_stmt 1 view -0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 23
+ 209:user/w25q32.c ****     FLASH_CS_Low();
+ 955              		.loc 1 209 5 view .LVU190
+ 956 000a 074C     		ldr	r4, .L65
+ 957 000c 0022     		movs	r2, #0
+ 958 000e 1021     		movs	r1, #16
+ 959 0010 2046     		mov	r0, r4
+ 960 0012 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 961              	.LVL78:
+ 962              		.loc 1 209 19 view .LVU191
+ 210:user/w25q32.c ****     SPI2_Write(CE_CMD);     
+ 963              		.loc 1 210 5 view .LVU192
+ 964 0016 6020     		movs	r0, #96
+ 965 0018 FFF7FEFF 		bl	SPI2_Write
+ 966              	.LVL79:
+ 211:user/w25q32.c ****     FLASH_CS_High();    
+ 967              		.loc 1 211 5 view .LVU193
+ 968 001c 0122     		movs	r2, #1
+ 969 001e 1021     		movs	r1, #16
+ 970 0020 2046     		mov	r0, r4
+ 971 0022 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 972              	.LVL80:
+ 212:user/w25q32.c **** }
+ 973              		.loc 1 212 1 is_stmt 0 view .LVU194
+ 974 0026 10BD     		pop	{r4, pc}
+ 975              	.L66:
+ 976              		.align	2
+ 977              	.L65:
+ 978 0028 00000240 		.word	1073872896
+ 979              		.cfi_endproc
+ 980              	.LFE146:
+ 982              		.section	.text.FlashBlock_Erase,"ax",%progbits
+ 983              		.align	1
+ 984              		.global	FlashBlock_Erase
+ 985              		.syntax unified
+ 986              		.thumb
+ 987              		.thumb_func
+ 989              	FlashBlock_Erase:
+ 990              	.LVL81:
+ 991              	.LFB147:
+ 213:user/w25q32.c **** /*---- F L A S H   B L O C K _   E R A S E ----
+ 214:user/w25q32.c **** �����ܡ���****
+ 215:user/w25q32.c **** ����������block: 0~256
+ 216:user/w25q32.c **** �����ء���****
+ 217:user/w25q32.c **** ��˵������****
+ 218:user/w25q32.c **** --------------����:��ҵ��   2012��10��23�����ڶ�14:43:05-------
+ 219:user/w25q32.c **** void FlashBlock_Erase(uint8_t blockAddr)
+ 220:user/w25q32.c **** {
+ 992              		.loc 1 220 1 is_stmt 1 view -0
+ 993              		.cfi_startproc
+ 994              		@ args = 0, pretend = 0, frame = 0
+ 995              		@ frame_needed = 0, uses_anonymous_args = 0
+ 996              		.loc 1 220 1 is_stmt 0 view .LVU196
+ 997 0000 38B5     		push	{r3, r4, r5, lr}
+ 998              	.LCFI25:
+ 999              		.cfi_def_cfa_offset 16
+ 1000              		.cfi_offset 3, -16
+ 1001              		.cfi_offset 4, -12
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 23
 
 
- 1017              		.cfi_startproc
- 1018              		@ args = 0, pretend = 0, frame = 0
- 1019              		@ frame_needed = 0, uses_anonymous_args = 0
- 1020              		.loc 1 219 1 is_stmt 0 view .LVU195
- 1021 0000 38B5     		push	{r3, r4, r5, lr}
- 1022              	.LCFI24:
- 1023              		.cfi_def_cfa_offset 16
- 1024              		.cfi_offset 3, -16
- 1025              		.cfi_offset 4, -12
- 1026              		.cfi_offset 5, -8
- 1027              		.cfi_offset 14, -4
- 220:user/w25q32.c ****     uint32_t addr;//,i;
- 1028              		.loc 1 220 5 is_stmt 1 view .LVU196
- 221:user/w25q32.c ****     addr=((uint32_t)sectorAddr)<<12;
- 1029              		.loc 1 221 5 view .LVU197
- 1030              		.loc 1 221 9 is_stmt 0 view .LVU198
- 1031 0002 0403     		lsls	r4, r0, #12
- 1032              	.LVL93:
- 222:user/w25q32.c ****     FlashWait_Busy();
- 1033              		.loc 1 222 5 is_stmt 1 view .LVU199
- 1034 0004 FFF7FEFF 		bl	FlashWait_Busy
- 1035              	.LVL94:
- 223:user/w25q32.c ****     FlashWriteEnable();
- 1036              		.loc 1 223 5 view .LVU200
- 1037 0008 FFF7FEFF 		bl	FlashWriteEnable
- 1038              	.LVL95:
- 224:user/w25q32.c ****     FLASH_CS_Low();
- 1039              		.loc 1 224 5 view .LVU201
- 1040 000c 0D4D     		ldr	r5, .L71
- 1041 000e 0022     		movs	r2, #0
- 1042 0010 1021     		movs	r1, #16
- 1043 0012 2846     		mov	r0, r5
- 1044 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 1045              	.LVL96:
- 1046              		.loc 1 224 19 view .LVU202
- 225:user/w25q32.c ****     SPI2_Write(SE_CMD); 
- 1047              		.loc 1 225 5 view .LVU203
- 1048 0018 2020     		movs	r0, #32
- 1049 001a FFF7FEFF 		bl	SPI2_Write
- 1050              	.LVL97:
- 226:user/w25q32.c ****     SPI2_Write(addr>>16);
- 1051              		.loc 1 226 5 view .LVU204
- 1052 001e C4F30740 		ubfx	r0, r4, #16, #8
- 1053 0022 FFF7FEFF 		bl	SPI2_Write
- 1054              	.LVL98:
- 227:user/w25q32.c ****     SPI2_Write(addr>>8);
- 1055              		.loc 1 227 5 view .LVU205
- 1056              		.loc 1 227 20 is_stmt 0 view .LVU206
- 1057 0026 200A     		lsrs	r0, r4, #8
- 1058              		.loc 1 227 5 view .LVU207
- 1059 0028 00F0F000 		and	r0, r0, #240
- 1060 002c FFF7FEFF 		bl	SPI2_Write
- 1061              	.LVL99:
- 228:user/w25q32.c ****     SPI2_Write(addr); 
- 1062              		.loc 1 228 5 is_stmt 1 view .LVU208
- 1063 0030 0020     		movs	r0, #0
- 1064 0032 FFF7FEFF 		bl	SPI2_Write
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 24
+ 1002              		.cfi_offset 5, -8
+ 1003              		.cfi_offset 14, -4
+ 1004 0002 0446     		mov	r4, r0
+ 221:user/w25q32.c ****     uint32_t addr;//,i;
+ 1005              		.loc 1 221 5 is_stmt 1 view .LVU197
+ 222:user/w25q32.c **** //	    addr=blockAddr*16*4096;  //ÿ��block��16��������ÿ������
+ 223:user/w25q32.c ****     
+ 224:user/w25q32.c **** 
+ 225:user/w25q32.c ****     addr=((uint32_t)blockAddr)<<16;
+ 1006              		.loc 1 225 5 view .LVU198
+ 226:user/w25q32.c ****     FlashWait_Busy();
+ 1007              		.loc 1 226 5 view .LVU199
+ 1008 0004 FFF7FEFF 		bl	FlashWait_Busy
+ 1009              	.LVL82:
+ 227:user/w25q32.c ****     FlashWriteEnable();
+ 1010              		.loc 1 227 5 view .LVU200
+ 1011 0008 FFF7FEFF 		bl	FlashWriteEnable
+ 1012              	.LVL83:
+ 228:user/w25q32.c ****     FLASH_CS_Low();
+ 1013              		.loc 1 228 5 view .LVU201
+ 1014 000c 0B4D     		ldr	r5, .L69
+ 1015 000e 0022     		movs	r2, #0
+ 1016 0010 1021     		movs	r1, #16
+ 1017 0012 2846     		mov	r0, r5
+ 1018 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1019              	.LVL84:
+ 1020              		.loc 1 228 19 view .LVU202
+ 229:user/w25q32.c ****     SPI2_Write(BE_CMD); 
+ 1021              		.loc 1 229 5 view .LVU203
+ 1022 0018 5220     		movs	r0, #82
+ 1023 001a FFF7FEFF 		bl	SPI2_Write
+ 1024              	.LVL85:
+ 230:user/w25q32.c ****     SPI2_Write(addr>>16);
+ 1025              		.loc 1 230 5 view .LVU204
+ 1026 001e 2046     		mov	r0, r4
+ 1027 0020 FFF7FEFF 		bl	SPI2_Write
+ 1028              	.LVL86:
+ 231:user/w25q32.c ****     SPI2_Write(addr>>8);
+ 1029              		.loc 1 231 5 view .LVU205
+ 1030 0024 0020     		movs	r0, #0
+ 1031 0026 FFF7FEFF 		bl	SPI2_Write
+ 1032              	.LVL87:
+ 232:user/w25q32.c ****     SPI2_Write(addr); 
+ 1033              		.loc 1 232 5 view .LVU206
+ 1034 002a 0020     		movs	r0, #0
+ 1035 002c FFF7FEFF 		bl	SPI2_Write
+ 1036              	.LVL88:
+ 233:user/w25q32.c ****     FLASH_CS_High();    
+ 1037              		.loc 1 233 5 view .LVU207
+ 1038 0030 0122     		movs	r2, #1
+ 1039 0032 1021     		movs	r1, #16
+ 1040 0034 2846     		mov	r0, r5
+ 1041 0036 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1042              	.LVL89:
+ 234:user/w25q32.c **** }
+ 1043              		.loc 1 234 1 is_stmt 0 view .LVU208
+ 1044 003a 38BD     		pop	{r3, r4, r5, pc}
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 24
 
 
- 1065              	.LVL100:
- 229:user/w25q32.c ****     FLASH_CS_High();    
- 1066              		.loc 1 229 5 view .LVU209
- 1067 0036 0122     		movs	r2, #1
- 1068 0038 1021     		movs	r1, #16
- 1069 003a 2846     		mov	r0, r5
- 1070 003c FFF7FEFF 		bl	HAL_GPIO_WritePin
- 1071              	.LVL101:
- 230:user/w25q32.c **** }
- 1072              		.loc 1 230 1 is_stmt 0 view .LVU210
- 1073 0040 38BD     		pop	{r3, r4, r5, pc}
- 1074              	.LVL102:
- 1075              	.L72:
- 1076              		.loc 1 230 1 view .LVU211
- 1077 0042 00BF     		.align	2
- 1078              	.L71:
- 1079 0044 00000240 		.word	1073872896
- 1080              		.cfi_endproc
- 1081              	.LFE148:
- 1083              		.section	.text.FlashRead,"ax",%progbits
- 1084              		.align	1
- 1085              		.global	FlashRead
- 1086              		.syntax unified
- 1087              		.thumb
- 1088              		.thumb_func
- 1090              	FlashRead:
- 1091              	.LVL103:
- 1092              	.LFB149:
- 231:user/w25q32.c **** void FlashRead(uint32_t addr,uint8_t *ptr,uint32_t len)
- 232:user/w25q32.c **** {
- 1093              		.loc 1 232 1 is_stmt 1 view -0
- 1094              		.cfi_startproc
- 1095              		@ args = 0, pretend = 0, frame = 0
- 1096              		@ frame_needed = 0, uses_anonymous_args = 0
- 1097              		.loc 1 232 1 is_stmt 0 view .LVU213
- 1098 0000 70B5     		push	{r4, r5, r6, lr}
- 1099              	.LCFI25:
- 1100              		.cfi_def_cfa_offset 16
- 1101              		.cfi_offset 4, -16
- 1102              		.cfi_offset 5, -12
- 1103              		.cfi_offset 6, -8
- 1104              		.cfi_offset 14, -4
- 1105 0002 0C46     		mov	r4, r1
- 1106 0004 1646     		mov	r6, r2
- 233:user/w25q32.c ****     uint32_t addr_tmp,i;
- 1107              		.loc 1 233 5 is_stmt 1 view .LVU214
- 234:user/w25q32.c ****     addr_tmp=addr&0x00ffffff;
- 1108              		.loc 1 234 5 view .LVU215
- 1109              		.loc 1 234 13 is_stmt 0 view .LVU216
- 1110 0006 20F07F45 		bic	r5, r0, #-16777216
- 1111              	.LVL104:
- 235:user/w25q32.c ****     FlashWait_Busy();    
- 1112              		.loc 1 235 5 is_stmt 1 view .LVU217
- 1113 000a FFF7FEFF 		bl	FlashWait_Busy
- 1114              	.LVL105:
- 236:user/w25q32.c ****     FLASH_CS_Low();
- 1115              		.loc 1 236 5 view .LVU218
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 25
+ 1045              	.L70:
+ 1046              		.align	2
+ 1047              	.L69:
+ 1048 003c 00000240 		.word	1073872896
+ 1049              		.cfi_endproc
+ 1050              	.LFE147:
+ 1052              		.section	.text.FlashSector_Erase,"ax",%progbits
+ 1053              		.align	1
+ 1054              		.global	FlashSector_Erase
+ 1055              		.syntax unified
+ 1056              		.thumb
+ 1057              		.thumb_func
+ 1059              	FlashSector_Erase:
+ 1060              	.LVL90:
+ 1061              	.LFB148:
+ 235:user/w25q32.c **** /*---- F L A S H   S E C T O R _   E R A S E ----
+ 236:user/w25q32.c **** �����ܡ���****
+ 237:user/w25q32.c **** ����������sectorAddr: 0~4096
+ 238:user/w25q32.c **** �����ء���****
+ 239:user/w25q32.c **** ��˵������****
+ 240:user/w25q32.c **** --------------����:��ҵ��   2012��10��23�����ڶ�14:45:28-------
+ 241:user/w25q32.c **** void FlashSector_Erase(uint16_t sectorAddr)
+ 242:user/w25q32.c **** {
+ 1062              		.loc 1 242 1 is_stmt 1 view -0
+ 1063              		.cfi_startproc
+ 1064              		@ args = 0, pretend = 0, frame = 0
+ 1065              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1066              		.loc 1 242 1 is_stmt 0 view .LVU210
+ 1067 0000 38B5     		push	{r3, r4, r5, lr}
+ 1068              	.LCFI26:
+ 1069              		.cfi_def_cfa_offset 16
+ 1070              		.cfi_offset 3, -16
+ 1071              		.cfi_offset 4, -12
+ 1072              		.cfi_offset 5, -8
+ 1073              		.cfi_offset 14, -4
+ 243:user/w25q32.c ****     uint32_t addr;//,i;
+ 1074              		.loc 1 243 5 is_stmt 1 view .LVU211
+ 244:user/w25q32.c ****     addr=((uint32_t)sectorAddr)<<12;
+ 1075              		.loc 1 244 5 view .LVU212
+ 1076              		.loc 1 244 9 is_stmt 0 view .LVU213
+ 1077 0002 0403     		lsls	r4, r0, #12
+ 1078              	.LVL91:
+ 245:user/w25q32.c ****     FlashWait_Busy();
+ 1079              		.loc 1 245 5 is_stmt 1 view .LVU214
+ 1080 0004 FFF7FEFF 		bl	FlashWait_Busy
+ 1081              	.LVL92:
+ 246:user/w25q32.c ****     FlashWriteEnable();
+ 1082              		.loc 1 246 5 view .LVU215
+ 1083 0008 FFF7FEFF 		bl	FlashWriteEnable
+ 1084              	.LVL93:
+ 247:user/w25q32.c ****     FLASH_CS_Low();
+ 1085              		.loc 1 247 5 view .LVU216
+ 1086 000c 0D4D     		ldr	r5, .L73
+ 1087 000e 0022     		movs	r2, #0
+ 1088 0010 1021     		movs	r1, #16
+ 1089 0012 2846     		mov	r0, r5
+ 1090 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 25
 
 
- 1116 000e 0022     		movs	r2, #0
- 1117 0010 1021     		movs	r1, #16
- 1118 0012 0F48     		ldr	r0, .L77
- 1119 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 1120              	.LVL106:
- 1121              		.loc 1 236 19 view .LVU219
- 237:user/w25q32.c ****     SPI2_Write(READ_CMD); 
- 1122              		.loc 1 237 5 view .LVU220
- 1123 0018 0320     		movs	r0, #3
- 1124 001a FFF7FEFF 		bl	SPI2_Write
- 1125              	.LVL107:
- 238:user/w25q32.c ****     SPI2_Write(addr_tmp>>16);
- 1126              		.loc 1 238 5 view .LVU221
- 1127 001e 280C     		lsrs	r0, r5, #16
- 1128 0020 FFF7FEFF 		bl	SPI2_Write
- 1129              	.LVL108:
- 239:user/w25q32.c ****     SPI2_Write(addr_tmp>>8);
- 1130              		.loc 1 239 5 view .LVU222
- 1131 0024 C5F30720 		ubfx	r0, r5, #8, #8
- 1132 0028 FFF7FEFF 		bl	SPI2_Write
- 1133              	.LVL109:
- 240:user/w25q32.c ****     SPI2_Write(addr_tmp); 
- 1134              		.loc 1 240 5 view .LVU223
- 1135 002c E8B2     		uxtb	r0, r5
- 1136 002e FFF7FEFF 		bl	SPI2_Write
- 1137              	.LVL110:
- 241:user/w25q32.c ****     for(i=0;i<len;i++)
- 1138              		.loc 1 241 5 view .LVU224
- 1139              		.loc 1 241 10 is_stmt 0 view .LVU225
- 1140 0032 0025     		movs	r5, #0
- 1141              	.LVL111:
- 1142              		.loc 1 241 5 view .LVU226
- 1143 0034 04E0     		b	.L74
- 1144              	.LVL112:
- 1145              	.L75:
- 242:user/w25q32.c ****         *ptr++=SPI2_Read(); 
- 1146              		.loc 1 242 9 is_stmt 1 discriminator 3 view .LVU227
- 1147              		.loc 1 242 16 is_stmt 0 discriminator 3 view .LVU228
- 1148 0036 FFF7FEFF 		bl	SPI2_Read
- 1149              	.LVL113:
- 1150              		.loc 1 242 15 discriminator 3 view .LVU229
- 1151 003a 04F8010B 		strb	r0, [r4], #1
- 1152              	.LVL114:
- 241:user/w25q32.c ****     for(i=0;i<len;i++)
- 1153              		.loc 1 241 19 is_stmt 1 discriminator 3 view .LVU230
- 241:user/w25q32.c ****     for(i=0;i<len;i++)
- 1154              		.loc 1 241 20 is_stmt 0 discriminator 3 view .LVU231
- 1155 003e 0135     		adds	r5, r5, #1
- 1156              	.LVL115:
- 1157              	.L74:
- 241:user/w25q32.c ****     for(i=0;i<len;i++)
- 1158              		.loc 1 241 13 is_stmt 1 discriminator 1 view .LVU232
- 241:user/w25q32.c ****     for(i=0;i<len;i++)
- 1159              		.loc 1 241 5 is_stmt 0 discriminator 1 view .LVU233
- 1160 0040 B542     		cmp	r5, r6
- 1161 0042 F8D3     		bcc	.L75
- 243:user/w25q32.c ****     FLASH_CS_High();    
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 26
+ 1091              	.LVL94:
+ 1092              		.loc 1 247 19 view .LVU217
+ 248:user/w25q32.c ****     SPI2_Write(SE_CMD); 
+ 1093              		.loc 1 248 5 view .LVU218
+ 1094 0018 2020     		movs	r0, #32
+ 1095 001a FFF7FEFF 		bl	SPI2_Write
+ 1096              	.LVL95:
+ 249:user/w25q32.c ****     SPI2_Write(addr>>16);
+ 1097              		.loc 1 249 5 view .LVU219
+ 1098 001e C4F30740 		ubfx	r0, r4, #16, #8
+ 1099 0022 FFF7FEFF 		bl	SPI2_Write
+ 1100              	.LVL96:
+ 250:user/w25q32.c ****     SPI2_Write(addr>>8);
+ 1101              		.loc 1 250 5 view .LVU220
+ 1102              		.loc 1 250 20 is_stmt 0 view .LVU221
+ 1103 0026 200A     		lsrs	r0, r4, #8
+ 1104              		.loc 1 250 5 view .LVU222
+ 1105 0028 00F0F000 		and	r0, r0, #240
+ 1106 002c FFF7FEFF 		bl	SPI2_Write
+ 1107              	.LVL97:
+ 251:user/w25q32.c ****     SPI2_Write(addr); 
+ 1108              		.loc 1 251 5 is_stmt 1 view .LVU223
+ 1109 0030 0020     		movs	r0, #0
+ 1110 0032 FFF7FEFF 		bl	SPI2_Write
+ 1111              	.LVL98:
+ 252:user/w25q32.c ****     FLASH_CS_High();    
+ 1112              		.loc 1 252 5 view .LVU224
+ 1113 0036 0122     		movs	r2, #1
+ 1114 0038 1021     		movs	r1, #16
+ 1115 003a 2846     		mov	r0, r5
+ 1116 003c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1117              	.LVL99:
+ 253:user/w25q32.c **** }
+ 1118              		.loc 1 253 1 is_stmt 0 view .LVU225
+ 1119 0040 38BD     		pop	{r3, r4, r5, pc}
+ 1120              	.LVL100:
+ 1121              	.L74:
+ 1122              		.loc 1 253 1 view .LVU226
+ 1123 0042 00BF     		.align	2
+ 1124              	.L73:
+ 1125 0044 00000240 		.word	1073872896
+ 1126              		.cfi_endproc
+ 1127              	.LFE148:
+ 1129              		.section	.text.FlashRead,"ax",%progbits
+ 1130              		.align	1
+ 1131              		.global	FlashRead
+ 1132              		.syntax unified
+ 1133              		.thumb
+ 1134              		.thumb_func
+ 1136              	FlashRead:
+ 1137              	.LVL101:
+ 1138              	.LFB149:
+ 254:user/w25q32.c **** void FlashRead(uint32_t addr,uint8_t *ptr,uint32_t len)
+ 255:user/w25q32.c **** {
+ 1139              		.loc 1 255 1 is_stmt 1 view -0
+ 1140              		.cfi_startproc
+ 1141              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 26
 
 
- 1162              		.loc 1 243 5 is_stmt 1 view .LVU234
- 1163 0044 0122     		movs	r2, #1
- 1164 0046 1021     		movs	r1, #16
- 1165 0048 0148     		ldr	r0, .L77
- 1166 004a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 1167              	.LVL116:
- 244:user/w25q32.c **** }
- 1168              		.loc 1 244 1 is_stmt 0 view .LVU235
- 1169 004e 70BD     		pop	{r4, r5, r6, pc}
- 1170              	.LVL117:
- 1171              	.L78:
- 1172              		.loc 1 244 1 view .LVU236
- 1173              		.align	2
- 1174              	.L77:
- 1175 0050 00000240 		.word	1073872896
- 1176              		.cfi_endproc
- 1177              	.LFE149:
- 1179              		.section	.text.FlashPage_Read,"ax",%progbits
- 1180              		.align	1
- 1181              		.global	FlashPage_Read
- 1182              		.syntax unified
- 1183              		.thumb
- 1184              		.thumb_func
- 1186              	FlashPage_Read:
- 1187              	.LVL118:
- 1188              	.LFB150:
- 245:user/w25q32.c **** /*---- F L A S H   P A G E _   R E A D ----
- 246:user/w25q32.c **** �����ܡ���****
- 247:user/w25q32.c **** ����������pageAddr:ҳ��ַ���ں������ٳ���ҳ��С
- 248:user/w25q32.c **** �����ء���****
- 249:user/w25q32.c **** ��˵������****
- 250:user/w25q32.c **** --------------����:��ҵ��   2012��10��23�����ڶ�15:11:50-------
- 251:user/w25q32.c **** void FlashPage_Read(uint16_t pageAddr,uint8_t *ptr,uint32_t pageSize)
- 252:user/w25q32.c **** {
- 1189              		.loc 1 252 1 is_stmt 1 view -0
- 1190              		.cfi_startproc
- 1191              		@ args = 0, pretend = 0, frame = 0
- 1192              		@ frame_needed = 0, uses_anonymous_args = 0
- 1193              		.loc 1 252 1 is_stmt 0 view .LVU238
- 1194 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 1195              	.LCFI26:
- 1196              		.cfi_def_cfa_offset 24
- 1197              		.cfi_offset 3, -24
- 1198              		.cfi_offset 4, -20
- 1199              		.cfi_offset 5, -16
- 1200              		.cfi_offset 6, -12
- 1201              		.cfi_offset 7, -8
- 1202              		.cfi_offset 14, -4
- 1203 0002 0546     		mov	r5, r0
- 1204 0004 0C46     		mov	r4, r1
- 1205 0006 1646     		mov	r6, r2
- 253:user/w25q32.c ****     uint32_t addr,i;
- 1206              		.loc 1 253 5 is_stmt 1 view .LVU239
- 254:user/w25q32.c **** //	    addr=pageAddr*FLASH_PAGE_SIZE;
- 255:user/w25q32.c ****     addr=((uint32_t)pageAddr)<<8;
- 1207              		.loc 1 255 5 view .LVU240
- 1208              		.loc 1 255 9 is_stmt 0 view .LVU241
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 27
+ 1142              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1143              		.loc 1 255 1 is_stmt 0 view .LVU228
+ 1144 0000 70B5     		push	{r4, r5, r6, lr}
+ 1145              	.LCFI27:
+ 1146              		.cfi_def_cfa_offset 16
+ 1147              		.cfi_offset 4, -16
+ 1148              		.cfi_offset 5, -12
+ 1149              		.cfi_offset 6, -8
+ 1150              		.cfi_offset 14, -4
+ 1151 0002 0C46     		mov	r4, r1
+ 1152 0004 1646     		mov	r6, r2
+ 256:user/w25q32.c ****     uint32_t addr_tmp,i;
+ 1153              		.loc 1 256 5 is_stmt 1 view .LVU229
+ 257:user/w25q32.c ****     addr_tmp=addr&0x00ffffff;
+ 1154              		.loc 1 257 5 view .LVU230
+ 1155              		.loc 1 257 13 is_stmt 0 view .LVU231
+ 1156 0006 20F07F45 		bic	r5, r0, #-16777216
+ 1157              	.LVL102:
+ 258:user/w25q32.c ****     FlashWait_Busy();    
+ 1158              		.loc 1 258 5 is_stmt 1 view .LVU232
+ 1159 000a FFF7FEFF 		bl	FlashWait_Busy
+ 1160              	.LVL103:
+ 259:user/w25q32.c ****     FLASH_CS_Low();
+ 1161              		.loc 1 259 5 view .LVU233
+ 1162 000e 0022     		movs	r2, #0
+ 1163 0010 1021     		movs	r1, #16
+ 1164 0012 0F48     		ldr	r0, .L79
+ 1165 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1166              	.LVL104:
+ 1167              		.loc 1 259 19 view .LVU234
+ 260:user/w25q32.c ****     SPI2_Write(READ_CMD); 
+ 1168              		.loc 1 260 5 view .LVU235
+ 1169 0018 0320     		movs	r0, #3
+ 1170 001a FFF7FEFF 		bl	SPI2_Write
+ 1171              	.LVL105:
+ 261:user/w25q32.c ****     SPI2_Write(addr_tmp>>16);
+ 1172              		.loc 1 261 5 view .LVU236
+ 1173 001e 280C     		lsrs	r0, r5, #16
+ 1174 0020 FFF7FEFF 		bl	SPI2_Write
+ 1175              	.LVL106:
+ 262:user/w25q32.c ****     SPI2_Write(addr_tmp>>8);
+ 1176              		.loc 1 262 5 view .LVU237
+ 1177 0024 C5F30720 		ubfx	r0, r5, #8, #8
+ 1178 0028 FFF7FEFF 		bl	SPI2_Write
+ 1179              	.LVL107:
+ 263:user/w25q32.c ****     SPI2_Write(addr_tmp); 
+ 1180              		.loc 1 263 5 view .LVU238
+ 1181 002c E8B2     		uxtb	r0, r5
+ 1182 002e FFF7FEFF 		bl	SPI2_Write
+ 1183              	.LVL108:
+ 264:user/w25q32.c ****     for(i=0;i<len;i++)
+ 1184              		.loc 1 264 5 view .LVU239
+ 1185              		.loc 1 264 10 is_stmt 0 view .LVU240
+ 1186 0032 0025     		movs	r5, #0
+ 1187              	.LVL109:
+ 1188              		.loc 1 264 5 view .LVU241
+ 1189 0034 04E0     		b	.L76
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 27
 
 
- 1209 0008 0702     		lsls	r7, r0, #8
- 1210              	.LVL119:
- 256:user/w25q32.c ****     FlashWait_Busy();   
- 1211              		.loc 1 256 5 is_stmt 1 view .LVU242
- 1212 000a FFF7FEFF 		bl	FlashWait_Busy
- 1213              	.LVL120:
- 257:user/w25q32.c ****     FLASH_CS_Low();
- 1214              		.loc 1 257 5 view .LVU243
- 1215 000e 0022     		movs	r2, #0
- 1216 0010 1021     		movs	r1, #16
- 1217 0012 0F48     		ldr	r0, .L83
- 1218 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 1219              	.LVL121:
- 1220              		.loc 1 257 19 view .LVU244
- 258:user/w25q32.c ****     SPI2_Write(READ_CMD); 
- 1221              		.loc 1 258 5 view .LVU245
- 1222 0018 0320     		movs	r0, #3
- 1223 001a FFF7FEFF 		bl	SPI2_Write
- 1224              	.LVL122:
- 259:user/w25q32.c ****     SPI2_Write(addr>>16);
- 1225              		.loc 1 259 5 view .LVU246
- 1226 001e 380C     		lsrs	r0, r7, #16
- 1227 0020 FFF7FEFF 		bl	SPI2_Write
- 1228              	.LVL123:
- 260:user/w25q32.c ****     SPI2_Write(addr>>8);
- 1229              		.loc 1 260 5 view .LVU247
- 1230 0024 E8B2     		uxtb	r0, r5
- 1231 0026 FFF7FEFF 		bl	SPI2_Write
- 1232              	.LVL124:
- 261:user/w25q32.c ****     SPI2_Write(addr); 
- 1233              		.loc 1 261 5 view .LVU248
- 1234 002a 0020     		movs	r0, #0
- 1235 002c FFF7FEFF 		bl	SPI2_Write
- 1236              	.LVL125:
- 262:user/w25q32.c ****     for(i=0;i<pageSize;i++)
- 1237              		.loc 1 262 5 view .LVU249
- 1238              		.loc 1 262 10 is_stmt 0 view .LVU250
- 1239 0030 0025     		movs	r5, #0
- 1240              		.loc 1 262 5 view .LVU251
- 1241 0032 04E0     		b	.L80
- 1242              	.LVL126:
- 1243              	.L81:
- 263:user/w25q32.c ****         *ptr++=SPI2_Read(); 
- 1244              		.loc 1 263 9 is_stmt 1 discriminator 3 view .LVU252
- 1245              		.loc 1 263 16 is_stmt 0 discriminator 3 view .LVU253
- 1246 0034 FFF7FEFF 		bl	SPI2_Read
- 1247              	.LVL127:
- 1248              		.loc 1 263 15 discriminator 3 view .LVU254
- 1249 0038 04F8010B 		strb	r0, [r4], #1
- 1250              	.LVL128:
- 262:user/w25q32.c ****     for(i=0;i<pageSize;i++)
- 1251              		.loc 1 262 24 is_stmt 1 discriminator 3 view .LVU255
- 262:user/w25q32.c ****     for(i=0;i<pageSize;i++)
- 1252              		.loc 1 262 25 is_stmt 0 discriminator 3 view .LVU256
- 1253 003c 0135     		adds	r5, r5, #1
- 1254              	.LVL129:
- 1255              	.L80:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 28
+ 1190              	.LVL110:
+ 1191              	.L77:
+ 265:user/w25q32.c ****         *ptr++=SPI2_Read(); 
+ 1192              		.loc 1 265 9 is_stmt 1 discriminator 3 view .LVU242
+ 1193              		.loc 1 265 16 is_stmt 0 discriminator 3 view .LVU243
+ 1194 0036 FFF7FEFF 		bl	SPI2_Read
+ 1195              	.LVL111:
+ 1196              		.loc 1 265 15 discriminator 3 view .LVU244
+ 1197 003a 04F8010B 		strb	r0, [r4], #1
+ 1198              	.LVL112:
+ 264:user/w25q32.c ****     for(i=0;i<len;i++)
+ 1199              		.loc 1 264 19 is_stmt 1 discriminator 3 view .LVU245
+ 264:user/w25q32.c ****     for(i=0;i<len;i++)
+ 1200              		.loc 1 264 20 is_stmt 0 discriminator 3 view .LVU246
+ 1201 003e 0135     		adds	r5, r5, #1
+ 1202              	.LVL113:
+ 1203              	.L76:
+ 264:user/w25q32.c ****     for(i=0;i<len;i++)
+ 1204              		.loc 1 264 13 is_stmt 1 discriminator 1 view .LVU247
+ 264:user/w25q32.c ****     for(i=0;i<len;i++)
+ 1205              		.loc 1 264 5 is_stmt 0 discriminator 1 view .LVU248
+ 1206 0040 B542     		cmp	r5, r6
+ 1207 0042 F8D3     		bcc	.L77
+ 266:user/w25q32.c ****     FLASH_CS_High();    
+ 1208              		.loc 1 266 5 is_stmt 1 view .LVU249
+ 1209 0044 0122     		movs	r2, #1
+ 1210 0046 1021     		movs	r1, #16
+ 1211 0048 0148     		ldr	r0, .L79
+ 1212 004a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1213              	.LVL114:
+ 267:user/w25q32.c **** }
+ 1214              		.loc 1 267 1 is_stmt 0 view .LVU250
+ 1215 004e 70BD     		pop	{r4, r5, r6, pc}
+ 1216              	.LVL115:
+ 1217              	.L80:
+ 1218              		.loc 1 267 1 view .LVU251
+ 1219              		.align	2
+ 1220              	.L79:
+ 1221 0050 00000240 		.word	1073872896
+ 1222              		.cfi_endproc
+ 1223              	.LFE149:
+ 1225              		.section	.text.FlashPage_Read,"ax",%progbits
+ 1226              		.align	1
+ 1227              		.global	FlashPage_Read
+ 1228              		.syntax unified
+ 1229              		.thumb
+ 1230              		.thumb_func
+ 1232              	FlashPage_Read:
+ 1233              	.LVL116:
+ 1234              	.LFB150:
+ 268:user/w25q32.c **** /*---- F L A S H   P A G E _   R E A D ----
+ 269:user/w25q32.c **** �����ܡ���****
+ 270:user/w25q32.c **** ����������pageAddr:ҳ��ַ���ں������ٳ���ҳ��С
+ 271:user/w25q32.c **** �����ء���****
+ 272:user/w25q32.c **** ��˵������****
+ 273:user/w25q32.c **** --------------����:��ҵ��   2012��10��23�����ڶ�15:11:50-------
+ 274:user/w25q32.c **** void FlashPage_Read(uint16_t pageAddr,uint8_t *ptr,uint32_t pageSize)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 28
 
 
- 262:user/w25q32.c ****     for(i=0;i<pageSize;i++)
- 1256              		.loc 1 262 13 is_stmt 1 discriminator 1 view .LVU257
- 262:user/w25q32.c ****     for(i=0;i<pageSize;i++)
- 1257              		.loc 1 262 5 is_stmt 0 discriminator 1 view .LVU258
- 1258 003e B542     		cmp	r5, r6
- 1259 0040 F8D3     		bcc	.L81
- 264:user/w25q32.c ****     FLASH_CS_High();    
- 1260              		.loc 1 264 5 is_stmt 1 view .LVU259
- 1261 0042 0122     		movs	r2, #1
- 1262 0044 1021     		movs	r1, #16
- 1263 0046 0248     		ldr	r0, .L83
- 1264 0048 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 1265              	.LVL130:
- 265:user/w25q32.c **** }
- 1266              		.loc 1 265 1 is_stmt 0 view .LVU260
- 1267 004c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 1268              	.LVL131:
- 1269              	.L84:
- 1270              		.loc 1 265 1 view .LVU261
- 1271 004e 00BF     		.align	2
- 1272              	.L83:
- 1273 0050 00000240 		.word	1073872896
- 1274              		.cfi_endproc
- 1275              	.LFE150:
- 1277              		.section	.text.FlashFastRead,"ax",%progbits
- 1278              		.align	1
- 1279              		.global	FlashFastRead
- 1280              		.syntax unified
- 1281              		.thumb
- 1282              		.thumb_func
- 1284              	FlashFastRead:
- 1285              	.LVL132:
- 1286              	.LFB151:
- 266:user/w25q32.c **** void FlashFastRead(uint32_t addr,uint8_t *ptr,uint32_t len)
- 267:user/w25q32.c **** {
- 1287              		.loc 1 267 1 is_stmt 1 view -0
- 1288              		.cfi_startproc
- 1289              		@ args = 0, pretend = 0, frame = 0
- 1290              		@ frame_needed = 0, uses_anonymous_args = 0
- 1291              		.loc 1 267 1 is_stmt 0 view .LVU263
- 1292 0000 70B5     		push	{r4, r5, r6, lr}
- 1293              	.LCFI27:
- 1294              		.cfi_def_cfa_offset 16
- 1295              		.cfi_offset 4, -16
- 1296              		.cfi_offset 5, -12
- 1297              		.cfi_offset 6, -8
- 1298              		.cfi_offset 14, -4
- 1299 0002 0C46     		mov	r4, r1
- 1300 0004 1646     		mov	r6, r2
- 268:user/w25q32.c ****     uint32_t addr_tmp,i;
- 1301              		.loc 1 268 5 is_stmt 1 view .LVU264
- 269:user/w25q32.c ****     addr_tmp=addr&0x00ffffff;
- 1302              		.loc 1 269 5 view .LVU265
- 1303              		.loc 1 269 13 is_stmt 0 view .LVU266
- 1304 0006 20F07F45 		bic	r5, r0, #-16777216
- 1305              	.LVL133:
- 270:user/w25q32.c ****     FlashWait_Busy();    
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 29
+ 275:user/w25q32.c **** {
+ 1235              		.loc 1 275 1 is_stmt 1 view -0
+ 1236              		.cfi_startproc
+ 1237              		@ args = 0, pretend = 0, frame = 0
+ 1238              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1239              		.loc 1 275 1 is_stmt 0 view .LVU253
+ 1240 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 1241              	.LCFI28:
+ 1242              		.cfi_def_cfa_offset 24
+ 1243              		.cfi_offset 3, -24
+ 1244              		.cfi_offset 4, -20
+ 1245              		.cfi_offset 5, -16
+ 1246              		.cfi_offset 6, -12
+ 1247              		.cfi_offset 7, -8
+ 1248              		.cfi_offset 14, -4
+ 1249 0002 0546     		mov	r5, r0
+ 1250 0004 0C46     		mov	r4, r1
+ 1251 0006 1646     		mov	r6, r2
+ 276:user/w25q32.c ****     uint32_t addr,i;
+ 1252              		.loc 1 276 5 is_stmt 1 view .LVU254
+ 277:user/w25q32.c **** //	    addr=pageAddr*FLASH_PAGE_SIZE;
+ 278:user/w25q32.c ****     addr=((uint32_t)pageAddr)<<8;
+ 1253              		.loc 1 278 5 view .LVU255
+ 1254              		.loc 1 278 9 is_stmt 0 view .LVU256
+ 1255 0008 0702     		lsls	r7, r0, #8
+ 1256              	.LVL117:
+ 279:user/w25q32.c ****     FlashWait_Busy();   
+ 1257              		.loc 1 279 5 is_stmt 1 view .LVU257
+ 1258 000a FFF7FEFF 		bl	FlashWait_Busy
+ 1259              	.LVL118:
+ 280:user/w25q32.c ****     FLASH_CS_Low();
+ 1260              		.loc 1 280 5 view .LVU258
+ 1261 000e 0022     		movs	r2, #0
+ 1262 0010 1021     		movs	r1, #16
+ 1263 0012 0F48     		ldr	r0, .L85
+ 1264 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1265              	.LVL119:
+ 1266              		.loc 1 280 19 view .LVU259
+ 281:user/w25q32.c ****     SPI2_Write(READ_CMD); 
+ 1267              		.loc 1 281 5 view .LVU260
+ 1268 0018 0320     		movs	r0, #3
+ 1269 001a FFF7FEFF 		bl	SPI2_Write
+ 1270              	.LVL120:
+ 282:user/w25q32.c ****     SPI2_Write(addr>>16);
+ 1271              		.loc 1 282 5 view .LVU261
+ 1272 001e 380C     		lsrs	r0, r7, #16
+ 1273 0020 FFF7FEFF 		bl	SPI2_Write
+ 1274              	.LVL121:
+ 283:user/w25q32.c ****     SPI2_Write(addr>>8);
+ 1275              		.loc 1 283 5 view .LVU262
+ 1276 0024 E8B2     		uxtb	r0, r5
+ 1277 0026 FFF7FEFF 		bl	SPI2_Write
+ 1278              	.LVL122:
+ 284:user/w25q32.c ****     SPI2_Write(addr); 
+ 1279              		.loc 1 284 5 view .LVU263
+ 1280 002a 0020     		movs	r0, #0
+ 1281 002c FFF7FEFF 		bl	SPI2_Write
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 29
 
 
- 1306              		.loc 1 270 5 is_stmt 1 view .LVU267
- 1307 000a FFF7FEFF 		bl	FlashWait_Busy
- 1308              	.LVL134:
- 271:user/w25q32.c ****     FLASH_CS_Low();
- 1309              		.loc 1 271 5 view .LVU268
- 1310 000e 0022     		movs	r2, #0
- 1311 0010 1021     		movs	r1, #16
- 1312 0012 1148     		ldr	r0, .L89
- 1313 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 1314              	.LVL135:
- 1315              		.loc 1 271 19 view .LVU269
- 272:user/w25q32.c ****     SPI2_Write(FREAD_CMD); 
- 1316              		.loc 1 272 5 view .LVU270
- 1317 0018 0B20     		movs	r0, #11
- 1318 001a FFF7FEFF 		bl	SPI2_Write
- 1319              	.LVL136:
- 273:user/w25q32.c ****     SPI2_Write(addr_tmp>>16);
- 1320              		.loc 1 273 5 view .LVU271
- 1321 001e 280C     		lsrs	r0, r5, #16
- 1322 0020 FFF7FEFF 		bl	SPI2_Write
- 1323              	.LVL137:
- 274:user/w25q32.c ****     SPI2_Write(addr_tmp>>8);
- 1324              		.loc 1 274 5 view .LVU272
- 1325 0024 C5F30720 		ubfx	r0, r5, #8, #8
- 1326 0028 FFF7FEFF 		bl	SPI2_Write
- 1327              	.LVL138:
- 275:user/w25q32.c ****     SPI2_Write(addr_tmp); 
- 1328              		.loc 1 275 5 view .LVU273
- 1329 002c E8B2     		uxtb	r0, r5
- 1330 002e FFF7FEFF 		bl	SPI2_Write
- 1331              	.LVL139:
- 276:user/w25q32.c ****     SPI2_Write(DUMMY_BYTE); 
- 1332              		.loc 1 276 5 view .LVU274
- 1333 0032 FF20     		movs	r0, #255
- 1334 0034 FFF7FEFF 		bl	SPI2_Write
- 1335              	.LVL140:
- 277:user/w25q32.c ****     for(i=0;i<len;i++)
- 1336              		.loc 1 277 5 view .LVU275
- 1337              		.loc 1 277 10 is_stmt 0 view .LVU276
- 1338 0038 0025     		movs	r5, #0
- 1339              	.LVL141:
- 1340              		.loc 1 277 5 view .LVU277
- 1341 003a 04E0     		b	.L86
- 1342              	.LVL142:
- 1343              	.L87:
- 278:user/w25q32.c ****         *ptr++=SPI2_Read(); 
- 1344              		.loc 1 278 9 is_stmt 1 discriminator 3 view .LVU278
- 1345              		.loc 1 278 16 is_stmt 0 discriminator 3 view .LVU279
- 1346 003c FFF7FEFF 		bl	SPI2_Read
- 1347              	.LVL143:
- 1348              		.loc 1 278 15 discriminator 3 view .LVU280
- 1349 0040 04F8010B 		strb	r0, [r4], #1
- 1350              	.LVL144:
- 277:user/w25q32.c ****     for(i=0;i<len;i++)
- 1351              		.loc 1 277 19 is_stmt 1 discriminator 3 view .LVU281
- 277:user/w25q32.c ****     for(i=0;i<len;i++)
- 1352              		.loc 1 277 20 is_stmt 0 discriminator 3 view .LVU282
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 30
+ 1282              	.LVL123:
+ 285:user/w25q32.c ****     for(i=0;i<pageSize;i++)
+ 1283              		.loc 1 285 5 view .LVU264
+ 1284              		.loc 1 285 10 is_stmt 0 view .LVU265
+ 1285 0030 0025     		movs	r5, #0
+ 1286              		.loc 1 285 5 view .LVU266
+ 1287 0032 04E0     		b	.L82
+ 1288              	.LVL124:
+ 1289              	.L83:
+ 286:user/w25q32.c ****         *ptr++=SPI2_Read(); 
+ 1290              		.loc 1 286 9 is_stmt 1 discriminator 3 view .LVU267
+ 1291              		.loc 1 286 16 is_stmt 0 discriminator 3 view .LVU268
+ 1292 0034 FFF7FEFF 		bl	SPI2_Read
+ 1293              	.LVL125:
+ 1294              		.loc 1 286 15 discriminator 3 view .LVU269
+ 1295 0038 04F8010B 		strb	r0, [r4], #1
+ 1296              	.LVL126:
+ 285:user/w25q32.c ****     for(i=0;i<pageSize;i++)
+ 1297              		.loc 1 285 24 is_stmt 1 discriminator 3 view .LVU270
+ 285:user/w25q32.c ****     for(i=0;i<pageSize;i++)
+ 1298              		.loc 1 285 25 is_stmt 0 discriminator 3 view .LVU271
+ 1299 003c 0135     		adds	r5, r5, #1
+ 1300              	.LVL127:
+ 1301              	.L82:
+ 285:user/w25q32.c ****     for(i=0;i<pageSize;i++)
+ 1302              		.loc 1 285 13 is_stmt 1 discriminator 1 view .LVU272
+ 285:user/w25q32.c ****     for(i=0;i<pageSize;i++)
+ 1303              		.loc 1 285 5 is_stmt 0 discriminator 1 view .LVU273
+ 1304 003e B542     		cmp	r5, r6
+ 1305 0040 F8D3     		bcc	.L83
+ 287:user/w25q32.c ****     FLASH_CS_High();    
+ 1306              		.loc 1 287 5 is_stmt 1 view .LVU274
+ 1307 0042 0122     		movs	r2, #1
+ 1308 0044 1021     		movs	r1, #16
+ 1309 0046 0248     		ldr	r0, .L85
+ 1310 0048 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1311              	.LVL128:
+ 288:user/w25q32.c **** }
+ 1312              		.loc 1 288 1 is_stmt 0 view .LVU275
+ 1313 004c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1314              	.LVL129:
+ 1315              	.L86:
+ 1316              		.loc 1 288 1 view .LVU276
+ 1317 004e 00BF     		.align	2
+ 1318              	.L85:
+ 1319 0050 00000240 		.word	1073872896
+ 1320              		.cfi_endproc
+ 1321              	.LFE150:
+ 1323              		.section	.text.FlashFastRead,"ax",%progbits
+ 1324              		.align	1
+ 1325              		.global	FlashFastRead
+ 1326              		.syntax unified
+ 1327              		.thumb
+ 1328              		.thumb_func
+ 1330              	FlashFastRead:
+ 1331              	.LVL130:
+ 1332              	.LFB151:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 30
 
 
- 1353 0044 0135     		adds	r5, r5, #1
- 1354              	.LVL145:
- 1355              	.L86:
- 277:user/w25q32.c ****     for(i=0;i<len;i++)
- 1356              		.loc 1 277 13 is_stmt 1 discriminator 1 view .LVU283
- 277:user/w25q32.c ****     for(i=0;i<len;i++)
- 1357              		.loc 1 277 5 is_stmt 0 discriminator 1 view .LVU284
- 1358 0046 B542     		cmp	r5, r6
- 1359 0048 F8D3     		bcc	.L87
- 279:user/w25q32.c ****     FLASH_CS_High();    
- 1360              		.loc 1 279 5 is_stmt 1 view .LVU285
- 1361 004a 0122     		movs	r2, #1
- 1362 004c 1021     		movs	r1, #16
- 1363 004e 0248     		ldr	r0, .L89
- 1364 0050 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 1365              	.LVL146:
- 280:user/w25q32.c **** }
- 1366              		.loc 1 280 1 is_stmt 0 view .LVU286
- 1367 0054 70BD     		pop	{r4, r5, r6, pc}
- 1368              	.LVL147:
- 1369              	.L90:
- 1370              		.loc 1 280 1 view .LVU287
- 1371 0056 00BF     		.align	2
- 1372              	.L89:
- 1373 0058 00000240 		.word	1073872896
- 1374              		.cfi_endproc
- 1375              	.LFE151:
- 1377              		.text
- 1378              	.Letext0:
- 1379              		.file 2 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 1380              		.file 3 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 1381              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
- 1382              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 1383              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 1384              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 1385              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 1386              		.file 9 "user/w25q32.h"
- 1387              		.file 10 "Inc/spi.h"
- 1388              		.file 11 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
- 1389              		.file 12 "<built-in>"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 31
+ 289:user/w25q32.c **** void FlashFastRead(uint32_t addr,uint8_t *ptr,uint32_t len)
+ 290:user/w25q32.c **** {
+ 1333              		.loc 1 290 1 is_stmt 1 view -0
+ 1334              		.cfi_startproc
+ 1335              		@ args = 0, pretend = 0, frame = 0
+ 1336              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1337              		.loc 1 290 1 is_stmt 0 view .LVU278
+ 1338 0000 70B5     		push	{r4, r5, r6, lr}
+ 1339              	.LCFI29:
+ 1340              		.cfi_def_cfa_offset 16
+ 1341              		.cfi_offset 4, -16
+ 1342              		.cfi_offset 5, -12
+ 1343              		.cfi_offset 6, -8
+ 1344              		.cfi_offset 14, -4
+ 1345 0002 0C46     		mov	r4, r1
+ 1346 0004 1646     		mov	r6, r2
+ 291:user/w25q32.c ****     uint32_t addr_tmp,i;
+ 1347              		.loc 1 291 5 is_stmt 1 view .LVU279
+ 292:user/w25q32.c ****     addr_tmp=addr&0x00ffffff;
+ 1348              		.loc 1 292 5 view .LVU280
+ 1349              		.loc 1 292 13 is_stmt 0 view .LVU281
+ 1350 0006 20F07F45 		bic	r5, r0, #-16777216
+ 1351              	.LVL131:
+ 293:user/w25q32.c ****     FlashWait_Busy();    
+ 1352              		.loc 1 293 5 is_stmt 1 view .LVU282
+ 1353 000a FFF7FEFF 		bl	FlashWait_Busy
+ 1354              	.LVL132:
+ 294:user/w25q32.c ****     FLASH_CS_Low();
+ 1355              		.loc 1 294 5 view .LVU283
+ 1356 000e 0022     		movs	r2, #0
+ 1357 0010 1021     		movs	r1, #16
+ 1358 0012 1148     		ldr	r0, .L91
+ 1359 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1360              	.LVL133:
+ 1361              		.loc 1 294 19 view .LVU284
+ 295:user/w25q32.c ****     SPI2_Write(FREAD_CMD); 
+ 1362              		.loc 1 295 5 view .LVU285
+ 1363 0018 0B20     		movs	r0, #11
+ 1364 001a FFF7FEFF 		bl	SPI2_Write
+ 1365              	.LVL134:
+ 296:user/w25q32.c ****     SPI2_Write(addr_tmp>>16);
+ 1366              		.loc 1 296 5 view .LVU286
+ 1367 001e 280C     		lsrs	r0, r5, #16
+ 1368 0020 FFF7FEFF 		bl	SPI2_Write
+ 1369              	.LVL135:
+ 297:user/w25q32.c ****     SPI2_Write(addr_tmp>>8);
+ 1370              		.loc 1 297 5 view .LVU287
+ 1371 0024 C5F30720 		ubfx	r0, r5, #8, #8
+ 1372 0028 FFF7FEFF 		bl	SPI2_Write
+ 1373              	.LVL136:
+ 298:user/w25q32.c ****     SPI2_Write(addr_tmp); 
+ 1374              		.loc 1 298 5 view .LVU288
+ 1375 002c E8B2     		uxtb	r0, r5
+ 1376 002e FFF7FEFF 		bl	SPI2_Write
+ 1377              	.LVL137:
+ 299:user/w25q32.c ****     SPI2_Write(DUMMY_BYTE); 
+ 1378              		.loc 1 299 5 view .LVU289
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 31
+
+
+ 1379 0032 FF20     		movs	r0, #255
+ 1380 0034 FFF7FEFF 		bl	SPI2_Write
+ 1381              	.LVL138:
+ 300:user/w25q32.c ****     for(i=0;i<len;i++)
+ 1382              		.loc 1 300 5 view .LVU290
+ 1383              		.loc 1 300 10 is_stmt 0 view .LVU291
+ 1384 0038 0025     		movs	r5, #0
+ 1385              	.LVL139:
+ 1386              		.loc 1 300 5 view .LVU292
+ 1387 003a 04E0     		b	.L88
+ 1388              	.LVL140:
+ 1389              	.L89:
+ 301:user/w25q32.c ****         *ptr++=SPI2_Read(); 
+ 1390              		.loc 1 301 9 is_stmt 1 discriminator 3 view .LVU293
+ 1391              		.loc 1 301 16 is_stmt 0 discriminator 3 view .LVU294
+ 1392 003c FFF7FEFF 		bl	SPI2_Read
+ 1393              	.LVL141:
+ 1394              		.loc 1 301 15 discriminator 3 view .LVU295
+ 1395 0040 04F8010B 		strb	r0, [r4], #1
+ 1396              	.LVL142:
+ 300:user/w25q32.c ****     for(i=0;i<len;i++)
+ 1397              		.loc 1 300 19 is_stmt 1 discriminator 3 view .LVU296
+ 300:user/w25q32.c ****     for(i=0;i<len;i++)
+ 1398              		.loc 1 300 20 is_stmt 0 discriminator 3 view .LVU297
+ 1399 0044 0135     		adds	r5, r5, #1
+ 1400              	.LVL143:
+ 1401              	.L88:
+ 300:user/w25q32.c ****     for(i=0;i<len;i++)
+ 1402              		.loc 1 300 13 is_stmt 1 discriminator 1 view .LVU298
+ 300:user/w25q32.c ****     for(i=0;i<len;i++)
+ 1403              		.loc 1 300 5 is_stmt 0 discriminator 1 view .LVU299
+ 1404 0046 B542     		cmp	r5, r6
+ 1405 0048 F8D3     		bcc	.L89
+ 302:user/w25q32.c ****     FLASH_CS_High();    
+ 1406              		.loc 1 302 5 is_stmt 1 view .LVU300
+ 1407 004a 0122     		movs	r2, #1
+ 1408 004c 1021     		movs	r1, #16
+ 1409 004e 0248     		ldr	r0, .L91
+ 1410 0050 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1411              	.LVL144:
+ 303:user/w25q32.c **** }
+ 1412              		.loc 1 303 1 is_stmt 0 view .LVU301
+ 1413 0054 70BD     		pop	{r4, r5, r6, pc}
+ 1414              	.LVL145:
+ 1415              	.L92:
+ 1416              		.loc 1 303 1 view .LVU302
+ 1417 0056 00BF     		.align	2
+ 1418              	.L91:
+ 1419 0058 00000240 		.word	1073872896
+ 1420              		.cfi_endproc
+ 1421              	.LFE151:
+ 1423              		.section	.text.read_sector,"ax",%progbits
+ 1424              		.align	1
+ 1425              		.global	read_sector
+ 1426              		.syntax unified
+ 1427              		.thumb
+ 1428              		.thumb_func
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 32
+
+
+ 1430              	read_sector:
+ 1431              	.LVL146:
+ 1432              	.LFB152:
+ 304:user/w25q32.c **** // 读一个扇区 4K
+ 305:user/w25q32.c **** void read_sector(uint32_t blk_addr,uint8_t *buf, uint16_t blk_len)
+ 306:user/w25q32.c **** {
+ 1433              		.loc 1 306 1 is_stmt 1 view -0
+ 1434              		.cfi_startproc
+ 1435              		@ args = 0, pretend = 0, frame = 0
+ 1436              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1437              		.loc 1 306 1 is_stmt 0 view .LVU304
+ 1438 0000 70B5     		push	{r4, r5, r6, lr}
+ 1439              	.LCFI30:
+ 1440              		.cfi_def_cfa_offset 16
+ 1441              		.cfi_offset 4, -16
+ 1442              		.cfi_offset 5, -12
+ 1443              		.cfi_offset 6, -8
+ 1444              		.cfi_offset 14, -4
+ 1445 0002 0E46     		mov	r6, r1
+ 307:user/w25q32.c ****     uint32_t page_addr;
+ 1446              		.loc 1 307 5 is_stmt 1 view .LVU305
+ 308:user/w25q32.c ****     int i;
+ 1447              		.loc 1 308 5 view .LVU306
+ 309:user/w25q32.c ****     // addr = blk_addr*4096;
+ 310:user/w25q32.c ****     page_addr = blk_addr*16;
+ 1448              		.loc 1 310 5 view .LVU307
+ 1449              		.loc 1 310 15 is_stmt 0 view .LVU308
+ 1450 0004 0501     		lsls	r5, r0, #4
+ 1451              	.LVL147:
+ 311:user/w25q32.c ****     for(i = 0; i < 16; i++)
+ 1452              		.loc 1 311 5 is_stmt 1 view .LVU309
+ 1453              		.loc 1 311 11 is_stmt 0 view .LVU310
+ 1454 0006 0024     		movs	r4, #0
+ 1455              		.loc 1 311 5 view .LVU311
+ 1456 0008 08E0     		b	.L94
+ 1457              	.LVL148:
+ 1458              	.L95:
+ 312:user/w25q32.c ****     {
+ 313:user/w25q32.c ****         FlashPage_Read(page_addr+i,buf+i*256,256);
+ 1459              		.loc 1 313 9 is_stmt 1 discriminator 3 view .LVU312
+ 1460 000a 2819     		adds	r0, r5, r4
+ 1461 000c 4FF48072 		mov	r2, #256
+ 1462 0010 06EB0421 		add	r1, r6, r4, lsl #8
+ 1463 0014 80B2     		uxth	r0, r0
+ 1464 0016 FFF7FEFF 		bl	FlashPage_Read
+ 1465              	.LVL149:
+ 311:user/w25q32.c ****     for(i = 0; i < 16; i++)
+ 1466              		.loc 1 311 24 discriminator 3 view .LVU313
+ 311:user/w25q32.c ****     for(i = 0; i < 16; i++)
+ 1467              		.loc 1 311 25 is_stmt 0 discriminator 3 view .LVU314
+ 1468 001a 0134     		adds	r4, r4, #1
+ 1469              	.LVL150:
+ 1470              	.L94:
+ 311:user/w25q32.c ****     for(i = 0; i < 16; i++)
+ 1471              		.loc 1 311 16 is_stmt 1 discriminator 1 view .LVU315
+ 311:user/w25q32.c ****     for(i = 0; i < 16; i++)
+ 1472              		.loc 1 311 5 is_stmt 0 discriminator 1 view .LVU316
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 33
+
+
+ 1473 001c 0F2C     		cmp	r4, #15
+ 1474 001e F4DD     		ble	.L95
+ 314:user/w25q32.c ****     }
+ 315:user/w25q32.c **** }
+ 1475              		.loc 1 315 1 view .LVU317
+ 1476 0020 70BD     		pop	{r4, r5, r6, pc}
+ 1477              		.loc 1 315 1 view .LVU318
+ 1478              		.cfi_endproc
+ 1479              	.LFE152:
+ 1481              		.section	.text.write_sector,"ax",%progbits
+ 1482              		.align	1
+ 1483              		.global	write_sector
+ 1484              		.syntax unified
+ 1485              		.thumb
+ 1486              		.thumb_func
+ 1488              	write_sector:
+ 1489              	.LVL151:
+ 1490              	.LFB153:
+ 316:user/w25q32.c **** // 写一个扇区 4K
+ 317:user/w25q32.c **** void write_sector(uint32_t blk_addr,uint8_t *buf, uint16_t blk_len)
+ 318:user/w25q32.c **** {
+ 1491              		.loc 1 318 1 is_stmt 1 view -0
+ 1492              		.cfi_startproc
+ 1493              		@ args = 0, pretend = 0, frame = 0
+ 1494              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1495              		.loc 1 318 1 is_stmt 0 view .LVU320
+ 1496 0000 70B5     		push	{r4, r5, r6, lr}
+ 1497              	.LCFI31:
+ 1498              		.cfi_def_cfa_offset 16
+ 1499              		.cfi_offset 4, -16
+ 1500              		.cfi_offset 5, -12
+ 1501              		.cfi_offset 6, -8
+ 1502              		.cfi_offset 14, -4
+ 1503 0002 0546     		mov	r5, r0
+ 1504 0004 0E46     		mov	r6, r1
+ 319:user/w25q32.c ****     uint32_t page_addr;
+ 1505              		.loc 1 319 5 is_stmt 1 view .LVU321
+ 320:user/w25q32.c ****     int i;
+ 1506              		.loc 1 320 5 view .LVU322
+ 321:user/w25q32.c ****     // addr = blk_addr*4096;
+ 322:user/w25q32.c ****     FlashSector_Erase(blk_addr);
+ 1507              		.loc 1 322 5 view .LVU323
+ 1508 0006 80B2     		uxth	r0, r0
+ 1509              	.LVL152:
+ 1510              		.loc 1 322 5 is_stmt 0 view .LVU324
+ 1511 0008 FFF7FEFF 		bl	FlashSector_Erase
+ 1512              	.LVL153:
+ 323:user/w25q32.c ****     page_addr = blk_addr*16;
+ 1513              		.loc 1 323 5 is_stmt 1 view .LVU325
+ 1514              		.loc 1 323 15 is_stmt 0 view .LVU326
+ 1515 000c 2D01     		lsls	r5, r5, #4
+ 1516              	.LVL154:
+ 324:user/w25q32.c ****     for(i = 0; i < 16; i++)
+ 1517              		.loc 1 324 5 is_stmt 1 view .LVU327
+ 1518              		.loc 1 324 11 is_stmt 0 view .LVU328
+ 1519 000e 0024     		movs	r4, #0
+ 1520              		.loc 1 324 5 view .LVU329
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 34
+
+
+ 1521 0010 08E0     		b	.L98
+ 1522              	.LVL155:
+ 1523              	.L99:
+ 325:user/w25q32.c ****     {
+ 326:user/w25q32.c ****         FlashPage_Write(page_addr+i,buf+i*256,256);
+ 1524              		.loc 1 326 9 is_stmt 1 discriminator 3 view .LVU330
+ 1525 0012 2819     		adds	r0, r5, r4
+ 1526 0014 4FF48072 		mov	r2, #256
+ 1527 0018 06EB0421 		add	r1, r6, r4, lsl #8
+ 1528 001c 80B2     		uxth	r0, r0
+ 1529 001e FFF7FEFF 		bl	FlashPage_Write
+ 1530              	.LVL156:
+ 324:user/w25q32.c ****     for(i = 0; i < 16; i++)
+ 1531              		.loc 1 324 24 discriminator 3 view .LVU331
+ 324:user/w25q32.c ****     for(i = 0; i < 16; i++)
+ 1532              		.loc 1 324 25 is_stmt 0 discriminator 3 view .LVU332
+ 1533 0022 0134     		adds	r4, r4, #1
+ 1534              	.LVL157:
+ 1535              	.L98:
+ 324:user/w25q32.c ****     for(i = 0; i < 16; i++)
+ 1536              		.loc 1 324 16 is_stmt 1 discriminator 1 view .LVU333
+ 324:user/w25q32.c ****     for(i = 0; i < 16; i++)
+ 1537              		.loc 1 324 5 is_stmt 0 discriminator 1 view .LVU334
+ 1538 0024 0F2C     		cmp	r4, #15
+ 1539 0026 F4DD     		ble	.L99
+ 327:user/w25q32.c ****     }
+ 328:user/w25q32.c **** }
+ 1540              		.loc 1 328 1 view .LVU335
+ 1541 0028 70BD     		pop	{r4, r5, r6, pc}
+ 1542              		.loc 1 328 1 view .LVU336
+ 1543              		.cfi_endproc
+ 1544              	.LFE153:
+ 1546              		.text
+ 1547              	.Letext0:
+ 1548              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1549              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1550              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+ 1551              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1552              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 1553              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1554              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 1555              		.file 9 "user/w25q32.h"
+ 1556              		.file 10 "Inc/spi.h"
+ 1557              		.file 11 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1558              		.file 12 "<built-in>"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 35
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 w25q32.c
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:20     .text.SPI2_Write:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:26     .text.SPI2_Write:00000000 SPI2_Write
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:61     .text.SPI2_Write:0000001c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:66     .text.SPI2_Read:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:72     .text.SPI2_Read:00000000 SPI2_Read
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:104    .text.SPI2_Read:0000001c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:109    .text.FlashWait_Busy:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:115    .text.FlashWait_Busy:00000000 FlashWait_Busy
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:178    .text.FlashWait_Busy:00000038 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:183    .text.FlashGet_Info:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:189    .text.FlashGet_Info:00000000 FlashGet_Info
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:250    .text.FlashGet_Info:00000034 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:255    .text.FlashGet_ElectronicInfo:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:261    .text.FlashGet_ElectronicInfo:00000000 FlashGet_ElectronicInfo
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:349    .text.FlashGet_ElectronicInfo:0000005c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:355    .rodata.SpiFlash_Init.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:372    .text.SpiFlash_Init:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:378    .text.SpiFlash_Init:00000000 SpiFlash_Init
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:470    .text.SpiFlash_Init:00000074 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:479    .text.FlashEnter_DeepPowerDown:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:485    .text.FlashEnter_DeepPowerDown:00000000 FlashEnter_DeepPowerDown
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:519    .text.FlashEnter_DeepPowerDown:00000020 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:524    .text.FlashReleaseFrom_DeepPowerDown:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:530    .text.FlashReleaseFrom_DeepPowerDown:00000000 FlashReleaseFrom_DeepPowerDown
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:564    .text.FlashReleaseFrom_DeepPowerDown:00000020 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:569    .text.FlashReleaseFrom_DeepPowerDownE:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:575    .text.FlashReleaseFrom_DeepPowerDownE:00000000 FlashReleaseFrom_DeepPowerDownE
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:634    .text.FlashReleaseFrom_DeepPowerDownE:0000003c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:639    .text.FlashWriteEnable:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:645    .text.FlashWriteEnable:00000000 FlashWriteEnable
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:679    .text.FlashWriteEnable:00000020 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:684    .text.FlashWriteDisable:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:690    .text.FlashWriteDisable:00000000 FlashWriteDisable
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:724    .text.FlashWriteDisable:00000020 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:729    .text.FlashWrite_StaRegister:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:735    .text.FlashWrite_StaRegister:00000000 FlashWrite_StaRegister
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:780    .text.FlashWrite_StaRegister:00000028 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:785    .text.FlashPage_Write:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:791    .text.FlashPage_Write:00000000 FlashPage_Write
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:881    .text.FlashPage_Write:00000054 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:886    .text.FlashChip_Erase:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:892    .text.FlashChip_Erase:00000000 FlashChip_Erase
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:932    .text.FlashChip_Erase:00000028 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:937    .text.FlashBlock_Erase:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:943    .text.FlashBlock_Erase:00000000 FlashBlock_Erase
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:1002   .text.FlashBlock_Erase:0000003c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:1007   .text.FlashSector_Erase:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:1013   .text.FlashSector_Erase:00000000 FlashSector_Erase
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:1079   .text.FlashSector_Erase:00000044 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:1084   .text.FlashRead:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:1090   .text.FlashRead:00000000 FlashRead
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:1175   .text.FlashRead:00000050 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:1180   .text.FlashPage_Read:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:1186   .text.FlashPage_Read:00000000 FlashPage_Read
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:1273   .text.FlashPage_Read:00000050 $d
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s 			page 32
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:20     .text.SPI2_Write:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:26     .text.SPI2_Write:00000000 SPI2_Write
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:61     .text.SPI2_Write:0000001c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:66     .text.SPI2_Read:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:72     .text.SPI2_Read:00000000 SPI2_Read
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:109    .text.SPI2_Read:00000028 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:114    .text.FlashWait_Busy:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:120    .text.FlashWait_Busy:00000000 FlashWait_Busy
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:183    .text.FlashWait_Busy:00000038 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:188    .text.FlashGet_Info:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:194    .text.FlashGet_Info:00000000 FlashGet_Info
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:279    .text.FlashGet_Info:00000058 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:285    .text.FlashGet_ElectronicInfo:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:291    .text.FlashGet_ElectronicInfo:00000000 FlashGet_ElectronicInfo
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:378    .text.FlashGet_ElectronicInfo:0000005c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:384    .rodata.SpiFlash_Init.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:405    .text.SpiFlash_Init:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:411    .text.SpiFlash_Init:00000000 SpiFlash_Init
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:515    .text.SpiFlash_Init:00000080 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:525    .text.FlashEnter_DeepPowerDown:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:531    .text.FlashEnter_DeepPowerDown:00000000 FlashEnter_DeepPowerDown
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:565    .text.FlashEnter_DeepPowerDown:00000020 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:570    .text.FlashReleaseFrom_DeepPowerDown:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:576    .text.FlashReleaseFrom_DeepPowerDown:00000000 FlashReleaseFrom_DeepPowerDown
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:610    .text.FlashReleaseFrom_DeepPowerDown:00000020 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:615    .text.FlashReleaseFrom_DeepPowerDownE:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:621    .text.FlashReleaseFrom_DeepPowerDownE:00000000 FlashReleaseFrom_DeepPowerDownE
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:680    .text.FlashReleaseFrom_DeepPowerDownE:0000003c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:685    .text.FlashWriteEnable:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:691    .text.FlashWriteEnable:00000000 FlashWriteEnable
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:725    .text.FlashWriteEnable:00000020 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:730    .text.FlashWriteDisable:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:736    .text.FlashWriteDisable:00000000 FlashWriteDisable
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:770    .text.FlashWriteDisable:00000020 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:775    .text.FlashWrite_StaRegister:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:781    .text.FlashWrite_StaRegister:00000000 FlashWrite_StaRegister
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:826    .text.FlashWrite_StaRegister:00000028 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:831    .text.FlashPage_Write:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:837    .text.FlashPage_Write:00000000 FlashPage_Write
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:927    .text.FlashPage_Write:00000054 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:932    .text.FlashChip_Erase:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:938    .text.FlashChip_Erase:00000000 FlashChip_Erase
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:978    .text.FlashChip_Erase:00000028 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:983    .text.FlashBlock_Erase:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:989    .text.FlashBlock_Erase:00000000 FlashBlock_Erase
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1048   .text.FlashBlock_Erase:0000003c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1053   .text.FlashSector_Erase:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1059   .text.FlashSector_Erase:00000000 FlashSector_Erase
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1125   .text.FlashSector_Erase:00000044 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1130   .text.FlashRead:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1136   .text.FlashRead:00000000 FlashRead
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1221   .text.FlashRead:00000050 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1226   .text.FlashPage_Read:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1232   .text.FlashPage_Read:00000000 FlashPage_Read
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1319   .text.FlashPage_Read:00000050 $d
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s 			page 36
 
 
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:1278   .text.FlashFastRead:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:1284   .text.FlashFastRead:00000000 FlashFastRead
-C:\Users\ADMINI~1\AppData\Local\Temp\cckRJPxS.s:1373   .text.FlashFastRead:00000058 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1324   .text.FlashFastRead:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1330   .text.FlashFastRead:00000000 FlashFastRead
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1419   .text.FlashFastRead:00000058 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1424   .text.read_sector:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1430   .text.read_sector:00000000 read_sector
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1482   .text.write_sector:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc4OFTdG.s:1488   .text.write_sector:00000000 write_sector
 
 UNDEFINED SYMBOLS
 HAL_SPI_Transmit
 hspi1
-HAL_SPI_Receive
-HAL_GPIO_WritePin
 HAL_SPI_TransmitReceive
+HAL_GPIO_WritePin
 printf
 puts
