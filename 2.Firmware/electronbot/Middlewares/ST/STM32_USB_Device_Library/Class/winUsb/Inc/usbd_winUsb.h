@@ -41,7 +41,7 @@ extern "C" {
   * @{
   */
 
-#define WIN_USB_EPIN_ADDR  0x83
+#define WIN_USB_EPIN_ADDR   0x83
 #define WIN_USB_EPOUT_ADDR  0x03
 
 #define MS_VendorCode 'P'

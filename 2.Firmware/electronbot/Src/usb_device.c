@@ -23,12 +23,14 @@
 #include "usb_device.h"
 #include "usbd_core.h"
 #include "usbd_desc.h"
+#include "usbd_composite.h"
 #include "usbd_msc.h"
 #include "usbd_storage_if.h"
 
 /* USER CODE BEGIN Includes */
-#include "usbd_composite.h"
+// #include "usbd_composite.h"
 #include "usbd_winUsb.h"
+
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN PV */
@@ -80,22 +82,21 @@ void MX_USB_DEVICE_Init(void)
   if (USBD_MSC_RegisterStorage(&hUsbDeviceHS, &USBD_Storage_Interface_fops_HS) != USBD_OK)
   {
     Error_Handler();
-  } */
-
+  } 
+ */
   if (USBD_Init(&hUsbDeviceHS, &usbCmpsitFS_Desc, DEVICE_HS) != USBD_OK)
   {
     Error_Handler();
-  }
+  }  
   if(USBD_RegisterClassComposite(&hUsbDeviceHS, &USBD_MSC,CLASS_TYPE_MSC,0) != USBD_OK)
   {
     Error_Handler();
   }
-
-  if(USBD_MSC_RegisterStorage(&hUsbDeviceHS, &USBD_Storage_Interface_fops_HS) != USBD_OK)
+  if (USBD_MSC_RegisterStorage(&hUsbDeviceHS, &USBD_Storage_Interface_fops_HS) != USBD_OK)
   {
     Error_Handler();
-  }
-  
+  } 
+
   if(USBD_RegisterClassComposite(&hUsbDeviceHS, &USBD_WinUsb,CLASS_TYPE_WINUSB,0) != USBD_OK)
   {
     Error_Handler();

@@ -19,6 +19,7 @@ private:
     libusb_device_handle *handle;
     int8_t endpoint_in = 0;
     int8_t endpoint_out = 0;
+    int iface_index=0xff;
 };
 
 #endif // COMMUSB_H

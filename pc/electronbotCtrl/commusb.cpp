@@ -4,6 +4,7 @@ commUSB::commUSB()
 {
     int r;
     size_t cnt;
+    iface_index=0xff;
     r = libusb_init(NULL);
     if(r < 0)
         qDebug() << r << endl;
@@ -48,23 +49,86 @@ void commUSB::openElectronbotUSB(int vid,int pid)
 {
     libusb_device *dev;
     int bus;
+    struct libusb_device_descriptor usb_dev_desc;
     struct libusb_config_descriptor *conf_desc;
     const struct libusb_endpoint_descriptor *endpoint;
-    int endpoint_num, nb_ifaces,res;
-    int i;
+    uint8_t endpoint_num, nb_ifaces,res;
+    uint8_t i,j;
 
      handle = libusb_open_device_with_vid_pid(NULL, vid, pid);
      if (handle == NULL)
          qDebug("open devices failed");
+     else
+         qDebug("open devices success");
      dev = libusb_get_device(handle);
+     if (dev == NULL)
+         qDebug("libusb_get_device failed");
+     else
+         qDebug("libusb_get_device success");
      bus = libusb_get_bus_number(dev);
-     libusb_get_config_descriptor(dev, 0, &conf_desc);
-     nb_ifaces = conf_desc->bNumInterfaces;
-     qDebug()<<"electronbot usb have "<<nb_ifaces<<"interfaces";
+     libusb_get_device_descriptor(dev,&usb_dev_desc);
+     qDebug("|--[Vid:0x%04x, Pid:0x%04x]-[Class:0x%02x, SubClass:0x%02x]-[bus:%d, device:%d, port:%d]-[cfg_desc_num:%d]\n",
+                 usb_dev_desc.idVendor, usb_dev_desc.idProduct, usb_dev_desc.bDeviceClass, usb_dev_desc.bDeviceSubClass,
+                 libusb_get_bus_number(dev), libusb_get_device_address(dev), libusb_get_port_number(dev), usb_dev_desc.bNumConfigurations);
 
-     nb_ifaces==3?endpoint_num=conf_desc->interface[2].altsetting[0].bNumEndpoints:endpoint_num=0;
+     //libusb_get_config_descriptor(dev, 0, &conf_desc);
+     int err = libusb_get_config_descriptor(dev, 0, &conf_desc);
+     if(err > 0)
+     {
+         qDebug("libusb_get_config_descriptor  err with %d", err);
+     }
+     else {
+         qDebug("libusb_get_config_descriptor success");
+     }
+     qDebug("|  |--[cfg_value:0x%01x]-[infc_desc_num:%02d]\n",
+                     conf_desc->bConfigurationValue, conf_desc->bNumInterfaces);
 
-     for(i=0;i<endpoint_num;i++)
+     for(uint8_t l = 0;l < conf_desc->bNumInterfaces; l++)
+                 for(uint8_t n = 0;n < conf_desc->interface[l].num_altsetting; n++)
+                 {
+                     qDebug("|  |  |--intfc_desc: %02d:%02d-[Class:0x%02x, SubClass:0x%02x]-[ep_desc_num:%02d]\n",
+                         l, n, conf_desc->interface[l].altsetting[n].bInterfaceClass, conf_desc->interface[l].altsetting[n].bInterfaceSubClass,
+                         conf_desc->interface[l].altsetting[n].bNumEndpoints);
+                      for(uint8_t m = 0;m < conf_desc->interface[l].altsetting[n].bNumEndpoints; m++)
+                      {
+                         qDebug("|  |  |  |--ep_desc:%02d-[Add:0x%02x]-[Attr:0x%02x]-[MaxPkgLen:%02d]\n",
+                             m, conf_desc->interface[l].altsetting[n].endpoint[m].bEndpointAddress,
+                             conf_desc->interface[l].altsetting[n].endpoint[m].bmAttributes,
+                             conf_desc->interface[l].altsetting[n].endpoint[m].wMaxPacketSize);
+                      }
+                 }
+
+     //nb_ifaces = conf_desc->bNumInterfaces;
+     //nb_ifaces==108?endpoint_num=conf_desc->interface[107].altsetting[0].bNumEndpoints:endpoint_num=0;
+     //qDebug()<<"electronbot usb have "<<nb_ifaces<<"interfaces";
+
+     /*//for(i = 1; i<nb_ifaces;i++ )
+     {
+         endpoint_num=conf_desc->interface->altsetting->bNumEndpoints;
+         qDebug()<<"endpoint_num: "<<endpoint_num;
+         for(j=0;j<endpoint_num;j++)
+          {
+
+              endpoint= &conf_desc->interface[i].altsetting[0].endpoint[j];
+              //if ((endpoint->bmAttributes & LIBUSB_TRANSFER_TYPE_MASK) & (LIBUSB_TRANSFER_TYPE_BULK | LIBUSB_TRANSFER_TYPE_INTERRUPT))
+              if ((endpoint->bmAttributes & LIBUSB_TRANSFER_TYPE_MASK) & (LIBUSB_TRANSFER_TYPE_BULK))
+              {
+                 qDebug("bEndpointAddress = %x",endpoint->bEndpointAddress);
+                 if(endpoint->bEndpointAddress == 0x83)
+                 {
+                     iface_index = i;
+                     break;
+                 }
+
+              }
+              if(iface_index != 0xff)
+                  break;
+          }
+     }*/
+
+     //
+
+     /*for(i=0;i<endpoint_num;i++)
      {
 
          endpoint= &conf_desc->interface[2].altsetting[0].endpoint[i];
@@ -89,22 +153,25 @@ void commUSB::openElectronbotUSB(int vid,int pid)
                  }
              }
          }
-     }
+     }*/
+
+     //endpoint_in = 0x83;
+     //endpoint_out = 0x03;
 
      /*释放配置描述符*/
-     libusb_free_config_descriptor(conf_desc);
+     //libusb_free_config_descriptor(conf_desc);
      /*卸载驱动内核*/
-     libusb_set_auto_detach_kernel_driver(handle, 1);
+     //libusb_set_auto_detach_kernel_driver(handle, 1);
      /*为指定的设备申请接口*/
-     res=libusb_claim_interface(handle, 2);
-     res<0?qDebug("=======================claim interface error"):qDebug("=========================claim interface success");
+     //res=libusb_claim_interface(handle, iface_index);
+    // res<0?qDebug("=======================claim interface error"):qDebug("=========================claim interface success");
 
 }
 void commUSB::CloseElectronbotUSB(void)
 {
     if(handle)
     {
-        libusb_release_interface (handle, 2);
+        //libusb_release_interface (handle, iface_index);
         libusb_close (handle);
         handle =  NULL;
     }

@@ -16,10 +16,10 @@
 
 
 #if 1
-#define USBD_CMPSIT_VID     0x1207
+#define USBD_CMPSIT_VID     1155
 #define USBD_CMPSIT_LANGID_STRING     1033
 #define USBD_CMPSIT_MANUFACTURER_STRING     "wenyz@wolfGroup"
-#define USBD_CMPSIT_PID_FS     0x0d37
+#define USBD_CMPSIT_PID_FS     22336
 #define USBD_CMPSIT_PRODUCT_STRING_FS     "STM32 composite product"
 #define USBD_CMPSIT_CONFIGURATION_STRING_FS     "Composite Config"
 #define USBD_CMPSIT_INTERFACE_STRING_FS     "Composite Interface"
@@ -442,7 +442,7 @@ void USBD_CMPSIT_AddClass(USBD_HandleTypeDef *pdev, USBD_ClassTypeDef *pclass, U
 			
 
 			pdev->tclasslist[pdev->classId].NumIf = 1;
-			pdev->tclasslist[pdev->classId].Ifs[0] = 2;		
+			pdev->tclasslist[pdev->classId].Ifs[0] = 1;
 			
 		}break;
 		default:break;
@@ -496,6 +496,31 @@ static uint8_t *USBD_CMPSIT_GetFSCfgDesc(uint16_t *length)
 }
 static uint8_t *USBD_CMPSIT_GetHSCfgDesc(uint16_t *length)
 {
+  USBD_EpDescTypeDef *pMscEpOutDesc = USBD_GetEpDesc(USBD_CMPSIT_CfgDesc, MSC_EPOUT_ADDR);
+  USBD_EpDescTypeDef *pMscEpInDesc = USBD_GetEpDesc(USBD_CMPSIT_CfgDesc, MSC_EPIN_ADDR);
+
+  USBD_EpDescTypeDef *pWinUsbEpOutDesc = USBD_GetEpDesc(USBD_CMPSIT_CfgDesc, WIN_USB_EPOUT_ADDR);
+  USBD_EpDescTypeDef *pWinUsbEpInDesc = USBD_GetEpDesc(USBD_CMPSIT_CfgDesc, WIN_USB_EPIN_ADDR);
+
+  if (pMscEpOutDesc != NULL)
+  {
+    pMscEpOutDesc->wMaxPacketSize = MSC_MAX_HS_PACKET;
+  }
+
+  if (pMscEpInDesc != NULL)
+  {
+    pMscEpInDesc->wMaxPacketSize = MSC_MAX_HS_PACKET;
+  }
+  if (pWinUsbEpOutDesc != NULL)
+  {
+    pWinUsbEpOutDesc->wMaxPacketSize = WIN_DATA_HS_MAX_PACKET_SIZE;
+  }
+
+  if (pWinUsbEpInDesc != NULL)
+  {
+    pWinUsbEpInDesc->wMaxPacketSize = WIN_DATA_HS_MAX_PACKET_SIZE;
+  }
+
   *length = (uint16_t)sizeof(USBD_CMPSIT_CfgDesc);
 	return USBD_CMPSIT_CfgDesc;
 }

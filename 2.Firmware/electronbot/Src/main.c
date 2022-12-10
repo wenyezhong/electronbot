@@ -111,11 +111,14 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   MX_USART1_UART_Init();
-  MX_USB_DEVICE_Init();
+ 
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
   printf("hello electronbot coming...\r\n");
   SpiFlash_Init();
+
+  MX_USB_DEVICE_Init();
+
   /* i2cTxData[0]=0x21;
   i2cTxData[1]=0x02;
   TransmitAndReceiveI2cPacket(0); 

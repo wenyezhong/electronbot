@@ -559,7 +559,7 @@ uint8_t USBD_MSC_RegisterStorage(USBD_HandleTypeDef *pdev, USBD_StorageTypeDef *
   }
   pdev->classId --;
   pdev->pUserData[pdev->classId] = fops;
- pdev->classId ++;
+  pdev->classId ++;
   return (uint8_t)USBD_OK;
 }
 

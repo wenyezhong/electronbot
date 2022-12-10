@@ -368,7 +368,7 @@ static uint8_t USBD_WinUsb_Setup(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef 
 	USBD_WinUsb_HandleTypeDef *hcdc = (USBD_WinUsb_HandleTypeDef *)pdev->pClassDataCmsit[pdev->classId];
    
   USBD_StatusTypeDef ret = USBD_OK;
-
+  static uint8_t ifalt = 0;
   if (hcdc == NULL)
   {
     return (uint8_t)USBD_FAIL;
@@ -376,6 +376,19 @@ static uint8_t USBD_WinUsb_Setup(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef 
 //  printf("winusb bmRequest=%x\r\n",req->bmRequest);
  switch (req->bmRequest & USB_REQ_TYPE_MASK)
   {
+
+    case USB_REQ_TYPE_STANDARD:
+    switch (req->bRequest)
+    {      
+    case USB_REQ_GET_INTERFACE :
+      USBD_CtlSendData (pdev,
+                        &ifalt,
+                        1);
+      break;
+      
+    case USB_REQ_SET_INTERFACE :
+      break;
+    }
     case USB_REQ_TYPE_VENDOR:{
         USBD_WinUSBComm_SetupVendor(pdev, req);
       }break;

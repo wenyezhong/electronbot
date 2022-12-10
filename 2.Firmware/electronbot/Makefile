@@ -105,7 +105,6 @@ Src/spi.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c \
 Src/usbd_composite.c \
 Middlewares/ST/STM32_USB_Device_Library/Class/winUsb/Src/usbd_winUsb.c
-
 # ASM sources
 ASM_SOURCES =  \
 startup_stm32f405xx.s
@@ -154,7 +153,8 @@ AS_DEFS =
 C_DEFS =  \
 -DUSE_HAL_DRIVER \
 -DSTM32F405xx \
--DUSE_USBD_COMPOSITE
+-DUSE_USBD_COMPOSITE \
+-DUSE_USB_HS
 
 
 # AS includes
@@ -170,8 +170,7 @@ C_INCLUDES =  \
 -IDrivers/CMSIS/Device/ST/STM32F4xx/Include \
 -IDrivers/CMSIS/Include \
 -Iuser \
--IMiddlewares/ST/STM32_USB_Device_Library/Class/winUsb/Inc
-
+-IMiddlewares/ST/STM32_USB_Device_Library/Class/winUsb/Inc \
 
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
