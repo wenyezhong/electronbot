@@ -78,7 +78,6 @@ void commUSB::openElectronbotUSB(int vid,int pid)
 
 
      int err = libusb_get_config_descriptor(dev,0,&conf_desc);
-//      int err = libusb_get_active_config_descriptor(dev,&conf_desc);
      if(err)
      {
          qDebug("libusb_get_config_descriptor  err with %d", err);
@@ -87,33 +86,27 @@ void commUSB::openElectronbotUSB(int vid,int pid)
      {
          qDebug("libusb_get_config_descriptor success");
      }
-//     qDebug("|  |--[cfg_value:0x%01x]-[infc_desc_num:%02d]\n", conf_desc->bConfigurationValue, conf_desc->bNumInterfaces);
+     qDebug("|  |--[cfg_value:0x%01x]-[infc_desc_num:%02d]\n", conf_desc->bConfigurationValue, conf_desc->bNumInterfaces);
 
      uint8_t l,n;
      for(l = 0;l < conf_desc->bNumInterfaces; l++)
-//     for(l = 0;l < 1; l++)
      {
          //qDebug("|  |  |--intfc_desc: %d:%d", l,n);
          for(n = 0;n < conf_desc->interface[l].num_altsetting; n++)
          {
-             //qDebug("|  |  |--intfc_desc: %d:%d", l, n);
-//             printf("|  |  |--intfc_desc: %d:%d", l, n);
-//             fflush(stdout);
+             qDebug("|  |  |--intfc_desc: %02d:%02d-[Class:0x%02x, SubClass:0x%02x]-[ep_desc_num:%02d]\n",
+                 l, n, conf_desc->interface[l].altsetting[n].bInterfaceClass, conf_desc->interface[l].altsetting[n].bInterfaceSubClass,
+                 conf_desc->interface[l].altsetting[n].bNumEndpoints);
+              for(uint8_t m = 0;m < conf_desc->interface[l].altsetting[n].bNumEndpoints; m++)
+              {
+                 qDebug("|  |  |  |--ep_desc:%02d-[Add:0x%02x]-[Attr:0x%02x]-[MaxPkgLen:%02d]\n",
+                     m, conf_desc->interface[l].altsetting[n].endpoint[m].bEndpointAddress,
+                     conf_desc->interface[l].altsetting[n].endpoint[m].bmAttributes,
+                     conf_desc->interface[l].altsetting[n].endpoint[m].wMaxPacketSize);
+              }
          }
      }
-                 /*for(uint8_t n = 0;n < conf_desc->interface[l].num_altsetting; n++)
-                 {
-                     qDebug("|  |  |--intfc_desc: %02d:%02d-[Class:0x%02x, SubClass:0x%02x]-[ep_desc_num:%02d]\n",
-                         l, n, conf_desc->interface[l].altsetting[n].bInterfaceClass, conf_desc->interface[l].altsetting[n].bInterfaceSubClass,
-                         conf_desc->interface[l].altsetting[n].bNumEndpoints);
-                      for(uint8_t m = 0;m < conf_desc->interface[l].altsetting[n].bNumEndpoints; m++)
-                      {
-                         qDebug("|  |  |  |--ep_desc:%02d-[Add:0x%02x]-[Attr:0x%02x]-[MaxPkgLen:%02d]\n",
-                             m, conf_desc->interface[l].altsetting[n].endpoint[m].bEndpointAddress,
-                             conf_desc->interface[l].altsetting[n].endpoint[m].bmAttributes,
-                             conf_desc->interface[l].altsetting[n].endpoint[m].wMaxPacketSize);
-                      }
-                 }*/
+
 
      //nb_ifaces = conf_desc->bNumInterfaces;
      //nb_ifaces==108?endpoint_num=conf_desc->interface[107].altsetting[0].bNumEndpoints:endpoint_num=0;
@@ -172,23 +165,24 @@ void commUSB::openElectronbotUSB(int vid,int pid)
          }
      }*/
 
-     //endpoint_in = 0x83;
-     //endpoint_out = 0x03;
+     endpoint_in = 0x83;
+     endpoint_out = 0x03;
+     iface_index = 1;
 
      /*释放配置描述符*/
-     //libusb_free_config_descriptor(conf_desc);
+     libusb_free_config_descriptor(conf_desc);
      /*卸载驱动内核*/
-     //libusb_set_auto_detach_kernel_driver(handle, 1);
+     libusb_set_auto_detach_kernel_driver(handle, 1);
      /*为指定的设备申请接口*/
-     //res=libusb_claim_interface(handle, iface_index);
-    // res<0?qDebug("=======================claim interface error"):qDebug("=========================claim interface success");
+     res=libusb_claim_interface(handle, iface_index);
+     res<0?qDebug("=======================claim interface error"):qDebug("=========================claim interface success");
 
 }
 void commUSB::CloseElectronbotUSB(void)
 {
     if(handle)
     {
-        //libusb_release_interface (handle, iface_index);
+        libusb_release_interface (handle, iface_index);
         libusb_close (handle);
         handle =  NULL;
     }

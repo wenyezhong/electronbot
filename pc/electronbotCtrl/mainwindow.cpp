@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //recvUSB_Timer->start(50);
     electronbot_usb = new commUSB;
     //electronbot_usb->print_dev();
-    electronbot_usb->openElectronbotUSB(1155,22336);
+    electronbot_usb->openElectronbotUSB(0x1213,0x0D39);
 
 
 }

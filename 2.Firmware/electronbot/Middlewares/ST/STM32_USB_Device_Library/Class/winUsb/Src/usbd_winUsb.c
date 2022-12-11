@@ -258,6 +258,7 @@ static uint8_t  USBD_WinUSBComm_SetupVendorInterface(USBD_HandleTypeDef *pdev, U
 }
 static uint8_t  USBD_WinUSBComm_SetupVendor(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
 {
+  printf("bmRequest=%.2x req->bRequest=%.2x\r\n",req->bmRequest,req->bRequest);
   switch ( req->bmRequest & USB_REQ_RECIPIENT_MASK )
   {
   case USB_REQ_RECIPIENT_DEVICE:
@@ -618,9 +619,10 @@ static int8_t WinUsb_Receive_FS(uint8_t* Buf, uint32_t *Len)
 {
   /* USER CODE BEGIN 6 */
   int i;
-  for(i=0 ; i<*Len; i++)
+  /*for(i=0 ; i<*Len; i++)
     printf("%.2x ",Buf[i]);
-  printf("\r\n");
+  printf("\r\n");*/
+  printf("len =%d\r\n ",*Len);
   USBD_WinUsb_SetRxBuffer(&hUsbDeviceHS, &Buf[0]);
   USBD_WinUsb_ReceivePacket(&hUsbDeviceHS);
   return (USBD_OK);

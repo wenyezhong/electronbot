@@ -16,10 +16,10 @@
 
 
 #if 1
-#define USBD_CMPSIT_VID     1155
+#define USBD_CMPSIT_VID     0x1213
 #define USBD_CMPSIT_LANGID_STRING     1033
 #define USBD_CMPSIT_MANUFACTURER_STRING     "wenyz@wolfGroup"
-#define USBD_CMPSIT_PID_FS     22336
+#define USBD_CMPSIT_PID_FS     0x0D39
 #define USBD_CMPSIT_PRODUCT_STRING_FS     "STM32 composite product"
 #define USBD_CMPSIT_CONFIGURATION_STRING_FS     "Composite Config"
 #define USBD_CMPSIT_INTERFACE_STRING_FS     "Composite Interface"
@@ -269,7 +269,7 @@ __ALIGN_BEGIN static uint8_t USBD_CMPSIT_CfgDesc[USB_CMPSIT_CONFIG_DESC_SIZ] __A
   0x00,
   0x02,                                       /* bNumInterfaces: 2 interfaces */
   0x01,                                       /* bConfigurationValue: Configuration value */
-  0x04,                                       /* iConfiguration: Index of string descriptor
+  0x00,                                       /* iConfiguration: Index of string descriptor
                                                  describing the configuration */
 #if (USBD_SELF_POWERED == 1U)
   0xC0,                                       /* bmAttributes: Bus Powered according to user configuration */
@@ -300,7 +300,9 @@ __ALIGN_BEGIN static uint8_t USBD_CMPSIT_CfgDesc[USB_CMPSIT_CONFIG_DESC_SIZ] __A
   0x08,                                            /* bInterfaceClass: MSC Class */
   0x06,                                            /* bInterfaceSubClass : SCSI transparent*/
   0x50,                                            /* nInterfaceProtocol */
-  0x06,                                            /* iInterface: */
+  0x00,                                            /* iInterface: */
+
+  
   //26 
    /********************  Mass Storage Endpoints ********************/
   0x07,                                            /* Endpoint descriptor length = 7 */
@@ -318,8 +320,10 @@ __ALIGN_BEGIN static uint8_t USBD_CMPSIT_CfgDesc[USB_CMPSIT_CONFIG_DESC_SIZ] __A
   LOBYTE(MSC_MAX_FS_PACKET),
   HIBYTE(MSC_MAX_FS_PACKET),
   0x00,                                             /* Polling interval in milliseconds */
+
+  
   //40
-  /* Interface Association Descriptor: winUsb device */
+  /* Interface Association Descriptor: custom device */
   0x08,   /* bLength: IAD size */
   0x0B,   /* bDescriptorType: Interface Association Descriptor */
   0x01,   /* bFirstInterface */
@@ -330,15 +334,16 @@ __ALIGN_BEGIN static uint8_t USBD_CMPSIT_CfgDesc[USB_CMPSIT_CONFIG_DESC_SIZ] __A
   0x07,   /* iFunction */
   //48
   /********************  winUsb interface ********************/
-  0x09,                                            /* bLength: Interface Descriptor size */
-  USB_DESC_TYPE_INTERFACE,                                            /* bDescriptorType: */
-  0x01,                                            /* bInterfaceNumber: Number of Interface */
-  0x00,                                            /* bAlternateSetting: Alternate setting */
-  0x02,                                            /* bNumEndpoints */
-  0x00,                                            /* bInterfaceClass: MSC Class */
-  0x01,                                            /* bInterfaceSubClass : SCSI transparent*/
-  0x00,                                            /* nInterfaceProtocol */
-  0x07,                                            /* iInterface: */
+   /*Data class interface descriptor*/
+  0x09,   /* bLength: Endpoint Descriptor size */
+  USB_DESC_TYPE_INTERFACE,  /* bDescriptorType: */
+  0x01,   /* bInterfaceNumber: Number of Interface */
+  0x00,   /* bAlternateSetting: Alternate setting */
+  0x02,   /* bNumEndpoints: Two endpoints used */
+  0x00,   /* bInterfaceClass: vendor specific */
+  0x01,   /* bInterfaceSubClass: ODrive Communication */
+  0x00,   /* bInterfaceProtocol: */
+  0x00,   /* iInterface: */
   /********************  Mass Storage Endpoints ********************/
   //57
   0x07,                                            /* Endpoint descriptor length = 7 */
@@ -473,7 +478,7 @@ __ALIGN_BEGIN uint8_t USBD_MS_OS_StringDescriptor[]  __ALIGN_END =
 uint8_t * USBD_UsrStrDescriptor(struct _USBD_HandleTypeDef *pdev, uint8_t index,  uint16_t *length)
 {
   *length = 0;  
-  // printf("index=%d\r\n",index);
+  printf("index=%x\r\n",index);
   if (USBD_IDX_MICROSOFT_DESC_STR == index) {
     *length = sizeof (USBD_MS_OS_StringDescriptor);
     return USBD_MS_OS_StringDescriptor;
@@ -495,6 +500,8 @@ static uint8_t *USBD_CMPSIT_GetFSCfgDesc(uint16_t *length)
 
   USBD_EpDescTypeDef *pWinUsbEpOutDesc = USBD_GetEpDesc(USBD_CMPSIT_CfgDesc, WIN_USB_EPOUT_ADDR);
   USBD_EpDescTypeDef *pWinUsbEpInDesc = USBD_GetEpDesc(USBD_CMPSIT_CfgDesc, WIN_USB_EPIN_ADDR);
+
+  
 
   if (pMscEpOutDesc != NULL)
   {
