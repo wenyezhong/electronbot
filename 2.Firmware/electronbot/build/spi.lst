@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 1
   28:Src/spi.c     **** 
   29:Src/spi.c     **** /* SPI1 init function */
   30:Src/spi.c     **** void MX_SPI1_Init(void)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s 			page 2
 
 
   31:Src/spi.c     **** {
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 1
   66 001e 0822     		movs	r2, #8
   67 0020 C261     		str	r2, [r0, #28]
   48:Src/spi.c     ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 3
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s 			page 3
 
 
   68              		.loc 1 48 3 is_stmt 1 view .LVU17
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 1
  111              	HAL_SPI_MspInit:
  112              	.LVL2:
  113              	.LFB131:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s 			page 4
 
 
   61:Src/spi.c     **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 1
   82:Src/spi.c     ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
   83:Src/spi.c     ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
   84:Src/spi.c     ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 5
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s 			page 5
 
 
   85:Src/spi.c     ****     GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 1
  178              		.loc 1 74 5 view .LVU46
  179 0036 0194     		str	r4, [sp, #4]
   74:Src/spi.c     ****     __HAL_RCC_GPIOB_CLK_ENABLE();
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s 			page 6
 
 
  180              		.loc 1 74 5 view .LVU47
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 1
  218              		.loc 1 84 27 is_stmt 0 view .LVU63
  219 0066 0326     		movs	r6, #3
  220 0068 0696     		str	r6, [sp, #24]
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 7
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s 			page 7
 
 
   85:Src/spi.c     ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 1
  260 0094 00040240 		.word	1073873920
  261              		.cfi_endproc
  262              	.LFE131:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s 			page 8
 
 
  264              		.section	.text.HAL_SPI_MspDeInit,"ax",%progbits
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 1
  293              		.loc 1 125 1 view .LVU85
  294 000a 08BD     		pop	{r3, pc}
  295              	.LVL10:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 9
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s 			page 9
 
 
  296              	.L16:
@@ -535,22 +535,22 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 1
  342              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
  343              		.file 9 "Inc/main.h"
  344              		.file 10 "Inc/spi.h"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s 			page 10
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 spi.c
-C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s:20     .text.MX_SPI1_Init:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s:26     .text.MX_SPI1_Init:00000000 MX_SPI1_Init
-C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s:99     .text.MX_SPI1_Init:0000003c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s:105    .text.HAL_SPI_MspInit:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s:111    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
-C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s:258    .text.HAL_SPI_MspInit:0000008c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s:265    .text.HAL_SPI_MspDeInit:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s:271    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
-C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s:319    .text.HAL_SPI_MspDeInit:00000028 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s:332    .bss.hspi1:00000000 hspi1
-C:\Users\ADMINI~1\AppData\Local\Temp\ccaRW6qF.s:328    .bss.hspi1:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s:20     .text.MX_SPI1_Init:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s:26     .text.MX_SPI1_Init:00000000 MX_SPI1_Init
+C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s:99     .text.MX_SPI1_Init:0000003c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s:105    .text.HAL_SPI_MspInit:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s:111    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
+C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s:258    .text.HAL_SPI_MspInit:0000008c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s:265    .text.HAL_SPI_MspDeInit:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s:271    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
+C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s:319    .text.HAL_SPI_MspDeInit:00000028 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s:332    .bss.hspi1:00000000 hspi1
+C:\Users\ADMINI~1\AppData\Local\Temp\ccEfH8hI.s:328    .bss.hspi1:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_Init

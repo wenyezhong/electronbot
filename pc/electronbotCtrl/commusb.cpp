@@ -1,9 +1,10 @@
 #include "commusb.h"
 #include"QDebug"
+#include <stdio.h>
 commUSB::commUSB()
 {
     int r;
-    size_t cnt;
+    ssize_t cnt;
     iface_index=0xff;
     r = libusb_init(NULL);
     if(r < 0)
@@ -11,7 +12,7 @@ commUSB::commUSB()
     cnt = libusb_get_device_list(NULL,&devs);
     if(cnt < 0)
         libusb_exit(NULL);
-        qDebug() << cnt << endl;
+    qDebug() << cnt << endl;
 }
 commUSB::~commUSB()
 {
@@ -59,32 +60,48 @@ void commUSB::openElectronbotUSB(int vid,int pid)
      if (handle == NULL)
          qDebug("open devices failed");
      else
+     {
          qDebug("open devices success");
+     }
      dev = libusb_get_device(handle);
      if (dev == NULL)
          qDebug("libusb_get_device failed");
      else
+     {
          qDebug("libusb_get_device success");
-     bus = libusb_get_bus_number(dev);
+     }
+//     bus = libusb_get_bus_number(dev);
      libusb_get_device_descriptor(dev,&usb_dev_desc);
      qDebug("|--[Vid:0x%04x, Pid:0x%04x]-[Class:0x%02x, SubClass:0x%02x]-[bus:%d, device:%d, port:%d]-[cfg_desc_num:%d]\n",
                  usb_dev_desc.idVendor, usb_dev_desc.idProduct, usb_dev_desc.bDeviceClass, usb_dev_desc.bDeviceSubClass,
                  libusb_get_bus_number(dev), libusb_get_device_address(dev), libusb_get_port_number(dev), usb_dev_desc.bNumConfigurations);
 
-     //libusb_get_config_descriptor(dev, 0, &conf_desc);
-     int err = libusb_get_config_descriptor(dev, 0, &conf_desc);
-     if(err > 0)
+
+     int err = libusb_get_config_descriptor(dev,0,&conf_desc);
+//      int err = libusb_get_active_config_descriptor(dev,&conf_desc);
+     if(err)
      {
          qDebug("libusb_get_config_descriptor  err with %d", err);
      }
-     else {
+     else
+     {
          qDebug("libusb_get_config_descriptor success");
      }
-     qDebug("|  |--[cfg_value:0x%01x]-[infc_desc_num:%02d]\n",
-                     conf_desc->bConfigurationValue, conf_desc->bNumInterfaces);
+//     qDebug("|  |--[cfg_value:0x%01x]-[infc_desc_num:%02d]\n", conf_desc->bConfigurationValue, conf_desc->bNumInterfaces);
 
-     for(uint8_t l = 0;l < conf_desc->bNumInterfaces; l++)
-                 for(uint8_t n = 0;n < conf_desc->interface[l].num_altsetting; n++)
+     uint8_t l,n;
+     for(l = 0;l < conf_desc->bNumInterfaces; l++)
+//     for(l = 0;l < 1; l++)
+     {
+         //qDebug("|  |  |--intfc_desc: %d:%d", l,n);
+         for(n = 0;n < conf_desc->interface[l].num_altsetting; n++)
+         {
+             //qDebug("|  |  |--intfc_desc: %d:%d", l, n);
+//             printf("|  |  |--intfc_desc: %d:%d", l, n);
+//             fflush(stdout);
+         }
+     }
+                 /*for(uint8_t n = 0;n < conf_desc->interface[l].num_altsetting; n++)
                  {
                      qDebug("|  |  |--intfc_desc: %02d:%02d-[Class:0x%02x, SubClass:0x%02x]-[ep_desc_num:%02d]\n",
                          l, n, conf_desc->interface[l].altsetting[n].bInterfaceClass, conf_desc->interface[l].altsetting[n].bInterfaceSubClass,
@@ -96,7 +113,7 @@ void commUSB::openElectronbotUSB(int vid,int pid)
                              conf_desc->interface[l].altsetting[n].endpoint[m].bmAttributes,
                              conf_desc->interface[l].altsetting[n].endpoint[m].wMaxPacketSize);
                       }
-                 }
+                 }*/
 
      //nb_ifaces = conf_desc->bNumInterfaces;
      //nb_ifaces==108?endpoint_num=conf_desc->interface[107].altsetting[0].bNumEndpoints:endpoint_num=0;

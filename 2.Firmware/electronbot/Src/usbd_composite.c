@@ -24,13 +24,13 @@
 #define USBD_CMPSIT_CONFIGURATION_STRING_FS     "Composite Config"
 #define USBD_CMPSIT_INTERFACE_STRING_FS     "Composite Interface"
 #else
-#define USBD_CMPSIT_VID     1155
+#define USBD_CMPSIT_VID     1223
 #define USBD_CMPSIT_LANGID_STRING     1033
-#define USBD_CMPSIT_MANUFACTURER_STRING     "STMicroelectronics"
-#define USBD_CMPSIT_PID_FS     22336
-#define USBD_CMPSIT_PRODUCT_STRING_FS     "STM32 Virtual ComPort"
-#define USBD_CMPSIT_CONFIGURATION_STRING_FS     "CDC Config"
-#define USBD_CMPSIT_INTERFACE_STRING_FS     "CDC Interface"
+#define USBD_CMPSIT_MANUFACTURER_STRING     "test"
+#define USBD_CMPSIT_PID_FS     55663
+#define USBD_CMPSIT_PRODUCT_STRING_FS     "test"
+#define USBD_CMPSIT_CONFIGURATION_STRING_FS     "test Config"
+#define USBD_CMPSIT_INTERFACE_STRING_FS     "test Interface"
 #endif
 
 #define USBD_MSC_INTERFACE_STRING_FS     "MSC Interface"
@@ -490,6 +490,30 @@ uint8_t * USBD_UsrStrDescriptor(struct _USBD_HandleTypeDef *pdev, uint8_t index,
 
 static uint8_t *USBD_CMPSIT_GetFSCfgDesc(uint16_t *length)
 {
+  USBD_EpDescTypeDef *pMscEpOutDesc = USBD_GetEpDesc(USBD_CMPSIT_CfgDesc, MSC_EPOUT_ADDR);
+  USBD_EpDescTypeDef *pMscEpInDesc = USBD_GetEpDesc(USBD_CMPSIT_CfgDesc, MSC_EPIN_ADDR);
+
+  USBD_EpDescTypeDef *pWinUsbEpOutDesc = USBD_GetEpDesc(USBD_CMPSIT_CfgDesc, WIN_USB_EPOUT_ADDR);
+  USBD_EpDescTypeDef *pWinUsbEpInDesc = USBD_GetEpDesc(USBD_CMPSIT_CfgDesc, WIN_USB_EPIN_ADDR);
+
+  if (pMscEpOutDesc != NULL)
+  {
+    pMscEpOutDesc->wMaxPacketSize = MSC_MAX_FS_PACKET;
+  }
+
+  if (pMscEpInDesc != NULL)
+  {
+    pMscEpInDesc->wMaxPacketSize = MSC_MAX_FS_PACKET;
+  }
+  if (pWinUsbEpOutDesc != NULL)
+  {
+    pWinUsbEpOutDesc->wMaxPacketSize = WIN_DATA_FS_MAX_PACKET_SIZE;
+  }
+
+  if (pWinUsbEpInDesc != NULL)
+  {
+    pWinUsbEpInDesc->wMaxPacketSize = WIN_DATA_FS_MAX_PACKET_SIZE;
+  }
 	
 	*length = (uint16_t)sizeof(USBD_CMPSIT_CfgDesc);
 	return USBD_CMPSIT_CfgDesc;
@@ -526,6 +550,30 @@ static uint8_t *USBD_CMPSIT_GetHSCfgDesc(uint16_t *length)
 }
 static uint8_t *USBD_CMPSIT_GetOtherSpeedCfgDesc(uint16_t *length)
 {
+  USBD_EpDescTypeDef *pMscEpOutDesc = USBD_GetEpDesc(USBD_CMPSIT_CfgDesc, MSC_EPOUT_ADDR);
+  USBD_EpDescTypeDef *pMscEpInDesc = USBD_GetEpDesc(USBD_CMPSIT_CfgDesc, MSC_EPIN_ADDR);
+
+  USBD_EpDescTypeDef *pWinUsbEpOutDesc = USBD_GetEpDesc(USBD_CMPSIT_CfgDesc, WIN_USB_EPOUT_ADDR);
+  USBD_EpDescTypeDef *pWinUsbEpInDesc = USBD_GetEpDesc(USBD_CMPSIT_CfgDesc, WIN_USB_EPIN_ADDR);
+
+  if (pMscEpOutDesc != NULL)
+  {
+    pMscEpOutDesc->wMaxPacketSize = MSC_MAX_FS_PACKET;
+  }
+
+  if (pMscEpInDesc != NULL)
+  {
+    pMscEpInDesc->wMaxPacketSize = MSC_MAX_FS_PACKET;
+  }
+  if (pWinUsbEpOutDesc != NULL)
+  {
+    pWinUsbEpOutDesc->wMaxPacketSize = WIN_DATA_FS_MAX_PACKET_SIZE;
+  }
+
+  if (pWinUsbEpInDesc != NULL)
+  {
+    pWinUsbEpInDesc->wMaxPacketSize = WIN_DATA_FS_MAX_PACKET_SIZE;
+  }
   *length = (uint16_t)sizeof(USBD_CMPSIT_CfgDesc);
   return USBD_CMPSIT_CfgDesc;
 }

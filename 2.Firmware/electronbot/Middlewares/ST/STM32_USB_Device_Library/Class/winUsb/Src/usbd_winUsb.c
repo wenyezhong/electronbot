@@ -368,7 +368,7 @@ static uint8_t USBD_WinUsb_Setup(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef 
 	USBD_WinUsb_HandleTypeDef *hcdc = (USBD_WinUsb_HandleTypeDef *)pdev->pClassDataCmsit[pdev->classId];
    
   USBD_StatusTypeDef ret = USBD_OK;
-  static uint8_t ifalt = 0;
+  uint16_t status_info = 0U;
   if (hcdc == NULL)
   {
     return (uint8_t)USBD_FAIL;
@@ -378,17 +378,58 @@ static uint8_t USBD_WinUsb_Setup(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef 
   {
 
     case USB_REQ_TYPE_STANDARD:
-    switch (req->bRequest)
-    {      
-    case USB_REQ_GET_INTERFACE :
-      USBD_CtlSendData (pdev,
-                        &ifalt,
-                        1);
-      break;
-      
-    case USB_REQ_SET_INTERFACE :
-      break;
-    }
+      switch (req->bRequest)
+      {
+        case USB_REQ_GET_STATUS:
+          if (pdev->dev_state == USBD_STATE_CONFIGURED)
+          {
+            (void)USBD_CtlSendData(pdev, (uint8_t *)&status_info, 2U);
+          }
+          else
+          {
+            USBD_CtlError(pdev, req);
+            ret = USBD_FAIL;
+          }
+          break;
+
+        case USB_REQ_GET_INTERFACE:
+          if (pdev->dev_state == USBD_STATE_CONFIGURED)
+          {
+            //(void)USBD_CtlSendData(pdev, (uint8_t *)&hmsc->interface, 1U);
+          }
+          else
+          {
+            USBD_CtlError(pdev, req);
+            ret = USBD_FAIL;
+          }
+          break;
+
+        case USB_REQ_SET_INTERFACE:
+          if (pdev->dev_state == USBD_STATE_CONFIGURED)
+          {
+            //hmsc->interface = (uint8_t)(req->wValue);
+          }
+          else
+          {
+            USBD_CtlError(pdev, req);
+            ret = USBD_FAIL;
+          }
+          break;
+
+        case USB_REQ_CLEAR_FEATURE:
+          if (pdev->dev_state == USBD_STATE_CONFIGURED)
+          {
+            if (req->wValue == USB_FEATURE_EP_HALT)
+            {
+              /* Flush the FIFO */
+              (void)USBD_LL_FlushEP(pdev, (uint8_t)req->wIndex);
+
+              /* Handle BOT error */
+              //MSC_BOT_CplClrFeature(pdev, (uint8_t)req->wIndex);
+            }
+          }
+          break;
+      }
     case USB_REQ_TYPE_VENDOR:{
         USBD_WinUSBComm_SetupVendor(pdev, req);
       }break;

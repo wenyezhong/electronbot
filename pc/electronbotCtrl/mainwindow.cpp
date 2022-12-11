@@ -97,7 +97,7 @@ void MainWindow::on_sendFile_clicked()
         qDebug("read file\r\n");
         fflush(stdout);
         qint64 size=file.size();
-        qDebug("size=%d\r\n",size);
+        qDebug("size=%ld\r\n",size);
         int totalPackets = size%512?(size/512+1):(size/512);
         qDebug("totalPackets=%d\r\n",totalPackets);
         if(file.open(QIODevice::ReadOnly|QIODevice::Truncate))//打开文件，以只读的方式打开文本文件

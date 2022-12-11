@@ -1,5 +1,31 @@
----- ClassType Matches (4 in 3 files) ----
-USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].ClassType = CLASS_TYPE_CDC;
-USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].ClassType = CLASS_TYPE_WINUSB;
-USBD_UnRegisterClassComposite in usbd_core.c (Middlewares\ST\STM32_USB_Device_Library\Core\Src) :       pdev->tclasslist[pdev->classId].ClassType = CLASS_TYPE_NONE;
-{anonUSBD_CompositeElementTypeDef} in usbd_def.h (Middlewares\ST\STM32_USB_Device_Library\Core\Inc) :   USBD_CompositeClassTypeDef   ClassType;
+---- pdev->tclasslist..Eps Matches (30 in 3 files) ----
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[0].add = CDC_CMD_EP;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[0].type = USBD_EP_TYPE_INTR;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[0].size = CDC_CMD_PACKET_SIZE;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[0].is_used = 1U;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[1].add = CDC_OUT_EP;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[1].type = USBD_EP_TYPE_BULK;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[1].size = CDC_DATA_FS_MAX_PACKET_SIZE;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[1].is_used = 1U;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[2].add = CDC_IN_EP;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[2].type = USBD_EP_TYPE_BULK;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[2].size = CDC_DATA_FS_MAX_PACKET_SIZE;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[2].is_used = 1U;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[0].add = WIN_USB_EPOUT_ADDR;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[0].type = USBD_EP_TYPE_BULK;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[0].size = WIN_DATA_FS_OUT_PACKET_SIZE;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[0].is_used = 1U;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[1].add = WIN_USB_EPIN_ADDR;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[1].type = USBD_EP_TYPE_BULK;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[1].size = WIN_DATA_FS_IN_PACKET_SIZE;
+USBD_CMPSIT_AddClass in usbd_composite.c (Src) : 			pdev->tclasslist[pdev->classId].Eps[1].is_used = 1U;
+USBD_UnRegisterClassComposite in usbd_core.c (Middlewares\ST\STM32_USB_Device_Library\Core\Src) :         pdev->tclasslist[pdev->classId].Eps[idx2].add = 0U;
+USBD_UnRegisterClassComposite in usbd_core.c (Middlewares\ST\STM32_USB_Device_Library\Core\Src) :         pdev->tclasslist[pdev->classId].Eps[idx2].type = 0U;
+USBD_UnRegisterClassComposite in usbd_core.c (Middlewares\ST\STM32_USB_Device_Library\Core\Src) :         pdev->tclasslist[pdev->classId].Eps[idx2].size = 0U;
+USBD_UnRegisterClassComposite in usbd_core.c (Middlewares\ST\STM32_USB_Device_Library\Core\Src) :         pdev->tclasslist[pdev->classId].Eps[idx2].is_used = 0U;
+USBD_CoreFindEP in usbd_core.c (Middlewares\ST\STM32_USB_Device_Library\Core\Src) :         if (pdev->tclasslist[i].Eps[j].add == index)
+USBD_CoreGetEPAdd in usbd_core.c (Middlewares\ST\STM32_USB_Device_Library\Core\Src) :     if (((pdev->tclasslist[pdev->classId].Eps[idx].add & USBD_EP_IN) == ep_dir) && \
+USBD_CoreGetEPAdd in usbd_core.c (Middlewares\ST\STM32_USB_Device_Library\Core\Src) :         (pdev->tclasslist[pdev->classId].Eps[idx].type == ep_type) && \
+USBD_CoreGetEPAdd in usbd_core.c (Middlewares\ST\STM32_USB_Device_Library\Core\Src) :         (pdev->tclasslist[pdev->classId].Eps[idx].is_used != 0U))
+USBD_CoreGetEPAdd in usbd_core.c (Middlewares\ST\STM32_USB_Device_Library\Core\Src) :       return (pdev->tclasslist[pdev->classId].Eps[idx].add);
+{anonUSBD_CompositeElementTypeDef} in usbd_def.h (Middlewares\ST\STM32_USB_Device_Library\Core\Inc) :   USBD_EPTypeDef               Eps[USBD_MAX_CLASS_ENDPOINTS];

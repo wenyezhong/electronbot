@@ -44,7 +44,7 @@ extern "C" {
 #define WIN_USB_EPIN_ADDR   0x83
 #define WIN_USB_EPOUT_ADDR  0x03
 
-#define MS_VendorCode 'P'
+#define MS_VendorCode 'W'
 #define USBD_IDX_MSC_INTF_STR  0x06
 #define USBD_IDX_WIN_USB_INTF_STR  0x07
 #define USBD_IDX_MICROSOFT_DESC_STR 0xee
@@ -108,7 +108,7 @@ typedef struct _USBD_WinUsb_Itf
 
 typedef struct
 {
-  uint32_t data[WinUsb_DATA_MAX_PACKET_SIZE / 4U];   
+  uint32_t data[WinUsb_DATA_MAX_PACKET_SIZE / 4U];
   uint8_t  CmdOpCode;
   uint8_t  CmdLength;
   uint8_t  *RxBuffer;
