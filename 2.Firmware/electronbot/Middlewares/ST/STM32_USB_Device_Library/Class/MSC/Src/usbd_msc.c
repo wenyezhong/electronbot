@@ -305,7 +305,6 @@ uint8_t USBD_MSC_DeInit(USBD_HandleTypeDef *pdev, uint8_t cfgidx)
   * @param  req: USB request
   * @retval status
   */
-
 uint8_t USBD_MSC_Setup(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
 {
   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->classId];
@@ -422,6 +421,7 @@ uint8_t USBD_MSC_Setup(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
           break;
       }
       break;
+
     default:
       USBD_CtlError(pdev, req);
       ret = USBD_FAIL;

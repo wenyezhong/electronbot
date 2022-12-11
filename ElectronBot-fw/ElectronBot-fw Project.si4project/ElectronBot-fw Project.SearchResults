@@ -1,1 +1,11 @@
----- OS_USE_SEMIHOSTING Matches (0 in 0 files) ----
+---- rxLen Matches (10 in 5 files) ----
+stm32f4xx_hal_uart.c (Drivers\STM32F4xx_HAL_Driver\Src) line 1620 : HAL_StatusTypeDef HAL_UARTEx_ReceiveToIdle(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint16_t *RxLen,
+HAL_UARTEx_ReceiveToIdle in stm32f4xx_hal_uart.c (Drivers\STM32F4xx_HAL_Driver\Src) :     *RxLen = 0U;
+HAL_UARTEx_ReceiveToIdle in stm32f4xx_hal_uart.c (Drivers\STM32F4xx_HAL_Driver\Src) :         if (*RxLen > 0U)
+HAL_UARTEx_ReceiveToIdle in stm32f4xx_hal_uart.c (Drivers\STM32F4xx_HAL_Driver\Src) :         *RxLen += 1U;
+HAL_UARTEx_ReceiveToIdle in stm32f4xx_hal_uart.c (Drivers\STM32F4xx_HAL_Driver\Src) :     *RxLen = huart->RxXferSize - huart->RxXferCount;
+stm32f4xx_hal_uart.h (Drivers\STM32F4xx_HAL_Driver\Inc) line 733 : HAL_StatusTypeDef HAL_UARTEx_ReceiveToIdle(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint16_t *RxLen,
+usart.c (Core\Src) line 25 : volatile uint8_t rxLen = 0;
+USBD_CDC_DataOut in usbd_cdc.c (Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Src) :   hcdc->RxLength = USBD_LL_GetRxDataSize(pdev, epnum);
+USBD_CDC_DataOut in usbd_cdc.c (Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Src) :   ((USBD_CDC_ItfTypeDef *)pdev->pUserData)->Receive(hcdc->RxBuffer, &hcdc->RxLength);
+{anonUSBD_CDC_HandleTypeDef} in usbd_cdc.h (Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc) :   uint32_t RxLength;

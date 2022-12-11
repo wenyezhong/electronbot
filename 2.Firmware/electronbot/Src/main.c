@@ -111,10 +111,21 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   MX_USART1_UART_Init();
- 
+  MX_USB_DEVICE_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
   printf("hello electronbot coming...\r\n");
+  /* // while(HAL_DMA_GetState(&hdma_usart1_tx)==HAL_DMA_STATE_BUSY)
+  HAL_Delay(1000);
+  HAL_UART_Transmit_DMA(&huart1, "tx_buffer", 9);
+  // while(HAL_DMA_GetState(&hdma_usart1_tx)==HAL_DMA_STATE_BUSY)
+  HAL_Delay(1000);
+  HAL_UART_Transmit_DMA(&huart1, "rx_buffer", 9);
+  // while(HAL_DMA_GetState(&hdma_usart1_tx)==HAL_DMA_STATE_BUSY)
+  HAL_Delay(1000);
+  HAL_UART_Transmit_DMA(&huart1, "ex_buffer", 9);
+  HAL_Delay(1000);
+  printf("ennnnn...\r\n"); */
   SpiFlash_Init();
 
   MX_USB_DEVICE_Init();

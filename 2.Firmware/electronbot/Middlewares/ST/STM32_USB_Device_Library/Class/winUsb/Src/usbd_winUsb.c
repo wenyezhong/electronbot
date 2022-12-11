@@ -622,7 +622,7 @@ static int8_t WinUsb_Receive_FS(uint8_t* Buf, uint32_t *Len)
   /*for(i=0 ; i<*Len; i++)
     printf("%.2x ",Buf[i]);
   printf("\r\n");*/
-  printf("len =%d\r\n ",*Len);
+  printf("len =%ld\r\n ",*Len);
   USBD_WinUsb_SetRxBuffer(&hUsbDeviceHS, &Buf[0]);
   USBD_WinUsb_ReceivePacket(&hUsbDeviceHS);
   return (USBD_OK);

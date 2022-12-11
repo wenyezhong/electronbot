@@ -59,8 +59,14 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define spiFlashCs_Pin GPIO_PIN_4
 #define spiFlashCs_GPIO_Port GPIOA
-#define lcdCs_Pin GPIO_PIN_7
-#define lcdCs_GPIO_Port GPIOB
+#define LCD_BL_Pin GPIO_PIN_11
+#define LCD_BL_GPIO_Port GPIOA
+#define LCD_DC_Pin GPIO_PIN_4
+#define LCD_DC_GPIO_Port GPIOB
+#define LCD_RES_Pin GPIO_PIN_6
+#define LCD_RES_GPIO_Port GPIOB
+#define LCD_CS_Pin GPIO_PIN_7
+#define LCD_CS_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
