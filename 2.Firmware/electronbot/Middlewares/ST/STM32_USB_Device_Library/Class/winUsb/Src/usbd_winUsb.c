@@ -60,6 +60,7 @@ EndBSPDependencies */
 #include "usbd_ctlreq.h"
 #include "usbd_desc.h"
 #include <stdio.h>
+#include "common_inc.h"
 
 /** @addtogroup STM32_USB_DEVICE_LIBRARY
   * @{
@@ -134,7 +135,7 @@ __ALIGN_BEGIN uint8_t USBD_WinUSBComm_Extended_Compat_ID_OS_Desc[USB_WINUSBCOMM_
                                                     //   +-- Offset from function section start
                                                     //   |                        +-- Size
                                                     //   v                        v
-  2,                                                //   0  bFirstInterfaceNumber 1 BYTE  The interface or function number
+  1,                                                //   0  bFirstInterfaceNumber 1 BYTE  The interface or function number
   0,                                                //   1  RESERVED              1 BYTE  Reserved
   0x57, 0x49, 0x4E, 0x55, 0x53, 0x42, 0x00, 0x00,   //   2  compatibleID          8 BYTEs The function’s compatible ID      ("WINUSB")
   0, 0, 0, 0, 0, 0, 0, 0,                           //  10  subCompatibleID       8 BYTEs The function’s subcompatible ID
@@ -258,7 +259,7 @@ static uint8_t  USBD_WinUSBComm_SetupVendorInterface(USBD_HandleTypeDef *pdev, U
 }
 static uint8_t  USBD_WinUSBComm_SetupVendor(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
 {
-  printf("bmRequest=%.2x req->bRequest=%.2x\r\n",req->bmRequest,req->bRequest);
+  // printf("bmRequest=%.2x req->bRequest=%.2x\r\n",req->bmRequest,req->bRequest);
   switch ( req->bmRequest & USB_REQ_RECIPIENT_MASK )
   {
   case USB_REQ_RECIPIENT_DEVICE:
@@ -369,7 +370,7 @@ static uint8_t USBD_WinUsb_Setup(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef 
 	USBD_WinUsb_HandleTypeDef *hcdc = (USBD_WinUsb_HandleTypeDef *)pdev->pClassDataCmsit[pdev->classId];
    
   USBD_StatusTypeDef ret = USBD_OK;
-  uint16_t status_info = 0U;
+  
   if (hcdc == NULL)
   {
     return (uint8_t)USBD_FAIL;
@@ -377,60 +378,7 @@ static uint8_t USBD_WinUsb_Setup(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef 
 //  printf("winusb bmRequest=%x\r\n",req->bmRequest);
  switch (req->bmRequest & USB_REQ_TYPE_MASK)
   {
-
-    case USB_REQ_TYPE_STANDARD:
-      switch (req->bRequest)
-      {
-        case USB_REQ_GET_STATUS:
-          if (pdev->dev_state == USBD_STATE_CONFIGURED)
-          {
-            (void)USBD_CtlSendData(pdev, (uint8_t *)&status_info, 2U);
-          }
-          else
-          {
-            USBD_CtlError(pdev, req);
-            ret = USBD_FAIL;
-          }
-          break;
-
-        case USB_REQ_GET_INTERFACE:
-          if (pdev->dev_state == USBD_STATE_CONFIGURED)
-          {
-            //(void)USBD_CtlSendData(pdev, (uint8_t *)&hmsc->interface, 1U);
-          }
-          else
-          {
-            USBD_CtlError(pdev, req);
-            ret = USBD_FAIL;
-          }
-          break;
-
-        case USB_REQ_SET_INTERFACE:
-          if (pdev->dev_state == USBD_STATE_CONFIGURED)
-          {
-            //hmsc->interface = (uint8_t)(req->wValue);
-          }
-          else
-          {
-            USBD_CtlError(pdev, req);
-            ret = USBD_FAIL;
-          }
-          break;
-
-        case USB_REQ_CLEAR_FEATURE:
-          if (pdev->dev_state == USBD_STATE_CONFIGURED)
-          {
-            if (req->wValue == USB_FEATURE_EP_HALT)
-            {
-              /* Flush the FIFO */
-              (void)USBD_LL_FlushEP(pdev, (uint8_t)req->wIndex);
-
-              /* Handle BOT error */
-              //MSC_BOT_CplClrFeature(pdev, (uint8_t)req->wIndex);
-            }
-          }
-          break;
-      }
+    
     case USB_REQ_TYPE_VENDOR:{
         USBD_WinUSBComm_SetupVendor(pdev, req);
       }break;
@@ -505,10 +453,13 @@ static uint8_t USBD_WinUsb_EP0_RxReady(USBD_HandleTypeDef *pdev)
 
 }
 
-uint8_t WinUsbRxBufferFS[winAPP_RX_DATA_SIZE];
-uint8_t WinUsbTxBufferFS[winAPP_TX_DATA_SIZE];
+/* uint8_t WinUsbRxBufferFS[winAPP_RX_DATA_SIZE];
+uint8_t WinUsbTxBufferFS[winAPP_TX_DATA_SIZE]; */
+UsbBuffer_t usbBuffer;
 // extern USBD_HandleTypeDef hUsbDeviceFS;
+
 extern USBD_HandleTypeDef hUsbDeviceHS;
+
 uint8_t USBD_WinUsb_SetTxBuffer(USBD_HandleTypeDef *pdev,
                              uint8_t *pbuff, uint32_t length)
 {
@@ -591,8 +542,13 @@ static int8_t WinUsb_Init_FS(void)
 {
   /* USER CODE BEGIN 3 */
   /* Set Application Buffers */
-  USBD_WinUsb_SetTxBuffer(&hUsbDeviceHS, WinUsbTxBufferFS, 0);
-  USBD_WinUsb_SetRxBuffer(&hUsbDeviceHS, WinUsbRxBufferFS);
+  /* USBD_WinUsb_SetTxBuffer(&hUsbDeviceHS, WinUsbTxBufferFS, 0);
+  USBD_WinUsb_SetRxBuffer(&hUsbDeviceHS, WinUsbRxBufferFS); */
+  usbBuffer.pingPongIndex = 0;
+  usbBuffer.receivedPacketLen = 0;
+  usbBuffer.rxDataOffset = 0;
+  USBD_WinUsb_SetTxBuffer(&hUsbDeviceHS, usbBuffer.extraDataTx, 0);
+  USBD_WinUsb_SetRxBuffer(&hUsbDeviceHS, usbBuffer.rxData[usbBuffer.pingPongIndex]);
   return (USBD_OK);
   /* USER CODE END 3 */
 }
@@ -618,12 +574,25 @@ uint8_t WinUsb_Transmit_FS(uint8_t* Buf, uint16_t Len)
 static int8_t WinUsb_Receive_FS(uint8_t* Buf, uint32_t *Len)
 {
   /* USER CODE BEGIN 6 */
-  int i;
+  // int i;
   /*for(i=0 ; i<*Len; i++)
     printf("%.2x ",Buf[i]);
   printf("\r\n");*/
-  printf("len =%ld\r\n ",*Len);
-  USBD_WinUsb_SetRxBuffer(&hUsbDeviceHS, &Buf[0]);
+  printf("len =%ld\r\n",*Len);
+
+  usbBuffer.receivedPacketLen = *Len;
+  if (usbBuffer.receivedPacketLen == 224)
+  {
+    //SwitchPingPongBuffer
+    usbBuffer.pingPongIndex = (usbBuffer.pingPongIndex == 0 ? 1 : 0);
+    usbBuffer.rxDataOffset = 0;
+  }
+  // Prepare next receive 
+  if (usbBuffer.receivedPacketLen == 512)
+  {
+      usbBuffer.rxDataOffset += 512;
+  }
+  USBD_WinUsb_SetRxBuffer(&hUsbDeviceHS, &usbBuffer.rxData[usbBuffer.pingPongIndex][usbBuffer.rxDataOffset]);
   USBD_WinUsb_ReceivePacket(&hUsbDeviceHS);
   return (USBD_OK);
   /* USER CODE END 6 */

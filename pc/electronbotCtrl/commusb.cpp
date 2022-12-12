@@ -1,6 +1,7 @@
 #include "commusb.h"
 #include"QDebug"
 #include <stdio.h>
+
 commUSB::commUSB()
 {
     int r;
@@ -58,14 +59,22 @@ void commUSB::openElectronbotUSB(int vid,int pid)
 
      handle = libusb_open_device_with_vid_pid(NULL, vid, pid);
      if (handle == NULL)
+     {
          qDebug("open devices failed");
+         return;
+     }
      else
      {
          qDebug("open devices success");
      }
      dev = libusb_get_device(handle);
      if (dev == NULL)
+     {
          qDebug("libusb_get_device failed");
+         libusb_close (handle);
+         handle = NULL;
+         return;
+     }
      else
      {
          qDebug("libusb_get_device success");
@@ -189,26 +198,26 @@ void commUSB::CloseElectronbotUSB(void)
 }
 int commUSB::ReadElectronbotUSB(uint8_t *ptr,uint32_t len)
 {
-    int res=0;
+    int res=-1;
     int size=0;
     if(handle)
     {
         res = libusb_bulk_transfer(handle, endpoint_in, ptr, len, &size, 1000);
-        if (res < 0)
-          qDebug("bulk transfer error\n");
-        if (res >= 0)
+        if (res)
         {
-            qDebug("read ok:");
-            for (uint8_t i = 0; i < 12; i++)
-            {
-                qDebug("%c", ptr[i]);
-            }
-
+          qDebug("bulk transfer error\n");
+          qDebug("   %s\n", libusb_strerror((enum libusb_error)res));
         }
         else
         {
-            qDebug("   %s\n", libusb_strerror((enum libusb_error)res));
+            //qDebug("read ok:");
+            /*for (uint8_t i = 0; i < 12; i++)
+            {
+                qDebug("%c", ptr[i]);
+            }*/
+
         }
+
     }
     return res;
 
@@ -227,7 +236,7 @@ int commUSB::WriteElectronbotUSB(uint8_t *ptr,uint32_t len)
         //r = libusb_interrupt_transfer(handle, endpoint_out, report_buffer, 64, &size, 1000);
         //r = libusb_interrupt_transfer(handle, endpoint_out, report_buffer, 65, &size, 1000);
 
-        if (res >= 0) {
+        if (res == 0) {
             qDebug("write ok\n");
         }
         else {

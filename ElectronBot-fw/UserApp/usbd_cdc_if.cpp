@@ -2,6 +2,7 @@
 #include "robot.h"
 
 extern Robot electron;
+
 extern USBD_HandleTypeDef hUsbDeviceHS;
 
 

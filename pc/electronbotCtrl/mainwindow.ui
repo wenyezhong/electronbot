@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>570</width>
-    <height>371</height>
+    <width>831</width>
+    <height>609</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>270</y>
+      <x>520</x>
+      <y>500</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -30,8 +30,8 @@
    <widget class="QPushButton" name="openFile">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>60</y>
+      <x>330</x>
+      <y>500</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -43,8 +43,8 @@
    <widget class="QPushButton" name="sendFile">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>130</y>
+      <x>420</x>
+      <y>500</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -56,8 +56,8 @@
    <widget class="QTextEdit" name="pathTextEdit">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>60</y>
+      <x>10</x>
+      <y>500</y>
       <width>301</width>
       <height>31</height>
      </rect>
@@ -72,13 +72,59 @@
      <enum>Qt::ScrollBarAlwaysOff</enum>
     </property>
    </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>791</width>
+      <height>471</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Tab 1</string>
+     </attribute>
+     <widget class="QPushButton" name="pushButton_body">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>230</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>设置身体</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="textEdit_setPoint">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>100</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Tab 2</string>
+     </attribute>
+    </widget>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>570</width>
+     <width>831</width>
      <height>23</height>
     </rect>
    </property>

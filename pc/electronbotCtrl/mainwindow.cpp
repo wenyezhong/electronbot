@@ -7,6 +7,8 @@
 #include<QFile>
 #include<QtDebug>
 #include <QDateTime>
+#include "thread.h"
+
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -15,13 +17,16 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     recvUSB_Timer = new QTimer(this);
-    //connect(recvUSB_Timer, SIGNAL(timeout()), this, SLOT(RecvUSBTask()));
-    //recvUSB_Timer->start(50);
+    connect(recvUSB_Timer, SIGNAL(timeout()), this, SLOT(RecvUSBTask()));
+    //recvUSB_Timer->start(500);
     electronbot_usb = new commUSB;
     //electronbot_usb->print_dev();
     electronbot_usb->openElectronbotUSB(0x1213,0x0D39);
 
 
+    readUsbTread = new Thread;
+    connect(readUsbTread,SIGNAL(sendRecDat(BYTE*)),this,SLOT(recUsbDatas(BYTE*)));
+    readUsbTread->start();
 }
 
 MainWindow::~MainWindow()
@@ -35,7 +40,29 @@ void MainWindow::reconnectElectronbotUSB(void)
     electronbot_usb->CloseElectronbotUSB();
     delete electronbot_usb;
     electronbot_usb = new commUSB;
-    electronbot_usb->openElectronbotUSB(0x120f,0x0333);
+    electronbot_usb->openElectronbotUSB(0x1213,0x0D39);
+
+}
+void MainWindow::recUsbDatas(BYTE* ptr)
+{
+    int i;
+    for(i=0;i<32;i++)
+        qDebug("%x ",ptr[i]);
+}
+void MainWindow::sendPacket(void)
+{
+    int sendcnt=0;
+    int lastSize = BUFF_SIZE%ONCE_SIZE;
+    int fullPackets=BUFF_SIZE/ONCE_SIZE;
+    //int sendtotal=lastSize?(fullPackets+1):fullPackets;
+    for(sendcnt=0 ; sendcnt<fullPackets;sendcnt++)
+    {
+        electronbot_usb->WriteElectronbotUSB(txData+ONCE_SIZE*sendcnt,ONCE_SIZE);
+    }
+    if(lastSize)
+    {
+        electronbot_usb->WriteElectronbotUSB(txData+ONCE_SIZE*sendcnt,lastSize);
+    }
 
 }
 void MainWindow::on_pushButton_clicked()
@@ -46,7 +73,11 @@ void MainWindow::on_pushButton_clicked()
     buf[1] = 0x13;
     buf[2] = 0x14;
     buf[3] = 0x15;
+//    electronbot_usb->ReadElectronbotUSB(buf,32);
     ret=electronbot_usb->WriteElectronbotUSB(buf,512);
+    electronbot_usb->WriteElectronbotUSB(buf,512);
+    electronbot_usb->WriteElectronbotUSB(buf,512);
+    electronbot_usb->WriteElectronbotUSB(buf,224);
     if(ret<0)
     {
         qDebug("reconnect!");
@@ -58,7 +89,7 @@ void MainWindow::RecvUSBTask()
 {
     uint8_t buf[100];
     //qDebug("hello timer!");
-    electronbot_usb->ReadElectronbotUSB(buf,64);
+    //electronbot_usb->ReadElectronbotUSB(buf,32);
 
 }
 
@@ -134,4 +165,31 @@ void MainWindow::on_sendFile_clicked()
     }
 
 
+}
+//  id  更新标志  角度  更新标志  使能
+//   0   1       2~5  6        7
+void swapLittleEndian(uint8_t *ptr)
+{
+    uint8_t tmp;
+    tmp = ptr[0];
+    ptr[0]=ptr[3];
+    ptr[3]=tmp;
+
+    tmp = ptr[1];
+    ptr[1]=ptr[2];
+    ptr[2]=tmp;
+
+}
+void MainWindow::on_pushButton_body_clicked()
+{
+    float setPoint=ui->textEdit_setPoint->toPlainText().toFloat();
+    qDebug("setPoint=%f",setPoint);
+    txData[PAR_INDEX+31] = 0xee; //设置参数
+    txData[PAR_INDEX] = 0x12;
+    txData[PAR_INDEX+1] = 0x01;
+    *(float*)&txData[PAR_INDEX+2] = setPoint;
+    //swapLittleEndian(&txData[PAR_INDEX+2]);
+    *(float*)&txData[PAR_INDEX+6] = setPoint;
+
+    sendPacket();
 }

@@ -37,14 +37,14 @@ void SpiFlash_Init(void)
     // SPI2_Configuration();
     
     FlashGet_ElectronicInfo(&flashInfo);
-    printf("ManufacturerID=%02X\r\n",flashInfo.ManufacturerID);
+    /* printf("ManufacturerID=%02X\r\n",flashInfo.ManufacturerID);
     printf("DeviceID=%02X\r\n",flashInfo.DeviceID[0]);
     if(flashInfo.ManufacturerID==0xEF)
     {
         printf("\tFlash Info: WINBOND SPI FLASH\r\n");
-    }
+    } */
     FlashGet_Info(&flashInfo);
-    printf("ManufacturerID=%02X\r\n",flashInfo.ManufacturerID);
+    /* printf("ManufacturerID=%02X\r\n",flashInfo.ManufacturerID);
     printf("DeviceID=%02X%02X\r\n",flashInfo.DeviceID[0],flashInfo.DeviceID[1]);
     if((flashInfo.DeviceID[0]==0x40)&&(flashInfo.DeviceID[1]==0x18))
     {
@@ -57,7 +57,7 @@ void SpiFlash_Init(void)
     else
     {
 
-    }
+    } */
     // FlashChip_Erase();
 
 #if 0    

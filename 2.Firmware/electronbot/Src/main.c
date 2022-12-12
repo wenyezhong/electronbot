@@ -18,6 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_os.h"
+#include "dma.h"
 #include "i2c.h"
 #include "spi.h"
 #include "usart.h"
@@ -53,6 +55,7 @@ uint8_t i2cTxData[8];
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -72,13 +75,13 @@ void TransmitAndReceiveI2cPacket(uint8_t _id)
     } while (state != HAL_OK);
 }
 
-int _write(int fd, char *ch, int len)
+/* int _write(int fd, char *ch, int len)
 {
   // int i;  
   HAL_UART_Transmit(&huart1, (uint8_t*)ch, len, 0xFFFF);
   
   return len;
-}
+} */
 /* USER CODE END 0 */
 
 /**
@@ -109,12 +112,12 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_I2C1_Init();
   MX_USART1_UART_Init();
-  MX_USB_DEVICE_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  printf("hello electronbot coming...\r\n");
+  
   /* // while(HAL_DMA_GetState(&hdma_usart1_tx)==HAL_DMA_STATE_BUSY)
   HAL_Delay(1000);
   HAL_UART_Transmit_DMA(&huart1, "tx_buffer", 9);
@@ -126,10 +129,8 @@ int main(void)
   HAL_UART_Transmit_DMA(&huart1, "ex_buffer", 9);
   HAL_Delay(1000);
   printf("ennnnn...\r\n"); */
-  SpiFlash_Init();
-
-  MX_USB_DEVICE_Init();
-
+  SpiFlash_Init(); 
+  printf("hello electronbot coming...\r\n");
   /* i2cTxData[0]=0x21;
   i2cTxData[1]=0x02;
   TransmitAndReceiveI2cPacket(0); 
@@ -139,6 +140,14 @@ int main(void)
     printf("\r\n");*/
   /* USER CODE END 2 */
 
+  /* Init scheduler */
+  osKernelInitialize();  /* Call init function for freertos objects (in freertos.c) */
+  MX_FREERTOS_Init();
+
+  /* Start scheduler */
+  osKernelStart();
+
+  /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)

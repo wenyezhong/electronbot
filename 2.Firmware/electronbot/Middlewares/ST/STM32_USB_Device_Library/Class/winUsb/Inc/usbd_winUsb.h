@@ -148,7 +148,7 @@ extern USBD_WinUsb_ItfTypeDef USBD_WinUsb_Interface_fops_FS;
 
 uint8_t USBD_WinUsb_RegisterInterface(USBD_HandleTypeDef *pdev,
                                    USBD_WinUsb_ItfTypeDef *fops);
-
+uint8_t WinUsb_Transmit_FS(uint8_t* Buf, uint16_t Len);
 /* uint8_t USBD_CDC_RegisterInterface(USBD_HandleTypeDef *pdev,
                                    USBD_CDC_ItfTypeDef *fops);
 

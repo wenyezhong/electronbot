@@ -11,7 +11,7 @@
 #define STDERR_FILENO 2
 
 UART_HandleTypeDef *gHuart;
-
+extern DMA_HandleTypeDef hdma_usart1_tx;
 void RetargetInit(UART_HandleTypeDef *huart)
 {
     gHuart = huart;
@@ -34,10 +34,10 @@ int _write(int fd, char *ptr, int len)
 {
     if (fd == STDOUT_FILENO || fd == STDERR_FILENO)
     {
-        while(gHuart->gState != HAL_UART_STATE_READY);
-        while(HAL_DMA_GetState(&hdma_usart1_tx)==HAL_DMA_STATE_BUSY);
-        HAL_UART_Transmit_DMA(gHuart, (uint8_t *) ptr, len);
-        // HAL_UART_Transmit(gHuart, (uint8_t *) ptr, len, 10000);
+        //while(gHuart->gState != HAL_UART_STATE_READY);       
+        // while(HAL_DMA_GetState(&hdma_usart1_tx)==HAL_DMA_STATE_BUSY);
+        // HAL_UART_Transmit_DMA(gHuart, (uint8_t *) ptr, len);
+        HAL_UART_Transmit(gHuart, (uint8_t *) ptr, len, 10000);
         return len;
     } 
     else
