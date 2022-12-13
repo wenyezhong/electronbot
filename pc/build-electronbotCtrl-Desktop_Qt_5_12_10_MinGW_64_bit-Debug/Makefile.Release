@@ -553,24 +553,13 @@ release/mainwindow.o: ../electronbotCtrl/mainwindow.cpp ../electronbotCtrl/mainw
 		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/QThread \
 		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qthread.h \
 		ui_mainwindow.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/QVariant \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QMenuBar \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qmenu.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qaction.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qactiongroup.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QStatusBar \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qstatusbar.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QFileDialog \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qfiledialog.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qdir.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qfileinfo.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qdialog.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QMessageBox \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QTextEdit \
 		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qtextedit.h \
 		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
@@ -580,16 +569,6 @@ release/mainwindow.o: ../electronbotCtrl/mainwindow.cpp ../electronbotCtrl/mainw
 		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qtextcursor.h \
 		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qtextformat.h \
 		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qpen.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QToolBar \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qtoolbar.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QWidget \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QFileDialog \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qfiledialog.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qdir.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qfileinfo.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qdialog.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QMessageBox \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/QFile \
 		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/QtDebug \
 		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/QDateTime \
@@ -715,7 +694,70 @@ release/thread.o: ../electronbotCtrl/thread.cpp ../electronbotCtrl/thread.h \
 		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qmetatype.h \
 		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qcontainerfwd.h \
-		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qobject_impl.h
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qobject_impl.h \
+		../electronbotCtrl/commusb.h \
+		../libusb-1.0.26-binaries/libusb-MinGW-x64/include/libusb-1.0/libusb.h \
+		../electronbotCtrl/mainwindow.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QMainWindow \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qmainwindow.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qtguiglobal.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qtgui-config.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qwidget.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qwindowdefs.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qmargins.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qpaintdevice.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qrect.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qsize.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qpoint.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qpalette.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qcolor.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qrgb.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qrgba64.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qbrush.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qvector.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qmatrix.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qpolygon.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qregion.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qdatastream.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qiodevice.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qline.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qtransform.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qpainterpath.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qimage.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qpixelformat.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qpixmap.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qshareddata.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qhash.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qfont.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qfontmetrics.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qfontinfo.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qcursor.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qkeysequence.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qevent.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qvariant.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qmap.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qdebug.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qtextstream.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qlocale.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qset.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qurl.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qurlquery.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qfile.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qfiledevice.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qvector2d.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qtouchdevice.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qtabwidget.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qicon.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/QTimer \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qtimer.h \
+		C:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qbasictimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/thread.o ../electronbotCtrl/thread.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 

@@ -66,12 +66,12 @@ void TransmitAndReceiveI2cPacket(uint8_t _id)
 {
     HAL_StatusTypeDef state = HAL_ERROR;
     do
-    {
-        state = HAL_I2C_Master_Transmit(&hi2c1, _id, i2cTxData, 5, 5);
+    {   printf("tttttt");
+        state = HAL_I2C_Master_Transmit(&hi2c1, _id, i2cTxData, 5, 50);
     } while (state != HAL_OK);
     do
-    {
-        state = HAL_I2C_Master_Receive(&hi2c1, _id, i2cRxData, 5, 5);
+    {      
+        state = HAL_I2C_Master_Receive(&hi2c1, _id, i2cRxData, 5, 50);
     } while (state != HAL_OK);
 }
 
@@ -131,14 +131,15 @@ int main(void)
   printf("ennnnn...\r\n"); */
   SpiFlash_Init(); 
   printf("hello electronbot coming...\r\n");
-  /* i2cTxData[0]=0x21;
-  i2cTxData[1]=0x02;
-  TransmitAndReceiveI2cPacket(0); 
-
+  i2cTxData[0]=0x01;
+  *(float*)&i2cTxData[1]=30.0f;
+  TransmitAndReceiveI2cPacket(12);
+  printf("tttt\r\n");
   for(i =0;i<5;i++)
         printf("%.2x ",i2cRxData[i]);
-    printf("\r\n");*/
-  /* USER CODE END 2 */
+    printf("\r\n");
+    while(1);
+  /* USER CODE END 2
 
   /* Init scheduler */
   osKernelInitialize();  /* Call init function for freertos objects (in freertos.c) */

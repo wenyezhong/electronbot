@@ -30,12 +30,14 @@ private slots:
 //signals:
 //    int sendRecDat(BYTE a[32]);
     void on_pushButton_body_clicked();
+    void on_pushButton_sendAngle_clicked();
 
 private:
     Ui::MainWindow *ui;     
      QTimer *recvUSB_Timer;
      Thread *readUsbTread;
      uint8_t txData[60 * 240 * 3 + 32];
+     void initPara(void);
 public:
     commUSB *electronbot_usb;
     void sendPacket(void);

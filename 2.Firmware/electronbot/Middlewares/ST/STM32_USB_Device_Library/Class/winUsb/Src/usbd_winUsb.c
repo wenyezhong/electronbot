@@ -578,7 +578,7 @@ static int8_t WinUsb_Receive_FS(uint8_t* Buf, uint32_t *Len)
   /*for(i=0 ; i<*Len; i++)
     printf("%.2x ",Buf[i]);
   printf("\r\n");*/
-  printf("len =%ld\r\n",*Len);
+  // printf("len =%ld\r\n",*Len);
 
   usbBuffer.receivedPacketLen = *Len;
   if (usbBuffer.receivedPacketLen == 224)

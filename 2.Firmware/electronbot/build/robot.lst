@@ -1,0 +1,2164 @@
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"robot.cpp"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text._ZN5Robot20GetPingPongBufferPtrEv,"ax",%progbits
+  20              		.align	1
+  21              		.global	_ZN5Robot20GetPingPongBufferPtrEv
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	_ZN5Robot20GetPingPongBufferPtrEv:
+  27              		.fnstart
+  28              	.LVL0:
+  29              	.LFB152:
+  30              		.file 1 "user/robot.cpp"
+   1:user/robot.cpp **** #include "robot.h"
+   2:user/robot.cpp **** // #include "usbd_cdc_if.h"
+   3:user/robot.cpp **** #include "usbd_winUsb.h"
+   4:user/robot.cpp **** 
+   5:user/robot.cpp **** uint8_t* Robot::GetPingPongBufferPtr()
+   6:user/robot.cpp **** {
+  31              		.loc 1 6 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		@ link register save eliminated.
+   7:user/robot.cpp ****     return &(usbBuffer.rxData[usbBuffer.pingPongIndex][usbBuffer.rxDataOffset]);
+  36              		.loc 1 7 5 view .LVU1
+  37              		.loc 1 7 41 is_stmt 0 view .LVU2
+  38 0000 0648     		ldr	r0, .L2
+  39              	.LVL1:
+  40              		.loc 1 7 41 view .LVU3
+  41 0002 00F5A832 		add	r2, r0, #86016
+  42 0006 92F8E211 		ldrb	r1, [r2, #482]	@ zero_extendqisi2
+  43              		.loc 1 7 66 view .LVU4
+  44 000a D2F8E431 		ldr	r3, [r2, #484]
+  45              		.loc 1 7 79 view .LVU5
+  46 000e 4AF6E002 		movw	r2, #43232
+  47 0012 01FB0233 		mla	r3, r1, r2, r3
+  48 0016 2033     		adds	r3, r3, #32
+   8:user/robot.cpp **** }
+  49              		.loc 1 8 1 view .LVU6
+  50 0018 1844     		add	r0, r0, r3
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 2
+
+
+  51 001a 7047     		bx	lr
+  52              	.L3:
+  53              		.align	2
+  54              	.L2:
+  55 001c 00000000 		.word	usbBuffer
+  56              		.cfi_endproc
+  57              	.LFE152:
+  58              		.cantunwind
+  59              		.fnend
+  61              		.section	.text._ZN5Robot13SendUsbPacketEPhm,"ax",%progbits
+  62              		.align	1
+  63              		.global	_ZN5Robot13SendUsbPacketEPhm
+  64              		.syntax unified
+  65              		.thumb
+  66              		.thumb_func
+  68              	_ZN5Robot13SendUsbPacketEPhm:
+  69              		.fnstart
+  70              	.LVL2:
+  71              	.LFB153:
+   9:user/robot.cpp **** 
+  10:user/robot.cpp **** 
+  11:user/robot.cpp **** void Robot::SendUsbPacket(uint8_t* _data, uint32_t _len)
+  12:user/robot.cpp **** {
+  72              		.loc 1 12 1 is_stmt 1 view -0
+  73              		.cfi_startproc
+  74              		@ args = 0, pretend = 0, frame = 0
+  75              		@ frame_needed = 0, uses_anonymous_args = 0
+  76              		.loc 1 12 1 is_stmt 0 view .LVU8
+  77 0000 38B5     		push	{r3, r4, r5, lr}
+  78              		.save {r3, r4, r5, lr}
+  79              	.LCFI0:
+  80              		.cfi_def_cfa_offset 16
+  81              		.cfi_offset 3, -16
+  82              		.cfi_offset 4, -12
+  83              		.cfi_offset 5, -8
+  84              		.cfi_offset 14, -4
+  85 0002 0D46     		mov	r5, r1
+  86 0004 1446     		mov	r4, r2
+  87              	.LVL3:
+  88              	.L5:
+  13:user/robot.cpp ****     uint8_t ret;
+  89              		.loc 1 13 5 is_stmt 1 view .LVU9
+  14:user/robot.cpp ****     do
+  90              		.loc 1 14 5 view .LVU10
+  15:user/robot.cpp ****     {
+  16:user/robot.cpp ****         // ret = CDC_Transmit_HS(_data, _len);
+  17:user/robot.cpp ****         ret = WinUsb_Transmit_FS(_data, _len);
+  91              		.loc 1 17 9 view .LVU11
+  92              		.loc 1 17 33 is_stmt 0 view .LVU12
+  93 0006 A1B2     		uxth	r1, r4
+  94 0008 2846     		mov	r0, r5
+  95 000a FFF7FEFF 		bl	WinUsb_Transmit_FS
+  96              	.LVL4:
+  18:user/robot.cpp ****     } while (ret != USBD_OK);
+  97              		.loc 1 18 18 is_stmt 1 view .LVU13
+  98 000e 0028     		cmp	r0, #0
+  99 0010 F9D1     		bne	.L5
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 3
+
+
+  19:user/robot.cpp **** }
+ 100              		.loc 1 19 1 is_stmt 0 view .LVU14
+ 101 0012 38BD     		pop	{r3, r4, r5, pc}
+ 102              		.loc 1 19 1 view .LVU15
+ 103              		.cfi_endproc
+ 104              	.LFE153:
+ 105              		.fnend
+ 107              		.section	.text._ZN5Robot20SwitchPingPongBufferEv,"ax",%progbits
+ 108              		.align	1
+ 109              		.global	_ZN5Robot20SwitchPingPongBufferEv
+ 110              		.syntax unified
+ 111              		.thumb
+ 112              		.thumb_func
+ 114              	_ZN5Robot20SwitchPingPongBufferEv:
+ 115              		.fnstart
+ 116              	.LVL5:
+ 117              	.LFB154:
+  20:user/robot.cpp **** 
+  21:user/robot.cpp **** 
+  22:user/robot.cpp **** void Robot::SwitchPingPongBuffer()
+  23:user/robot.cpp **** {
+ 118              		.loc 1 23 1 is_stmt 1 view -0
+ 119              		.cfi_startproc
+ 120              		@ args = 0, pretend = 0, frame = 0
+ 121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 122              		@ link register save eliminated.
+  24:user/robot.cpp ****     usbBuffer.pingPongIndex = (usbBuffer.pingPongIndex == 0 ? 1 : 0);
+ 123              		.loc 1 24 5 view .LVU17
+ 124              		.loc 1 24 42 is_stmt 0 view .LVU18
+ 125 0000 064B     		ldr	r3, .L10
+ 126 0002 93F8E231 		ldrb	r3, [r3, #482]	@ zero_extendqisi2
+ 127              		.loc 1 24 29 view .LVU19
+ 128 0006 3BB9     		cbnz	r3, .L9
+ 129 0008 0122     		movs	r2, #1
+ 130              	.L8:
+ 131              		.loc 1 24 29 discriminator 4 view .LVU20
+ 132 000a 044B     		ldr	r3, .L10
+ 133 000c 83F8E221 		strb	r2, [r3, #482]
+  25:user/robot.cpp ****     usbBuffer.rxDataOffset = 0;
+ 134              		.loc 1 25 5 is_stmt 1 discriminator 4 view .LVU21
+ 135              		.loc 1 25 28 is_stmt 0 discriminator 4 view .LVU22
+ 136 0010 0022     		movs	r2, #0
+ 137 0012 C3F8E421 		str	r2, [r3, #484]
+  26:user/robot.cpp **** }
+ 138              		.loc 1 26 1 discriminator 4 view .LVU23
+ 139 0016 7047     		bx	lr
+ 140              	.L9:
+  24:user/robot.cpp ****     usbBuffer.pingPongIndex = (usbBuffer.pingPongIndex == 0 ? 1 : 0);
+ 141              		.loc 1 24 29 view .LVU24
+ 142 0018 0022     		movs	r2, #0
+ 143 001a F6E7     		b	.L8
+ 144              	.L11:
+ 145              		.align	2
+ 146              	.L10:
+ 147 001c 00500100 		.word	usbBuffer+86016
+ 148              		.cfi_endproc
+ 149              	.LFE154:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 4
+
+
+ 150              		.cantunwind
+ 151              		.fnend
+ 153              		.section	.text._ZN5Robot15GetLcdBufferPtrEv,"ax",%progbits
+ 154              		.align	1
+ 155              		.global	_ZN5Robot15GetLcdBufferPtrEv
+ 156              		.syntax unified
+ 157              		.thumb
+ 158              		.thumb_func
+ 160              	_ZN5Robot15GetLcdBufferPtrEv:
+ 161              		.fnstart
+ 162              	.LVL6:
+ 163              	.LFB155:
+  27:user/robot.cpp **** 
+  28:user/robot.cpp **** 
+  29:user/robot.cpp **** uint8_t* Robot::GetLcdBufferPtr()
+  30:user/robot.cpp **** {
+ 164              		.loc 1 30 1 is_stmt 1 view -0
+ 165              		.cfi_startproc
+ 166              		@ args = 0, pretend = 0, frame = 0
+ 167              		@ frame_needed = 0, uses_anonymous_args = 0
+ 168              		@ link register save eliminated.
+  31:user/robot.cpp ****     return usbBuffer.rxData[usbBuffer.pingPongIndex == 0 ? 1 : 0];
+ 169              		.loc 1 31 5 view .LVU26
+ 170              		.loc 1 31 39 is_stmt 0 view .LVU27
+ 171 0000 074B     		ldr	r3, .L15
+ 172 0002 93F8E231 		ldrb	r3, [r3, #482]	@ zero_extendqisi2
+ 173              		.loc 1 31 58 view .LVU28
+ 174 0006 43B9     		cbnz	r3, .L14
+ 175 0008 0123     		movs	r3, #1
+ 176              	.L13:
+ 177              		.loc 1 31 65 discriminator 4 view .LVU29
+ 178 000a 4AF6E000 		movw	r0, #43232
+ 179              	.LVL7:
+ 180              		.loc 1 31 65 discriminator 4 view .LVU30
+ 181 000e 00FB03F3 		mul	r3, r0, r3
+ 182 0012 2033     		adds	r3, r3, #32
+  32:user/robot.cpp **** }
+ 183              		.loc 1 32 1 discriminator 4 view .LVU31
+ 184 0014 0348     		ldr	r0, .L15+4
+ 185 0016 1844     		add	r0, r0, r3
+ 186 0018 7047     		bx	lr
+ 187              	.LVL8:
+ 188              	.L14:
+  31:user/robot.cpp ****     return usbBuffer.rxData[usbBuffer.pingPongIndex == 0 ? 1 : 0];
+ 189              		.loc 1 31 58 view .LVU32
+ 190 001a 0023     		movs	r3, #0
+ 191 001c F5E7     		b	.L13
+ 192              	.L16:
+ 193 001e 00BF     		.align	2
+ 194              	.L15:
+ 195 0020 00500100 		.word	usbBuffer+86016
+ 196 0024 00000000 		.word	usbBuffer
+ 197              		.cfi_endproc
+ 198              	.LFE155:
+ 199              		.cantunwind
+ 200              		.fnend
+ 202              		.section	.text._ZN5Robot27ReceiveUsbPacketUntilSizeIsEm,"ax",%progbits
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 5
+
+
+ 203              		.align	1
+ 204              		.global	_ZN5Robot27ReceiveUsbPacketUntilSizeIsEm
+ 205              		.syntax unified
+ 206              		.thumb
+ 207              		.thumb_func
+ 209              	_ZN5Robot27ReceiveUsbPacketUntilSizeIsEm:
+ 210              		.fnstart
+ 211              	.LFB156:
+  33:user/robot.cpp **** 
+  34:user/robot.cpp **** 
+  35:user/robot.cpp **** void Robot::ReceiveUsbPacketUntilSizeIs(uint32_t _count)
+  36:user/robot.cpp **** {
+ 212              		.loc 1 36 1 is_stmt 1 view -0
+ 213              		.cfi_startproc
+ 214              		@ args = 0, pretend = 0, frame = 0
+ 215              		@ frame_needed = 0, uses_anonymous_args = 0
+ 216              		@ link register save eliminated.
+ 217              	.LVL9:
+ 218              	.L18:
+  37:user/robot.cpp ****     while (usbBuffer.receivedPacketLen != _count);
+ 219              		.loc 1 37 5 view .LVU34
+ 220              		.loc 1 37 40 view .LVU35
+ 221              		.loc 1 37 22 is_stmt 0 view .LVU36
+ 222 0000 054B     		ldr	r3, .L19
+ 223 0002 B3F8E031 		ldrh	r3, [r3, #480]
+ 224 0006 9BB2     		uxth	r3, r3
+ 225              		.loc 1 37 40 view .LVU37
+ 226 0008 8B42     		cmp	r3, r1
+ 227 000a F9D1     		bne	.L18
+  38:user/robot.cpp ****     usbBuffer.receivedPacketLen = 0;
+ 228              		.loc 1 38 5 is_stmt 1 view .LVU38
+ 229              		.loc 1 38 33 is_stmt 0 view .LVU39
+ 230 000c 024B     		ldr	r3, .L19
+ 231 000e 0022     		movs	r2, #0
+ 232 0010 A3F8E021 		strh	r2, [r3, #480]	@ movhi
+  39:user/robot.cpp **** }
+ 233              		.loc 1 39 1 view .LVU40
+ 234 0014 7047     		bx	lr
+ 235              	.L20:
+ 236 0016 00BF     		.align	2
+ 237              	.L19:
+ 238 0018 00500100 		.word	usbBuffer+86016
+ 239              		.cfi_endproc
+ 240              	.LFE156:
+ 241              		.cantunwind
+ 242              		.fnend
+ 244              		.section	.text._ZN5Robot27TransmitAndReceiveI2cPacketEh,"ax",%progbits
+ 245              		.align	1
+ 246              		.global	_ZN5Robot27TransmitAndReceiveI2cPacketEh
+ 247              		.syntax unified
+ 248              		.thumb
+ 249              		.thumb_func
+ 251              	_ZN5Robot27TransmitAndReceiveI2cPacketEh:
+ 252              		.fnstart
+ 253              	.LVL10:
+ 254              	.LFB160:
+  40:user/robot.cpp **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 6
+
+
+  41:user/robot.cpp **** 
+  42:user/robot.cpp **** void Robot::UpdateServoAngle(Robot::JointStatus_t &_joint, float _angleSetPoint)
+  43:user/robot.cpp **** {
+  44:user/robot.cpp ****     if (_angleSetPoint >= _joint.angleMin && _angleSetPoint <= _joint.angleMax)
+  45:user/robot.cpp ****     {
+  46:user/robot.cpp ****         auto* b = (unsigned char*) (&_angleSetPoint);
+  47:user/robot.cpp **** 
+  48:user/robot.cpp ****         i2cTxData[0] = 0x01;
+  49:user/robot.cpp ****         for (int i = 0; i < 4; i++)
+  50:user/robot.cpp ****             i2cTxData[i + 1] = *(b + i);
+  51:user/robot.cpp **** 
+  52:user/robot.cpp ****         TransmitAndReceiveI2cPacket(_joint.id);
+  53:user/robot.cpp **** 
+  54:user/robot.cpp ****         _joint.angle = *(float*) (i2cRxData + 1);
+  55:user/robot.cpp ****     }
+  56:user/robot.cpp **** }
+  57:user/robot.cpp **** 
+  58:user/robot.cpp **** 
+  59:user/robot.cpp **** void Robot::UpdateServoAngle(Robot::JointStatus_t &_joint)
+  60:user/robot.cpp **** {
+  61:user/robot.cpp ****     auto* b = (unsigned char*) &(_joint.angle);
+  62:user/robot.cpp **** 
+  63:user/robot.cpp ****     i2cTxData[0] = 0x11;
+  64:user/robot.cpp **** 
+  65:user/robot.cpp ****     TransmitAndReceiveI2cPacket(_joint.id);
+  66:user/robot.cpp **** 
+  67:user/robot.cpp ****     _joint.angle = *(float*) (i2cRxData + 1);
+  68:user/robot.cpp **** }
+  69:user/robot.cpp **** 
+  70:user/robot.cpp **** 
+  71:user/robot.cpp **** void Robot::SetJointEnable(Robot::JointStatus_t &_joint, bool _enable)
+  72:user/robot.cpp **** {
+  73:user/robot.cpp ****     i2cTxData[0] = 0xff;
+  74:user/robot.cpp ****     i2cTxData[1] = _enable ? 1 : 0;
+  75:user/robot.cpp **** 
+  76:user/robot.cpp ****     TransmitAndReceiveI2cPacket(_joint.id);
+  77:user/robot.cpp **** 
+  78:user/robot.cpp ****     _joint.angle = *(float*) (i2cRxData + 1);
+  79:user/robot.cpp **** }
+  80:user/robot.cpp **** 
+  81:user/robot.cpp **** 
+  82:user/robot.cpp **** void Robot::TransmitAndReceiveI2cPacket(uint8_t _id)
+  83:user/robot.cpp **** {
+ 255              		.loc 1 83 1 is_stmt 1 view -0
+ 256              		.cfi_startproc
+ 257              		@ args = 0, pretend = 0, frame = 0
+ 258              		@ frame_needed = 0, uses_anonymous_args = 0
+ 259              		.loc 1 83 1 is_stmt 0 view .LVU42
+ 260 0000 70B5     		push	{r4, r5, r6, lr}
+ 261              		.save {r4, r5, r6, lr}
+ 262              	.LCFI1:
+ 263              		.cfi_def_cfa_offset 16
+ 264              		.cfi_offset 4, -16
+ 265              		.cfi_offset 5, -12
+ 266              		.cfi_offset 6, -8
+ 267              		.cfi_offset 14, -4
+ 268              		.pad #8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 7
+
+
+ 269 0002 82B0     		sub	sp, sp, #8
+ 270              	.LCFI2:
+ 271              		.cfi_def_cfa_offset 24
+ 272 0004 0446     		mov	r4, r0
+ 273 0006 0E46     		mov	r6, r1
+  84:user/robot.cpp ****     HAL_StatusTypeDef state = HAL_ERROR;
+ 274              		.loc 1 84 5 is_stmt 1 view .LVU43
+ 275              	.LVL11:
+ 276              	.L22:
+  85:user/robot.cpp ****     do
+ 277              		.loc 1 85 5 view .LVU44
+  86:user/robot.cpp ****     {       
+  87:user/robot.cpp ****         state = HAL_I2C_Master_Transmit(motorI2c, _id, i2cTxData, 5, 5);
+ 278              		.loc 1 87 9 view .LVU45
+ 279              		.loc 1 87 40 is_stmt 0 view .LVU46
+ 280 0008 B5B2     		uxth	r5, r6
+ 281 000a 0523     		movs	r3, #5
+ 282 000c 0093     		str	r3, [sp]
+ 283 000e 04F1DC02 		add	r2, r4, #220
+ 284 0012 2946     		mov	r1, r5
+ 285 0014 D4F8D000 		ldr	r0, [r4, #208]
+ 286 0018 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 287              	.LVL12:
+  88:user/robot.cpp ****     } while (state != HAL_OK);
+ 288              		.loc 1 88 20 is_stmt 1 view .LVU47
+ 289 001c 0028     		cmp	r0, #0
+ 290 001e F3D1     		bne	.L22
+ 291              	.L23:
+  89:user/robot.cpp ****     do
+ 292              		.loc 1 89 5 view .LVU48
+  90:user/robot.cpp ****     {        
+  91:user/robot.cpp ****         state = HAL_I2C_Master_Receive(motorI2c, _id, i2cRxData, 5, 5);
+ 293              		.loc 1 91 9 view .LVU49
+ 294              		.loc 1 91 39 is_stmt 0 view .LVU50
+ 295 0020 0523     		movs	r3, #5
+ 296 0022 0093     		str	r3, [sp]
+ 297 0024 04F1D402 		add	r2, r4, #212
+ 298 0028 2946     		mov	r1, r5
+ 299 002a D4F8D000 		ldr	r0, [r4, #208]
+ 300              	.LVL13:
+ 301              		.loc 1 91 39 view .LVU51
+ 302 002e FFF7FEFF 		bl	HAL_I2C_Master_Receive
+ 303              	.LVL14:
+  92:user/robot.cpp ****     } while (state != HAL_OK);
+ 304              		.loc 1 92 20 is_stmt 1 view .LVU52
+ 305 0032 0028     		cmp	r0, #0
+ 306 0034 F4D1     		bne	.L23
+  93:user/robot.cpp ****     
+  94:user/robot.cpp **** }
+ 307              		.loc 1 94 1 is_stmt 0 view .LVU53
+ 308 0036 02B0     		add	sp, sp, #8
+ 309              	.LCFI3:
+ 310              		.cfi_def_cfa_offset 16
+ 311              		@ sp needed
+ 312 0038 70BD     		pop	{r4, r5, r6, pc}
+ 313              		.loc 1 94 1 view .LVU54
+ 314              		.cfi_endproc
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 8
+
+
+ 315              	.LFE160:
+ 316              		.fnend
+ 318              		.section	.text._ZN5Robot16UpdateServoAngleERNS_13JointStatus_tEf,"ax",%progbits
+ 319              		.align	1
+ 320              		.global	_ZN5Robot16UpdateServoAngleERNS_13JointStatus_tEf
+ 321              		.syntax unified
+ 322              		.thumb
+ 323              		.thumb_func
+ 325              	_ZN5Robot16UpdateServoAngleERNS_13JointStatus_tEf:
+ 326              		.fnstart
+ 327              	.LVL15:
+ 328              	.LFB157:
+  43:user/robot.cpp ****     if (_angleSetPoint >= _joint.angleMin && _angleSetPoint <= _joint.angleMax)
+ 329              		.loc 1 43 1 is_stmt 1 view -0
+ 330              		.cfi_startproc
+ 331              		@ args = 0, pretend = 0, frame = 8
+ 332              		@ frame_needed = 0, uses_anonymous_args = 0
+  43:user/robot.cpp ****     if (_angleSetPoint >= _joint.angleMin && _angleSetPoint <= _joint.angleMax)
+ 333              		.loc 1 43 1 is_stmt 0 view .LVU56
+ 334 0000 30B5     		push	{r4, r5, lr}
+ 335              		.save {r4, r5, lr}
+ 336              	.LCFI4:
+ 337              		.cfi_def_cfa_offset 12
+ 338              		.cfi_offset 4, -12
+ 339              		.cfi_offset 5, -8
+ 340              		.cfi_offset 14, -4
+ 341              		.pad #12
+ 342 0002 83B0     		sub	sp, sp, #12
+ 343              	.LCFI5:
+ 344              		.cfi_def_cfa_offset 24
+ 345 0004 8DED010A 		vstr.32	s0, [sp, #4]
+  44:user/robot.cpp ****     {
+ 346              		.loc 1 44 5 is_stmt 1 view .LVU57
+ 347              	.LBB2:
+  44:user/robot.cpp ****     {
+ 348              		.loc 1 44 34 is_stmt 0 view .LVU58
+ 349 0008 D1ED017A 		vldr.32	s15, [r1, #4]
+  44:user/robot.cpp ****     {
+ 350              		.loc 1 44 5 view .LVU59
+ 351 000c F4EEC07A 		vcmpe.f32	s15, s0
+ 352 0010 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 353 0014 1DD8     		bhi	.L25
+ 354 0016 0446     		mov	r4, r0
+ 355 0018 0D46     		mov	r5, r1
+  44:user/robot.cpp ****     {
+ 356              		.loc 1 44 71 discriminator 1 view .LVU60
+ 357 001a D1ED027A 		vldr.32	s15, [r1, #8]
+  44:user/robot.cpp ****     {
+ 358              		.loc 1 44 43 discriminator 1 view .LVU61
+ 359 001e B4EEE70A 		vcmpe.f32	s0, s15
+ 360 0022 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 361 0026 14D8     		bhi	.L25
+ 362              	.LBB3:
+  46:user/robot.cpp **** 
+ 363              		.loc 1 46 9 is_stmt 1 view .LVU62
+ 364              	.LVL16:
+  48:user/robot.cpp ****         for (int i = 0; i < 4; i++)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 9
+
+
+ 365              		.loc 1 48 9 view .LVU63
+  48:user/robot.cpp ****         for (int i = 0; i < 4; i++)
+ 366              		.loc 1 48 22 is_stmt 0 view .LVU64
+ 367 0028 0123     		movs	r3, #1
+ 368 002a 80F8DC30 		strb	r3, [r0, #220]
+  49:user/robot.cpp ****             i2cTxData[i + 1] = *(b + i);
+ 369              		.loc 1 49 9 is_stmt 1 view .LVU65
+ 370              	.LVL17:
+ 371              	.LBB4:
+  49:user/robot.cpp ****             i2cTxData[i + 1] = *(b + i);
+ 372              		.loc 1 49 18 is_stmt 0 view .LVU66
+ 373 002e 0023     		movs	r3, #0
+ 374 0030 06E0     		b	.L30
+ 375              	.LVL18:
+ 376              	.L34:
+  50:user/robot.cpp **** 
+ 377              		.loc 1 50 13 is_stmt 1 discriminator 2 view .LVU67
+  50:user/robot.cpp **** 
+ 378              		.loc 1 50 36 is_stmt 0 discriminator 2 view .LVU68
+ 379 0032 01AA     		add	r2, sp, #4
+ 380              	.LVL19:
+  50:user/robot.cpp **** 
+ 381              		.loc 1 50 36 discriminator 2 view .LVU69
+ 382 0034 1A44     		add	r2, r2, r3
+ 383              	.LVL20:
+  50:user/robot.cpp **** 
+ 384              		.loc 1 50 25 discriminator 2 view .LVU70
+ 385 0036 0133     		adds	r3, r3, #1
+ 386              	.LVL21:
+  50:user/robot.cpp **** 
+ 387              		.loc 1 50 32 discriminator 2 view .LVU71
+ 388 0038 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
+  50:user/robot.cpp **** 
+ 389              		.loc 1 50 30 discriminator 2 view .LVU72
+ 390 003a E218     		adds	r2, r4, r3
+ 391 003c 82F8DC10 		strb	r1, [r2, #220]
+  49:user/robot.cpp ****             i2cTxData[i + 1] = *(b + i);
+ 392              		.loc 1 49 9 is_stmt 1 discriminator 2 view .LVU73
+ 393              	.LVL22:
+ 394              	.L30:
+  49:user/robot.cpp ****             i2cTxData[i + 1] = *(b + i);
+ 395              		.loc 1 49 27 discriminator 3 view .LVU74
+ 396 0040 032B     		cmp	r3, #3
+ 397 0042 F6DD     		ble	.L34
+ 398              	.LBE4:
+  52:user/robot.cpp **** 
+ 399              		.loc 1 52 9 view .LVU75
+  52:user/robot.cpp **** 
+ 400              		.loc 1 52 36 is_stmt 0 view .LVU76
+ 401 0044 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+ 402 0046 2046     		mov	r0, r4
+ 403              	.LVL23:
+  52:user/robot.cpp **** 
+ 404              		.loc 1 52 36 view .LVU77
+ 405 0048 FFF7FEFF 		bl	_ZN5Robot27TransmitAndReceiveI2cPacketEh
+ 406              	.LVL24:
+  54:user/robot.cpp ****     }
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 10
+
+
+ 407              		.loc 1 54 9 is_stmt 1 view .LVU78
+  54:user/robot.cpp ****     }
+ 408              		.loc 1 54 24 is_stmt 0 view .LVU79
+ 409 004c D534     		adds	r4, r4, #213
+ 410              	.LVL25:
+  54:user/robot.cpp ****     }
+ 411              		.loc 1 54 24 view .LVU80
+ 412 004e 2368     		ldr	r3, [r4]	@ float
+  54:user/robot.cpp ****     }
+ 413              		.loc 1 54 22 view .LVU81
+ 414 0050 EB60     		str	r3, [r5, #12]	@ float
+ 415              	.LVL26:
+ 416              	.L25:
+  54:user/robot.cpp ****     }
+ 417              		.loc 1 54 22 view .LVU82
+ 418              	.LBE3:
+ 419              	.LBE2:
+  56:user/robot.cpp **** 
+ 420              		.loc 1 56 1 view .LVU83
+ 421 0052 03B0     		add	sp, sp, #12
+ 422              	.LCFI6:
+ 423              		.cfi_def_cfa_offset 12
+ 424              		@ sp needed
+ 425 0054 30BD     		pop	{r4, r5, pc}
+ 426              		.cfi_endproc
+ 427              	.LFE157:
+ 428              		.fnend
+ 430              		.section	.text._ZN5Robot16UpdateServoAngleERNS_13JointStatus_tE,"ax",%progbits
+ 431              		.align	1
+ 432              		.global	_ZN5Robot16UpdateServoAngleERNS_13JointStatus_tE
+ 433              		.syntax unified
+ 434              		.thumb
+ 435              		.thumb_func
+ 437              	_ZN5Robot16UpdateServoAngleERNS_13JointStatus_tE:
+ 438              		.fnstart
+ 439              	.LVL27:
+ 440              	.LFB158:
+  60:user/robot.cpp ****     auto* b = (unsigned char*) &(_joint.angle);
+ 441              		.loc 1 60 1 is_stmt 1 view -0
+ 442              		.cfi_startproc
+ 443              		@ args = 0, pretend = 0, frame = 0
+ 444              		@ frame_needed = 0, uses_anonymous_args = 0
+  60:user/robot.cpp ****     auto* b = (unsigned char*) &(_joint.angle);
+ 445              		.loc 1 60 1 is_stmt 0 view .LVU85
+ 446 0000 38B5     		push	{r3, r4, r5, lr}
+ 447              		.save {r3, r4, r5, lr}
+ 448              	.LCFI7:
+ 449              		.cfi_def_cfa_offset 16
+ 450              		.cfi_offset 3, -16
+ 451              		.cfi_offset 4, -12
+ 452              		.cfi_offset 5, -8
+ 453              		.cfi_offset 14, -4
+ 454 0002 0446     		mov	r4, r0
+ 455 0004 0D46     		mov	r5, r1
+  61:user/robot.cpp **** 
+ 456              		.loc 1 61 5 is_stmt 1 view .LVU86
+ 457              	.LVL28:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 11
+
+
+  63:user/robot.cpp **** 
+ 458              		.loc 1 63 5 view .LVU87
+  63:user/robot.cpp **** 
+ 459              		.loc 1 63 18 is_stmt 0 view .LVU88
+ 460 0006 1123     		movs	r3, #17
+ 461 0008 80F8DC30 		strb	r3, [r0, #220]
+  65:user/robot.cpp **** 
+ 462              		.loc 1 65 5 is_stmt 1 view .LVU89
+  65:user/robot.cpp **** 
+ 463              		.loc 1 65 32 is_stmt 0 view .LVU90
+ 464 000c 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
+ 465              	.LVL29:
+  65:user/robot.cpp **** 
+ 466              		.loc 1 65 32 view .LVU91
+ 467 000e FFF7FEFF 		bl	_ZN5Robot27TransmitAndReceiveI2cPacketEh
+ 468              	.LVL30:
+  67:user/robot.cpp **** }
+ 469              		.loc 1 67 5 is_stmt 1 view .LVU92
+  67:user/robot.cpp **** }
+ 470              		.loc 1 67 20 is_stmt 0 view .LVU93
+ 471 0012 D534     		adds	r4, r4, #213
+ 472              	.LVL31:
+  67:user/robot.cpp **** }
+ 473              		.loc 1 67 20 view .LVU94
+ 474 0014 2368     		ldr	r3, [r4]	@ float
+  67:user/robot.cpp **** }
+ 475              		.loc 1 67 18 view .LVU95
+ 476 0016 EB60     		str	r3, [r5, #12]	@ float
+  68:user/robot.cpp **** 
+ 477              		.loc 1 68 1 view .LVU96
+ 478 0018 38BD     		pop	{r3, r4, r5, pc}
+  68:user/robot.cpp **** 
+ 479              		.loc 1 68 1 view .LVU97
+ 480              		.cfi_endproc
+ 481              	.LFE158:
+ 482              		.fnend
+ 484              		.section	.text._ZN5Robot14SetJointEnableERNS_13JointStatus_tEb,"ax",%progbits
+ 485              		.align	1
+ 486              		.global	_ZN5Robot14SetJointEnableERNS_13JointStatus_tEb
+ 487              		.syntax unified
+ 488              		.thumb
+ 489              		.thumb_func
+ 491              	_ZN5Robot14SetJointEnableERNS_13JointStatus_tEb:
+ 492              		.fnstart
+ 493              	.LVL32:
+ 494              	.LFB159:
+  72:user/robot.cpp ****     i2cTxData[0] = 0xff;
+ 495              		.loc 1 72 1 is_stmt 1 view -0
+ 496              		.cfi_startproc
+ 497              		@ args = 0, pretend = 0, frame = 0
+ 498              		@ frame_needed = 0, uses_anonymous_args = 0
+  72:user/robot.cpp ****     i2cTxData[0] = 0xff;
+ 499              		.loc 1 72 1 is_stmt 0 view .LVU99
+ 500 0000 38B5     		push	{r3, r4, r5, lr}
+ 501              		.save {r3, r4, r5, lr}
+ 502              	.LCFI8:
+ 503              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 12
+
+
+ 504              		.cfi_offset 3, -16
+ 505              		.cfi_offset 4, -12
+ 506              		.cfi_offset 5, -8
+ 507              		.cfi_offset 14, -4
+ 508 0002 0446     		mov	r4, r0
+ 509 0004 0D46     		mov	r5, r1
+  73:user/robot.cpp ****     i2cTxData[1] = _enable ? 1 : 0;
+ 510              		.loc 1 73 5 is_stmt 1 view .LVU100
+  73:user/robot.cpp ****     i2cTxData[1] = _enable ? 1 : 0;
+ 511              		.loc 1 73 18 is_stmt 0 view .LVU101
+ 512 0006 FF23     		movs	r3, #255
+ 513 0008 80F8DC30 		strb	r3, [r0, #220]
+  74:user/robot.cpp **** 
+ 514              		.loc 1 74 5 is_stmt 1 view .LVU102
+  74:user/robot.cpp **** 
+ 515              		.loc 1 74 18 is_stmt 0 view .LVU103
+ 516 000c 52B1     		cbz	r2, .L39
+ 517 000e 0123     		movs	r3, #1
+ 518              	.L38:
+  74:user/robot.cpp **** 
+ 519              		.loc 1 74 18 discriminator 4 view .LVU104
+ 520 0010 84F8DD30 		strb	r3, [r4, #221]
+  76:user/robot.cpp **** 
+ 521              		.loc 1 76 5 is_stmt 1 discriminator 4 view .LVU105
+  76:user/robot.cpp **** 
+ 522              		.loc 1 76 32 is_stmt 0 discriminator 4 view .LVU106
+ 523 0014 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+ 524              	.LVL33:
+  76:user/robot.cpp **** 
+ 525              		.loc 1 76 32 discriminator 4 view .LVU107
+ 526 0016 2046     		mov	r0, r4
+ 527              	.LVL34:
+  76:user/robot.cpp **** 
+ 528              		.loc 1 76 32 discriminator 4 view .LVU108
+ 529 0018 FFF7FEFF 		bl	_ZN5Robot27TransmitAndReceiveI2cPacketEh
+ 530              	.LVL35:
+  78:user/robot.cpp **** }
+ 531              		.loc 1 78 5 is_stmt 1 discriminator 4 view .LVU109
+  78:user/robot.cpp **** }
+ 532              		.loc 1 78 20 is_stmt 0 discriminator 4 view .LVU110
+ 533 001c D534     		adds	r4, r4, #213
+ 534              	.LVL36:
+  78:user/robot.cpp **** }
+ 535              		.loc 1 78 20 discriminator 4 view .LVU111
+ 536 001e 2368     		ldr	r3, [r4]	@ float
+  78:user/robot.cpp **** }
+ 537              		.loc 1 78 18 discriminator 4 view .LVU112
+ 538 0020 EB60     		str	r3, [r5, #12]	@ float
+  79:user/robot.cpp **** 
+ 539              		.loc 1 79 1 discriminator 4 view .LVU113
+ 540 0022 38BD     		pop	{r3, r4, r5, pc}
+ 541              	.LVL37:
+ 542              	.L39:
+  74:user/robot.cpp **** 
+ 543              		.loc 1 74 18 view .LVU114
+ 544 0024 0023     		movs	r3, #0
+ 545 0026 F3E7     		b	.L38
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 13
+
+
+ 546              		.cfi_endproc
+ 547              	.LFE159:
+ 548              		.fnend
+ 550              		.section	.text._ZN5Robot19SetJointTorqueLimitERNS_13JointStatus_tEf,"ax",%progbits
+ 551              		.align	1
+ 552              		.global	_ZN5Robot19SetJointTorqueLimitERNS_13JointStatus_tEf
+ 553              		.syntax unified
+ 554              		.thumb
+ 555              		.thumb_func
+ 557              	_ZN5Robot19SetJointTorqueLimitERNS_13JointStatus_tEf:
+ 558              		.fnstart
+ 559              	.LVL38:
+ 560              	.LFB161:
+  95:user/robot.cpp **** 
+  96:user/robot.cpp **** 
+  97:user/robot.cpp **** void Robot::SetJointTorqueLimit(Robot::JointStatus_t &_joint, float _percent)
+  98:user/robot.cpp **** {
+ 561              		.loc 1 98 1 is_stmt 1 view -0
+ 562              		.cfi_startproc
+ 563              		@ args = 0, pretend = 0, frame = 8
+ 564              		@ frame_needed = 0, uses_anonymous_args = 0
+ 565              		.loc 1 98 1 is_stmt 0 view .LVU116
+ 566 0000 30B5     		push	{r4, r5, lr}
+ 567              		.save {r4, r5, lr}
+ 568              	.LCFI9:
+ 569              		.cfi_def_cfa_offset 12
+ 570              		.cfi_offset 4, -12
+ 571              		.cfi_offset 5, -8
+ 572              		.cfi_offset 14, -4
+ 573              		.pad #12
+ 574 0002 83B0     		sub	sp, sp, #12
+ 575              	.LCFI10:
+ 576              		.cfi_def_cfa_offset 24
+ 577 0004 8DED010A 		vstr.32	s0, [sp, #4]
+  99:user/robot.cpp ****     if (_percent >= 0 && _percent <= 1)
+ 578              		.loc 1 99 5 is_stmt 1 view .LVU117
+ 579              	.LBB5:
+ 580 0008 B5EEC00A 		vcmpe.f32	s0, #0
+ 581 000c F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 582 0010 08DB     		blt	.L41
+ 583 0012 0446     		mov	r4, r0
+ 584 0014 0D46     		mov	r5, r1
+ 585              		.loc 1 99 23 is_stmt 0 discriminator 1 view .LVU118
+ 586 0016 F7EE007A 		vmov.f32	s15, #1.0e+0
+ 587 001a B4EEE70A 		vcmpe.f32	s0, s15
+ 588 001e F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 589 0022 01D9     		bls	.L50
+ 590              	.LVL39:
+ 591              	.L41:
+ 592              		.loc 1 99 23 discriminator 1 view .LVU119
+ 593              	.LBE5:
+ 100:user/robot.cpp ****     {
+ 101:user/robot.cpp ****         auto* b = (unsigned char*) (&_percent);
+ 102:user/robot.cpp **** 
+ 103:user/robot.cpp ****         i2cTxData[0] = 0x26;
+ 104:user/robot.cpp ****         for (int i = 0; i < 4; i++)
+ 105:user/robot.cpp ****             i2cTxData[i + 1] = *(b + i);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 14
+
+
+ 106:user/robot.cpp **** 
+ 107:user/robot.cpp ****         TransmitAndReceiveI2cPacket(_joint.id);
+ 108:user/robot.cpp **** 
+ 109:user/robot.cpp ****         _joint.angle = *(float*) (i2cRxData + 1);
+ 110:user/robot.cpp **** 
+ 111:user/robot.cpp ****         HAL_Delay(500); // wait servo reset
+ 112:user/robot.cpp ****     }
+ 113:user/robot.cpp **** }
+ 594              		.loc 1 113 1 view .LVU120
+ 595 0024 03B0     		add	sp, sp, #12
+ 596              	.LCFI11:
+ 597              		.cfi_remember_state
+ 598              		.cfi_def_cfa_offset 12
+ 599              		@ sp needed
+ 600 0026 30BD     		pop	{r4, r5, pc}
+ 601              	.LVL40:
+ 602              	.L50:
+ 603              	.LCFI12:
+ 604              		.cfi_restore_state
+ 605              	.LBB8:
+ 606              	.LBB6:
+ 101:user/robot.cpp **** 
+ 607              		.loc 1 101 9 is_stmt 1 view .LVU121
+ 103:user/robot.cpp ****         for (int i = 0; i < 4; i++)
+ 608              		.loc 1 103 9 view .LVU122
+ 103:user/robot.cpp ****         for (int i = 0; i < 4; i++)
+ 609              		.loc 1 103 22 is_stmt 0 view .LVU123
+ 610 0028 2623     		movs	r3, #38
+ 611 002a 80F8DC30 		strb	r3, [r0, #220]
+ 104:user/robot.cpp ****             i2cTxData[i + 1] = *(b + i);
+ 612              		.loc 1 104 9 is_stmt 1 view .LVU124
+ 613              	.LVL41:
+ 614              	.LBB7:
+ 104:user/robot.cpp ****             i2cTxData[i + 1] = *(b + i);
+ 615              		.loc 1 104 18 is_stmt 0 view .LVU125
+ 616 002e 0023     		movs	r3, #0
+ 617 0030 06E0     		b	.L46
+ 618              	.LVL42:
+ 619              	.L51:
+ 105:user/robot.cpp **** 
+ 620              		.loc 1 105 13 is_stmt 1 discriminator 2 view .LVU126
+ 105:user/robot.cpp **** 
+ 621              		.loc 1 105 36 is_stmt 0 discriminator 2 view .LVU127
+ 622 0032 01AA     		add	r2, sp, #4
+ 623              	.LVL43:
+ 105:user/robot.cpp **** 
+ 624              		.loc 1 105 36 discriminator 2 view .LVU128
+ 625 0034 1A44     		add	r2, r2, r3
+ 626              	.LVL44:
+ 105:user/robot.cpp **** 
+ 627              		.loc 1 105 25 discriminator 2 view .LVU129
+ 628 0036 0133     		adds	r3, r3, #1
+ 629              	.LVL45:
+ 105:user/robot.cpp **** 
+ 630              		.loc 1 105 32 discriminator 2 view .LVU130
+ 631 0038 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
+ 105:user/robot.cpp **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 15
+
+
+ 632              		.loc 1 105 30 discriminator 2 view .LVU131
+ 633 003a E218     		adds	r2, r4, r3
+ 634 003c 82F8DC10 		strb	r1, [r2, #220]
+ 104:user/robot.cpp ****             i2cTxData[i + 1] = *(b + i);
+ 635              		.loc 1 104 9 is_stmt 1 discriminator 2 view .LVU132
+ 636              	.LVL46:
+ 637              	.L46:
+ 104:user/robot.cpp ****             i2cTxData[i + 1] = *(b + i);
+ 638              		.loc 1 104 27 discriminator 3 view .LVU133
+ 639 0040 032B     		cmp	r3, #3
+ 640 0042 F6DD     		ble	.L51
+ 641              	.LBE7:
+ 107:user/robot.cpp **** 
+ 642              		.loc 1 107 9 view .LVU134
+ 107:user/robot.cpp **** 
+ 643              		.loc 1 107 36 is_stmt 0 view .LVU135
+ 644 0044 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+ 645 0046 2046     		mov	r0, r4
+ 646              	.LVL47:
+ 107:user/robot.cpp **** 
+ 647              		.loc 1 107 36 view .LVU136
+ 648 0048 FFF7FEFF 		bl	_ZN5Robot27TransmitAndReceiveI2cPacketEh
+ 649              	.LVL48:
+ 109:user/robot.cpp **** 
+ 650              		.loc 1 109 9 is_stmt 1 view .LVU137
+ 109:user/robot.cpp **** 
+ 651              		.loc 1 109 24 is_stmt 0 view .LVU138
+ 652 004c D534     		adds	r4, r4, #213
+ 653              	.LVL49:
+ 109:user/robot.cpp **** 
+ 654              		.loc 1 109 24 view .LVU139
+ 655 004e 2368     		ldr	r3, [r4]	@ float
+ 109:user/robot.cpp **** 
+ 656              		.loc 1 109 22 view .LVU140
+ 657 0050 EB60     		str	r3, [r5, #12]	@ float
+ 111:user/robot.cpp ****     }
+ 658              		.loc 1 111 9 is_stmt 1 view .LVU141
+ 111:user/robot.cpp ****     }
+ 659              		.loc 1 111 18 is_stmt 0 view .LVU142
+ 660 0052 4FF4FA70 		mov	r0, #500
+ 661 0056 FFF7FEFF 		bl	HAL_Delay
+ 662              	.LVL50:
+ 663              	.LBE6:
+ 664              	.LBE8:
+ 665              		.loc 1 113 1 view .LVU143
+ 666 005a E3E7     		b	.L41
+ 667              		.cfi_endproc
+ 668              	.LFE161:
+ 669              		.fnend
+ 671              		.section	.text._ZN5Robot10SetJointIdERNS_13JointStatus_tEh,"ax",%progbits
+ 672              		.align	1
+ 673              		.global	_ZN5Robot10SetJointIdERNS_13JointStatus_tEh
+ 674              		.syntax unified
+ 675              		.thumb
+ 676              		.thumb_func
+ 678              	_ZN5Robot10SetJointIdERNS_13JointStatus_tEh:
+ 679              		.fnstart
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 16
+
+
+ 680              	.LVL51:
+ 681              	.LFB162:
+ 114:user/robot.cpp **** 
+ 115:user/robot.cpp **** 
+ 116:user/robot.cpp **** void Robot::SetJointId(Robot::JointStatus_t &_joint, uint8_t _id)
+ 117:user/robot.cpp **** {
+ 682              		.loc 1 117 1 is_stmt 1 view -0
+ 683              		.cfi_startproc
+ 684              		@ args = 0, pretend = 0, frame = 0
+ 685              		@ frame_needed = 0, uses_anonymous_args = 0
+ 686              		.loc 1 117 1 is_stmt 0 view .LVU145
+ 687 0000 38B5     		push	{r3, r4, r5, lr}
+ 688              		.save {r3, r4, r5, lr}
+ 689              	.LCFI13:
+ 690              		.cfi_def_cfa_offset 16
+ 691              		.cfi_offset 3, -16
+ 692              		.cfi_offset 4, -12
+ 693              		.cfi_offset 5, -8
+ 694              		.cfi_offset 14, -4
+ 695 0002 0446     		mov	r4, r0
+ 696 0004 0D46     		mov	r5, r1
+ 118:user/robot.cpp ****     i2cTxData[0] = 0x21;
+ 697              		.loc 1 118 5 is_stmt 1 view .LVU146
+ 698              		.loc 1 118 18 is_stmt 0 view .LVU147
+ 699 0006 2123     		movs	r3, #33
+ 700 0008 80F8DC30 		strb	r3, [r0, #220]
+ 119:user/robot.cpp ****     i2cTxData[1] = _id;
+ 701              		.loc 1 119 5 is_stmt 1 view .LVU148
+ 702              		.loc 1 119 18 is_stmt 0 view .LVU149
+ 703 000c 80F8DD20 		strb	r2, [r0, #221]
+ 120:user/robot.cpp **** 
+ 121:user/robot.cpp ****     TransmitAndReceiveI2cPacket(_joint.id);
+ 704              		.loc 1 121 5 is_stmt 1 view .LVU150
+ 705              		.loc 1 121 32 is_stmt 0 view .LVU151
+ 706 0010 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
+ 707              	.LVL52:
+ 708              		.loc 1 121 32 view .LVU152
+ 709 0012 FFF7FEFF 		bl	_ZN5Robot27TransmitAndReceiveI2cPacketEh
+ 710              	.LVL53:
+ 122:user/robot.cpp **** 
+ 123:user/robot.cpp ****     _joint.angle = *(float*) (i2cRxData + 1);
+ 711              		.loc 1 123 5 is_stmt 1 view .LVU153
+ 712              		.loc 1 123 20 is_stmt 0 view .LVU154
+ 713 0016 D534     		adds	r4, r4, #213
+ 714              	.LVL54:
+ 715              		.loc 1 123 20 view .LVU155
+ 716 0018 2368     		ldr	r3, [r4]	@ float
+ 717              		.loc 1 123 18 view .LVU156
+ 718 001a EB60     		str	r3, [r5, #12]	@ float
+ 124:user/robot.cpp **** 
+ 125:user/robot.cpp ****     HAL_Delay(500); // wait servo reset
+ 719              		.loc 1 125 5 is_stmt 1 view .LVU157
+ 720              		.loc 1 125 14 is_stmt 0 view .LVU158
+ 721 001c 4FF4FA70 		mov	r0, #500
+ 722 0020 FFF7FEFF 		bl	HAL_Delay
+ 723              	.LVL55:
+ 126:user/robot.cpp **** }
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 17
+
+
+ 724              		.loc 1 126 1 view .LVU159
+ 725 0024 38BD     		pop	{r3, r4, r5, pc}
+ 726              		.loc 1 126 1 view .LVU160
+ 727              		.cfi_endproc
+ 728              	.LFE162:
+ 729              		.fnend
+ 731              		.section	.text._ZN5Robot17SetJointInitAngleERNS_13JointStatus_tEf,"ax",%progbits
+ 732              		.align	1
+ 733              		.global	_ZN5Robot17SetJointInitAngleERNS_13JointStatus_tEf
+ 734              		.syntax unified
+ 735              		.thumb
+ 736              		.thumb_func
+ 738              	_ZN5Robot17SetJointInitAngleERNS_13JointStatus_tEf:
+ 739              		.fnstart
+ 740              	.LVL56:
+ 741              	.LFB163:
+ 127:user/robot.cpp **** 
+ 128:user/robot.cpp **** 
+ 129:user/robot.cpp **** void Robot::SetJointInitAngle(Robot::JointStatus_t &_joint, float _angle)
+ 130:user/robot.cpp **** {
+ 742              		.loc 1 130 1 is_stmt 1 view -0
+ 743              		.cfi_startproc
+ 744              		@ args = 0, pretend = 0, frame = 8
+ 745              		@ frame_needed = 0, uses_anonymous_args = 0
+ 746              		.loc 1 130 1 is_stmt 0 view .LVU162
+ 747 0000 30B5     		push	{r4, r5, lr}
+ 748              		.save {r4, r5, lr}
+ 749              	.LCFI14:
+ 750              		.cfi_def_cfa_offset 12
+ 751              		.cfi_offset 4, -12
+ 752              		.cfi_offset 5, -8
+ 753              		.cfi_offset 14, -4
+ 754              		.pad #12
+ 755 0002 83B0     		sub	sp, sp, #12
+ 756              	.LCFI15:
+ 757              		.cfi_def_cfa_offset 24
+ 758 0004 0546     		mov	r5, r0
+ 759 0006 0C46     		mov	r4, r1
+ 760 0008 8DED010A 		vstr.32	s0, [sp, #4]
+ 131:user/robot.cpp ****     float sAngle = _joint.inverted ?
+ 761              		.loc 1 131 5 is_stmt 1 view .LVU163
+ 762              		.loc 1 131 27 is_stmt 0 view .LVU164
+ 763 000c 0B7E     		ldrb	r3, [r1, #24]	@ zero_extendqisi2
+ 764              		.loc 1 131 36 view .LVU165
+ 765 000e 33B3     		cbz	r3, .L55
+ 132:user/robot.cpp ****                    (_angle - _joint.modelAngelMin) /
+ 766              		.loc 1 132 37 discriminator 1 view .LVU166
+ 767 0010 91ED047A 		vldr.32	s14, [r1, #16]
+ 768              		.loc 1 132 28 discriminator 1 view .LVU167
+ 769 0014 70EE476A 		vsub.f32	s13, s0, s14
+ 133:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) *
+ 770              		.loc 1 133 28 discriminator 1 view .LVU168
+ 771 0018 D1ED057A 		vldr.32	s15, [r1, #20]
+ 772              		.loc 1 133 42 discriminator 1 view .LVU169
+ 773 001c 77EEC77A 		vsub.f32	s15, s15, s14
+ 132:user/robot.cpp ****                    (_angle - _joint.modelAngelMin) /
+ 774              		.loc 1 132 52 discriminator 1 view .LVU170
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 18
+
+
+ 775 0020 86EEA77A 		vdiv.f32	s14, s13, s15
+ 134:user/robot.cpp ****                    (_joint.angleMin - _joint.angleMax) + _joint.angleMax :
+ 776              		.loc 1 134 28 discriminator 1 view .LVU171
+ 777 0024 D1ED016A 		vldr.32	s13, [r1, #4]
+ 778              		.loc 1 134 46 discriminator 1 view .LVU172
+ 779 0028 D1ED027A 		vldr.32	s15, [r1, #8]
+ 780              		.loc 1 134 37 discriminator 1 view .LVU173
+ 781 002c 76EEE76A 		vsub.f32	s13, s13, s15
+ 133:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) *
+ 782              		.loc 1 133 66 discriminator 1 view .LVU174
+ 783 0030 27EE267A 		vmul.f32	s14, s14, s13
+ 131:user/robot.cpp ****                    (_angle - _joint.modelAngelMin) /
+ 784              		.loc 1 131 36 discriminator 1 view .LVU175
+ 785 0034 77EE877A 		vadd.f32	s15, s15, s14
+ 786              	.L56:
+ 787              	.LVL57:
+ 135:user/robot.cpp ****                    (_angle - _joint.modelAngelMin) /
+ 136:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) *
+ 137:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) + _joint.angleMin;
+ 138:user/robot.cpp **** 
+ 139:user/robot.cpp **** 
+ 140:user/robot.cpp ****     if (sAngle >= _joint.angleMin && sAngle <= _joint.angleMax)
+ 788              		.loc 1 140 5 is_stmt 1 discriminator 4 view .LVU176
+ 789              	.LBB9:
+ 790              		.loc 1 140 26 is_stmt 0 discriminator 4 view .LVU177
+ 791 0038 94ED017A 		vldr.32	s14, [r4, #4]
+ 792              		.loc 1 140 5 discriminator 4 view .LVU178
+ 793 003c B4EEE77A 		vcmpe.f32	s14, s15
+ 794 0040 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 795 0044 36D8     		bhi	.L54
+ 796              		.loc 1 140 55 discriminator 1 view .LVU179
+ 797 0046 94ED027A 		vldr.32	s14, [r4, #8]
+ 798              		.loc 1 140 35 discriminator 1 view .LVU180
+ 799 004a B4EEE77A 		vcmpe.f32	s14, s15
+ 800 004e F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 801 0052 2FDB     		blt	.L54
+ 802              	.LBB10:
+ 141:user/robot.cpp ****     {
+ 142:user/robot.cpp ****         auto* b = (unsigned char*) (&_angle);
+ 803              		.loc 1 142 9 is_stmt 1 view .LVU181
+ 804              	.LVL58:
+ 143:user/robot.cpp **** 
+ 144:user/robot.cpp ****         i2cTxData[0] = 0x27;
+ 805              		.loc 1 144 9 view .LVU182
+ 806              		.loc 1 144 22 is_stmt 0 view .LVU183
+ 807 0054 2723     		movs	r3, #39
+ 808 0056 85F8DC30 		strb	r3, [r5, #220]
+ 145:user/robot.cpp ****         for (int i = 0; i < 4; i++)
+ 809              		.loc 1 145 9 is_stmt 1 view .LVU184
+ 810              	.LVL59:
+ 811              	.LBB11:
+ 812              		.loc 1 145 18 is_stmt 0 view .LVU185
+ 813 005a 0023     		movs	r3, #0
+ 814 005c 1DE0     		b	.L61
+ 815              	.LVL60:
+ 816              	.L55:
+ 817              		.loc 1 145 18 view .LVU186
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 19
+
+
+ 818              	.LBE11:
+ 819              	.LBE10:
+ 820              	.LBE9:
+ 135:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) *
+ 821              		.loc 1 135 37 discriminator 2 view .LVU187
+ 822 005e 91ED047A 		vldr.32	s14, [r1, #16]
+ 135:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) *
+ 823              		.loc 1 135 28 discriminator 2 view .LVU188
+ 824 0062 DDED016A 		vldr.32	s13, [sp, #4]
+ 825 0066 76EEC76A 		vsub.f32	s13, s13, s14
+ 136:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) + _joint.angleMin;
+ 826              		.loc 1 136 28 discriminator 2 view .LVU189
+ 827 006a D1ED057A 		vldr.32	s15, [r1, #20]
+ 136:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) + _joint.angleMin;
+ 828              		.loc 1 136 42 discriminator 2 view .LVU190
+ 829 006e 77EEC77A 		vsub.f32	s15, s15, s14
+ 135:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) *
+ 830              		.loc 1 135 52 discriminator 2 view .LVU191
+ 831 0072 86EEA77A 		vdiv.f32	s14, s13, s15
+ 137:user/robot.cpp **** 
+ 832              		.loc 1 137 28 discriminator 2 view .LVU192
+ 833 0076 D1ED026A 		vldr.32	s13, [r1, #8]
+ 137:user/robot.cpp **** 
+ 834              		.loc 1 137 46 discriminator 2 view .LVU193
+ 835 007a D1ED017A 		vldr.32	s15, [r1, #4]
+ 137:user/robot.cpp **** 
+ 836              		.loc 1 137 37 discriminator 2 view .LVU194
+ 837 007e 76EEE76A 		vsub.f32	s13, s13, s15
+ 136:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) + _joint.angleMin;
+ 838              		.loc 1 136 66 discriminator 2 view .LVU195
+ 839 0082 27EE267A 		vmul.f32	s14, s14, s13
+ 131:user/robot.cpp ****                    (_angle - _joint.modelAngelMin) /
+ 840              		.loc 1 131 36 discriminator 2 view .LVU196
+ 841 0086 77EE877A 		vadd.f32	s15, s15, s14
+ 842 008a D5E7     		b	.L56
+ 843              	.LVL61:
+ 844              	.L65:
+ 845              	.LBB14:
+ 846              	.LBB13:
+ 847              	.LBB12:
+ 146:user/robot.cpp ****             i2cTxData[i + 1] = *(b + i);
+ 848              		.loc 1 146 13 is_stmt 1 discriminator 2 view .LVU197
+ 849              		.loc 1 146 36 is_stmt 0 discriminator 2 view .LVU198
+ 850 008c 01AA     		add	r2, sp, #4
+ 851              	.LVL62:
+ 852              		.loc 1 146 36 discriminator 2 view .LVU199
+ 853 008e 1A44     		add	r2, r2, r3
+ 854              	.LVL63:
+ 855              		.loc 1 146 25 discriminator 2 view .LVU200
+ 856 0090 0133     		adds	r3, r3, #1
+ 857              	.LVL64:
+ 858              		.loc 1 146 32 discriminator 2 view .LVU201
+ 859 0092 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
+ 860              		.loc 1 146 30 discriminator 2 view .LVU202
+ 861 0094 EA18     		adds	r2, r5, r3
+ 862 0096 82F8DC10 		strb	r1, [r2, #220]
+ 145:user/robot.cpp ****             i2cTxData[i + 1] = *(b + i);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 20
+
+
+ 863              		.loc 1 145 9 is_stmt 1 discriminator 2 view .LVU203
+ 864              	.LVL65:
+ 865              	.L61:
+ 145:user/robot.cpp ****             i2cTxData[i + 1] = *(b + i);
+ 866              		.loc 1 145 27 discriminator 3 view .LVU204
+ 867 009a 032B     		cmp	r3, #3
+ 868 009c F6DD     		ble	.L65
+ 869              	.LBE12:
+ 147:user/robot.cpp **** 
+ 148:user/robot.cpp ****         TransmitAndReceiveI2cPacket(_joint.id);
+ 870              		.loc 1 148 9 view .LVU205
+ 871              		.loc 1 148 36 is_stmt 0 view .LVU206
+ 872 009e 2178     		ldrb	r1, [r4]	@ zero_extendqisi2
+ 873 00a0 2846     		mov	r0, r5
+ 874              	.LVL66:
+ 875              		.loc 1 148 36 view .LVU207
+ 876 00a2 FFF7FEFF 		bl	_ZN5Robot27TransmitAndReceiveI2cPacketEh
+ 877              	.LVL67:
+ 149:user/robot.cpp **** 
+ 150:user/robot.cpp ****         _joint.angle = *(float*) (i2cRxData + 1);
+ 878              		.loc 1 150 9 is_stmt 1 view .LVU208
+ 879              		.loc 1 150 24 is_stmt 0 view .LVU209
+ 880 00a6 D535     		adds	r5, r5, #213
+ 881              	.LVL68:
+ 882              		.loc 1 150 24 view .LVU210
+ 883 00a8 2B68     		ldr	r3, [r5]	@ float
+ 884              		.loc 1 150 22 view .LVU211
+ 885 00aa E360     		str	r3, [r4, #12]	@ float
+ 151:user/robot.cpp **** 
+ 152:user/robot.cpp ****         HAL_Delay(500); // wait servo reset
+ 886              		.loc 1 152 9 is_stmt 1 view .LVU212
+ 887              		.loc 1 152 18 is_stmt 0 view .LVU213
+ 888 00ac 4FF4FA70 		mov	r0, #500
+ 889 00b0 FFF7FEFF 		bl	HAL_Delay
+ 890              	.LVL69:
+ 891              	.L54:
+ 892              		.loc 1 152 18 view .LVU214
+ 893              	.LBE13:
+ 894              	.LBE14:
+ 153:user/robot.cpp ****     }
+ 154:user/robot.cpp **** }
+ 895              		.loc 1 154 1 view .LVU215
+ 896 00b4 03B0     		add	sp, sp, #12
+ 897              	.LCFI16:
+ 898              		.cfi_def_cfa_offset 12
+ 899              		@ sp needed
+ 900 00b6 30BD     		pop	{r4, r5, pc}
+ 901              		.loc 1 154 1 view .LVU216
+ 902              		.cfi_endproc
+ 903              	.LFE163:
+ 904              		.fnend
+ 906              		.section	.text._ZN5Robot10SetJointKpERNS_13JointStatus_tEf,"ax",%progbits
+ 907              		.align	1
+ 908              		.global	_ZN5Robot10SetJointKpERNS_13JointStatus_tEf
+ 909              		.syntax unified
+ 910              		.thumb
+ 911              		.thumb_func
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 21
+
+
+ 913              	_ZN5Robot10SetJointKpERNS_13JointStatus_tEf:
+ 914              		.fnstart
+ 915              	.LVL70:
+ 916              	.LFB164:
+ 155:user/robot.cpp **** 
+ 156:user/robot.cpp **** 
+ 157:user/robot.cpp **** void Robot::SetJointKp(Robot::JointStatus_t &_joint, float _value)
+ 158:user/robot.cpp **** {
+ 917              		.loc 1 158 1 is_stmt 1 view -0
+ 918              		.cfi_startproc
+ 919              		@ args = 0, pretend = 0, frame = 8
+ 920              		@ frame_needed = 0, uses_anonymous_args = 0
+ 921              		.loc 1 158 1 is_stmt 0 view .LVU218
+ 922 0000 30B5     		push	{r4, r5, lr}
+ 923              		.save {r4, r5, lr}
+ 924              	.LCFI17:
+ 925              		.cfi_def_cfa_offset 12
+ 926              		.cfi_offset 4, -12
+ 927              		.cfi_offset 5, -8
+ 928              		.cfi_offset 14, -4
+ 929              		.pad #12
+ 930 0002 83B0     		sub	sp, sp, #12
+ 931              	.LCFI18:
+ 932              		.cfi_def_cfa_offset 24
+ 933 0004 0446     		mov	r4, r0
+ 934 0006 0D46     		mov	r5, r1
+ 935 0008 8DED010A 		vstr.32	s0, [sp, #4]
+ 159:user/robot.cpp ****     auto* b = (unsigned char*) (&_value);
+ 936              		.loc 1 159 5 is_stmt 1 view .LVU219
+ 937              	.LVL71:
+ 160:user/robot.cpp **** 
+ 161:user/robot.cpp ****     i2cTxData[0] = 0x22;
+ 938              		.loc 1 161 5 view .LVU220
+ 939              		.loc 1 161 18 is_stmt 0 view .LVU221
+ 940 000c 2223     		movs	r3, #34
+ 941 000e 80F8DC30 		strb	r3, [r0, #220]
+ 162:user/robot.cpp ****     for (int i = 0; i < 4; i++)
+ 942              		.loc 1 162 5 is_stmt 1 view .LVU222
+ 943              	.LVL72:
+ 944              	.LBB15:
+ 945              		.loc 1 162 14 is_stmt 0 view .LVU223
+ 946 0012 0023     		movs	r3, #0
+ 947 0014 06E0     		b	.L68
+ 948              	.LVL73:
+ 949              	.L70:
+ 163:user/robot.cpp ****         i2cTxData[i + 1] = *(b + i);
+ 950              		.loc 1 163 9 is_stmt 1 discriminator 2 view .LVU224
+ 951              		.loc 1 163 32 is_stmt 0 discriminator 2 view .LVU225
+ 952 0016 01AA     		add	r2, sp, #4
+ 953              	.LVL74:
+ 954              		.loc 1 163 32 discriminator 2 view .LVU226
+ 955 0018 1A44     		add	r2, r2, r3
+ 956              	.LVL75:
+ 957              		.loc 1 163 21 discriminator 2 view .LVU227
+ 958 001a 0133     		adds	r3, r3, #1
+ 959              	.LVL76:
+ 960              		.loc 1 163 28 discriminator 2 view .LVU228
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 22
+
+
+ 961 001c 1078     		ldrb	r0, [r2]	@ zero_extendqisi2
+ 962              		.loc 1 163 26 discriminator 2 view .LVU229
+ 963 001e E218     		adds	r2, r4, r3
+ 964 0020 82F8DC00 		strb	r0, [r2, #220]
+ 162:user/robot.cpp ****     for (int i = 0; i < 4; i++)
+ 965              		.loc 1 162 5 is_stmt 1 discriminator 2 view .LVU230
+ 966              	.LVL77:
+ 967              	.L68:
+ 162:user/robot.cpp ****     for (int i = 0; i < 4; i++)
+ 968              		.loc 1 162 23 discriminator 3 view .LVU231
+ 969 0024 032B     		cmp	r3, #3
+ 970 0026 F6DD     		ble	.L70
+ 971              	.LBE15:
+ 164:user/robot.cpp **** 
+ 165:user/robot.cpp ****     TransmitAndReceiveI2cPacket(_joint.id);
+ 972              		.loc 1 165 5 view .LVU232
+ 973              		.loc 1 165 32 is_stmt 0 view .LVU233
+ 974 0028 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+ 975              	.LVL78:
+ 976              		.loc 1 165 32 view .LVU234
+ 977 002a 2046     		mov	r0, r4
+ 978 002c FFF7FEFF 		bl	_ZN5Robot27TransmitAndReceiveI2cPacketEh
+ 979              	.LVL79:
+ 166:user/robot.cpp **** 
+ 167:user/robot.cpp ****     _joint.angle = *(float*) (i2cRxData + 1);
+ 980              		.loc 1 167 5 is_stmt 1 view .LVU235
+ 981              		.loc 1 167 20 is_stmt 0 view .LVU236
+ 982 0030 D534     		adds	r4, r4, #213
+ 983              	.LVL80:
+ 984              		.loc 1 167 20 view .LVU237
+ 985 0032 2368     		ldr	r3, [r4]	@ float
+ 986              		.loc 1 167 18 view .LVU238
+ 987 0034 EB60     		str	r3, [r5, #12]	@ float
+ 168:user/robot.cpp **** 
+ 169:user/robot.cpp ****     HAL_Delay(500); // wait servo reset
+ 988              		.loc 1 169 5 is_stmt 1 view .LVU239
+ 989              		.loc 1 169 14 is_stmt 0 view .LVU240
+ 990 0036 4FF4FA70 		mov	r0, #500
+ 991 003a FFF7FEFF 		bl	HAL_Delay
+ 992              	.LVL81:
+ 170:user/robot.cpp **** }
+ 993              		.loc 1 170 1 view .LVU241
+ 994 003e 03B0     		add	sp, sp, #12
+ 995              	.LCFI19:
+ 996              		.cfi_def_cfa_offset 12
+ 997              		@ sp needed
+ 998 0040 30BD     		pop	{r4, r5, pc}
+ 999              		.loc 1 170 1 view .LVU242
+ 1000              		.cfi_endproc
+ 1001              	.LFE164:
+ 1002              		.fnend
+ 1004              		.section	.text._ZN5Robot10SetJointKiERNS_13JointStatus_tEf,"ax",%progbits
+ 1005              		.align	1
+ 1006              		.global	_ZN5Robot10SetJointKiERNS_13JointStatus_tEf
+ 1007              		.syntax unified
+ 1008              		.thumb
+ 1009              		.thumb_func
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 23
+
+
+ 1011              	_ZN5Robot10SetJointKiERNS_13JointStatus_tEf:
+ 1012              		.fnstart
+ 1013              	.LVL82:
+ 1014              	.LFB165:
+ 171:user/robot.cpp **** 
+ 172:user/robot.cpp **** 
+ 173:user/robot.cpp **** void Robot::SetJointKi(Robot::JointStatus_t &_joint, float _value)
+ 174:user/robot.cpp **** {
+ 1015              		.loc 1 174 1 is_stmt 1 view -0
+ 1016              		.cfi_startproc
+ 1017              		@ args = 0, pretend = 0, frame = 8
+ 1018              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1019              		.loc 1 174 1 is_stmt 0 view .LVU244
+ 1020 0000 30B5     		push	{r4, r5, lr}
+ 1021              		.save {r4, r5, lr}
+ 1022              	.LCFI20:
+ 1023              		.cfi_def_cfa_offset 12
+ 1024              		.cfi_offset 4, -12
+ 1025              		.cfi_offset 5, -8
+ 1026              		.cfi_offset 14, -4
+ 1027              		.pad #12
+ 1028 0002 83B0     		sub	sp, sp, #12
+ 1029              	.LCFI21:
+ 1030              		.cfi_def_cfa_offset 24
+ 1031 0004 0446     		mov	r4, r0
+ 1032 0006 0D46     		mov	r5, r1
+ 1033 0008 8DED010A 		vstr.32	s0, [sp, #4]
+ 175:user/robot.cpp ****     auto* b = (unsigned char*) (&_value);
+ 1034              		.loc 1 175 5 is_stmt 1 view .LVU245
+ 1035              	.LVL83:
+ 176:user/robot.cpp **** 
+ 177:user/robot.cpp ****     i2cTxData[0] = 0x23;
+ 1036              		.loc 1 177 5 view .LVU246
+ 1037              		.loc 1 177 18 is_stmt 0 view .LVU247
+ 1038 000c 2323     		movs	r3, #35
+ 1039 000e 80F8DC30 		strb	r3, [r0, #220]
+ 178:user/robot.cpp ****     for (int i = 0; i < 4; i++)
+ 1040              		.loc 1 178 5 is_stmt 1 view .LVU248
+ 1041              	.LVL84:
+ 1042              	.LBB16:
+ 1043              		.loc 1 178 14 is_stmt 0 view .LVU249
+ 1044 0012 0023     		movs	r3, #0
+ 1045 0014 06E0     		b	.L73
+ 1046              	.LVL85:
+ 1047              	.L75:
+ 179:user/robot.cpp ****         i2cTxData[i + 1] = *(b + i);
+ 1048              		.loc 1 179 9 is_stmt 1 discriminator 2 view .LVU250
+ 1049              		.loc 1 179 32 is_stmt 0 discriminator 2 view .LVU251
+ 1050 0016 01AA     		add	r2, sp, #4
+ 1051              	.LVL86:
+ 1052              		.loc 1 179 32 discriminator 2 view .LVU252
+ 1053 0018 1A44     		add	r2, r2, r3
+ 1054              	.LVL87:
+ 1055              		.loc 1 179 21 discriminator 2 view .LVU253
+ 1056 001a 0133     		adds	r3, r3, #1
+ 1057              	.LVL88:
+ 1058              		.loc 1 179 28 discriminator 2 view .LVU254
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 24
+
+
+ 1059 001c 1078     		ldrb	r0, [r2]	@ zero_extendqisi2
+ 1060              		.loc 1 179 26 discriminator 2 view .LVU255
+ 1061 001e E218     		adds	r2, r4, r3
+ 1062 0020 82F8DC00 		strb	r0, [r2, #220]
+ 178:user/robot.cpp ****     for (int i = 0; i < 4; i++)
+ 1063              		.loc 1 178 5 is_stmt 1 discriminator 2 view .LVU256
+ 1064              	.LVL89:
+ 1065              	.L73:
+ 178:user/robot.cpp ****     for (int i = 0; i < 4; i++)
+ 1066              		.loc 1 178 23 discriminator 3 view .LVU257
+ 1067 0024 032B     		cmp	r3, #3
+ 1068 0026 F6DD     		ble	.L75
+ 1069              	.LBE16:
+ 180:user/robot.cpp **** 
+ 181:user/robot.cpp ****     TransmitAndReceiveI2cPacket(_joint.id);
+ 1070              		.loc 1 181 5 view .LVU258
+ 1071              		.loc 1 181 32 is_stmt 0 view .LVU259
+ 1072 0028 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+ 1073              	.LVL90:
+ 1074              		.loc 1 181 32 view .LVU260
+ 1075 002a 2046     		mov	r0, r4
+ 1076 002c FFF7FEFF 		bl	_ZN5Robot27TransmitAndReceiveI2cPacketEh
+ 1077              	.LVL91:
+ 182:user/robot.cpp **** 
+ 183:user/robot.cpp ****     _joint.angle = *(float*) (i2cRxData + 1);
+ 1078              		.loc 1 183 5 is_stmt 1 view .LVU261
+ 1079              		.loc 1 183 20 is_stmt 0 view .LVU262
+ 1080 0030 D534     		adds	r4, r4, #213
+ 1081              	.LVL92:
+ 1082              		.loc 1 183 20 view .LVU263
+ 1083 0032 2368     		ldr	r3, [r4]	@ float
+ 1084              		.loc 1 183 18 view .LVU264
+ 1085 0034 EB60     		str	r3, [r5, #12]	@ float
+ 184:user/robot.cpp **** 
+ 185:user/robot.cpp ****     HAL_Delay(500); // wait servo reset
+ 1086              		.loc 1 185 5 is_stmt 1 view .LVU265
+ 1087              		.loc 1 185 14 is_stmt 0 view .LVU266
+ 1088 0036 4FF4FA70 		mov	r0, #500
+ 1089 003a FFF7FEFF 		bl	HAL_Delay
+ 1090              	.LVL93:
+ 186:user/robot.cpp **** }
+ 1091              		.loc 1 186 1 view .LVU267
+ 1092 003e 03B0     		add	sp, sp, #12
+ 1093              	.LCFI22:
+ 1094              		.cfi_def_cfa_offset 12
+ 1095              		@ sp needed
+ 1096 0040 30BD     		pop	{r4, r5, pc}
+ 1097              		.loc 1 186 1 view .LVU268
+ 1098              		.cfi_endproc
+ 1099              	.LFE165:
+ 1100              		.fnend
+ 1102              		.section	.text._ZN5Robot10SetJointKvERNS_13JointStatus_tEf,"ax",%progbits
+ 1103              		.align	1
+ 1104              		.global	_ZN5Robot10SetJointKvERNS_13JointStatus_tEf
+ 1105              		.syntax unified
+ 1106              		.thumb
+ 1107              		.thumb_func
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 25
+
+
+ 1109              	_ZN5Robot10SetJointKvERNS_13JointStatus_tEf:
+ 1110              		.fnstart
+ 1111              	.LVL94:
+ 1112              	.LFB166:
+ 187:user/robot.cpp **** 
+ 188:user/robot.cpp **** 
+ 189:user/robot.cpp **** void Robot::SetJointKv(Robot::JointStatus_t &_joint, float _value)
+ 190:user/robot.cpp **** {
+ 1113              		.loc 1 190 1 is_stmt 1 view -0
+ 1114              		.cfi_startproc
+ 1115              		@ args = 0, pretend = 0, frame = 8
+ 1116              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1117              		.loc 1 190 1 is_stmt 0 view .LVU270
+ 1118 0000 30B5     		push	{r4, r5, lr}
+ 1119              		.save {r4, r5, lr}
+ 1120              	.LCFI23:
+ 1121              		.cfi_def_cfa_offset 12
+ 1122              		.cfi_offset 4, -12
+ 1123              		.cfi_offset 5, -8
+ 1124              		.cfi_offset 14, -4
+ 1125              		.pad #12
+ 1126 0002 83B0     		sub	sp, sp, #12
+ 1127              	.LCFI24:
+ 1128              		.cfi_def_cfa_offset 24
+ 1129 0004 0446     		mov	r4, r0
+ 1130 0006 0D46     		mov	r5, r1
+ 1131 0008 8DED010A 		vstr.32	s0, [sp, #4]
+ 191:user/robot.cpp ****     auto* b = (unsigned char*) (&_value);
+ 1132              		.loc 1 191 5 is_stmt 1 view .LVU271
+ 1133              	.LVL95:
+ 192:user/robot.cpp **** 
+ 193:user/robot.cpp ****     i2cTxData[0] = 0x24;
+ 1134              		.loc 1 193 5 view .LVU272
+ 1135              		.loc 1 193 18 is_stmt 0 view .LVU273
+ 1136 000c 2423     		movs	r3, #36
+ 1137 000e 80F8DC30 		strb	r3, [r0, #220]
+ 194:user/robot.cpp ****     for (int i = 0; i < 4; i++)
+ 1138              		.loc 1 194 5 is_stmt 1 view .LVU274
+ 1139              	.LVL96:
+ 1140              	.LBB17:
+ 1141              		.loc 1 194 14 is_stmt 0 view .LVU275
+ 1142 0012 0023     		movs	r3, #0
+ 1143 0014 06E0     		b	.L78
+ 1144              	.LVL97:
+ 1145              	.L80:
+ 195:user/robot.cpp ****         i2cTxData[i + 1] = *(b + i);
+ 1146              		.loc 1 195 9 is_stmt 1 discriminator 2 view .LVU276
+ 1147              		.loc 1 195 32 is_stmt 0 discriminator 2 view .LVU277
+ 1148 0016 01AA     		add	r2, sp, #4
+ 1149              	.LVL98:
+ 1150              		.loc 1 195 32 discriminator 2 view .LVU278
+ 1151 0018 1A44     		add	r2, r2, r3
+ 1152              	.LVL99:
+ 1153              		.loc 1 195 21 discriminator 2 view .LVU279
+ 1154 001a 0133     		adds	r3, r3, #1
+ 1155              	.LVL100:
+ 1156              		.loc 1 195 28 discriminator 2 view .LVU280
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 26
+
+
+ 1157 001c 1078     		ldrb	r0, [r2]	@ zero_extendqisi2
+ 1158              		.loc 1 195 26 discriminator 2 view .LVU281
+ 1159 001e E218     		adds	r2, r4, r3
+ 1160 0020 82F8DC00 		strb	r0, [r2, #220]
+ 194:user/robot.cpp ****     for (int i = 0; i < 4; i++)
+ 1161              		.loc 1 194 5 is_stmt 1 discriminator 2 view .LVU282
+ 1162              	.LVL101:
+ 1163              	.L78:
+ 194:user/robot.cpp ****     for (int i = 0; i < 4; i++)
+ 1164              		.loc 1 194 23 discriminator 3 view .LVU283
+ 1165 0024 032B     		cmp	r3, #3
+ 1166 0026 F6DD     		ble	.L80
+ 1167              	.LBE17:
+ 196:user/robot.cpp **** 
+ 197:user/robot.cpp ****     TransmitAndReceiveI2cPacket(_joint.id);
+ 1168              		.loc 1 197 5 view .LVU284
+ 1169              		.loc 1 197 32 is_stmt 0 view .LVU285
+ 1170 0028 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+ 1171              	.LVL102:
+ 1172              		.loc 1 197 32 view .LVU286
+ 1173 002a 2046     		mov	r0, r4
+ 1174 002c FFF7FEFF 		bl	_ZN5Robot27TransmitAndReceiveI2cPacketEh
+ 1175              	.LVL103:
+ 198:user/robot.cpp **** 
+ 199:user/robot.cpp ****     _joint.angle = *(float*) (i2cRxData + 1);
+ 1176              		.loc 1 199 5 is_stmt 1 view .LVU287
+ 1177              		.loc 1 199 20 is_stmt 0 view .LVU288
+ 1178 0030 D534     		adds	r4, r4, #213
+ 1179              	.LVL104:
+ 1180              		.loc 1 199 20 view .LVU289
+ 1181 0032 2368     		ldr	r3, [r4]	@ float
+ 1182              		.loc 1 199 18 view .LVU290
+ 1183 0034 EB60     		str	r3, [r5, #12]	@ float
+ 200:user/robot.cpp **** 
+ 201:user/robot.cpp ****     HAL_Delay(500); // wait servo reset
+ 1184              		.loc 1 201 5 is_stmt 1 view .LVU291
+ 1185              		.loc 1 201 14 is_stmt 0 view .LVU292
+ 1186 0036 4FF4FA70 		mov	r0, #500
+ 1187 003a FFF7FEFF 		bl	HAL_Delay
+ 1188              	.LVL105:
+ 202:user/robot.cpp **** }
+ 1189              		.loc 1 202 1 view .LVU293
+ 1190 003e 03B0     		add	sp, sp, #12
+ 1191              	.LCFI25:
+ 1192              		.cfi_def_cfa_offset 12
+ 1193              		@ sp needed
+ 1194 0040 30BD     		pop	{r4, r5, pc}
+ 1195              		.loc 1 202 1 view .LVU294
+ 1196              		.cfi_endproc
+ 1197              	.LFE166:
+ 1198              		.fnend
+ 1200              		.section	.text._ZN5Robot10SetJointKdERNS_13JointStatus_tEf,"ax",%progbits
+ 1201              		.align	1
+ 1202              		.global	_ZN5Robot10SetJointKdERNS_13JointStatus_tEf
+ 1203              		.syntax unified
+ 1204              		.thumb
+ 1205              		.thumb_func
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 27
+
+
+ 1207              	_ZN5Robot10SetJointKdERNS_13JointStatus_tEf:
+ 1208              		.fnstart
+ 1209              	.LVL106:
+ 1210              	.LFB167:
+ 203:user/robot.cpp **** 
+ 204:user/robot.cpp **** 
+ 205:user/robot.cpp **** void Robot::SetJointKd(Robot::JointStatus_t &_joint, float _value)
+ 206:user/robot.cpp **** {
+ 1211              		.loc 1 206 1 is_stmt 1 view -0
+ 1212              		.cfi_startproc
+ 1213              		@ args = 0, pretend = 0, frame = 8
+ 1214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1215              		.loc 1 206 1 is_stmt 0 view .LVU296
+ 1216 0000 30B5     		push	{r4, r5, lr}
+ 1217              		.save {r4, r5, lr}
+ 1218              	.LCFI26:
+ 1219              		.cfi_def_cfa_offset 12
+ 1220              		.cfi_offset 4, -12
+ 1221              		.cfi_offset 5, -8
+ 1222              		.cfi_offset 14, -4
+ 1223              		.pad #12
+ 1224 0002 83B0     		sub	sp, sp, #12
+ 1225              	.LCFI27:
+ 1226              		.cfi_def_cfa_offset 24
+ 1227 0004 0446     		mov	r4, r0
+ 1228 0006 0D46     		mov	r5, r1
+ 1229 0008 8DED010A 		vstr.32	s0, [sp, #4]
+ 207:user/robot.cpp ****     auto* b = (unsigned char*) (&_value);
+ 1230              		.loc 1 207 5 is_stmt 1 view .LVU297
+ 1231              	.LVL107:
+ 208:user/robot.cpp **** 
+ 209:user/robot.cpp ****     i2cTxData[0] = 0x25;
+ 1232              		.loc 1 209 5 view .LVU298
+ 1233              		.loc 1 209 18 is_stmt 0 view .LVU299
+ 1234 000c 2523     		movs	r3, #37
+ 1235 000e 80F8DC30 		strb	r3, [r0, #220]
+ 210:user/robot.cpp ****     for (int i = 0; i < 4; i++)
+ 1236              		.loc 1 210 5 is_stmt 1 view .LVU300
+ 1237              	.LVL108:
+ 1238              	.LBB18:
+ 1239              		.loc 1 210 14 is_stmt 0 view .LVU301
+ 1240 0012 0023     		movs	r3, #0
+ 1241 0014 06E0     		b	.L83
+ 1242              	.LVL109:
+ 1243              	.L85:
+ 211:user/robot.cpp ****         i2cTxData[i + 1] = *(b + i);
+ 1244              		.loc 1 211 9 is_stmt 1 discriminator 2 view .LVU302
+ 1245              		.loc 1 211 32 is_stmt 0 discriminator 2 view .LVU303
+ 1246 0016 01AA     		add	r2, sp, #4
+ 1247              	.LVL110:
+ 1248              		.loc 1 211 32 discriminator 2 view .LVU304
+ 1249 0018 1A44     		add	r2, r2, r3
+ 1250              	.LVL111:
+ 1251              		.loc 1 211 21 discriminator 2 view .LVU305
+ 1252 001a 0133     		adds	r3, r3, #1
+ 1253              	.LVL112:
+ 1254              		.loc 1 211 28 discriminator 2 view .LVU306
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 28
+
+
+ 1255 001c 1078     		ldrb	r0, [r2]	@ zero_extendqisi2
+ 1256              		.loc 1 211 26 discriminator 2 view .LVU307
+ 1257 001e E218     		adds	r2, r4, r3
+ 1258 0020 82F8DC00 		strb	r0, [r2, #220]
+ 210:user/robot.cpp ****     for (int i = 0; i < 4; i++)
+ 1259              		.loc 1 210 5 is_stmt 1 discriminator 2 view .LVU308
+ 1260              	.LVL113:
+ 1261              	.L83:
+ 210:user/robot.cpp ****     for (int i = 0; i < 4; i++)
+ 1262              		.loc 1 210 23 discriminator 3 view .LVU309
+ 1263 0024 032B     		cmp	r3, #3
+ 1264 0026 F6DD     		ble	.L85
+ 1265              	.LBE18:
+ 212:user/robot.cpp **** 
+ 213:user/robot.cpp ****     TransmitAndReceiveI2cPacket(_joint.id);
+ 1266              		.loc 1 213 5 view .LVU310
+ 1267              		.loc 1 213 32 is_stmt 0 view .LVU311
+ 1268 0028 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+ 1269              	.LVL114:
+ 1270              		.loc 1 213 32 view .LVU312
+ 1271 002a 2046     		mov	r0, r4
+ 1272 002c FFF7FEFF 		bl	_ZN5Robot27TransmitAndReceiveI2cPacketEh
+ 1273              	.LVL115:
+ 214:user/robot.cpp **** 
+ 215:user/robot.cpp ****     _joint.angle = *(float*) (i2cRxData + 1);
+ 1274              		.loc 1 215 5 is_stmt 1 view .LVU313
+ 1275              		.loc 1 215 20 is_stmt 0 view .LVU314
+ 1276 0030 D534     		adds	r4, r4, #213
+ 1277              	.LVL116:
+ 1278              		.loc 1 215 20 view .LVU315
+ 1279 0032 2368     		ldr	r3, [r4]	@ float
+ 1280              		.loc 1 215 18 view .LVU316
+ 1281 0034 EB60     		str	r3, [r5, #12]	@ float
+ 216:user/robot.cpp **** 
+ 217:user/robot.cpp ****     HAL_Delay(500); // wait servo reset
+ 1282              		.loc 1 217 5 is_stmt 1 view .LVU317
+ 1283              		.loc 1 217 14 is_stmt 0 view .LVU318
+ 1284 0036 4FF4FA70 		mov	r0, #500
+ 1285 003a FFF7FEFF 		bl	HAL_Delay
+ 1286              	.LVL117:
+ 218:user/robot.cpp **** }
+ 1287              		.loc 1 218 1 view .LVU319
+ 1288 003e 03B0     		add	sp, sp, #12
+ 1289              	.LCFI28:
+ 1290              		.cfi_def_cfa_offset 12
+ 1291              		@ sp needed
+ 1292 0040 30BD     		pop	{r4, r5, pc}
+ 1293              		.loc 1 218 1 view .LVU320
+ 1294              		.cfi_endproc
+ 1295              	.LFE167:
+ 1296              		.fnend
+ 1298              		.section	.text._ZN5Robot17GetExtraDataRxPtrEv,"ax",%progbits
+ 1299              		.align	1
+ 1300              		.global	_ZN5Robot17GetExtraDataRxPtrEv
+ 1301              		.syntax unified
+ 1302              		.thumb
+ 1303              		.thumb_func
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 29
+
+
+ 1305              	_ZN5Robot17GetExtraDataRxPtrEv:
+ 1306              		.fnstart
+ 1307              	.LVL118:
+ 1308              	.LFB168:
+ 219:user/robot.cpp **** 
+ 220:user/robot.cpp **** 
+ 221:user/robot.cpp **** uint8_t* Robot::GetExtraDataRxPtr()
+ 222:user/robot.cpp **** {
+ 1309              		.loc 1 222 1 is_stmt 1 view -0
+ 1310              		.cfi_startproc
+ 1311              		@ args = 0, pretend = 0, frame = 0
+ 1312              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1313              		.loc 1 222 1 is_stmt 0 view .LVU322
+ 1314 0000 08B5     		push	{r3, lr}
+ 1315              	.LCFI29:
+ 1316              		.cfi_def_cfa_offset 8
+ 1317              		.cfi_offset 3, -8
+ 1318              		.cfi_offset 14, -4
+ 223:user/robot.cpp ****     return GetLcdBufferPtr() + 60 * 240 * 3;
+ 1319              		.loc 1 223 5 is_stmt 1 view .LVU323
+ 1320              		.loc 1 223 27 is_stmt 0 view .LVU324
+ 1321 0002 FFF7FEFF 		bl	_ZN5Robot15GetLcdBufferPtrEv
+ 1322              	.LVL119:
+ 224:user/robot.cpp **** }
+ 1323              		.loc 1 224 1 view .LVU325
+ 1324 0006 00F52840 		add	r0, r0, #43008
+ 1325 000a C030     		adds	r0, r0, #192
+ 1326 000c 08BD     		pop	{r3, pc}
+ 1327              		.cfi_endproc
+ 1328              	.LFE168:
+ 1329              		.cantunwind
+ 1330              		.fnend
+ 1332              		.section	.text._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tE,"ax",%progbits
+ 1333              		.align	1
+ 1334              		.global	_ZN5Robot16UpdateJointAngleERNS_13JointStatus_tE
+ 1335              		.syntax unified
+ 1336              		.thumb
+ 1337              		.thumb_func
+ 1339              	_ZN5Robot16UpdateJointAngleERNS_13JointStatus_tE:
+ 1340              		.fnstart
+ 1341              	.LVL120:
+ 1342              	.LFB169:
+ 225:user/robot.cpp **** 
+ 226:user/robot.cpp **** 
+ 227:user/robot.cpp **** void Robot::UpdateJointAngle(Robot::JointStatus_t &_joint)
+ 228:user/robot.cpp **** {
+ 1343              		.loc 1 228 1 is_stmt 1 view -0
+ 1344              		.cfi_startproc
+ 1345              		@ args = 0, pretend = 0, frame = 0
+ 1346              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1347              		.loc 1 228 1 is_stmt 0 view .LVU327
+ 1348 0000 10B5     		push	{r4, lr}
+ 1349              		.save {r4, lr}
+ 1350              	.LCFI30:
+ 1351              		.cfi_def_cfa_offset 8
+ 1352              		.cfi_offset 4, -8
+ 1353              		.cfi_offset 14, -4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 30
+
+
+ 1354 0002 0C46     		mov	r4, r1
+ 229:user/robot.cpp ****     UpdateServoAngle(_joint);
+ 1355              		.loc 1 229 5 is_stmt 1 view .LVU328
+ 1356              		.loc 1 229 21 is_stmt 0 view .LVU329
+ 1357 0004 FFF7FEFF 		bl	_ZN5Robot16UpdateServoAngleERNS_13JointStatus_tE
+ 1358              	.LVL121:
+ 230:user/robot.cpp **** 
+ 231:user/robot.cpp ****     float jAngle = _joint.inverted ?
+ 1359              		.loc 1 231 5 is_stmt 1 view .LVU330
+ 1360              		.loc 1 231 27 is_stmt 0 view .LVU331
+ 1361 0008 237E     		ldrb	r3, [r4, #24]	@ zero_extendqisi2
+ 1362              		.loc 1 231 36 view .LVU332
+ 1363 000a C3B1     		cbz	r3, .L89
+ 232:user/robot.cpp ****                    (_joint.angleMax - _joint.angle) /
+ 1364              		.loc 1 232 28 discriminator 1 view .LVU333
+ 1365 000c D4ED027A 		vldr.32	s15, [r4, #8]
+ 1366              		.loc 1 232 46 discriminator 1 view .LVU334
+ 1367 0010 D4ED036A 		vldr.32	s13, [r4, #12]
+ 1368              		.loc 1 232 37 discriminator 1 view .LVU335
+ 1369 0014 77EEE66A 		vsub.f32	s13, s15, s13
+ 233:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) *
+ 1370              		.loc 1 233 46 discriminator 1 view .LVU336
+ 1371 0018 94ED017A 		vldr.32	s14, [r4, #4]
+ 1372              		.loc 1 233 37 discriminator 1 view .LVU337
+ 1373 001c 77EEC77A 		vsub.f32	s15, s15, s14
+ 232:user/robot.cpp ****                    (_joint.angleMax - _joint.angle) /
+ 1374              		.loc 1 232 53 discriminator 1 view .LVU338
+ 1375 0020 86EEA77A 		vdiv.f32	s14, s13, s15
+ 234:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) + _joint.modelAngelMin :
+ 1376              		.loc 1 234 28 discriminator 1 view .LVU339
+ 1377 0024 D4ED056A 		vldr.32	s13, [r4, #20]
+ 1378              		.loc 1 234 51 discriminator 1 view .LVU340
+ 1379 0028 D4ED047A 		vldr.32	s15, [r4, #16]
+ 1380              		.loc 1 234 42 discriminator 1 view .LVU341
+ 1381 002c 76EEE76A 		vsub.f32	s13, s13, s15
+ 233:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) *
+ 1382              		.loc 1 233 56 discriminator 1 view .LVU342
+ 1383 0030 27EE267A 		vmul.f32	s14, s14, s13
+ 231:user/robot.cpp ****                    (_joint.angleMax - _joint.angle) /
+ 1384              		.loc 1 231 36 discriminator 1 view .LVU343
+ 1385 0034 77EE877A 		vadd.f32	s15, s15, s14
+ 1386              	.L90:
+ 1387              	.LVL122:
+ 235:user/robot.cpp ****                    (_joint.angle - _joint.angleMin) /
+ 236:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) *
+ 237:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) + _joint.modelAngelMin;
+ 238:user/robot.cpp **** 
+ 239:user/robot.cpp ****     _joint.angle = jAngle;
+ 1388              		.loc 1 239 5 is_stmt 1 discriminator 4 view .LVU344
+ 1389              		.loc 1 239 18 is_stmt 0 discriminator 4 view .LVU345
+ 1390 0038 C4ED037A 		vstr.32	s15, [r4, #12]
+ 240:user/robot.cpp **** }
+ 1391              		.loc 1 240 1 discriminator 4 view .LVU346
+ 1392 003c 10BD     		pop	{r4, pc}
+ 1393              	.LVL123:
+ 1394              	.L89:
+ 235:user/robot.cpp ****                    (_joint.angle - _joint.angleMin) /
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 31
+
+
+ 1395              		.loc 1 235 28 discriminator 2 view .LVU347
+ 1396 003e D4ED036A 		vldr.32	s13, [r4, #12]
+ 235:user/robot.cpp ****                    (_joint.angle - _joint.angleMin) /
+ 1397              		.loc 1 235 43 discriminator 2 view .LVU348
+ 1398 0042 94ED017A 		vldr.32	s14, [r4, #4]
+ 235:user/robot.cpp ****                    (_joint.angle - _joint.angleMin) /
+ 1399              		.loc 1 235 34 discriminator 2 view .LVU349
+ 1400 0046 76EEC76A 		vsub.f32	s13, s13, s14
+ 236:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) + _joint.modelAngelMin;
+ 1401              		.loc 1 236 28 discriminator 2 view .LVU350
+ 1402 004a D4ED027A 		vldr.32	s15, [r4, #8]
+ 236:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) + _joint.modelAngelMin;
+ 1403              		.loc 1 236 37 discriminator 2 view .LVU351
+ 1404 004e 77EEC77A 		vsub.f32	s15, s15, s14
+ 235:user/robot.cpp ****                    (_joint.angle - _joint.angleMin) /
+ 1405              		.loc 1 235 53 discriminator 2 view .LVU352
+ 1406 0052 86EEA77A 		vdiv.f32	s14, s13, s15
+ 237:user/robot.cpp **** 
+ 1407              		.loc 1 237 28 discriminator 2 view .LVU353
+ 1408 0056 D4ED056A 		vldr.32	s13, [r4, #20]
+ 237:user/robot.cpp **** 
+ 1409              		.loc 1 237 51 discriminator 2 view .LVU354
+ 1410 005a D4ED047A 		vldr.32	s15, [r4, #16]
+ 237:user/robot.cpp **** 
+ 1411              		.loc 1 237 42 discriminator 2 view .LVU355
+ 1412 005e 76EEE76A 		vsub.f32	s13, s13, s15
+ 236:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) + _joint.modelAngelMin;
+ 1413              		.loc 1 236 56 discriminator 2 view .LVU356
+ 1414 0062 27EE267A 		vmul.f32	s14, s14, s13
+ 231:user/robot.cpp ****                    (_joint.angleMax - _joint.angle) /
+ 1415              		.loc 1 231 36 discriminator 2 view .LVU357
+ 1416 0066 77EE877A 		vadd.f32	s15, s15, s14
+ 1417 006a E5E7     		b	.L90
+ 1418              		.cfi_endproc
+ 1419              	.LFE169:
+ 1420              		.fnend
+ 1422              		.section	.rodata._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf.str1.4,"aMS",%progbits,1
+ 1423              		.align	2
+ 1424              	.LC0:
+ 1425 0000 69643D25 		.ascii	"id=%d\015\012\000"
+ 1425      640D0A00 
+ 1426              		.section	.text._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf,"ax",%progbits
+ 1427              		.align	1
+ 1428              		.global	_ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf
+ 1429              		.syntax unified
+ 1430              		.thumb
+ 1431              		.thumb_func
+ 1433              	_ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf:
+ 1434              		.fnstart
+ 1435              	.LVL124:
+ 1436              	.LFB170:
+ 241:user/robot.cpp **** 
+ 242:user/robot.cpp **** 
+ 243:user/robot.cpp **** void Robot::UpdateJointAngle(Robot::JointStatus_t &_joint, float _angleSetPoint)
+ 244:user/robot.cpp **** {
+ 1437              		.loc 1 244 1 is_stmt 1 view -0
+ 1438              		.cfi_startproc
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 32
+
+
+ 1439              		@ args = 0, pretend = 0, frame = 0
+ 1440              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1441              		.loc 1 244 1 is_stmt 0 view .LVU359
+ 1442 0000 10B5     		push	{r4, lr}
+ 1443              		.save {r4, lr}
+ 1444              	.LCFI31:
+ 1445              		.cfi_def_cfa_offset 8
+ 1446              		.cfi_offset 4, -8
+ 1447              		.cfi_offset 14, -4
+ 1448 0002 0C46     		mov	r4, r1
+ 245:user/robot.cpp ****     float sAngle = _joint.inverted ?
+ 1449              		.loc 1 245 5 is_stmt 1 view .LVU360
+ 1450              		.loc 1 245 27 is_stmt 0 view .LVU361
+ 1451 0004 0B7E     		ldrb	r3, [r1, #24]	@ zero_extendqisi2
+ 1452              		.loc 1 245 36 view .LVU362
+ 1453 0006 ABB3     		cbz	r3, .L93
+ 246:user/robot.cpp ****                    (_angleSetPoint - _joint.modelAngelMin) /
+ 1454              		.loc 1 246 45 discriminator 1 view .LVU363
+ 1455 0008 D1ED047A 		vldr.32	s15, [r1, #16]
+ 1456              		.loc 1 246 36 discriminator 1 view .LVU364
+ 1457 000c 30EE670A 		vsub.f32	s0, s0, s15
+ 1458              	.LVL125:
+ 247:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) *
+ 1459              		.loc 1 247 28 discriminator 1 view .LVU365
+ 1460 0010 91ED057A 		vldr.32	s14, [r1, #20]
+ 1461              		.loc 1 247 42 discriminator 1 view .LVU366
+ 1462 0014 37EE677A 		vsub.f32	s14, s14, s15
+ 246:user/robot.cpp ****                    (_angleSetPoint - _joint.modelAngelMin) /
+ 1463              		.loc 1 246 60 discriminator 1 view .LVU367
+ 1464 0018 C0EE077A 		vdiv.f32	s15, s0, s14
+ 248:user/robot.cpp ****                    (_joint.angleMin - _joint.angleMax) + _joint.angleMax :
+ 1465              		.loc 1 248 28 discriminator 1 view .LVU368
+ 1466 001c 91ED017A 		vldr.32	s14, [r1, #4]
+ 1467              		.loc 1 248 46 discriminator 1 view .LVU369
+ 1468 0020 91ED020A 		vldr.32	s0, [r1, #8]
+ 1469              		.loc 1 248 37 discriminator 1 view .LVU370
+ 1470 0024 37EE407A 		vsub.f32	s14, s14, s0
+ 247:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) *
+ 1471              		.loc 1 247 66 discriminator 1 view .LVU371
+ 1472 0028 67EE877A 		vmul.f32	s15, s15, s14
+ 245:user/robot.cpp ****                    (_angleSetPoint - _joint.modelAngelMin) /
+ 1473              		.loc 1 245 36 discriminator 1 view .LVU372
+ 1474 002c 30EE270A 		vadd.f32	s0, s0, s15
+ 1475              	.L94:
+ 1476              	.LVL126:
+ 249:user/robot.cpp ****                    (_angleSetPoint - _joint.modelAngelMin) /
+ 250:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) *
+ 251:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) + _joint.angleMin;
+ 252:user/robot.cpp **** 
+ 253:user/robot.cpp ****     UpdateServoAngle(_joint, sAngle);
+ 1477              		.loc 1 253 5 is_stmt 1 discriminator 4 view .LVU373
+ 1478              		.loc 1 253 21 is_stmt 0 discriminator 4 view .LVU374
+ 1479 0030 2146     		mov	r1, r4
+ 1480              	.LVL127:
+ 1481              		.loc 1 253 21 discriminator 4 view .LVU375
+ 1482 0032 FFF7FEFF 		bl	_ZN5Robot16UpdateServoAngleERNS_13JointStatus_tEf
+ 1483              	.LVL128:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 33
+
+
+ 254:user/robot.cpp ****     printf("id=%d\r\n",_joint.id);
+ 1484              		.loc 1 254 5 is_stmt 1 discriminator 4 view .LVU376
+ 1485              		.loc 1 254 11 is_stmt 0 discriminator 4 view .LVU377
+ 1486 0036 2178     		ldrb	r1, [r4]	@ zero_extendqisi2
+ 1487 0038 2448     		ldr	r0, .L98
+ 1488 003a FFF7FEFF 		bl	printf
+ 1489              	.LVL129:
+ 255:user/robot.cpp **** 
+ 256:user/robot.cpp ****     float jAngle = _joint.inverted ?
+ 1490              		.loc 1 256 5 is_stmt 1 discriminator 4 view .LVU378
+ 1491              		.loc 1 256 27 is_stmt 0 discriminator 4 view .LVU379
+ 1492 003e 237E     		ldrb	r3, [r4, #24]	@ zero_extendqisi2
+ 1493              		.loc 1 256 36 discriminator 4 view .LVU380
+ 1494 0040 6BB3     		cbz	r3, .L95
+ 257:user/robot.cpp ****                    (_joint.angleMax - _joint.angle) /
+ 1495              		.loc 1 257 28 discriminator 1 view .LVU381
+ 1496 0042 D4ED027A 		vldr.32	s15, [r4, #8]
+ 1497              		.loc 1 257 46 discriminator 1 view .LVU382
+ 1498 0046 D4ED036A 		vldr.32	s13, [r4, #12]
+ 1499              		.loc 1 257 37 discriminator 1 view .LVU383
+ 1500 004a 77EEE66A 		vsub.f32	s13, s15, s13
+ 258:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) *
+ 1501              		.loc 1 258 46 discriminator 1 view .LVU384
+ 1502 004e 94ED017A 		vldr.32	s14, [r4, #4]
+ 1503              		.loc 1 258 37 discriminator 1 view .LVU385
+ 1504 0052 77EEC77A 		vsub.f32	s15, s15, s14
+ 257:user/robot.cpp ****                    (_joint.angleMax - _joint.angle) /
+ 1505              		.loc 1 257 53 discriminator 1 view .LVU386
+ 1506 0056 86EEA77A 		vdiv.f32	s14, s13, s15
+ 259:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) + _joint.modelAngelMin :
+ 1507              		.loc 1 259 28 discriminator 1 view .LVU387
+ 1508 005a D4ED056A 		vldr.32	s13, [r4, #20]
+ 1509              		.loc 1 259 51 discriminator 1 view .LVU388
+ 1510 005e D4ED047A 		vldr.32	s15, [r4, #16]
+ 1511              		.loc 1 259 42 discriminator 1 view .LVU389
+ 1512 0062 76EEE76A 		vsub.f32	s13, s13, s15
+ 258:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) *
+ 1513              		.loc 1 258 56 discriminator 1 view .LVU390
+ 1514 0066 27EE267A 		vmul.f32	s14, s14, s13
+ 256:user/robot.cpp ****                    (_joint.angleMax - _joint.angle) /
+ 1515              		.loc 1 256 36 discriminator 1 view .LVU391
+ 1516 006a 77EE877A 		vadd.f32	s15, s15, s14
+ 1517              	.L96:
+ 1518              	.LVL130:
+ 260:user/robot.cpp ****                    (_joint.angle - _joint.angleMin) /
+ 261:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) *
+ 262:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) + _joint.modelAngelMin;
+ 263:user/robot.cpp **** 
+ 264:user/robot.cpp ****     _joint.angle = jAngle;
+ 1519              		.loc 1 264 5 is_stmt 1 discriminator 4 view .LVU392
+ 1520              		.loc 1 264 18 is_stmt 0 discriminator 4 view .LVU393
+ 1521 006e C4ED037A 		vstr.32	s15, [r4, #12]
+ 265:user/robot.cpp **** }
+ 1522              		.loc 1 265 1 discriminator 4 view .LVU394
+ 1523 0072 10BD     		pop	{r4, pc}
+ 1524              	.LVL131:
+ 1525              	.L93:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 34
+
+
+ 249:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) *
+ 1526              		.loc 1 249 45 discriminator 2 view .LVU395
+ 1527 0074 D1ED047A 		vldr.32	s15, [r1, #16]
+ 249:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) *
+ 1528              		.loc 1 249 36 discriminator 2 view .LVU396
+ 1529 0078 30EE670A 		vsub.f32	s0, s0, s15
+ 1530              	.LVL132:
+ 250:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) + _joint.angleMin;
+ 1531              		.loc 1 250 28 discriminator 2 view .LVU397
+ 1532 007c 91ED057A 		vldr.32	s14, [r1, #20]
+ 250:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) + _joint.angleMin;
+ 1533              		.loc 1 250 42 discriminator 2 view .LVU398
+ 1534 0080 37EE677A 		vsub.f32	s14, s14, s15
+ 249:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) *
+ 1535              		.loc 1 249 60 discriminator 2 view .LVU399
+ 1536 0084 C0EE077A 		vdiv.f32	s15, s0, s14
+ 251:user/robot.cpp **** 
+ 1537              		.loc 1 251 28 discriminator 2 view .LVU400
+ 1538 0088 91ED027A 		vldr.32	s14, [r1, #8]
+ 251:user/robot.cpp **** 
+ 1539              		.loc 1 251 46 discriminator 2 view .LVU401
+ 1540 008c 91ED010A 		vldr.32	s0, [r1, #4]
+ 251:user/robot.cpp **** 
+ 1541              		.loc 1 251 37 discriminator 2 view .LVU402
+ 1542 0090 37EE407A 		vsub.f32	s14, s14, s0
+ 250:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) + _joint.angleMin;
+ 1543              		.loc 1 250 66 discriminator 2 view .LVU403
+ 1544 0094 67EE877A 		vmul.f32	s15, s15, s14
+ 245:user/robot.cpp ****                    (_angleSetPoint - _joint.modelAngelMin) /
+ 1545              		.loc 1 245 36 discriminator 2 view .LVU404
+ 1546 0098 30EE270A 		vadd.f32	s0, s0, s15
+ 1547 009c C8E7     		b	.L94
+ 1548              	.LVL133:
+ 1549              	.L95:
+ 260:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) *
+ 1550              		.loc 1 260 28 discriminator 2 view .LVU405
+ 1551 009e D4ED036A 		vldr.32	s13, [r4, #12]
+ 260:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) *
+ 1552              		.loc 1 260 43 discriminator 2 view .LVU406
+ 1553 00a2 94ED017A 		vldr.32	s14, [r4, #4]
+ 260:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) *
+ 1554              		.loc 1 260 34 discriminator 2 view .LVU407
+ 1555 00a6 76EEC76A 		vsub.f32	s13, s13, s14
+ 261:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) + _joint.modelAngelMin;
+ 1556              		.loc 1 261 28 discriminator 2 view .LVU408
+ 1557 00aa D4ED027A 		vldr.32	s15, [r4, #8]
+ 261:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) + _joint.modelAngelMin;
+ 1558              		.loc 1 261 37 discriminator 2 view .LVU409
+ 1559 00ae 77EEC77A 		vsub.f32	s15, s15, s14
+ 260:user/robot.cpp ****                    (_joint.angleMax - _joint.angleMin) *
+ 1560              		.loc 1 260 53 discriminator 2 view .LVU410
+ 1561 00b2 86EEA77A 		vdiv.f32	s14, s13, s15
+ 262:user/robot.cpp **** 
+ 1562              		.loc 1 262 28 discriminator 2 view .LVU411
+ 1563 00b6 D4ED056A 		vldr.32	s13, [r4, #20]
+ 262:user/robot.cpp **** 
+ 1564              		.loc 1 262 51 discriminator 2 view .LVU412
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 35
+
+
+ 1565 00ba D4ED047A 		vldr.32	s15, [r4, #16]
+ 262:user/robot.cpp **** 
+ 1566              		.loc 1 262 42 discriminator 2 view .LVU413
+ 1567 00be 76EEE76A 		vsub.f32	s13, s13, s15
+ 261:user/robot.cpp ****                    (_joint.modelAngelMax - _joint.modelAngelMin) + _joint.modelAngelMin;
+ 1568              		.loc 1 261 56 discriminator 2 view .LVU414
+ 1569 00c2 27EE267A 		vmul.f32	s14, s14, s13
+ 256:user/robot.cpp ****                    (_joint.angleMax - _joint.angle) /
+ 1570              		.loc 1 256 36 discriminator 2 view .LVU415
+ 1571 00c6 77EE877A 		vadd.f32	s15, s15, s14
+ 1572 00ca D0E7     		b	.L96
+ 1573              	.L99:
+ 1574              		.align	2
+ 1575              	.L98:
+ 1576 00cc 00000000 		.word	.LC0
+ 1577              		.cfi_endproc
+ 1578              	.LFE170:
+ 1579              		.fnend
+ 1581              		.text
+ 1582              	.Letext0:
+ 1583              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1584              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1585              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+ 1586              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\lib\\gcc\\arm-none-eabi\
+ 1587              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1588              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1589              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
+ 1590              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 1591              		.file 10 "user/screen.h"
+ 1592              		.file 11 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1593              		.file 12 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1594              		.file 13 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1595              		.file 14 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1596              		.file 15 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1597              		.file 16 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
+ 1598              		.file 17 "user/common_inc.h"
+ 1599              		.file 18 "user/robot.h"
+ 1600              		.file 19 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1601              		.file 20 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 1602              		.file 21 "Middlewares/ST/STM32_USB_Device_Library/Class/winUsb/Inc/usbd_winUsb.h"
+ 1603              		.file 22 "<built-in>"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 36
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 robot.cpp
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:20     .text._ZN5Robot20GetPingPongBufferPtrEv:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:26     .text._ZN5Robot20GetPingPongBufferPtrEv:00000000 _ZN5Robot20GetPingPongBufferPtrEv
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:55     .text._ZN5Robot20GetPingPongBufferPtrEv:0000001c $d
+.ARM.exidx.text._ZN5Robot20GetPingPongBufferPtrEv:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:62     .text._ZN5Robot13SendUsbPacketEPhm:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:68     .text._ZN5Robot13SendUsbPacketEPhm:00000000 _ZN5Robot13SendUsbPacketEPhm
+.ARM.exidx.text._ZN5Robot13SendUsbPacketEPhm:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:108    .text._ZN5Robot20SwitchPingPongBufferEv:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:114    .text._ZN5Robot20SwitchPingPongBufferEv:00000000 _ZN5Robot20SwitchPingPongBufferEv
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:147    .text._ZN5Robot20SwitchPingPongBufferEv:0000001c $d
+.ARM.exidx.text._ZN5Robot20SwitchPingPongBufferEv:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:154    .text._ZN5Robot15GetLcdBufferPtrEv:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:160    .text._ZN5Robot15GetLcdBufferPtrEv:00000000 _ZN5Robot15GetLcdBufferPtrEv
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:195    .text._ZN5Robot15GetLcdBufferPtrEv:00000020 $d
+.ARM.exidx.text._ZN5Robot15GetLcdBufferPtrEv:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:203    .text._ZN5Robot27ReceiveUsbPacketUntilSizeIsEm:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:209    .text._ZN5Robot27ReceiveUsbPacketUntilSizeIsEm:00000000 _ZN5Robot27ReceiveUsbPacketUntilSizeIsEm
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:238    .text._ZN5Robot27ReceiveUsbPacketUntilSizeIsEm:00000018 $d
+.ARM.exidx.text._ZN5Robot27ReceiveUsbPacketUntilSizeIsEm:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:245    .text._ZN5Robot27TransmitAndReceiveI2cPacketEh:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:251    .text._ZN5Robot27TransmitAndReceiveI2cPacketEh:00000000 _ZN5Robot27TransmitAndReceiveI2cPacketEh
+.ARM.exidx.text._ZN5Robot27TransmitAndReceiveI2cPacketEh:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:319    .text._ZN5Robot16UpdateServoAngleERNS_13JointStatus_tEf:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:325    .text._ZN5Robot16UpdateServoAngleERNS_13JointStatus_tEf:00000000 _ZN5Robot16UpdateServoAngleERNS_13JointStatus_tEf
+.ARM.exidx.text._ZN5Robot16UpdateServoAngleERNS_13JointStatus_tEf:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:431    .text._ZN5Robot16UpdateServoAngleERNS_13JointStatus_tE:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:437    .text._ZN5Robot16UpdateServoAngleERNS_13JointStatus_tE:00000000 _ZN5Robot16UpdateServoAngleERNS_13JointStatus_tE
+.ARM.exidx.text._ZN5Robot16UpdateServoAngleERNS_13JointStatus_tE:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:485    .text._ZN5Robot14SetJointEnableERNS_13JointStatus_tEb:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:491    .text._ZN5Robot14SetJointEnableERNS_13JointStatus_tEb:00000000 _ZN5Robot14SetJointEnableERNS_13JointStatus_tEb
+.ARM.exidx.text._ZN5Robot14SetJointEnableERNS_13JointStatus_tEb:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:551    .text._ZN5Robot19SetJointTorqueLimitERNS_13JointStatus_tEf:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:557    .text._ZN5Robot19SetJointTorqueLimitERNS_13JointStatus_tEf:00000000 _ZN5Robot19SetJointTorqueLimitERNS_13JointStatus_tEf
+.ARM.exidx.text._ZN5Robot19SetJointTorqueLimitERNS_13JointStatus_tEf:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:672    .text._ZN5Robot10SetJointIdERNS_13JointStatus_tEh:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:678    .text._ZN5Robot10SetJointIdERNS_13JointStatus_tEh:00000000 _ZN5Robot10SetJointIdERNS_13JointStatus_tEh
+.ARM.exidx.text._ZN5Robot10SetJointIdERNS_13JointStatus_tEh:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:732    .text._ZN5Robot17SetJointInitAngleERNS_13JointStatus_tEf:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:738    .text._ZN5Robot17SetJointInitAngleERNS_13JointStatus_tEf:00000000 _ZN5Robot17SetJointInitAngleERNS_13JointStatus_tEf
+.ARM.exidx.text._ZN5Robot17SetJointInitAngleERNS_13JointStatus_tEf:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:907    .text._ZN5Robot10SetJointKpERNS_13JointStatus_tEf:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:913    .text._ZN5Robot10SetJointKpERNS_13JointStatus_tEf:00000000 _ZN5Robot10SetJointKpERNS_13JointStatus_tEf
+.ARM.exidx.text._ZN5Robot10SetJointKpERNS_13JointStatus_tEf:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:1005   .text._ZN5Robot10SetJointKiERNS_13JointStatus_tEf:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:1011   .text._ZN5Robot10SetJointKiERNS_13JointStatus_tEf:00000000 _ZN5Robot10SetJointKiERNS_13JointStatus_tEf
+.ARM.exidx.text._ZN5Robot10SetJointKiERNS_13JointStatus_tEf:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:1103   .text._ZN5Robot10SetJointKvERNS_13JointStatus_tEf:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:1109   .text._ZN5Robot10SetJointKvERNS_13JointStatus_tEf:00000000 _ZN5Robot10SetJointKvERNS_13JointStatus_tEf
+.ARM.exidx.text._ZN5Robot10SetJointKvERNS_13JointStatus_tEf:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:1201   .text._ZN5Robot10SetJointKdERNS_13JointStatus_tEf:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:1207   .text._ZN5Robot10SetJointKdERNS_13JointStatus_tEf:00000000 _ZN5Robot10SetJointKdERNS_13JointStatus_tEf
+.ARM.exidx.text._ZN5Robot10SetJointKdERNS_13JointStatus_tEf:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:1299   .text._ZN5Robot17GetExtraDataRxPtrEv:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:1305   .text._ZN5Robot17GetExtraDataRxPtrEv:00000000 _ZN5Robot17GetExtraDataRxPtrEv
+.ARM.exidx.text._ZN5Robot17GetExtraDataRxPtrEv:00000000 $d
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s 			page 37
+
+
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:1333   .text._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tE:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:1339   .text._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tE:00000000 _ZN5Robot16UpdateJointAngleERNS_13JointStatus_tE
+.ARM.exidx.text._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tE:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:1423   .rodata._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:1427   .text._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:1433   .text._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf:00000000 _ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGSKXBs.s:1576   .text._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf:000000cc $d
+.ARM.exidx.text._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf:00000000 $d
+
+UNDEFINED SYMBOLS
+usbBuffer
+WinUsb_Transmit_FS
+__aeabi_unwind_cpp_pr0
+HAL_I2C_Master_Transmit
+HAL_I2C_Master_Receive
+HAL_Delay
+printf

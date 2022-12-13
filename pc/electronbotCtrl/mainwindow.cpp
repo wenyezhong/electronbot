@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    initPara();
     recvUSB_Timer = new QTimer(this);
     connect(recvUSB_Timer, SIGNAL(timeout()), this, SLOT(RecvUSBTask()));
     //recvUSB_Timer->start(500);
@@ -166,30 +168,90 @@ void MainWindow::on_sendFile_clicked()
 
 
 }
-//  id  更新标志  角度  更新标志  使能
-//   0   1       2~5  6        7
-void swapLittleEndian(uint8_t *ptr)
+
+void MainWindow::initPara(void)
 {
-    uint8_t tmp;
-    tmp = ptr[0];
-    ptr[0]=ptr[3];
-    ptr[3]=tmp;
-
-    tmp = ptr[1];
-    ptr[1]=ptr[2];
-    ptr[2]=tmp;
-
+    //head
+    ui->lineEdit_head_kp->setText("30");
+    ui->lineEdit_head_ki->setText("0.4");
+    ui->lineEdit_head_kv->setText("0");
+    ui->lineEdit_head_kd->setText("200");
+    ui->lineEdit_head_tq->setText("0.5");
+    //left roll
+    ui->lineEdit_lroll_kp->setText("50");
+    ui->lineEdit_lroll_ki->setText("0.8");
+    ui->lineEdit_lroll_kv->setText("0");
+    ui->lineEdit_lroll_kd->setText("600");
+    ui->lineEdit_lroll_tq->setText("1.0");
+    //left pitch
+    ui->lineEdit_lpitch_kp->setText("50");
+    ui->lineEdit_lpitch_ki->setText("0.8");
+    ui->lineEdit_lpitch_kv->setText("0");
+    ui->lineEdit_lpitch_kd->setText("300");
+    ui->lineEdit_lpitch_tq->setText("0.5");
+    //right roll
+    ui->lineEdit_rroll_kp->setText("50");
+    ui->lineEdit_rroll_ki->setText("0.8");
+    ui->lineEdit_rroll_kv->setText("0");
+    ui->lineEdit_rroll_kd->setText("600");
+    ui->lineEdit_rroll_tq->setText("1.0");
+    //right pitch
+    ui->lineEdit_rpitch_kp->setText("50");
+    ui->lineEdit_rpitch_ki->setText("0.8");
+    ui->lineEdit_rpitch_kv->setText("0");
+    ui->lineEdit_rpitch_kd->setText("300");
+    ui->lineEdit_rpitch_tq->setText("0.5");
+    //body
+    ui->lineEdit_body_kp->setText("150");
+    ui->lineEdit_body_ki->setText("0.8");
+    ui->lineEdit_body_kv->setText("0");
+    ui->lineEdit_body_kd->setText("300");
+    ui->lineEdit_body_tq->setText("0.5");
 }
+//  id  更新标志  kp  更新标志  ki   更新标志   kv    更新标志  kd    更新标志   tq    更新标志   使能     cmd
+//   0   1      2~5  6      7~10     11    12~15   16    17~20    21    22~25     26      27      31
 void MainWindow::on_pushButton_body_clicked()
 {
-    float setPoint=ui->textEdit_setPoint->toPlainText().toFloat();
-    qDebug("setPoint=%f",setPoint);
-    txData[PAR_INDEX+31] = 0xee; //设置参数
-    txData[PAR_INDEX] = 0x12;
-    txData[PAR_INDEX+1] = 0x01;
-    *(float*)&txData[PAR_INDEX+2] = setPoint;
-    //swapLittleEndian(&txData[PAR_INDEX+2]);
-    *(float*)&txData[PAR_INDEX+6] = setPoint;
+    float setKp=ui->lineEdit_body_kp->text().toFloat();
+    float setKi=ui->lineEdit_body_ki->text().toFloat();
+    float setKv=ui->lineEdit_body_kv->text().toFloat();
+    float setKd=ui->lineEdit_body_kd->text().toFloat();
+    float setTq=ui->lineEdit_body_tq->text().toFloat();
 
+//    qDebug("setPoint=%f",setPoint);
+    txData[PAR_INDEX+31] = 0xee; //设置参数
+    txData[PAR_INDEX] = 2;
+//    txData[PAR_INDEX+1] = 0x01;
+    txData[PAR_INDEX+1]=(ui->checkBox_body_kp->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+2] = setKp;
+
+    txData[PAR_INDEX+6]=(ui->checkBox_body_ki->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+7] = setKi;
+
+    txData[PAR_INDEX+11]=(ui->checkBox_body_kv->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+12] = setKv;
+
+    txData[PAR_INDEX+16]=(ui->checkBox_body_kd->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+17] = setKd;
+
+    txData[PAR_INDEX+21]=(ui->checkBox_body_tq->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+22] = setTq;
+    txData[PAR_INDEX+26]=0x00;
+    txData[PAR_INDEX+27]=0x00;
     sendPacket();
+}
+
+//  id  angle  使能     cmd
+//   0   1~4    5       31
+void MainWindow::on_pushButton_sendAngle_clicked()
+{
+    int id = ui->lineEdit_id->text().toInt();
+    float angle = ui->lineEdit_angle->text().toFloat();
+
+    txData[PAR_INDEX+31] = 0xef; //设置角度
+    txData[PAR_INDEX] = id;
+    *(float*)&txData[PAR_INDEX+1] = angle;
+    txData[PAR_INDEX+5]=(ui->checkBox_enable->checkState()==Qt::Checked)?1:0;
+    sendPacket();
+
 }

@@ -17,6 +17,8 @@ extern "C" {
 #include "usb_device.h"
 
 void Main(void);
+void setPara(uint8_t *ptr);
+void setAngle(uint8_t *ptr);
 
 extern uint64_t serialNumber;
 extern char serialNumberStr[13];

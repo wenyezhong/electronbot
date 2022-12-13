@@ -83,13 +83,14 @@ void Robot::TransmitAndReceiveI2cPacket(uint8_t _id)
 {
     HAL_StatusTypeDef state = HAL_ERROR;
     do
-    {
+    {       
         state = HAL_I2C_Master_Transmit(motorI2c, _id, i2cTxData, 5, 5);
     } while (state != HAL_OK);
     do
-    {
+    {        
         state = HAL_I2C_Master_Receive(motorI2c, _id, i2cRxData, 5, 5);
     } while (state != HAL_OK);
+    
 }
 
 
@@ -250,6 +251,7 @@ void Robot::UpdateJointAngle(Robot::JointStatus_t &_joint, float _angleSetPoint)
                    (_joint.angleMax - _joint.angleMin) + _joint.angleMin;
 
     UpdateServoAngle(_joint, sAngle);
+    printf("id=%d\r\n",_joint.id);
 
     float jAngle = _joint.inverted ?
                    (_joint.angleMax - _joint.angle) /
