@@ -82,12 +82,18 @@ void Robot::SetJointEnable(Robot::JointStatus_t &_joint, bool _enable)
 void Robot::TransmitAndReceiveI2cPacket(uint8_t _id)
 {
     HAL_StatusTypeDef state = HAL_ERROR;
+    // int retry = 0;
     do
-    {       
+    {         
+        // if(retry++ > 5)
+            // break;
         state = HAL_I2C_Master_Transmit(motorI2c, _id, i2cTxData, 5, 5);
     } while (state != HAL_OK);
+    // retry = 0;
     do
-    {        
+    {   
+        // if(retry++ > 5)
+            // break;
         state = HAL_I2C_Master_Receive(motorI2c, _id, i2cRxData, 5, 5);
     } while (state != HAL_OK);
     
@@ -136,9 +142,10 @@ void Robot::SetJointInitAngle(Robot::JointStatus_t &_joint, float _angle)
                    (_joint.modelAngelMax - _joint.modelAngelMin) *
                    (_joint.angleMax - _joint.angleMin) + _joint.angleMin;
 
-
-    if (sAngle >= _joint.angleMin && sAngle <= _joint.angleMax)
+    
+    /* if (sAngle >= _joint.angleMin && sAngle <= _joint.angleMax)
     {
+       
         auto* b = (unsigned char*) (&_angle);
 
         i2cTxData[0] = 0x27;
@@ -150,7 +157,7 @@ void Robot::SetJointInitAngle(Robot::JointStatus_t &_joint, float _angle)
         _joint.angle = *(float*) (i2cRxData + 1);
 
         HAL_Delay(500); // wait servo reset
-    }
+    } */
 }
 
 
@@ -242,18 +249,19 @@ void Robot::UpdateJointAngle(Robot::JointStatus_t &_joint)
 
 void Robot::UpdateJointAngle(Robot::JointStatus_t &_joint, float _angleSetPoint)
 {
-    float sAngle = _joint.inverted ?
+    /* float sAngle = _joint.inverted ?
                    (_angleSetPoint - _joint.modelAngelMin) /
                    (_joint.modelAngelMax - _joint.modelAngelMin) *
                    (_joint.angleMin - _joint.angleMax) + _joint.angleMax :
                    (_angleSetPoint - _joint.modelAngelMin) /
                    (_joint.modelAngelMax - _joint.modelAngelMin) *
-                   (_joint.angleMax - _joint.angleMin) + _joint.angleMin;
+                   (_joint.angleMax - _joint.angleMin) + _joint.angleMin; */
 
-    UpdateServoAngle(_joint, sAngle);
+    // UpdateServoAngle(_joint, sAngle);
+    UpdateServoAngle(_joint, _angleSetPoint);
     printf("id=%d\r\n",_joint.id);
 
-    float jAngle = _joint.inverted ?
+    /* float jAngle = _joint.inverted ?
                    (_joint.angleMax - _joint.angle) /
                    (_joint.angleMax - _joint.angleMin) *
                    (_joint.modelAngelMax - _joint.modelAngelMin) + _joint.modelAngelMin :
@@ -261,5 +269,5 @@ void Robot::UpdateJointAngle(Robot::JointStatus_t &_joint, float _angleSetPoint)
                    (_joint.angleMax - _joint.angleMin) *
                    (_joint.modelAngelMax - _joint.modelAngelMin) + _joint.modelAngelMin;
 
-    _joint.angle = jAngle;
+    _joint.angle = jAngle; */
 }

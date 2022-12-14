@@ -17,8 +17,7 @@ build/stm32f0xx_it.o: Src/stm32f0xx_it.c Inc/main.h \
  Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_pwr.h \
  Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h \
  Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_usart.h \
- Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_gpio.h Inc/tim.h \
- Inc/main.h Inc/i2c.h Inc/stm32f0xx_it.h
+ Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_gpio.h Inc/stm32f0xx_it.h
 Inc/main.h:
 Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h:
 Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h:
@@ -41,7 +40,4 @@ Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_pwr.h:
 Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h:
 Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_usart.h:
 Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_gpio.h:
-Inc/tim.h:
-Inc/main.h:
-Inc/i2c.h:
 Inc/stm32f0xx_it.h:

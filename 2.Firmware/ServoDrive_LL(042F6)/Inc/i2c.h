@@ -37,7 +37,7 @@ extern uint8_t i2cDataRx[8];
 extern uint8_t i2cDataTx[8];
 /* USER CODE END Private defines */
 
-// void MX_I2C1_Init(void);
+void MX_I2C1_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 void MY_I2C1_Init(uint32_t _id);

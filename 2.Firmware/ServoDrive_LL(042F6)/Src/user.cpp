@@ -2,6 +2,7 @@
 #include "common_inc.h"
 #include "configurations.h"
 #include <stdio.h>
+// #include <cmath>
 Motor motor;
 BoardConfig_t boardConfig;
 
@@ -15,7 +16,7 @@ void Main(void)
     
     if (boardConfig.configStatus != CONFIG_OK) // use default settings
     {
-        //printf("config not\r\n");
+        // printf("config not\r\n");
         boardConfig = BoardConfig_t{
             .configStatus = CONFIG_OK,
             .nodeId = 12, // 7bit address, has to be even number
@@ -38,7 +39,7 @@ void Main(void)
     {
         // printf("configed\r\n");
     }
-    motor.SetTorqueLimit(boardConfig.toqueLimit);
+    motor.SetTorqueLimit(boardConfig.toqueLimit); 
     motor.mechanicalAngleMin = boardConfig.mechanicalAngleMin;
     motor.mechanicalAngleMax = boardConfig.mechanicalAngleMax;
     motor.adcValAtAngleMin = boardConfig.adcValAtAngleMin;
@@ -62,6 +63,9 @@ void Main(void)
     // Start control loop at 200Hz
     LL_TIM_EnableIT_UPDATE(TIM14);
     LL_TIM_EnableCounter(TIM14);
+   //test
+    /* motor.dce.setPointPos=30;
+    motor.SetEnable(true); */
 
 
     while (1)
@@ -237,6 +241,9 @@ void TIM14_PeriodElapsedCallback(void)
                     ((float) adcData[0] - (float) motor.adcValAtAngleMin) /
                     ((float) motor.adcValAtAngleMax - (float) motor.adcValAtAngleMin);
     // Calculate PID
+    // printf("%f\r\n",motor.angle);
+    // int dat=ceil(motor.angle);
+    // printf("%d\r\n",dat);
     motor.CalcDceOutput(motor.angle, 0);
     motor.SetPwm((int16_t) motor.dce.output);
 }

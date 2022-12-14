@@ -220,7 +220,7 @@ void MainWindow::on_pushButton_body_clicked()
 
 //    qDebug("setPoint=%f",setPoint);
     txData[PAR_INDEX+31] = 0xee; //设置参数
-    txData[PAR_INDEX] = 2;
+    txData[PAR_INDEX] = 12;
 //    txData[PAR_INDEX+1] = 0x01;
     txData[PAR_INDEX+1]=(ui->checkBox_body_kp->checkState()==Qt::Checked)?1:0;
     *(float*)&txData[PAR_INDEX+2] = setKp;
@@ -241,6 +241,166 @@ void MainWindow::on_pushButton_body_clicked()
     sendPacket();
 }
 
+
+void MainWindow::on_pushButton_rpitch_clicked()
+{
+    float setKp=ui->lineEdit_rpitch_kp->text().toFloat();
+    float setKi=ui->lineEdit_rpitch_ki->text().toFloat();
+    float setKv=ui->lineEdit_rpitch_kv->text().toFloat();
+    float setKd=ui->lineEdit_rpitch_kd->text().toFloat();
+    float setTq=ui->lineEdit_rpitch_tq->text().toFloat();
+
+//    qDebug("setPoint=%f",setPoint);
+    txData[PAR_INDEX+31] = 0xee; //设置参数
+    txData[PAR_INDEX] = 10;
+//    txData[PAR_INDEX+1] = 0x01;
+    txData[PAR_INDEX+1]=(ui->checkBox_rpitch_kp->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+2] = setKp;
+
+    txData[PAR_INDEX+6]=(ui->checkBox_rpitch_ki->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+7] = setKi;
+
+    txData[PAR_INDEX+11]=(ui->checkBox_rpitch_kv->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+12] = setKv;
+
+    txData[PAR_INDEX+16]=(ui->checkBox_rpitch_kd->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+17] = setKd;
+
+    txData[PAR_INDEX+21]=(ui->checkBox_rpitch_tq->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+22] = setTq;
+    txData[PAR_INDEX+26]=0x00;
+    txData[PAR_INDEX+27]=0x00;
+    sendPacket();
+
+}
+
+void MainWindow::on_pushButton_rroll_clicked()
+{
+    float setKp=ui->lineEdit_rroll_kp->text().toFloat();
+    float setKi=ui->lineEdit_rroll_ki->text().toFloat();
+    float setKv=ui->lineEdit_rroll_kv->text().toFloat();
+    float setKd=ui->lineEdit_rroll_kd->text().toFloat();
+    float setTq=ui->lineEdit_rroll_tq->text().toFloat();
+
+//    qDebug("setPoint=%f",setPoint);
+    txData[PAR_INDEX+31] = 0xee; //设置参数
+    txData[PAR_INDEX] = 8;
+//    txData[PAR_INDEX+1] = 0x01;
+    txData[PAR_INDEX+1]=(ui->checkBox_rroll_kp->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+2] = setKp;
+
+    txData[PAR_INDEX+6]=(ui->checkBox_rroll_ki->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+7] = setKi;
+
+    txData[PAR_INDEX+11]=(ui->checkBox_rroll_kv->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+12] = setKv;
+
+    txData[PAR_INDEX+16]=(ui->checkBox_rroll_kd->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+17] = setKd;
+
+    txData[PAR_INDEX+21]=(ui->checkBox_rroll_tq->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+22] = setTq;
+    txData[PAR_INDEX+26]=0x00;
+    txData[PAR_INDEX+27]=0x00;
+    sendPacket();
+
+}
+
+void MainWindow::on_pushButton_lpitch_clicked()
+{
+    float setKp=ui->lineEdit_lpitch_kp->text().toFloat();
+    float setKi=ui->lineEdit_lpitch_ki->text().toFloat();
+    float setKv=ui->lineEdit_lpitch_kv->text().toFloat();
+    float setKd=ui->lineEdit_lpitch_kd->text().toFloat();
+    float setTq=ui->lineEdit_lpitch_tq->text().toFloat();
+
+//    qDebug("setPoint=%f",setPoint);
+    txData[PAR_INDEX+31] = 0xee; //设置参数
+    txData[PAR_INDEX] = 6;
+//    txData[PAR_INDEX+1] = 0x01;
+    txData[PAR_INDEX+1]=(ui->checkBox_lpitch_kp->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+2] = setKp;
+
+    txData[PAR_INDEX+6]=(ui->checkBox_lpitch_ki->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+7] = setKi;
+
+    txData[PAR_INDEX+11]=(ui->checkBox_lpitch_kv->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+12] = setKv;
+
+    txData[PAR_INDEX+16]=(ui->checkBox_lpitch_kd->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+17] = setKd;
+
+    txData[PAR_INDEX+21]=(ui->checkBox_lpitch_tq->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+22] = setTq;
+    txData[PAR_INDEX+26]=0x00;
+    txData[PAR_INDEX+27]=0x00;
+    sendPacket();
+
+}
+
+void MainWindow::on_pushButton_lroll_clicked()
+{
+    float setKp=ui->lineEdit_lroll_kp->text().toFloat();
+    float setKi=ui->lineEdit_lroll_ki->text().toFloat();
+    float setKv=ui->lineEdit_lroll_kv->text().toFloat();
+    float setKd=ui->lineEdit_lroll_kd->text().toFloat();
+    float setTq=ui->lineEdit_lroll_tq->text().toFloat();
+
+//    qDebug("setPoint=%f",setPoint);
+    txData[PAR_INDEX+31] = 0xee; //设置参数
+    txData[PAR_INDEX] = 4;
+//    txData[PAR_INDEX+1] = 0x01;
+    txData[PAR_INDEX+1]=(ui->checkBox_lroll_kp->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+2] = setKp;
+
+    txData[PAR_INDEX+6]=(ui->checkBox_lroll_ki->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+7] = setKi;
+
+    txData[PAR_INDEX+11]=(ui->checkBox_lroll_kv->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+12] = setKv;
+
+    txData[PAR_INDEX+16]=(ui->checkBox_lroll_kd->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+17] = setKd;
+
+    txData[PAR_INDEX+21]=(ui->checkBox_lroll_tq->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+22] = setTq;
+    txData[PAR_INDEX+26]=0x00;
+    txData[PAR_INDEX+27]=0x00;
+    sendPacket();
+
+}
+
+void MainWindow::on_pushButton_head_clicked()
+{
+    float setKp=ui->lineEdit_head_kp->text().toFloat();
+    float setKi=ui->lineEdit_head_ki->text().toFloat();
+    float setKv=ui->lineEdit_head_kv->text().toFloat();
+    float setKd=ui->lineEdit_head_kd->text().toFloat();
+    float setTq=ui->lineEdit_head_tq->text().toFloat();
+
+//    qDebug("setPoint=%f",setPoint);
+    txData[PAR_INDEX+31] = 0xee; //设置参数
+    txData[PAR_INDEX] = 2;
+//    txData[PAR_INDEX+1] = 0x01;
+    txData[PAR_INDEX+1]=(ui->checkBox_head_kp->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+2] = setKp;
+
+    txData[PAR_INDEX+6]=(ui->checkBox_head_ki->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+7] = setKi;
+
+    txData[PAR_INDEX+11]=(ui->checkBox_head_kv->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+12] = setKv;
+
+    txData[PAR_INDEX+16]=(ui->checkBox_head_kd->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+17] = setKd;
+
+    txData[PAR_INDEX+21]=(ui->checkBox_head_tq->checkState()==Qt::Checked)?1:0;
+    *(float*)&txData[PAR_INDEX+22] = setTq;
+    txData[PAR_INDEX+26]=0x00;
+    txData[PAR_INDEX+27]=0x00;
+    sendPacket();
+
+}
 //  id  angle  使能     cmd
 //   0   1~4    5       31
 void MainWindow::on_pushButton_sendAngle_clicked()
@@ -252,6 +412,33 @@ void MainWindow::on_pushButton_sendAngle_clicked()
     txData[PAR_INDEX] = id;
     *(float*)&txData[PAR_INDEX+1] = angle;
     txData[PAR_INDEX+5]=(ui->checkBox_enable->checkState()==Qt::Checked)?1:0;
+    sendPacket();
+
+}
+//  oldid  newid      cmd
+//   0      1          31
+void MainWindow::on_pushButton_set_id_clicked()
+{
+    int oldid = ui->lineEdit_id_old->text().toInt();
+    int newid = ui->lineEdit_id_new->text().toInt();
+
+
+    txData[PAR_INDEX+31] = 0xf0; //设置角度
+    txData[PAR_INDEX] = oldid;
+    txData[PAR_INDEX+1] = newid;
+    sendPacket();
+
+}
+//  id  init_angle   cmd
+//   0       1~4      31
+void MainWindow::on_pushButton_set_init_angle_clicked()
+{
+    int id = ui->lineEdit_id_2->text().toInt();
+    float angle = ui->lineEdit_id_init_angle->text().toFloat();
+
+    txData[PAR_INDEX+31] = 0xf1; //设置初始角度
+    txData[PAR_INDEX] = id;
+    *(float*)&txData[PAR_INDEX+1] = angle;
     sendPacket();
 
 }

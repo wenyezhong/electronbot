@@ -5,13 +5,14 @@
 Motor motor;
 BoardConfig_t boardConfig;
 
+#define CONFIG_INDEX 512  //最后一页 （1K / page )最后512 字节作为存储配置
 
 /* Default Entry -------------------------------------------------------*/
 void Main(void)
 {
     // Read data from Flash
     EEPROM eeprom;
-    eeprom.get(0, boardConfig);
+    eeprom.get(CONFIG_INDEX, boardConfig);
     
     if (boardConfig.configStatus != CONFIG_OK) // use default settings
     {
@@ -32,7 +33,7 @@ void Main(void)
             .dceKd = 50,
             .enableMotorOnBoot=false
         };
-        eeprom.put(0, boardConfig);
+        eeprom.put(CONFIG_INDEX, boardConfig);
     }
     else
     {
@@ -69,10 +70,10 @@ void Main(void)
         if (boardConfig.configStatus == CONFIG_COMMIT)
         {
             boardConfig.configStatus = CONFIG_OK;
-            eeprom.put(0, boardConfig);
+            eeprom.put(CONFIG_INDEX, boardConfig);
         } else if (boardConfig.configStatus == CONFIG_RESTORE)
         {
-            eeprom.put(0, boardConfig);
+            eeprom.put(CONFIG_INDEX, boardConfig);
             NVIC_SystemReset();
         }
     /* for debug */

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 1
   28:Src/random_flash_utils.cpp **** #error "FLASH_BANK_NUMBER could not be defined"
   29:Src/random_flash_utils.cpp **** #endif
   30:Src/random_flash_utils.cpp **** #endif /* !FLASH_BANK_NUMBER */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s 			page 2
 
 
   31:Src/random_flash_utils.cpp **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 1
   85:Src/random_flash_utils.cpp ****       break;
   86:Src/random_flash_utils.cpp ****   }
   87:Src/random_flash_utils.cpp ****   return size;
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 3
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s 			page 3
 
 
   88:Src/random_flash_utils.cpp **** }
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 1
  142:Src/random_flash_utils.cpp **** #endif /* _EEPROM_BASE */
  143:Src/random_flash_utils.cpp **** }
  144:Src/random_flash_utils.cpp **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s 			page 4
 
 
  145:Src/random_flash_utils.cpp **** /**
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 1
   51              		.section	.text.eeprom_buffered_write_byte,"ax",%progbits
   52              		.align	1
   53              		.global	eeprom_buffered_write_byte
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 5
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s 			page 5
 
 
   54              		.syntax unified
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 1
  196:Src/random_flash_utils.cpp **** {
   93              		.loc 1 196 1 is_stmt 1 view -0
   94              		.cfi_startproc
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s 			page 6
 
 
   95              		@ args = 0, pretend = 0, frame = 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 1
  140:Src/random_flash_utils.cpp ****     return eeprom_buffered_read_byte(pos);
  146              		.loc 1 140 23 is_stmt 0 view .LVU15
  147 0004 FFF7FEFF 		bl	eeprom_buffer_fill
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 7
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s 			page 7
 
 
  148              	.LVL5:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 1
  178 0000 30B5     		push	{r4, r5, lr}
  179              		.save {r4, r5, lr}
  180              	.LCFI2:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s 			page 8
 
 
  181              		.cfi_def_cfa_offset 12
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 1
  210 0010 0123     		movs	r3, #1
  211 0012 0393     		str	r3, [sp, #12]
  246:Src/random_flash_utils.cpp **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 9
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s 			page 9
 
 
  247:Src/random_flash_utils.cpp ****     if (LL_Flash_Unlock() == LL_OK)  
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 1
  292:Src/random_flash_utils.cpp ****         while (address <= address_end)
  293:Src/random_flash_utils.cpp ****         {
  294:Src/random_flash_utils.cpp **** #if defined(STM32H7xx)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 10
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s 			page 10
 
 
  295:Src/random_flash_utils.cpp ****             // 256 bits
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 1
   23:Inc/stm32f0xx_ll_flash.h ****                              This parameter must be a value between Min_Data = 1 and Max_Data = (ma
   24:Inc/stm32f0xx_ll_flash.h ****                                                           
   25:Inc/stm32f0xx_ll_flash.h **** } FLASH_EraseInitTypeDef;
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 11
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s 			page 11
 
 
   26:Inc/stm32f0xx_ll_flash.h **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 1
   80:Inc/stm32f0xx_ll_flash.h ****   *            @arg @ref EraseADDR         uint32_t value
   81:Inc/stm32f0xx_ll_flash.h ****   * @retval none*/
   82:Inc/stm32f0xx_ll_flash.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 12
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s 			page 12
 
 
   83:Inc/stm32f0xx_ll_flash.h **** __STATIC_INLINE void LL_FLASH_SetEraseADDR(FLASH_TypeDef *FLASHx,uint32_t EraseADDR)
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 1
  255              	.L14:
  257:Src/random_flash_utils.cpp ****             {
  256              		.loc 1 257 13 is_stmt 1 view .LVU47
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 13
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s 			page 13
 
 
  257:Src/random_flash_utils.cpp ****             {
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 1
  296 0056 044A     		ldr	r2, .L16+4
  297 0058 1369     		ldr	r3, [r2, #16]
  298 005a 8021     		movs	r1, #128
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 14
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s 			page 14
 
 
  299 005c 0B43     		orrs	r3, r1
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 1
  348 000a 10BD     		pop	{r4, pc}
  349              		.cfi_endproc
  350              	.LFE56:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 15
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s 			page 15
 
 
  351              		.fnend
@@ -856,35 +856,35 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 1
  362              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
  363              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f042x6.h"
  364              		.file 6 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s 			page 16
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 random_flash_utils.cpp
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:18     .text.eeprom_buffered_read_byte:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:24     .text.eeprom_buffered_read_byte:00000000 eeprom_buffered_read_byte
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:45     .text.eeprom_buffered_read_byte:00000008 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:357    .bss._ZL13eeprom_buffer:00000000 _ZL13eeprom_buffer
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:18     .text.eeprom_buffered_read_byte:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:24     .text.eeprom_buffered_read_byte:00000000 eeprom_buffered_read_byte
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:45     .text.eeprom_buffered_read_byte:00000008 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:357    .bss._ZL13eeprom_buffer:00000000 _ZL13eeprom_buffer
 .ARM.exidx.text.eeprom_buffered_read_byte:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:52     .text.eeprom_buffered_write_byte:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:58     .text.eeprom_buffered_write_byte:00000000 eeprom_buffered_write_byte
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:77     .text.eeprom_buffered_write_byte:00000008 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:52     .text.eeprom_buffered_write_byte:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:58     .text.eeprom_buffered_write_byte:00000000 eeprom_buffered_write_byte
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:77     .text.eeprom_buffered_write_byte:00000008 $d
 .ARM.exidx.text.eeprom_buffered_write_byte:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:84     .text.eeprom_buffer_fill:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:90     .text.eeprom_buffer_fill:00000000 eeprom_buffer_fill
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:116    .text.eeprom_buffer_fill:00000010 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:84     .text.eeprom_buffer_fill:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:90     .text.eeprom_buffer_fill:00000000 eeprom_buffer_fill
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:116    .text.eeprom_buffer_fill:00000010 $d
 .ARM.exidx.text.eeprom_buffer_fill:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:124    .text.eeprom_read_byte:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:130    .text.eeprom_read_byte:00000000 eeprom_read_byte
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:124    .text.eeprom_read_byte:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:130    .text.eeprom_read_byte:00000000 eeprom_read_byte
  .ARM.exidx.text.eeprom_read_byte:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:165    .text.eeprom_buffer_flush:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:171    .text.eeprom_buffer_flush:00000000 eeprom_buffer_flush
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:308    .text.eeprom_buffer_flush:00000064 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:165    .text.eeprom_buffer_flush:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:171    .text.eeprom_buffer_flush:00000000 eeprom_buffer_flush
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:308    .text.eeprom_buffer_flush:00000064 $d
 .ARM.exidx.text.eeprom_buffer_flush:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:317    .text.eeprom_write_byte:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:323    .text.eeprom_write_byte:00000000 eeprom_write_byte
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:317    .text.eeprom_write_byte:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:323    .text.eeprom_write_byte:00000000 eeprom_write_byte
 .ARM.exidx.text.eeprom_write_byte:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cc6t4WrN.s:354    .bss._ZL13eeprom_buffer:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLpFy4z.s:354    .bss._ZL13eeprom_buffer:00000000 $d
 
 UNDEFINED SYMBOLS
 memcpy

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 1
   22:Src/main.c    **** #include "dma.h"
   23:Src/main.c    **** #include "i2c.h"
   24:Src/main.c    **** #include "spi.h"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 2
 
 
   25:Src/main.c    **** #include "usart.h"
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 1
   46              	.LCFI1:
   47              		.cfi_def_cfa_offset 24
   48 0004 0546     		mov	r5, r0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 3
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 3
 
 
   67:Src/main.c    ****     HAL_StatusTypeDef state = HAL_ERROR;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 1
   93              		.cfi_def_cfa_offset 12
   94              		@ sp needed
   95 0038 30BD     		pop	{r4, r5, pc}
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 4
 
 
   96              	.L6:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 1
  113:Src/main.c    ****   /* Initialize all configured peripherals */
  114:Src/main.c    ****   MX_GPIO_Init();
  115:Src/main.c    ****   MX_DMA_Init();
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 5
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 5
 
 
  116:Src/main.c    ****   MX_I2C1_Init();
@@ -259,14 +259,14 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 1
  131:Src/main.c    ****   printf("ennnnn...\r\n"); */
  132:Src/main.c    ****   SpiFlash_Init(); 
  133:Src/main.c    ****   printf("hello electronbot coming...\r\n");
- 134:Src/main.c    ****   i2cTxData[0]=0x01;
+ 134:Src/main.c    ****  /*  i2cTxData[0]=0x01;
  135:Src/main.c    ****   *(float*)&i2cTxData[1]=30.0f;
  136:Src/main.c    ****   TransmitAndReceiveI2cPacket(12);
  137:Src/main.c    ****   printf("tttt\r\n");
  138:Src/main.c    ****   for(i =0;i<5;i++)
  139:Src/main.c    ****         printf("%.2x ",i2cRxData[i]);
  140:Src/main.c    ****     printf("\r\n");
- 141:Src/main.c    ****     while(1);
+ 141:Src/main.c    ****     while(1); */
  142:Src/main.c    ****   /* USER CODE END 2
  143:Src/main.c    **** 
  144:Src/main.c    ****   /* Init scheduler */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 1
  170:Src/main.c    ****     /* USER CODE BEGIN 3 */
  171:Src/main.c    ****   }
  172:Src/main.c    ****   /* USER CODE END 3 */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 6
 
 
  173:Src/main.c    **** }
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 1
  227:Src/main.c    ****   * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
  228:Src/main.c    ****   * a global variable "uwTick" used as application time base.
  229:Src/main.c    ****   * @param  htim : TIM handle
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 7
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 7
 
 
  230:Src/main.c    ****   * @retval None
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 1
  156              		.thumb_func
  158              	Error_Handler:
  159              	.LFB142:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 8
 
 
  244:Src/main.c    **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 1
   35:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __has_builtin
   36:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
   37:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 9
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 9
 
 
   38:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 1
   92:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
   93:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   94:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 10
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 10
 
 
   95:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 1
  176              	@ 0 "" 2
  177              		.thumb
  178              		.syntax unified
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 11
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 11
 
 
  179              	.L14:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 1
  225              	.LBB6:
  186:Src/main.c    ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
  226              		.loc 1 186 3 view .LVU37
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 12
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 12
 
 
  227 001a 0193     		str	r3, [sp, #4]
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 1
  266              		.loc 1 194 3 is_stmt 1 view .LVU52
  194:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
  267              		.loc 1 194 34 is_stmt 0 view .LVU53
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 13
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 13
 
 
  268 0050 0222     		movs	r2, #2
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 1
  210:Src/main.c    ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
  304              		.loc 1 210 35 is_stmt 0 view .LVU72
  305 0076 0023     		movs	r3, #0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 14
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 14
 
 
  306 0078 0593     		str	r3, [sp, #20]
@@ -838,225 +838,161 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 1
  351 0000 68656C6C 		.ascii	"hello electronbot coming...\015\000"
  351      6F20656C 
  351      65637472 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 15
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 15
 
 
  351      6F6E626F 
  351      7420636F 
- 352 001d 000000   		.align	2
- 353              	.LC2:
- 354 0020 74747474 		.ascii	"tttt\015\000"
- 354      0D00
- 355 0026 0000     		.align	2
- 356              	.LC3:
- 357 0028 252E3278 		.ascii	"%.2x \000"
- 357      2000
- 358 002e 0000     		.align	2
- 359              	.LC4:
- 360 0030 0D00     		.ascii	"\015\000"
- 361              		.section	.text.main,"ax",%progbits
- 362              		.align	1
- 363              		.global	main
- 364              		.syntax unified
- 365              		.thumb
- 366              		.thumb_func
- 368              	main:
- 369              	.LFB139:
+ 352              		.section	.text.main,"ax",%progbits
+ 353              		.align	1
+ 354              		.global	main
+ 355              		.syntax unified
+ 356              		.thumb
+ 357              		.thumb_func
+ 359              	main:
+ 360              	.LFB139:
   92:Src/main.c    ****   /* USER CODE BEGIN 1 */
- 370              		.loc 1 92 1 view -0
- 371              		.cfi_startproc
- 372              		@ args = 0, pretend = 0, frame = 0
- 373              		@ frame_needed = 0, uses_anonymous_args = 0
- 374 0000 10B5     		push	{r4, lr}
- 375              	.LCFI8:
- 376              		.cfi_def_cfa_offset 8
- 377              		.cfi_offset 4, -8
- 378              		.cfi_offset 14, -4
+ 361              		.loc 1 92 1 view -0
+ 362              		.cfi_startproc
+ 363              		@ Volatile: function does not return.
+ 364              		@ args = 0, pretend = 0, frame = 0
+ 365              		@ frame_needed = 0, uses_anonymous_args = 0
+ 366 0000 08B5     		push	{r3, lr}
+ 367              	.LCFI8:
+ 368              		.cfi_def_cfa_offset 8
+ 369              		.cfi_offset 3, -8
+ 370              		.cfi_offset 14, -4
   94:Src/main.c    ****   /* USER CODE END 1 */
- 379              		.loc 1 94 3 view .LVU84
+ 371              		.loc 1 94 3 view .LVU84
  100:Src/main.c    **** 
- 380              		.loc 1 100 3 view .LVU85
- 381 0002 FFF7FEFF 		bl	HAL_Init
- 382              	.LVL15:
+ 372              		.loc 1 100 3 view .LVU85
+ 373 0002 FFF7FEFF 		bl	HAL_Init
+ 374              	.LVL15:
  107:Src/main.c    **** 
- 383              		.loc 1 107 3 view .LVU86
- 384 0006 FFF7FEFF 		bl	SystemClock_Config
- 385              	.LVL16:
+ 375              		.loc 1 107 3 view .LVU86
+ 376 0006 FFF7FEFF 		bl	SystemClock_Config
+ 377              	.LVL16:
  114:Src/main.c    ****   MX_DMA_Init();
- 386              		.loc 1 114 3 view .LVU87
- 387 000a FFF7FEFF 		bl	MX_GPIO_Init
- 388              	.LVL17:
+ 378              		.loc 1 114 3 view .LVU87
+ 379 000a FFF7FEFF 		bl	MX_GPIO_Init
+ 380              	.LVL17:
  115:Src/main.c    ****   MX_I2C1_Init();
- 389              		.loc 1 115 3 view .LVU88
- 390 000e FFF7FEFF 		bl	MX_DMA_Init
- 391              	.LVL18:
+ 381              		.loc 1 115 3 view .LVU88
+ 382 000e FFF7FEFF 		bl	MX_DMA_Init
+ 383              	.LVL18:
  116:Src/main.c    ****   MX_USART1_UART_Init();
- 392              		.loc 1 116 3 view .LVU89
- 393 0012 FFF7FEFF 		bl	MX_I2C1_Init
- 394              	.LVL19:
+ 384              		.loc 1 116 3 view .LVU89
+ 385 0012 FFF7FEFF 		bl	MX_I2C1_Init
+ 386              	.LVL19:
  117:Src/main.c    ****   MX_SPI1_Init();
- 395              		.loc 1 117 3 view .LVU90
- 396 0016 FFF7FEFF 		bl	MX_USART1_UART_Init
- 397              	.LVL20:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 16
-
-
+ 387              		.loc 1 117 3 view .LVU90
+ 388 0016 FFF7FEFF 		bl	MX_USART1_UART_Init
+ 389              	.LVL20:
  118:Src/main.c    ****   /* USER CODE BEGIN 2 */
- 398              		.loc 1 118 3 view .LVU91
- 399 001a FFF7FEFF 		bl	MX_SPI1_Init
- 400              	.LVL21:
+ 390              		.loc 1 118 3 view .LVU91
+ 391 001a FFF7FEFF 		bl	MX_SPI1_Init
+ 392              	.LVL21:
  132:Src/main.c    ****   printf("hello electronbot coming...\r\n");
- 401              		.loc 1 132 3 view .LVU92
- 402 001e FFF7FEFF 		bl	SpiFlash_Init
- 403              	.LVL22:
- 133:Src/main.c    ****   i2cTxData[0]=0x01;
- 404              		.loc 1 133 3 view .LVU93
- 405 0022 0E48     		ldr	r0, .L28
- 406 0024 FFF7FEFF 		bl	puts
- 407              	.LVL23:
- 134:Src/main.c    ****   *(float*)&i2cTxData[1]=30.0f;
- 408              		.loc 1 134 3 view .LVU94
- 134:Src/main.c    ****   *(float*)&i2cTxData[1]=30.0f;
- 409              		.loc 1 134 15 is_stmt 0 view .LVU95
- 410 0028 0D4B     		ldr	r3, .L28+4
- 411 002a 0122     		movs	r2, #1
- 412 002c 1A70     		strb	r2, [r3]
- 135:Src/main.c    ****   TransmitAndReceiveI2cPacket(12);
- 413              		.loc 1 135 3 is_stmt 1 view .LVU96
- 135:Src/main.c    ****   TransmitAndReceiveI2cPacket(12);
- 414              		.loc 1 135 25 is_stmt 0 view .LVU97
- 415 002e 0D4A     		ldr	r2, .L28+8
- 416 0030 C3F80120 		str	r2, [r3, #1]	@ unaligned
- 136:Src/main.c    ****   printf("tttt\r\n");
- 417              		.loc 1 136 3 is_stmt 1 view .LVU98
- 418 0034 0C20     		movs	r0, #12
- 419 0036 FFF7FEFF 		bl	TransmitAndReceiveI2cPacket
- 420              	.LVL24:
- 137:Src/main.c    ****   for(i =0;i<5;i++)
- 421              		.loc 1 137 3 view .LVU99
- 422 003a 0B48     		ldr	r0, .L28+12
- 423 003c FFF7FEFF 		bl	puts
- 424              	.LVL25:
- 138:Src/main.c    ****         printf("%.2x ",i2cRxData[i]);
- 425              		.loc 1 138 3 view .LVU100
- 138:Src/main.c    ****         printf("%.2x ",i2cRxData[i]);
- 426              		.loc 1 138 9 is_stmt 0 view .LVU101
- 427 0040 0024     		movs	r4, #0
- 138:Src/main.c    ****         printf("%.2x ",i2cRxData[i]);
- 428              		.loc 1 138 3 view .LVU102
- 429 0042 05E0     		b	.L24
- 430              	.LVL26:
- 431              	.L25:
- 139:Src/main.c    ****     printf("\r\n");
- 432              		.loc 1 139 9 is_stmt 1 discriminator 3 view .LVU103
- 433 0044 094B     		ldr	r3, .L28+16
- 434 0046 195D     		ldrb	r1, [r3, r4]	@ zero_extendqisi2
- 435 0048 0948     		ldr	r0, .L28+20
- 436 004a FFF7FEFF 		bl	printf
- 437              	.LVL27:
- 138:Src/main.c    ****         printf("%.2x ",i2cRxData[i]);
- 438              		.loc 1 138 16 discriminator 3 view .LVU104
- 138:Src/main.c    ****         printf("%.2x ",i2cRxData[i]);
- 439              		.loc 1 138 17 is_stmt 0 discriminator 3 view .LVU105
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 17
+ 393              		.loc 1 132 3 view .LVU92
+ 394 001e FFF7FEFF 		bl	SpiFlash_Init
+ 395              	.LVL22:
+ 133:Src/main.c    ****  /*  i2cTxData[0]=0x01;
+ 396              		.loc 1 133 3 view .LVU93
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 16
 
 
- 440 004e 0134     		adds	r4, r4, #1
- 441              	.LVL28:
- 442              	.L24:
- 138:Src/main.c    ****         printf("%.2x ",i2cRxData[i]);
- 443              		.loc 1 138 12 is_stmt 1 discriminator 1 view .LVU106
- 138:Src/main.c    ****         printf("%.2x ",i2cRxData[i]);
- 444              		.loc 1 138 3 is_stmt 0 discriminator 1 view .LVU107
- 445 0050 042C     		cmp	r4, #4
- 446 0052 F7DD     		ble	.L25
- 140:Src/main.c    ****     while(1);
- 447              		.loc 1 140 5 is_stmt 1 view .LVU108
- 448 0054 0748     		ldr	r0, .L28+24
- 449 0056 FFF7FEFF 		bl	puts
- 450              	.LVL29:
- 451              	.L26:
- 141:Src/main.c    ****   /* USER CODE END 2
- 452              		.loc 1 141 5 discriminator 1 view .LVU109
- 141:Src/main.c    ****   /* USER CODE END 2
- 453              		.loc 1 141 13 discriminator 1 view .LVU110
- 141:Src/main.c    ****   /* USER CODE END 2
- 454              		.loc 1 141 10 discriminator 1 view .LVU111
- 455 005a FEE7     		b	.L26
- 456              	.L29:
- 457              		.align	2
- 458              	.L28:
- 459 005c 00000000 		.word	.LC1
- 460 0060 00000000 		.word	.LANCHOR0
- 461 0064 0000F041 		.word	1106247680
- 462 0068 20000000 		.word	.LC2
- 463 006c 00000000 		.word	.LANCHOR1
- 464 0070 28000000 		.word	.LC3
- 465 0074 30000000 		.word	.LC4
- 466              		.cfi_endproc
- 467              	.LFE139:
- 469              		.global	i2cTxData
- 470              		.global	i2cRxData
- 471              		.section	.bss.i2cRxData,"aw",%nobits
- 472              		.align	2
- 473              		.set	.LANCHOR1,. + 0
- 476              	i2cRxData:
- 477 0000 00000000 		.space	8
- 477      00000000 
- 478              		.section	.bss.i2cTxData,"aw",%nobits
- 479              		.align	2
- 480              		.set	.LANCHOR0,. + 0
- 483              	i2cTxData:
- 484 0000 00000000 		.space	8
- 484      00000000 
- 485              		.text
- 486              	.Letext0:
- 487              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 488              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 489              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
- 490              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 491              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
- 492              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
- 493              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 18
+ 397 0022 0548     		ldr	r0, .L26
+ 398 0024 FFF7FEFF 		bl	puts
+ 399              	.LVL23:
+ 145:Src/main.c    ****   MX_FREERTOS_Init();
+ 400              		.loc 1 145 3 view .LVU94
+ 401 0028 FFF7FEFF 		bl	osKernelInitialize
+ 402              	.LVL24:
+ 146:Src/main.c    **** 
+ 403              		.loc 1 146 3 view .LVU95
+ 404 002c FFF7FEFF 		bl	MX_FREERTOS_Init
+ 405              	.LVL25:
+ 149:Src/main.c    **** 
+ 406              		.loc 1 149 3 view .LVU96
+ 407 0030 FFF7FEFF 		bl	osKernelStart
+ 408              	.LVL26:
+ 409              	.L24:
+ 154:Src/main.c    ****   {
+ 410              		.loc 1 154 3 discriminator 1 view .LVU97
+ 171:Src/main.c    ****   /* USER CODE END 3 */
+ 411              		.loc 1 171 3 discriminator 1 view .LVU98
+ 154:Src/main.c    ****   {
+ 412              		.loc 1 154 9 discriminator 1 view .LVU99
+ 413 0034 FEE7     		b	.L24
+ 414              	.L27:
+ 415 0036 00BF     		.align	2
+ 416              	.L26:
+ 417 0038 00000000 		.word	.LC1
+ 418              		.cfi_endproc
+ 419              	.LFE139:
+ 421              		.global	i2cTxData
+ 422              		.global	i2cRxData
+ 423              		.section	.bss.i2cRxData,"aw",%nobits
+ 424              		.align	2
+ 425              		.set	.LANCHOR1,. + 0
+ 428              	i2cRxData:
+ 429 0000 00000000 		.space	8
+ 429      00000000 
+ 430              		.section	.bss.i2cTxData,"aw",%nobits
+ 431              		.align	2
+ 432              		.set	.LANCHOR0,. + 0
+ 435              	i2cTxData:
+ 436 0000 00000000 		.space	8
+ 436      00000000 
+ 437              		.text
+ 438              	.Letext0:
+ 439              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 440              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 441              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+ 442              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 443              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 444              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 445              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 446              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
+ 447              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 448              		.file 12 "Inc/i2c.h"
+ 449              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 450              		.file 14 "Inc/gpio.h"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 17
 
 
- 494              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
- 495              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 496              		.file 12 "Inc/i2c.h"
- 497              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 498              		.file 14 "Inc/gpio.h"
- 499              		.file 15 "Inc/dma.h"
- 500              		.file 16 "Inc/usart.h"
- 501              		.file 17 "Inc/spi.h"
- 502              		.file 18 "user/w25q32.h"
- 503              		.file 19 "<built-in>"
- 504              		.file 20 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s 			page 19
+ 451              		.file 15 "Inc/dma.h"
+ 452              		.file 16 "Inc/usart.h"
+ 453              		.file 17 "Inc/spi.h"
+ 454              		.file 18 "user/w25q32.h"
+ 455              		.file 19 "<built-in>"
+ 456              		.file 20 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h"
+ 457              		.file 21 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s 			page 18
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:20     .rodata.TransmitAndReceiveI2cPacket.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:24     .text.TransmitAndReceiveI2cPacket:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:30     .text.TransmitAndReceiveI2cPacket:00000000 TransmitAndReceiveI2cPacket
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:99     .text.TransmitAndReceiveI2cPacket:0000003c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:107    .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:113    .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:147    .text.HAL_TIM_PeriodElapsedCallback:00000014 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:152    .text.Error_Handler:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:158    .text.Error_Handler:00000000 Error_Handler
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:190    .text.SystemClock_Config:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:196    .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:343    .text.SystemClock_Config:000000a0 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:349    .rodata.main.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:362    .text.main:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:368    .text.main:00000000 main
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:459    .text.main:0000005c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:483    .bss.i2cTxData:00000000 i2cTxData
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:476    .bss.i2cRxData:00000000 i2cRxData
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:472    .bss.i2cRxData:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccBpSvyB.s:479    .bss.i2cTxData:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:20     .rodata.TransmitAndReceiveI2cPacket.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:24     .text.TransmitAndReceiveI2cPacket:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:30     .text.TransmitAndReceiveI2cPacket:00000000 TransmitAndReceiveI2cPacket
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:99     .text.TransmitAndReceiveI2cPacket:0000003c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:107    .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:113    .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:147    .text.HAL_TIM_PeriodElapsedCallback:00000014 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:152    .text.Error_Handler:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:158    .text.Error_Handler:00000000 Error_Handler
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:190    .text.SystemClock_Config:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:196    .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:343    .text.SystemClock_Config:000000a0 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:349    .rodata.main.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:353    .text.main:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:359    .text.main:00000000 main
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:417    .text.main:00000038 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:435    .bss.i2cTxData:00000000 i2cTxData
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:428    .bss.i2cRxData:00000000 i2cRxData
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:424    .bss.i2cRxData:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccYO1RKL.s:431    .bss.i2cTxData:00000000 $d
 
 UNDEFINED SYMBOLS
 printf
@@ -1075,3 +1011,6 @@ MX_USART1_UART_Init
 MX_SPI1_Init
 SpiFlash_Init
 puts
+osKernelInitialize
+MX_FREERTOS_Init
+osKernelStart

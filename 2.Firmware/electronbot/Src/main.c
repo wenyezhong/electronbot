@@ -131,14 +131,14 @@ int main(void)
   printf("ennnnn...\r\n"); */
   SpiFlash_Init(); 
   printf("hello electronbot coming...\r\n");
-  i2cTxData[0]=0x01;
+ /*  i2cTxData[0]=0x01;
   *(float*)&i2cTxData[1]=30.0f;
   TransmitAndReceiveI2cPacket(12);
   printf("tttt\r\n");
   for(i =0;i<5;i++)
         printf("%.2x ",i2cRxData[i]);
     printf("\r\n");
-    while(1);
+    while(1); */
   /* USER CODE END 2
 
   /* Init scheduler */

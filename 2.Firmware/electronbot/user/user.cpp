@@ -20,6 +20,9 @@ uint8_t setkv_flag;
 uint8_t setkd_flag;
 uint8_t settq_flag;
 
+uint8_t  newid;
+// float initAngle;
+
 /* Thread Definitions -----------------------------------------------------*/
 
 
@@ -82,9 +85,9 @@ void setAngle(uint8_t *ptr)
     jointSetPoints[id/2] = *((float*) (ptr + 1));
     isEnabled = ptr[5];
     
-    /* for(int i=0 ; i<32; i++)
+    for(int i=0 ; i<32; i++)
         printf("%.2x ",ptr[i]);
-    printf("\r\n"); */
+    printf("\r\n");
    /* switch(id)
     {
         case 2:JointStatus=electron.joint[1];break;
@@ -100,10 +103,27 @@ void setAngle(uint8_t *ptr)
     electron.UpdateJointAngle(electron.joint[id/2], jointSetPoints[id/2]);
     electron.SetJointEnable(electron.joint[id/2], isEnabled);
 }
+void setid(uint8_t *ptr)
+{
+    uint8_t id = ptr[0];
+   
+    newid=ptr[1];
+    electron.SetJointId(electron.joint[id/2], newid);
+}
+void setInitAngle(uint8_t *ptr)
+{
+    uint8_t id = ptr[0];
+    jointSetPoints[id/2]=*((float*) (ptr + 1));
+    for(int i=0 ; i<32; i++)
+        printf("%.2x ",ptr[i]);
+    printf("\r\n");
+    
+    electron.SetJointInitAngle(electron.joint[id/2], jointSetPoints[id/2]);
+}
 /* Default Entry -------------------------------------------------------*/
 void Main(void)
 {
-    int i;
+    int i;    
     HAL_Delay(1000);
     electron.lcd->Init(Screen::DEGREE_0);
     electron.lcd->SetWindow(0, 239, 0, 239);
@@ -126,6 +146,14 @@ void Main(void)
         {
             setAngle(ptr);
             
+        }
+        else if(ptr[31] == 0xf0)
+        {            
+             setid(ptr);         
+        }
+        else if(ptr[31] == 0xf1)
+        {
+             setInitAngle(ptr);
         }
         else
         {

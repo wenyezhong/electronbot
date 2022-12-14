@@ -71,6 +71,7 @@ void MX_ADC_Init(void)
   LL_DMA_SetMemoryAddress(DMA1,LL_DMA_CHANNEL_1,(uint32_t )&adcData);
   LL_DMA_SetPeriphAddress(DMA1,LL_DMA_CHANNEL_1,LL_ADC_DMA_GetRegAddr(ADC1,LL_ADC_DMA_REG_REGULAR_DATA));
   LL_DMA_EnableIT_TC(DMA1,LL_DMA_CHANNEL_1);
+  
   /* USER CODE END ADC_Init 1 */
 
   /** Configure Regular Channel
@@ -93,8 +94,18 @@ void MX_ADC_Init(void)
   LL_ADC_REG_SetSequencerScanDirection(ADC1, LL_ADC_REG_SEQ_SCAN_DIR_FORWARD);
   LL_ADC_SetSamplingTimeCommonChannels(ADC1, LL_ADC_SAMPLINGTIME_1CYCLE_5);
   /* USER CODE BEGIN ADC_Init 2 */
+  
+  
+  // LL_ADC_ClearFlag_ADRDY(ADC1);
+  // LL_ADC_ClearFlag_EOC(ADC1);
+  // LL_ADC_EnableIT_EOC(ADC1);
+  LL_ADC_StartCalibration(ADC1);
+  while(LL_ADC_IsCalibrationOnGoing(ADC1));
+  LL_DMA_EnableChannel(DMA1,LL_DMA_CHANNEL_1);
   LL_ADC_Enable(ADC1);
   LL_ADC_REG_StartConversion(ADC1);
+  
+  
   /* USER CODE END ADC_Init 2 */
 
 }

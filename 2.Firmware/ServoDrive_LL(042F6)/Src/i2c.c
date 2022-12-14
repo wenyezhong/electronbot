@@ -25,7 +25,7 @@ uint8_t i2cDataRx[8];
 uint8_t i2cDataTx[8];
 
 /* USER CODE END 0 */
-#if 0
+
 /* I2C1 init function */
 void MX_I2C1_Init(void)
 {
@@ -79,11 +79,6 @@ void MX_I2C1_Init(void)
 
   LL_DMA_SetMemorySize(DMA1, LL_DMA_CHANNEL_3, LL_DMA_MDATAALIGN_BYTE);
 
-  LL_DMA_SetDataLength(DMA1,LL_DMA_CHANNEL_3,5);
-  LL_DMA_SetMemoryAddress(DMA1,LL_DMA_CHANNEL_3,(uint32_t)i2cDataRx);
-  LL_DMA_SetPeriphAddress(DMA1,LL_DMA_CHANNEL_3,LL_I2C_DMA_GetRegAddr(I2C1,LL_I2C_DMA_REG_DATA_RECEIVE));  
-  LL_DMA_EnableIT_TC(DMA1,LL_DMA_CHANNEL_3);
-
   /* I2C1 interrupt Init */
   NVIC_SetPriority(I2C1_IRQn, 0);
   NVIC_EnableIRQ(I2C1_IRQn);
@@ -114,7 +109,7 @@ void MX_I2C1_Init(void)
   /* USER CODE END I2C1_Init 2 */
 
 }
-#endif
+
 /* USER CODE BEGIN 1 */
 void MY_I2C1_Init(uint32_t _id)
 {

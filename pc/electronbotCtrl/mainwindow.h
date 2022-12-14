@@ -32,6 +32,20 @@ private slots:
     void on_pushButton_body_clicked();
     void on_pushButton_sendAngle_clicked();
 
+    void on_pushButton_rpitch_clicked();
+
+    void on_pushButton_rroll_clicked();
+
+    void on_pushButton_lpitch_clicked();
+
+    void on_pushButton_lroll_clicked();
+
+    void on_pushButton_head_clicked();
+
+    void on_pushButton_set_id_clicked();
+
+    void on_pushButton_set_init_angle_clicked();
+
 private:
     Ui::MainWindow *ui;     
      QTimer *recvUSB_Timer;

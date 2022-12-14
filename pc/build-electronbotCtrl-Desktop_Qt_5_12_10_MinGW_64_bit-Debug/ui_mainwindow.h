@@ -45,23 +45,23 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_6;
     QLineEdit *lineEdit_head_kp;
-    QCheckBox *checkBox_2;
+    QCheckBox *checkBox_head_kp;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_7;
     QLineEdit *lineEdit_head_ki;
-    QCheckBox *checkBox_3;
+    QCheckBox *checkBox_head_ki;
     QHBoxLayout *horizontalLayout_6;
     QLabel *label_9;
     QLineEdit *lineEdit_head_kv;
-    QCheckBox *checkBox_5;
+    QCheckBox *checkBox_head_kv;
     QHBoxLayout *horizontalLayout_8;
     QLabel *label_11;
     QLineEdit *lineEdit_head_kd;
-    QCheckBox *checkBox_7;
+    QCheckBox *checkBox_head_kd;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_8;
     QLineEdit *lineEdit_head_tq;
-    QCheckBox *checkBox_4;
+    QCheckBox *checkBox_head_tq;
     QHBoxLayout *horizontalLayout_7;
     QPushButton *pushButton_head;
     QGroupBox *groupBox_3;
@@ -71,23 +71,23 @@ public:
     QHBoxLayout *horizontalLayout_10;
     QLabel *label_10;
     QLineEdit *lineEdit_lroll_kp;
-    QCheckBox *checkBox_6;
+    QCheckBox *checkBox_lroll_kp;
     QHBoxLayout *horizontalLayout_11;
     QLabel *label_12;
     QLineEdit *lineEdit_lroll_ki;
-    QCheckBox *checkBox_8;
+    QCheckBox *checkBox_lroll_ki;
     QHBoxLayout *horizontalLayout_12;
     QLabel *label_13;
     QLineEdit *lineEdit_lroll_kv;
-    QCheckBox *checkBox_9;
+    QCheckBox *checkBox_lroll_kv;
     QHBoxLayout *horizontalLayout_13;
     QLabel *label_14;
     QLineEdit *lineEdit_lroll_kd;
-    QCheckBox *checkBox_10;
+    QCheckBox *checkBox_lroll_kd;
     QHBoxLayout *horizontalLayout_14;
     QLabel *label_15;
     QLineEdit *lineEdit_lroll_tq;
-    QCheckBox *checkBox_11;
+    QCheckBox *checkBox_lroll_tq;
     QHBoxLayout *horizontalLayout_15;
     QPushButton *pushButton_lroll;
     QGroupBox *groupBox_5;
@@ -97,23 +97,23 @@ public:
     QHBoxLayout *horizontalLayout_17;
     QLabel *label_16;
     QLineEdit *lineEdit_lpitch_kp;
-    QCheckBox *checkBox_12;
+    QCheckBox *checkBox_lpitch_kp;
     QHBoxLayout *horizontalLayout_18;
     QLabel *label_17;
     QLineEdit *lineEdit_lpitch_ki;
-    QCheckBox *checkBox_13;
+    QCheckBox *checkBox_lpitch_ki;
     QHBoxLayout *horizontalLayout_19;
     QLabel *label_18;
     QLineEdit *lineEdit_lpitch_kv;
-    QCheckBox *checkBox_14;
+    QCheckBox *checkBox_lpitch_kv;
     QHBoxLayout *horizontalLayout_20;
     QLabel *label_19;
     QLineEdit *lineEdit_lpitch_kd;
-    QCheckBox *checkBox_15;
+    QCheckBox *checkBox_lpitch_kd;
     QHBoxLayout *horizontalLayout_21;
     QLabel *label_20;
     QLineEdit *lineEdit_lpitch_tq;
-    QCheckBox *checkBox_16;
+    QCheckBox *checkBox_lpitch_tq;
     QHBoxLayout *horizontalLayout_22;
     QPushButton *pushButton_lpitch;
     QGroupBox *groupBox_6;
@@ -123,23 +123,23 @@ public:
     QHBoxLayout *horizontalLayout_24;
     QLabel *label_21;
     QLineEdit *lineEdit_rroll_kp;
-    QCheckBox *checkBox_17;
+    QCheckBox *checkBox_rroll_kp;
     QHBoxLayout *horizontalLayout_25;
     QLabel *label_22;
     QLineEdit *lineEdit_rroll_ki;
-    QCheckBox *checkBox_18;
+    QCheckBox *checkBox_rroll_ki;
     QHBoxLayout *horizontalLayout_26;
     QLabel *label_23;
     QLineEdit *lineEdit_rroll_kv;
-    QCheckBox *checkBox_19;
+    QCheckBox *checkBox_rroll_kv;
     QHBoxLayout *horizontalLayout_27;
     QLabel *label_24;
     QLineEdit *lineEdit_rroll_kd;
-    QCheckBox *checkBox_20;
+    QCheckBox *checkBox_rroll_kd;
     QHBoxLayout *horizontalLayout_28;
     QLabel *label_25;
     QLineEdit *lineEdit_rroll_tq;
-    QCheckBox *checkBox_21;
+    QCheckBox *checkBox_rroll_tq;
     QHBoxLayout *horizontalLayout_29;
     QPushButton *pushButton_rroll;
     QGroupBox *groupBox_2;
@@ -149,23 +149,23 @@ public:
     QHBoxLayout *horizontalLayout_31;
     QLabel *label_26;
     QLineEdit *lineEdit_rpitch_kp;
-    QCheckBox *checkBox_22;
+    QCheckBox *checkBox_rpitch_kp;
     QHBoxLayout *horizontalLayout_32;
     QLabel *label_27;
     QLineEdit *lineEdit_rpitch_ki;
-    QCheckBox *checkBox_23;
+    QCheckBox *checkBox_rpitch_ki;
     QHBoxLayout *horizontalLayout_33;
     QLabel *label_28;
     QLineEdit *lineEdit_rpitch_kv;
-    QCheckBox *checkBox_24;
+    QCheckBox *checkBox_rpitch_kv;
     QHBoxLayout *horizontalLayout_34;
     QLabel *label_29;
     QLineEdit *lineEdit_rpitch_kd;
-    QCheckBox *checkBox_25;
+    QCheckBox *checkBox_rpitch_kd;
     QHBoxLayout *horizontalLayout_35;
     QLabel *label_30;
     QLineEdit *lineEdit_rpitch_tq;
-    QCheckBox *checkBox_26;
+    QCheckBox *checkBox_rpitch_tq;
     QHBoxLayout *horizontalLayout_36;
     QPushButton *pushButton_rpitch;
     QGroupBox *groupBox;
@@ -208,6 +208,20 @@ public:
     QLineEdit *lineEdit_angle;
     QCheckBox *checkBox_enable;
     QPushButton *pushButton_sendAngle;
+    QWidget *horizontalLayoutWidget_3;
+    QHBoxLayout *horizontalLayout_46;
+    QLabel *label_3;
+    QLineEdit *lineEdit_id_old;
+    QLabel *label_4;
+    QLineEdit *lineEdit_id_new;
+    QPushButton *pushButton_set_id;
+    QWidget *horizontalLayoutWidget_4;
+    QHBoxLayout *horizontalLayout_47;
+    QLabel *label_5;
+    QLineEdit *lineEdit_id_2;
+    QLabel *label_36;
+    QLineEdit *lineEdit_id_init_angle;
+    QPushButton *pushButton_set_init_angle;
     QWidget *tab_2;
     QWidget *tab_3;
     QMenuBar *menuBar;
@@ -218,7 +232,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(843, 451);
+        MainWindow->resize(843, 452);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         verticalLayoutWidget = new QWidget(centralWidget);
@@ -271,11 +285,11 @@ public:
 
         horizontalLayout_3->addWidget(lineEdit_head_kp);
 
-        checkBox_2 = new QCheckBox(groupBox_4);
-        checkBox_2->setObjectName(QString::fromUtf8("checkBox_2"));
-        checkBox_2->setLayoutDirection(Qt::LeftToRight);
+        checkBox_head_kp = new QCheckBox(groupBox_4);
+        checkBox_head_kp->setObjectName(QString::fromUtf8("checkBox_head_kp"));
+        checkBox_head_kp->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_3->addWidget(checkBox_2);
+        horizontalLayout_3->addWidget(checkBox_head_kp);
 
         horizontalLayout_3->setStretch(0, 1);
         horizontalLayout_3->setStretch(2, 1);
@@ -302,11 +316,11 @@ public:
 
         horizontalLayout_4->addWidget(lineEdit_head_ki);
 
-        checkBox_3 = new QCheckBox(groupBox_4);
-        checkBox_3->setObjectName(QString::fromUtf8("checkBox_3"));
-        checkBox_3->setLayoutDirection(Qt::LeftToRight);
+        checkBox_head_ki = new QCheckBox(groupBox_4);
+        checkBox_head_ki->setObjectName(QString::fromUtf8("checkBox_head_ki"));
+        checkBox_head_ki->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_4->addWidget(checkBox_3);
+        horizontalLayout_4->addWidget(checkBox_head_ki);
 
         horizontalLayout_4->setStretch(0, 1);
         horizontalLayout_4->setStretch(2, 1);
@@ -330,11 +344,11 @@ public:
 
         horizontalLayout_6->addWidget(lineEdit_head_kv);
 
-        checkBox_5 = new QCheckBox(groupBox_4);
-        checkBox_5->setObjectName(QString::fromUtf8("checkBox_5"));
-        checkBox_5->setLayoutDirection(Qt::LeftToRight);
+        checkBox_head_kv = new QCheckBox(groupBox_4);
+        checkBox_head_kv->setObjectName(QString::fromUtf8("checkBox_head_kv"));
+        checkBox_head_kv->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_6->addWidget(checkBox_5);
+        horizontalLayout_6->addWidget(checkBox_head_kv);
 
         horizontalLayout_6->setStretch(0, 1);
         horizontalLayout_6->setStretch(2, 1);
@@ -358,11 +372,11 @@ public:
 
         horizontalLayout_8->addWidget(lineEdit_head_kd);
 
-        checkBox_7 = new QCheckBox(groupBox_4);
-        checkBox_7->setObjectName(QString::fromUtf8("checkBox_7"));
-        checkBox_7->setLayoutDirection(Qt::LeftToRight);
+        checkBox_head_kd = new QCheckBox(groupBox_4);
+        checkBox_head_kd->setObjectName(QString::fromUtf8("checkBox_head_kd"));
+        checkBox_head_kd->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_8->addWidget(checkBox_7);
+        horizontalLayout_8->addWidget(checkBox_head_kd);
 
         horizontalLayout_8->setStretch(0, 1);
         horizontalLayout_8->setStretch(2, 1);
@@ -386,11 +400,11 @@ public:
 
         horizontalLayout_5->addWidget(lineEdit_head_tq);
 
-        checkBox_4 = new QCheckBox(groupBox_4);
-        checkBox_4->setObjectName(QString::fromUtf8("checkBox_4"));
-        checkBox_4->setLayoutDirection(Qt::LeftToRight);
+        checkBox_head_tq = new QCheckBox(groupBox_4);
+        checkBox_head_tq->setObjectName(QString::fromUtf8("checkBox_head_tq"));
+        checkBox_head_tq->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_5->addWidget(checkBox_4);
+        horizontalLayout_5->addWidget(checkBox_head_tq);
 
         horizontalLayout_5->setStretch(0, 1);
         horizontalLayout_5->setStretch(2, 1);
@@ -445,11 +459,11 @@ public:
 
         horizontalLayout_10->addWidget(lineEdit_lroll_kp);
 
-        checkBox_6 = new QCheckBox(groupBox_3);
-        checkBox_6->setObjectName(QString::fromUtf8("checkBox_6"));
-        checkBox_6->setLayoutDirection(Qt::LeftToRight);
+        checkBox_lroll_kp = new QCheckBox(groupBox_3);
+        checkBox_lroll_kp->setObjectName(QString::fromUtf8("checkBox_lroll_kp"));
+        checkBox_lroll_kp->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_10->addWidget(checkBox_6);
+        horizontalLayout_10->addWidget(checkBox_lroll_kp);
 
         horizontalLayout_10->setStretch(2, 1);
 
@@ -475,11 +489,11 @@ public:
 
         horizontalLayout_11->addWidget(lineEdit_lroll_ki);
 
-        checkBox_8 = new QCheckBox(groupBox_3);
-        checkBox_8->setObjectName(QString::fromUtf8("checkBox_8"));
-        checkBox_8->setLayoutDirection(Qt::LeftToRight);
+        checkBox_lroll_ki = new QCheckBox(groupBox_3);
+        checkBox_lroll_ki->setObjectName(QString::fromUtf8("checkBox_lroll_ki"));
+        checkBox_lroll_ki->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_11->addWidget(checkBox_8);
+        horizontalLayout_11->addWidget(checkBox_lroll_ki);
 
         horizontalLayout_11->setStretch(0, 1);
         horizontalLayout_11->setStretch(2, 1);
@@ -503,11 +517,11 @@ public:
 
         horizontalLayout_12->addWidget(lineEdit_lroll_kv);
 
-        checkBox_9 = new QCheckBox(groupBox_3);
-        checkBox_9->setObjectName(QString::fromUtf8("checkBox_9"));
-        checkBox_9->setLayoutDirection(Qt::LeftToRight);
+        checkBox_lroll_kv = new QCheckBox(groupBox_3);
+        checkBox_lroll_kv->setObjectName(QString::fromUtf8("checkBox_lroll_kv"));
+        checkBox_lroll_kv->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_12->addWidget(checkBox_9);
+        horizontalLayout_12->addWidget(checkBox_lroll_kv);
 
         horizontalLayout_12->setStretch(0, 1);
         horizontalLayout_12->setStretch(2, 1);
@@ -531,11 +545,11 @@ public:
 
         horizontalLayout_13->addWidget(lineEdit_lroll_kd);
 
-        checkBox_10 = new QCheckBox(groupBox_3);
-        checkBox_10->setObjectName(QString::fromUtf8("checkBox_10"));
-        checkBox_10->setLayoutDirection(Qt::LeftToRight);
+        checkBox_lroll_kd = new QCheckBox(groupBox_3);
+        checkBox_lroll_kd->setObjectName(QString::fromUtf8("checkBox_lroll_kd"));
+        checkBox_lroll_kd->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_13->addWidget(checkBox_10);
+        horizontalLayout_13->addWidget(checkBox_lroll_kd);
 
         horizontalLayout_13->setStretch(0, 1);
         horizontalLayout_13->setStretch(2, 1);
@@ -559,11 +573,11 @@ public:
 
         horizontalLayout_14->addWidget(lineEdit_lroll_tq);
 
-        checkBox_11 = new QCheckBox(groupBox_3);
-        checkBox_11->setObjectName(QString::fromUtf8("checkBox_11"));
-        checkBox_11->setLayoutDirection(Qt::LeftToRight);
+        checkBox_lroll_tq = new QCheckBox(groupBox_3);
+        checkBox_lroll_tq->setObjectName(QString::fromUtf8("checkBox_lroll_tq"));
+        checkBox_lroll_tq->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_14->addWidget(checkBox_11);
+        horizontalLayout_14->addWidget(checkBox_lroll_tq);
 
         horizontalLayout_14->setStretch(0, 1);
         horizontalLayout_14->setStretch(2, 1);
@@ -618,11 +632,11 @@ public:
 
         horizontalLayout_17->addWidget(lineEdit_lpitch_kp);
 
-        checkBox_12 = new QCheckBox(groupBox_5);
-        checkBox_12->setObjectName(QString::fromUtf8("checkBox_12"));
-        checkBox_12->setLayoutDirection(Qt::LeftToRight);
+        checkBox_lpitch_kp = new QCheckBox(groupBox_5);
+        checkBox_lpitch_kp->setObjectName(QString::fromUtf8("checkBox_lpitch_kp"));
+        checkBox_lpitch_kp->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_17->addWidget(checkBox_12);
+        horizontalLayout_17->addWidget(checkBox_lpitch_kp);
 
         horizontalLayout_17->setStretch(0, 1);
         horizontalLayout_17->setStretch(2, 1);
@@ -649,11 +663,11 @@ public:
 
         horizontalLayout_18->addWidget(lineEdit_lpitch_ki);
 
-        checkBox_13 = new QCheckBox(groupBox_5);
-        checkBox_13->setObjectName(QString::fromUtf8("checkBox_13"));
-        checkBox_13->setLayoutDirection(Qt::LeftToRight);
+        checkBox_lpitch_ki = new QCheckBox(groupBox_5);
+        checkBox_lpitch_ki->setObjectName(QString::fromUtf8("checkBox_lpitch_ki"));
+        checkBox_lpitch_ki->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_18->addWidget(checkBox_13);
+        horizontalLayout_18->addWidget(checkBox_lpitch_ki);
 
         horizontalLayout_18->setStretch(0, 1);
         horizontalLayout_18->setStretch(2, 1);
@@ -677,11 +691,11 @@ public:
 
         horizontalLayout_19->addWidget(lineEdit_lpitch_kv);
 
-        checkBox_14 = new QCheckBox(groupBox_5);
-        checkBox_14->setObjectName(QString::fromUtf8("checkBox_14"));
-        checkBox_14->setLayoutDirection(Qt::LeftToRight);
+        checkBox_lpitch_kv = new QCheckBox(groupBox_5);
+        checkBox_lpitch_kv->setObjectName(QString::fromUtf8("checkBox_lpitch_kv"));
+        checkBox_lpitch_kv->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_19->addWidget(checkBox_14);
+        horizontalLayout_19->addWidget(checkBox_lpitch_kv);
 
         horizontalLayout_19->setStretch(0, 1);
         horizontalLayout_19->setStretch(2, 1);
@@ -705,11 +719,11 @@ public:
 
         horizontalLayout_20->addWidget(lineEdit_lpitch_kd);
 
-        checkBox_15 = new QCheckBox(groupBox_5);
-        checkBox_15->setObjectName(QString::fromUtf8("checkBox_15"));
-        checkBox_15->setLayoutDirection(Qt::LeftToRight);
+        checkBox_lpitch_kd = new QCheckBox(groupBox_5);
+        checkBox_lpitch_kd->setObjectName(QString::fromUtf8("checkBox_lpitch_kd"));
+        checkBox_lpitch_kd->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_20->addWidget(checkBox_15);
+        horizontalLayout_20->addWidget(checkBox_lpitch_kd);
 
         horizontalLayout_20->setStretch(0, 1);
         horizontalLayout_20->setStretch(2, 1);
@@ -733,11 +747,11 @@ public:
 
         horizontalLayout_21->addWidget(lineEdit_lpitch_tq);
 
-        checkBox_16 = new QCheckBox(groupBox_5);
-        checkBox_16->setObjectName(QString::fromUtf8("checkBox_16"));
-        checkBox_16->setLayoutDirection(Qt::LeftToRight);
+        checkBox_lpitch_tq = new QCheckBox(groupBox_5);
+        checkBox_lpitch_tq->setObjectName(QString::fromUtf8("checkBox_lpitch_tq"));
+        checkBox_lpitch_tq->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_21->addWidget(checkBox_16);
+        horizontalLayout_21->addWidget(checkBox_lpitch_tq);
 
         horizontalLayout_21->setStretch(0, 1);
         horizontalLayout_21->setStretch(2, 1);
@@ -792,11 +806,11 @@ public:
 
         horizontalLayout_24->addWidget(lineEdit_rroll_kp);
 
-        checkBox_17 = new QCheckBox(groupBox_6);
-        checkBox_17->setObjectName(QString::fromUtf8("checkBox_17"));
-        checkBox_17->setLayoutDirection(Qt::LeftToRight);
+        checkBox_rroll_kp = new QCheckBox(groupBox_6);
+        checkBox_rroll_kp->setObjectName(QString::fromUtf8("checkBox_rroll_kp"));
+        checkBox_rroll_kp->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_24->addWidget(checkBox_17);
+        horizontalLayout_24->addWidget(checkBox_rroll_kp);
 
         horizontalLayout_24->setStretch(0, 1);
         horizontalLayout_24->setStretch(2, 1);
@@ -823,11 +837,11 @@ public:
 
         horizontalLayout_25->addWidget(lineEdit_rroll_ki);
 
-        checkBox_18 = new QCheckBox(groupBox_6);
-        checkBox_18->setObjectName(QString::fromUtf8("checkBox_18"));
-        checkBox_18->setLayoutDirection(Qt::LeftToRight);
+        checkBox_rroll_ki = new QCheckBox(groupBox_6);
+        checkBox_rroll_ki->setObjectName(QString::fromUtf8("checkBox_rroll_ki"));
+        checkBox_rroll_ki->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_25->addWidget(checkBox_18);
+        horizontalLayout_25->addWidget(checkBox_rroll_ki);
 
         horizontalLayout_25->setStretch(0, 1);
         horizontalLayout_25->setStretch(2, 1);
@@ -851,11 +865,11 @@ public:
 
         horizontalLayout_26->addWidget(lineEdit_rroll_kv);
 
-        checkBox_19 = new QCheckBox(groupBox_6);
-        checkBox_19->setObjectName(QString::fromUtf8("checkBox_19"));
-        checkBox_19->setLayoutDirection(Qt::LeftToRight);
+        checkBox_rroll_kv = new QCheckBox(groupBox_6);
+        checkBox_rroll_kv->setObjectName(QString::fromUtf8("checkBox_rroll_kv"));
+        checkBox_rroll_kv->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_26->addWidget(checkBox_19);
+        horizontalLayout_26->addWidget(checkBox_rroll_kv);
 
         horizontalLayout_26->setStretch(0, 1);
         horizontalLayout_26->setStretch(2, 1);
@@ -879,11 +893,11 @@ public:
 
         horizontalLayout_27->addWidget(lineEdit_rroll_kd);
 
-        checkBox_20 = new QCheckBox(groupBox_6);
-        checkBox_20->setObjectName(QString::fromUtf8("checkBox_20"));
-        checkBox_20->setLayoutDirection(Qt::LeftToRight);
+        checkBox_rroll_kd = new QCheckBox(groupBox_6);
+        checkBox_rroll_kd->setObjectName(QString::fromUtf8("checkBox_rroll_kd"));
+        checkBox_rroll_kd->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_27->addWidget(checkBox_20);
+        horizontalLayout_27->addWidget(checkBox_rroll_kd);
 
         horizontalLayout_27->setStretch(0, 1);
         horizontalLayout_27->setStretch(2, 1);
@@ -907,11 +921,11 @@ public:
 
         horizontalLayout_28->addWidget(lineEdit_rroll_tq);
 
-        checkBox_21 = new QCheckBox(groupBox_6);
-        checkBox_21->setObjectName(QString::fromUtf8("checkBox_21"));
-        checkBox_21->setLayoutDirection(Qt::LeftToRight);
+        checkBox_rroll_tq = new QCheckBox(groupBox_6);
+        checkBox_rroll_tq->setObjectName(QString::fromUtf8("checkBox_rroll_tq"));
+        checkBox_rroll_tq->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_28->addWidget(checkBox_21);
+        horizontalLayout_28->addWidget(checkBox_rroll_tq);
 
         horizontalLayout_28->setStretch(0, 1);
         horizontalLayout_28->setStretch(2, 1);
@@ -966,11 +980,11 @@ public:
 
         horizontalLayout_31->addWidget(lineEdit_rpitch_kp);
 
-        checkBox_22 = new QCheckBox(groupBox_2);
-        checkBox_22->setObjectName(QString::fromUtf8("checkBox_22"));
-        checkBox_22->setLayoutDirection(Qt::LeftToRight);
+        checkBox_rpitch_kp = new QCheckBox(groupBox_2);
+        checkBox_rpitch_kp->setObjectName(QString::fromUtf8("checkBox_rpitch_kp"));
+        checkBox_rpitch_kp->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_31->addWidget(checkBox_22);
+        horizontalLayout_31->addWidget(checkBox_rpitch_kp);
 
         horizontalLayout_31->setStretch(0, 1);
         horizontalLayout_31->setStretch(2, 1);
@@ -997,11 +1011,11 @@ public:
 
         horizontalLayout_32->addWidget(lineEdit_rpitch_ki);
 
-        checkBox_23 = new QCheckBox(groupBox_2);
-        checkBox_23->setObjectName(QString::fromUtf8("checkBox_23"));
-        checkBox_23->setLayoutDirection(Qt::LeftToRight);
+        checkBox_rpitch_ki = new QCheckBox(groupBox_2);
+        checkBox_rpitch_ki->setObjectName(QString::fromUtf8("checkBox_rpitch_ki"));
+        checkBox_rpitch_ki->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_32->addWidget(checkBox_23);
+        horizontalLayout_32->addWidget(checkBox_rpitch_ki);
 
         horizontalLayout_32->setStretch(0, 1);
         horizontalLayout_32->setStretch(2, 1);
@@ -1025,11 +1039,11 @@ public:
 
         horizontalLayout_33->addWidget(lineEdit_rpitch_kv);
 
-        checkBox_24 = new QCheckBox(groupBox_2);
-        checkBox_24->setObjectName(QString::fromUtf8("checkBox_24"));
-        checkBox_24->setLayoutDirection(Qt::LeftToRight);
+        checkBox_rpitch_kv = new QCheckBox(groupBox_2);
+        checkBox_rpitch_kv->setObjectName(QString::fromUtf8("checkBox_rpitch_kv"));
+        checkBox_rpitch_kv->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_33->addWidget(checkBox_24);
+        horizontalLayout_33->addWidget(checkBox_rpitch_kv);
 
         horizontalLayout_33->setStretch(0, 1);
         horizontalLayout_33->setStretch(2, 1);
@@ -1053,11 +1067,11 @@ public:
 
         horizontalLayout_34->addWidget(lineEdit_rpitch_kd);
 
-        checkBox_25 = new QCheckBox(groupBox_2);
-        checkBox_25->setObjectName(QString::fromUtf8("checkBox_25"));
-        checkBox_25->setLayoutDirection(Qt::LeftToRight);
+        checkBox_rpitch_kd = new QCheckBox(groupBox_2);
+        checkBox_rpitch_kd->setObjectName(QString::fromUtf8("checkBox_rpitch_kd"));
+        checkBox_rpitch_kd->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_34->addWidget(checkBox_25);
+        horizontalLayout_34->addWidget(checkBox_rpitch_kd);
 
         horizontalLayout_34->setStretch(0, 1);
         horizontalLayout_34->setStretch(2, 1);
@@ -1081,11 +1095,11 @@ public:
 
         horizontalLayout_35->addWidget(lineEdit_rpitch_tq);
 
-        checkBox_26 = new QCheckBox(groupBox_2);
-        checkBox_26->setObjectName(QString::fromUtf8("checkBox_26"));
-        checkBox_26->setLayoutDirection(Qt::LeftToRight);
+        checkBox_rpitch_tq = new QCheckBox(groupBox_2);
+        checkBox_rpitch_tq->setObjectName(QString::fromUtf8("checkBox_rpitch_tq"));
+        checkBox_rpitch_tq->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_35->addWidget(checkBox_26);
+        horizontalLayout_35->addWidget(checkBox_rpitch_tq);
 
         horizontalLayout_35->setStretch(0, 1);
         horizontalLayout_35->setStretch(2, 1);
@@ -1336,6 +1350,7 @@ public:
         lineEdit_id = new QLineEdit(horizontalLayoutWidget_2);
         lineEdit_id->setObjectName(QString::fromUtf8("lineEdit_id"));
         lineEdit_id->setInputMethodHints(Qt::ImhDigitsOnly);
+        lineEdit_id->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         horizontalLayout_45->addWidget(lineEdit_id);
 
@@ -1347,6 +1362,7 @@ public:
         lineEdit_angle = new QLineEdit(horizontalLayoutWidget_2);
         lineEdit_angle->setObjectName(QString::fromUtf8("lineEdit_angle"));
         lineEdit_angle->setInputMethodHints(Qt::ImhDigitsOnly);
+        lineEdit_angle->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         horizontalLayout_45->addWidget(lineEdit_angle);
 
@@ -1366,6 +1382,88 @@ public:
         horizontalLayout_45->setStretch(3, 6);
         horizontalLayout_45->setStretch(4, 3);
         horizontalLayout_45->setStretch(5, 2);
+        horizontalLayoutWidget_3 = new QWidget(tab);
+        horizontalLayoutWidget_3->setObjectName(QString::fromUtf8("horizontalLayoutWidget_3"));
+        horizontalLayoutWidget_3->setGeometry(QRect(430, 240, 321, 31));
+        horizontalLayout_46 = new QHBoxLayout(horizontalLayoutWidget_3);
+        horizontalLayout_46->setSpacing(6);
+        horizontalLayout_46->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_46->setObjectName(QString::fromUtf8("horizontalLayout_46"));
+        horizontalLayout_46->setContentsMargins(5, 0, 5, 0);
+        label_3 = new QLabel(horizontalLayoutWidget_3);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        horizontalLayout_46->addWidget(label_3);
+
+        lineEdit_id_old = new QLineEdit(horizontalLayoutWidget_3);
+        lineEdit_id_old->setObjectName(QString::fromUtf8("lineEdit_id_old"));
+        lineEdit_id_old->setInputMethodHints(Qt::ImhDigitsOnly);
+        lineEdit_id_old->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        horizontalLayout_46->addWidget(lineEdit_id_old);
+
+        label_4 = new QLabel(horizontalLayoutWidget_3);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+
+        horizontalLayout_46->addWidget(label_4);
+
+        lineEdit_id_new = new QLineEdit(horizontalLayoutWidget_3);
+        lineEdit_id_new->setObjectName(QString::fromUtf8("lineEdit_id_new"));
+        lineEdit_id_new->setInputMethodHints(Qt::ImhDigitsOnly);
+        lineEdit_id_new->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        horizontalLayout_46->addWidget(lineEdit_id_new);
+
+        pushButton_set_id = new QPushButton(horizontalLayoutWidget_3);
+        pushButton_set_id->setObjectName(QString::fromUtf8("pushButton_set_id"));
+
+        horizontalLayout_46->addWidget(pushButton_set_id);
+
+        horizontalLayout_46->setStretch(0, 1);
+        horizontalLayout_46->setStretch(1, 2);
+        horizontalLayout_46->setStretch(2, 1);
+        horizontalLayout_46->setStretch(3, 2);
+        horizontalLayout_46->setStretch(4, 2);
+        horizontalLayoutWidget_4 = new QWidget(tab);
+        horizontalLayoutWidget_4->setObjectName(QString::fromUtf8("horizontalLayoutWidget_4"));
+        horizontalLayoutWidget_4->setGeometry(QRect(430, 270, 321, 31));
+        horizontalLayout_47 = new QHBoxLayout(horizontalLayoutWidget_4);
+        horizontalLayout_47->setSpacing(6);
+        horizontalLayout_47->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_47->setObjectName(QString::fromUtf8("horizontalLayout_47"));
+        horizontalLayout_47->setContentsMargins(5, 0, 5, 0);
+        label_5 = new QLabel(horizontalLayoutWidget_4);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+
+        horizontalLayout_47->addWidget(label_5);
+
+        lineEdit_id_2 = new QLineEdit(horizontalLayoutWidget_4);
+        lineEdit_id_2->setObjectName(QString::fromUtf8("lineEdit_id_2"));
+        lineEdit_id_2->setInputMethodHints(Qt::ImhDigitsOnly);
+        lineEdit_id_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        horizontalLayout_47->addWidget(lineEdit_id_2);
+
+        label_36 = new QLabel(horizontalLayoutWidget_4);
+        label_36->setObjectName(QString::fromUtf8("label_36"));
+
+        horizontalLayout_47->addWidget(label_36);
+
+        lineEdit_id_init_angle = new QLineEdit(horizontalLayoutWidget_4);
+        lineEdit_id_init_angle->setObjectName(QString::fromUtf8("lineEdit_id_init_angle"));
+        lineEdit_id_init_angle->setInputMethodHints(Qt::ImhDigitsOnly);
+        lineEdit_id_init_angle->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        horizontalLayout_47->addWidget(lineEdit_id_init_angle);
+
+        pushButton_set_init_angle = new QPushButton(horizontalLayoutWidget_4);
+        pushButton_set_init_angle->setObjectName(QString::fromUtf8("pushButton_set_init_angle"));
+
+        horizontalLayout_47->addWidget(pushButton_set_init_angle);
+
+        horizontalLayout_47->setStretch(0, 1);
+        horizontalLayout_47->setStretch(1, 2);
+        horizontalLayout_47->setStretch(4, 2);
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
@@ -1401,63 +1499,63 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         groupBox_4->setTitle(QApplication::translate("MainWindow", " Head", nullptr));
         label_6->setText(QApplication::translate("MainWindow", "Kp:", nullptr));
-        checkBox_2->setText(QString());
+        checkBox_head_kp->setText(QString());
         label_7->setText(QApplication::translate("MainWindow", "Ki:", nullptr));
-        checkBox_3->setText(QString());
+        checkBox_head_ki->setText(QString());
         label_9->setText(QApplication::translate("MainWindow", "Kv:", nullptr));
-        checkBox_5->setText(QString());
+        checkBox_head_kv->setText(QString());
         label_11->setText(QApplication::translate("MainWindow", "Kd:", nullptr));
-        checkBox_7->setText(QString());
+        checkBox_head_kd->setText(QString());
         label_8->setText(QApplication::translate("MainWindow", "Tq:", nullptr));
-        checkBox_4->setText(QString());
+        checkBox_head_tq->setText(QString());
         pushButton_head->setText(QApplication::translate("MainWindow", "\350\256\276\347\275\256", nullptr));
         groupBox_3->setTitle(QApplication::translate("MainWindow", "Left Roll", nullptr));
         label_10->setText(QApplication::translate("MainWindow", "Kp:", nullptr));
-        checkBox_6->setText(QString());
+        checkBox_lroll_kp->setText(QString());
         label_12->setText(QApplication::translate("MainWindow", "Ki:", nullptr));
-        checkBox_8->setText(QString());
+        checkBox_lroll_ki->setText(QString());
         label_13->setText(QApplication::translate("MainWindow", "Kv:", nullptr));
-        checkBox_9->setText(QString());
+        checkBox_lroll_kv->setText(QString());
         label_14->setText(QApplication::translate("MainWindow", "Kd:", nullptr));
-        checkBox_10->setText(QString());
+        checkBox_lroll_kd->setText(QString());
         label_15->setText(QApplication::translate("MainWindow", "Tq:", nullptr));
-        checkBox_11->setText(QString());
+        checkBox_lroll_tq->setText(QString());
         pushButton_lroll->setText(QApplication::translate("MainWindow", "\350\256\276\347\275\256", nullptr));
         groupBox_5->setTitle(QApplication::translate("MainWindow", "Left Pitch", nullptr));
         label_16->setText(QApplication::translate("MainWindow", "Kp:", nullptr));
-        checkBox_12->setText(QString());
+        checkBox_lpitch_kp->setText(QString());
         label_17->setText(QApplication::translate("MainWindow", "Ki:", nullptr));
-        checkBox_13->setText(QString());
+        checkBox_lpitch_ki->setText(QString());
         label_18->setText(QApplication::translate("MainWindow", "Kv:", nullptr));
-        checkBox_14->setText(QString());
+        checkBox_lpitch_kv->setText(QString());
         label_19->setText(QApplication::translate("MainWindow", "Kd:", nullptr));
-        checkBox_15->setText(QString());
+        checkBox_lpitch_kd->setText(QString());
         label_20->setText(QApplication::translate("MainWindow", "Tq:", nullptr));
-        checkBox_16->setText(QString());
+        checkBox_lpitch_tq->setText(QString());
         pushButton_lpitch->setText(QApplication::translate("MainWindow", "\350\256\276\347\275\256", nullptr));
         groupBox_6->setTitle(QApplication::translate("MainWindow", "Right  Roll", nullptr));
         label_21->setText(QApplication::translate("MainWindow", "Kp:", nullptr));
-        checkBox_17->setText(QString());
+        checkBox_rroll_kp->setText(QString());
         label_22->setText(QApplication::translate("MainWindow", "Ki:", nullptr));
-        checkBox_18->setText(QString());
+        checkBox_rroll_ki->setText(QString());
         label_23->setText(QApplication::translate("MainWindow", "Kv:", nullptr));
-        checkBox_19->setText(QString());
+        checkBox_rroll_kv->setText(QString());
         label_24->setText(QApplication::translate("MainWindow", "Kd:", nullptr));
-        checkBox_20->setText(QString());
+        checkBox_rroll_kd->setText(QString());
         label_25->setText(QApplication::translate("MainWindow", "Tq:", nullptr));
-        checkBox_21->setText(QString());
+        checkBox_rroll_tq->setText(QString());
         pushButton_rroll->setText(QApplication::translate("MainWindow", "\350\256\276\347\275\256", nullptr));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Right Pitch", nullptr));
         label_26->setText(QApplication::translate("MainWindow", "Kp:", nullptr));
-        checkBox_22->setText(QString());
+        checkBox_rpitch_kp->setText(QString());
         label_27->setText(QApplication::translate("MainWindow", "Ki:", nullptr));
-        checkBox_23->setText(QString());
+        checkBox_rpitch_ki->setText(QString());
         label_28->setText(QApplication::translate("MainWindow", "Kv:", nullptr));
-        checkBox_24->setText(QString());
+        checkBox_rpitch_kv->setText(QString());
         label_29->setText(QApplication::translate("MainWindow", "Kd:", nullptr));
-        checkBox_25->setText(QString());
+        checkBox_rpitch_kd->setText(QString());
         label_30->setText(QApplication::translate("MainWindow", "Tq:", nullptr));
-        checkBox_26->setText(QString());
+        checkBox_rpitch_tq->setText(QString());
         pushButton_rpitch->setText(QApplication::translate("MainWindow", "\350\256\276\347\275\256", nullptr));
         groupBox->setTitle(QApplication::translate("MainWindow", "body", nullptr));
         label_31->setText(QApplication::translate("MainWindow", "Kp:", nullptr));
@@ -1478,6 +1576,12 @@ public:
         label_2->setText(QApplication::translate("MainWindow", "\350\247\222\345\272\246\357\274\232", nullptr));
         checkBox_enable->setText(QApplication::translate("MainWindow", "\344\275\277\350\203\275", nullptr));
         pushButton_sendAngle->setText(QApplication::translate("MainWindow", "\345\217\221\351\200\201", nullptr));
+        label_3->setText(QApplication::translate("MainWindow", "old id\357\274\232", nullptr));
+        label_4->setText(QApplication::translate("MainWindow", "new id\357\274\232", nullptr));
+        pushButton_set_id->setText(QApplication::translate("MainWindow", "\350\256\276\347\275\256", nullptr));
+        label_5->setText(QApplication::translate("MainWindow", "id\357\274\232", nullptr));
+        label_36->setText(QApplication::translate("MainWindow", "\345\210\235\345\247\213\350\247\222\345\272\246\357\274\232", nullptr));
+        pushButton_set_init_angle->setText(QApplication::translate("MainWindow", "\350\256\276\347\275\256", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "\351\205\215\347\275\256", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Tab 2", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "\351\241\265", nullptr));

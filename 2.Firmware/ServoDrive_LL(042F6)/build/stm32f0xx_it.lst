@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -24,7 +24,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
   21              		.code	16
   22              		.thumb_func
   24              	NMI_Handler:
-  25              	.LFB1020:
+  25              	.LFB1023:
   26              		.file 1 "Src/stm32f0xx_it.c"
    1:Src/stm32f0xx_it.c **** /* USER CODE BEGIN Header */
    2:Src/stm32f0xx_it.c **** /**
@@ -47,18 +47,18 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
   19:Src/stm32f0xx_it.c **** 
   20:Src/stm32f0xx_it.c **** /* Includes ------------------------------------------------------------------*/
   21:Src/stm32f0xx_it.c **** #include "main.h"
-  22:Src/stm32f0xx_it.c **** #include "tim.h"
-  23:Src/stm32f0xx_it.c **** #include "i2c.h"
-  24:Src/stm32f0xx_it.c **** #include "stm32f0xx_it.h"
-  25:Src/stm32f0xx_it.c **** /* Private includes ----------------------------------------------------------*/
-  26:Src/stm32f0xx_it.c **** /* USER CODE BEGIN Includes */
-  27:Src/stm32f0xx_it.c **** //#include <stdio.h>
+  22:Src/stm32f0xx_it.c **** #include "stm32f0xx_it.h"
+  23:Src/stm32f0xx_it.c **** /* Private includes ----------------------------------------------------------*/
+  24:Src/stm32f0xx_it.c **** /* USER CODE BEGIN Includes */
+  25:Src/stm32f0xx_it.c **** #include <stdio.h>
+  26:Src/stm32f0xx_it.c **** #include "tim.h"
+  27:Src/stm32f0xx_it.c **** #include "i2c.h"
   28:Src/stm32f0xx_it.c **** /* USER CODE END Includes */
   29:Src/stm32f0xx_it.c **** 
   30:Src/stm32f0xx_it.c **** /* Private typedef -----------------------------------------------------------*/
   31:Src/stm32f0xx_it.c **** /* USER CODE BEGIN TD */
   32:Src/stm32f0xx_it.c **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 2
 
 
   33:Src/stm32f0xx_it.c **** /* USER CODE END TD */
@@ -91,42 +91,43 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
   60:Src/stm32f0xx_it.c **** /* External variables --------------------------------------------------------*/
   61:Src/stm32f0xx_it.c **** 
   62:Src/stm32f0xx_it.c **** /* USER CODE BEGIN EV */
-  63:Src/stm32f0xx_it.c **** /* extern void TIM14_PeriodElapsedCallback(void);
-  64:Src/stm32f0xx_it.c **** extern uint16_t adcData[4]; */
-  65:Src/stm32f0xx_it.c **** /* USER CODE END EV */
-  66:Src/stm32f0xx_it.c **** 
-  67:Src/stm32f0xx_it.c **** /******************************************************************************/
-  68:Src/stm32f0xx_it.c **** /*           Cortex-M0 Processor Interruption and Exception Handlers          */
-  69:Src/stm32f0xx_it.c **** /******************************************************************************/
-  70:Src/stm32f0xx_it.c **** /**
-  71:Src/stm32f0xx_it.c ****   * @brief This function handles Non maskable interrupt.
-  72:Src/stm32f0xx_it.c ****   */
-  73:Src/stm32f0xx_it.c **** void NMI_Handler(void)
-  74:Src/stm32f0xx_it.c **** {
-  27              		.loc 1 74 1 view -0
+  63:Src/stm32f0xx_it.c **** // extern void TIM14_PeriodElapsedCallback(void);
+  64:Src/stm32f0xx_it.c **** // extern void I2C_SlaveDMARxCpltCallback();
+  65:Src/stm32f0xx_it.c **** extern uint16_t adcData[4];
+  66:Src/stm32f0xx_it.c **** /* USER CODE END EV */
+  67:Src/stm32f0xx_it.c **** 
+  68:Src/stm32f0xx_it.c **** /******************************************************************************/
+  69:Src/stm32f0xx_it.c **** /*           Cortex-M0 Processor Interruption and Exception Handlers          */
+  70:Src/stm32f0xx_it.c **** /******************************************************************************/
+  71:Src/stm32f0xx_it.c **** /**
+  72:Src/stm32f0xx_it.c ****   * @brief This function handles Non maskable interrupt.
+  73:Src/stm32f0xx_it.c ****   */
+  74:Src/stm32f0xx_it.c **** void NMI_Handler(void)
+  75:Src/stm32f0xx_it.c **** {
+  27              		.loc 1 75 1 view -0
   28              		.cfi_startproc
   29              		@ Volatile: function does not return.
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
   33              	.L2:
-  75:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
-  76:Src/stm32f0xx_it.c **** 
-  77:Src/stm32f0xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 0 */
-  78:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
-  79:Src/stm32f0xx_it.c ****   while (1)
-  34              		.loc 1 79 3 discriminator 1 view .LVU1
+  76:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
+  77:Src/stm32f0xx_it.c **** 
+  78:Src/stm32f0xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 0 */
+  79:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
+  80:Src/stm32f0xx_it.c ****   while (1)
+  34              		.loc 1 80 3 discriminator 1 view .LVU1
+  81:Src/stm32f0xx_it.c ****   {
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 3
+
+
+  82:Src/stm32f0xx_it.c ****   }
+  35              		.loc 1 82 3 discriminator 1 view .LVU2
   80:Src/stm32f0xx_it.c ****   {
-  81:Src/stm32f0xx_it.c ****   }
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 3
-
-
-  35              		.loc 1 81 3 discriminator 1 view .LVU2
-  79:Src/stm32f0xx_it.c ****   {
-  36              		.loc 1 79 9 discriminator 1 view .LVU3
+  36              		.loc 1 80 9 discriminator 1 view .LVU3
   37 0000 FEE7     		b	.L2
   38              		.cfi_endproc
-  39              	.LFE1020:
+  39              	.LFE1023:
   41              		.section	.text.HardFault_Handler,"ax",%progbits
   42              		.align	1
   43              		.global	HardFault_Handler
@@ -134,37 +135,37 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
   45              		.code	16
   46              		.thumb_func
   48              	HardFault_Handler:
-  49              	.LFB1021:
-  82:Src/stm32f0xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 1 */
-  83:Src/stm32f0xx_it.c **** }
-  84:Src/stm32f0xx_it.c **** 
-  85:Src/stm32f0xx_it.c **** /**
-  86:Src/stm32f0xx_it.c ****   * @brief This function handles Hard fault interrupt.
-  87:Src/stm32f0xx_it.c ****   */
-  88:Src/stm32f0xx_it.c **** void HardFault_Handler(void)
-  89:Src/stm32f0xx_it.c **** {
-  50              		.loc 1 89 1 view -0
+  49              	.LFB1024:
+  83:Src/stm32f0xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 1 */
+  84:Src/stm32f0xx_it.c **** }
+  85:Src/stm32f0xx_it.c **** 
+  86:Src/stm32f0xx_it.c **** /**
+  87:Src/stm32f0xx_it.c ****   * @brief This function handles Hard fault interrupt.
+  88:Src/stm32f0xx_it.c ****   */
+  89:Src/stm32f0xx_it.c **** void HardFault_Handler(void)
+  90:Src/stm32f0xx_it.c **** {
+  50              		.loc 1 90 1 view -0
   51              		.cfi_startproc
   52              		@ Volatile: function does not return.
   53              		@ args = 0, pretend = 0, frame = 0
   54              		@ frame_needed = 0, uses_anonymous_args = 0
   55              		@ link register save eliminated.
   56              	.L4:
-  90:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN HardFault_IRQn 0 */
-  91:Src/stm32f0xx_it.c **** 
-  92:Src/stm32f0xx_it.c ****   /* USER CODE END HardFault_IRQn 0 */
-  93:Src/stm32f0xx_it.c ****   while (1)
-  57              		.loc 1 93 3 discriminator 1 view .LVU5
+  91:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN HardFault_IRQn 0 */
+  92:Src/stm32f0xx_it.c **** 
+  93:Src/stm32f0xx_it.c ****   /* USER CODE END HardFault_IRQn 0 */
+  94:Src/stm32f0xx_it.c ****   while (1)
+  57              		.loc 1 94 3 discriminator 1 view .LVU5
+  95:Src/stm32f0xx_it.c ****   {
+  96:Src/stm32f0xx_it.c ****     /* USER CODE BEGIN W1_HardFault_IRQn 0 */
+  97:Src/stm32f0xx_it.c ****     /* USER CODE END W1_HardFault_IRQn 0 */
+  98:Src/stm32f0xx_it.c ****   }
+  58              		.loc 1 98 3 discriminator 1 view .LVU6
   94:Src/stm32f0xx_it.c ****   {
-  95:Src/stm32f0xx_it.c ****     /* USER CODE BEGIN W1_HardFault_IRQn 0 */
-  96:Src/stm32f0xx_it.c ****     /* USER CODE END W1_HardFault_IRQn 0 */
-  97:Src/stm32f0xx_it.c ****   }
-  58              		.loc 1 97 3 discriminator 1 view .LVU6
-  93:Src/stm32f0xx_it.c ****   {
-  59              		.loc 1 93 9 discriminator 1 view .LVU7
+  59              		.loc 1 94 9 discriminator 1 view .LVU7
   60 0000 FEE7     		b	.L4
   61              		.cfi_endproc
-  62              	.LFE1021:
+  62              	.LFE1024:
   64              		.section	.text.SVC_Handler,"ax",%progbits
   65              		.align	1
   66              		.global	SVC_Handler
@@ -172,34 +173,34 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
   68              		.code	16
   69              		.thumb_func
   71              	SVC_Handler:
-  72              	.LFB1022:
-  98:Src/stm32f0xx_it.c **** }
-  99:Src/stm32f0xx_it.c **** 
- 100:Src/stm32f0xx_it.c **** /**
- 101:Src/stm32f0xx_it.c ****   * @brief This function handles System service call via SWI instruction.
- 102:Src/stm32f0xx_it.c ****   */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 4
+  72              	.LFB1025:
+  99:Src/stm32f0xx_it.c **** }
+ 100:Src/stm32f0xx_it.c **** 
+ 101:Src/stm32f0xx_it.c **** /**
+ 102:Src/stm32f0xx_it.c ****   * @brief This function handles System service call via SWI instruction.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 4
 
 
- 103:Src/stm32f0xx_it.c **** void SVC_Handler(void)
- 104:Src/stm32f0xx_it.c **** {
-  73              		.loc 1 104 1 view -0
+ 103:Src/stm32f0xx_it.c ****   */
+ 104:Src/stm32f0xx_it.c **** void SVC_Handler(void)
+ 105:Src/stm32f0xx_it.c **** {
+  73              		.loc 1 105 1 view -0
   74              		.cfi_startproc
   75              		@ args = 0, pretend = 0, frame = 0
   76              		@ frame_needed = 0, uses_anonymous_args = 0
   77              		@ link register save eliminated.
- 105:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN SVC_IRQn 0 */
- 106:Src/stm32f0xx_it.c **** 
- 107:Src/stm32f0xx_it.c ****   /* USER CODE END SVC_IRQn 0 */
- 108:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN SVC_IRQn 1 */
- 109:Src/stm32f0xx_it.c **** 
- 110:Src/stm32f0xx_it.c ****   /* USER CODE END SVC_IRQn 1 */
- 111:Src/stm32f0xx_it.c **** }
-  78              		.loc 1 111 1 view .LVU9
+ 106:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN SVC_IRQn 0 */
+ 107:Src/stm32f0xx_it.c **** 
+ 108:Src/stm32f0xx_it.c ****   /* USER CODE END SVC_IRQn 0 */
+ 109:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN SVC_IRQn 1 */
+ 110:Src/stm32f0xx_it.c **** 
+ 111:Src/stm32f0xx_it.c ****   /* USER CODE END SVC_IRQn 1 */
+ 112:Src/stm32f0xx_it.c **** }
+  78              		.loc 1 112 1 view .LVU9
   79              		@ sp needed
   80 0000 7047     		bx	lr
   81              		.cfi_endproc
-  82              	.LFE1022:
+  82              	.LFE1025:
   84              		.section	.text.PendSV_Handler,"ax",%progbits
   85              		.align	1
   86              		.global	PendSV_Handler
@@ -207,65 +208,65 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
   88              		.code	16
   89              		.thumb_func
   91              	PendSV_Handler:
-  92              	.LFB1023:
- 112:Src/stm32f0xx_it.c **** 
- 113:Src/stm32f0xx_it.c **** /**
- 114:Src/stm32f0xx_it.c ****   * @brief This function handles Pendable request for system service.
- 115:Src/stm32f0xx_it.c ****   */
- 116:Src/stm32f0xx_it.c **** void PendSV_Handler(void)
- 117:Src/stm32f0xx_it.c **** {
-  93              		.loc 1 117 1 view -0
+  92              	.LFB1026:
+ 113:Src/stm32f0xx_it.c **** 
+ 114:Src/stm32f0xx_it.c **** /**
+ 115:Src/stm32f0xx_it.c ****   * @brief This function handles Pendable request for system service.
+ 116:Src/stm32f0xx_it.c ****   */
+ 117:Src/stm32f0xx_it.c **** void PendSV_Handler(void)
+ 118:Src/stm32f0xx_it.c **** {
+  93              		.loc 1 118 1 view -0
   94              		.cfi_startproc
   95              		@ args = 0, pretend = 0, frame = 0
   96              		@ frame_needed = 0, uses_anonymous_args = 0
   97              		@ link register save eliminated.
- 118:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 0 */
- 119:Src/stm32f0xx_it.c **** 
- 120:Src/stm32f0xx_it.c ****   /* USER CODE END PendSV_IRQn 0 */
- 121:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 1 */
- 122:Src/stm32f0xx_it.c **** 
- 123:Src/stm32f0xx_it.c ****   /* USER CODE END PendSV_IRQn 1 */
- 124:Src/stm32f0xx_it.c **** }
-  98              		.loc 1 124 1 view .LVU11
+ 119:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 0 */
+ 120:Src/stm32f0xx_it.c **** 
+ 121:Src/stm32f0xx_it.c ****   /* USER CODE END PendSV_IRQn 0 */
+ 122:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 1 */
+ 123:Src/stm32f0xx_it.c **** 
+ 124:Src/stm32f0xx_it.c ****   /* USER CODE END PendSV_IRQn 1 */
+ 125:Src/stm32f0xx_it.c **** }
+  98              		.loc 1 125 1 view .LVU11
   99              		@ sp needed
  100 0000 7047     		bx	lr
  101              		.cfi_endproc
- 102              	.LFE1023:
+ 102              	.LFE1026:
  104              		.section	.text.SysTick_Handler,"ax",%progbits
  105              		.align	1
  106              		.global	SysTick_Handler
  107              		.syntax unified
  108              		.code	16
  109              		.thumb_func
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 5
+
+
  111              	SysTick_Handler:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 5
-
-
- 112              	.LFB1024:
- 125:Src/stm32f0xx_it.c **** 
- 126:Src/stm32f0xx_it.c **** /**
- 127:Src/stm32f0xx_it.c ****   * @brief This function handles System tick timer.
- 128:Src/stm32f0xx_it.c ****   */
- 129:Src/stm32f0xx_it.c **** void SysTick_Handler(void)
- 130:Src/stm32f0xx_it.c **** {
- 113              		.loc 1 130 1 view -0
+ 112              	.LFB1027:
+ 126:Src/stm32f0xx_it.c **** 
+ 127:Src/stm32f0xx_it.c **** /**
+ 128:Src/stm32f0xx_it.c ****   * @brief This function handles System tick timer.
+ 129:Src/stm32f0xx_it.c ****   */
+ 130:Src/stm32f0xx_it.c **** void SysTick_Handler(void)
+ 131:Src/stm32f0xx_it.c **** {
+ 113              		.loc 1 131 1 view -0
  114              		.cfi_startproc
  115              		@ args = 0, pretend = 0, frame = 0
  116              		@ frame_needed = 0, uses_anonymous_args = 0
  117              		@ link register save eliminated.
- 131:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 0 */
- 132:Src/stm32f0xx_it.c **** 
- 133:Src/stm32f0xx_it.c ****   /* USER CODE END SysTick_IRQn 0 */
- 134:Src/stm32f0xx_it.c **** 
- 135:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 1 */
- 136:Src/stm32f0xx_it.c **** 
- 137:Src/stm32f0xx_it.c ****   /* USER CODE END SysTick_IRQn 1 */
- 138:Src/stm32f0xx_it.c **** }
- 118              		.loc 1 138 1 view .LVU13
+ 132:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 0 */
+ 133:Src/stm32f0xx_it.c **** 
+ 134:Src/stm32f0xx_it.c ****   /* USER CODE END SysTick_IRQn 0 */
+ 135:Src/stm32f0xx_it.c **** 
+ 136:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 1 */
+ 137:Src/stm32f0xx_it.c **** 
+ 138:Src/stm32f0xx_it.c ****   /* USER CODE END SysTick_IRQn 1 */
+ 139:Src/stm32f0xx_it.c **** }
+ 118              		.loc 1 139 1 view .LVU13
  119              		@ sp needed
  120 0000 7047     		bx	lr
  121              		.cfi_endproc
- 122              	.LFE1024:
+ 122              	.LFE1027:
  124              		.section	.text.DMA1_Channel1_IRQHandler,"ax",%progbits
  125              		.align	1
  126              		.global	DMA1_Channel1_IRQHandler
@@ -273,34 +274,34 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  128              		.code	16
  129              		.thumb_func
  131              	DMA1_Channel1_IRQHandler:
- 132              	.LFB1025:
- 139:Src/stm32f0xx_it.c **** 
- 140:Src/stm32f0xx_it.c **** /******************************************************************************/
- 141:Src/stm32f0xx_it.c **** /* STM32F0xx Peripheral Interrupt Handlers                                    */
- 142:Src/stm32f0xx_it.c **** /* Add here the Interrupt Handlers for the used peripherals.                  */
- 143:Src/stm32f0xx_it.c **** /* For the available peripheral interrupt handler names,                      */
- 144:Src/stm32f0xx_it.c **** /* please refer to the startup file (startup_stm32f0xx.s).                    */
- 145:Src/stm32f0xx_it.c **** /******************************************************************************/
- 146:Src/stm32f0xx_it.c **** 
- 147:Src/stm32f0xx_it.c **** /**
- 148:Src/stm32f0xx_it.c ****   * @brief This function handles DMA1 channel 1 interrupt.
- 149:Src/stm32f0xx_it.c ****   */
- 150:Src/stm32f0xx_it.c **** void DMA1_Channel1_IRQHandler(void)
- 151:Src/stm32f0xx_it.c **** {
- 133              		.loc 1 151 1 view -0
+ 132              	.LFB1028:
+ 140:Src/stm32f0xx_it.c **** 
+ 141:Src/stm32f0xx_it.c **** /******************************************************************************/
+ 142:Src/stm32f0xx_it.c **** /* STM32F0xx Peripheral Interrupt Handlers                                    */
+ 143:Src/stm32f0xx_it.c **** /* Add here the Interrupt Handlers for the used peripherals.                  */
+ 144:Src/stm32f0xx_it.c **** /* For the available peripheral interrupt handler names,                      */
+ 145:Src/stm32f0xx_it.c **** /* please refer to the startup file (startup_stm32f0xx.s).                    */
+ 146:Src/stm32f0xx_it.c **** /******************************************************************************/
+ 147:Src/stm32f0xx_it.c **** 
+ 148:Src/stm32f0xx_it.c **** /**
+ 149:Src/stm32f0xx_it.c ****   * @brief This function handles DMA1 channel 1 interrupt.
+ 150:Src/stm32f0xx_it.c ****   */
+ 151:Src/stm32f0xx_it.c **** void DMA1_Channel1_IRQHandler(void)
+ 152:Src/stm32f0xx_it.c **** {
+ 133              		.loc 1 152 1 view -0
  134              		.cfi_startproc
  135              		@ args = 0, pretend = 0, frame = 0
  136              		@ frame_needed = 0, uses_anonymous_args = 0
  137              		@ link register save eliminated.
- 152:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN DMA1_Channel1_IRQn 0 */
- 153:Src/stm32f0xx_it.c ****     LL_DMA_ClearFlag_TC1(DMA1);  
- 138              		.loc 1 153 5 view .LVU15
+ 153:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN DMA1_Channel1_IRQn 0 */
+ 154:Src/stm32f0xx_it.c ****     LL_DMA_ClearFlag_TC1(DMA1);  
+ 138              		.loc 1 154 5 view .LVU15
  139              	.LVL0:
  140              	.LBB22:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 6
+
+
  141              	.LBI22:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 6
-
-
  142              		.file 2 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h"
    1:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
    2:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   ******************************************************************************
@@ -357,10 +358,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
   53:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   (uint8_t)(DMA1_Channel5_BASE - DMA1_BASE),
   54:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #if defined(DMA1_Channel6)
   55:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   (uint8_t)(DMA1_Channel6_BASE - DMA1_BASE),
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 7
+
+
   56:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #endif /*DMA1_Channel6*/
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 7
-
-
   57:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #if defined(DMA1_Channel7)
   58:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   (uint8_t)(DMA1_Channel7_BASE - DMA1_BASE)
   59:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #endif /*DMA1_Channel7*/
@@ -417,10 +418,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  110:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
  111:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   uint32_t Mode;                   /*!< Specifies the normal or circular operation mode.
  112:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****                                         This parameter can be a value of @ref DMA_LL_EC_MODE
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 8
+
+
  113:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****                                         @note: The circular buffer mode cannot be used if the memor
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 8
-
-
  114:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****                                                data transfer direction is configured on the selecte
  115:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
  116:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****                                         This feature can be modified afterwards using unitary funct
@@ -477,10 +478,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  167:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /* Exported constants --------------------------------------------------------*/
  168:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /** @defgroup DMA_LL_Exported_Constants DMA Exported Constants
  169:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @{
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 9
+
+
  170:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 9
-
-
  171:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /** @defgroup DMA_LL_EC_CLEAR_FLAG Clear Flags Defines
  172:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief    Flags defines which can be used with LL_DMA_WriteReg function
  173:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @{
@@ -537,10 +538,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  224:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_ISR_TCIF3                  DMA_ISR_TCIF3         /*!< Channel 3 transfer complete fl
  225:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_ISR_HTIF3                  DMA_ISR_HTIF3         /*!< Channel 3 half transfer flag  
  226:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_ISR_TEIF3                  DMA_ISR_TEIF3         /*!< Channel 3 transfer error flag 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 10
+
+
  227:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_ISR_GIF4                   DMA_ISR_GIF4          /*!< Channel 4 global flag         
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 10
-
-
  228:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_ISR_TCIF4                  DMA_ISR_TCIF4         /*!< Channel 4 transfer complete fl
  229:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_ISR_HTIF4                  DMA_ISR_HTIF4         /*!< Channel 4 half transfer flag  
  230:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_ISR_TEIF4                  DMA_ISR_TEIF4         /*!< Channel 4 transfer error flag 
@@ -597,10 +598,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  281:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
  282:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
  283:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /** @defgroup DMA_LL_EC_DIRECTION Transfer Direction
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 11
+
+
  284:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @{
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 11
-
-
  285:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
  286:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_DIRECTION_PERIPH_TO_MEMORY 0x00000000U             /*!< Peripheral to memory directi
  287:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_DIRECTION_MEMORY_TO_PERIPH DMA_CCR_DIR             /*!< Memory to peripheral directi
@@ -657,10 +658,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  338:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
  339:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
  340:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /** @defgroup DMA_LL_EC_PRIORITY Transfer Priority level
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 12
+
+
  341:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @{
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 12
-
-
  342:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
  343:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_PRIORITY_LOW               0x00000000U             /*!< Priority level : Low       *
  344:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_PRIORITY_MEDIUM            DMA_CCR_PL_0            /*!< Priority level : Medium    *
@@ -717,10 +718,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  395:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_WriteReg(__INSTANCE__, __REG__, __VALUE__) WRITE_REG(__INSTANCE__->__REG__, (__VALUE
  396:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
  397:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 13
+
+
  398:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Read a value in DMA register
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 13
-
-
  399:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  __INSTANCE__ DMA Instance
  400:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  __REG__ Register to be read
  401:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval Register value
@@ -777,10 +778,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  452:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA1_Channel4)) ? LL_DMA_CHANNEL_4 : \
  453:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA2_Channel4)) ? LL_DMA_CHANNEL_4 : \
  454:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA1_Channel5)) ? LL_DMA_CHANNEL_5 : \
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 14
+
+
  455:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA2_Channel5)) ? LL_DMA_CHANNEL_5 : \
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 14
-
-
  456:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA1_Channel6)) ? LL_DMA_CHANNEL_6 : \
  457:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  LL_DMA_CHANNEL_7)
  458:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #endif
@@ -837,10 +838,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  509:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  DMA2_Channel7)
  510:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #else
  511:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define __LL_DMA_GET_CHANNEL_INSTANCE(__DMA_INSTANCE__, __CHANNEL__)   \
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 15
+
+
  512:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** ((((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA1)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_D
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 15
-
-
  513:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA2)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_D
  514:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA1)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_D
  515:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA2)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_D
@@ -897,10 +898,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  566:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /** @defgroup DMA_LL_EF_Configuration Configuration
  567:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @{
  568:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 16
+
+
  569:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 16
-
-
  570:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Enable DMA channel.
  571:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll CCR          EN            LL_DMA_EnableChannel
  572:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
@@ -957,10 +958,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  623:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   return (READ_BIT(((DMA_Channel_TypeDef *)((uint32_t)((uint32_t)DMAx + CHANNEL_OFFSET_TAB[Channel 
  624:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****                    DMA_CCR_EN) == (DMA_CCR_EN));
  625:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 17
+
+
  626:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 17
-
-
  627:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
  628:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Configure all parameters link to DMA transfer.
  629:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll CCR          DIR           LL_DMA_ConfigTransfer\n
@@ -1017,10 +1018,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  680:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
  681:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
  682:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE void LL_DMA_SetDataTransferDirection(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 18
+
+
  683:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 18
-
-
  684:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   MODIFY_REG(((DMA_Channel_TypeDef *)((uint32_t)((uint32_t)DMAx + CHANNEL_OFFSET_TAB[Channel - 1U])
  685:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****              DMA_CCR_DIR | DMA_CCR_MEM2MEM, Direction);
  686:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
@@ -1077,10 +1078,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  737:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
  738:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Get DMA mode circular or normal.
  739:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll CCR          CIRC          LL_DMA_GetMode
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 19
+
+
  740:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 19
-
-
  741:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  Channel This parameter can be one of the following values:
  742:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_1
  743:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_2
@@ -1137,10 +1138,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  794:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval Returned value can be one of the following values:
  795:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_PERIPH_INCREMENT
  796:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_PERIPH_NOINCREMENT
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 20
+
+
  797:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 20
-
-
  798:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE uint32_t LL_DMA_GetPeriphIncMode(DMA_TypeDef *DMAx, uint32_t Channel)
  799:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
  800:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   return (READ_BIT(((DMA_Channel_TypeDef *)((uint32_t)((uint32_t)DMAx + CHANNEL_OFFSET_TAB[Channel 
@@ -1197,10 +1198,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  851:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll CCR          PSIZE         LL_DMA_SetPeriphSize
  852:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
  853:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  Channel This parameter can be one of the following values:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 21
+
+
  854:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 21
-
-
  855:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_2
  856:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_3
  857:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_4
@@ -1257,10 +1258,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  908:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  MemoryOrM2MDstDataSize This parameter can be one of the following values:
  909:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_MDATAALIGN_BYTE
  910:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_MDATAALIGN_HALFWORD
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 22
+
+
  911:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_MDATAALIGN_WORD
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 22
-
-
  912:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
  913:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
  914:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE void LL_DMA_SetMemorySize(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t MemoryOrM2M
@@ -1317,10 +1318,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  965:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****              Priority);
  966:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
  967:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 23
+
+
  968:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 23
-
-
  969:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Get Channel priority level.
  970:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll CCR          PL            LL_DMA_GetChannelPriorityLevel
  971:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
@@ -1377,10 +1378,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1022:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_1
 1023:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_2
 1024:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_3
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 24
+
+
 1025:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_4
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 24
-
-
 1026:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_5
 1027:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_6
 1028:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_7
@@ -1437,10 +1438,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1079:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @note   Interface used for direction LL_DMA_DIRECTION_PERIPH_TO_MEMORY or LL_DMA_DIRECTION_MEMO
 1080:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @note   This API must not be called when the DMA channel is enabled.
 1081:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll CMAR         MA            LL_DMA_SetMemoryAddress
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 25
+
+
 1082:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 25
-
-
 1083:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  Channel This parameter can be one of the following values:
 1084:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_1
 1085:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_2
@@ -1497,10 +1498,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1136:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE uint32_t LL_DMA_GetMemoryAddress(DMA_TypeDef *DMAx, uint32_t Channel)
 1137:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
 1138:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   return (READ_REG(((DMA_Channel_TypeDef *)((uint32_t)((uint32_t)DMAx + CHANNEL_OFFSET_TAB[Channel 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 26
+
+
 1139:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 26
-
-
 1140:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
 1141:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
 1142:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Get Peripheral address.
@@ -1557,10 +1558,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1193:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_4
 1194:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_5
 1195:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 27
+
+
 1196:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_7
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 27
-
-
 1197:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  MemoryAddress Between Min_Data = 0 and Max_Data = 0xFFFFFFFF
 1198:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
 1199:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
@@ -1617,10 +1618,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1250:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         CSELR        C2S           LL_DMA_SetPeriphRequest\n
 1251:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         CSELR        C3S           LL_DMA_SetPeriphRequest\n
 1252:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         CSELR        C4S           LL_DMA_SetPeriphRequest\n
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 28
+
+
 1253:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         CSELR        C5S           LL_DMA_SetPeriphRequest\n
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 28
-
-
 1254:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         CSELR        C6S           LL_DMA_SetPeriphRequest\n
 1255:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         CSELR        C7S           LL_DMA_SetPeriphRequest
 1256:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
@@ -1677,10 +1678,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1307:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_7
 1308:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval Returned value can be one of the following values:
 1309:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_REQUEST_0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 29
+
+
 1310:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_REQUEST_1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 29
-
-
 1311:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_REQUEST_2
 1312:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_REQUEST_3
 1313:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_REQUEST_4
@@ -1737,10 +1738,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1364:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Get Channel 3 global interrupt flag.
 1365:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll ISR          GIF3          LL_DMA_IsActiveFlag_GI3
 1366:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 30
+
+
 1367:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval State of bit (1 or 0).
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 30
-
-
 1368:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
 1369:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE uint32_t LL_DMA_IsActiveFlag_GI3(DMA_TypeDef *DMAx)
 1370:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
@@ -1797,10 +1798,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1421:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
 1422:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
 1423:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Get Channel 1 transfer complete flag.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 31
+
+
 1424:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll ISR          TCIF1         LL_DMA_IsActiveFlag_TC1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 31
-
-
 1425:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
 1426:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval State of bit (1 or 0).
 1427:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
@@ -1857,10 +1858,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1478:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
 1479:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Get Channel 6 transfer complete flag.
 1480:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll ISR          TCIF6         LL_DMA_IsActiveFlag_TC6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 32
+
+
 1481:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 32
-
-
 1482:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval State of bit (1 or 0).
 1483:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
 1484:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE uint32_t LL_DMA_IsActiveFlag_TC6(DMA_TypeDef *DMAx)
@@ -1917,10 +1918,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1535:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
 1536:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
 1537:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Get Channel 4 half transfer flag.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 33
+
+
 1538:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll ISR          HTIF4         LL_DMA_IsActiveFlag_HT4
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 33
-
-
 1539:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
 1540:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval State of bit (1 or 0).
 1541:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
@@ -1977,10 +1978,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1592:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   return (READ_BIT(DMAx->ISR, DMA_ISR_TEIF1) == (DMA_ISR_TEIF1));
 1593:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
 1594:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 34
+
+
 1595:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 34
-
-
 1596:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Get Channel 2 transfer error flag.
 1597:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll ISR          TEIF2         LL_DMA_IsActiveFlag_TE2
 1598:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
@@ -2037,10 +2038,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1649:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
 1650:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #endif
 1651:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 35
+
+
 1652:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #if defined(DMA1_Channel7)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 35
-
-
 1653:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
 1654:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Get Channel 7 transfer error flag.
 1655:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll ISR          TEIF7         LL_DMA_IsActiveFlag_TE7
@@ -2097,10 +2098,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1706:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
 1707:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   WRITE_REG(DMAx->IFCR, DMA_IFCR_CGIF3);
 1708:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 36
+
+
 1709:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 36
-
-
 1710:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
 1711:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Clear Channel 4 global interrupt flag.
 1712:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @note Do not Clear Channel 4 global interrupt flag when the channel in ON.
@@ -2157,10 +2158,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1763:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****     LL_DMA_ClearFlag_TE7. bug id 2.4.1 in Product Errata Sheet.
 1764:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll IFCR         CGIF7         LL_DMA_ClearFlag_GI7
 1765:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 37
+
+
 1766:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 37
-
-
 1767:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
 1768:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE void LL_DMA_ClearFlag_GI7(DMA_TypeDef *DMAx)
 1769:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
@@ -2187,13 +2188,14 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  150              		.loc 2 1782 3 is_stmt 0 view .LVU18
  151              	.LBE23:
  152              	.LBE22:
- 154:Src/stm32f0xx_it.c ****   /* USER CODE END DMA1_Channel1_IRQn 0 */
- 155:Src/stm32f0xx_it.c **** 
- 156:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
- 157:Src/stm32f0xx_it.c ****   //printf("adc=%d\r\n",adcData[0]);
- 158:Src/stm32f0xx_it.c ****   /* USER CODE END DMA1_Channel1_IRQn 1 */
- 159:Src/stm32f0xx_it.c **** }
- 153              		.loc 1 159 1 view .LVU19
+ 155:Src/stm32f0xx_it.c ****   /* USER CODE END DMA1_Channel1_IRQn 0 */
+ 156:Src/stm32f0xx_it.c **** 
+ 157:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
+ 158:Src/stm32f0xx_it.c ****   // LL_DMA_SetDataLength(DMA1,LL_DMA_CHANNEL_1,1);
+ 159:Src/stm32f0xx_it.c ****   // printf("adc=%d\r\n",adcData[0]);
+ 160:Src/stm32f0xx_it.c ****   /* USER CODE END DMA1_Channel1_IRQn 1 */
+ 161:Src/stm32f0xx_it.c **** }
+ 153              		.loc 1 161 1 view .LVU19
  154              		@ sp needed
  155 0006 7047     		bx	lr
  156              	.L10:
@@ -2201,7 +2203,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  158              	.L9:
  159 0008 00000240 		.word	1073872896
  160              		.cfi_endproc
- 161              	.LFE1025:
+ 161              	.LFE1028:
  163              		.section	.text.DMA1_Channel2_3_IRQHandler,"ax",%progbits
  164              		.align	1
  165              		.global	DMA1_Channel2_3_IRQHandler
@@ -2209,18 +2211,18 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  167              		.code	16
  168              		.thumb_func
  170              	DMA1_Channel2_3_IRQHandler:
- 171              	.LFB1026:
- 160:Src/stm32f0xx_it.c **** 
- 161:Src/stm32f0xx_it.c **** /**
- 162:Src/stm32f0xx_it.c ****   * @brief This function handles DMA1 channel 2 and 3 interrupts.
- 163:Src/stm32f0xx_it.c ****   */
- 164:Src/stm32f0xx_it.c **** void DMA1_Channel2_3_IRQHandler(void)
- 165:Src/stm32f0xx_it.c **** {
- 172              		.loc 1 165 1 is_stmt 1 view -0
+ 171              	.LFB1029:
+ 162:Src/stm32f0xx_it.c **** 
+ 163:Src/stm32f0xx_it.c **** /**
+ 164:Src/stm32f0xx_it.c ****   * @brief This function handles DMA1 channel 2 and 3 interrupts.
+ 165:Src/stm32f0xx_it.c ****   */
+ 166:Src/stm32f0xx_it.c **** void DMA1_Channel2_3_IRQHandler(void)
+ 167:Src/stm32f0xx_it.c **** {
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 38
+
+
+ 172              		.loc 1 167 1 is_stmt 1 view -0
  173              		.cfi_startproc
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 38
-
-
  174              		@ args = 0, pretend = 0, frame = 0
  175              		@ frame_needed = 0, uses_anonymous_args = 0
  176 0000 10B5     		push	{r4, lr}
@@ -2228,9 +2230,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  178              		.cfi_def_cfa_offset 8
  179              		.cfi_offset 4, -8
  180              		.cfi_offset 14, -4
- 166:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN DMA1_Channel2_3_IRQn 0 */
- 167:Src/stm32f0xx_it.c ****   if(LL_DMA_IsActiveFlag_TC3(DMA1))
- 181              		.loc 1 167 3 view .LVU21
+ 168:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN DMA1_Channel2_3_IRQn 0 */
+ 169:Src/stm32f0xx_it.c ****   if(LL_DMA_IsActiveFlag_TC3(DMA1))
+ 181              		.loc 1 169 3 view .LVU21
  182              	.LVL2:
  183              	.LBB24:
  184              	.LBI24:
@@ -2248,39 +2250,38 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  192              		.loc 2 1452 11 view .LVU25
  193              	.LBE25:
  194              	.LBE24:
- 195              		.loc 1 167 5 view .LVU26
+ 195              		.loc 1 169 5 view .LVU26
  196 0006 9B05     		lsls	r3, r3, #22
  197 0008 00D4     		bmi	.L13
  198              	.L11:
- 168:Src/stm32f0xx_it.c ****     {
- 169:Src/stm32f0xx_it.c ****         //LL_DMA_ClearFlag_GI3(DMA1);
- 170:Src/stm32f0xx_it.c ****         LL_DMA_ClearFlag_TC3(DMA1);
- 171:Src/stm32f0xx_it.c ****         
- 172:Src/stm32f0xx_it.c ****         I2C_SlaveDMARxCpltCallback();  
- 173:Src/stm32f0xx_it.c ****         LL_DMA_DisableChannel(DMA1,LL_DMA_CHANNEL_3);
- 174:Src/stm32f0xx_it.c ****         LL_DMA_SetDataLength(DMA1,LL_DMA_CHANNEL_3,5);      
- 175:Src/stm32f0xx_it.c ****     }
- 176:Src/stm32f0xx_it.c ****   /* USER CODE END DMA1_Channel2_3_IRQn 0 */
- 177:Src/stm32f0xx_it.c **** 
- 178:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN DMA1_Channel2_3_IRQn 1 */
- 179:Src/stm32f0xx_it.c **** 
- 180:Src/stm32f0xx_it.c ****   /* USER CODE END DMA1_Channel2_3_IRQn 1 */
- 181:Src/stm32f0xx_it.c **** }
- 199              		.loc 1 181 1 view .LVU27
+ 170:Src/stm32f0xx_it.c ****     {
+ 171:Src/stm32f0xx_it.c ****         //LL_DMA_ClearFlag_GI3(DMA1);
+ 172:Src/stm32f0xx_it.c ****         LL_DMA_ClearFlag_TC3(DMA1);        
+ 173:Src/stm32f0xx_it.c ****         I2C_SlaveDMARxCpltCallback();  
+ 174:Src/stm32f0xx_it.c ****         LL_DMA_DisableChannel(DMA1,LL_DMA_CHANNEL_3);
+ 175:Src/stm32f0xx_it.c ****         LL_DMA_SetDataLength(DMA1,LL_DMA_CHANNEL_3,5);
+ 176:Src/stm32f0xx_it.c ****     }
+ 177:Src/stm32f0xx_it.c ****   /* USER CODE END DMA1_Channel2_3_IRQn 0 */
+ 178:Src/stm32f0xx_it.c **** 
+ 179:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN DMA1_Channel2_3_IRQn 1 */
+ 180:Src/stm32f0xx_it.c **** 
+ 181:Src/stm32f0xx_it.c ****   /* USER CODE END DMA1_Channel2_3_IRQn 1 */
+ 182:Src/stm32f0xx_it.c **** }
+ 199              		.loc 1 182 1 view .LVU27
  200              		@ sp needed
  201 000a 10BD     		pop	{r4, pc}
  202              	.L13:
- 170:Src/stm32f0xx_it.c ****         
- 203              		.loc 1 170 9 is_stmt 1 view .LVU28
+ 172:Src/stm32f0xx_it.c ****         I2C_SlaveDMARxCpltCallback();  
+ 203              		.loc 1 172 9 is_stmt 1 view .LVU28
  204              	.LVL4:
  205              	.LBB26:
  206              	.LBI26:
 1783:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
 1784:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 39
+
+
 1785:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 39
-
-
 1786:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Clear Channel 2  transfer complete flag.
 1787:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll IFCR         CTCIF2        LL_DMA_ClearFlag_TC2
 1788:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
@@ -2311,12 +2312,12 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  215              		.loc 2 1804 3 is_stmt 0 view .LVU31
  216              	.LBE27:
  217              	.LBE26:
- 172:Src/stm32f0xx_it.c ****         LL_DMA_DisableChannel(DMA1,LL_DMA_CHANNEL_3);
- 218              		.loc 1 172 9 is_stmt 1 view .LVU32
+ 173:Src/stm32f0xx_it.c ****         LL_DMA_DisableChannel(DMA1,LL_DMA_CHANNEL_3);
+ 218              		.loc 1 173 9 is_stmt 1 view .LVU32
  219 0014 FFF7FEFF 		bl	I2C_SlaveDMARxCpltCallback
  220              	.LVL6:
- 173:Src/stm32f0xx_it.c ****         LL_DMA_SetDataLength(DMA1,LL_DMA_CHANNEL_3,5);      
- 221              		.loc 1 173 9 view .LVU33
+ 174:Src/stm32f0xx_it.c ****         LL_DMA_SetDataLength(DMA1,LL_DMA_CHANNEL_3,5);
+ 221              		.loc 1 174 9 view .LVU33
  222              	.LBB28:
  223              	.LBI28:
  602:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
@@ -2334,13 +2335,13 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  233              		.loc 2 604 3 is_stmt 0 view .LVU36
  234              	.LBE29:
  235              	.LBE28:
- 174:Src/stm32f0xx_it.c ****     }
- 236              		.loc 1 174 9 is_stmt 1 view .LVU37
+ 175:Src/stm32f0xx_it.c ****     }
+ 236              		.loc 1 175 9 is_stmt 1 view .LVU37
  237              	.LBB30:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 40
+
+
  238              	.LBI30:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 40
-
-
 1009:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
  239              		.loc 2 1009 22 view .LVU38
  240              	.LBB31:
@@ -2357,7 +2358,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  249              		.loc 2 1011 3 is_stmt 0 view .LVU40
  250              	.LBE31:
  251              	.LBE30:
- 252              		.loc 1 181 1 view .LVU41
+ 252              		.loc 1 182 1 view .LVU41
  253 002e ECE7     		b	.L11
  254              	.L15:
  255              		.align	2
@@ -2365,7 +2366,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  257 0030 00000240 		.word	1073872896
  258 0034 30000240 		.word	1073872944
  259              		.cfi_endproc
- 260              	.LFE1026:
+ 260              	.LFE1029:
  262              		.section	.text.TIM14_IRQHandler,"ax",%progbits
  263              		.align	1
  264              		.global	TIM14_IRQHandler
@@ -2373,14 +2374,14 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  266              		.code	16
  267              		.thumb_func
  269              	TIM14_IRQHandler:
- 270              	.LFB1027:
- 182:Src/stm32f0xx_it.c **** 
- 183:Src/stm32f0xx_it.c **** /**
- 184:Src/stm32f0xx_it.c ****   * @brief This function handles TIM14 global interrupt.
- 185:Src/stm32f0xx_it.c ****   */
- 186:Src/stm32f0xx_it.c **** void TIM14_IRQHandler(void)
- 187:Src/stm32f0xx_it.c **** {
- 271              		.loc 1 187 1 is_stmt 1 view -0
+ 270              	.LFB1030:
+ 183:Src/stm32f0xx_it.c **** 
+ 184:Src/stm32f0xx_it.c **** /**
+ 185:Src/stm32f0xx_it.c ****   * @brief This function handles TIM14 global interrupt.
+ 186:Src/stm32f0xx_it.c ****   */
+ 187:Src/stm32f0xx_it.c **** void TIM14_IRQHandler(void)
+ 188:Src/stm32f0xx_it.c **** {
+ 271              		.loc 1 188 1 is_stmt 1 view -0
  272              		.cfi_startproc
  273              		@ args = 0, pretend = 0, frame = 0
  274              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -2389,18 +2390,18 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  277              		.cfi_def_cfa_offset 8
  278              		.cfi_offset 4, -8
  279              		.cfi_offset 14, -4
- 188:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN TIM14_IRQn 0 */
- 189:Src/stm32f0xx_it.c ****   LL_TIM_ClearFlag_UPDATE(TIM14);
- 280              		.loc 1 189 3 view .LVU43
+ 189:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN TIM14_IRQn 0 */
+ 190:Src/stm32f0xx_it.c ****   LL_TIM_ClearFlag_UPDATE(TIM14);
+ 280              		.loc 1 190 3 view .LVU43
  281              	.LVL9:
  282              	.LBB32:
  283              	.LBI32:
  284              		.file 3 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h"
    1:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 41
+
+
    2:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   ******************************************************************************
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 41
-
-
    3:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @file    stm32f0xx_ll_tim.h
    4:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @author  MCD Application Team
    5:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @brief   Header file of TIM LL module.
@@ -2457,10 +2458,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
   56:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
   57:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** static const uint8_t SHIFT_TAB_OCxx[] =
   58:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** {
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 42
+
+
   59:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   0U,            /* 0: OC1M, OC1FE, OC1PE */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 42
-
-
   60:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   0U,            /* 1: - NA */
   61:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   8U,            /* 2: OC2M, OC2FE, OC2PE */
   62:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   0U,            /* 3: - NA */
@@ -2517,10 +2518,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  113:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
  114:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /* Mask used to set the TDG[x:0] of the DTG bits of the TIMx_BDTR register */
  115:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define DT_DELAY_1 ((uint8_t)0x7F)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 43
+
+
  116:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define DT_DELAY_2 ((uint8_t)0x3F)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 43
-
-
  117:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define DT_DELAY_3 ((uint8_t)0x1F)
  118:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define DT_DELAY_4 ((uint8_t)0x1F)
  119:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
@@ -2577,10 +2578,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  170:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
  171:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /* Exported types ------------------------------------------------------------*/
  172:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #if defined(USE_FULL_LL_DRIVER)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 44
+
+
  173:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /** @defgroup TIM_LL_ES_INIT TIM Exported Init structure
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 44
-
-
  174:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @{
  175:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
  176:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
@@ -2637,10 +2638,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  227:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** typedef struct
  228:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** {
  229:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   uint32_t OCMode;        /*!< Specifies the output mode.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 45
+
+
  230:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                This parameter can be a value of @ref TIM_LL_EC_OCMODE.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 45
-
-
  231:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
  232:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                This feature can be modified afterwards using unitary function
  233:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                @ref LL_TIM_OC_SetMode().*/
@@ -2697,10 +2698,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  284:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** {
  285:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
  286:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   uint32_t ICPolarity;    /*!< Specifies the active edge of the input signal.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 46
+
+
  287:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                This parameter can be a value of @ref TIM_LL_EC_IC_POLARITY.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 46
-
-
  288:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
  289:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                This feature can be modified afterwards using unitary function
  290:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                @ref LL_TIM_IC_SetPolarity().*/
@@ -2757,10 +2758,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  341:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   uint32_t IC1Filter;       /*!< Specifies the TI1 input filter.
  342:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                  This parameter can be a value of @ref TIM_LL_EC_IC_FILTER.
  343:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 47
+
+
  344:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                  This feature can be modified afterwards using unitary function
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 47
-
-
  345:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                  @ref LL_TIM_IC_SetFilter().*/
  346:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
  347:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   uint32_t IC2Polarity;      /*!< Specifies the active edge of TI2 input.
@@ -2817,10 +2818,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  398:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                     @ref LL_TIM_IC_SetFilter().*/
  399:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
  400:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   uint32_t CommutationDelay;   /*!< Specifies the compare value to be loaded into the Capture Compa
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 48
+
+
  401:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                     A positive pulse (TRGO event) is generated with a programmable 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 48
-
-
  402:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                     a change occurs on the Hall inputs.
  403:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                     This parameter can be a number between Min_Data = 0x0000 and Ma
  404:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
@@ -2877,10 +2878,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  455:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                       programmed. */
  456:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
  457:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   uint32_t BreakPolarity;        /*!< Specifies the TIM Break Input pin polarity.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 49
+
+
  458:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                       This parameter can be a value of @ref TIM_LL_EC_BREAK_POLARIT
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 49
-
-
  459:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
  460:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                       This feature can be modified afterwards using unitary functio
  461:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****                                       @ref LL_TIM_ConfigBRK()
@@ -2937,10 +2938,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  512:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
  513:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @}
  514:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 50
+
+
  515:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 50
-
-
  516:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /** @defgroup TIM_LL_EC_AUTOMATICOUTPUT_ENABLE Automatic output enable
  517:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @{
  518:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
@@ -2997,10 +2998,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  569:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @}
  570:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
  571:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 51
+
+
  572:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /** @defgroup TIM_LL_EC_CLOCKDIVISION Clock Division
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 51
-
-
  573:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @{
  574:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
  575:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_CLOCKDIVISION_DIV1              0x00000000U          /*!< tDTS=tCK_INT */
@@ -3057,10 +3058,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  626:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_CHANNEL_CH2N                    TIM_CCER_CC2NE    /*!< Timer complementary output ch
  627:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_CHANNEL_CH3                     TIM_CCER_CC3E     /*!< Timer input/output channel 3 
  628:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_CHANNEL_CH3N                    TIM_CCER_CC3NE    /*!< Timer complementary output ch
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 52
+
+
  629:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_CHANNEL_CH4                     TIM_CCER_CC4E     /*!< Timer input/output channel 4 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 52
-
-
  630:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
  631:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @}
  632:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
@@ -3117,10 +3118,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  683:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_ACTIVEINPUT_INDIRECTTI          (TIM_CCMR1_CC1S_1 << 16U) /*!< ICx is mapped on TIy 
  684:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_ACTIVEINPUT_TRC                 (TIM_CCMR1_CC1S << 16U)   /*!< ICx is mapped on TRC 
  685:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 53
+
+
  686:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @}
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 53
-
-
  687:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
  688:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
  689:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /** @defgroup TIM_LL_EC_ICPSC Input Configuration Prescaler
@@ -3177,10 +3178,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  740:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @}
  741:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
  742:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 54
+
+
  743:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /** @defgroup TIM_LL_EC_ENCODERMODE Encoder Mode
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 54
-
-
  744:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @{
  745:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
  746:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_ENCODERMODE_X2_TI1                     TIM_SMCR_SMS_0                               
@@ -3237,10 +3238,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  797:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
  798:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_ETR_POLARITY_NONINVERTED        0x00000000U             /*!< ETR is non-inverted, ac
  799:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_ETR_POLARITY_INVERTED           TIM_SMCR_ETP            /*!< ETR is inverted, active
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 55
+
+
  800:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 55
-
-
  801:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @}
  802:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
  803:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
@@ -3297,10 +3298,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  854:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_OSSI_DISABLE                    0x00000000U             /*!< When inactive, OCx/OCxN
  855:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_OSSI_ENABLE                     TIM_BDTR_OSSI           /*!< When inactive, OxC/OCxN
  856:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 56
+
+
  857:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @}
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 56
-
-
  858:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
  859:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
  860:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /** @defgroup TIM_LL_EC_OSSR OSSR
@@ -3357,10 +3358,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  911:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_DMABURST_LENGTH_14TRANSFERS     (TIM_DCR_DBL_3 | TIM_DCR_DBL_2 | TIM_DCR_DBL_0)     
  912:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_DMABURST_LENGTH_15TRANSFERS     (TIM_DCR_DBL_3 | TIM_DCR_DBL_2 | TIM_DCR_DBL_1)     
  913:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_DMABURST_LENGTH_16TRANSFERS     (TIM_DCR_DBL_3 | TIM_DCR_DBL_2 | TIM_DCR_DBL_1 | TIM
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 57
+
+
  914:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_DMABURST_LENGTH_17TRANSFERS     TIM_DCR_DBL_4                                       
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 57
-
-
  915:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define LL_TIM_DMABURST_LENGTH_18TRANSFERS     (TIM_DCR_DBL_4 |  TIM_DCR_DBL_0)                    
  916:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
  917:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @}
@@ -3417,10 +3418,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  968:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /** @defgroup TIM_LL_EM_Exported_Macros Exported_Macros
  969:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @{
  970:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 58
+
+
  971:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 58
-
-
  972:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
  973:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @brief  HELPER macro calculating DTG[0:7] in the TIMx_BDTR register to achieve the requested de
  974:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note ex: @ref __LL_TIM_CALC_DEADTIME (80000000, @ref LL_TIM_GetClockDivision (), 120);
@@ -3477,10 +3478,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1025:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @retval Compare value  (between Min_Data=0 and Max_Data=65535)
 1026:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
 1027:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** #define __LL_TIM_CALC_DELAY(__TIMCLK__, __PSC__, __DELAY__)  \
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 59
+
+
 1028:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   ((uint32_t)(((uint64_t)(__TIMCLK__) * (uint64_t)(__DELAY__)) \
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 59
-
-
 1029:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****               / ((uint64_t)1000000U * (uint64_t)((__PSC__) + 1U))))
 1030:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
 1031:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
@@ -3537,10 +3538,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1082:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** __STATIC_INLINE void LL_TIM_EnableCounter(TIM_TypeDef *TIMx)
 1083:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** {
 1084:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   SET_BIT(TIMx->CR1, TIM_CR1_CEN);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 60
+
+
 1085:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** }
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 60
-
-
 1086:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
 1087:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
 1088:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @brief  Disable timer counter.
@@ -3597,10 +3598,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1139:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   return ((READ_BIT(TIMx->CR1, TIM_CR1_UDIS) == (uint32_t)RESET) ? 1UL : 0UL);
 1140:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** }
 1141:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 61
+
+
 1142:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 61
-
-
 1143:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @brief  Set update event source
 1144:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note Update event source set to LL_TIM_UPDATESOURCE_REGULAR: any of the following events
 1145:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *       generate an update interrupt or DMA request if enabled:
@@ -3657,10 +3658,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1196:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_ONEPULSEMODE_REPETITIVE
 1197:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
 1198:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** __STATIC_INLINE uint32_t LL_TIM_GetOnePulseMode(TIM_TypeDef *TIMx)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 62
+
+
 1199:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 62
-
-
 1200:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   return (uint32_t)(READ_BIT(TIMx->CR1, TIM_CR1_OPM));
 1201:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** }
 1202:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
@@ -3717,10 +3718,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1253:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   return counter_mode;
 1254:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** }
 1255:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 63
+
+
 1256:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 63
-
-
 1257:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @brief  Enable auto-reload (ARR) preload.
 1258:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @rmtoll CR1          ARPE          LL_TIM_EnableARRPreload
 1259:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  TIMx Timer instance
@@ -3777,10 +3778,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1310:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         generators (when supported) and the digital filters.
 1311:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note Macro IS_TIM_CLOCK_DIVISION_INSTANCE(TIMx) can be used to check
 1312:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *       whether or not the clock division feature is supported by the timer
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 64
+
+
 1313:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *       instance.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 64
-
-
 1314:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @rmtoll CR1          CKD           LL_TIM_GetClockDivision
 1315:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  TIMx Timer instance
 1316:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @retval Returned value can be one of the following values:
@@ -3837,10 +3838,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1367:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @brief  Set the prescaler value.
 1368:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note The counter clock frequency CK_CNT is equal to fCK_PSC / (PSC[15:0] + 1).
 1369:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note The prescaler can be changed on the fly as this control register is buffered. The new
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 65
+
+
 1370:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *       prescaler ratio is taken into account at the next update event.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 65
-
-
 1371:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note Helper macro @ref __LL_TIM_CALC_PSC can be used to calculate the Prescaler parameter
 1372:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @rmtoll PSC          PSC           LL_TIM_SetPrescaler
 1373:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  TIMx Timer instance
@@ -3897,10 +3898,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1424:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note Macro IS_TIM_REPETITION_COUNTER_INSTANCE(TIMx) can be used to check
 1425:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *       whether or not a timer instance supports a repetition counter.
 1426:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @rmtoll RCR          REP           LL_TIM_SetRepetitionCounter
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 66
+
+
 1427:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  TIMx Timer instance
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 66
-
-
 1428:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  RepetitionCounter between Min_Data=0 and Max_Data=255 or 65535 for advanced timer.
 1429:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @retval None
 1430:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
@@ -3957,10 +3958,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1481:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** {
 1482:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   CLEAR_BIT(TIMx->CR2, TIM_CR2_CCPC);
 1483:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** }
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 67
+
+
 1484:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 67
-
-
 1485:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
 1486:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @brief  Set the updated source of the capture/compare control bits (CCxE, CCxNE and OCxM).
 1487:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note Macro IS_TIM_COMMUTATION_EVENT_INSTANCE(TIMx) can be used to check
@@ -4017,10 +4018,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1538:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_LOCKLEVEL_2
 1539:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_LOCKLEVEL_3
 1540:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @retval None
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 68
+
+
 1541:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 68
-
-
 1542:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** __STATIC_INLINE void LL_TIM_CC_SetLockLevel(TIM_TypeDef *TIMx, uint32_t LockLevel)
 1543:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** {
 1544:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   MODIFY_REG(TIMx->BDTR, TIM_BDTR_LOCK, LockLevel);
@@ -4077,10 +4078,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1595:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** }
 1596:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
 1597:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 69
+
+
 1598:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @brief  Indicate whether channel(s) is(are) enabled.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 69
-
-
 1599:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @rmtoll CCER         CC1E          LL_TIM_CC_IsEnabledChannel\n
 1600:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         CCER         CC1NE         LL_TIM_CC_IsEnabledChannel\n
 1601:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         CCER         CC2E          LL_TIM_CC_IsEnabledChannel\n
@@ -4137,10 +4138,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1652:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @retval None
 1653:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
 1654:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** __STATIC_INLINE void LL_TIM_OC_ConfigOutput(TIM_TypeDef *TIMx, uint32_t Channel, uint32_t Configura
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 70
+
+
 1655:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 70
-
-
 1656:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   uint8_t iChannel = TIM_GET_CHANNEL_INDEX(Channel);
 1657:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   __IO uint32_t *pReg = (__IO uint32_t *)((uint32_t)((uint32_t)(&TIMx->CCMR1) + OFFSET_TAB_CCMRx[iC
 1658:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   CLEAR_BIT(*pReg, (TIM_CCMR1_CC1S << SHIFT_TAB_OCxx[iChannel]));
@@ -4197,10 +4198,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1709:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_OCMODE_FROZEN
 1710:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_OCMODE_ACTIVE
 1711:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_OCMODE_INACTIVE
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 71
+
+
 1712:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_OCMODE_TOGGLE
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 71
-
-
 1713:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_OCMODE_FORCED_INACTIVE
 1714:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_OCMODE_FORCED_ACTIVE
 1715:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_OCMODE_PWM1
@@ -4257,10 +4258,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1766:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH1N
 1767:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH2
 1768:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH2N
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 72
+
+
 1769:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH3
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 72
-
-
 1770:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH3N
 1771:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH4
 1772:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @retval Returned value can be one of the following values:
@@ -4317,10 +4318,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1823:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         CR2         OIS4          LL_TIM_OC_GetIdleState
 1824:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  TIMx Timer instance
 1825:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  Channel This parameter can be one of the following values:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 73
+
+
 1826:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 73
-
-
 1827:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH1N
 1828:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH2
 1829:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH2N
@@ -4377,10 +4378,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1880:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** __STATIC_INLINE void LL_TIM_OC_DisableFast(TIM_TypeDef *TIMx, uint32_t Channel)
 1881:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** {
 1882:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   uint8_t iChannel = TIM_GET_CHANNEL_INDEX(Channel);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 74
+
+
 1883:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   __IO uint32_t *pReg = (__IO uint32_t *)((uint32_t)((uint32_t)(&TIMx->CCMR1) + OFFSET_TAB_CCMRx[iC
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 74
-
-
 1884:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   CLEAR_BIT(*pReg, (TIM_CCMR1_OC1FE << SHIFT_TAB_OCxx[iChannel]));
 1885:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
 1886:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** }
@@ -4437,10 +4438,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1937:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  TIMx Timer instance
 1938:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  Channel This parameter can be one of the following values:
 1939:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 75
+
+
 1940:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH2
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 75
-
-
 1941:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH3
 1942:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH4
 1943:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @retval None
@@ -4497,10 +4498,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1994:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   __IO uint32_t *pReg = (__IO uint32_t *)((uint32_t)((uint32_t)(&TIMx->CCMR1) + OFFSET_TAB_CCMRx[iC
 1995:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   SET_BIT(*pReg, (TIM_CCMR1_OC1CE << SHIFT_TAB_OCxx[iChannel]));
 1996:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** }
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 76
+
+
 1997:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 76
-
-
 1998:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
 1999:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @brief  Disable clearing the output channel on an external event.
 2000:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note Macro IS_TIM_OCXREF_CLEAR_INSTANCE(TIMx) can be used to check whether
@@ -4557,10 +4558,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2051:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *       dead-time insertion feature is supported by a timer instance.
 2052:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note Helper macro @ref __LL_TIM_CALC_DEADTIME can be used to calculate the DeadTime parameter
 2053:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @rmtoll BDTR         DTG           LL_TIM_OC_SetDeadTime
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 77
+
+
 2054:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  TIMx Timer instance
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 77
-
-
 2055:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  DeadTime between Min_Data=0 and Max_Data=255
 2056:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @retval None
 2057:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
@@ -4617,10 +4618,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2108:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
 2109:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** __STATIC_INLINE void LL_TIM_OC_SetCompareCH3(TIM_TypeDef *TIMx, uint32_t CompareValue)
 2110:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** {
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 78
+
+
 2111:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   WRITE_REG(TIMx->CCR3, CompareValue);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 78
-
-
 2112:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** }
 2113:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
 2114:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
@@ -4677,10 +4678,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2165:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note In 32-bit timer implementations returned compare value can be between 0x00000000 and 0xFF
 2166:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note Macro IS_TIM_32B_COUNTER_INSTANCE(TIMx) can be used to check
 2167:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *       whether or not a timer instance supports a 32 bits counter.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 79
+
+
 2168:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note Macro IS_TIM_CC3_INSTANCE(TIMx) can be used to check whether or not
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 79
-
-
 2169:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *       output channel 3 is supported by a timer instance.
 2170:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @rmtoll CCR3         CCR3          LL_TIM_OC_GetCompareCH3
 2171:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  TIMx Timer instance
@@ -4737,10 +4738,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2222:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         CCER         CC4P          LL_TIM_IC_Config\n
 2223:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         CCER         CC4NP         LL_TIM_IC_Config
 2224:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  TIMx Timer instance
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 80
+
+
 2225:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  Channel This parameter can be one of the following values:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 80
-
-
 2226:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH1
 2227:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH2
 2228:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH3
@@ -4797,10 +4798,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2279:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  TIMx Timer instance
 2280:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  Channel This parameter can be one of the following values:
 2281:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 81
+
+
 2282:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH2
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 81
-
-
 2283:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH3
 2284:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH4
 2285:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @retval Returned value can be one of the following values:
@@ -4857,10 +4858,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2336:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_ICPSC_DIV1
 2337:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_ICPSC_DIV2
 2338:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_ICPSC_DIV4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 82
+
+
 2339:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_ICPSC_DIV8
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 82
-
-
 2340:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
 2341:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** __STATIC_INLINE uint32_t LL_TIM_IC_GetPrescaler(TIM_TypeDef *TIMx, uint32_t Channel)
 2342:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** {
@@ -4917,10 +4918,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2393:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  Channel This parameter can be one of the following values:
 2394:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH1
 2395:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 83
+
+
 2396:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH3
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 83
-
-
 2397:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_CHANNEL_CH4
 2398:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @retval Returned value can be one of the following values:
 2399:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_IC_FILTER_FDIV1
@@ -4977,10 +4978,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2450:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** }
 2451:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
 2452:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 84
+
+
 2453:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @brief  Get the current input channel polarity.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 84
-
-
 2454:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @rmtoll CCER         CC1P          LL_TIM_IC_GetPolarity\n
 2455:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         CCER         CC1NP         LL_TIM_IC_GetPolarity\n
 2456:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         CCER         CC2P          LL_TIM_IC_GetPolarity\n
@@ -5037,10 +5038,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2507:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @brief  Indicates whether the TIMx_CH1, CH2 and CH3 pins are connectected to the TI1 input.
 2508:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note Macro IS_TIM_XOR_INSTANCE(TIMx) can be used to check whether or not
 2509:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * a timer instance provides an XOR input.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 85
+
+
 2510:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @rmtoll CR2          TI1S          LL_TIM_IC_IsEnabledXORCombination
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 85
-
-
 2511:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  TIMx Timer instance
 2512:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @retval State of bit (1 or 0).
 2513:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
@@ -5097,10 +5098,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2564:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   return (uint32_t)(READ_REG(TIMx->CCR3));
 2565:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** }
 2566:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 86
+
+
 2567:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 86
-
-
 2568:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @brief  Get captured value for input channel 4.
 2569:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note In 32-bit timer implementations returned captured value can be between 0x00000000 and 0xF
 2570:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note Macro IS_TIM_32B_COUNTER_INSTANCE(TIMx) can be used to check
@@ -5157,10 +5158,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2621:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @rmtoll SMCR         ECE           LL_TIM_IsEnabledExternalClock
 2622:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  TIMx Timer instance
 2623:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @retval State of bit (1 or 0).
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 87
+
+
 2624:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 87
-
-
 2625:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** __STATIC_INLINE uint32_t LL_TIM_IsEnabledExternalClock(TIM_TypeDef *TIMx)
 2626:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** {
 2627:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   return ((READ_BIT(TIMx->SMCR, TIM_SMCR_ECE) == (TIM_SMCR_ECE)) ? 1UL : 0UL);
@@ -5217,10 +5218,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2678:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
 2679:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @brief  Set the trigger output (TRGO) used for timer synchronization .
 2680:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note Macro IS_TIM_MASTER_INSTANCE(TIMx) can be used to check
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 88
+
+
 2681:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *       whether or not a timer instance can operate as a master timer.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 88
-
-
 2682:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @rmtoll CR2          MMS           LL_TIM_SetTriggerOutput
 2683:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  TIMx Timer instance
 2684:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  TimerSynchronization This parameter can be one of the following values:
@@ -5277,10 +5278,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2735:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** __STATIC_INLINE void LL_TIM_SetTriggerInput(TIM_TypeDef *TIMx, uint32_t TriggerInput)
 2736:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** {
 2737:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   MODIFY_REG(TIMx->SMCR, TIM_SMCR_TS, TriggerInput);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 89
+
+
 2738:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** }
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 89
-
-
 2739:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
 2740:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** /**
 2741:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @brief  Enable the Master/Slave mode.
@@ -5337,10 +5338,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2792:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_ETR_PRESCALER_DIV2
 2793:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_ETR_PRESCALER_DIV4
 2794:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_ETR_PRESCALER_DIV8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 90
+
+
 2795:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  ETRFilter This parameter can be one of the following values:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 90
-
-
 2796:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_ETR_FILTER_FDIV1
 2797:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_ETR_FILTER_FDIV1_N2
 2798:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_ETR_FILTER_FDIV1_N4
@@ -5397,10 +5398,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2849:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *       a timer instance provides a break input.
 2850:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @retval None
 2851:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 91
+
+
 2852:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** __STATIC_INLINE void LL_TIM_DisableBRK(TIM_TypeDef *TIMx)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 91
-
-
 2853:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** {
 2854:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   __IO uint32_t tmpreg;
 2855:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   CLEAR_BIT(TIMx->BDTR, TIM_BDTR_BKE);
@@ -5457,10 +5458,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2906:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  TIMx Timer instance
 2907:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @retval None
 2908:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 92
+
+
 2909:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** __STATIC_INLINE void LL_TIM_EnableAutomaticOutput(TIM_TypeDef *TIMx)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 92
-
-
 2910:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** {
 2911:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   SET_BIT(TIMx->BDTR, TIM_BDTR_AOE);
 2912:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** }
@@ -5517,10 +5518,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2963:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @retval None
 2964:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   */
 2965:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** __STATIC_INLINE void LL_TIM_DisableAllOutputs(TIM_TypeDef *TIMx)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 93
+
+
 2966:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 93
-
-
 2967:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   CLEAR_BIT(TIMx->BDTR, TIM_BDTR_MOE);
 2968:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** }
 2969:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h **** 
@@ -5577,10 +5578,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 3020:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_DMABURST_LENGTH_4TRANSFERS
 3021:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_DMABURST_LENGTH_5TRANSFERS
 3022:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_DMABURST_LENGTH_6TRANSFERS
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 94
+
+
 3023:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_DMABURST_LENGTH_7TRANSFERS
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 94
-
-
 3024:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_DMABURST_LENGTH_8TRANSFERS
 3025:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_DMABURST_LENGTH_9TRANSFERS
 3026:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_DMABURST_LENGTH_10TRANSFERS
@@ -5637,10 +5638,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 3077:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note The OCxREF signal of a given channel can be cleared when a high level is applied on the O
 3078:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @note This function can only be used in Output compare and PWM modes.
 3079:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @rmtoll SMCR          OCCS                LL_TIM_SetOCRefClearInputSource
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 95
+
+
 3080:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  TIMx Timer instance
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 95
-
-
 3081:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   * @param  OCRefClearInputSource This parameter can be one of the following values:
 3082:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_OCREF_CLR_INT_OCREF_CLR
 3083:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h ****   *         @arg @ref LL_TIM_OCREF_CLR_INT_ETR
@@ -5677,17 +5678,18 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  293              		.loc 3 3105 3 is_stmt 0 view .LVU46
  294              	.LBE33:
  295              	.LBE32:
- 190:Src/stm32f0xx_it.c ****   TIM14_PeriodElapsedCallback();
- 296              		.loc 1 190 3 is_stmt 1 view .LVU47
+ 191:Src/stm32f0xx_it.c ****   TIM14_PeriodElapsedCallback();
+ 296              		.loc 1 191 3 is_stmt 1 view .LVU47
  297 000a FFF7FEFF 		bl	TIM14_PeriodElapsedCallback
  298              	.LVL11:
- 191:Src/stm32f0xx_it.c ****   //printf("t\r\n");
- 192:Src/stm32f0xx_it.c ****   /* USER CODE END TIM14_IRQn 0 */
- 193:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN TIM14_IRQn 1 */
- 194:Src/stm32f0xx_it.c **** 
- 195:Src/stm32f0xx_it.c ****   /* USER CODE END TIM14_IRQn 1 */
- 196:Src/stm32f0xx_it.c **** }
- 299              		.loc 1 196 1 is_stmt 0 view .LVU48
+ 192:Src/stm32f0xx_it.c ****   
+ 193:Src/stm32f0xx_it.c ****   // printf("t\r\n");
+ 194:Src/stm32f0xx_it.c ****   /* USER CODE END TIM14_IRQn 0 */
+ 195:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN TIM14_IRQn 1 */
+ 196:Src/stm32f0xx_it.c **** 
+ 197:Src/stm32f0xx_it.c ****   /* USER CODE END TIM14_IRQn 1 */
+ 198:Src/stm32f0xx_it.c **** }
+ 299              		.loc 1 198 1 is_stmt 0 view .LVU48
  300              		@ sp needed
  301 000e 10BD     		pop	{r4, pc}
  302              	.L18:
@@ -5695,32 +5697,32 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  304              	.L17:
  305 0010 00200040 		.word	1073750016
  306              		.cfi_endproc
- 307              	.LFE1027:
+ 307              	.LFE1030:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 96
+
+
  309              		.section	.text.I2C1_IRQHandler,"ax",%progbits
  310              		.align	1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 96
-
-
  311              		.global	I2C1_IRQHandler
  312              		.syntax unified
  313              		.code	16
  314              		.thumb_func
  316              	I2C1_IRQHandler:
- 317              	.LFB1028:
- 197:Src/stm32f0xx_it.c **** 
- 198:Src/stm32f0xx_it.c **** /**
- 199:Src/stm32f0xx_it.c ****   * @brief This function handles I2C1 global interrupt.
- 200:Src/stm32f0xx_it.c ****   */
- 201:Src/stm32f0xx_it.c **** void I2C1_IRQHandler(void)
- 202:Src/stm32f0xx_it.c **** {
- 318              		.loc 1 202 1 is_stmt 1 view -0
+ 317              	.LFB1031:
+ 199:Src/stm32f0xx_it.c **** 
+ 200:Src/stm32f0xx_it.c **** /**
+ 201:Src/stm32f0xx_it.c ****   * @brief This function handles I2C1 event global interrupt / I2C1 wake-up interrupt through EXTI 
+ 202:Src/stm32f0xx_it.c ****   */
+ 203:Src/stm32f0xx_it.c **** void I2C1_IRQHandler(void)
+ 204:Src/stm32f0xx_it.c **** {
+ 318              		.loc 1 204 1 is_stmt 1 view -0
  319              		.cfi_startproc
  320              		@ args = 0, pretend = 0, frame = 0
  321              		@ frame_needed = 0, uses_anonymous_args = 0
  322              		@ link register save eliminated.
- 203:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN I2C1_IRQn 0 */
- 204:Src/stm32f0xx_it.c ****   if(LL_I2C_IsActiveFlag_ADDR(I2C1))
- 323              		.loc 1 204 3 view .LVU50
+ 205:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN I2C1_IRQn 0 */
+ 206:Src/stm32f0xx_it.c ****   if(LL_I2C_IsActiveFlag_ADDR(I2C1))
+ 323              		.loc 1 206 3 view .LVU50
  324              	.LVL12:
  325              	.LBB34:
  326              	.LBI34:
@@ -5756,11 +5758,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
   29:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** #include "stm32f0xx.h"
   30:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
   31:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /** @addtogroup STM32F0xx_LL_Driver
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 97
+
+
   32:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @{
   33:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 97
-
-
   34:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
   35:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** #if defined (I2C1) || defined (I2C2)
   36:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
@@ -5816,11 +5818,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
   86:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****                                      @ref LL_I2C_EnableAnalogFilter() or LL_I2C_DisableAnalogFilter
   87:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
   88:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   uint32_t DigitalFilter;       /*!< Configures the digital noise filter.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 98
+
+
   89:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****                                      This parameter can be a number between Min_Data = 0x00 and Max
   90:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 98
-
-
   91:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****                                      This feature can be modified afterwards using unitary function
   92:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****                                      @ref LL_I2C_SetDigitalFilter(). */
   93:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
@@ -5876,11 +5878,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  143:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
  144:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** #define LL_I2C_ISR_TXE                      I2C_ISR_TXE             /*!< Transmit data register emp
  145:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** #define LL_I2C_ISR_TXIS                     I2C_ISR_TXIS            /*!< Transmit interrupt status 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 99
+
+
  146:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** #define LL_I2C_ISR_RXNE                     I2C_ISR_RXNE            /*!< Receive data register not 
  147:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** #define LL_I2C_ISR_ADDR                     I2C_ISR_ADDR            /*!< Address matched (slave mod
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 99
-
-
  148:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** #define LL_I2C_ISR_NACKF                    I2C_ISR_NACKF           /*!< Not Acknowledge received f
  149:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** #define LL_I2C_ISR_STOPF                    I2C_ISR_STOPF           /*!< Stop detection flag       
  150:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** #define LL_I2C_ISR_TC                       I2C_ISR_TC              /*!< Transfer Complete (master 
@@ -5936,11 +5938,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  200:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @{
  201:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
  202:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** #define LL_I2C_ADDRESSING_MODE_7BIT         0x00000000U              /*!< Master operates in 7-bit 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 100
+
+
  203:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** #define LL_I2C_ADDRESSING_MODE_10BIT        I2C_CR2_ADD10            /*!< Master operates in 10-bit
  204:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 100
-
-
  205:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @}
  206:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
  207:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
@@ -5996,11 +5998,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  257:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @}
  258:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
  259:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 101
+
+
  260:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /** @defgroup I2C_LL_EC_MODE Transfer End Mode
  261:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @{
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 101
-
-
  262:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
  263:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** #define LL_I2C_MODE_RELOAD                  I2C_CR2_RELOAD           /*!< Enable I2C Reload mode.  
  264:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** #define LL_I2C_MODE_AUTOEND                 I2C_CR2_AUTOEND          /*!< Enable I2C Automatic end 
@@ -6056,11 +6058,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  314:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @}
  315:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
  316:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 102
+
+
  317:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /** @defgroup I2C_LL_EC_DMA_REG_DATA DMA Register Data
  318:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @{
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 102
-
-
  319:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
  320:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** #define LL_I2C_DMA_REG_DATA_TRANSMIT        0x00000000U              /*!< Get address of data regis
  321:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****                                                                           transmission */
@@ -6116,11 +6118,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  371:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
  372:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** #define LL_I2C_WriteReg(__INSTANCE__, __REG__, __VALUE__) WRITE_REG(__INSTANCE__->__REG__, (__VALUE
  373:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 103
+
+
  374:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
  375:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Read a value in I2C register
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 103
-
-
  376:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  __INSTANCE__ I2C Instance
  377:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  __REG__ Register to be read
  378:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval Register value
@@ -6176,11 +6178,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  428:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval None
  429:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
  430:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE void LL_I2C_Enable(I2C_TypeDef *I2Cx)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 104
+
+
  431:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
  432:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   SET_BIT(I2Cx->CR1, I2C_CR1_PE);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 104
-
-
  433:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
  434:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
  435:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
@@ -6236,11 +6238,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  485:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @rmtoll CR1          DNF           LL_I2C_SetDigitalFilter
  486:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
  487:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  DigitalFilter This parameter must be a value between Min_Data=0x00 (Digital filter disa
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 105
+
+
  488:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****                           and Max_Data=0x0F (Digital filter enabled and filtering capability up to 
  489:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         This parameter is used to configure the digital noise filter on SDA and SCL input.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 105
-
-
  490:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         The digital filter will filter spikes with a length of up to DNF[3:0]*ti2cclk.
  491:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval None
  492:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
@@ -6296,11 +6298,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  542:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
  543:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
  544:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 106
+
+
  545:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Enable DMA transmission requests.
  546:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @rmtoll CR1          TXDMAEN       LL_I2C_EnableDMAReq_TX
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 106
-
-
  547:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
  548:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval None
  549:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
@@ -6356,11 +6358,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  599:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
  600:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Check if DMA reception requests are enabled or disabled.
  601:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @rmtoll CR1          RXDMAEN       LL_I2C_IsEnabledDMAReq_RX
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 107
+
+
  602:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
  603:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval State of bit (1 or 0).
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 107
-
-
  604:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
  605:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE uint32_t LL_I2C_IsEnabledDMAReq_RX(I2C_TypeDef *I2Cx)
  606:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
@@ -6416,11 +6418,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  656:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
  657:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE void LL_I2C_DisableClockStretching(I2C_TypeDef *I2Cx)
  658:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 108
+
+
  659:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   SET_BIT(I2Cx->CR1, I2C_CR1_NOSTRETCH);
  660:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 108
-
-
  661:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
  662:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
  663:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Check if Clock stretching is enabled or disabled.
@@ -6476,11 +6478,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  713:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
  714:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval None
  715:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 109
+
+
  716:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE void LL_I2C_EnableWakeUpFromStop(I2C_TypeDef *I2Cx)
  717:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 109
-
-
  718:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   SET_BIT(I2Cx->CR1, I2C_CR1_WUPEN);
  719:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
  720:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
@@ -6536,11 +6538,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  770:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
  771:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
  772:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 110
+
+
  773:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Check if General Call is enabled or disabled.
  774:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @rmtoll CR1          GCEN          LL_I2C_IsEnabledGeneralCall
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 110
-
-
  775:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
  776:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval State of bit (1 or 0).
  777:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
@@ -6596,11 +6598,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  827:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
  828:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Enable acknowledge on Own Address1 match address.
  829:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @rmtoll OAR1         OA1EN         LL_I2C_EnableOwnAddress1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 111
+
+
  830:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
  831:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval None
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 111
-
-
  832:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
  833:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE void LL_I2C_EnableOwnAddress1(I2C_TypeDef *I2Cx)
  834:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
@@ -6656,11 +6658,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  884:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Enable acknowledge on Own Address2 match address.
  885:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @rmtoll OAR2         OA2EN         LL_I2C_EnableOwnAddress2
  886:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 112
+
+
  887:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval None
  888:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 112
-
-
  889:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE void LL_I2C_EnableOwnAddress2(I2C_TypeDef *I2Cx)
  890:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
  891:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   SET_BIT(I2Cx->OAR2, I2C_OAR2_OA2EN);
@@ -6716,11 +6718,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  941:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
  942:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Get the SCL low period setting.
  943:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @rmtoll TIMINGR      SCLL          LL_I2C_GetClockLowPeriod
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 113
+
+
  944:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
  945:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval Value between Min_Data=0x00 and Max_Data=0xFF
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 113
-
-
  946:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
  947:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE uint32_t LL_I2C_GetClockLowPeriod(I2C_TypeDef *I2Cx)
  948:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
@@ -6776,11 +6778,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  998:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
  999:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE void LL_I2C_SetMode(I2C_TypeDef *I2Cx, uint32_t PeripheralMode)
 1000:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 114
+
+
 1001:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   MODIFY_REG(I2Cx->CR1, I2C_CR1_SMBHEN | I2C_CR1_SMBDEN, PeripheralMode);
 1002:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 114
-
-
 1003:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
 1004:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
 1005:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Get peripheral mode.
@@ -6836,11 +6838,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1055:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   CLEAR_BIT(I2Cx->CR1, I2C_CR1_ALERTEN);
 1056:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
 1057:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 115
+
+
 1058:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
 1059:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Check if SMBus alert (Host or Device mode) is enabled or disabled.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 115
-
-
 1060:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @note   The macro IS_SMBUS_ALL_INSTANCE(I2Cx) can be used to check whether or not
 1061:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         SMBus feature is supported by the I2Cx Instance.
 1062:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @rmtoll CR1          ALERTEN       LL_I2C_IsEnabledSMBusAlert
@@ -6896,11 +6898,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1112:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @note   The macro IS_SMBUS_ALL_INSTANCE(I2Cx) can be used to check whether or not
 1113:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         SMBus feature is supported by the I2Cx Instance.
 1114:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @note   This configuration can only be programmed when associated Timeout is disabled (TimeoutA
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 116
+
+
 1115:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @rmtoll TIMEOUTR     TIMEOUTA      LL_I2C_ConfigSMBusTimeout\n
 1116:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         TIMEOUTR     TIDLE         LL_I2C_ConfigSMBusTimeout\n
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 116
-
-
 1117:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         TIMEOUTR     TIMEOUTB      LL_I2C_ConfigSMBusTimeout
 1118:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
 1119:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  TimeoutA This parameter must be a value between  Min_Data=0 and Max_Data=0xFFF.
@@ -6956,11 +6958,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1169:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         @arg @ref LL_I2C_SMBUS_TIMEOUTA_MODE_SCL_LOW
 1170:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         @arg @ref LL_I2C_SMBUS_TIMEOUTA_MODE_SDA_SCL_HIGH
 1171:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval None
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 117
+
+
 1172:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
 1173:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE void LL_I2C_SetSMBusTimeoutAMode(I2C_TypeDef *I2Cx, uint32_t TimeoutAMode)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 117
-
-
 1174:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
 1175:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   WRITE_REG(I2Cx->TIMEOUTR, TimeoutAMode);
 1176:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
@@ -7016,11 +7018,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1226:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         TIMEOUTR     TEXTEN        LL_I2C_EnableSMBusTimeout
 1227:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
 1228:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  ClockTimeout This parameter can be one of the following values:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 118
+
+
 1229:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         @arg @ref LL_I2C_SMBUS_TIMEOUTA
 1230:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         @arg @ref LL_I2C_SMBUS_TIMEOUTB
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 118
-
-
 1231:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         @arg @ref LL_I2C_SMBUS_ALL_TIMEOUT
 1232:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval None
 1233:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
@@ -7076,11 +7078,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1283:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
 1284:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
 1285:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Enable TXIS interrupt.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 119
+
+
 1286:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @rmtoll CR1          TXIE          LL_I2C_EnableIT_TX
 1287:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 119
-
-
 1288:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval None
 1289:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
 1290:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE void LL_I2C_EnableIT_TX(I2C_TypeDef *I2Cx)
@@ -7136,11 +7138,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1340:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Check if the RXNE Interrupt is enabled or disabled.
 1341:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @rmtoll CR1          RXIE          LL_I2C_IsEnabledIT_RX
 1342:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 120
+
+
 1343:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval State of bit (1 or 0).
 1344:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 120
-
-
 1345:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE uint32_t LL_I2C_IsEnabledIT_RX(I2C_TypeDef *I2Cx)
 1346:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
 1347:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   return ((READ_BIT(I2Cx->CR1, I2C_CR1_RXIE) == (I2C_CR1_RXIE)) ? 1UL : 0UL);
@@ -7196,11 +7198,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1397:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
 1398:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval None
 1399:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 121
+
+
 1400:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE void LL_I2C_DisableIT_NACK(I2C_TypeDef *I2Cx)
 1401:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 121
-
-
 1402:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   CLEAR_BIT(I2Cx->CR1, I2C_CR1_NACKIE);
 1403:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
 1404:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
@@ -7256,11 +7258,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1454:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @rmtoll CR1          TCIE          LL_I2C_EnableIT_TC
 1455:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
 1456:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval None
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 122
+
+
 1457:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
 1458:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE void LL_I2C_EnableIT_TC(I2C_TypeDef *I2Cx)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 122
-
-
 1459:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
 1460:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   SET_BIT(I2Cx->CR1, I2C_CR1_TCIE);
 1461:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
@@ -7316,11 +7318,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1511:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         SMBus feature is supported by the I2Cx Instance.
 1512:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @note   Any of these errors will generate interrupt :
 1513:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         Arbitration Loss (ARLO)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 123
+
+
 1514:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         Bus Error detection (BERR)
 1515:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         Overrun/Underrun (OVR)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 123
-
-
 1516:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         SMBus Timeout detection (TIMEOUT)
 1517:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         SMBus PEC error detection (PECERR)
 1518:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         SMBus Alert pin event detection (ALERT)
@@ -7376,11 +7378,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1568:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE uint32_t LL_I2C_IsActiveFlag_TXIS(I2C_TypeDef *I2Cx)
 1569:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
 1570:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   return ((READ_BIT(I2Cx->ISR, I2C_ISR_TXIS) == (I2C_ISR_TXIS)) ? 1UL : 0UL);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 124
+
+
 1571:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
 1572:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 124
-
-
 1573:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
 1574:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Indicate the status of Receive data register not empty flag.
 1575:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @note   RESET: When Receive data register is read.
@@ -7418,9 +7420,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  338              		.loc 4 1596 71 view .LVU55
  339              	.LBE35:
  340              	.LBE34:
- 205:Src/stm32f0xx_it.c ****   {
- 206:Src/stm32f0xx_it.c ****       if(LL_I2C_GetTransferDirection(I2C1) == LL_I2C_DIRECTION_WRITE)
- 341              		.loc 1 206 7 is_stmt 1 view .LVU56
+ 207:Src/stm32f0xx_it.c ****   {
+ 208:Src/stm32f0xx_it.c ****       if(LL_I2C_GetTransferDirection(I2C1) == LL_I2C_DIRECTION_WRITE)
+ 341              		.loc 1 208 7 is_stmt 1 view .LVU56
  342              	.LBB36:
  343              	.LBI36:
 1597:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
@@ -7436,11 +7438,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1607:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE uint32_t LL_I2C_IsActiveFlag_NACK(I2C_TypeDef *I2Cx)
 1608:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
 1609:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   return ((READ_BIT(I2Cx->ISR, I2C_ISR_NACKF) == (I2C_ISR_NACKF)) ? 1UL : 0UL);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 125
+
+
 1610:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
 1611:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 125
-
-
 1612:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
 1613:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Indicate the status of Stop detection flag.
 1614:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @note   RESET: Clear default value.
@@ -7496,11 +7498,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1664:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
 1665:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Indicate the status of Arbitration lost flag.
 1666:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @note   RESET: Clear default value.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 126
+
+
 1667:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         SET: When arbitration lost.
 1668:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @rmtoll ISR          ARLO          LL_I2C_IsActiveFlag_ARLO
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 126
-
-
 1669:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
 1670:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval State of bit (1 or 0).
 1671:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
@@ -7556,11 +7558,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1721:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Indicate the status of SMBus alert flag.
 1722:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @note   The macro IS_SMBUS_ALL_INSTANCE(I2Cx) can be used to check whether or not
 1723:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         SMBus feature is supported by the I2Cx Instance.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 127
+
+
 1724:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @note   RESET: Clear default value.
 1725:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         SET: When SMBus host configuration, SMBus alert enabled and
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 127
-
-
 1726:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *              a falling edge event occurs on SMBA pin.
 1727:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @rmtoll ISR          ALERT         LL_I2C_IsActiveSMBusFlag_ALERT
 1728:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
@@ -7616,11 +7618,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1778:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
 1779:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   SET_BIT(I2Cx->ICR, I2C_ICR_STOPCF);
 1780:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 128
+
+
 1781:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
 1782:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 128
-
-
 1783:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Clear Transmit data register empty flag (TXE).
 1784:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @note   This bit can be clear by software in order to flush the transmit data register (TXDR).
 1785:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @rmtoll ISR          TXE           LL_I2C_ClearFlag_TXE
@@ -7676,11 +7678,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1835:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE void LL_I2C_ClearSMBusFlag_PECERR(I2C_TypeDef *I2Cx)
 1836:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
 1837:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   SET_BIT(I2Cx->ICR, I2C_ICR_PECCF);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 129
+
+
 1838:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
 1839:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 129
-
-
 1840:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
 1841:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Clear SMBus Timeout detection flag.
 1842:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @note   The macro IS_SMBUS_ALL_INSTANCE(I2Cx) can be used to check whether or not
@@ -7736,11 +7738,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1892:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval None
 1893:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
 1894:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE void LL_I2C_DisableAutoEndMode(I2C_TypeDef *I2Cx)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 130
+
+
 1895:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
 1896:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   CLEAR_BIT(I2Cx->CR2, I2C_CR2_AUTOEND);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 130
-
-
 1897:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
 1898:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
 1899:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
@@ -7796,11 +7798,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 1949:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
 1950:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  TransferSize This parameter must be a value between Min_Data=0x00 and Max_Data=0xFF.
 1951:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval None
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 131
+
+
 1952:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
 1953:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE void LL_I2C_SetTransferSize(I2C_TypeDef *I2Cx, uint32_t TransferSize)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 131
-
-
 1954:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
 1955:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   MODIFY_REG(I2Cx->CR2, I2C_CR2_NBYTES, TransferSize << I2C_CR2_NBYTES_Pos);
 1956:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
@@ -7856,11 +7858,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2006:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   SET_BIT(I2Cx->CR2, I2C_CR2_STOP);
 2007:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** }
 2008:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 132
+
+
 2009:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** /**
 2010:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @brief  Enable automatic RESTART Read request condition for 10bit address header (master mode).
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 132
-
-
 2011:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @note   The master sends the complete 10bit slave address read sequence :
 2012:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         Start + 2 bytes 10bit address in Write direction + Restart + first 7 bits of 10bit addr
 2013:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****             in Read direction.
@@ -7916,11 +7918,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2063:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @rmtoll CR2          RD_WRN           LL_I2C_GetTransferRequest
 2064:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  I2Cx I2C Instance.
 2065:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @retval Returned value can be one of the following values:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 133
+
+
 2066:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         @arg @ref LL_I2C_REQUEST_WRITE
 2067:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         @arg @ref LL_I2C_REQUEST_READ
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 133
-
-
 2068:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   */
 2069:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** __STATIC_INLINE uint32_t LL_I2C_GetTransferRequest(I2C_TypeDef *I2Cx)
 2070:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
@@ -7976,11 +7978,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
 2120:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         @arg @ref LL_I2C_MODE_SMBUS_RELOAD
 2121:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         @arg @ref LL_I2C_MODE_SMBUS_AUTOEND_NO_PEC
 2122:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         @arg @ref LL_I2C_MODE_SMBUS_SOFTEND_NO_PEC
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 134
+
+
 2123:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         @arg @ref LL_I2C_MODE_SMBUS_AUTOEND_WITH_PEC
 2124:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         @arg @ref LL_I2C_MODE_SMBUS_SOFTEND_WITH_PEC
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 134
-
-
 2125:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   * @param  Request This parameter can be one of the following values:
 2126:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         @arg @ref LL_I2C_GENERATE_NOSTARTSTOP
 2127:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h ****   *         @arg @ref LL_I2C_GENERATE_STOP
@@ -8025,22 +8027,22 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  351              		.loc 4 2158 21 view .LVU60
  352              	.LBE37:
  353              	.LBE36:
- 354              		.loc 1 206 9 view .LVU61
+ 354              		.loc 1 208 9 view .LVU61
  355 000c DB03     		lsls	r3, r3, #15
  356 000e 09D4     		bmi	.L19
- 207:Src/stm32f0xx_it.c ****       {
- 208:Src/stm32f0xx_it.c ****           LL_DMA_EnableChannel(DMA1,LL_DMA_CHANNEL_3);
- 357              		.loc 1 208 11 is_stmt 1 view .LVU62
+ 209:Src/stm32f0xx_it.c ****       {
+ 210:Src/stm32f0xx_it.c ****           LL_DMA_EnableChannel(DMA1,LL_DMA_CHANNEL_3);
+ 357              		.loc 1 210 11 is_stmt 1 view .LVU62
  358              	.LVL15:
  359              	.LBB38:
  360              	.LBI38:
  583:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
  361              		.loc 2 583 22 view .LVU63
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 135
+
+
  362              	.LBB39:
  585:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 135
-
-
  363              		.loc 2 585 3 view .LVU64
  364 0010 064A     		ldr	r2, .L21+4
  365 0012 1368     		ldr	r3, [r2]
@@ -8052,8 +8054,8 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  370              		.loc 2 585 3 is_stmt 0 view .LVU65
  371              	.LBE39:
  372              	.LBE38:
- 209:Src/stm32f0xx_it.c ****           LL_I2C_ClearFlag_ADDR(I2C1);
- 373              		.loc 1 209 11 is_stmt 1 view .LVU66
+ 211:Src/stm32f0xx_it.c ****           LL_I2C_ClearFlag_ADDR(I2C1);
+ 373              		.loc 1 211 11 is_stmt 1 view .LVU66
  374              	.LBB40:
  375              	.LBI40:
 1755:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_i2c.h **** {
@@ -8072,17 +8074,17 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  386              		.loc 4 1757 3 is_stmt 0 view .LVU69
  387              	.LBE41:
  388              	.LBE40:
- 210:Src/stm32f0xx_it.c ****       }
- 211:Src/stm32f0xx_it.c ****       
- 212:Src/stm32f0xx_it.c ****   }
- 213:Src/stm32f0xx_it.c **** 
- 214:Src/stm32f0xx_it.c ****   /* USER CODE END I2C1_IRQn 0 */
+ 212:Src/stm32f0xx_it.c ****       }
+ 213:Src/stm32f0xx_it.c ****       
+ 214:Src/stm32f0xx_it.c ****   }
  215:Src/stm32f0xx_it.c **** 
- 216:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN I2C1_IRQn 1 */
+ 216:Src/stm32f0xx_it.c ****   /* USER CODE END I2C1_IRQn 0 */
  217:Src/stm32f0xx_it.c **** 
- 218:Src/stm32f0xx_it.c ****   /* USER CODE END I2C1_IRQn 1 */
- 219:Src/stm32f0xx_it.c **** }
- 389              		.loc 1 219 1 view .LVU70
+ 218:Src/stm32f0xx_it.c ****   /* USER CODE BEGIN I2C1_IRQn 1 */
+ 219:Src/stm32f0xx_it.c **** 
+ 220:Src/stm32f0xx_it.c ****   /* USER CODE END I2C1_IRQn 1 */
+ 221:Src/stm32f0xx_it.c **** }
+ 389              		.loc 1 221 1 view .LVU70
  390              		@ sp needed
  391 0024 7047     		bx	lr
  392              	.L22:
@@ -8091,44 +8093,44 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 1
  395 0028 00540040 		.word	1073763328
  396 002c 30000240 		.word	1073872944
  397              		.cfi_endproc
- 398              	.LFE1028:
+ 398              	.LFE1031:
  400              		.text
  401              	.Letext0:
  402              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
  403              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 136
+
+
  404              		.file 7 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f042x6.h"
  405              		.file 8 "Inc/tim.h"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 136
-
-
  406              		.file 9 "Inc/i2c.h"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s 			page 137
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s 			page 137
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f0xx_it.c
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:18     .text.NMI_Handler:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:24     .text.NMI_Handler:00000000 NMI_Handler
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:42     .text.HardFault_Handler:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:48     .text.HardFault_Handler:00000000 HardFault_Handler
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:65     .text.SVC_Handler:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:71     .text.SVC_Handler:00000000 SVC_Handler
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:85     .text.PendSV_Handler:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:91     .text.PendSV_Handler:00000000 PendSV_Handler
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:105    .text.SysTick_Handler:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:111    .text.SysTick_Handler:00000000 SysTick_Handler
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:125    .text.DMA1_Channel1_IRQHandler:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:131    .text.DMA1_Channel1_IRQHandler:00000000 DMA1_Channel1_IRQHandler
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:159    .text.DMA1_Channel1_IRQHandler:00000008 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:164    .text.DMA1_Channel2_3_IRQHandler:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:170    .text.DMA1_Channel2_3_IRQHandler:00000000 DMA1_Channel2_3_IRQHandler
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:257    .text.DMA1_Channel2_3_IRQHandler:00000030 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:263    .text.TIM14_IRQHandler:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:269    .text.TIM14_IRQHandler:00000000 TIM14_IRQHandler
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:305    .text.TIM14_IRQHandler:00000010 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:310    .text.I2C1_IRQHandler:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:316    .text.I2C1_IRQHandler:00000000 I2C1_IRQHandler
-C:\Users\ADMINI~1\AppData\Local\Temp\ccWu18jr.s:395    .text.I2C1_IRQHandler:00000028 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:18     .text.NMI_Handler:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:24     .text.NMI_Handler:00000000 NMI_Handler
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:42     .text.HardFault_Handler:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:48     .text.HardFault_Handler:00000000 HardFault_Handler
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:65     .text.SVC_Handler:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:71     .text.SVC_Handler:00000000 SVC_Handler
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:85     .text.PendSV_Handler:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:91     .text.PendSV_Handler:00000000 PendSV_Handler
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:105    .text.SysTick_Handler:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:111    .text.SysTick_Handler:00000000 SysTick_Handler
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:125    .text.DMA1_Channel1_IRQHandler:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:131    .text.DMA1_Channel1_IRQHandler:00000000 DMA1_Channel1_IRQHandler
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:159    .text.DMA1_Channel1_IRQHandler:00000008 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:164    .text.DMA1_Channel2_3_IRQHandler:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:170    .text.DMA1_Channel2_3_IRQHandler:00000000 DMA1_Channel2_3_IRQHandler
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:257    .text.DMA1_Channel2_3_IRQHandler:00000030 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:263    .text.TIM14_IRQHandler:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:269    .text.TIM14_IRQHandler:00000000 TIM14_IRQHandler
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:305    .text.TIM14_IRQHandler:00000010 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:310    .text.I2C1_IRQHandler:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:316    .text.I2C1_IRQHandler:00000000 I2C1_IRQHandler
+C:\Users\ADMINI~1\AppData\Local\Temp\ccCVibvh.s:395    .text.I2C1_IRQHandler:00000028 $d
 
 UNDEFINED SYMBOLS
 I2C_SlaveDMARxCpltCallback

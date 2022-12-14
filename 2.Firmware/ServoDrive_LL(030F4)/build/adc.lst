@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,58 +58,59 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
   27              		.loc 1 29 1 view -0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 72
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 2
 
 
   30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31 0000 70B5     		push	{r4, r5, r6, lr}
+  31 0000 F0B5     		push	{r4, r5, r6, r7, lr}
   32              	.LCFI0:
-  33              		.cfi_def_cfa_offset 16
-  34              		.cfi_offset 4, -16
-  35              		.cfi_offset 5, -12
-  36              		.cfi_offset 6, -8
-  37              		.cfi_offset 14, -4
-  38 0002 92B0     		sub	sp, sp, #72
-  39              	.LCFI1:
-  40              		.cfi_def_cfa_offset 88
+  33              		.cfi_def_cfa_offset 20
+  34              		.cfi_offset 4, -20
+  35              		.cfi_offset 5, -16
+  36              		.cfi_offset 6, -12
+  37              		.cfi_offset 7, -8
+  38              		.cfi_offset 14, -4
+  39 0002 93B0     		sub	sp, sp, #76
+  40              	.LCFI1:
+  41              		.cfi_def_cfa_offset 96
   30:Src/adc.c     **** 
   31:Src/adc.c     ****   /* USER CODE BEGIN ADC_Init 0 */
   32:Src/adc.c     **** 
   33:Src/adc.c     ****   /* USER CODE END ADC_Init 0 */
   34:Src/adc.c     **** 
   35:Src/adc.c     ****   LL_ADC_InitTypeDef ADC_InitStruct = {0};
-  41              		.loc 1 35 3 view .LVU1
-  42              		.loc 1 35 22 is_stmt 0 view .LVU2
-  43 0004 1025     		movs	r5, #16
-  44 0006 1022     		movs	r2, #16
-  45 0008 0021     		movs	r1, #0
-  46 000a 0EA8     		add	r0, sp, #56
-  47 000c FFF7FEFF 		bl	memset
-  48              	.LVL0:
+  42              		.loc 1 35 3 view .LVU1
+  43              		.loc 1 35 22 is_stmt 0 view .LVU2
+  44 0004 1026     		movs	r6, #16
+  45 0006 1022     		movs	r2, #16
+  46 0008 0021     		movs	r1, #0
+  47 000a 0EA8     		add	r0, sp, #56
+  48 000c FFF7FEFF 		bl	memset
+  49              	.LVL0:
   36:Src/adc.c     ****   LL_ADC_REG_InitTypeDef ADC_REG_InitStruct = {0};
-  49              		.loc 1 36 3 is_stmt 1 view .LVU3
-  50              		.loc 1 36 26 is_stmt 0 view .LVU4
-  51 0010 1422     		movs	r2, #20
-  52 0012 0021     		movs	r1, #0
-  53 0014 09A8     		add	r0, sp, #36
-  54 0016 FFF7FEFF 		bl	memset
-  55              	.LVL1:
+  50              		.loc 1 36 3 is_stmt 1 view .LVU3
+  51              		.loc 1 36 26 is_stmt 0 view .LVU4
+  52 0010 1422     		movs	r2, #20
+  53 0012 0021     		movs	r1, #0
+  54 0014 09A8     		add	r0, sp, #36
+  55 0016 FFF7FEFF 		bl	memset
+  56              	.LVL1:
   37:Src/adc.c     **** 
   38:Src/adc.c     ****   LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
-  56              		.loc 1 38 3 is_stmt 1 view .LVU5
-  57              		.loc 1 38 23 is_stmt 0 view .LVU6
-  58 001a 1822     		movs	r2, #24
-  59 001c 0021     		movs	r1, #0
-  60 001e 03A8     		add	r0, sp, #12
-  61 0020 FFF7FEFF 		bl	memset
-  62              	.LVL2:
+  57              		.loc 1 38 3 is_stmt 1 view .LVU5
+  58              		.loc 1 38 23 is_stmt 0 view .LVU6
+  59 001a 1822     		movs	r2, #24
+  60 001c 0021     		movs	r1, #0
+  61 001e 03A8     		add	r0, sp, #12
+  62 0020 FFF7FEFF 		bl	memset
+  63              	.LVL2:
   39:Src/adc.c     **** 
   40:Src/adc.c     ****   /* Peripheral clock enable */
   41:Src/adc.c     ****   LL_APB1_GRP2_EnableClock(LL_APB1_GRP2_PERIPH_ADC1);
-  63              		.loc 1 41 3 is_stmt 1 view .LVU7
-  64              	.LBB40:
-  65              	.LBI40:
-  66              		.file 2 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h"
+  64              		.loc 1 41 3 is_stmt 1 view .LVU7
+  65              	.LBB42:
+  66              	.LBI42:
+  67              		.file 2 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h"
    1:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** /**
    2:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   ******************************************************************************
    3:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   * @file    stm32f0xx_ll_bus.h
@@ -117,10 +118,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
    5:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   * @brief   Header file of BUS LL module.
    6:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** 
    7:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   @verbatim                
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 3
+
+
    8:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****                       ##### RCC Limitations #####
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 3
-
-
    9:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   ==============================================================================
   10:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****     [..]  
   11:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****       A delay between an RCC peripheral clock enable and the effective peripheral 
@@ -177,10 +178,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
   62:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** 
   63:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** /* Private macros ------------------------------------------------------------*/
   64:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 4
+
+
   65:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** /* Exported types ------------------------------------------------------------*/
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 4
-
-
   66:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** /* Exported constants --------------------------------------------------------*/
   67:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** /** @defgroup BUS_LL_Exported_Constants BUS Exported Constants
   68:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   * @{
@@ -237,10 +238,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  119:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_USART2         RCC_APB1ENR_USART2EN
  120:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #endif /* USART2 */
  121:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #if defined(USART3)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 5
+
+
  122:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_USART3         RCC_APB1ENR_USART3EN
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 5
-
-
  123:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #endif /* USART3 */
  124:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #if defined(USART4)
  125:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_USART4         RCC_APB1ENR_USART4EN
@@ -297,10 +298,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  176:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #define LL_APB1_GRP2_PERIPH_TIM17          RCC_APB2ENR_TIM17EN
  177:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #define LL_APB1_GRP2_PERIPH_DBGMCU         RCC_APB2ENR_DBGMCUEN
  178:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** /**
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 6
+
+
  179:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   * @}
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 6
-
-
  180:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   */
  181:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** 
  182:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** /**
@@ -357,10 +358,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  233:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   (void)tmpreg;
  234:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** }
  235:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 7
+
+
  236:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 7
-
-
  237:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   * @brief  Check if AHB1 peripheral clock is enabled or not
  238:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   * @rmtoll AHBENR       DMA1EN        LL_AHB1_GRP1_IsEnabledClock\n
  239:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         AHBENR       DMA2EN        LL_AHB1_GRP1_IsEnabledClock\n
@@ -417,10 +418,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  290:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_FLASH
  291:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_CRC
  292:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_GPIOA
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 8
+
+
  293:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_GPIOB
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 8
-
-
  294:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_GPIOC
  295:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_GPIOD (*)
  296:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_GPIOE (*)
@@ -477,10 +478,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  347:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_GPIOB
  348:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_GPIOC
  349:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_GPIOD (*)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 9
+
+
  350:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_GPIOE (*)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 9
-
-
  351:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_GPIOF
  352:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_TSC (*)
  353:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *
@@ -537,10 +538,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  404:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_APB1_GRP1_PERIPH_I2C2 (*)
  405:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_APB1_GRP1_PERIPH_USB (*)
  406:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_APB1_GRP1_PERIPH_CAN (*)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 10
+
+
  407:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_APB1_GRP1_PERIPH_CRS (*)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 10
-
-
  408:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_APB1_GRP1_PERIPH_PWR
  409:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_APB1_GRP1_PERIPH_DAC1 (*)
  410:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_APB1_GRP1_PERIPH_CEC (*)
@@ -597,10 +598,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  461:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_APB1_GRP1_PERIPH_CRS (*)
  462:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_APB1_GRP1_PERIPH_PWR
  463:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_APB1_GRP1_PERIPH_DAC1 (*)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 11
+
+
  464:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         @arg @ref LL_APB1_GRP1_PERIPH_CEC (*)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 11
-
-
  465:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *
  466:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         (*) value not defined in all devices.
  467:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   * @retval State of Periphs (1 or 0).
@@ -657,10 +658,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  518:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** */
  519:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** __STATIC_INLINE void LL_APB1_GRP1_DisableClock(uint32_t Periphs)
  520:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** {
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 12
+
+
  521:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   CLEAR_BIT(RCC->APB1ENR, Periphs);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 12
-
-
  522:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** }
  523:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** 
  524:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** /**
@@ -717,10 +718,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  575:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** /**
  576:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   * @brief  Release APB1 peripherals reset (available in register 1).
  577:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   * @rmtoll APB1RSTR     TIM2RST       LL_APB1_GRP1_ReleaseReset\n
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 13
+
+
  578:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         APB1RSTR     TIM3RST       LL_APB1_GRP1_ReleaseReset\n
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 13
-
-
  579:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         APB1RSTR     TIM6RST       LL_APB1_GRP1_ReleaseReset\n
  580:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         APB1RSTR     TIM7RST       LL_APB1_GRP1_ReleaseReset\n
  581:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         APB1RSTR     TIM14RST      LL_APB1_GRP1_ReleaseReset\n
@@ -777,10 +778,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  632:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   */
  633:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** 
  634:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** /**
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 14
+
+
  635:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   * @brief  Enable APB1 peripherals clock (available in register 2).
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 14
-
-
  636:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   * @rmtoll APB2ENR      SYSCFGEN      LL_APB1_GRP2_EnableClock\n
  637:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         APB2ENR      ADC1EN        LL_APB1_GRP2_EnableClock\n
  638:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         APB2ENR      USART8EN      LL_APB1_GRP2_EnableClock\n
@@ -811,105 +812,105 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  663:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   * @retval None
  664:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** */
  665:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** __STATIC_INLINE void LL_APB1_GRP2_EnableClock(uint32_t Periphs)
-  67              		.loc 2 665 22 view .LVU8
-  68              	.LBB41:
+  68              		.loc 2 665 22 view .LVU8
+  69              	.LBB43:
  666:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** {
  667:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   __IO uint32_t tmpreg;
-  69              		.loc 2 667 3 view .LVU9
+  70              		.loc 2 667 3 view .LVU9
  668:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   SET_BIT(RCC->APB2ENR, Periphs);
-  70              		.loc 2 668 3 view .LVU10
-  71 0024 3B4B     		ldr	r3, .L2
-  72 0026 9969     		ldr	r1, [r3, #24]
-  73 0028 8020     		movs	r0, #128
-  74 002a 8000     		lsls	r0, r0, #2
-  75 002c 0143     		orrs	r1, r0
-  76 002e 9961     		str	r1, [r3, #24]
+  71              		.loc 2 668 3 view .LVU10
+  72 0024 3D4B     		ldr	r3, .L2
+  73 0026 9969     		ldr	r1, [r3, #24]
+  74 0028 8020     		movs	r0, #128
+  75 002a 8000     		lsls	r0, r0, #2
+  76 002c 0143     		orrs	r1, r0
+  77 002e 9961     		str	r1, [r3, #24]
  669:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   /* Delay after an RCC peripheral clock enabling */
  670:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   tmpreg = READ_BIT(RCC->APB2ENR, Periphs);
-  77              		.loc 2 670 3 view .LVU11
-  78              		.loc 2 670 12 is_stmt 0 view .LVU12
-  79 0030 9A69     		ldr	r2, [r3, #24]
-  80 0032 0240     		ands	r2, r0
-  81              		.loc 2 670 10 view .LVU13
-  82 0034 0292     		str	r2, [sp, #8]
+  78              		.loc 2 670 3 view .LVU11
+  79              		.loc 2 670 12 is_stmt 0 view .LVU12
+  80 0030 9A69     		ldr	r2, [r3, #24]
+  81 0032 0240     		ands	r2, r0
+  82              		.loc 2 670 10 view .LVU13
+  83 0034 0292     		str	r2, [sp, #8]
  671:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   (void)tmpreg;
-  83              		.loc 2 671 3 is_stmt 1 view .LVU14
-  84 0036 029A     		ldr	r2, [sp, #8]
-  85              	.LVL3:
-  86              		.loc 2 671 3 is_stmt 0 view .LVU15
-  87              	.LBE41:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 15
+  84              		.loc 2 671 3 is_stmt 1 view .LVU14
+  85 0036 029A     		ldr	r2, [sp, #8]
+  86              	.LVL3:
+  87              		.loc 2 671 3 is_stmt 0 view .LVU15
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 15
 
 
-  88              	.LBE40:
+  88              	.LBE43:
+  89              	.LBE42:
   42:Src/adc.c     **** 
   43:Src/adc.c     ****   LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_GPIOA);
-  89              		.loc 1 43 3 is_stmt 1 view .LVU16
-  90              	.LBB42:
-  91              	.LBI42:
+  90              		.loc 1 43 3 is_stmt 1 view .LVU16
+  91              	.LBB44:
+  92              	.LBI44:
  227:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** {
-  92              		.loc 2 227 22 view .LVU17
-  93              	.LBB43:
+  93              		.loc 2 227 22 view .LVU17
+  94              	.LBB45:
  229:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   SET_BIT(RCC->AHBENR, Periphs);
-  94              		.loc 2 229 3 view .LVU18
+  95              		.loc 2 229 3 view .LVU18
  230:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   /* Delay after an RCC peripheral clock enabling */
-  95              		.loc 2 230 3 view .LVU19
-  96 0038 5A69     		ldr	r2, [r3, #20]
-  97 003a 8021     		movs	r1, #128
-  98 003c 8902     		lsls	r1, r1, #10
-  99 003e 0A43     		orrs	r2, r1
- 100 0040 5A61     		str	r2, [r3, #20]
+  96              		.loc 2 230 3 view .LVU19
+  97 0038 5A69     		ldr	r2, [r3, #20]
+  98 003a 8021     		movs	r1, #128
+  99 003c 8902     		lsls	r1, r1, #10
+ 100 003e 0A43     		orrs	r2, r1
+ 101 0040 5A61     		str	r2, [r3, #20]
  232:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   (void)tmpreg;
- 101              		.loc 2 232 3 view .LVU20
+ 102              		.loc 2 232 3 view .LVU20
  232:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   (void)tmpreg;
- 102              		.loc 2 232 12 is_stmt 0 view .LVU21
- 103 0042 5B69     		ldr	r3, [r3, #20]
- 104 0044 0B40     		ands	r3, r1
+ 103              		.loc 2 232 12 is_stmt 0 view .LVU21
+ 104 0042 5B69     		ldr	r3, [r3, #20]
+ 105 0044 0B40     		ands	r3, r1
  232:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   (void)tmpreg;
- 105              		.loc 2 232 10 view .LVU22
- 106 0046 0193     		str	r3, [sp, #4]
+ 106              		.loc 2 232 10 view .LVU22
+ 107 0046 0193     		str	r3, [sp, #4]
  233:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** }
- 107              		.loc 2 233 3 is_stmt 1 view .LVU23
- 108 0048 019B     		ldr	r3, [sp, #4]
- 109              	.LVL4:
+ 108              		.loc 2 233 3 is_stmt 1 view .LVU23
+ 109 0048 019B     		ldr	r3, [sp, #4]
+ 110              	.LVL4:
  233:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** }
- 110              		.loc 2 233 3 is_stmt 0 view .LVU24
- 111              	.LBE43:
- 112              	.LBE42:
+ 111              		.loc 2 233 3 is_stmt 0 view .LVU24
+ 112              	.LBE45:
+ 113              	.LBE44:
   44:Src/adc.c     ****   /**ADC GPIO Configuration
   45:Src/adc.c     ****   PA4   ------> ADC_IN4
   46:Src/adc.c     ****   */
   47:Src/adc.c     ****   GPIO_InitStruct.Pin = LL_GPIO_PIN_4;
- 113              		.loc 1 47 3 is_stmt 1 view .LVU25
- 114              		.loc 1 47 23 is_stmt 0 view .LVU26
- 115 004a 0395     		str	r5, [sp, #12]
+ 114              		.loc 1 47 3 is_stmt 1 view .LVU25
+ 115              		.loc 1 47 23 is_stmt 0 view .LVU26
+ 116 004a 0396     		str	r6, [sp, #12]
   48:Src/adc.c     ****   GPIO_InitStruct.Mode = LL_GPIO_MODE_ANALOG;
- 116              		.loc 1 48 3 is_stmt 1 view .LVU27
- 117              		.loc 1 48 24 is_stmt 0 view .LVU28
- 118 004c 0323     		movs	r3, #3
- 119 004e 0493     		str	r3, [sp, #16]
+ 117              		.loc 1 48 3 is_stmt 1 view .LVU27
+ 118              		.loc 1 48 24 is_stmt 0 view .LVU28
+ 119 004c 0323     		movs	r3, #3
+ 120 004e 0493     		str	r3, [sp, #16]
   49:Src/adc.c     ****   GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
- 120              		.loc 1 49 3 is_stmt 1 view .LVU29
+ 121              		.loc 1 49 3 is_stmt 1 view .LVU29
   50:Src/adc.c     ****   LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
- 121              		.loc 1 50 3 view .LVU30
- 122 0050 7138     		subs	r0, r0, #113
- 123 0052 FF38     		subs	r0, r0, #255
- 124 0054 03A9     		add	r1, sp, #12
- 125 0056 C005     		lsls	r0, r0, #23
- 126 0058 FFF7FEFF 		bl	LL_GPIO_Init
- 127              	.LVL5:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 16
+ 122              		.loc 1 50 3 view .LVU30
+ 123 0050 7138     		subs	r0, r0, #113
+ 124 0052 FF38     		subs	r0, r0, #255
+ 125 0054 03A9     		add	r1, sp, #12
+ 126 0056 C005     		lsls	r0, r0, #23
+ 127 0058 FFF7FEFF 		bl	LL_GPIO_Init
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 16
 
 
+ 128              	.LVL5:
   51:Src/adc.c     **** 
   52:Src/adc.c     ****   /* ADC DMA Init */
   53:Src/adc.c     **** 
   54:Src/adc.c     ****   /* ADC Init */
   55:Src/adc.c     ****   LL_DMA_SetDataTransferDirection(DMA1, LL_DMA_CHANNEL_1, LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
- 128              		.loc 1 55 3 view .LVU31
- 129              	.LBB44:
- 130              	.LBI44:
- 131              		.file 3 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h"
+ 129              		.loc 1 55 3 view .LVU31
+ 130              	.LBB46:
+ 131              	.LBI46:
+ 132              		.file 3 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h"
    1:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
    2:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   ******************************************************************************
    3:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @file    stm32f0xx_ll_dma.h
@@ -957,10 +958,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
   45:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
   46:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /* Array used to get the DMA channel register offset versus channel index LL_DMA_CHANNEL_x */
   47:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** static const uint8_t CHANNEL_OFFSET_TAB[] =
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 17
+
+
   48:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 17
-
-
   49:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   (uint8_t)(DMA1_Channel1_BASE - DMA1_BASE),
   50:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   (uint8_t)(DMA1_Channel2_BASE - DMA1_BASE),
   51:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   (uint8_t)(DMA1_Channel3_BASE - DMA1_BASE),
@@ -1017,10 +1018,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  102:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
  103:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****                                         This parameter must be a value between Min_Data = 0 and Max
  104:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 18
+
+
  105:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   uint32_t Direction;              /*!< Specifies if the data will be transferred from memory to pe
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 18
-
-
  106:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****                                         from memory to memory or from peripheral to memory.
  107:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****                                         This parameter can be a value of @ref DMA_LL_EC_DIRECTION
  108:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
@@ -1077,10 +1078,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  159:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****                                         This feature can be modified afterwards using unitary funct
  160:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
  161:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** } LL_DMA_InitTypeDef;
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 19
+
+
  162:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 19
-
-
  163:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @}
  164:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
  165:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #endif /*USE_FULL_LL_DRIVER*/
@@ -1137,10 +1138,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  216:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_ISR_TCIF1                  DMA_ISR_TCIF1         /*!< Channel 1 transfer complete fl
  217:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_ISR_HTIF1                  DMA_ISR_HTIF1         /*!< Channel 1 half transfer flag  
  218:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_ISR_TEIF1                  DMA_ISR_TEIF1         /*!< Channel 1 transfer error flag 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 20
+
+
  219:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_ISR_GIF2                   DMA_ISR_GIF2          /*!< Channel 2 global flag         
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 20
-
-
  220:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_ISR_TCIF2                  DMA_ISR_TCIF2         /*!< Channel 2 transfer complete fl
  221:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_ISR_HTIF2                  DMA_ISR_HTIF2         /*!< Channel 2 half transfer flag  
  222:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_ISR_TEIF2                  DMA_ISR_TEIF2         /*!< Channel 2 transfer error flag 
@@ -1197,10 +1198,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  273:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #if defined(DMA1_Channel7)
  274:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_CHANNEL_7                  0x00000007U /*!< DMA Channel 7 */
  275:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #endif
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 21
+
+
  276:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #if defined(USE_FULL_LL_DRIVER)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 21
-
-
  277:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_CHANNEL_ALL                0xFFFF0000U /*!< DMA Channel all (used only for function 
  278:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #endif /*USE_FULL_LL_DRIVER*/
  279:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
@@ -1257,10 +1258,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  330:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /** @defgroup DMA_LL_EC_MDATAALIGN Memory data alignment
  331:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @{
  332:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 22
+
+
  333:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_MDATAALIGN_BYTE            0x00000000U             /*!< Memory data alignment : Byte
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 22
-
-
  334:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_MDATAALIGN_HALFWORD        DMA_CCR_MSIZE_0         /*!< Memory data alignment : Half
  335:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define LL_DMA_MDATAALIGN_WORD            DMA_CCR_MSIZE_1         /*!< Memory data alignment : Word
  336:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
@@ -1317,10 +1318,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  387:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
  388:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
  389:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Write a value in DMA register
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 23
+
+
  390:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  __INSTANCE__ DMA Instance
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 23
-
-
  391:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  __REG__ Register to be written
  392:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  __VALUE__ Value to be written in the register
  393:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
@@ -1377,10 +1378,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  444:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #else
  445:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #define __LL_DMA_GET_CHANNEL(__CHANNEL_INSTANCE__)   \
  446:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** (((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA1_Channel1)) ? LL_DMA_CHANNEL_1 : \
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 24
+
+
  447:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA2_Channel1)) ? LL_DMA_CHANNEL_1 : \
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 24
-
-
  448:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA1_Channel2)) ? LL_DMA_CHANNEL_2 : \
  449:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA2_Channel2)) ? LL_DMA_CHANNEL_2 : \
  450:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  ((uint32_t)(__CHANNEL_INSTANCE__) == ((uint32_t)DMA1_Channel3)) ? LL_DMA_CHANNEL_3 : \
@@ -1437,10 +1438,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  501:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA2)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_D
  502:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA1)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_D
  503:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA2)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_D
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 25
+
+
  504:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA1)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_D
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 25
-
-
  505:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA2)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_D
  506:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA1)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_D
  507:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  (((uint32_t)(__DMA_INSTANCE__) == ((uint32_t)DMA2)) && ((uint32_t)(__CHANNEL__) == ((uint32_t)LL_D
@@ -1497,10 +1498,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  558:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @}
  559:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
  560:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 26
+
+
  561:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /* Exported functions --------------------------------------------------------*/
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 26
-
-
  562:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /** @defgroup DMA_LL_Exported_Functions DMA Exported Functions
  563:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  * @{
  564:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****  */
@@ -1557,10 +1558,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  615:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_4
  616:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_5
  617:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 27
+
+
  618:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_7
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 27
-
-
  619:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval State of bit (1 or 0).
  620:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
  621:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE uint32_t LL_DMA_IsEnabledChannel(DMA_TypeDef *DMAx, uint32_t Channel)
@@ -1617,10 +1618,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  672:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_4
  673:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_5
  674:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 28
+
+
  675:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_7
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 28
-
-
  676:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  Direction This parameter can be one of the following values:
  677:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_DIRECTION_PERIPH_TO_MEMORY
  678:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_DIRECTION_MEMORY_TO_PERIPH
@@ -1628,25 +1629,25 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  680:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
  681:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
  682:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE void LL_DMA_SetDataTransferDirection(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t 
- 132              		.loc 3 682 22 view .LVU32
- 133              	.LBB45:
+ 133              		.loc 3 682 22 view .LVU32
+ 134              	.LBB47:
  683:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
  684:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   MODIFY_REG(((DMA_Channel_TypeDef *)((uint32_t)((uint32_t)DMAx + CHANNEL_OFFSET_TAB[Channel - 1U])
- 134              		.loc 3 684 3 view .LVU33
- 135 005c 2E4B     		ldr	r3, .L2+4
- 136 005e 1A68     		ldr	r2, [r3]
- 137 0060 2E49     		ldr	r1, .L2+8
- 138 0062 0A40     		ands	r2, r1
- 139 0064 1A60     		str	r2, [r3]
- 140              	.LVL6:
- 141              		.loc 3 684 3 is_stmt 0 view .LVU34
- 142              	.LBE45:
- 143              	.LBE44:
+ 135              		.loc 3 684 3 view .LVU33
+ 136 005c 304C     		ldr	r4, .L2+4
+ 137 005e 2368     		ldr	r3, [r4]
+ 138 0060 304A     		ldr	r2, .L2+8
+ 139 0062 1340     		ands	r3, r2
+ 140 0064 2360     		str	r3, [r4]
+ 141              	.LVL6:
+ 142              		.loc 3 684 3 is_stmt 0 view .LVU34
+ 143              	.LBE47:
+ 144              	.LBE46:
   56:Src/adc.c     **** 
   57:Src/adc.c     ****   LL_DMA_SetChannelPriorityLevel(DMA1, LL_DMA_CHANNEL_1, LL_DMA_PRIORITY_LOW);
- 144              		.loc 1 57 3 is_stmt 1 view .LVU35
- 145              	.LBB46:
- 146              	.LBI46:
+ 145              		.loc 1 57 3 is_stmt 1 view .LVU35
+ 146              	.LBB48:
+ 147              	.LBI48:
  685:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****              DMA_CCR_DIR | DMA_CCR_MEM2MEM, Direction);
  686:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
  687:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
@@ -1677,10 +1678,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  712:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
  713:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Set DMA mode circular or normal.
  714:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @note The circular buffer mode cannot be used if the memory-to-memory
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 29
+
+
  715:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * data transfer is configured on the selected Channel.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 29
-
-
  716:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll CCR          CIRC          LL_DMA_SetMode
  717:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
  718:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  Channel This parameter can be one of the following values:
@@ -1737,10 +1738,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  769:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_6
  770:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_7
  771:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  PeriphOrM2MSrcIncMode This parameter can be one of the following values:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 30
+
+
  772:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_PERIPH_INCREMENT
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 30
-
-
  773:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_PERIPH_NOINCREMENT
  774:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
  775:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
@@ -1797,10 +1798,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  826:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
  827:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
  828:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Get Memory increment mode.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 31
+
+
  829:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll CCR          MINC          LL_DMA_GetMemoryIncMode
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 31
-
-
  830:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
  831:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  Channel This parameter can be one of the following values:
  832:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_1
@@ -1857,10 +1858,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  883:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_6
  884:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_7
  885:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval Returned value can be one of the following values:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 32
+
+
  886:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_PDATAALIGN_BYTE
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 32
-
-
  887:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_PDATAALIGN_HALFWORD
  888:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_PDATAALIGN_WORD
  889:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
@@ -1917,10 +1918,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  940:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****                    DMA_CCR_MSIZE));
  941:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
  942:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 33
+
+
  943:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 33
-
-
  944:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Set Channel priority level.
  945:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll CCR          PL            LL_DMA_SetChannelPriorityLevel
  946:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
@@ -1940,134 +1941,134 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  960:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
  961:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
  962:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE void LL_DMA_SetChannelPriorityLevel(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t P
- 147              		.loc 3 962 22 view .LVU36
- 148              	.LBB47:
+ 148              		.loc 3 962 22 view .LVU36
+ 149              	.LBB49:
  963:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
  964:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   MODIFY_REG(((DMA_Channel_TypeDef *)((uint32_t)((uint32_t)DMAx + CHANNEL_OFFSET_TAB[Channel - 1U])
- 149              		.loc 3 964 3 view .LVU37
- 150 0066 1A68     		ldr	r2, [r3]
- 151 0068 2D49     		ldr	r1, .L2+12
- 152 006a 0A40     		ands	r2, r1
- 153 006c 1A60     		str	r2, [r3]
- 154              	.LVL7:
- 155              		.loc 3 964 3 is_stmt 0 view .LVU38
- 156              	.LBE47:
- 157              	.LBE46:
+ 150              		.loc 3 964 3 view .LVU37
+ 151 0066 2368     		ldr	r3, [r4]
+ 152 0068 2F4A     		ldr	r2, .L2+12
+ 153 006a 1340     		ands	r3, r2
+ 154 006c 2360     		str	r3, [r4]
+ 155              	.LVL7:
+ 156              		.loc 3 964 3 is_stmt 0 view .LVU38
+ 157              	.LBE49:
+ 158              	.LBE48:
   58:Src/adc.c     **** 
   59:Src/adc.c     ****   LL_DMA_SetMode(DMA1, LL_DMA_CHANNEL_1, LL_DMA_MODE_CIRCULAR);
- 158              		.loc 1 59 3 is_stmt 1 view .LVU39
- 159              	.LBB48:
- 160              	.LBI48:
+ 159              		.loc 1 59 3 is_stmt 1 view .LVU39
+ 160              	.LBB50:
+ 161              	.LBI50:
  731:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
- 161              		.loc 3 731 22 view .LVU40
- 162              	.LBB49:
+ 162              		.loc 3 731 22 view .LVU40
+ 163              	.LBB51:
  733:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****              Mode);
- 163              		.loc 3 733 3 view .LVU41
- 164 006e 1A68     		ldr	r2, [r3]
- 165 0070 2021     		movs	r1, #32
- 166 0072 8A43     		bics	r2, r1
- 167 0074 0A43     		orrs	r2, r1
- 168 0076 1A60     		str	r2, [r3]
- 169              	.LVL8:
+ 164              		.loc 3 733 3 view .LVU41
+ 165 006e 2368     		ldr	r3, [r4]
+ 166 0070 2022     		movs	r2, #32
+ 167 0072 9343     		bics	r3, r2
+ 168 0074 1343     		orrs	r3, r2
+ 169 0076 2360     		str	r3, [r4]
+ 170              	.LVL8:
  733:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****              Mode);
- 170              		.loc 3 733 3 is_stmt 0 view .LVU42
- 171              	.LBE49:
- 172              	.LBE48:
+ 171              		.loc 3 733 3 is_stmt 0 view .LVU42
+ 172              	.LBE51:
+ 173              	.LBE50:
   60:Src/adc.c     **** 
   61:Src/adc.c     ****   LL_DMA_SetPeriphIncMode(DMA1, LL_DMA_CHANNEL_1, LL_DMA_PERIPH_NOINCREMENT);
- 173              		.loc 1 61 3 is_stmt 1 view .LVU43
- 174              	.LBB50:
- 175              	.LBI50:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 34
+ 174              		.loc 1 61 3 is_stmt 1 view .LVU43
+ 175              	.LBB52:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 34
 
 
+ 176              	.LBI52:
  776:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
- 176              		.loc 3 776 22 view .LVU44
- 177              	.LBB51:
+ 177              		.loc 3 776 22 view .LVU44
+ 178              	.LBB53:
  778:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****              PeriphOrM2MSrcIncMode);
- 178              		.loc 3 778 3 view .LVU45
- 179 0078 1A68     		ldr	r2, [r3]
- 180 007a 2031     		adds	r1, r1, #32
- 181 007c 8A43     		bics	r2, r1
- 182 007e 1A60     		str	r2, [r3]
- 183              	.LVL9:
+ 179              		.loc 3 778 3 view .LVU45
+ 180 0078 2368     		ldr	r3, [r4]
+ 181 007a 2032     		adds	r2, r2, #32
+ 182 007c 9343     		bics	r3, r2
+ 183 007e 2360     		str	r3, [r4]
+ 184              	.LVL9:
  778:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****              PeriphOrM2MSrcIncMode);
- 184              		.loc 3 778 3 is_stmt 0 view .LVU46
- 185              	.LBE51:
- 186              	.LBE50:
+ 185              		.loc 3 778 3 is_stmt 0 view .LVU46
+ 186              	.LBE53:
+ 187              	.LBE52:
   62:Src/adc.c     **** 
   63:Src/adc.c     ****   LL_DMA_SetMemoryIncMode(DMA1, LL_DMA_CHANNEL_1, LL_DMA_MEMORY_INCREMENT);
- 187              		.loc 1 63 3 is_stmt 1 view .LVU47
- 188              	.LBB52:
- 189              	.LBI52:
+ 188              		.loc 1 63 3 is_stmt 1 view .LVU47
+ 189              	.LBB54:
+ 190              	.LBI54:
  821:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
- 190              		.loc 3 821 22 view .LVU48
- 191              	.LBB53:
+ 191              		.loc 3 821 22 view .LVU48
+ 192              	.LBB55:
  823:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****              MemoryOrM2MDstIncMode);
- 192              		.loc 3 823 3 view .LVU49
- 193 0080 1A68     		ldr	r2, [r3]
- 194 0082 4031     		adds	r1, r1, #64
- 195 0084 8A43     		bics	r2, r1
- 196 0086 0A43     		orrs	r2, r1
- 197 0088 1A60     		str	r2, [r3]
- 198              	.LVL10:
+ 193              		.loc 3 823 3 view .LVU49
+ 194 0080 2368     		ldr	r3, [r4]
+ 195 0082 4032     		adds	r2, r2, #64
+ 196 0084 9343     		bics	r3, r2
+ 197 0086 1343     		orrs	r3, r2
+ 198 0088 2360     		str	r3, [r4]
+ 199              	.LVL10:
  823:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****              MemoryOrM2MDstIncMode);
- 199              		.loc 3 823 3 is_stmt 0 view .LVU50
- 200              	.LBE53:
- 201              	.LBE52:
+ 200              		.loc 3 823 3 is_stmt 0 view .LVU50
+ 201              	.LBE55:
+ 202              	.LBE54:
   64:Src/adc.c     **** 
   65:Src/adc.c     ****   LL_DMA_SetPeriphSize(DMA1, LL_DMA_CHANNEL_1, LL_DMA_PDATAALIGN_HALFWORD);
- 202              		.loc 1 65 3 is_stmt 1 view .LVU51
- 203              	.LBB54:
- 204              	.LBI54:
+ 203              		.loc 1 65 3 is_stmt 1 view .LVU51
+ 204              	.LBB56:
+ 205              	.LBI56:
  867:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
- 205              		.loc 3 867 22 view .LVU52
- 206              	.LBB55:
+ 206              		.loc 3 867 22 view .LVU52
+ 207              	.LBB57:
  869:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****              PeriphOrM2MSrcDataSize);
- 207              		.loc 3 869 3 view .LVU53
- 208 008a 1A68     		ldr	r2, [r3]
- 209 008c 2549     		ldr	r1, .L2+16
- 210 008e 1140     		ands	r1, r2
- 211 0090 8022     		movs	r2, #128
- 212 0092 5200     		lsls	r2, r2, #1
- 213 0094 0A43     		orrs	r2, r1
- 214 0096 1A60     		str	r2, [r3]
- 215              	.LVL11:
+ 208              		.loc 3 869 3 view .LVU53
+ 209 008a 2368     		ldr	r3, [r4]
+ 210 008c 274A     		ldr	r2, .L2+16
+ 211 008e 1A40     		ands	r2, r3
+ 212 0090 8023     		movs	r3, #128
+ 213 0092 5B00     		lsls	r3, r3, #1
+ 214 0094 1343     		orrs	r3, r2
+ 215 0096 2360     		str	r3, [r4]
+ 216              	.LVL11:
  869:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****              PeriphOrM2MSrcDataSize);
- 216              		.loc 3 869 3 is_stmt 0 view .LVU54
- 217              	.LBE55:
- 218              	.LBE54:
+ 217              		.loc 3 869 3 is_stmt 0 view .LVU54
+ 218              	.LBE57:
+ 219              	.LBE56:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 35
+
+
   66:Src/adc.c     **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 35
-
-
   67:Src/adc.c     ****   LL_DMA_SetMemorySize(DMA1, LL_DMA_CHANNEL_1, LL_DMA_MDATAALIGN_HALFWORD);
- 219              		.loc 1 67 3 is_stmt 1 view .LVU55
- 220              	.LBB56:
- 221              	.LBI56:
+ 220              		.loc 1 67 3 is_stmt 1 view .LVU55
+ 221              	.LBB58:
+ 222              	.LBI58:
  914:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
- 222              		.loc 3 914 22 view .LVU56
- 223              	.LBB57:
+ 223              		.loc 3 914 22 view .LVU56
+ 224              	.LBB59:
  916:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****              MemoryOrM2MDstDataSize);
- 224              		.loc 3 916 3 view .LVU57
- 225 0098 1A68     		ldr	r2, [r3]
- 226 009a 2349     		ldr	r1, .L2+20
- 227 009c 1140     		ands	r1, r2
- 228 009e 8022     		movs	r2, #128
- 229 00a0 D200     		lsls	r2, r2, #3
- 230 00a2 0A43     		orrs	r2, r1
- 231 00a4 1A60     		str	r2, [r3]
- 232              	.LVL12:
+ 225              		.loc 3 916 3 view .LVU57
+ 226 0098 2368     		ldr	r3, [r4]
+ 227 009a 254A     		ldr	r2, .L2+20
+ 228 009c 1A40     		ands	r2, r3
+ 229 009e 8023     		movs	r3, #128
+ 230 00a0 DB00     		lsls	r3, r3, #3
+ 231 00a2 1343     		orrs	r3, r2
+ 232 00a4 2360     		str	r3, [r4]
+ 233              	.LVL12:
  916:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****              MemoryOrM2MDstDataSize);
- 233              		.loc 3 916 3 is_stmt 0 view .LVU58
- 234              	.LBE57:
- 235              	.LBE56:
+ 234              		.loc 3 916 3 is_stmt 0 view .LVU58
+ 235              	.LBE59:
+ 236              	.LBE58:
   68:Src/adc.c     **** 
   69:Src/adc.c     ****   /* USER CODE BEGIN ADC_Init 1 */
   70:Src/adc.c     ****   LL_DMA_SetDataLength(DMA1,LL_DMA_CHANNEL_1,1);
- 236              		.loc 1 70 3 is_stmt 1 view .LVU59
- 237              	.LBB58:
- 238              	.LBI58:
+ 237              		.loc 1 70 3 is_stmt 1 view .LVU59
+ 238              	.LBB60:
+ 239              	.LBI60:
  965:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****              Priority);
  966:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
  967:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
@@ -2097,10 +2098,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  991:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
  992:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
  993:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Set Number of data to transfer.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 36
+
+
  994:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @note   This action has no effect if
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 36
-
-
  995:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         channel is enabled.
  996:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll CNDTR        NDT           LL_DMA_SetDataLength
  997:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
@@ -2116,27 +2117,27 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1007:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
 1008:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
 1009:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE void LL_DMA_SetDataLength(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t NbData)
- 239              		.loc 3 1009 22 view .LVU60
- 240              	.LBB59:
+ 240              		.loc 3 1009 22 view .LVU60
+ 241              	.LBB61:
 1010:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
 1011:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   MODIFY_REG(((DMA_Channel_TypeDef *)((uint32_t)((uint32_t)DMAx + CHANNEL_OFFSET_TAB[Channel - 1U])
- 241              		.loc 3 1011 3 view .LVU61
- 242 00a6 5A68     		ldr	r2, [r3, #4]
- 243 00a8 120C     		lsrs	r2, r2, #16
- 244 00aa 1204     		lsls	r2, r2, #16
- 245 00ac 0126     		movs	r6, #1
- 246 00ae 3243     		orrs	r2, r6
- 247 00b0 5A60     		str	r2, [r3, #4]
- 248              	.LVL13:
- 249              		.loc 3 1011 3 is_stmt 0 view .LVU62
- 250              	.LBE59:
- 251              	.LBE58:
+ 242              		.loc 3 1011 3 view .LVU61
+ 243 00a6 6368     		ldr	r3, [r4, #4]
+ 244 00a8 1B0C     		lsrs	r3, r3, #16
+ 245 00aa 1B04     		lsls	r3, r3, #16
+ 246 00ac 0127     		movs	r7, #1
+ 247 00ae 3B43     		orrs	r3, r7
+ 248 00b0 6360     		str	r3, [r4, #4]
+ 249              	.LVL13:
+ 250              		.loc 3 1011 3 is_stmt 0 view .LVU62
+ 251              	.LBE61:
+ 252              	.LBE60:
   71:Src/adc.c     ****   LL_DMA_SetMemoryAddress(DMA1,LL_DMA_CHANNEL_1,(uint32_t )&adcData);
- 252              		.loc 1 71 3 is_stmt 1 view .LVU63
- 253 00b2 1E4A     		ldr	r2, .L2+24
- 254              	.LVL14:
- 255              	.LBB60:
- 256              	.LBI60:
+ 253              		.loc 1 71 3 is_stmt 1 view .LVU63
+ 254 00b2 204B     		ldr	r3, .L2+24
+ 255              	.LVL14:
+ 256              	.LBB62:
+ 257              	.LBI62:
 1012:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****              DMA_CNDTR_NDT, NbData);
 1013:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
 1014:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
@@ -2157,10 +2158,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1029:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval Between Min_Data = 0 and Max_Data = 0xFFFFFFFF
 1030:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
 1031:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE uint32_t LL_DMA_GetDataLength(DMA_TypeDef *DMAx, uint32_t Channel)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 37
+
+
 1032:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 37
-
-
 1033:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   return (READ_BIT(((DMA_Channel_TypeDef *)((uint32_t)((uint32_t)DMAx + CHANNEL_OFFSET_TAB[Channel 
 1034:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****                    DMA_CNDTR_NDT));
 1035:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
@@ -2217,30 +2218,30 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1086:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_3
 1087:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_4
 1088:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_5
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 38
+
+
 1089:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_6
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 38
-
-
 1090:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_7
 1091:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  MemoryAddress Between Min_Data = 0 and Max_Data = 0xFFFFFFFF
 1092:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
 1093:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
 1094:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE void LL_DMA_SetMemoryAddress(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t MemoryAd
- 257              		.loc 3 1094 22 view .LVU64
- 258              	.LBB61:
+ 258              		.loc 3 1094 22 view .LVU64
+ 259              	.LBB63:
 1095:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
 1096:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   WRITE_REG(((DMA_Channel_TypeDef *)((uint32_t)((uint32_t)DMAx + CHANNEL_OFFSET_TAB[Channel - 1U]))
- 259              		.loc 3 1096 3 view .LVU65
- 260 00b4 DA60     		str	r2, [r3, #12]
- 261              	.LVL15:
- 262              		.loc 3 1096 3 is_stmt 0 view .LVU66
- 263              	.LBE61:
- 264              	.LBE60:
+ 260              		.loc 3 1096 3 view .LVU65
+ 261 00b4 E360     		str	r3, [r4, #12]
+ 262              	.LVL15:
+ 263              		.loc 3 1096 3 is_stmt 0 view .LVU66
+ 264              	.LBE63:
+ 265              	.LBE62:
   72:Src/adc.c     ****   LL_DMA_SetPeriphAddress(DMA1,LL_DMA_CHANNEL_1,LL_ADC_DMA_GetRegAddr(ADC1,LL_ADC_DMA_REG_REGULAR_D
- 265              		.loc 1 72 3 is_stmt 1 view .LVU67
- 266              	.LBB62:
- 267              	.LBI62:
- 268              		.file 4 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h"
+ 266              		.loc 1 72 3 is_stmt 1 view .LVU67
+ 267              	.LBB64:
+ 268              	.LBI64:
+ 269              		.file 4 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h"
    1:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /**
    2:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   ******************************************************************************
    3:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @file    stm32f0xx_ll_adc.h
@@ -2277,10 +2278,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
   34:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
   35:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #if defined (ADC1)
   36:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 39
+
+
   37:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /** @defgroup ADC_LL ADC
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 39
-
-
   38:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @{
   39:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
   40:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
@@ -2337,10 +2338,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
   91:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define ADC_CHANNEL_ID_INTERNAL_CH         (0x80000000U) /* Marker of internal channel */
   92:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define ADC_CHANNEL_ID_INTERNAL_CH_MASK    (ADC_CHANNEL_ID_INTERNAL_CH)
   93:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 40
+
+
   94:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /* Definition of channels ID number information to be inserted into           */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 40
-
-
   95:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /* channels literals definition.                                              */
   96:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define ADC_CHANNEL_0_NUMBER               (0x00000000U)
   97:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define ADC_CHANNEL_1_NUMBER               (                                                       
@@ -2397,10 +2398,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  148:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define ADC_AWD_CRX_REGOFFSET_MASK         (ADC_AWD_CR1_REGOFFSET)
  149:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
  150:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define ADC_AWD_CR1_CHANNEL_MASK           (ADC_CFGR1_AWDCH | ADC_CFGR1_AWDEN | ADC_CFGR1_AWDSGL)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 41
+
+
  151:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define ADC_AWD_CR_ALL_CHANNEL_MASK        (ADC_AWD_CR1_CHANNEL_MASK)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 41
-
-
  152:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
  153:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /* Internal register offset for ADC analog watchdog threshold configuration */
  154:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define ADC_AWD_TR1_REGOFFSET              (ADC_AWD_CR1_REGOFFSET)
@@ -2457,10 +2458,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  205:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #if defined(USE_FULL_LL_DRIVER)
  206:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /** @defgroup ADC_LL_ES_INIT ADC Exported Init structure
  207:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @{
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 42
+
+
  208:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 42
-
-
  209:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
  210:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /**
  211:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @brief  Structure definition of some features of ADC instance.
@@ -2517,10 +2518,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  262:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         (functions with prefix "REG").
  263:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   The setting of these parameters by function @ref LL_ADC_REG_Init()
  264:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         is conditioned to ADC state:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 43
+
+
  265:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         ADC instance must be disabled.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 43
-
-
  266:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         This condition is applied to all ADC features, for efficiency
  267:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         and compatibility over all STM32 families. However, the different
  268:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         features can be set under different ADC state conditions
@@ -2577,10 +2578,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  319:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @{
  320:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
  321:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 44
+
+
  322:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /** @defgroup ADC_LL_EC_FLAG ADC flags
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 44
-
-
  323:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @brief    Flags defines which can be used with LL_ADC_ReadReg function
  324:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @{
  325:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
@@ -2637,10 +2638,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  376:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @}
  377:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
  378:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 45
+
+
  379:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /** @defgroup ADC_LL_EC_CLOCK_SOURCE  ADC instance - Clock source
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 45
-
-
  380:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @{
  381:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
  382:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define LL_ADC_CLOCK_SYNC_PCLK_DIV4        (ADC_CFGR2_CKMODE_1)                                  /*
@@ -2697,10 +2698,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  433:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define LL_ADC_CHANNEL_2                   (ADC_CHANNEL_2_NUMBER  | ADC_CHANNEL_2_BITFIELD ) /*!< A
  434:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define LL_ADC_CHANNEL_3                   (ADC_CHANNEL_3_NUMBER  | ADC_CHANNEL_3_BITFIELD ) /*!< A
  435:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define LL_ADC_CHANNEL_4                   (ADC_CHANNEL_4_NUMBER  | ADC_CHANNEL_4_BITFIELD ) /*!< A
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 46
+
+
  436:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define LL_ADC_CHANNEL_5                   (ADC_CHANNEL_5_NUMBER  | ADC_CHANNEL_5_BITFIELD ) /*!< A
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 46
-
-
  437:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define LL_ADC_CHANNEL_6                   (ADC_CHANNEL_6_NUMBER  | ADC_CHANNEL_6_BITFIELD ) /*!< A
  438:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define LL_ADC_CHANNEL_7                   (ADC_CHANNEL_7_NUMBER  | ADC_CHANNEL_7_BITFIELD ) /*!< A
  439:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define LL_ADC_CHANNEL_8                   (ADC_CHANNEL_8_NUMBER  | ADC_CHANNEL_8_BITFIELD ) /*!< A
@@ -2757,10 +2758,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  490:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
  491:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /** @defgroup ADC_LL_EC_REG_DMA_TRANSFER  ADC group regular - DMA transfer of ADC conversion data
  492:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @{
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 47
+
+
  493:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 47
-
-
  494:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define LL_ADC_REG_DMA_TRANSFER_NONE       (0x00000000U)              /*!< ADC conversions are not 
  495:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define LL_ADC_REG_DMA_TRANSFER_LIMITED    (                   ADC_CFGR1_DMAEN) /*!< ADC conversion
  496:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define LL_ADC_REG_DMA_TRANSFER_UNLIMITED  (ADC_CFGR1_DMACFG | ADC_CFGR1_DMAEN) /*!< ADC conversion
@@ -2817,10 +2818,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  547:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /**
  548:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @}
  549:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 48
+
+
  550:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 48
-
-
  551:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /** @defgroup ADC_LL_EC_AWD_CHANNELS  Analog watchdog - Monitored channels
  552:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @{
  553:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
@@ -2877,10 +2878,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  604:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /*       not timeout values.                                                  */
  605:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /*       Timeout values for ADC operations are dependent to device clock      */
  606:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /*       configuration (system clock versus ADC clock),                       */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 49
+
+
  607:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /*       and therefore must be defined in user application.                   */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 49
-
-
  608:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /*       Indications for estimation of ADC timeout delays, for this           */
  609:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /*       STM32 serie:                                                         */
  610:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /*       - ADC calibration time: maximum delay is 83/fADC.                    */
@@ -2937,10 +2938,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  661:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /**
  662:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @brief  Write a value in ADC register
  663:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  __INSTANCE__ ADC Instance
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 50
+
+
  664:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  __REG__ Register to be written
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 50
-
-
  665:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  __VALUE__ Value to be written in the register
  666:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval None
  667:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
@@ -2997,10 +2998,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  718:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         (1) On STM32F0, parameter not available on all devices: all devices except STM32F030x6,
  719:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval Value between Min_Data=0 and Max_Data=18
  720:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 51
+
+
  721:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define __LL_ADC_CHANNEL_TO_DECIMAL_NB(__CHANNEL__)                                                
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 51
-
-
  722:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   ((((__CHANNEL__) & ADC_CHANNEL_ID_BITFIELD_MASK) == 0U)                                          
  723:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****     ? (                                                                                            
  724:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****        ((__CHANNEL__) & ADC_CHANNEL_ID_NUMBER_MASK) >> ADC_CHANNEL_ID_NUMBER_BITOFFSET_POS         
@@ -3057,10 +3058,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  775:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****                         )                                                                          
  776:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****                       )                                                                            
  777:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****                     )                                                                              
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 52
+
+
  778:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****                   )                                                                                
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 52
-
-
  779:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****                 )                                                                                  
  780:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****               )                                                                                    
  781:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****             )                                                                                      
@@ -3117,10 +3118,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  832:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   The different literal definitions of ADC channels are:
  833:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         - ADC internal channel:
  834:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *           LL_ADC_CHANNEL_VREFINT, LL_ADC_CHANNEL_TEMPSENSOR, ...
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 53
+
+
  835:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         - ADC external channel (channel connected to a GPIO pin):
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 53
-
-
  836:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *           LL_ADC_CHANNEL_1, LL_ADC_CHANNEL_2, ...
  837:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   The channel parameter must be a value defined from literal
  838:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         definition of a ADC internal channel (LL_ADC_CHANNEL_VREFINT,
@@ -3177,10 +3178,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  889:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         from ADC registers.
  890:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  __CHANNEL__ This parameter can be one of the following values:
  891:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 54
+
+
  892:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 54
-
-
  893:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_2
  894:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_3
  895:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_4
@@ -3237,10 +3238,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
  946:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         ADC external channel (LL_ADC_CHANNEL_1, LL_ADC_CHANNEL_2, ...)
  947:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         or a value from functions where a channel number is
  948:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         returned from ADC registers,
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 55
+
+
  949:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         because internal and external channels share the same channel
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 55
-
-
  950:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         number in ADC registers. The differentiation is made only with
  951:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         parameters definitions of driver.
  952:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  __ADC_INSTANCE__ ADC instance
@@ -3297,10 +3298,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1003:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_16
 1004:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_17
 1005:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_18         (1)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 56
+
+
 1006:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_VREFINT       (2)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 56
-
-
 1007:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_TEMPSENSOR    (2)
 1008:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_VBAT       (1)(2)
 1009:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         
@@ -3357,10 +3358,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1060:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_RESOLUTION_12B
 1061:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_RESOLUTION_10B
 1062:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_RESOLUTION_8B
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 57
+
+
 1063:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_RESOLUTION_6B
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 57
-
-
 1064:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  __AWD_THRESHOLD__ Value between Min_Data=0x000 and Max_Data=0xFFF
 1065:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval Value between Min_Data=0x000 and Max_Data=0xFFF
 1066:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
@@ -3417,10 +3418,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1117:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         to which is belonging the selected ADC instance.
 1118:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   ADC common register instance can be used for:
 1119:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         - Set parameters common to several ADC instances
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 58
+
+
 1120:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         - Multimode (for devices with several ADC instances)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 58
-
-
 1121:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         Refer to functions having argument "ADCxy_COMMON" as parameter.
 1122:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  __ADCx__ ADC instance
 1123:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval ADC common register instance
@@ -3477,10 +3478,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1174:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  __ADC_RESOLUTION_TARGET__ Resolution of the data after conversion
 1175:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         This parameter can be one of the following values:
 1176:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_RESOLUTION_12B
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 59
+
+
 1177:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_RESOLUTION_10B
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 59
-
-
 1178:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_RESOLUTION_8B
 1179:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_RESOLUTION_6B
 1180:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval ADC conversion data to the requested resolution
@@ -3537,10 +3538,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1231:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_RESOLUTION_10B
 1232:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_RESOLUTION_8B
 1233:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_RESOLUTION_6B
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 60
+
+
 1234:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval Analog reference voltage (unit: mV)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 60
-
-
 1235:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
 1236:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define __LL_ADC_CALC_VREFANALOG_VOLTAGE(__VREFINT_ADC_DATA__,\
 1237:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****                                          __ADC_RESOLUTION__)                   \
@@ -3597,10 +3598,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1288:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
 1289:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define __LL_ADC_CALC_TEMPERATURE(__VREFANALOG_VOLTAGE__,\
 1290:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****                                   __TEMPSENSOR_ADC_DATA__,\
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 61
+
+
 1291:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****                                   __ADC_RESOLUTION__)                              \
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 61
-
-
 1292:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   (((( ((int32_t)((__LL_ADC_CONVERT_DATA_RESOLUTION((__TEMPSENSOR_ADC_DATA__),     \
 1293:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****                                                     (__ADC_RESOLUTION__),          \
 1294:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****                                                     LL_ADC_RESOLUTION_12B)         \
@@ -3657,10 +3658,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1345:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval Temperature (unit: degree Celsius)
 1346:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
 1347:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #define __LL_ADC_CALC_TEMPERATURE_TYP_PARAMS(__TEMPSENSOR_TYP_AVGSLOPE__,\
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 62
+
+
 1348:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****                                              __TEMPSENSOR_TYP_CALX_V__,\
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 62
-
-
 1349:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****                                              __TEMPSENSOR_CALX_TEMP__,\
 1350:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****                                              __VREFANALOG_VOLTAGE__,\
 1351:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****                                              __TEMPSENSOR_ADC_DATA__,\
@@ -3717,34 +3718,34 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1402:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         use a different data register outside of ADC instance scope
 1403:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         (common data register). This macro manages this register difference,
 1404:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         only ADC instance has to be set as parameter.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 63
+
+
 1405:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @rmtoll DR       DATA           LL_ADC_DMA_GetRegAddr
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 63
-
-
 1406:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  ADCx ADC instance
 1407:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  Register This parameter can be one of the following values:
 1408:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_DMA_REG_REGULAR_DATA
 1409:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval ADC register address
 1410:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
 1411:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** __STATIC_INLINE uint32_t LL_ADC_DMA_GetRegAddr(ADC_TypeDef *ADCx, uint32_t Register)
- 269              		.loc 4 1411 26 view .LVU68
- 270              	.LBB63:
+ 270              		.loc 4 1411 26 view .LVU68
+ 271              	.LBB65:
 1412:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** {
 1413:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   /* Prevent unused argument compilation warning */
 1414:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   (void)Register;
- 271              		.loc 4 1414 3 view .LVU69
+ 272              		.loc 4 1414 3 view .LVU69
 1415:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
 1416:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   /* Retrieve address of register DR */
 1417:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   return (uint32_t)&(ADCx->DR);
- 272              		.loc 4 1417 3 view .LVU70
- 273              		.loc 4 1417 20 is_stmt 0 view .LVU71
- 274 00b6 1E4A     		ldr	r2, .L2+28
- 275              	.LVL16:
- 276              		.loc 4 1417 20 view .LVU72
- 277              	.LBE63:
- 278              	.LBE62:
- 279              	.LBB64:
- 280              	.LBI64:
+ 273              		.loc 4 1417 3 view .LVU70
+ 274              		.loc 4 1417 20 is_stmt 0 view .LVU71
+ 275 00b6 204B     		ldr	r3, .L2+28
+ 276              	.LVL16:
+ 277              		.loc 4 1417 20 view .LVU72
+ 278              	.LBE65:
+ 279              	.LBE64:
+ 280              	.LBB66:
+ 281              	.LBI66:
 1097:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
 1098:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
 1099:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
@@ -3765,23 +3766,23 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1114:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
 1115:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
 1116:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE void LL_DMA_SetPeriphAddress(DMA_TypeDef *DMAx, uint32_t Channel, uint32_t PeriphAd
- 281              		.loc 3 1116 22 is_stmt 1 view .LVU73
- 282              	.LBB65:
+ 282              		.loc 3 1116 22 is_stmt 1 view .LVU73
+ 283              	.LBB67:
 1117:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
 1118:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   WRITE_REG(((DMA_Channel_TypeDef *)((uint32_t)((uint32_t)DMAx + CHANNEL_OFFSET_TAB[Channel - 1U]))
- 283              		.loc 3 1118 3 view .LVU74
- 284 00b8 9A60     		str	r2, [r3, #8]
- 285              	.LVL17:
- 286              		.loc 3 1118 3 is_stmt 0 view .LVU75
- 287              	.LBE65:
- 288              	.LBE64:
+ 284              		.loc 3 1118 3 view .LVU74
+ 285 00b8 A360     		str	r3, [r4, #8]
+ 286              	.LVL17:
+ 287              		.loc 3 1118 3 is_stmt 0 view .LVU75
+ 288              	.LBE67:
+ 289              	.LBE66:
   73:Src/adc.c     ****   LL_DMA_EnableIT_TC(DMA1,LL_DMA_CHANNEL_1);
- 289              		.loc 1 73 3 is_stmt 1 view .LVU76
- 290              	.LBB66:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 64
+ 290              		.loc 1 73 3 is_stmt 1 view .LVU76
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 64
 
 
- 291              	.LBI66:
+ 291              	.LBB68:
+ 292              	.LBI68:
 1119:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
 1120:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
 1121:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
@@ -3837,10 +3838,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1171:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_4
 1172:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_5
 1173:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 65
+
+
 1174:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_7
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 65
-
-
 1175:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  MemoryAddress Between Min_Data = 0 and Max_Data = 0xFFFFFFFF
 1176:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
 1177:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
@@ -3897,10 +3898,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1228:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll CMAR         MA            LL_DMA_GetM2MDstAddress
 1229:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
 1230:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  Channel This parameter can be one of the following values:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 66
+
+
 1231:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 66
-
-
 1232:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_2
 1233:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_3
 1234:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_4
@@ -3957,10 +3958,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1285:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
 1286:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   MODIFY_REG(DMAx->CSELR,
 1287:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****              DMA_CSELR_C1S << ((Channel - 1U) * 4U), PeriphRequest << DMA_POSITION_CSELR_CXS);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 67
+
+
 1288:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 67
-
-
 1289:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
 1290:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
 1291:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Get DMA request for DMA instance on Channel x.
@@ -4017,10 +4018,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1342:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Get Channel 1 global interrupt flag.
 1343:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll ISR          GIF1          LL_DMA_IsActiveFlag_GI1
 1344:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 68
+
+
 1345:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval State of bit (1 or 0).
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 68
-
-
 1346:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
 1347:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE uint32_t LL_DMA_IsActiveFlag_GI1(DMA_TypeDef *DMAx)
 1348:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
@@ -4077,10 +4078,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1399:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll ISR          GIF6          LL_DMA_IsActiveFlag_GI6
 1400:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
 1401:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval State of bit (1 or 0).
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 69
+
+
 1402:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 69
-
-
 1403:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE uint32_t LL_DMA_IsActiveFlag_GI6(DMA_TypeDef *DMAx)
 1404:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
 1405:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   return (READ_BIT(DMAx->ISR, DMA_ISR_GIF6) == (DMA_ISR_GIF6));
@@ -4137,10 +4138,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1456:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Get Channel 4 transfer complete flag.
 1457:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll ISR          TCIF4         LL_DMA_IsActiveFlag_TC4
 1458:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 70
+
+
 1459:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval State of bit (1 or 0).
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 70
-
-
 1460:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
 1461:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE uint32_t LL_DMA_IsActiveFlag_TC4(DMA_TypeDef *DMAx)
 1462:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
@@ -4197,10 +4198,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1513:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
 1514:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
 1515:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Get Channel 2 half transfer flag.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 71
+
+
 1516:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll ISR          HTIF2         LL_DMA_IsActiveFlag_HT2
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 71
-
-
 1517:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
 1518:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval State of bit (1 or 0).
 1519:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
@@ -4257,10 +4258,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1570:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
 1571:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** #if defined(DMA1_Channel7)
 1572:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 72
+
+
 1573:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Get Channel 7 half transfer flag.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 72
-
-
 1574:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll ISR          HTIF7         LL_DMA_IsActiveFlag_HT7
 1575:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
 1576:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval State of bit (1 or 0).
@@ -4317,10 +4318,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1627:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** 
 1628:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
 1629:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Get Channel 5 transfer error flag.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 73
+
+
 1630:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll ISR          TEIF5         LL_DMA_IsActiveFlag_TE5
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 73
-
-
 1631:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
 1632:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval State of bit (1 or 0).
 1633:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
@@ -4377,10 +4378,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1684:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****     error flag with LL_DMA_ClearFlag_TC2, LL_DMA_ClearFlag_HT2,
 1685:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****     LL_DMA_ClearFlag_TE2. bug id 2.4.1 in Product Errata Sheet.
 1686:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll IFCR         CGIF2         LL_DMA_ClearFlag_GI2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 74
+
+
 1687:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 74
-
-
 1688:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
 1689:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
 1690:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE void LL_DMA_ClearFlag_GI2(DMA_TypeDef *DMAx)
@@ -4437,10 +4438,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1741:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
 1742:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Clear Channel 6 global interrupt flag.
 1743:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @note Do not Clear Channel 6 global interrupt flag when the channel in ON.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 75
+
+
 1744:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****     Instead clear specific flags transfer complete, half transfer & transfer
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 75
-
-
 1745:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****     error flag with LL_DMA_ClearFlag_TC6, LL_DMA_ClearFlag_HT6,
 1746:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****     LL_DMA_ClearFlag_TE6. bug id 2.4.1 in Product Errata Sheet.
 1747:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll IFCR         CGIF6         LL_DMA_ClearFlag_GI6
@@ -4497,10 +4498,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1798:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll IFCR         CTCIF3        LL_DMA_ClearFlag_TC3
 1799:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
 1800:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 76
+
+
 1801:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 76
-
-
 1802:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE void LL_DMA_ClearFlag_TC3(DMA_TypeDef *DMAx)
 1803:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
 1804:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   WRITE_REG(DMAx->IFCR, DMA_IFCR_CTCIF3);
@@ -4557,10 +4558,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1855:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
 1856:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Clear Channel 1  half transfer flag.
 1857:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll IFCR         CHTIF1        LL_DMA_ClearFlag_HT1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 77
+
+
 1858:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 77
-
-
 1859:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
 1860:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
 1861:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE void LL_DMA_ClearFlag_HT1(DMA_TypeDef *DMAx)
@@ -4617,10 +4618,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1912:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Clear Channel 6  half transfer flag.
 1913:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll IFCR         CHTIF6        LL_DMA_ClearFlag_HT6
 1914:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 78
+
+
 1915:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 78
-
-
 1916:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
 1917:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE void LL_DMA_ClearFlag_HT6(DMA_TypeDef *DMAx)
 1918:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
@@ -4677,10 +4678,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1969:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** /**
 1970:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @brief  Clear Channel 4 transfer error flag.
 1971:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll IFCR         CTEIF4        LL_DMA_ClearFlag_TE4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 79
+
+
 1972:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 79
-
-
 1973:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
 1974:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
 1975:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE void LL_DMA_ClearFlag_TE4(DMA_TypeDef *DMAx)
@@ -4737,10 +4738,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2026:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @rmtoll CCR          TCIE          LL_DMA_EnableIT_TC
 2027:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  DMAx DMAx Instance
 2028:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @param  Channel This parameter can be one of the following values:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 80
+
+
 2029:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 80
-
-
 2030:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_2
 2031:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_3
 2032:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   *         @arg @ref LL_DMA_CHANNEL_4
@@ -4750,28 +4751,28 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2036:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   * @retval None
 2037:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   */
 2038:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** __STATIC_INLINE void LL_DMA_EnableIT_TC(DMA_TypeDef *DMAx, uint32_t Channel)
- 292              		.loc 3 2038 22 view .LVU77
- 293              	.LBB67:
+ 293              		.loc 3 2038 22 view .LVU77
+ 294              	.LBB69:
 2039:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
 2040:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h ****   SET_BIT(((DMA_Channel_TypeDef *)((uint32_t)((uint32_t)DMAx + CHANNEL_OFFSET_TAB[Channel - 1U])))-
- 294              		.loc 3 2040 3 view .LVU78
- 295 00ba 1A68     		ldr	r2, [r3]
- 296 00bc 0221     		movs	r1, #2
- 297 00be 0A43     		orrs	r2, r1
- 298 00c0 1A60     		str	r2, [r3]
- 299              	.LVL18:
- 300              		.loc 3 2040 3 is_stmt 0 view .LVU79
- 301              	.LBE67:
- 302              	.LBE66:
+ 295              		.loc 3 2040 3 view .LVU78
+ 296 00ba 2368     		ldr	r3, [r4]
+ 297 00bc 0222     		movs	r2, #2
+ 298 00be 1343     		orrs	r3, r2
+ 299 00c0 2360     		str	r3, [r4]
+ 300              	.LVL18:
+ 301              		.loc 3 2040 3 is_stmt 0 view .LVU79
+ 302              	.LBE69:
+ 303              	.LBE68:
   74:Src/adc.c     **** 
   75:Src/adc.c     ****   /* USER CODE END ADC_Init 1 */
   76:Src/adc.c     **** 
   77:Src/adc.c     ****   /** Configure Regular Channel
   78:Src/adc.c     ****   */
   79:Src/adc.c     ****   LL_ADC_REG_SetSequencerChAdd(ADC1, LL_ADC_CHANNEL_4);
- 303              		.loc 1 79 3 is_stmt 1 view .LVU80
- 304              	.LBB68:
- 305              	.LBI68:
+ 304              		.loc 1 79 3 is_stmt 1 view .LVU80
+ 305              	.LBB70:
+ 306              	.LBI70:
 1418:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** }
 1419:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
 1420:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /**
@@ -4797,10 +4798,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1440:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         Refer to literal @ref LL_ADC_DELAY_TEMPSENSOR_STAB_US.
 1441:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   ADC internal channel sampling time constraint:
 1442:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         For ADC conversion of internal channels,
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 81
+
+
 1443:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         a sampling time minimum value is required.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 81
-
-
 1444:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         Refer to device datasheet.
 1445:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   On this STM32 serie, setting of this feature is conditioned to
 1446:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         ADC state:
@@ -4857,10 +4858,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1497:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #else
 1498:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   return (uint32_t)(READ_BIT(ADCxy_COMMON->CCR, ADC_CCR_VREFEN | ADC_CCR_TSEN));
 1499:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** #endif
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 82
+
+
 1500:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** }
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 82
-
-
 1501:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
 1502:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /**
 1503:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @}
@@ -4917,10 +4918,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1554:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @rmtoll CFGR1    RES            LL_ADC_SetResolution
 1555:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  ADCx ADC instance
 1556:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  Resolution This parameter can be one of the following values:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 83
+
+
 1557:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_RESOLUTION_12B
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 83
-
-
 1558:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_RESOLUTION_10B
 1559:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_RESOLUTION_8B
 1560:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_RESOLUTION_6B
@@ -4977,10 +4978,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1611:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval Returned value can be one of the following values:
 1612:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_DATA_ALIGN_RIGHT
 1613:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_DATA_ALIGN_LEFT
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 84
+
+
 1614:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 84
-
-
 1615:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** __STATIC_INLINE uint32_t LL_ADC_GetDataAlignment(ADC_TypeDef *ADCx)
 1616:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** {
 1617:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   return (uint32_t)(READ_BIT(ADCx->CFGR1, ADC_CFGR1_ALIGN));
@@ -5037,10 +5038,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1668:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval None
 1669:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
 1670:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** __STATIC_INLINE void LL_ADC_SetLowPowerMode(ADC_TypeDef *ADCx, uint32_t LowPowerMode)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 85
+
+
 1671:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 85
-
-
 1672:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   MODIFY_REG(ADCx->CFGR1, (ADC_CFGR1_WAIT | ADC_CFGR1_AUTOFF), LowPowerMode);
 1673:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** }
 1674:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
@@ -5097,10 +5098,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1725:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /**
 1726:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @brief  Set sampling time common to a group of channels.
 1727:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   Unit: ADC clock cycles.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 86
+
+
 1728:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   On this STM32 serie, sampling time scope is on ADC instance:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 86
-
-
 1729:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         Sampling time common to all channels.
 1730:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         (on some other STM32 families, sampling time is channel wise)
 1731:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   In case of internal channel (VrefInt, TempSensor, ...) to be
@@ -5157,10 +5158,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1782:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_SAMPLINGTIME_1CYCLE_5
 1783:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_SAMPLINGTIME_7CYCLES_5
 1784:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_SAMPLINGTIME_13CYCLES_5
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 87
+
+
 1785:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_SAMPLINGTIME_28CYCLES_5
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 87
-
-
 1786:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_SAMPLINGTIME_41CYCLES_5
 1787:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_SAMPLINGTIME_55CYCLES_5
 1788:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_SAMPLINGTIME_71CYCLES_5
@@ -5217,10 +5218,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1839:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /**
 1840:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @brief  Get ADC group regular conversion trigger source:
 1841:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         internal (SW start) or from external IP (timer event,
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 88
+
+
 1842:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         external interrupt line).
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 88
-
-
 1843:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   To determine whether group regular trigger source is
 1844:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         internal (SW start) or external, without detail
 1845:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         of which peripheral is selected as external trigger,
@@ -5277,10 +5278,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1896:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /**
 1897:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @brief  Set ADC group regular conversion trigger polarity.
 1898:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   Applicable only for trigger source set to external trigger.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 89
+
+
 1899:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   On this STM32 serie, setting of this feature is conditioned to
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 89
-
-
 1900:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         ADC state:
 1901:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         ADC must be disabled or enabled without conversion on going
 1902:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         on group regular.
@@ -5337,10 +5338,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 1953:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @brief  Get ADC group regular sequencer scan direction.
 1954:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   On some other STM32 families, this setting is not available and
 1955:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         the default scan direction is forward.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 90
+
+
 1956:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @rmtoll CFGR1    SCANDIR        LL_ADC_REG_GetSequencerScanDirection
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 90
-
-
 1957:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  ADCx ADC instance
 1958:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval Returned value can be one of the following values:
 1959:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_REG_SEQ_SCAN_DIR_FORWARD
@@ -5397,10 +5398,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2010:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *           (channel 0 fixed on rank 0, channel 1 fixed on rank1, ...).
 2011:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         - Set channels selected by overwriting the current sequencer
 2012:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *           configuration.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 91
+
+
 2013:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   On this STM32 serie, ADC group regular sequencer is
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 91
-
-
 2014:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         not fully configurable: sequencer length and each rank
 2015:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         affectation to a channel are fixed by channel HW number.
 2016:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   Depending on devices and packages, some channels may not be available.
@@ -5457,10 +5458,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2067:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_18         (1)
 2068:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_VREFINT
 2069:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_TEMPSENSOR
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 92
+
+
 2070:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_VBAT       (1)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 92
-
-
 2071:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         
 2072:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         (1) On STM32F0, parameter not available on all devices: all devices except STM32F030x6,
 2073:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval None
@@ -5517,10 +5518,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2124:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         CHSELR   CHSEL18        LL_ADC_REG_SetSequencerChAdd
 2125:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  ADCx ADC instance
 2126:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  Channel This parameter can be a combination of the following values:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 93
+
+
 2127:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 93
-
-
 2128:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_1
 2129:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_2
 2130:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_3
@@ -5547,120 +5548,137 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2151:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval None
 2152:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
 2153:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** __STATIC_INLINE void LL_ADC_REG_SetSequencerChAdd(ADC_TypeDef *ADCx, uint32_t Channel)
- 306              		.loc 4 2153 22 view .LVU81
- 307              	.LBB69:
+ 307              		.loc 4 2153 22 view .LVU81
+ 308              	.LBB71:
 2154:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** {
 2155:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   /* Parameter "Channel" is used with masks because containing                */
 2156:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   /* other bits reserved for other purpose.                                   */
 2157:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   SET_BIT(ADCx->CHSELR, (Channel & ADC_CHANNEL_ID_BITFIELD_MASK));
- 308              		.loc 4 2157 3 view .LVU82
- 309 00c2 1C4C     		ldr	r4, .L2+32
- 310 00c4 A36A     		ldr	r3, [r4, #40]
- 311 00c6 1D43     		orrs	r5, r3
- 312 00c8 A562     		str	r5, [r4, #40]
- 313              	.LVL19:
- 314              		.loc 4 2157 3 is_stmt 0 view .LVU83
- 315              	.LBE69:
- 316              	.LBE68:
+ 309              		.loc 4 2157 3 view .LVU82
+ 310 00c2 1E4D     		ldr	r5, .L2+32
+ 311 00c4 AB6A     		ldr	r3, [r5, #40]
+ 312 00c6 1E43     		orrs	r6, r3
+ 313 00c8 AE62     		str	r6, [r5, #40]
+ 314              	.LVL19:
+ 315              		.loc 4 2157 3 is_stmt 0 view .LVU83
+ 316              	.LBE71:
+ 317              	.LBE70:
   80:Src/adc.c     **** 
   81:Src/adc.c     ****   /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of con
   82:Src/adc.c     ****   */
   83:Src/adc.c     ****   ADC_InitStruct.Clock = LL_ADC_CLOCK_ASYNC;
- 317              		.loc 1 83 3 is_stmt 1 view .LVU84
- 318              		.loc 1 83 24 is_stmt 0 view .LVU85
- 319 00ca 0025     		movs	r5, #0
- 320 00cc 0E95     		str	r5, [sp, #56]
+ 318              		.loc 1 83 3 is_stmt 1 view .LVU84
+ 319              		.loc 1 83 24 is_stmt 0 view .LVU85
+ 320 00ca 0026     		movs	r6, #0
+ 321 00cc 0E96     		str	r6, [sp, #56]
   84:Src/adc.c     ****   ADC_InitStruct.Resolution = LL_ADC_RESOLUTION_12B;
- 321              		.loc 1 84 3 is_stmt 1 view .LVU86
- 322              		.loc 1 84 29 is_stmt 0 view .LVU87
- 323 00ce 0F95     		str	r5, [sp, #60]
+ 322              		.loc 1 84 3 is_stmt 1 view .LVU86
+ 323              		.loc 1 84 29 is_stmt 0 view .LVU87
+ 324 00ce 0F96     		str	r6, [sp, #60]
   85:Src/adc.c     ****   ADC_InitStruct.DataAlignment = LL_ADC_DATA_ALIGN_RIGHT;
- 324              		.loc 1 85 3 is_stmt 1 view .LVU88
- 325              		.loc 1 85 32 is_stmt 0 view .LVU89
- 326 00d0 1095     		str	r5, [sp, #64]
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 94
+ 325              		.loc 1 85 3 is_stmt 1 view .LVU88
+ 326              		.loc 1 85 32 is_stmt 0 view .LVU89
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 94
 
 
+ 327 00d0 1096     		str	r6, [sp, #64]
   86:Src/adc.c     ****   ADC_InitStruct.LowPowerMode = LL_ADC_LP_MODE_NONE;
- 327              		.loc 1 86 3 is_stmt 1 view .LVU90
- 328              		.loc 1 86 31 is_stmt 0 view .LVU91
- 329 00d2 1195     		str	r5, [sp, #68]
+ 328              		.loc 1 86 3 is_stmt 1 view .LVU90
+ 329              		.loc 1 86 31 is_stmt 0 view .LVU91
+ 330 00d2 1196     		str	r6, [sp, #68]
   87:Src/adc.c     ****   LL_ADC_Init(ADC1, &ADC_InitStruct);
- 330              		.loc 1 87 3 is_stmt 1 view .LVU92
- 331 00d4 0EA9     		add	r1, sp, #56
- 332 00d6 2000     		movs	r0, r4
- 333 00d8 FFF7FEFF 		bl	LL_ADC_Init
- 334              	.LVL20:
+ 331              		.loc 1 87 3 is_stmt 1 view .LVU92
+ 332 00d4 0EA9     		add	r1, sp, #56
+ 333 00d6 2800     		movs	r0, r5
+ 334 00d8 FFF7FEFF 		bl	LL_ADC_Init
+ 335              	.LVL20:
   88:Src/adc.c     ****   ADC_REG_InitStruct.TriggerSource = LL_ADC_REG_TRIG_SOFTWARE;
- 335              		.loc 1 88 3 view .LVU93
- 336              		.loc 1 88 36 is_stmt 0 view .LVU94
- 337 00dc 0995     		str	r5, [sp, #36]
+ 336              		.loc 1 88 3 view .LVU93
+ 337              		.loc 1 88 36 is_stmt 0 view .LVU94
+ 338 00dc 0996     		str	r6, [sp, #36]
   89:Src/adc.c     ****   ADC_REG_InitStruct.SequencerDiscont = LL_ADC_REG_SEQ_DISCONT_DISABLE;
- 338              		.loc 1 89 3 is_stmt 1 view .LVU95
- 339              		.loc 1 89 39 is_stmt 0 view .LVU96
- 340 00de 0A95     		str	r5, [sp, #40]
+ 339              		.loc 1 89 3 is_stmt 1 view .LVU95
+ 340              		.loc 1 89 39 is_stmt 0 view .LVU96
+ 341 00de 0A96     		str	r6, [sp, #40]
   90:Src/adc.c     ****   ADC_REG_InitStruct.ContinuousMode = LL_ADC_REG_CONV_SINGLE;
- 341              		.loc 1 90 3 is_stmt 1 view .LVU97
- 342              		.loc 1 90 37 is_stmt 0 view .LVU98
- 343 00e0 0B95     		str	r5, [sp, #44]
+ 342              		.loc 1 90 3 is_stmt 1 view .LVU97
+ 343              		.loc 1 90 37 is_stmt 0 view .LVU98
+ 344 00e0 0B96     		str	r6, [sp, #44]
   91:Src/adc.c     ****   ADC_REG_InitStruct.DMATransfer = LL_ADC_REG_DMA_TRANSFER_LIMITED;
- 344              		.loc 1 91 3 is_stmt 1 view .LVU99
- 345              		.loc 1 91 34 is_stmt 0 view .LVU100
- 346 00e2 0C96     		str	r6, [sp, #48]
+ 345              		.loc 1 91 3 is_stmt 1 view .LVU99
+ 346              		.loc 1 91 34 is_stmt 0 view .LVU100
+ 347 00e2 0C97     		str	r7, [sp, #48]
   92:Src/adc.c     ****   ADC_REG_InitStruct.Overrun = LL_ADC_REG_OVR_DATA_PRESERVED;
- 347              		.loc 1 92 3 is_stmt 1 view .LVU101
- 348              		.loc 1 92 30 is_stmt 0 view .LVU102
- 349 00e4 0D95     		str	r5, [sp, #52]
+ 348              		.loc 1 92 3 is_stmt 1 view .LVU101
+ 349              		.loc 1 92 30 is_stmt 0 view .LVU102
+ 350 00e4 0D96     		str	r6, [sp, #52]
   93:Src/adc.c     ****   LL_ADC_REG_Init(ADC1, &ADC_REG_InitStruct);
- 350              		.loc 1 93 3 is_stmt 1 view .LVU103
- 351 00e6 09A9     		add	r1, sp, #36
- 352 00e8 2000     		movs	r0, r4
- 353 00ea FFF7FEFF 		bl	LL_ADC_REG_Init
- 354              	.LVL21:
+ 351              		.loc 1 93 3 is_stmt 1 view .LVU103
+ 352 00e6 09A9     		add	r1, sp, #36
+ 353 00e8 2800     		movs	r0, r5
+ 354 00ea FFF7FEFF 		bl	LL_ADC_REG_Init
+ 355              	.LVL21:
   94:Src/adc.c     ****   LL_ADC_REG_SetSequencerScanDirection(ADC1, LL_ADC_REG_SEQ_SCAN_DIR_FORWARD);
- 355              		.loc 1 94 3 view .LVU104
- 356              	.LBB70:
- 357              	.LBI70:
+ 356              		.loc 1 94 3 view .LVU104
+ 357              	.LBB72:
+ 358              	.LBI72:
 1947:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** {
- 358              		.loc 4 1947 22 view .LVU105
- 359              	.LBB71:
+ 359              		.loc 4 1947 22 view .LVU105
+ 360              	.LBB73:
 1949:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** }
- 360              		.loc 4 1949 3 view .LVU106
- 361 00ee E268     		ldr	r2, [r4, #12]
- 362 00f0 0421     		movs	r1, #4
- 363 00f2 8A43     		bics	r2, r1
- 364 00f4 E260     		str	r2, [r4, #12]
- 365              	.LVL22:
+ 361              		.loc 4 1949 3 view .LVU106
+ 362 00ee EB68     		ldr	r3, [r5, #12]
+ 363 00f0 0421     		movs	r1, #4
+ 364 00f2 8B43     		bics	r3, r1
+ 365 00f4 EB60     		str	r3, [r5, #12]
+ 366              	.LVL22:
 1949:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** }
- 366              		.loc 4 1949 3 is_stmt 0 view .LVU107
- 367              	.LBE71:
- 368              	.LBE70:
+ 367              		.loc 4 1949 3 is_stmt 0 view .LVU107
+ 368              	.LBE73:
+ 369              	.LBE72:
   95:Src/adc.c     ****   LL_ADC_SetSamplingTimeCommonChannels(ADC1, LL_ADC_SAMPLINGTIME_1CYCLE_5);
- 369              		.loc 1 95 3 is_stmt 1 view .LVU108
- 370              	.LBB72:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 95
+ 370              		.loc 1 95 3 is_stmt 1 view .LVU108
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 95
 
 
- 371              	.LBI72:
+ 371              	.LBB74:
+ 372              	.LBI74:
 1765:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** {
- 372              		.loc 4 1765 22 view .LVU109
- 373              	.LBB73:
+ 373              		.loc 4 1765 22 view .LVU109
+ 374              	.LBB75:
 1767:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** }
- 374              		.loc 4 1767 3 view .LVU110
- 375 00f6 6269     		ldr	r2, [r4, #20]
- 376 00f8 0723     		movs	r3, #7
- 377 00fa 9A43     		bics	r2, r3
- 378 00fc 6261     		str	r2, [r4, #20]
- 379              	.LVL23:
+ 375              		.loc 4 1767 3 view .LVU110
+ 376 00f6 6A69     		ldr	r2, [r5, #20]
+ 377 00f8 0723     		movs	r3, #7
+ 378 00fa 9A43     		bics	r2, r3
+ 379 00fc 6A61     		str	r2, [r5, #20]
+ 380              	.LVL23:
 1767:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** }
- 380              		.loc 4 1767 3 is_stmt 0 view .LVU111
- 381              	.LBE73:
- 382              	.LBE72:
+ 381              		.loc 4 1767 3 is_stmt 0 view .LVU111
+ 382              	.LBE75:
+ 383              	.LBE74:
   96:Src/adc.c     ****   /* USER CODE BEGIN ADC_Init 2 */
-  97:Src/adc.c     ****   LL_ADC_Enable(ADC1);
- 383              		.loc 1 97 3 is_stmt 1 view .LVU112
- 384              	.LBB74:
- 385              	.LBI74:
+  97:Src/adc.c     ****   LL_DMA_EnableChannel(DMA1,LL_DMA_CHANNEL_1);
+ 384              		.loc 1 97 3 is_stmt 1 view .LVU112
+ 385              	.LBB76:
+ 386              	.LBI76:
+ 583:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** {
+ 387              		.loc 3 583 22 view .LVU113
+ 388              	.LBB77:
+ 585:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
+ 389              		.loc 3 585 3 view .LVU114
+ 390 00fe 2268     		ldr	r2, [r4]
+ 391 0100 3A43     		orrs	r2, r7
+ 392 0102 2260     		str	r2, [r4]
+ 393              	.LVL24:
+ 585:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_dma.h **** }
+ 394              		.loc 3 585 3 is_stmt 0 view .LVU115
+ 395              	.LBE77:
+ 396              	.LBE76:
+  98:Src/adc.c     ****   LL_ADC_Enable(ADC1);
+ 397              		.loc 1 98 3 is_stmt 1 view .LVU116
+ 398              	.LBB78:
+ 399              	.LBI78:
 2158:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** }
 2159:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
 2160:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /**
@@ -5680,6 +5698,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2174:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   On this STM32 serie, to measure internal channels (VrefInt,
 2175:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         TempSensor, ...), measurement paths to internal channels must be
 2176:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         enabled separately.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 96
+
+
 2177:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         This can be done using function @ref LL_ADC_SetCommonPathInternalCh().
 2178:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   On this STM32 serie, setting of this feature is conditioned to
 2179:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         ADC state:
@@ -5698,9 +5719,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2192:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         CHSELR   CHSEL8         LL_ADC_REG_SetSequencerChRem\n
 2193:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         CHSELR   CHSEL9         LL_ADC_REG_SetSequencerChRem\n
 2194:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         CHSELR   CHSEL10        LL_ADC_REG_SetSequencerChRem\n
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 96
-
-
 2195:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         CHSELR   CHSEL11        LL_ADC_REG_SetSequencerChRem\n
 2196:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         CHSELR   CHSEL12        LL_ADC_REG_SetSequencerChRem\n
 2197:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         CHSELR   CHSEL13        LL_ADC_REG_SetSequencerChRem\n
@@ -5740,6 +5758,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2231:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** __STATIC_INLINE void LL_ADC_REG_SetSequencerChRem(ADC_TypeDef *ADCx, uint32_t Channel)
 2232:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** {
 2233:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   /* Parameter "Channel" is used with masks because containing                */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 97
+
+
 2234:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   /* other bits reserved for other purpose.                                   */
 2235:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   CLEAR_BIT(ADCx->CHSELR, (Channel & ADC_CHANNEL_ID_BITFIELD_MASK));
 2236:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** }
@@ -5758,9 +5779,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2249:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         Refer to device datasheet for channels availability.
 2250:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   On this STM32 serie, to measure internal channels (VrefInt,
 2251:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         TempSensor, ...), measurement paths to internal channels must be
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 97
-
-
 2252:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         enabled separately.
 2253:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         This can be done using function @ref LL_ADC_SetCommonPathInternalCh().
 2254:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   On this STM32 serie, setting of this feature is conditioned to
@@ -5800,6 +5818,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2288:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_7
 2289:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_8
 2290:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_9
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 98
+
+
 2291:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_10
 2292:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_11
 2293:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_CHANNEL_12
@@ -5818,9 +5839,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2306:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** __STATIC_INLINE uint32_t LL_ADC_REG_GetSequencerChannels(ADC_TypeDef *ADCx)
 2307:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** {
 2308:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   uint32_t ChannelsBitfield = READ_BIT(ADCx->CHSELR, ADC_CHSELR_CHSEL);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 98
-
-
 2309:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   
 2310:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   return (   (((ChannelsBitfield & ADC_CHSELR_CHSEL0) >> ADC_CHSELR_CHSEL0_BITOFFSET_POS) * LL_ADC_
 2311:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****            | (((ChannelsBitfield & ADC_CHSELR_CHSEL1) >> ADC_CHSELR_CHSEL1_BITOFFSET_POS) * LL_ADC_
@@ -5860,6 +5878,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2345:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @rmtoll CFGR1    CONT           LL_ADC_REG_SetContinuousMode
 2346:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  ADCx ADC instance
 2347:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  Continuous This parameter can be one of the following values:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 99
+
+
 2348:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_REG_CONV_SINGLE
 2349:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_REG_CONV_CONTINUOUS
 2350:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval None
@@ -5878,9 +5899,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2363:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @rmtoll CFGR1    CONT           LL_ADC_REG_GetContinuousMode
 2364:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  ADCx ADC instance
 2365:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval Returned value can be one of the following values:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 99
-
-
 2366:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_REG_CONV_SINGLE
 2367:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_REG_CONV_CONTINUOUS
 2368:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
@@ -5920,6 +5938,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2402:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_REG_DMA_TRANSFER_NONE
 2403:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_REG_DMA_TRANSFER_LIMITED
 2404:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_REG_DMA_TRANSFER_UNLIMITED
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 100
+
+
 2405:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval None
 2406:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
 2407:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** __STATIC_INLINE void LL_ADC_REG_SetDMATransfer(ADC_TypeDef *ADCx, uint32_t DMATransfer)
@@ -5938,9 +5959,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2420:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *           This ADC mode is intended to be used with DMA mode non-circular.
 2421:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         - Unlimited mode: DMA transfer requests are unlimited,
 2422:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *           whatever number of DMA data transfers (number of
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 100
-
-
 2423:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *           ADC conversions).
 2424:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *           This ADC mode is intended to be used with DMA mode circular.
 2425:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   If ADC DMA requests mode is set to unlimited and DMA is set to
@@ -5980,6 +5998,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2459:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  ADCx ADC instance
 2460:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  Overrun This parameter can be one of the following values:
 2461:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_REG_OVR_DATA_PRESERVED
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 101
+
+
 2462:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_REG_OVR_DATA_OVERWRITTEN
 2463:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval None
 2464:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
@@ -5998,9 +6019,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2477:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_REG_OVR_DATA_OVERWRITTEN
 2478:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
 2479:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** __STATIC_INLINE uint32_t LL_ADC_REG_GetOverrun(ADC_TypeDef *ADCx)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 101
-
-
 2480:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** {
 2481:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   return (uint32_t)(READ_BIT(ADCx->CFGR1, ADC_CFGR1_OVRMOD));
 2482:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** }
@@ -6040,6 +6058,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2516:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  ADCx ADC instance
 2517:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  AWDChannelGroup This parameter can be one of the following values:
 2518:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_DISABLE
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 102
+
+
 2519:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_ALL_CHANNELS_REG
 2520:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_CHANNEL_0_REG 
 2521:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_CHANNEL_1_REG 
@@ -6058,9 +6079,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2534:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_CHANNEL_14_REG
 2535:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_CHANNEL_15_REG
 2536:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_CHANNEL_16_REG
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 102
-
-
 2537:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_CHANNEL_17_REG
 2538:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_CHANNEL_18_REG          (1)
 2539:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_CH_VREFINT_REG
@@ -6100,6 +6118,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2573:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *           - resolution: resolution is not limited (corresponds to
 2574:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *             ADC resolution configured).
 2575:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   On this STM32 serie, setting of this feature is conditioned to
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 103
+
+
 2576:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         ADC state:
 2577:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         ADC must be disabled or enabled without conversion on going
 2578:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         on group regular.
@@ -6118,9 +6139,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2591:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_CHANNEL_5_REG 
 2592:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_CHANNEL_6_REG 
 2593:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_CHANNEL_7_REG 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 103
-
-
 2594:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_CHANNEL_8_REG 
 2595:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_CHANNEL_9_REG 
 2596:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_CHANNEL_10_REG
@@ -6160,6 +6178,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2630:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *           - groups monitored: ADC group regular.
 2631:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *           - resolution: resolution is not limited (corresponds to
 2632:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *             ADC resolution configured).
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 104
+
+
 2633:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   On this STM32 serie, setting of this feature is conditioned to
 2634:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         ADC state:
 2635:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         ADC must be disabled or enabled without conversion on going
@@ -6178,9 +6199,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2648:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****              (AWDThresholdHighValue << ADC_TR_HT_BITOFFSET_POS) | AWDThresholdLowValue);
 2649:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** }
 2650:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 104
-
-
 2651:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /**
 2652:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @brief  Set ADC analog watchdog threshold value of threshold
 2653:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         high or low.
@@ -6220,6 +6238,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2687:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****              AWDThresholdValue << ((AWDThresholdsHighLow >> ADC_TR_HT_BITOFFSET_POS) & 0x00000010U)
 2688:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** }
 2689:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 105
+
+
 2690:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /**
 2691:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @brief  Get ADC analog watchdog threshold value of threshold high,
 2692:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         threshold low or raw data with ADC thresholds high and low
@@ -6238,9 +6259,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2705:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         TR2      LT2            LL_ADC_GetAnalogWDThresholds\n
 2706:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         TR3      LT3            LL_ADC_GetAnalogWDThresholds
 2707:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  ADCx ADC instance
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 105
-
-
 2708:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  AWDThresholdsHighLow This parameter can be one of the following values:
 2709:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_THRESHOLD_HIGH
 2710:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         @arg @ref LL_ADC_AWD_THRESHOLD_LOW
@@ -6280,34 +6298,34 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2744:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         ADC state:
 2745:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         ADC must be ADC disabled and ADC internal voltage regulator enabled.
 2746:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @rmtoll CR       ADEN           LL_ADC_Enable
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 106
+
+
 2747:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  ADCx ADC instance
 2748:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval None
 2749:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
 2750:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** __STATIC_INLINE void LL_ADC_Enable(ADC_TypeDef *ADCx)
- 386              		.loc 4 2750 22 view .LVU113
- 387              	.LBB75:
+ 400              		.loc 4 2750 22 view .LVU117
+ 401              	.LBB79:
 2751:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** {
 2752:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   /* Note: Write register with some additional bits forced to state reset     */
 2753:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   /*       instead of modifying only the selected bit for this function,      */
 2754:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   /*       to not interfere with bits with HW property "rs".                  */
 2755:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   MODIFY_REG(ADCx->CR,
- 388              		.loc 4 2755 3 view .LVU114
- 389 00fe A268     		ldr	r2, [r4, #8]
- 390 0100 0D48     		ldr	r0, .L2+36
- 391 0102 0240     		ands	r2, r0
- 392 0104 3243     		orrs	r2, r6
- 393 0106 A260     		str	r2, [r4, #8]
- 394              	.LVL24:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 106
-
-
- 395              		.loc 4 2755 3 is_stmt 0 view .LVU115
- 396              	.LBE75:
- 397              	.LBE74:
-  98:Src/adc.c     ****   LL_ADC_REG_StartConversion(ADC1);
- 398              		.loc 1 98 3 is_stmt 1 view .LVU116
- 399              	.LBB76:
- 400              	.LBI76:
+ 402              		.loc 4 2755 3 view .LVU118
+ 403 0104 AA68     		ldr	r2, [r5, #8]
+ 404 0106 0E48     		ldr	r0, .L2+36
+ 405 0108 0240     		ands	r2, r0
+ 406 010a 3A43     		orrs	r2, r7
+ 407 010c AA60     		str	r2, [r5, #8]
+ 408              	.LVL25:
+ 409              		.loc 4 2755 3 is_stmt 0 view .LVU119
+ 410              	.LBE79:
+ 411              	.LBE78:
+  99:Src/adc.c     ****   LL_ADC_REG_StartConversion(ADC1);
+ 412              		.loc 1 99 3 is_stmt 1 view .LVU120
+ 413              	.LBB80:
+ 414              	.LBI80:
 2756:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****              ADC_CR_BITS_PROPERTY_RS,
 2757:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****              ADC_CR_ADEN);
 2758:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** }
@@ -6340,6 +6358,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2785:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @rmtoll CR       ADEN           LL_ADC_IsEnabled
 2786:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  ADCx ADC instance
 2787:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval 0: ADC is disabled, 1: ADC is enabled.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 107
+
+
 2788:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
 2789:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** __STATIC_INLINE uint32_t LL_ADC_IsEnabled(ADC_TypeDef *ADCx)
 2790:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** {
@@ -6358,9 +6379,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2803:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** }
 2804:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** 
 2805:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 107
-
-
 2806:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @brief  Start ADC calibration in the mode single-ended
 2807:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         or differential (for devices with differential mode available).
 2808:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   On this STM32 serie, a minimum number of ADC clock cycles
@@ -6400,6 +6418,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2842:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @rmtoll CR       ADCAL          LL_ADC_IsCalibrationOnGoing
 2843:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @param  ADCx ADC instance
 2844:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval 0: calibration complete, 1: calibration in progress.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 108
+
+
 2845:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
 2846:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** __STATIC_INLINE uint32_t LL_ADC_IsCalibrationOnGoing(ADC_TypeDef *ADCx)
 2847:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** {
@@ -6418,9 +6439,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2860:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @brief  Start ADC group regular conversion.
 2861:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @note   On this STM32 serie, this function is relevant for both 
 2862:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         internal trigger (SW start) and external trigger:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 108
-
-
 2863:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         - If ADC trigger has been set to software start, ADC conversion
 2864:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *           starts immediately.
 2865:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   *         - If ADC trigger has been set to external trigger, ADC conversion
@@ -6436,73 +6454,73 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 1
 2875:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   * @retval None
 2876:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   */
 2877:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** __STATIC_INLINE void LL_ADC_REG_StartConversion(ADC_TypeDef *ADCx)
- 401              		.loc 4 2877 22 view .LVU117
- 402              	.LBB77:
+ 415              		.loc 4 2877 22 view .LVU121
+ 416              	.LBB81:
 2878:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h **** {
 2879:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   /* Note: Write register with some additional bits forced to state reset     */
 2880:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   /*       instead of modifying only the selected bit for this function,      */
 2881:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   /*       to not interfere with bits with HW property "rs".                  */
 2882:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_adc.h ****   MODIFY_REG(ADCx->CR,
- 403              		.loc 4 2882 3 view .LVU118
- 404 0108 A368     		ldr	r3, [r4, #8]
- 405 010a 0340     		ands	r3, r0
- 406 010c 0B43     		orrs	r3, r1
- 407 010e A360     		str	r3, [r4, #8]
- 408              	.LVL25:
- 409              		.loc 4 2882 3 is_stmt 0 view .LVU119
- 410              	.LBE77:
- 411              	.LBE76:
-  99:Src/adc.c     ****   /* USER CODE END ADC_Init 2 */
- 100:Src/adc.c     **** 
- 101:Src/adc.c     **** }
- 412              		.loc 1 101 1 view .LVU120
- 413 0110 12B0     		add	sp, sp, #72
- 414              		@ sp needed
- 415 0112 70BD     		pop	{r4, r5, r6, pc}
- 416              	.L3:
- 417              		.align	2
- 418              	.L2:
- 419 0114 00100240 		.word	1073876992
- 420 0118 08000240 		.word	1073872904
- 421 011c EFBFFFFF 		.word	-16401
- 422 0120 FFCFFFFF 		.word	-12289
- 423 0124 FFFCFFFF 		.word	-769
- 424 0128 FFF3FFFF 		.word	-3073
- 425 012c 00000000 		.word	.LANCHOR0
- 426 0130 40240140 		.word	1073816640
- 427 0134 00240140 		.word	1073816576
- 428 0138 E8FFFF7F 		.word	2147483624
- 429              		.cfi_endproc
- 430              	.LFE884:
- 432              		.global	adcData
- 433              		.section	.bss.adcData,"aw",%nobits
- 434              		.align	2
- 435              		.set	.LANCHOR0,. + 0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 109
+ 417              		.loc 4 2882 3 view .LVU122
+ 418 010e AB68     		ldr	r3, [r5, #8]
+ 419 0110 0340     		ands	r3, r0
+ 420 0112 0B43     		orrs	r3, r1
+ 421 0114 AB60     		str	r3, [r5, #8]
+ 422              	.LVL26:
+ 423              		.loc 4 2882 3 is_stmt 0 view .LVU123
+ 424              	.LBE81:
+ 425              	.LBE80:
+ 100:Src/adc.c     ****   /* USER CODE END ADC_Init 2 */
+ 101:Src/adc.c     **** 
+ 102:Src/adc.c     **** }
+ 426              		.loc 1 102 1 view .LVU124
+ 427 0116 13B0     		add	sp, sp, #76
+ 428              		@ sp needed
+ 429 0118 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 430              	.L3:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 109
 
 
- 438              	adcData:
- 439 0000 00000000 		.space	8
- 439      00000000 
- 440              		.text
- 441              	.Letext0:
- 442              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 443              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 444              		.file 7 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h"
- 445              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h"
- 446              		.file 9 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_gpio.h"
- 447              		.file 10 "Inc/adc.h"
- 448              		.file 11 "<built-in>"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s 			page 110
+ 431 011a C046     		.align	2
+ 432              	.L2:
+ 433 011c 00100240 		.word	1073876992
+ 434 0120 08000240 		.word	1073872904
+ 435 0124 EFBFFFFF 		.word	-16401
+ 436 0128 FFCFFFFF 		.word	-12289
+ 437 012c FFFCFFFF 		.word	-769
+ 438 0130 FFF3FFFF 		.word	-3073
+ 439 0134 00000000 		.word	.LANCHOR0
+ 440 0138 40240140 		.word	1073816640
+ 441 013c 00240140 		.word	1073816576
+ 442 0140 E8FFFF7F 		.word	2147483624
+ 443              		.cfi_endproc
+ 444              	.LFE884:
+ 446              		.global	adcData
+ 447              		.section	.bss.adcData,"aw",%nobits
+ 448              		.align	2
+ 449              		.set	.LANCHOR0,. + 0
+ 452              	adcData:
+ 453 0000 00000000 		.space	8
+ 453      00000000 
+ 454              		.text
+ 455              	.Letext0:
+ 456              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 457              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 458              		.file 7 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h"
+ 459              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_tim.h"
+ 460              		.file 9 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_gpio.h"
+ 461              		.file 10 "Inc/adc.h"
+ 462              		.file 11 "<built-in>"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s 			page 110
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 adc.c
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s:18     .text.MX_ADC_Init:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s:24     .text.MX_ADC_Init:00000000 MX_ADC_Init
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s:419    .text.MX_ADC_Init:00000114 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s:438    .bss.adcData:00000000 adcData
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmoRa7D.s:434    .bss.adcData:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s:18     .text.MX_ADC_Init:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s:24     .text.MX_ADC_Init:00000000 MX_ADC_Init
+C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s:433    .text.MX_ADC_Init:0000011c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s:452    .bss.adcData:00000000 adcData
+C:\Users\ADMINI~1\AppData\Local\Temp\cc5TKqdx.s:448    .bss.adcData:00000000 $d
 
 UNDEFINED SYMBOLS
 memset
