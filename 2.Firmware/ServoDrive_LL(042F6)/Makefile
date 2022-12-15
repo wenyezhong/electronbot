@@ -269,7 +269,10 @@ gdb-bmp: all
 
 dfu: all
 	python ../tools/odrivetool $(if $(value SERIAL_NUMBER),--serial-number $(SERIAL_NUMBER),) dfu $(FIRMWARE_HEX)
-
+reset:all
+	$(OPENOCD) \
+		-c 'reset run' \
+		-c exit
 flash: flash-stlink2
 gdb: gdb-stlink2
 erase: erase-stlink2
@@ -277,5 +280,5 @@ unlock: unlock-stlink2
 
 .PHONY: stlink2-config flash-stlink2 gdb-stlink2 erase-stlink2 unlock-stlink2
 .PHONY: flash-bmp gdb-bmp
-.PHONY: all clean flash gdb erase unlock dfu
+.PHONY: all clean flash gdb erase unlock dfu reset
 # *** EOF ***

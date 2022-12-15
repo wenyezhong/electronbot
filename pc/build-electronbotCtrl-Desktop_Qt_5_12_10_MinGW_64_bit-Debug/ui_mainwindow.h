@@ -1305,7 +1305,7 @@ public:
 
         horizontalLayoutWidget = new QWidget(tab);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(0, 312, 831, 73));
+        horizontalLayoutWidget->setGeometry(QRect(0, 312, 831, 31));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);

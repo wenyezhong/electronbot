@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 1
   30:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_pwr.c **** #if defined(PWR)
   31:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_pwr.c **** 
   32:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_pwr.c **** /** @defgroup PWR_LL PWR
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s 			page 2
 
 
   33:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_pwr.c ****   * @{
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 1
   17:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****     [..]  
   18:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****       Workarounds:
   19:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****       (#) For AHB & APB peripherals, a dummy read to the peripheral register has been
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 3
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s 			page 3
 
 
   20:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****           inserted in each LL_{BUS}_GRP{x}_EnableClock() function.
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 1
   74:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #define LL_AHB1_GRP1_PERIPH_ALL            (uint32_t)0xFFFFFFFFU
   75:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #define LL_AHB1_GRP1_PERIPH_DMA1           RCC_AHBENR_DMA1EN
   76:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #if defined(DMA2)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s 			page 4
 
 
   77:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #define LL_AHB1_GRP1_PERIPH_DMA2           RCC_AHBENR_DMA2EN
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 1
  131:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #if defined(I2C2)
  132:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_I2C2           RCC_APB1ENR_I2C2EN
  133:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #endif /*I2C2*/
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 5
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s 			page 5
 
 
  134:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** #if defined(USB)
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 1
  188:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** /** @defgroup BUS_LL_Exported_Functions BUS Exported Functions
  189:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   * @{
  190:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s 			page 6
 
 
  191:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 1
  245:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         AHBENR       GPIOCEN       LL_AHB1_GRP1_IsEnabledClock\n
  246:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         AHBENR       GPIODEN       LL_AHB1_GRP1_IsEnabledClock\n
  247:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         AHBENR       GPIOEEN       LL_AHB1_GRP1_IsEnabledClock\n
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 7
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s 			page 7
 
 
  248:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         AHBENR       GPIOFEN       LL_AHB1_GRP1_IsEnabledClock\n
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 1
  302:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** */
  303:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** __STATIC_INLINE void LL_AHB1_GRP1_DisableClock(uint32_t Periphs)
  304:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s 			page 8
 
 
  305:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   CLEAR_BIT(RCC->AHBENR, Periphs);
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 1
  359:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   CLEAR_BIT(RCC->AHBRSTR, Periphs);
  360:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** }
  361:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 9
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s 			page 9
 
 
  362:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** /**
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 1
  416:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** {
  417:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   __IO uint32_t tmpreg;
  418:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   SET_BIT(RCC->APB1ENR, Periphs);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 10
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s 			page 10
 
 
  419:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   /* Delay after an RCC peripheral clock enabling */
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 1
  473:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** 
  474:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h **** /**
  475:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   * @brief  Disable APB1 peripherals clock (available in register 1).
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 11
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s 			page 11
 
 
  476:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   * @rmtoll APB1ENR      TIM2EN        LL_APB1_GRP1_DisableClock\n
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 1
  530:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         APB1RSTR     TIM14RST      LL_APB1_GRP1_ForceReset\n
  531:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         APB1RSTR     WWDGRST       LL_APB1_GRP1_ForceReset\n
  532:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         APB1RSTR     SPI2RST       LL_APB1_GRP1_ForceReset\n
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 12
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s 			page 12
 
 
  533:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   *         APB1RSTR     USART2RST     LL_APB1_GRP1_ForceReset\n
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 1
   62:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_pwr.c ****   /* Release reset of PWR clock */
   63:Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_ll_pwr.c ****   LL_APB1_GRP1_ReleaseReset(LL_APB1_GRP1_PERIPH_PWR);
   50              		.loc 1 63 3 is_stmt 1 view .LVU5
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 13
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s 			page 13
 
 
   51              	.LBB8:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 1
  623:Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_bus.h ****   CLEAR_BIT(RCC->APB1RSTR, Periphs);
   55              		.loc 2 623 3 view .LVU7
   56 000c 1A69     		ldr	r2, [r3, #16]
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 14
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s 			page 14
 
 
   57 000e 0349     		ldr	r1, .L2+4
@@ -809,13 +809,13 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 1
   80              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
   81              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f042x6.h"
   82              		.file 6 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s 			page 15
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f0xx_ll_pwr.c
-C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s:18     .text.LL_PWR_DeInit:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s:24     .text.LL_PWR_DeInit:00000000 LL_PWR_DeInit
-C:\Users\ADMINI~1\AppData\Local\Temp\cc0drfjN.s:72     .text.LL_PWR_DeInit:00000018 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s:18     .text.LL_PWR_DeInit:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s:24     .text.LL_PWR_DeInit:00000000 LL_PWR_DeInit
+C:\Users\ADMINI~1\AppData\Local\Temp\ccIcN8WY.s:72     .text.LL_PWR_DeInit:00000018 $d
 
 NO UNDEFINED SYMBOLS
