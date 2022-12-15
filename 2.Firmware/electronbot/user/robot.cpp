@@ -134,16 +134,16 @@ void Robot::SetJointId(Robot::JointStatus_t &_joint, uint8_t _id)
 
 void Robot::SetJointInitAngle(Robot::JointStatus_t &_joint, float _angle)
 {
-    float sAngle = _joint.inverted ?
+    /* float sAngle = _joint.inverted ?
                    (_angle - _joint.modelAngelMin) /
                    (_joint.modelAngelMax - _joint.modelAngelMin) *
                    (_joint.angleMin - _joint.angleMax) + _joint.angleMax :
                    (_angle - _joint.modelAngelMin) /
                    (_joint.modelAngelMax - _joint.modelAngelMin) *
-                   (_joint.angleMax - _joint.angleMin) + _joint.angleMin;
+                   (_joint.angleMax - _joint.angleMin) + _joint.angleMin; */
 
     
-    /* if (sAngle >= _joint.angleMin && sAngle <= _joint.angleMax)
+    //if (sAngle >= _joint.angleMin && sAngle <= _joint.angleMax)
     {
        
         auto* b = (unsigned char*) (&_angle);
@@ -157,7 +157,7 @@ void Robot::SetJointInitAngle(Robot::JointStatus_t &_joint, float _angle)
         _joint.angle = *(float*) (i2cRxData + 1);
 
         HAL_Delay(500); // wait servo reset
-    } */
+    }
 }
 
 

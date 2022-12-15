@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 1
   28:Src/usbd_storage_if.c **** /* Private typedef -----------------------------------------------------------*/
   29:Src/usbd_storage_if.c **** /* Private define ------------------------------------------------------------*/
   30:Src/usbd_storage_if.c **** /* Private macro -------------------------------------------------------------*/
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s 			page 2
 
 
   31:Src/usbd_storage_if.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 1
   85:Src/usbd_storage_if.c **** 
   86:Src/usbd_storage_if.c **** /**
   87:Src/usbd_storage_if.c ****   * @}
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 3
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s 			page 3
 
 
   88:Src/usbd_storage_if.c ****   */
@@ -141,7 +141,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 1
  105:Src/usbd_storage_if.c ****   0x00,
  106:Src/usbd_storage_if.c ****   0x00,
  107:Src/usbd_storage_if.c ****   0x00,
- 108:Src/usbd_storage_if.c ****   'S', 'T', 'M', ' ', ' ', ' ', ' ', ' ', /* Manufacturer : 8 bytes */
+ 108:Src/usbd_storage_if.c ****   'W', 'e', 'n', 'y', 'z', '\'', 's', ' ', /* Manufacturer : 8 bytes */
  109:Src/usbd_storage_if.c ****   'P', 'r', 'o', 'd', 'u', 'c', 't', ' ', /* Product      : 16 Bytes */
  110:Src/usbd_storage_if.c ****   ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
  111:Src/usbd_storage_if.c ****   '0', '.', '0' ,'1'                      /* Version      : 4 Bytes */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 1
  142:Src/usbd_storage_if.c **** 
  143:Src/usbd_storage_if.c **** static int8_t STORAGE_Init_HS(uint8_t lun);
  144:Src/usbd_storage_if.c **** static int8_t STORAGE_GetCapacity_HS(uint8_t lun, uint32_t *block_num, uint16_t *block_size);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s 			page 4
 
 
  145:Src/usbd_storage_if.c **** static int8_t STORAGE_IsReady_HS(uint8_t lun);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 1
   42              	.LFE134:
   44              		.section	.text.STORAGE_GetCapacity_HS,"ax",%progbits
   45              		.align	1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 5
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s 			page 5
 
 
   46              		.syntax unified
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 1
  204:Src/usbd_storage_if.c **** 
  205:Src/usbd_storage_if.c **** /**
  206:Src/usbd_storage_if.c ****   * @brief   Checks whether the medium is ready.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s 			page 6
 
 
  207:Src/usbd_storage_if.c ****   * @param  lun:  Logical unit number.
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 1
  118              		.loc 1 229 1 view .LVU22
  119 0002 7047     		bx	lr
  120              		.cfi_endproc
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 7
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s 			page 7
 
 
  121              	.LFE137:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 1
  276:Src/usbd_storage_if.c ****     write_sector(blk_addr,buf,blk_len*STORAGE_BLK_SIZ);
  277:Src/usbd_storage_if.c ****     /*  FlashSector_Erase(blk_addr);
  278:Src/usbd_storage_if.c ****      FlashPage_Write(blk_addr*STORAGE_BLK_SIZ,buf,STORAGE_BLK_SIZ); */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s 			page 8
 
 
  279:Src/usbd_storage_if.c ****   } 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 1
  270:Src/usbd_storage_if.c ****   UNUSED(blk_addr);
  166              		.loc 1 270 3 view .LVU30
  271:Src/usbd_storage_if.c ****   UNUSED(blk_len);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 9
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s 			page 9
 
 
  167              		.loc 1 271 3 view .LVU31
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 1
  210 0004 1A03     		lsls	r2, r3, #12
  211              	.LVL14:
  250:Src/usbd_storage_if.c ****     //  FlashPage_Read(blk_addr*STORAGE_BLK_SIZ,buf,STORAGE_BLK_SIZ);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 10
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s 			page 10
 
 
  212              		.loc 1 250 5 is_stmt 0 view .LVU45
@@ -569,10 +569,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 1
  238              		.section	.rodata.STORAGE_Inquirydata_HS,"a"
  239              		.align	2
  242              	STORAGE_Inquirydata_HS:
- 243 0000 00800202 		.ascii	"\000\200\002\002\037\000\000\000STM     Product    "
+ 243 0000 00800202 		.ascii	"\000\200\002\002\037\000\000\000Wenyz's Product    "
  243      1F000000 
- 243      53544D20 
- 243      20202020 
+ 243      57656E79 
+ 243      7A277320 
  243      50726F64 
  244 001b 20202020 		.ascii	"     0.01"
  244      20302E30 
@@ -585,29 +585,29 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 1
  250              		.file 5 "Inc/usbd_storage_if.h"
  251              		.file 6 "user/w25q32.h"
  252              		.file 7 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s 			page 11
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usbd_storage_if.c
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:20     .text.STORAGE_Init_HS:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:25     .text.STORAGE_Init_HS:00000000 STORAGE_Init_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:45     .text.STORAGE_GetCapacity_HS:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:50     .text.STORAGE_GetCapacity_HS:00000000 STORAGE_GetCapacity_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:77     .text.STORAGE_IsReady_HS:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:82     .text.STORAGE_IsReady_HS:00000000 STORAGE_IsReady_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:101    .text.STORAGE_IsWriteProtected_HS:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:106    .text.STORAGE_IsWriteProtected_HS:00000000 STORAGE_IsWriteProtected_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:124    .text.STORAGE_GetMaxLun_HS:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:129    .text.STORAGE_GetMaxLun_HS:00000000 STORAGE_GetMaxLun_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:144    .text.STORAGE_Write_HS:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:149    .text.STORAGE_Write_HS:00000000 STORAGE_Write_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:184    .text.STORAGE_Read_HS:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:189    .text.STORAGE_Read_HS:00000000 STORAGE_Read_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:229    .data.USBD_Storage_Interface_fops_HS:00000000 USBD_Storage_Interface_fops_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:242    .rodata.STORAGE_Inquirydata_HS:00000000 STORAGE_Inquirydata_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:226    .data.USBD_Storage_Interface_fops_HS:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cc8AFOnA.s:239    .rodata.STORAGE_Inquirydata_HS:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:20     .text.STORAGE_Init_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:25     .text.STORAGE_Init_HS:00000000 STORAGE_Init_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:45     .text.STORAGE_GetCapacity_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:50     .text.STORAGE_GetCapacity_HS:00000000 STORAGE_GetCapacity_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:77     .text.STORAGE_IsReady_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:82     .text.STORAGE_IsReady_HS:00000000 STORAGE_IsReady_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:101    .text.STORAGE_IsWriteProtected_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:106    .text.STORAGE_IsWriteProtected_HS:00000000 STORAGE_IsWriteProtected_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:124    .text.STORAGE_GetMaxLun_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:129    .text.STORAGE_GetMaxLun_HS:00000000 STORAGE_GetMaxLun_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:144    .text.STORAGE_Write_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:149    .text.STORAGE_Write_HS:00000000 STORAGE_Write_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:184    .text.STORAGE_Read_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:189    .text.STORAGE_Read_HS:00000000 STORAGE_Read_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:229    .data.USBD_Storage_Interface_fops_HS:00000000 USBD_Storage_Interface_fops_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:242    .rodata.STORAGE_Inquirydata_HS:00000000 STORAGE_Inquirydata_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:226    .data.USBD_Storage_Interface_fops_HS:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc0xKIZA.s:239    .rodata.STORAGE_Inquirydata_HS:00000000 $d
 
 UNDEFINED SYMBOLS
 write_sector

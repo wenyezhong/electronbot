@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -47,10 +47,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
   16:Src/usbd_composite.c **** 
   17:Src/usbd_composite.c **** 
   18:Src/usbd_composite.c **** #if 1
-  19:Src/usbd_composite.c **** #define USBD_CMPSIT_VID     0x1213
+  19:Src/usbd_composite.c **** #define USBD_CMPSIT_VID     0x1214
   20:Src/usbd_composite.c **** #define USBD_CMPSIT_LANGID_STRING     1033
   21:Src/usbd_composite.c **** #define USBD_CMPSIT_MANUFACTURER_STRING     "wenyz@wolfGroup"
-  22:Src/usbd_composite.c **** #define USBD_CMPSIT_PID_FS     0x0D39
+  22:Src/usbd_composite.c **** #define USBD_CMPSIT_PID_FS     0x0D3A
   23:Src/usbd_composite.c **** #define USBD_CMPSIT_PRODUCT_STRING_FS     "STM32 composite product"
   24:Src/usbd_composite.c **** #define USBD_CMPSIT_CONFIGURATION_STRING_FS     "Composite Config"
   25:Src/usbd_composite.c **** #define USBD_CMPSIT_INTERFACE_STRING_FS     "Composite Interface"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
   27:Src/usbd_composite.c **** #define USBD_CMPSIT_VID     1223
   28:Src/usbd_composite.c **** #define USBD_CMPSIT_LANGID_STRING     1033
   29:Src/usbd_composite.c **** #define USBD_CMPSIT_MANUFACTURER_STRING     "test"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 2
 
 
   30:Src/usbd_composite.c **** #define USBD_CMPSIT_PID_FS     55663
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
   84:Src/usbd_composite.c **** 	HIBYTE(USBD_CMPSIT_VID), 		  /*idVendor*/
   85:Src/usbd_composite.c **** 	LOBYTE(USBD_CMPSIT_PID_FS),		  /*idProduct*/
   86:Src/usbd_composite.c **** 	HIBYTE(USBD_CMPSIT_PID_FS),		  /*idProduct*/
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 3
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 3
 
 
   87:Src/usbd_composite.c **** 	0x00, 					  /*bcdDevice rel. 2.00*/
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
   34              		@ link register save eliminated.
  137:Src/usbd_composite.c ****   UNUSED(speed);
   35              		.loc 1 137 3 view .LVU1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 4
 
 
  138:Src/usbd_composite.c ****   *length = sizeof(USBD_CMPSIT_FS_DeviceDesc);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
   82 0008 00000000 		.word	.LANCHOR1
   83              		.cfi_endproc
   84              	.LFE135:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 5
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 5
 
 
   86              		.section	.text.IntToUnicode,"ax",%progbits
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  173:Src/usbd_composite.c ****   {
  174:Src/usbd_composite.c ****     if (((value >> 28)) < 0xA)
  175:Src/usbd_composite.c ****     {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 6
 
 
  176:Src/usbd_composite.c ****       pbuf[2 * idx] = (value >> 28) + '0';
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  176:Src/usbd_composite.c ****     }
  151              		.loc 1 176 7 is_stmt 1 view .LVU38
  176:Src/usbd_composite.c ****     }
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 7
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 7
 
 
  152              		.loc 1 176 37 is_stmt 0 view .LVU39
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  198              		.loc 1 194 3 is_stmt 1 view .LVU49
  199              		.loc 1 194 17 is_stmt 0 view .LVU50
  200 000c D3F8183A 		ldr	r3, [r3, #2584]
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 8
 
 
  201              	.LVL11:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  246              	.LFB140:
  204:Src/usbd_composite.c **** uint8_t * USBD_CMPSIT_FS_SerialStrDescriptor(USBD_SpeedTypeDef speed, uint16_t *length)
  205:Src/usbd_composite.c **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 9
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 9
 
 
  247              		.loc 1 205 1 is_stmt 1 view -0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  223:Src/usbd_composite.c ****   }
  224:Src/usbd_composite.c ****   else
  225:Src/usbd_composite.c ****   {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 10
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 10
 
 
  226:Src/usbd_composite.c ****     USBD_GetString((uint8_t *)USBD_CMPSIT_INTERFACE_STRING_FS, USBD_CMPSIT_StrDesc, length);
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  280:Src/usbd_composite.c **** 
  281:Src/usbd_composite.c ****   /*---------------------------------------------------------------------------*/
  282:Src/usbd_composite.c ****   //9
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 11
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 11
 
 
  283:Src/usbd_composite.c ****   /* Interface Association Descriptor: CDC device (virtual com port) */
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  337:Src/usbd_composite.c ****    /*Data class interface descriptor*/
  338:Src/usbd_composite.c ****   0x09,   /* bLength: Endpoint Descriptor size */
  339:Src/usbd_composite.c ****   USB_DESC_TYPE_INTERFACE,  /* bDescriptorType: */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 12
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 12
 
 
  340:Src/usbd_composite.c ****   0x01,   /* bInterfaceNumber: Number of Interface */
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  394:Src/usbd_composite.c ****   NULL,
  395:Src/usbd_composite.c ****   NULL,
  396:Src/usbd_composite.c ****   NULL,
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 13
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 13
 
 
  397:Src/usbd_composite.c ****   NULL,
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  451:Src/usbd_composite.c **** 			
  452:Src/usbd_composite.c **** 		}break;
  453:Src/usbd_composite.c **** 		default:break;
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 14
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 14
 
 
  454:Src/usbd_composite.c **** 	}
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  508:Src/usbd_composite.c ****     pMscEpOutDesc->wMaxPacketSize = MSC_MAX_FS_PACKET;
  509:Src/usbd_composite.c ****   }
  510:Src/usbd_composite.c **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 15
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 15
 
 
  511:Src/usbd_composite.c ****   if (pMscEpInDesc != NULL)
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  565:Src/usbd_composite.c **** 
  566:Src/usbd_composite.c ****   if (pMscEpOutDesc != NULL)
  567:Src/usbd_composite.c ****   {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 16
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 16
 
 
  568:Src/usbd_composite.c ****     pMscEpOutDesc->wMaxPacketSize = MSC_MAX_FS_PACKET;
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  314              		.global	USBD_CMPSIT_FS_ManufacturerStrDescriptor
  315              		.syntax unified
  316              		.thumb
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 17
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 17
 
 
  317              		.thumb_func
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  361              		.align	1
  362              		.global	USBD_CMPSIT_FS_ProductStrDescriptor
  363              		.syntax unified
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 18
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 18
 
 
  364              		.thumb
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  407 0016 FFF7FEFF 		bl	USBD_GetString
  408              	.LVL32:
  163:Src/usbd_composite.c ****   }
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 19
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 19
 
 
  409              		.loc 1 163 5 view .LVU93
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  454 000a FFF7FEFF 		bl	USBD_GetString
  455              	.LVL36:
  456              	.L42:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 20
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 20
 
 
  228:Src/usbd_composite.c **** }
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  501 0000 08B5     		push	{r3, lr}
  502              	.LCFI7:
  503              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 21
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 21
 
 
  504              		.cfi_offset 3, -8
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  548              		.thumb
  549              		.thumb_func
  551              	USBD_CMPSIT_GetOtherSpeedCfgDesc:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 22
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 22
 
 
  552              	.LVL49:
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  595              		.loc 1 563 42 view .LVU130
  596 0020 FFF7FEFF 		bl	USBD_GetEpDesc
  597              	.LVL57:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 23
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 23
 
 
  598 0024 0446     		mov	r4, r0
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  637 0052 6271     		strb	r2, [r4, #5]
  638              	.L55:
  580:Src/usbd_composite.c ****   {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 24
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 24
 
 
  639              		.loc 1 580 3 is_stmt 1 view .LVU146
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  684              		.cfi_def_cfa_offset 24
  685              		.cfi_offset 4, -24
  686              		.cfi_offset 5, -20
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 25
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 25
 
 
  687              		.cfi_offset 6, -16
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  729 002a FFF7FEFF 		bl	USBD_GetEpDesc
  730              	.LVL74:
  506:Src/usbd_composite.c ****   {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 26
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 26
 
 
  731              		.loc 1 506 3 is_stmt 1 view .LVU170
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  770 005c 4271     		strb	r2, [r0, #5]
  771              	.L64:
  525:Src/usbd_composite.c **** 	return USBD_CMPSIT_CfgDesc;
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 27
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 27
 
 
  772              		.loc 1 525 2 is_stmt 1 view .LVU186
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  819 000a 3046     		mov	r0, r6
  820              	.LVL78:
  530:Src/usbd_composite.c ****   USBD_EpDescTypeDef *pMscEpInDesc = USBD_GetEpDesc(USBD_CMPSIT_CfgDesc, MSC_EPIN_ADDR);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 28
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 28
 
 
  821              		.loc 1 530 39 view .LVU196
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  862 003a 0222     		movs	r2, #2
  863 003c 88F80520 		strb	r2, [r8, #5]
  864              	.L69:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 29
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 29
 
 
  541:Src/usbd_composite.c ****   {
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  557:Src/usbd_composite.c **** static uint8_t *USBD_CMPSIT_GetOtherSpeedCfgDesc(uint16_t *length)
  903              		.loc 1 557 1 view .LVU226
  904 0064 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 30
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 30
 
 
  905              	.LVL90:
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  952 001c 10BD     		pop	{r4, pc}
  953              	.LVL94:
  954              	.L77:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 31
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 31
 
 
  412:Src/usbd_composite.c **** 			
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  990              		.loc 1 422 47 is_stmt 0 view .LVU254
  991 0050 4FF0810E 		mov	lr, #129
  992 0054 83F810E3 		strb	lr, [r3, #784]
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 32
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 32
 
 
  423:Src/usbd_composite.c **** 			pdev->tclasslist[pdev->classId].Eps[0].size = MSC_MAX_FS_PACKET;
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  435:Src/usbd_composite.c **** 			pdev->tclasslist[pdev->classId].NumEps = 2;
  1029              		.loc 1 435 43 is_stmt 0 view .LVU273
  1030 0084 0121     		movs	r1, #1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 33
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 33
 
 
  1031 0086 C3F80813 		str	r1, [r3, #776]
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  1065 00bc C3F82813 		str	r1, [r3, #808]
  450:Src/usbd_composite.c **** 			
  1066              		.loc 1 450 4 is_stmt 1 view .LVU294
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 34
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 34
 
 
  450:Src/usbd_composite.c **** 			
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  1112              		.loc 1 479 1 view -0
  1113              		.cfi_startproc
  1114              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 35
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 35
 
 
  1115              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  484:Src/usbd_composite.c ****   } else if (USBD_IDX_MSC_INTF_STR == index) {
  1155              		.loc 1 484 12 is_stmt 0 view .LVU315
  1156 001a 0848     		ldr	r0, .L93
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 36
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 36
 
 
  1157              	.LVL106:
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  1200 0040 00000000 		.word	.LANCHOR4
  1201 0044 00000000 		.word	.LC4
  1202 0048 10000000 		.word	.LC5
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 37
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 37
 
 
  1203              		.cfi_endproc
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  1249      00010000 
  1249      07
  1250 003a 05030240 		.ascii	"\005\003\002@\000\000\007\005\203\002@\000\000"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 38
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 38
 
 
  1250      00000705 
@@ -2235,9 +2235,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  1259              		.align	2
  1260              		.set	.LANCHOR0,. + 0
  1263              	USBD_CMPSIT_FS_DeviceDesc:
- 1264 0000 12010002 		.ascii	"\022\001\000\002\357\002\001@\023\0229\015\000\002\001"
+ 1264 0000 12010002 		.ascii	"\022\001\000\002\357\002\001@\024\022:\015\000\002\001"
  1264      EF020140 
- 1264      1312390D 
+ 1264      14123A0D 
  1264      000201
  1265 000f 020301   		.ascii	"\002\003\001"
  1266              		.section	.data.USBD_CMPSIT_LangIDDesc,"aw"
@@ -2278,89 +2278,89 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 1
  1301              	.Letext0:
  1302              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
  1303              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 39
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 39
 
 
  1304              		.file 4 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
  1305              		.file 5 "Inc/usbd_composite.h"
  1306              		.file 6 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h"
  1307              		.file 7 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 40
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 40
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usbd_composite.c
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:20     .text.USBD_CMPSIT_FS_DeviceDescriptor:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:26     .text.USBD_CMPSIT_FS_DeviceDescriptor:00000000 USBD_CMPSIT_FS_DeviceDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:49     .text.USBD_CMPSIT_FS_DeviceDescriptor:00000008 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:54     .text.USBD_CMPSIT_FS_LangIDStrDescriptor:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:60     .text.USBD_CMPSIT_FS_LangIDStrDescriptor:00000000 USBD_CMPSIT_FS_LangIDStrDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:82     .text.USBD_CMPSIT_FS_LangIDStrDescriptor:00000008 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:87     .text.IntToUnicode:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:92     .text.IntToUnicode:00000000 IntToUnicode
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:170    .text.Get_CMPSIT_SerialNum:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:175    .text.Get_CMPSIT_SerialNum:00000000 Get_CMPSIT_SerialNum
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:232    .text.Get_CMPSIT_SerialNum:00000030 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:238    .text.USBD_CMPSIT_FS_SerialStrDescriptor:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:244    .text.USBD_CMPSIT_FS_SerialStrDescriptor:00000000 USBD_CMPSIT_FS_SerialStrDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:272    .text.USBD_CMPSIT_FS_SerialStrDescriptor:00000010 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:277    .text.USBD_CMPSIT_GetDeviceQualifierDescriptor:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:283    .text.USBD_CMPSIT_GetDeviceQualifierDescriptor:00000000 USBD_CMPSIT_GetDeviceQualifierDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:304    .text.USBD_CMPSIT_GetDeviceQualifierDescriptor:00000008 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:309    .rodata.USBD_CMPSIT_FS_ManufacturerStrDescriptor.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:313    .text.USBD_CMPSIT_FS_ManufacturerStrDescriptor:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:319    .text.USBD_CMPSIT_FS_ManufacturerStrDescriptor:00000000 USBD_CMPSIT_FS_ManufacturerStrDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:351    .text.USBD_CMPSIT_FS_ManufacturerStrDescriptor:00000014 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:357    .rodata.USBD_CMPSIT_FS_ProductStrDescriptor.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:361    .text.USBD_CMPSIT_FS_ProductStrDescriptor:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:367    .text.USBD_CMPSIT_FS_ProductStrDescriptor:00000000 USBD_CMPSIT_FS_ProductStrDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:414    .text.USBD_CMPSIT_FS_ProductStrDescriptor:0000001c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:420    .rodata.USBD_CMPSIT_FS_InterfaceStrDescriptor.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:424    .text.USBD_CMPSIT_FS_InterfaceStrDescriptor:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:430    .text.USBD_CMPSIT_FS_InterfaceStrDescriptor:00000000 USBD_CMPSIT_FS_InterfaceStrDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:477    .text.USBD_CMPSIT_FS_InterfaceStrDescriptor:0000001c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:483    .rodata.USBD_CMPSIT_FS_ConfigStrDescriptor.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:487    .text.USBD_CMPSIT_FS_ConfigStrDescriptor:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:493    .text.USBD_CMPSIT_FS_ConfigStrDescriptor:00000000 USBD_CMPSIT_FS_ConfigStrDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:540    .text.USBD_CMPSIT_FS_ConfigStrDescriptor:0000001c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:546    .text.USBD_CMPSIT_GetOtherSpeedCfgDesc:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:551    .text.USBD_CMPSIT_GetOtherSpeedCfgDesc:00000000 USBD_CMPSIT_GetOtherSpeedCfgDesc
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:664    .text.USBD_CMPSIT_GetOtherSpeedCfgDesc:00000068 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:669    .text.USBD_CMPSIT_GetFSCfgDesc:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:674    .text.USBD_CMPSIT_GetFSCfgDesc:00000000 USBD_CMPSIT_GetFSCfgDesc
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:787    .text.USBD_CMPSIT_GetFSCfgDesc:00000068 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:792    .text.USBD_CMPSIT_GetHSCfgDesc:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:797    .text.USBD_CMPSIT_GetHSCfgDesc:00000000 USBD_CMPSIT_GetHSCfgDesc
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:910    .text.USBD_CMPSIT_GetHSCfgDesc:00000068 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:915    .text.USBD_CMPSIT_AddClass:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:921    .text.USBD_CMPSIT_AddClass:00000000 USBD_CMPSIT_AddClass
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1076   .text.USBD_CMPST_ClearConfDesc:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1082   .text.USBD_CMPST_ClearConfDesc:00000000 USBD_CMPST_ClearConfDesc
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1096   .rodata.USBD_UsrStrDescriptor.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1103   .text.USBD_UsrStrDescriptor:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1109   .text.USBD_UsrStrDescriptor:00000000 USBD_UsrStrDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1199   .text.USBD_UsrStrDescriptor:0000003c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1286   .data.USBD_MS_OS_StringDescriptor:00000000 USBD_MS_OS_StringDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1224   .data.USBD_CMPSIT:00000000 USBD_CMPSIT
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1278   .data.USBD_CMPSIT_StringSerial:00000000 USBD_CMPSIT_StringSerial
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1218   .bss.USBD_CMPSIT_StrDesc:00000000 USBD_CMPSIT_StrDesc
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1271   .data.USBD_CMPSIT_LangIDDesc:00000000 USBD_CMPSIT_LangIDDesc
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s 			page 41
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:20     .text.USBD_CMPSIT_FS_DeviceDescriptor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:26     .text.USBD_CMPSIT_FS_DeviceDescriptor:00000000 USBD_CMPSIT_FS_DeviceDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:49     .text.USBD_CMPSIT_FS_DeviceDescriptor:00000008 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:54     .text.USBD_CMPSIT_FS_LangIDStrDescriptor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:60     .text.USBD_CMPSIT_FS_LangIDStrDescriptor:00000000 USBD_CMPSIT_FS_LangIDStrDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:82     .text.USBD_CMPSIT_FS_LangIDStrDescriptor:00000008 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:87     .text.IntToUnicode:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:92     .text.IntToUnicode:00000000 IntToUnicode
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:170    .text.Get_CMPSIT_SerialNum:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:175    .text.Get_CMPSIT_SerialNum:00000000 Get_CMPSIT_SerialNum
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:232    .text.Get_CMPSIT_SerialNum:00000030 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:238    .text.USBD_CMPSIT_FS_SerialStrDescriptor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:244    .text.USBD_CMPSIT_FS_SerialStrDescriptor:00000000 USBD_CMPSIT_FS_SerialStrDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:272    .text.USBD_CMPSIT_FS_SerialStrDescriptor:00000010 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:277    .text.USBD_CMPSIT_GetDeviceQualifierDescriptor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:283    .text.USBD_CMPSIT_GetDeviceQualifierDescriptor:00000000 USBD_CMPSIT_GetDeviceQualifierDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:304    .text.USBD_CMPSIT_GetDeviceQualifierDescriptor:00000008 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:309    .rodata.USBD_CMPSIT_FS_ManufacturerStrDescriptor.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:313    .text.USBD_CMPSIT_FS_ManufacturerStrDescriptor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:319    .text.USBD_CMPSIT_FS_ManufacturerStrDescriptor:00000000 USBD_CMPSIT_FS_ManufacturerStrDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:351    .text.USBD_CMPSIT_FS_ManufacturerStrDescriptor:00000014 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:357    .rodata.USBD_CMPSIT_FS_ProductStrDescriptor.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:361    .text.USBD_CMPSIT_FS_ProductStrDescriptor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:367    .text.USBD_CMPSIT_FS_ProductStrDescriptor:00000000 USBD_CMPSIT_FS_ProductStrDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:414    .text.USBD_CMPSIT_FS_ProductStrDescriptor:0000001c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:420    .rodata.USBD_CMPSIT_FS_InterfaceStrDescriptor.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:424    .text.USBD_CMPSIT_FS_InterfaceStrDescriptor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:430    .text.USBD_CMPSIT_FS_InterfaceStrDescriptor:00000000 USBD_CMPSIT_FS_InterfaceStrDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:477    .text.USBD_CMPSIT_FS_InterfaceStrDescriptor:0000001c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:483    .rodata.USBD_CMPSIT_FS_ConfigStrDescriptor.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:487    .text.USBD_CMPSIT_FS_ConfigStrDescriptor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:493    .text.USBD_CMPSIT_FS_ConfigStrDescriptor:00000000 USBD_CMPSIT_FS_ConfigStrDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:540    .text.USBD_CMPSIT_FS_ConfigStrDescriptor:0000001c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:546    .text.USBD_CMPSIT_GetOtherSpeedCfgDesc:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:551    .text.USBD_CMPSIT_GetOtherSpeedCfgDesc:00000000 USBD_CMPSIT_GetOtherSpeedCfgDesc
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:664    .text.USBD_CMPSIT_GetOtherSpeedCfgDesc:00000068 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:669    .text.USBD_CMPSIT_GetFSCfgDesc:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:674    .text.USBD_CMPSIT_GetFSCfgDesc:00000000 USBD_CMPSIT_GetFSCfgDesc
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:787    .text.USBD_CMPSIT_GetFSCfgDesc:00000068 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:792    .text.USBD_CMPSIT_GetHSCfgDesc:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:797    .text.USBD_CMPSIT_GetHSCfgDesc:00000000 USBD_CMPSIT_GetHSCfgDesc
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:910    .text.USBD_CMPSIT_GetHSCfgDesc:00000068 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:915    .text.USBD_CMPSIT_AddClass:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:921    .text.USBD_CMPSIT_AddClass:00000000 USBD_CMPSIT_AddClass
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1076   .text.USBD_CMPST_ClearConfDesc:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1082   .text.USBD_CMPST_ClearConfDesc:00000000 USBD_CMPST_ClearConfDesc
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1096   .rodata.USBD_UsrStrDescriptor.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1103   .text.USBD_UsrStrDescriptor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1109   .text.USBD_UsrStrDescriptor:00000000 USBD_UsrStrDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1199   .text.USBD_UsrStrDescriptor:0000003c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1286   .data.USBD_MS_OS_StringDescriptor:00000000 USBD_MS_OS_StringDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1224   .data.USBD_CMPSIT:00000000 USBD_CMPSIT
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1278   .data.USBD_CMPSIT_StringSerial:00000000 USBD_CMPSIT_StringSerial
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1218   .bss.USBD_CMPSIT_StrDesc:00000000 USBD_CMPSIT_StrDesc
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1271   .data.USBD_CMPSIT_LangIDDesc:00000000 USBD_CMPSIT_LangIDDesc
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s 			page 41
 
 
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1263   .data.USBD_CMPSIT_FS_DeviceDesc:00000000 USBD_CMPSIT_FS_DeviceDesc
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1292   .data.usbCmpsitFS_Desc:00000000 usbCmpsitFS_Desc
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1214   .bss.USBD_CMPSIT_StrDesc:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1221   .data.USBD_CMPSIT:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1241   .data.USBD_CMPSIT_CfgDesc:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1245   .data.USBD_CMPSIT_CfgDesc:00000000 USBD_CMPSIT_CfgDesc
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1252   .data.USBD_CMPSIT_DeviceQualifierDesc:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1256   .data.USBD_CMPSIT_DeviceQualifierDesc:00000000 USBD_CMPSIT_DeviceQualifierDesc
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1259   .data.USBD_CMPSIT_FS_DeviceDesc:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1267   .data.USBD_CMPSIT_LangIDDesc:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1274   .data.USBD_CMPSIT_StringSerial:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1282   .data.USBD_MS_OS_StringDescriptor:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccAIXwWK.s:1289   .data.usbCmpsitFS_Desc:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1263   .data.USBD_CMPSIT_FS_DeviceDesc:00000000 USBD_CMPSIT_FS_DeviceDesc
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1292   .data.usbCmpsitFS_Desc:00000000 usbCmpsitFS_Desc
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1214   .bss.USBD_CMPSIT_StrDesc:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1221   .data.USBD_CMPSIT:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1241   .data.USBD_CMPSIT_CfgDesc:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1245   .data.USBD_CMPSIT_CfgDesc:00000000 USBD_CMPSIT_CfgDesc
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1252   .data.USBD_CMPSIT_DeviceQualifierDesc:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1256   .data.USBD_CMPSIT_DeviceQualifierDesc:00000000 USBD_CMPSIT_DeviceQualifierDesc
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1259   .data.USBD_CMPSIT_FS_DeviceDesc:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1267   .data.USBD_CMPSIT_LangIDDesc:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1274   .data.USBD_CMPSIT_StringSerial:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1282   .data.USBD_MS_OS_StringDescriptor:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccVFasJj.s:1289   .data.usbCmpsitFS_Desc:00000000 $d
 
 UNDEFINED SYMBOLS
 USBD_GetString

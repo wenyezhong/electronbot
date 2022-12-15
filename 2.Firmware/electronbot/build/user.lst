@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
   41              		.cfi_offset 4, -12
   42              		.cfi_offset 5, -8
   43              		.cfi_offset 14, -4
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 2
 
 
   44 0002 0546     		mov	r5, r0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
   54:user/robot.h  ****             // electron.SetJointInitAngle(electron.joint[ANY], 0);
   55:user/robot.h  ****             // electron.SetJointKp(electron.joint[ANY], 50);
   56:user/robot.h  ****             // electron.SetJointKi(electron.joint[ANY], 0.8);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 3
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 3
 
 
   57:user/robot.h  ****             // electron.SetJointKd(electron.joint[ANY], 600);
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  111:user/robot.h  ****         };
  112:user/robot.h  **** 
  113:user/robot.h  ****         joint[6] = JointStatus_t{ // Body
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 4
 
 
  114:user/robot.h  ****             12,
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
   18:user/robot.h  **** 
   79              		.loc 1 18 9 is_stmt 1 discriminator 2 view .LVU11
   18:user/robot.h  **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 5
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 5
 
 
   80              		.loc 1 18 35 is_stmt 0 discriminator 2 view .LVU12
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  115              		.loc 1 28 18 is_stmt 0 discriminator 2 view .LVU21
  116 005c 05F1200C 		add	ip, r5, #32
  117 0060 04F11C0E 		add	lr, r4, #28
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 6
 
 
  118 0064 BEE80F00 		ldmia	lr!, {r0, r1, r2, r3}
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  162              	.LBE9:
  130:user/robot.h  **** 
  163              		.loc 1 130 5 discriminator 2 view .LVU32
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 7
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 7
 
 
  164 00ec 2846     		mov	r0, r5
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
   30:user/user.cpp **** 
   31:user/user.cpp **** void setPara(uint8_t *ptr)
   32:user/user.cpp **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 8
 
 
   33:user/user.cpp ****     // Robot::JointStatus_t *pJointStatus;
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
   87:user/user.cpp ****     
   88:user/user.cpp ****     for(int i=0 ; i<32; i++)
   89:user/user.cpp ****         printf("%.2x ",ptr[i]);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 9
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 9
 
 
   90:user/user.cpp ****     printf("\r\n");
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  144:user/user.cpp ****         }
  145:user/user.cpp ****         else if(ptr[31] == 0xef)
  146:user/user.cpp ****         {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 10
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 10
 
 
  147:user/user.cpp ****             setAngle(ptr);
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  201:user/user.cpp ****                 /* electron.SetJointEnable(electron.joint[1], isEnabled);
  202:user/user.cpp ****                 electron.SetJointEnable(electron.joint[2], isEnabled);
  203:user/user.cpp ****                 electron.SetJointEnable(electron.joint[3], isEnabled);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 11
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 11
 
 
  204:user/user.cpp ****                 electron.SetJointEnable(electron.joint[4], isEnabled);
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  197 0004 7047     		bx	lr
  198              	.L14:
  199              		.loc 3 250 1 discriminator 1 view .LVU36
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 12
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 12
 
 
  200 0006 08B5     		push	{r3, lr}
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  252              	setPara:
  253              		.fnstart
  254              	.LVL15:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 13
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 13
 
 
  255              	.LFB371:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
   39:user/user.cpp ****     setTq=*((float*) (ptr + 22));
  297              		.loc 3 39 5 is_stmt 1 view .LVU55
   39:user/user.cpp ****     setTq=*((float*) (ptr + 22));
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 14
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 14
 
 
  298              		.loc 3 39 10 is_stmt 0 view .LVU56
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  338 0054 295D     		ldrb	r1, [r5, r4]	@ zero_extendqisi2
  339 0056 3748     		ldr	r0, .L33+40
  340 0058 FFF7FEFF 		bl	printf
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 15
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 15
 
 
  341              	.LVL19:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
   68:user/user.cpp ****     if(setkd_flag)
  380              		.loc 3 68 5 view .LVU86
  381 007e 53BB     		cbnz	r3, .L31
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 16
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 16
 
 
  382              	.L24:
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  424              	.L30:
   67:user/user.cpp ****         electron.SetJointKv(electron.joint[id/2], setKv);
  425              		.loc 3 67 9 is_stmt 1 view .LVU99
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 17
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 17
 
 
   67:user/user.cpp ****         electron.SetJointKv(electron.joint[id/2], setKv);
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
   80:user/user.cpp **** }
  469              		.loc 3 80 1 view .LVU111
  470 0108 BDE7     		b	.L18
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 18
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 18
 
 
  471              	.L34:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
   85:user/user.cpp ****     jointSetPoints[id/2] = *((float*) (ptr + 1));
  522              		.loc 3 85 22 is_stmt 0 view .LVU117
  523 000a 7608     		lsrs	r6, r6, #1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 19
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 19
 
 
  524              	.LVL32:
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  566              	.LVL38:
  103:user/user.cpp ****     electron.UpdateJointAngle(electron.joint[id/2], jointSetPoints[id/2]);
  567              		.loc 3 103 5 is_stmt 1 view .LVU130
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 20
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 20
 
 
  103:user/user.cpp ****     electron.UpdateJointAngle(electron.joint[id/2], jointSetPoints[id/2]);
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  617              	.LFB373:
  107:user/user.cpp **** {
  618              		.loc 3 107 1 is_stmt 1 view -0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 21
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 21
 
 
  619              		.cfi_startproc
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  663              		.section	.text._Z12setInitAnglePh,"ax",%progbits
  664              		.align	1
  665              		.global	_Z12setInitAnglePh
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 22
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 22
 
 
  666              		.syntax unified
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  118:user/user.cpp ****         printf("%.2x ",ptr[i]);
  711              		.loc 3 118 15 is_stmt 0 discriminator 2 view .LVU160
  712 001a 295D     		ldrb	r1, [r5, r4]	@ zero_extendqisi2
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 23
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 23
 
 
  713 001c 0C48     		ldr	r0, .L51+4
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  759 0000 7461736B 		.ascii	"task\015\000"
  759      0D00
  760              		.section	.text.Main,"ax",%progbits
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 24
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 24
 
 
  761              		.align	1
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  130:user/user.cpp ****     for(int i=0;i<32;i++)
  807              		.loc 3 130 5 is_stmt 1 view .LVU179
  808              	.LBB17:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 25
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 25
 
 
  130:user/user.cpp ****     for(int i=0;i<32;i++)
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  848 0046 FFF7FEFF 		bl	_ZN5Robot27ReceiveUsbPacketUntilSizeIsEm
  849              	.LVL65:
  139:user/user.cpp ****         uint8_t* ptr = electron.GetExtraDataRxPtr();
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 26
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 26
 
 
  850              		.loc 3 139 9 is_stmt 1 view .LVU195
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  889              		.loc 3 152 19 is_stmt 0 view .LVU210
  890 0070 FFF7FEFF 		bl	_Z5setidPh
  891              	.LVL72:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 27
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 27
 
 
  152:user/user.cpp ****              setid(ptr);         
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  940 000c 00000000 		.word	.LANCHOR1
  941              		.cfi_endproc
  942              	.LFE376:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 28
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 28
 
 
  943              		.cantunwind
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  1000 000c 0000B442 		.word	1119092736
  1001 0010 00000000 		.word	0
  1002 0014 00000000 		.word	0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 29
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 29
 
 
  1003 0018 00       		.byte	0
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  1057 00a9 000000   		.space	3
  1058 00ac 00000000 		.word	0
  1059 00b0 00003443 		.word	1127481344
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 30
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 30
 
 
  1060 00b4 00000000 		.word	0
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  1124              	setTq:
  1125 0000 00000000 		.space	4
  1126              		.section	.bss.setkd_flag,"aw",%nobits
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 31
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 31
 
 
  1127              		.set	.LANCHOR10,. + 0
@@ -1845,83 +1845,83 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 1
  1178              		.file 24 "Inc/i2c.h"
  1179              		.file 25 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
  1180              		.file 26 "<built-in>"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 32
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 32
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 user.cpp
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:20     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:26     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 _ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:171    .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:000000f0 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:20     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:26     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 _ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:171    .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:000000f0 $d
 .ARM.exidx.text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:26     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 _ZN5RobotC1EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:180    .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:185    .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:230    .text._Z41__static_initialization_and_destruction_0ii:00000020 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:26     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 _ZN5RobotC1EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:180    .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:185    .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:230    .text._Z41__static_initialization_and_destruction_0ii:00000020 $d
 .ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:239    .rodata.setPara.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:246    .text.setPara:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:252    .text.setPara:00000000 setPara
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:474    .text.setPara:0000010c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:239    .rodata.setPara.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:246    .text.setPara:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:252    .text.setPara:00000000 setPara
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:474    .text.setPara:0000010c $d
           .ARM.exidx.text.setPara:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:492    .text.setAngle:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:498    .text.setAngle:00000000 setAngle
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:598    .text.setAngle:00000068 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:492    .text.setAngle:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:498    .text.setAngle:00000000 setAngle
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:598    .text.setAngle:00000068 $d
          .ARM.exidx.text.setAngle:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:608    .text._Z5setidPh:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:614    .text._Z5setidPh:00000000 _Z5setidPh
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:657    .text._Z5setidPh:00000020 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:608    .text._Z5setidPh:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:614    .text._Z5setidPh:00000000 _Z5setidPh
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:657    .text._Z5setidPh:00000020 $d
        .ARM.extab.text._Z5setidPh:00000000 $d
        .ARM.exidx.text._Z5setidPh:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:664    .text._Z12setInitAnglePh:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:670    .text._Z12setInitAnglePh:00000000 _Z12setInitAnglePh
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:748    .text._Z12setInitAnglePh:0000004c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:664    .text._Z12setInitAnglePh:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:670    .text._Z12setInitAnglePh:00000000 _Z12setInitAnglePh
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:748    .text._Z12setInitAnglePh:0000004c $d
 .ARM.exidx.text._Z12setInitAnglePh:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:757    .rodata.Main.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:761    .text.Main:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:767    .text.Main:00000000 Main
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:905    .text.Main:0000007c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:757    .rodata.Main.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:761    .text.Main:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:767    .text.Main:00000000 Main
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:905    .text.Main:0000007c $d
              .ARM.exidx.text.Main:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:913    .text.HAL_SPI_TxCpltCallback:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:919    .text.HAL_SPI_TxCpltCallback:00000000 HAL_SPI_TxCpltCallback
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:940    .text.HAL_SPI_TxCpltCallback:0000000c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:913    .text.HAL_SPI_TxCpltCallback:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:919    .text.HAL_SPI_TxCpltCallback:00000000 HAL_SPI_TxCpltCallback
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:940    .text.HAL_SPI_TxCpltCallback:0000000c $d
 .ARM.exidx.text.HAL_SPI_TxCpltCallback:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:947    .text._GLOBAL__sub_I_electron:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:952    .text._GLOBAL__sub_I_electron:00000000 _GLOBAL__sub_I_electron
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:947    .text._GLOBAL__sub_I_electron:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:952    .text._GLOBAL__sub_I_electron:00000000 _GLOBAL__sub_I_electron
 .ARM.exidx.text._GLOBAL__sub_I_electron:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:976    .init_array:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1089   .bss.newid:00000000 newid
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1154   .bss.settq_flag:00000000 settq_flag
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1130   .bss.setkd_flag:00000000 setkd_flag
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1148   .bss.setkv_flag:00000000 setkv_flag
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1136   .bss.setki_flag:00000000 setki_flag
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1142   .bss.setkp_flag:00000000 setkp_flag
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1124   .bss.setTq:00000000 setTq
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1096   .bss.setKd:00000000 setKd
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1117   .bss.setKv:00000000 setKv
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1103   .bss.setKi:00000000 setKi
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1110   .bss.setKp:00000000 setKp
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1076   .bss.isEnabled:00000000 isEnabled
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1083   .bss.jointSetPoints:00000000 jointSetPoints
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1070   .bss.electron:00000000 electron
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:993    .rodata:00000000 $d
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s 			page 33
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:976    .init_array:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1089   .bss.newid:00000000 newid
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1154   .bss.settq_flag:00000000 settq_flag
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1130   .bss.setkd_flag:00000000 setkd_flag
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1148   .bss.setkv_flag:00000000 setkv_flag
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1136   .bss.setki_flag:00000000 setki_flag
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1142   .bss.setkp_flag:00000000 setkp_flag
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1124   .bss.setTq:00000000 setTq
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1096   .bss.setKd:00000000 setKd
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1117   .bss.setKv:00000000 setKv
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1103   .bss.setKi:00000000 setKi
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1110   .bss.setKp:00000000 setKp
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1076   .bss.isEnabled:00000000 isEnabled
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1083   .bss.jointSetPoints:00000000 jointSetPoints
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1070   .bss.electron:00000000 electron
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:993    .rodata:00000000 $d
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s 			page 33
 
 
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1066   .bss.electron:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1077   .bss.isEnabled:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1079   .bss.jointSetPoints:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1090   .bss.newid:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1092   .bss.setKd:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1099   .bss.setKi:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1106   .bss.setKp:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1113   .bss.setKv:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1120   .bss.setTq:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1131   .bss.setkd_flag:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1137   .bss.setki_flag:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1143   .bss.setkp_flag:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1149   .bss.setkv_flag:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccOzSeLB.s:1155   .bss.settq_flag:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1066   .bss.electron:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1077   .bss.isEnabled:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1079   .bss.jointSetPoints:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1090   .bss.newid:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1092   .bss.setKd:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1099   .bss.setKi:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1106   .bss.setKp:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1113   .bss.setKv:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1120   .bss.setTq:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1131   .bss.setkd_flag:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1137   .bss.setki_flag:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1143   .bss.setkp_flag:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1149   .bss.setkv_flag:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cc1qObNe.s:1155   .bss.settq_flag:00000000 $d
                            .group:00000000 _ZN5RobotC5EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
 
 UNDEFINED SYMBOLS

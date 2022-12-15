@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //recvUSB_Timer->start(500);
     electronbot_usb = new commUSB;
     //electronbot_usb->print_dev();
-    electronbot_usb->openElectronbotUSB(0x1213,0x0D39);
+    electronbot_usb->openElectronbotUSB(0x1214,0x0D3a);
 
 
     readUsbTread = new Thread;
@@ -42,7 +42,7 @@ void MainWindow::reconnectElectronbotUSB(void)
     electronbot_usb->CloseElectronbotUSB();
     delete electronbot_usb;
     electronbot_usb = new commUSB;
-    electronbot_usb->openElectronbotUSB(0x1213,0x0D39);
+    electronbot_usb->openElectronbotUSB(0x1214,0x0D3a);
 
 }
 void MainWindow::recUsbDatas(BYTE* ptr)

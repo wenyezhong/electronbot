@@ -1305,7 +1305,7 @@ public:
 
         horizontalLayoutWidget = new QWidget(tab);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(0, 312, 831, 31));
+        horizontalLayoutWidget->setGeometry(QRect(0, 312, 831, 73));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -1557,7 +1557,7 @@ public:
         label_30->setText(QApplication::translate("MainWindow", "Tq:", nullptr));
         checkBox_rpitch_tq->setText(QString());
         pushButton_rpitch->setText(QApplication::translate("MainWindow", "\350\256\276\347\275\256", nullptr));
-        groupBox->setTitle(QApplication::translate("MainWindow", "body", nullptr));
+        groupBox->setTitle(QApplication::translate("MainWindow", "Body", nullptr));
         label_31->setText(QApplication::translate("MainWindow", "Kp:", nullptr));
         checkBox_body_kp->setText(QString());
         label_32->setText(QApplication::translate("MainWindow", "Ki:", nullptr));

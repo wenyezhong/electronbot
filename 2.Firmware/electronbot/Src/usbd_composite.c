@@ -16,10 +16,10 @@
 
 
 #if 1
-#define USBD_CMPSIT_VID     0x1213
+#define USBD_CMPSIT_VID     0x1214
 #define USBD_CMPSIT_LANGID_STRING     1033
 #define USBD_CMPSIT_MANUFACTURER_STRING     "wenyz@wolfGroup"
-#define USBD_CMPSIT_PID_FS     0x0D39
+#define USBD_CMPSIT_PID_FS     0x0D3A
 #define USBD_CMPSIT_PRODUCT_STRING_FS     "STM32 composite product"
 #define USBD_CMPSIT_CONFIGURATION_STRING_FS     "Composite Config"
 #define USBD_CMPSIT_INTERFACE_STRING_FS     "Composite Interface"
