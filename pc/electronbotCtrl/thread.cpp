@@ -17,6 +17,6 @@ void Thread::run()
             //qDebug("tttttt");
             emit sendRecDat(a);
         }
-        QThread::usleep(1000000);
+        QThread::usleep(5);
     }
 }

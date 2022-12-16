@@ -259,7 +259,7 @@ void Robot::UpdateJointAngle(Robot::JointStatus_t &_joint, float _angleSetPoint)
 
     // UpdateServoAngle(_joint, sAngle);
     UpdateServoAngle(_joint, _angleSetPoint);
-    printf("id=%d\r\n",_joint.id);
+    // printf("id=%d\r\n",_joint.id);
 
     /* float jAngle = _joint.inverted ?
                    (_joint.angleMax - _joint.angle) /

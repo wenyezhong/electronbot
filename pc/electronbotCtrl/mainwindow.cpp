@@ -10,6 +10,14 @@
 #include "thread.h"
 
 
+#include<QPainter>
+#include<QPixmap>
+#include<QRect>
+#include<QImage>
+
+
+
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -23,12 +31,24 @@ MainWindow::MainWindow(QWidget *parent) :
     //recvUSB_Timer->start(500);
     electronbot_usb = new commUSB;
     //electronbot_usb->print_dev();
-    electronbot_usb->openElectronbotUSB(0x1214,0x0D3a);
+    bool ret=electronbot_usb->openElectronbotUSB(0x1214,0x0D3a);
+    if(ret)
+    {
+        ui->statusBar->showMessage(tr("已连接"));
+        ui->statusBar->setStyleSheet("background-color: rgb(0, 170, 0)");
+    }
+    else
+    {
+        ui->statusBar->showMessage(tr("未连接"));
+        ui->statusBar->setStyleSheet("background-color: rgb(213, 0, 0)");
+    }
 
 
     readUsbTread = new Thread;
     connect(readUsbTread,SIGNAL(sendRecDat(BYTE*)),this,SLOT(recUsbDatas(BYTE*)));
     readUsbTread->start();
+
+
 }
 
 MainWindow::~MainWindow()
@@ -48,8 +68,22 @@ void MainWindow::reconnectElectronbotUSB(void)
 void MainWindow::recUsbDatas(BYTE* ptr)
 {
     int i;
+    float head_angle=*(float*)&ptr[1];
+    float lroll_angle=*(float*)&ptr[5];
+    float lpitch_angle=*(float*)&ptr[9];
+    float rroll_angle=*(float*)&ptr[13];
+    float rpitch_angle=*(float*)&ptr[17];
+    float body_angle=*(float*)&ptr[21];
     for(i=0;i<32;i++)
         qDebug("%x ",ptr[i]);
+    QString val;
+
+    ui->lineEdit_head_angle->setText(QString::number(head_angle,'f',2));
+    ui->lineEdit_lroll_angle->setText(QString::number(lroll_angle,'f',2));
+    ui->lineEdit_lpitch_angle->setText(QString::number(lpitch_angle,'f',2));
+    ui->lineEdit_rroll_angle->setText(QString::number(rroll_angle,'f',2));
+    ui->lineEdit_rpitch_angle->setText(QString::number(rpitch_angle,'f',2));
+    ui->lineEdit_body_angle->setText(QString::number(body_angle,'f',2));
 }
 void MainWindow::sendPacket(void)
 {
@@ -60,6 +94,7 @@ void MainWindow::sendPacket(void)
     for(sendcnt=0 ; sendcnt<fullPackets;sendcnt++)
     {
         electronbot_usb->WriteElectronbotUSB(txData+ONCE_SIZE*sendcnt,ONCE_SIZE);
+//        Sleep(50);
     }
     if(lastSize)
     {
@@ -69,23 +104,46 @@ void MainWindow::sendPacket(void)
 }
 void MainWindow::on_pushButton_clicked()
 {
-    int ret;
-    uint8_t buf[512];
-    buf[0] = 0x12;
-    buf[1] = 0x13;
-    buf[2] = 0x14;
-    buf[3] = 0x15;
-//    electronbot_usb->ReadElectronbotUSB(buf,32);
-    ret=electronbot_usb->WriteElectronbotUSB(buf,512);
-    electronbot_usb->WriteElectronbotUSB(buf,512);
-    electronbot_usb->WriteElectronbotUSB(buf,512);
-    electronbot_usb->WriteElectronbotUSB(buf,224);
-    if(ret<0)
+
+    QPixmap *backgroundPixmap = new QPixmap("D:/gnuArm/electronbot/robot2.jpg");
+    QGraphicsScene *scene = new QGraphicsScene(this);
+    //scene->addPixmap(QPixmap("D:/gnuArm/electronbot/robot2.jpg"));
+
+    ui->graphicsView->resize(240, 240);
+    ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    QPixmap sized = backgroundPixmap->scaled(
+            QSize(ui->graphicsView->width(),
+                  ui->graphicsView->height()),
+            Qt::KeepAspectRatio); // This scales the image too tall
+
+    QImage sizedImage = QImage(sized.toImage());
+
+    //QImage sizedCroppedImage = QImage(sizedImage.copy(0,0,
+    //   (ui->graphicsView->width() - 1.5),
+    //   (ui->graphicsView->height() + 19)));
+
+
+    scene->addPixmap(QPixmap::fromImage(sizedImage));
+    ui->graphicsView->setScene(scene);
+    qDebug()<<"h:"<<ui->graphicsView->height()<<"w: "<<ui->graphicsView->width();
+    qDebug()<<"h:"<<sizedImage.height()<<"w: "<<sizedImage.width();
+
+    //scene->
+    //ui->graphicsView->
+    uint8_t *ptr=(uint8_t *)malloc(1024*1024);//[=(uint8_t*)sizedImage.data_ptr();
+    memcpy(ptr,sizedImage.data_ptr(),240*240*3);
+    //memset(ptr,100,1024*1024);
+    for(int i=0;i<4;i++)
     {
-        qDebug("reconnect!");
-        reconnectElectronbotUSB();
+        txData[PAR_INDEX+31] = 0x01;
+        memcpy(txData,ptr+i*240*60*3,60*240*3);
+        sendPacket();
+        Sleep(10);
     }
-    //usb->test_my_usb_devices(0x1209,0x0d32);
+    free(ptr);
+    //ui->graphicsView->show();
 }
 void MainWindow::RecvUSBTask()
 {
@@ -105,7 +163,7 @@ void MainWindow::on_openFile_clicked()
     else
     {
         //QMessageBox::information(NULL, tr("Path"), tr("You selected ") + fileName);
-        ui->pathTextEdit->setText(fileName);
+        ui->lineEdit_path->setText(fileName);
     }
 
 
@@ -115,7 +173,7 @@ void MainWindow::on_sendFile_clicked()
 {
     uint8_t buf[512];
     int i;
-    QString fileName=ui->pathTextEdit->toPlainText();
+    QString fileName=ui->lineEdit_path->text();
     QFile file(fileName);//与文件建立联系
     if(!file.exists())//判断是否建立成功
     {

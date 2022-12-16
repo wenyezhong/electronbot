@@ -47,7 +47,7 @@ void commUSB::print_dev(void)
         }
     }
 }
-void commUSB::openElectronbotUSB(int vid,int pid)
+bool commUSB::openElectronbotUSB(int vid,int pid)
 {
     libusb_device *dev;
     int bus;
@@ -61,7 +61,7 @@ void commUSB::openElectronbotUSB(int vid,int pid)
      if (handle == NULL)
      {
          qDebug("open devices failed");
-         return;
+         return false;
      }
      else
      {
@@ -73,7 +73,7 @@ void commUSB::openElectronbotUSB(int vid,int pid)
          qDebug("libusb_get_device failed");
          libusb_close (handle);
          handle = NULL;
-         return;
+         return false;
      }
      else
      {
@@ -90,6 +90,7 @@ void commUSB::openElectronbotUSB(int vid,int pid)
      if(err)
      {
          qDebug("libusb_get_config_descriptor  err with %d", err);
+         return false;
      }
      else
      {
@@ -116,36 +117,11 @@ void commUSB::openElectronbotUSB(int vid,int pid)
          }
      }
 
-
      //nb_ifaces = conf_desc->bNumInterfaces;
      //nb_ifaces==108?endpoint_num=conf_desc->interface[107].altsetting[0].bNumEndpoints:endpoint_num=0;
      //qDebug()<<"electronbot usb have "<<nb_ifaces<<"interfaces";
 
-     /*//for(i = 1; i<nb_ifaces;i++ )
-     {
-         endpoint_num=conf_desc->interface->altsetting->bNumEndpoints;
-         qDebug()<<"endpoint_num: "<<endpoint_num;
-         for(j=0;j<endpoint_num;j++)
-          {
 
-              endpoint= &conf_desc->interface[i].altsetting[0].endpoint[j];
-              //if ((endpoint->bmAttributes & LIBUSB_TRANSFER_TYPE_MASK) & (LIBUSB_TRANSFER_TYPE_BULK | LIBUSB_TRANSFER_TYPE_INTERRUPT))
-              if ((endpoint->bmAttributes & LIBUSB_TRANSFER_TYPE_MASK) & (LIBUSB_TRANSFER_TYPE_BULK))
-              {
-                 qDebug("bEndpointAddress = %x",endpoint->bEndpointAddress);
-                 if(endpoint->bEndpointAddress == 0x83)
-                 {
-                     iface_index = i;
-                     break;
-                 }
-
-              }
-              if(iface_index != 0xff)
-                  break;
-          }
-     }*/
-
-     //
 
      /*for(i=0;i<endpoint_num;i++)
      {
@@ -184,7 +160,16 @@ void commUSB::openElectronbotUSB(int vid,int pid)
      libusb_set_auto_detach_kernel_driver(handle, 1);
      /*为指定的设备申请接口*/
      res=libusb_claim_interface(handle, iface_index);
-     res<0?qDebug("=======================claim interface error"):qDebug("=========================claim interface success");
+     if(res<0)
+     {
+         qDebug("=======================claim interface error");
+         return false;
+     }
+     else
+     {
+         qDebug("=========================claim interface success");
+         return true;
+     }
 
 }
 void commUSB::CloseElectronbotUSB(void)

@@ -3,7 +3,7 @@
 
 void Screen::Init(Orientation_t _orientation)
 {
-    
+    // LCD_CS_GPIO_Port->BSRR = (uint32_t) LCD_CS_Pin << 16U;
     ChipSelect(true);
 
     HAL_Delay(5);
@@ -279,6 +279,7 @@ void Screen::Init(Orientation_t _orientation)
 
 void Screen::SetWindow(uint16_t _startX, uint16_t _endX, uint16_t _startY, uint16_t _endY)
 {
+    SetDataOrCommand(false);
     ChipSelect(true);
 
     uint8_t data[4];
@@ -304,15 +305,16 @@ void Screen::SetWindow(uint16_t _startX, uint16_t _endX, uint16_t _startY, uint1
 void Screen::WriteFrameBuffer(uint8_t* _buffer, uint32_t _len, bool _isAppend)
 {
     isBusy = true;
-
+    SetDataOrCommand(false);
     ChipSelect(true);
     _isAppend ?
     WriteCommand(0x3C) : // MEM_WR_CONT
     WriteCommand(0x2C);  // MEM_WR
     WriteData(_buffer, _len, true);
-
+    while (isBusy);
     // need to wait DMA transmit finish if used DMA
     ChipSelect(false);
+
 }
 
 
@@ -341,6 +343,7 @@ void Screen::WriteCommand(uint8_t _cmd)
 {
     SetDataOrCommand(false);
     HAL_SPI_Transmit(spi, &_cmd, 1, 100);
+    SetDataOrCommand(true);
 }
 
 

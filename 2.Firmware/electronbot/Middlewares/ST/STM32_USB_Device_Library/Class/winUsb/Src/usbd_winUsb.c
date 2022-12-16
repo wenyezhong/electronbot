@@ -574,10 +574,10 @@ uint8_t WinUsb_Transmit_FS(uint8_t* Buf, uint16_t Len)
 static int8_t WinUsb_Receive_FS(uint8_t* Buf, uint32_t *Len)
 {
   /* USER CODE BEGIN 6 */
-  // int i;
-  /*for(i=0 ; i<*Len; i++)
+  /* int i;
+  for(i=0 ; i<*Len; i++)
     printf("%.2x ",Buf[i]);
-  printf("\r\n");*/
+  printf("\r\n"); */
   // printf("len =%ld\r\n",*Len);
 
   usbBuffer.receivedPacketLen = *Len;

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
   27:Src/usbd_desc.c **** 
   28:Src/usbd_desc.c **** /* USER CODE END INCLUDE */
   29:Src/usbd_desc.c **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 2
 
 
   30:Src/usbd_desc.c **** /* Private typedef -----------------------------------------------------------*/
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
   84:Src/usbd_desc.c **** 
   85:Src/usbd_desc.c **** /* USER CODE END 0 */
   86:Src/usbd_desc.c **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 3
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 3
 
 
   87:Src/usbd_desc.c **** /** @defgroup USBD_DESC_Private_Macros USBD_DESC_Private_Macros
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  141:Src/usbd_desc.c **** , USBD_HS_LangIDStrDescriptor
  142:Src/usbd_desc.c **** , USBD_HS_ManufacturerStrDescriptor
  143:Src/usbd_desc.c **** , USBD_HS_ProductStrDescriptor
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 4
 
 
  144:Src/usbd_desc.c **** , USBD_HS_SerialStrDescriptor
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  198:Src/usbd_desc.c ****   0x7,
  199:Src/usbd_desc.c ****   USB_DEVICE_CAPABITY_TYPE,
  200:Src/usbd_desc.c ****   0x2,
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 5
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 5
 
 
  201:Src/usbd_desc.c ****   0x2,  /*LPM capability bit set */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  255:Src/usbd_desc.c ****   * @param  speed : Current device speed
  256:Src/usbd_desc.c ****   * @param  length : Pointer to data length variable
  257:Src/usbd_desc.c ****   * @retval Pointer to descriptor buffer
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 6
 
 
  258:Src/usbd_desc.c ****   */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  275:Src/usbd_desc.c ****   *length = sizeof(USBD_LangIDDesc);
   69              		.loc 1 275 3 view .LVU9
   70              		.loc 1 275 11 is_stmt 0 view .LVU10
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 7
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 7
 
 
   71 0000 0423     		movs	r3, #4
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  308:Src/usbd_desc.c ****   return USBD_StrDesc;
  309:Src/usbd_desc.c **** }
  310:Src/usbd_desc.c **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 8
 
 
  311:Src/usbd_desc.c **** /**
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  365:Src/usbd_desc.c ****     USBD_GetString((uint8_t *)USBD_INTERFACE_STRING_HS, USBD_StrDesc, length);
  366:Src/usbd_desc.c ****   }
  367:Src/usbd_desc.c ****   return USBD_StrDesc;
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 9
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 9
 
 
  368:Src/usbd_desc.c **** }
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  417:Src/usbd_desc.c **** 
  418:Src/usbd_desc.c ****   for (idx = 0; idx < len; idx++)
  100              		.loc 1 418 3 view .LVU16
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 10
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 10
 
 
  101              		.loc 1 418 12 is_stmt 0 view .LVU17
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  138 0026 DBB2     		uxtb	r3, r3
  139              	.LVL8:
  418:Src/usbd_desc.c ****   {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 11
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 11
 
 
  140              		.loc 1 418 17 is_stmt 1 discriminator 2 view .LVU33
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  186              		.cfi_offset 5, -8
  187              		.cfi_offset 14, -4
  392:Src/usbd_desc.c **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 12
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 12
 
 
  188              		.loc 1 392 3 view .LVU44
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  228 002c F2E7     		b	.L17
  229              	.L22:
  230 002e 00BF     		.align	2
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 13
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 13
 
 
  231              	.L21:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  279      32204D61 
  279      73732053 
  279      746F7261 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 14
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 14
 
 
  279      676500
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  323              		.loc 1 293 5 is_stmt 0 view .LVU77
  324 0014 0248     		ldr	r0, .L31+4
  325              	.LVL25:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 15
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 15
 
 
  293:Src/usbd_desc.c ****   }
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  371              	.LVL29:
  307:Src/usbd_desc.c ****   return USBD_StrDesc;
  372              		.loc 1 307 3 view .LVU85
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 16
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 16
 
 
  373 000a FFF7FEFF 		bl	USBD_GetString
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  419 0008 0548     		ldr	r0, .L41+4
  420              	.LVL33:
  342:Src/usbd_desc.c ****   }
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 17
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 17
 
 
  421              		.loc 1 342 5 view .LVU94
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  467              		@ frame_needed = 0, uses_anonymous_args = 0
  358:Src/usbd_desc.c ****   if(speed == 0)
  468              		.loc 1 358 1 is_stmt 0 view .LVU102
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 18
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 18
 
 
  469 0000 08B5     		push	{r3, lr}
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  513              		.global	USBD_StringSerial
  514              		.global	USBD_StrDesc
  515              		.global	USBD_LangIDDesc
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 19
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 19
 
 
  516              		.global	USBD_HS_DeviceDesc
@@ -1133,51 +1133,51 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 1
  564              		.file 4 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
  565              		.file 5 "Inc/usbd_desc.h"
  566              		.file 6 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s 			page 20
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s 			page 20
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usbd_desc.c
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:20     .text.USBD_HS_DeviceDescriptor:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:26     .text.USBD_HS_DeviceDescriptor:00000000 USBD_HS_DeviceDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:49     .text.USBD_HS_DeviceDescriptor:00000008 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:54     .text.USBD_HS_LangIDStrDescriptor:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:60     .text.USBD_HS_LangIDStrDescriptor:00000000 USBD_HS_LangIDStrDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:82     .text.USBD_HS_LangIDStrDescriptor:00000008 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:87     .text.IntToUnicode:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:92     .text.IntToUnicode:00000000 IntToUnicode
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:170    .text.Get_SerialNum:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:175    .text.Get_SerialNum:00000000 Get_SerialNum
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:232    .text.Get_SerialNum:00000030 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:238    .text.USBD_HS_SerialStrDescriptor:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:244    .text.USBD_HS_SerialStrDescriptor:00000000 USBD_HS_SerialStrDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:272    .text.USBD_HS_SerialStrDescriptor:00000010 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:277    .rodata.USBD_HS_ProductStrDescriptor.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:281    .text.USBD_HS_ProductStrDescriptor:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:287    .text.USBD_HS_ProductStrDescriptor:00000000 USBD_HS_ProductStrDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:334    .text.USBD_HS_ProductStrDescriptor:0000001c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:340    .rodata.USBD_HS_ManufacturerStrDescriptor.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:344    .text.USBD_HS_ManufacturerStrDescriptor:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:350    .text.USBD_HS_ManufacturerStrDescriptor:00000000 USBD_HS_ManufacturerStrDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:382    .text.USBD_HS_ManufacturerStrDescriptor:00000014 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:388    .rodata.USBD_HS_ConfigStrDescriptor.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:392    .text.USBD_HS_ConfigStrDescriptor:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:398    .text.USBD_HS_ConfigStrDescriptor:00000000 USBD_HS_ConfigStrDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:445    .text.USBD_HS_ConfigStrDescriptor:0000001c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:451    .rodata.USBD_HS_InterfaceStrDescriptor.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:455    .text.USBD_HS_InterfaceStrDescriptor:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:461    .text.USBD_HS_InterfaceStrDescriptor:00000000 USBD_HS_InterfaceStrDescriptor
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:508    .text.USBD_HS_InterfaceStrDescriptor:0000001c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:557    .data.USBD_StringSerial:00000000 USBD_StringSerial
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:523    .bss.USBD_StrDesc:00000000 USBD_StrDesc
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:550    .data.USBD_LangIDDesc:00000000 USBD_LangIDDesc
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:542    .data.USBD_HS_DeviceDesc:00000000 USBD_HS_DeviceDesc
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:529    .data.HS_Desc:00000000 HS_Desc
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:519    .bss.USBD_StrDesc:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:526    .data.HS_Desc:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:538    .data.USBD_HS_DeviceDesc:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:546    .data.USBD_LangIDDesc:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cceaJoaU.s:553    .data.USBD_StringSerial:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:20     .text.USBD_HS_DeviceDescriptor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:26     .text.USBD_HS_DeviceDescriptor:00000000 USBD_HS_DeviceDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:49     .text.USBD_HS_DeviceDescriptor:00000008 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:54     .text.USBD_HS_LangIDStrDescriptor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:60     .text.USBD_HS_LangIDStrDescriptor:00000000 USBD_HS_LangIDStrDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:82     .text.USBD_HS_LangIDStrDescriptor:00000008 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:87     .text.IntToUnicode:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:92     .text.IntToUnicode:00000000 IntToUnicode
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:170    .text.Get_SerialNum:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:175    .text.Get_SerialNum:00000000 Get_SerialNum
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:232    .text.Get_SerialNum:00000030 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:238    .text.USBD_HS_SerialStrDescriptor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:244    .text.USBD_HS_SerialStrDescriptor:00000000 USBD_HS_SerialStrDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:272    .text.USBD_HS_SerialStrDescriptor:00000010 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:277    .rodata.USBD_HS_ProductStrDescriptor.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:281    .text.USBD_HS_ProductStrDescriptor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:287    .text.USBD_HS_ProductStrDescriptor:00000000 USBD_HS_ProductStrDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:334    .text.USBD_HS_ProductStrDescriptor:0000001c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:340    .rodata.USBD_HS_ManufacturerStrDescriptor.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:344    .text.USBD_HS_ManufacturerStrDescriptor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:350    .text.USBD_HS_ManufacturerStrDescriptor:00000000 USBD_HS_ManufacturerStrDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:382    .text.USBD_HS_ManufacturerStrDescriptor:00000014 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:388    .rodata.USBD_HS_ConfigStrDescriptor.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:392    .text.USBD_HS_ConfigStrDescriptor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:398    .text.USBD_HS_ConfigStrDescriptor:00000000 USBD_HS_ConfigStrDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:445    .text.USBD_HS_ConfigStrDescriptor:0000001c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:451    .rodata.USBD_HS_InterfaceStrDescriptor.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:455    .text.USBD_HS_InterfaceStrDescriptor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:461    .text.USBD_HS_InterfaceStrDescriptor:00000000 USBD_HS_InterfaceStrDescriptor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:508    .text.USBD_HS_InterfaceStrDescriptor:0000001c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:557    .data.USBD_StringSerial:00000000 USBD_StringSerial
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:523    .bss.USBD_StrDesc:00000000 USBD_StrDesc
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:550    .data.USBD_LangIDDesc:00000000 USBD_LangIDDesc
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:542    .data.USBD_HS_DeviceDesc:00000000 USBD_HS_DeviceDesc
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:529    .data.HS_Desc:00000000 HS_Desc
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:519    .bss.USBD_StrDesc:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:526    .data.HS_Desc:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:538    .data.USBD_HS_DeviceDesc:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:546    .data.USBD_LangIDDesc:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccU5HyWj.s:553    .data.USBD_StringSerial:00000000 $d
 
 UNDEFINED SYMBOLS
 USBD_GetString

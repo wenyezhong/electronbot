@@ -50,6 +50,7 @@ private:
     Ui::MainWindow *ui;     
      QTimer *recvUSB_Timer;
      Thread *readUsbTread;
+
      uint8_t txData[60 * 240 * 3 + 32];
      void initPara(void);
 public:

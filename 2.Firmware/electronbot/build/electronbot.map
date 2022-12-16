@@ -1428,10 +1428,6 @@ Discarded input sections
  .text          0x00000000        0x0 build/usbd_winUsb.o
  .data          0x00000000        0x0 build/usbd_winUsb.o
  .bss           0x00000000        0x0 build/usbd_winUsb.o
- .text.USBD_WinUsb_TransmitPacket
-                0x00000000       0x3c build/usbd_winUsb.o
- .text.WinUsb_Transmit_FS
-                0x00000000       0x2c build/usbd_winUsb.o
  .text          0x00000000        0x0 build/retarget.o
  .data          0x00000000        0x0 build/retarget.o
  .bss           0x00000000        0x0 build/retarget.o
@@ -1914,12 +1910,8 @@ Discarded input sections
                 0x00000000        0x0 build/robot.o
  .ARM.exidx.text._ZN5Robot20GetPingPongBufferPtrEv
                 0x00000000        0x8 build/robot.o
- .text._ZN5Robot13SendUsbPacketEPhm
-                0x00000000       0x14 build/robot.o
  .ARM.extab.text._ZN5Robot13SendUsbPacketEPhm
                 0x00000000        0x0 build/robot.o
- .ARM.exidx.text._ZN5Robot13SendUsbPacketEPhm
-                0x00000000        0x8 build/robot.o
  .text._ZN5Robot20SwitchPingPongBufferEv
                 0x00000000       0x20 build/robot.o
  .ARM.extab.text._ZN5Robot20SwitchPingPongBufferEv
@@ -1964,8 +1956,6 @@ Discarded input sections
                 0x00000000        0x0 build/robot.o
  .ARM.exidx.text._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tE
                 0x00000000        0x8 build/robot.o
- .ARM.extab.text._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf
-                0x00000000        0x0 build/robot.o
  .text          0x00000000        0x0 build/screen.o
  .data          0x00000000        0x0 build/screen.o
  .bss           0x00000000        0x0 build/screen.o
@@ -1983,12 +1973,8 @@ Discarded input sections
                 0x00000000        0x0 build/screen.o
  .ARM.extab.text._ZN6Screen9SetWindowEtttt
                 0x00000000        0x0 build/screen.o
- .text._ZN6Screen16WriteFrameBufferEPhmb
-                0x00000000       0x3c build/screen.o
  .ARM.extab.text._ZN6Screen16WriteFrameBufferEPhmb
                 0x00000000        0x0 build/screen.o
- .ARM.exidx.text._ZN6Screen16WriteFrameBufferEPhmb
-                0x00000000        0x8 build/screen.o
  .ARM.extab.text._ZN6Screen4InitENS_13Orientation_tE
                 0x00000000        0x0 build/screen.o
  .group         0x00000000       0x18 build/user.o
@@ -2356,7 +2342,7 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc
                 0x08000000                g_pfnVectors
                 0x08000188                . = ALIGN (0x4)
 
-.text           0x08000190     0xd3e0
+.text           0x08000190     0xd58c
                 0x08000190                . = ALIGN (0x4)
  *(.text)
  .text          0x08000190       0x40 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
@@ -3297,786 +3283,800 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc
  *fill*         0x0800947e        0x2 
  .text.WinUsb_Receive_FS
                 0x08009480       0x84 build/usbd_winUsb.o
+ .text.USBD_WinUsb_TransmitPacket
+                0x08009504       0x3c build/usbd_winUsb.o
+                0x08009504                USBD_WinUsb_TransmitPacket
+ .text.WinUsb_Transmit_FS
+                0x08009540       0x2c build/usbd_winUsb.o
+                0x08009540                WinUsb_Transmit_FS
  .text.USBD_WinUsb_RegisterInterface
-                0x08009504       0x28 build/usbd_winUsb.o
-                0x08009504                USBD_WinUsb_RegisterInterface
+                0x0800956c       0x28 build/usbd_winUsb.o
+                0x0800956c                USBD_WinUsb_RegisterInterface
  .text.RetargetInit
-                0x0800952c       0x20 build/retarget.o
-                0x0800952c                RetargetInit
- .text._isatty  0x0800954c       0x16 build/retarget.o
-                0x0800954c                _isatty
- *fill*         0x08009562        0x2 
- .text._write   0x08009564       0x28 build/retarget.o
-                0x08009564                _write
- .text._close   0x0800958c       0x18 build/retarget.o
-                0x0800958c                _close
- .text._lseek   0x080095a4       0x10 build/retarget.o
-                0x080095a4                _lseek
- .text._read    0x080095b4       0x30 build/retarget.o
-                0x080095b4                _read
- .text._fstat   0x080095e4       0x1a build/retarget.o
-                0x080095e4                _fstat
- *fill*         0x080095fe        0x2 
+                0x08009594       0x20 build/retarget.o
+                0x08009594                RetargetInit
+ .text._isatty  0x080095b4       0x16 build/retarget.o
+                0x080095b4                _isatty
+ *fill*         0x080095ca        0x2 
+ .text._write   0x080095cc       0x28 build/retarget.o
+                0x080095cc                _write
+ .text._close   0x080095f4       0x18 build/retarget.o
+                0x080095f4                _close
+ .text._lseek   0x0800960c       0x10 build/retarget.o
+                0x0800960c                _lseek
+ .text._read    0x0800961c       0x30 build/retarget.o
+                0x0800961c                _read
+ .text._fstat   0x0800964c       0x1a build/retarget.o
+                0x0800964c                _fstat
+ *fill*         0x08009666        0x2 
  .text.MX_DMA_Init
-                0x08009600       0x34 build/dma.o
-                0x08009600                MX_DMA_Init
+                0x08009668       0x34 build/dma.o
+                0x08009668                MX_DMA_Init
  .text.StartDefaultTask
-                0x08009634       0x18 build/freertos.o
-                0x08009634                StartDefaultTask
+                0x0800969c       0x18 build/freertos.o
+                0x0800969c                StartDefaultTask
  .text.MX_FREERTOS_Init
-                0x0800964c       0x20 build/freertos.o
-                0x0800964c                MX_FREERTOS_Init
+                0x080096b4       0x20 build/freertos.o
+                0x080096b4                MX_FREERTOS_Init
  .text.vListInitialise
-                0x0800966c       0x16 build/list.o
-                0x0800966c                vListInitialise
+                0x080096d4       0x16 build/list.o
+                0x080096d4                vListInitialise
  .text.vListInitialiseItem
-                0x08009682        0x6 build/list.o
-                0x08009682                vListInitialiseItem
+                0x080096ea        0x6 build/list.o
+                0x080096ea                vListInitialiseItem
  .text.vListInsertEnd
-                0x08009688       0x16 build/list.o
-                0x08009688                vListInsertEnd
+                0x080096f0       0x16 build/list.o
+                0x080096f0                vListInsertEnd
  .text.vListInsert
-                0x0800969e       0x32 build/list.o
-                0x0800969e                vListInsert
+                0x08009706       0x32 build/list.o
+                0x08009706                vListInsert
  .text.uxListRemove
-                0x080096d0       0x26 build/list.o
-                0x080096d0                uxListRemove
+                0x08009738       0x26 build/list.o
+                0x08009738                uxListRemove
  .text.prvIsQueueFull
-                0x080096f6       0x1e build/queue.o
+                0x0800975e       0x1e build/queue.o
  .text.prvIsQueueEmpty
-                0x08009714       0x1a build/queue.o
+                0x0800977c       0x1a build/queue.o
  .text.prvCopyDataToQueue
-                0x0800972e       0x76 build/queue.o
+                0x08009796       0x76 build/queue.o
  .text.prvCopyDataFromQueue
-                0x080097a4       0x24 build/queue.o
+                0x0800980c       0x24 build/queue.o
  .text.prvUnlockQueue
-                0x080097c8       0x6e build/queue.o
+                0x08009830       0x6e build/queue.o
  .text.xQueueGenericReset
-                0x08009836       0x84 build/queue.o
-                0x08009836                xQueueGenericReset
+                0x0800989e       0x84 build/queue.o
+                0x0800989e                xQueueGenericReset
  .text.prvInitialiseNewQueue
-                0x080098ba       0x22 build/queue.o
+                0x08009922       0x22 build/queue.o
  .text.xQueueGenericCreateStatic
-                0x080098dc       0x94 build/queue.o
-                0x080098dc                xQueueGenericCreateStatic
+                0x08009944       0x94 build/queue.o
+                0x08009944                xQueueGenericCreateStatic
  .text.xQueueGenericSend
-                0x08009970      0x188 build/queue.o
-                0x08009970                xQueueGenericSend
+                0x080099d8      0x188 build/queue.o
+                0x080099d8                xQueueGenericSend
  .text.xQueueGenericSendFromISR
-                0x08009af8       0xce build/queue.o
-                0x08009af8                xQueueGenericSendFromISR
+                0x08009b60       0xce build/queue.o
+                0x08009b60                xQueueGenericSendFromISR
  .text.xQueueReceive
-                0x08009bc6      0x15e build/queue.o
-                0x08009bc6                xQueueReceive
+                0x08009c2e      0x15e build/queue.o
+                0x08009c2e                xQueueReceive
  .text.vQueueAddToRegistry
-                0x08009d24       0x28 build/queue.o
-                0x08009d24                vQueueAddToRegistry
+                0x08009d8c       0x28 build/queue.o
+                0x08009d8c                vQueueAddToRegistry
  .text.vQueueWaitForMessageRestricted
-                0x08009d4c       0x52 build/queue.o
-                0x08009d4c                vQueueWaitForMessageRestricted
- *fill*         0x08009d9e        0x2 
+                0x08009db4       0x52 build/queue.o
+                0x08009db4                vQueueWaitForMessageRestricted
+ *fill*         0x08009e06        0x2 
  .text.prvResetNextTaskUnblockTime
-                0x08009da0       0x2c build/tasks.o
+                0x08009e08       0x2c build/tasks.o
  .text.prvInitialiseNewTask
-                0x08009dcc       0xa6 build/tasks.o
- *fill*         0x08009e72        0x2 
+                0x08009e34       0xa6 build/tasks.o
+ *fill*         0x08009eda        0x2 
  .text.prvInitialiseTaskLists
-                0x08009e74       0x68 build/tasks.o
+                0x08009edc       0x68 build/tasks.o
  .text.prvAddNewTaskToReadyList
-                0x08009edc       0xac build/tasks.o
+                0x08009f44       0xac build/tasks.o
  .text.prvDeleteTCB
-                0x08009f88       0x38 build/tasks.o
+                0x08009ff0       0x38 build/tasks.o
  .text.prvCheckTasksWaitingTermination
-                0x08009fc0       0x4c build/tasks.o
+                0x0800a028       0x4c build/tasks.o
  .text.prvIdleTask
-                0x0800a00c       0x28 build/tasks.o
+                0x0800a074       0x28 build/tasks.o
  .text.prvAddCurrentTaskToDelayedList
-                0x0800a034       0x7c build/tasks.o
+                0x0800a09c       0x7c build/tasks.o
  .text.xTaskCreateStatic
-                0x0800a0b0       0x76 build/tasks.o
-                0x0800a0b0                xTaskCreateStatic
+                0x0800a118       0x76 build/tasks.o
+                0x0800a118                xTaskCreateStatic
  .text.xTaskCreate
-                0x0800a126       0x68 build/tasks.o
-                0x0800a126                xTaskCreate
- *fill*         0x0800a18e        0x2 
+                0x0800a18e       0x68 build/tasks.o
+                0x0800a18e                xTaskCreate
+ *fill*         0x0800a1f6        0x2 
  .text.vTaskDelete
-                0x0800a190       0xb8 build/tasks.o
-                0x0800a190                vTaskDelete
+                0x0800a1f8       0xb8 build/tasks.o
+                0x0800a1f8                vTaskDelete
  .text.vTaskStartScheduler
-                0x0800a248       0x9c build/tasks.o
-                0x0800a248                vTaskStartScheduler
+                0x0800a2b0       0x9c build/tasks.o
+                0x0800a2b0                vTaskStartScheduler
  .text.vTaskSuspendAll
-                0x0800a2e4       0x10 build/tasks.o
-                0x0800a2e4                vTaskSuspendAll
+                0x0800a34c       0x10 build/tasks.o
+                0x0800a34c                vTaskSuspendAll
  .text.xTaskGetTickCount
-                0x0800a2f4        0xc build/tasks.o
-                0x0800a2f4                xTaskGetTickCount
+                0x0800a35c        0xc build/tasks.o
+                0x0800a35c                xTaskGetTickCount
  .text.xTaskIncrementTick
-                0x0800a300      0x118 build/tasks.o
-                0x0800a300                xTaskIncrementTick
+                0x0800a368      0x118 build/tasks.o
+                0x0800a368                xTaskIncrementTick
  .text.xTaskResumeAll
-                0x0800a418       0xf8 build/tasks.o
-                0x0800a418                xTaskResumeAll
+                0x0800a480       0xf8 build/tasks.o
+                0x0800a480                xTaskResumeAll
  .text.vTaskSwitchContext
-                0x0800a510       0x94 build/tasks.o
-                0x0800a510                vTaskSwitchContext
+                0x0800a578       0x94 build/tasks.o
+                0x0800a578                vTaskSwitchContext
  .text.vTaskPlaceOnEventList
-                0x0800a5a4       0x30 build/tasks.o
-                0x0800a5a4                vTaskPlaceOnEventList
+                0x0800a60c       0x30 build/tasks.o
+                0x0800a60c                vTaskPlaceOnEventList
  .text.vTaskPlaceOnEventListRestricted
-                0x0800a5d4       0x38 build/tasks.o
-                0x0800a5d4                vTaskPlaceOnEventListRestricted
+                0x0800a63c       0x38 build/tasks.o
+                0x0800a63c                vTaskPlaceOnEventListRestricted
  .text.xTaskRemoveFromEventList
-                0x0800a60c       0x8c build/tasks.o
-                0x0800a60c                xTaskRemoveFromEventList
+                0x0800a674       0x8c build/tasks.o
+                0x0800a674                xTaskRemoveFromEventList
  .text.vTaskInternalSetTimeOutState
-                0x0800a698       0x18 build/tasks.o
-                0x0800a698                vTaskInternalSetTimeOutState
+                0x0800a700       0x18 build/tasks.o
+                0x0800a700                vTaskInternalSetTimeOutState
  .text.xTaskCheckForTimeOut
-                0x0800a6b0       0x84 build/tasks.o
-                0x0800a6b0                xTaskCheckForTimeOut
+                0x0800a718       0x84 build/tasks.o
+                0x0800a718                xTaskCheckForTimeOut
  .text.vTaskMissedYield
-                0x0800a734        0xc build/tasks.o
-                0x0800a734                vTaskMissedYield
+                0x0800a79c        0xc build/tasks.o
+                0x0800a79c                vTaskMissedYield
  .text.xTaskGetSchedulerState
-                0x0800a740       0x20 build/tasks.o
-                0x0800a740                xTaskGetSchedulerState
+                0x0800a7a8       0x20 build/tasks.o
+                0x0800a7a8                xTaskGetSchedulerState
  .text.xTaskPriorityDisinherit
-                0x0800a760       0x90 build/tasks.o
-                0x0800a760                xTaskPriorityDisinherit
+                0x0800a7c8       0x90 build/tasks.o
+                0x0800a7c8                xTaskPriorityDisinherit
  .text.prvGetNextExpireTime
-                0x0800a7f0       0x20 build/timers.o
+                0x0800a858       0x20 build/timers.o
  .text.prvInsertTimerInActiveList
-                0x0800a810       0x48 build/timers.o
+                0x0800a878       0x48 build/timers.o
  .text.prvCheckForValidListAndQueue
-                0x0800a858       0x70 build/timers.o
+                0x0800a8c0       0x70 build/timers.o
  .text.xTimerCreateTimerTask
-                0x0800a8c8       0x64 build/timers.o
-                0x0800a8c8                xTimerCreateTimerTask
+                0x0800a930       0x64 build/timers.o
+                0x0800a930                xTimerCreateTimerTask
  .text.xTimerGenericCommand
-                0x0800a92c       0x6c build/timers.o
-                0x0800a92c                xTimerGenericCommand
+                0x0800a994       0x6c build/timers.o
+                0x0800a994                xTimerGenericCommand
  .text.prvSwitchTimerLists
-                0x0800a998       0x7c build/timers.o
+                0x0800aa00       0x7c build/timers.o
  .text.prvSampleTimeNow
-                0x0800aa14       0x2c build/timers.o
+                0x0800aa7c       0x2c build/timers.o
  .text.prvProcessExpiredTimer
-                0x0800aa40       0x6c build/timers.o
+                0x0800aaa8       0x6c build/timers.o
  .text.prvProcessTimerOrBlockTask
-                0x0800aaac       0x74 build/timers.o
+                0x0800ab14       0x74 build/timers.o
  .text.prvProcessReceivedCommands
-                0x0800ab20      0x10c build/timers.o
+                0x0800ab88      0x10c build/timers.o
  .text.prvTimerTask
-                0x0800ac2c       0x16 build/timers.o
+                0x0800ac94       0x16 build/timers.o
  .text.SysTick_Handler
-                0x0800ac42       0x18 build/cmsis_os2.o
-                0x0800ac42                SysTick_Handler
- *fill*         0x0800ac5a        0x2 
+                0x0800acaa       0x18 build/cmsis_os2.o
+                0x0800acaa                SysTick_Handler
+ *fill*         0x0800acc2        0x2 
  .text.osKernelInitialize
-                0x0800ac5c       0x24 build/cmsis_os2.o
-                0x0800ac5c                osKernelInitialize
+                0x0800acc4       0x24 build/cmsis_os2.o
+                0x0800acc4                osKernelInitialize
  .text.osKernelStart
-                0x0800ac80       0x38 build/cmsis_os2.o
-                0x0800ac80                osKernelStart
+                0x0800ace8       0x38 build/cmsis_os2.o
+                0x0800ace8                osKernelStart
  .text.osThreadNew
-                0x0800acb8       0xbc build/cmsis_os2.o
-                0x0800acb8                osThreadNew
+                0x0800ad20       0xbc build/cmsis_os2.o
+                0x0800ad20                osThreadNew
  .text.vApplicationGetIdleTaskMemory
-                0x0800ad74       0x18 build/cmsis_os2.o
-                0x0800ad74                vApplicationGetIdleTaskMemory
+                0x0800addc       0x18 build/cmsis_os2.o
+                0x0800addc                vApplicationGetIdleTaskMemory
  .text.vApplicationGetTimerTaskMemory
-                0x0800ad8c       0x18 build/cmsis_os2.o
-                0x0800ad8c                vApplicationGetTimerTaskMemory
+                0x0800adf4       0x18 build/cmsis_os2.o
+                0x0800adf4                vApplicationGetTimerTaskMemory
  .text.prvTaskExitError
-                0x0800ada4       0x40 build/port.o
+                0x0800ae0c       0x40 build/port.o
  .text.prvPortStartFirstTask
-                0x0800ade4       0x28 build/port.o
+                0x0800ae4c       0x28 build/port.o
  .text.vPortEnableVFP
-                0x0800ae0c       0x14 build/port.o
+                0x0800ae74       0x14 build/port.o
  .text.pxPortInitialiseStack
-                0x0800ae20       0x2c build/port.o
-                0x0800ae20                pxPortInitialiseStack
- *fill*         0x0800ae4c        0x4 
+                0x0800ae88       0x2c build/port.o
+                0x0800ae88                pxPortInitialiseStack
+ *fill*         0x0800aeb4        0xc 
  .text.SVC_Handler
-                0x0800ae50       0x24 build/port.o
-                0x0800ae50                SVC_Handler
+                0x0800aec0       0x24 build/port.o
+                0x0800aec0                SVC_Handler
  .text.vPortEnterCritical
-                0x0800ae74       0x44 build/port.o
-                0x0800ae74                vPortEnterCritical
+                0x0800aee4       0x44 build/port.o
+                0x0800aee4                vPortEnterCritical
  .text.vPortExitCritical
-                0x0800aeb8       0x2c build/port.o
-                0x0800aeb8                vPortExitCritical
- *fill*         0x0800aee4        0xc 
+                0x0800af28       0x2c build/port.o
+                0x0800af28                vPortExitCritical
+ *fill*         0x0800af54        0xc 
  .text.PendSV_Handler
-                0x0800aef0       0x64 build/port.o
-                0x0800aef0                PendSV_Handler
+                0x0800af60       0x64 build/port.o
+                0x0800af60                PendSV_Handler
  .text.xPortSysTickHandler
-                0x0800af54       0x2c build/port.o
-                0x0800af54                xPortSysTickHandler
+                0x0800afc4       0x2c build/port.o
+                0x0800afc4                xPortSysTickHandler
  .text.vPortSetupTimerInterrupt
-                0x0800af80       0x28 build/port.o
-                0x0800af80                vPortSetupTimerInterrupt
+                0x0800aff0       0x28 build/port.o
+                0x0800aff0                vPortSetupTimerInterrupt
  .text.xPortStartScheduler
-                0x0800afa8      0x118 build/port.o
-                0x0800afa8                xPortStartScheduler
+                0x0800b018      0x118 build/port.o
+                0x0800b018                xPortStartScheduler
  .text.vPortValidateInterruptPriority
-                0x0800b0c0       0x5c build/port.o
-                0x0800b0c0                vPortValidateInterruptPriority
+                0x0800b130       0x5c build/port.o
+                0x0800b130                vPortValidateInterruptPriority
  .text.prvHeapInit
-                0x0800b11c       0x64 build/heap_4.o
+                0x0800b18c       0x64 build/heap_4.o
  .text.prvInsertBlockIntoFreeList
-                0x0800b180       0x64 build/heap_4.o
+                0x0800b1f0       0x64 build/heap_4.o
  .text.pvPortMalloc
-                0x0800b1e4       0xfc build/heap_4.o
-                0x0800b1e4                pvPortMalloc
+                0x0800b254       0xfc build/heap_4.o
+                0x0800b254                pvPortMalloc
  .text.vPortFree
-                0x0800b2e0       0x7c build/heap_4.o
-                0x0800b2e0                vPortFree
+                0x0800b350       0x7c build/heap_4.o
+                0x0800b350                vPortFree
+ .text._ZN5Robot13SendUsbPacketEPhm
+                0x0800b3cc       0x14 build/robot.o
+                0x0800b3cc                Robot::SendUsbPacket(unsigned char*, unsigned long)
  .text._ZN5Robot15GetLcdBufferPtrEv
-                0x0800b35c       0x28 build/robot.o
-                0x0800b35c                Robot::GetLcdBufferPtr()
+                0x0800b3e0       0x28 build/robot.o
+                0x0800b3e0                Robot::GetLcdBufferPtr()
  .text._ZN5Robot27ReceiveUsbPacketUntilSizeIsEm
-                0x0800b384       0x1c build/robot.o
-                0x0800b384                Robot::ReceiveUsbPacketUntilSizeIs(unsigned long)
+                0x0800b408       0x1c build/robot.o
+                0x0800b408                Robot::ReceiveUsbPacketUntilSizeIs(unsigned long)
  .text._ZN5Robot27TransmitAndReceiveI2cPacketEh
-                0x0800b3a0       0x3a build/robot.o
-                0x0800b3a0                Robot::TransmitAndReceiveI2cPacket(unsigned char)
+                0x0800b424       0x3a build/robot.o
+                0x0800b424                Robot::TransmitAndReceiveI2cPacket(unsigned char)
  .text._ZN5Robot16UpdateServoAngleERNS_13JointStatus_tEf
-                0x0800b3da       0x56 build/robot.o
-                0x0800b3da                Robot::UpdateServoAngle(Robot::JointStatus_t&, float)
+                0x0800b45e       0x56 build/robot.o
+                0x0800b45e                Robot::UpdateServoAngle(Robot::JointStatus_t&, float)
  .text._ZN5Robot14SetJointEnableERNS_13JointStatus_tEb
-                0x0800b430       0x28 build/robot.o
-                0x0800b430                Robot::SetJointEnable(Robot::JointStatus_t&, bool)
+                0x0800b4b4       0x28 build/robot.o
+                0x0800b4b4                Robot::SetJointEnable(Robot::JointStatus_t&, bool)
  .text._ZN5Robot19SetJointTorqueLimitERNS_13JointStatus_tEf
-                0x0800b458       0x5c build/robot.o
-                0x0800b458                Robot::SetJointTorqueLimit(Robot::JointStatus_t&, float)
+                0x0800b4dc       0x5c build/robot.o
+                0x0800b4dc                Robot::SetJointTorqueLimit(Robot::JointStatus_t&, float)
  .text._ZN5Robot10SetJointIdERNS_13JointStatus_tEh
-                0x0800b4b4       0x26 build/robot.o
-                0x0800b4b4                Robot::SetJointId(Robot::JointStatus_t&, unsigned char)
+                0x0800b538       0x26 build/robot.o
+                0x0800b538                Robot::SetJointId(Robot::JointStatus_t&, unsigned char)
  .text._ZN5Robot17SetJointInitAngleERNS_13JointStatus_tEf
-                0x0800b4da       0x42 build/robot.o
-                0x0800b4da                Robot::SetJointInitAngle(Robot::JointStatus_t&, float)
- .text._ZN5Robot10SetJointKpERNS_13JointStatus_tEf
-                0x0800b51c       0x42 build/robot.o
-                0x0800b51c                Robot::SetJointKp(Robot::JointStatus_t&, float)
- .text._ZN5Robot10SetJointKiERNS_13JointStatus_tEf
                 0x0800b55e       0x42 build/robot.o
-                0x0800b55e                Robot::SetJointKi(Robot::JointStatus_t&, float)
- .text._ZN5Robot10SetJointKvERNS_13JointStatus_tEf
+                0x0800b55e                Robot::SetJointInitAngle(Robot::JointStatus_t&, float)
+ .text._ZN5Robot10SetJointKpERNS_13JointStatus_tEf
                 0x0800b5a0       0x42 build/robot.o
-                0x0800b5a0                Robot::SetJointKv(Robot::JointStatus_t&, float)
- .text._ZN5Robot10SetJointKdERNS_13JointStatus_tEf
+                0x0800b5a0                Robot::SetJointKp(Robot::JointStatus_t&, float)
+ .text._ZN5Robot10SetJointKiERNS_13JointStatus_tEf
                 0x0800b5e2       0x42 build/robot.o
-                0x0800b5e2                Robot::SetJointKd(Robot::JointStatus_t&, float)
+                0x0800b5e2                Robot::SetJointKi(Robot::JointStatus_t&, float)
+ .text._ZN5Robot10SetJointKvERNS_13JointStatus_tEf
+                0x0800b624       0x42 build/robot.o
+                0x0800b624                Robot::SetJointKv(Robot::JointStatus_t&, float)
+ .text._ZN5Robot10SetJointKdERNS_13JointStatus_tEf
+                0x0800b666       0x42 build/robot.o
+                0x0800b666                Robot::SetJointKd(Robot::JointStatus_t&, float)
  .text._ZN5Robot17GetExtraDataRxPtrEv
-                0x0800b624        0xe build/robot.o
-                0x0800b624                Robot::GetExtraDataRxPtr()
- *fill*         0x0800b632        0x2 
+                0x0800b6a8        0xe build/robot.o
+                0x0800b6a8                Robot::GetExtraDataRxPtr()
  .text._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf
-                0x0800b634       0x18 build/robot.o
-                0x0800b634                Robot::UpdateJointAngle(Robot::JointStatus_t&, float)
+                0x0800b6b6        0x8 build/robot.o
+                0x0800b6b6                Robot::UpdateJointAngle(Robot::JointStatus_t&, float)
+ *fill*         0x0800b6be        0x2 
  .text._ZN6Screen10ChipSelectEb
-                0x0800b64c       0x18 build/screen.o
-                0x0800b64c                Screen::ChipSelect(bool)
+                0x0800b6c0       0x18 build/screen.o
+                0x0800b6c0                Screen::ChipSelect(bool)
  .text._ZN6Screen5ResetEb
-                0x0800b664       0x18 build/screen.o
-                0x0800b664                Screen::Reset(bool)
+                0x0800b6d8       0x18 build/screen.o
+                0x0800b6d8                Screen::Reset(bool)
  .text._ZN6Screen16SetDataOrCommandEb
-                0x0800b67c       0x18 build/screen.o
-                0x0800b67c                Screen::SetDataOrCommand(bool)
+                0x0800b6f0       0x18 build/screen.o
+                0x0800b6f0                Screen::SetDataOrCommand(bool)
  .text._ZN6Screen12WriteCommandEh
-                0x0800b694       0x22 build/screen.o
-                0x0800b694                Screen::WriteCommand(unsigned char)
+                0x0800b708       0x2a build/screen.o
+                0x0800b708                Screen::WriteCommand(unsigned char)
  .text._ZN6Screen10Write1ByteEh
-                0x0800b6b6       0x22 build/screen.o
-                0x0800b6b6                Screen::Write1Byte(unsigned char)
+                0x0800b732       0x22 build/screen.o
+                0x0800b732                Screen::Write1Byte(unsigned char)
  .text._ZN6Screen9WriteDataEPhmb
-                0x0800b6d8       0x2c build/screen.o
-                0x0800b6d8                Screen::WriteData(unsigned char*, unsigned long, bool)
+                0x0800b754       0x2c build/screen.o
+                0x0800b754                Screen::WriteData(unsigned char*, unsigned long, bool)
  .text._ZN6Screen9SetWindowEtttt
-                0x0800b704       0x7c build/screen.o
-                0x0800b704                Screen::SetWindow(unsigned short, unsigned short, unsigned short, unsigned short)
+                0x0800b780       0x84 build/screen.o
+                0x0800b780                Screen::SetWindow(unsigned short, unsigned short, unsigned short, unsigned short)
+ .text._ZN6Screen16WriteFrameBufferEPhmb
+                0x0800b804       0x54 build/screen.o
+                0x0800b804                Screen::WriteFrameBuffer(unsigned char*, unsigned long, bool)
  .text._ZN6Screen12SetBackLightEf
-                0x0800b780       0x14 build/screen.o
-                0x0800b780                Screen::SetBackLight(float)
+                0x0800b858       0x14 build/screen.o
+                0x0800b858                Screen::SetBackLight(float)
  .text._ZN6Screen4InitENS_13Orientation_tE
-                0x0800b794      0x666 build/screen.o
-                0x0800b794                Screen::Init(Screen::Orientation_t)
- *fill*         0x0800bdfa        0x2 
+                0x0800b86c      0x666 build/screen.o
+                0x0800b86c                Screen::Init(Screen::Orientation_t)
+ *fill*         0x0800bed2        0x2 
  .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
-                0x0800bdfc       0xf8 build/user.o
-                0x0800bdfc                Robot::Robot(__SPI_HandleTypeDef*, I2C_HandleTypeDef*)
-                0x0800bdfc                Robot::Robot(__SPI_HandleTypeDef*, I2C_HandleTypeDef*)
+                0x0800bed4       0xf8 build/user.o
+                0x0800bed4                Robot::Robot(__SPI_HandleTypeDef*, I2C_HandleTypeDef*)
+                0x0800bed4                Robot::Robot(__SPI_HandleTypeDef*, I2C_HandleTypeDef*)
  .text._Z41__static_initialization_and_destruction_0ii
-                0x0800bef4       0x2c build/user.o
- .text.setPara  0x0800bf20      0x140 build/user.o
-                0x0800bf20                setPara
+                0x0800bfcc       0x2c build/user.o
+ .text.setPara  0x0800bff8      0x140 build/user.o
+                0x0800bff8                setPara
  .text.setAngle
-                0x0800c060       0x7c build/user.o
-                0x0800c060                setAngle
+                0x0800c138       0x7c build/user.o
+                0x0800c138                setAngle
  .text._Z5setidPh
-                0x0800c0dc       0x28 build/user.o
-                0x0800c0dc                setid(unsigned char*)
+                0x0800c1b4       0x28 build/user.o
+                0x0800c1b4                setid(unsigned char*)
  .text._Z12setInitAnglePh
-                0x0800c104       0x5c build/user.o
-                0x0800c104                setInitAngle(unsigned char*)
- .text.Main     0x0800c160       0x84 build/user.o
-                0x0800c160                Main
+                0x0800c1dc       0x5c build/user.o
+                0x0800c1dc                setInitAngle(unsigned char*)
+ .text.Main     0x0800c238      0x158 build/user.o
+                0x0800c238                Main
  .text.HAL_SPI_TxCpltCallback
-                0x0800c1e4       0x10 build/user.o
-                0x0800c1e4                HAL_SPI_TxCpltCallback
+                0x0800c390       0x10 build/user.o
+                0x0800c390                HAL_SPI_TxCpltCallback
  .text._GLOBAL__sub_I_electron
-                0x0800c1f4        0xe build/user.o
- *fill*         0x0800c202        0x2 
+                0x0800c3a0        0xe build/user.o
+ *fill*         0x0800c3ae        0x2 
  .text.Reset_Handler
-                0x0800c204       0x50 build/startup_stm32f405xx.o
-                0x0800c204                Reset_Handler
+                0x0800c3b0       0x50 build/startup_stm32f405xx.o
+                0x0800c3b0                Reset_Handler
  .text.Default_Handler
-                0x0800c254        0x2 build/startup_stm32f405xx.o
-                0x0800c254                RTC_Alarm_IRQHandler
-                0x0800c254                HASH_RNG_IRQHandler
-                0x0800c254                EXTI2_IRQHandler
-                0x0800c254                TIM8_CC_IRQHandler
-                0x0800c254                TIM1_CC_IRQHandler
-                0x0800c254                DMA2_Stream5_IRQHandler
-                0x0800c254                DMA1_Stream5_IRQHandler
-                0x0800c254                PVD_IRQHandler
-                0x0800c254                SDIO_IRQHandler
-                0x0800c254                TAMP_STAMP_IRQHandler
-                0x0800c254                CAN2_RX1_IRQHandler
-                0x0800c254                EXTI3_IRQHandler
-                0x0800c254                TIM1_UP_TIM10_IRQHandler
-                0x0800c254                TIM8_UP_TIM13_IRQHandler
-                0x0800c254                I2C3_ER_IRQHandler
-                0x0800c254                EXTI0_IRQHandler
-                0x0800c254                I2C2_EV_IRQHandler
-                0x0800c254                DMA1_Stream2_IRQHandler
-                0x0800c254                CAN1_RX0_IRQHandler
-                0x0800c254                FPU_IRQHandler
-                0x0800c254                OTG_HS_WKUP_IRQHandler
-                0x0800c254                CAN2_SCE_IRQHandler
-                0x0800c254                TIM6_DAC_IRQHandler
-                0x0800c254                TIM1_BRK_TIM9_IRQHandler
-                0x0800c254                CAN2_RX0_IRQHandler
-                0x0800c254                USART6_IRQHandler
-                0x0800c254                USART3_IRQHandler
-                0x0800c254                CAN1_RX1_IRQHandler
-                0x0800c254                UART5_IRQHandler
-                0x0800c254                DMA2_Stream0_IRQHandler
-                0x0800c254                TIM4_IRQHandler
-                0x0800c254                I2C1_EV_IRQHandler
-                0x0800c254                DMA1_Stream6_IRQHandler
-                0x0800c254                DMA1_Stream1_IRQHandler
-                0x0800c254                UART4_IRQHandler
-                0x0800c254                TIM3_IRQHandler
-                0x0800c254                RCC_IRQHandler
-                0x0800c254                TIM8_BRK_TIM12_IRQHandler
-                0x0800c254                Default_Handler
-                0x0800c254                EXTI15_10_IRQHandler
-                0x0800c254                ADC_IRQHandler
-                0x0800c254                DMA1_Stream7_IRQHandler
-                0x0800c254                TIM7_IRQHandler
-                0x0800c254                CAN2_TX_IRQHandler
-                0x0800c254                TIM5_IRQHandler
-                0x0800c254                I2C3_EV_IRQHandler
-                0x0800c254                EXTI9_5_IRQHandler
-                0x0800c254                RTC_WKUP_IRQHandler
-                0x0800c254                SPI2_IRQHandler
-                0x0800c254                DMA1_Stream0_IRQHandler
-                0x0800c254                CAN1_TX_IRQHandler
-                0x0800c254                EXTI4_IRQHandler
-                0x0800c254                FSMC_IRQHandler
-                0x0800c254                WWDG_IRQHandler
-                0x0800c254                TIM2_IRQHandler
-                0x0800c254                OTG_FS_WKUP_IRQHandler
-                0x0800c254                TIM1_TRG_COM_TIM11_IRQHandler
-                0x0800c254                EXTI1_IRQHandler
-                0x0800c254                USART2_IRQHandler
-                0x0800c254                I2C2_ER_IRQHandler
-                0x0800c254                DMA2_Stream1_IRQHandler
-                0x0800c254                CAN1_SCE_IRQHandler
-                0x0800c254                FLASH_IRQHandler
-                0x0800c254                DMA2_Stream4_IRQHandler
-                0x0800c254                OTG_FS_IRQHandler
-                0x0800c254                SPI3_IRQHandler
-                0x0800c254                DMA1_Stream4_IRQHandler
-                0x0800c254                I2C1_ER_IRQHandler
-                0x0800c254                DMA2_Stream6_IRQHandler
-                0x0800c254                DMA1_Stream3_IRQHandler
- *fill*         0x0800c256        0x2 
- .text.__errno  0x0800c258        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
-                0x0800c258                __errno
+                0x0800c400        0x2 build/startup_stm32f405xx.o
+                0x0800c400                RTC_Alarm_IRQHandler
+                0x0800c400                HASH_RNG_IRQHandler
+                0x0800c400                EXTI2_IRQHandler
+                0x0800c400                TIM8_CC_IRQHandler
+                0x0800c400                TIM1_CC_IRQHandler
+                0x0800c400                DMA2_Stream5_IRQHandler
+                0x0800c400                DMA1_Stream5_IRQHandler
+                0x0800c400                PVD_IRQHandler
+                0x0800c400                SDIO_IRQHandler
+                0x0800c400                TAMP_STAMP_IRQHandler
+                0x0800c400                CAN2_RX1_IRQHandler
+                0x0800c400                EXTI3_IRQHandler
+                0x0800c400                TIM1_UP_TIM10_IRQHandler
+                0x0800c400                TIM8_UP_TIM13_IRQHandler
+                0x0800c400                I2C3_ER_IRQHandler
+                0x0800c400                EXTI0_IRQHandler
+                0x0800c400                I2C2_EV_IRQHandler
+                0x0800c400                DMA1_Stream2_IRQHandler
+                0x0800c400                CAN1_RX0_IRQHandler
+                0x0800c400                FPU_IRQHandler
+                0x0800c400                OTG_HS_WKUP_IRQHandler
+                0x0800c400                CAN2_SCE_IRQHandler
+                0x0800c400                TIM6_DAC_IRQHandler
+                0x0800c400                TIM1_BRK_TIM9_IRQHandler
+                0x0800c400                CAN2_RX0_IRQHandler
+                0x0800c400                USART6_IRQHandler
+                0x0800c400                USART3_IRQHandler
+                0x0800c400                CAN1_RX1_IRQHandler
+                0x0800c400                UART5_IRQHandler
+                0x0800c400                DMA2_Stream0_IRQHandler
+                0x0800c400                TIM4_IRQHandler
+                0x0800c400                I2C1_EV_IRQHandler
+                0x0800c400                DMA1_Stream6_IRQHandler
+                0x0800c400                DMA1_Stream1_IRQHandler
+                0x0800c400                UART4_IRQHandler
+                0x0800c400                TIM3_IRQHandler
+                0x0800c400                RCC_IRQHandler
+                0x0800c400                TIM8_BRK_TIM12_IRQHandler
+                0x0800c400                Default_Handler
+                0x0800c400                EXTI15_10_IRQHandler
+                0x0800c400                ADC_IRQHandler
+                0x0800c400                DMA1_Stream7_IRQHandler
+                0x0800c400                TIM7_IRQHandler
+                0x0800c400                CAN2_TX_IRQHandler
+                0x0800c400                TIM5_IRQHandler
+                0x0800c400                I2C3_EV_IRQHandler
+                0x0800c400                EXTI9_5_IRQHandler
+                0x0800c400                RTC_WKUP_IRQHandler
+                0x0800c400                SPI2_IRQHandler
+                0x0800c400                DMA1_Stream0_IRQHandler
+                0x0800c400                CAN1_TX_IRQHandler
+                0x0800c400                EXTI4_IRQHandler
+                0x0800c400                FSMC_IRQHandler
+                0x0800c400                WWDG_IRQHandler
+                0x0800c400                TIM2_IRQHandler
+                0x0800c400                OTG_FS_WKUP_IRQHandler
+                0x0800c400                TIM1_TRG_COM_TIM11_IRQHandler
+                0x0800c400                EXTI1_IRQHandler
+                0x0800c400                USART2_IRQHandler
+                0x0800c400                I2C2_ER_IRQHandler
+                0x0800c400                DMA2_Stream1_IRQHandler
+                0x0800c400                CAN1_SCE_IRQHandler
+                0x0800c400                FLASH_IRQHandler
+                0x0800c400                DMA2_Stream4_IRQHandler
+                0x0800c400                OTG_FS_IRQHandler
+                0x0800c400                SPI3_IRQHandler
+                0x0800c400                DMA1_Stream4_IRQHandler
+                0x0800c400                I2C1_ER_IRQHandler
+                0x0800c400                DMA2_Stream6_IRQHandler
+                0x0800c400                DMA1_Stream3_IRQHandler
+ *fill*         0x0800c402        0x2 
+ .text.__errno  0x0800c404        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-errno.o)
+                0x0800c404                __errno
  .text.__libc_init_array
-                0x0800c264       0x48 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
-                0x0800c264                __libc_init_array
- .text.malloc   0x0800c2ac       0x10 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-malloc.o)
-                0x0800c2ac                malloc
- .text.free     0x0800c2bc       0x10 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-malloc.o)
-                0x0800c2bc                free
- .text.memcpy   0x0800c2cc       0x1c c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
-                0x0800c2cc                memcpy
- .text.memset   0x0800c2e8       0x10 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
-                0x0800c2e8                memset
- .text._free_r  0x0800c2f8       0x98 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-freer.o)
-                0x0800c2f8                _free_r
+                0x0800c410       0x48 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
+                0x0800c410                __libc_init_array
+ .text.malloc   0x0800c458       0x10 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-malloc.o)
+                0x0800c458                malloc
+ .text.free     0x0800c468       0x10 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-malloc.o)
+                0x0800c468                free
+ .text.memcpy   0x0800c478       0x1c c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
+                0x0800c478                memcpy
+ .text.memset   0x0800c494       0x10 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
+                0x0800c494                memset
+ .text._free_r  0x0800c4a4       0x98 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-freer.o)
+                0x0800c4a4                _free_r
  .text.sbrk_aligned
-                0x0800c390       0x40 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-mallocr.o)
+                0x0800c53c       0x40 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-mallocr.o)
  .text._malloc_r
-                0x0800c3d0       0xe8 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-mallocr.o)
-                0x0800c3d0                _malloc_r
- .text.printf   0x0800c4b8       0x30 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-printf.o)
-                0x0800c4b8                iprintf
-                0x0800c4b8                printf
- .text._puts_r  0x0800c4e8       0xdc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-puts.o)
-                0x0800c4e8                _puts_r
- .text.puts     0x0800c5c4       0x10 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-puts.o)
-                0x0800c5c4                puts
- .text._sbrk_r  0x0800c5d4       0x20 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-sbrkr.o)
-                0x0800c5d4                _sbrk_r
- .text.setvbuf  0x0800c5f4      0x18c c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-setvbuf.o)
-                0x0800c5f4                setvbuf
+                0x0800c57c       0xe8 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-mallocr.o)
+                0x0800c57c                _malloc_r
+ .text.printf   0x0800c664       0x30 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-printf.o)
+                0x0800c664                iprintf
+                0x0800c664                printf
+ .text._puts_r  0x0800c694       0xdc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-puts.o)
+                0x0800c694                _puts_r
+ .text.puts     0x0800c770       0x10 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-puts.o)
+                0x0800c770                puts
+ .text._sbrk_r  0x0800c780       0x20 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-sbrkr.o)
+                0x0800c780                _sbrk_r
+ .text.setvbuf  0x0800c7a0      0x18c c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-setvbuf.o)
+                0x0800c7a0                setvbuf
  .text.__swbuf_r
-                0x0800c780       0xa4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-wbuf.o)
-                0x0800c780                __swbuf_r
+                0x0800c92c       0xa4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-wbuf.o)
+                0x0800c92c                __swbuf_r
  .text.__swsetup_r
-                0x0800c824       0xdc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-wsetup.o)
-                0x0800c824                __swsetup_r
+                0x0800c9d0       0xdc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-wsetup.o)
+                0x0800c9d0                __swsetup_r
  .text.__sflush_r
-                0x0800c900      0x10c c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-fflush.o)
-                0x0800c900                __sflush_r
+                0x0800caac      0x10c c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-fflush.o)
+                0x0800caac                __sflush_r
  .text._fflush_r
-                0x0800ca0c       0x78 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-fflush.o)
-                0x0800ca0c                _fflush_r
- .text.std      0x0800ca84       0x48 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x0800cbb8       0x78 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-fflush.o)
+                0x0800cbb8                _fflush_r
+ .text.std      0x0800cc30       0x48 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
  .text._cleanup_r
-                0x0800cacc        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x0800cacc                _cleanup_r
+                0x0800cc78        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x0800cc78                _cleanup_r
  .text.__sfmoreglue
-                0x0800cad8       0x2c c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x0800cad8                __sfmoreglue
+                0x0800cc84       0x2c c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x0800cc84                __sfmoreglue
  .text.__sfp_lock_acquire
-                0x0800cb04        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x0800cb04                __sfp_lock_acquire
+                0x0800ccb0        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x0800ccb0                __sfp_lock_acquire
  .text.__sfp_lock_release
-                0x0800cb10        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x0800cb10                __sfp_lock_release
+                0x0800ccbc        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x0800ccbc                __sfp_lock_release
  .text.__sinit_lock_acquire
-                0x0800cb1c        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x0800cb1c                __sinit_lock_acquire
+                0x0800ccc8        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x0800ccc8                __sinit_lock_acquire
  .text.__sinit_lock_release
-                0x0800cb28        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x0800cb28                __sinit_lock_release
- .text.__sinit  0x0800cb34       0x70 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x0800cb34                __sinit
- .text.__sfp    0x0800cba4       0x8c c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x0800cba4                __sfp
+                0x0800ccd4        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x0800ccd4                __sinit_lock_release
+ .text.__sinit  0x0800cce0       0x70 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x0800cce0                __sinit
+ .text.__sfp    0x0800cd50       0x8c c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x0800cd50                __sfp
  .text._fwalk_reent
-                0x0800cc30       0x3e c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-fwalk.o)
-                0x0800cc30                _fwalk_reent
+                0x0800cddc       0x3e c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-fwalk.o)
+                0x0800cddc                _fwalk_reent
  .text.__retarget_lock_init_recursive
-                0x0800cc6e        0x2 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-lock.o)
-                0x0800cc6e                __retarget_lock_init_recursive
+                0x0800ce1a        0x2 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-lock.o)
+                0x0800ce1a                __retarget_lock_init_recursive
  .text.__retarget_lock_acquire_recursive
-                0x0800cc70        0x2 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-lock.o)
-                0x0800cc70                __retarget_lock_acquire_recursive
+                0x0800ce1c        0x2 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-lock.o)
+                0x0800ce1c                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x0800cc72        0x2 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-lock.o)
-                0x0800cc72                __retarget_lock_release_recursive
+                0x0800ce1e        0x2 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-lock.o)
+                0x0800ce1e                __retarget_lock_release_recursive
  .text.__swhatbuf_r
-                0x0800cc74       0x4a c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-makebuf.o)
-                0x0800cc74                __swhatbuf_r
- *fill*         0x0800ccbe        0x2 
+                0x0800ce20       0x4a c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-makebuf.o)
+                0x0800ce20                __swhatbuf_r
+ *fill*         0x0800ce6a        0x2 
  .text.__smakebuf_r
-                0x0800ccc0       0x80 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-makebuf.o)
-                0x0800ccc0                __smakebuf_r
+                0x0800ce6c       0x80 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-makebuf.o)
+                0x0800ce6c                __smakebuf_r
  .text.__malloc_lock
-                0x0800cd40        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-mlock.o)
-                0x0800cd40                __malloc_lock
+                0x0800ceec        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-mlock.o)
+                0x0800ceec                __malloc_lock
  .text.__malloc_unlock
-                0x0800cd4c        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-mlock.o)
-                0x0800cd4c                __malloc_unlock
+                0x0800cef8        0xc c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-mlock.o)
+                0x0800cef8                __malloc_unlock
  .text.__sfputc_r
-                0x0800cd58       0x2e c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf.o)
+                0x0800cf04       0x2e c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf.o)
  .text.__sfputs_r
-                0x0800cd86       0x24 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf.o)
-                0x0800cd86                __sfputs_r
- *fill*         0x0800cdaa        0x2 
+                0x0800cf32       0x24 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf.o)
+                0x0800cf32                __sfputs_r
+ *fill*         0x0800cf56        0x2 
  .text._vfprintf_r
-                0x0800cdac      0x260 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf.o)
-                0x0800cdac                _vfprintf_r
-                0x0800cdac                _vfiprintf_r
+                0x0800cf58      0x260 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf.o)
+                0x0800cf58                _vfprintf_r
+                0x0800cf58                _vfiprintf_r
  .text._printf_common
-                0x0800d00c       0xda c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf_i.o)
-                0x0800d00c                _printf_common
- *fill*         0x0800d0e6        0x2 
+                0x0800d1b8       0xda c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0800d1b8                _printf_common
+ *fill*         0x0800d292        0x2 
  .text._printf_i
-                0x0800d0e8      0x24c c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf_i.o)
-                0x0800d0e8                _printf_i
- .text.__sread  0x0800d334       0x22 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-stdio.o)
-                0x0800d334                __sread
+                0x0800d294      0x24c c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0800d294                _printf_i
+ .text.__sread  0x0800d4e0       0x22 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-stdio.o)
+                0x0800d4e0                __sread
  .text.__swrite
-                0x0800d356       0x38 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-stdio.o)
-                0x0800d356                __swrite
- .text.__sseek  0x0800d38e       0x24 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-stdio.o)
-                0x0800d38e                __sseek
+                0x0800d502       0x38 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-stdio.o)
+                0x0800d502                __swrite
+ .text.__sseek  0x0800d53a       0x24 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-stdio.o)
+                0x0800d53a                __sseek
  .text.__sclose
-                0x0800d3b2        0x8 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-stdio.o)
-                0x0800d3b2                __sclose
- *fill*         0x0800d3ba        0x2 
+                0x0800d55e        0x8 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-stdio.o)
+                0x0800d55e                __sclose
+ *fill*         0x0800d566        0x2 
  .text._write_r
-                0x0800d3bc       0x24 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-writer.o)
-                0x0800d3bc                _write_r
+                0x0800d568       0x24 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-writer.o)
+                0x0800d568                _write_r
  .text._close_r
-                0x0800d3e0       0x20 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-closer.o)
-                0x0800d3e0                _close_r
+                0x0800d58c       0x20 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-closer.o)
+                0x0800d58c                _close_r
  .text._fstat_r
-                0x0800d400       0x24 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-fstatr.o)
-                0x0800d400                _fstat_r
+                0x0800d5ac       0x24 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-fstatr.o)
+                0x0800d5ac                _fstat_r
  .text._isatty_r
-                0x0800d424       0x20 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-isattyr.o)
-                0x0800d424                _isatty_r
+                0x0800d5d0       0x20 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-isattyr.o)
+                0x0800d5d0                _isatty_r
  .text._lseek_r
-                0x0800d444       0x24 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-lseekr.o)
-                0x0800d444                _lseek_r
- .text._read_r  0x0800d468       0x24 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-readr.o)
-                0x0800d468                _read_r
- .text._Znwj    0x0800d48c       0x22 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libstdc++_nano.a(new_op.o)
-                0x0800d48c                operator new(unsigned int)
- *fill*         0x0800d4ae        0x2 
+                0x0800d5f0       0x24 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-lseekr.o)
+                0x0800d5f0                _lseek_r
+ .text._read_r  0x0800d614       0x24 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-readr.o)
+                0x0800d614                _read_r
+ .text._Znwj    0x0800d638       0x22 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libstdc++_nano.a(new_op.o)
+                0x0800d638                operator new(unsigned int)
+ *fill*         0x0800d65a        0x2 
  .text._ZSt15get_new_handlerv
-                0x0800d4b0       0x10 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libstdc++_nano.a(new_handler.o)
-                0x0800d4b0                std::get_new_handler()
- .text.abort    0x0800d4c0        0xe c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-abort.o)
-                0x0800d4c0                abort
+                0x0800d65c       0x10 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libstdc++_nano.a(new_handler.o)
+                0x0800d65c                std::get_new_handler()
+ .text.abort    0x0800d66c        0xe c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-abort.o)
+                0x0800d66c                abort
  .text._raise_r
-                0x0800d4ce       0x50 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-signal.o)
-                0x0800d4ce                _raise_r
- *fill*         0x0800d51e        0x2 
- .text.raise    0x0800d520       0x10 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-signal.o)
-                0x0800d520                raise
- .text._kill_r  0x0800d530       0x24 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-signalr.o)
-                0x0800d530                _kill_r
+                0x0800d67a       0x50 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-signal.o)
+                0x0800d67a                _raise_r
+ *fill*         0x0800d6ca        0x2 
+ .text.raise    0x0800d6cc       0x10 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-signal.o)
+                0x0800d6cc                raise
+ .text._kill_r  0x0800d6dc       0x24 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-signalr.o)
+                0x0800d6dc                _kill_r
  .text._getpid_r
-                0x0800d554        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-signalr.o)
-                0x0800d554                _getpid_r
+                0x0800d700        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-signalr.o)
+                0x0800d700                _getpid_r
  *(.glue_7)
- .glue_7        0x0800d558        0x0 linker stubs
+ .glue_7        0x0800d704        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0800d558        0x0 linker stubs
+ .glue_7t       0x0800d704        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0800d558        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x0800d704        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x0800d558        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x0800d558                _init
- .init          0x0800d55c        0x8 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x0800d704        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x0800d704                _init
+ .init          0x0800d708        0x8 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x0800d564        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x0800d564                _fini
- .fini          0x0800d568        0x8 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
-                0x0800d570                . = ALIGN (0x4)
-                0x0800d570                _etext = .
+ .fini          0x0800d710        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x0800d710                _fini
+ .fini          0x0800d714        0x8 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtn.o
+                0x0800d71c                . = ALIGN (0x4)
+                0x0800d71c                _etext = .
 
-.vfp11_veneer   0x0800d570        0x0
- .vfp11_veneer  0x0800d570        0x0 linker stubs
+.vfp11_veneer   0x0800d71c        0x0
+ .vfp11_veneer  0x0800d71c        0x0 linker stubs
 
-.v4_bx          0x0800d570        0x0
- .v4_bx         0x0800d570        0x0 linker stubs
+.v4_bx          0x0800d71c        0x0
+ .v4_bx         0x0800d71c        0x0 linker stubs
 
-.iplt           0x0800d570        0x0
- .iplt          0x0800d570        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x0800d71c        0x0
+ .iplt          0x0800d71c        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x0800d570      0x2a0
-                0x0800d570                . = ALIGN (0x4)
+.rodata         0x0800d71c      0x2a8
+                0x0800d71c                . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x0800d570       0xc4 build/user.o
+ .rodata        0x0800d71c       0xc4 build/user.o
  *(.rodata*)
  .rodata.main.str1.4
-                0x0800d634       0x1d build/main.o
- *fill*         0x0800d651        0x3 
+                0x0800d7e0       0x1d build/main.o
+ *fill*         0x0800d7fd        0x3 
  .rodata.STORAGE_Inquirydata_HS
-                0x0800d654       0x24 build/usbd_storage_if.o
-                0x0800d654                STORAGE_Inquirydata_HS
+                0x0800d800       0x24 build/usbd_storage_if.o
+                0x0800d800                STORAGE_Inquirydata_HS
  .rodata.flagBitshiftOffset.0
-                0x0800d678        0x8 build/stm32f4xx_hal_dma.o
+                0x0800d824        0x8 build/stm32f4xx_hal_dma.o
  .rodata.AHBPrescTable
-                0x0800d680       0x10 build/system_stm32f4xx.o
-                0x0800d680                AHBPrescTable
+                0x0800d82c       0x10 build/system_stm32f4xx.o
+                0x0800d82c                AHBPrescTable
  .rodata.APBPrescTable
-                0x0800d690        0x8 build/system_stm32f4xx.o
-                0x0800d690                APBPrescTable
+                0x0800d83c        0x8 build/system_stm32f4xx.o
+                0x0800d83c                APBPrescTable
  .rodata.USBD_CMPSIT_FS_ManufacturerStrDescriptor.str1.4
-                0x0800d698       0x10 build/usbd_composite.o
+                0x0800d844       0x10 build/usbd_composite.o
  .rodata.USBD_CMPSIT_FS_ProductStrDescriptor.str1.4
-                0x0800d6a8       0x18 build/usbd_composite.o
+                0x0800d854       0x18 build/usbd_composite.o
  .rodata.USBD_CMPSIT_FS_InterfaceStrDescriptor.str1.4
-                0x0800d6c0       0x14 build/usbd_composite.o
+                0x0800d86c       0x14 build/usbd_composite.o
  .rodata.USBD_CMPSIT_FS_ConfigStrDescriptor.str1.4
-                0x0800d6d4       0x11 build/usbd_composite.o
- *fill*         0x0800d6e5        0x3 
+                0x0800d880       0x11 build/usbd_composite.o
+ *fill*         0x0800d891        0x3 
  .rodata.USBD_UsrStrDescriptor.str1.4
-                0x0800d6e8       0x2d build/usbd_composite.o
- *fill*         0x0800d715        0x3 
+                0x0800d894       0x2d build/usbd_composite.o
+ *fill*         0x0800d8c1        0x3 
  .rodata.str1.4
-                0x0800d718        0xc build/freertos.o
+                0x0800d8c4        0xc build/freertos.o
  .rodata.defaultTask_attributes
-                0x0800d724       0x24 build/freertos.o
-                0x0800d724                defaultTask_attributes
+                0x0800d8d0       0x24 build/freertos.o
+                0x0800d8d0                defaultTask_attributes
  .rodata.vTaskStartScheduler.str1.4
-                0x0800d748        0x5 build/tasks.o
- *fill*         0x0800d74d        0x3 
+                0x0800d8f4        0x5 build/tasks.o
+ *fill*         0x0800d8f9        0x3 
  .rodata.prvCheckForValidListAndQueue.str1.4
-                0x0800d750        0x5 build/timers.o
- *fill*         0x0800d755        0x3 
+                0x0800d8fc        0x5 build/timers.o
+ *fill*         0x0800d901        0x3 
  .rodata.xTimerCreateTimerTask.str1.4
-                0x0800d758        0x8 build/timers.o
- .rodata._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf.str1.4
-                0x0800d760        0x8 build/robot.o
+                0x0800d904        0x8 build/timers.o
  .rodata.setPara.str1.4
-                0x0800d768        0x6 build/user.o
-                                  0xa (size before relaxing)
- *fill*         0x0800d76e        0x2 
+                0x0800d90c        0xa build/user.o
+ *fill*         0x0800d916        0x2 
  .rodata.Main.str1.4
-                0x0800d770        0x6 build/user.o
- *fill*         0x0800d776        0x2 
+                0x0800d918       0x12 build/user.o
+ *fill*         0x0800d92a        0x2 
  .rodata._global_impure_ptr
-                0x0800d778        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
-                0x0800d778                _global_impure_ptr
+                0x0800d92c        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
+                0x0800d92c                _global_impure_ptr
  .rodata.__sf_fake_stderr
-                0x0800d77c       0x20 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x0800d77c                __sf_fake_stderr
+                0x0800d930       0x20 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x0800d930                __sf_fake_stderr
  .rodata.__sf_fake_stdin
-                0x0800d79c       0x20 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x0800d79c                __sf_fake_stdin
+                0x0800d950       0x20 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x0800d950                __sf_fake_stdin
  .rodata.__sf_fake_stdout
-                0x0800d7bc       0x20 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
-                0x0800d7bc                __sf_fake_stdout
+                0x0800d970       0x20 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-findfp.o)
+                0x0800d970                __sf_fake_stdout
  .rodata._vfprintf_r.str1.1
-                0x0800d7dc       0x11 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf.o)
+                0x0800d990       0x11 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf.o)
  .rodata._printf_i.str1.1
-                0x0800d7ed       0x22 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf_i.o)
-                0x0800d810                . = ALIGN (0x4)
- *fill*         0x0800d80f        0x1 
+                0x0800d9a1       0x22 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0800d9c4                . = ALIGN (0x4)
+ *fill*         0x0800d9c3        0x1 
 
-.ARM.extab      0x0800d810       0x30
+.ARM.extab      0x0800d9c4       0x3c
  *(.ARM.extab* .gnu.linkonce.armextab.*)
+ .ARM.extab.text._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf
+                0x0800d9c4        0xc build/robot.o
  .ARM.extab.text._ZN6Screen12SetBackLightEf
-                0x0800d810        0xc build/screen.o
+                0x0800d9d0        0xc build/screen.o
  .ARM.extab.text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
-                0x0800d81c        0x0 build/user.o
+                0x0800d9dc        0x0 build/user.o
  .ARM.extab.text._Z5setidPh
-                0x0800d81c        0xc build/user.o
- .ARM.extab     0x0800d828       0x18 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(pr-support.o)
+                0x0800d9dc        0xc build/user.o
+ .ARM.extab     0x0800d9e8       0x18 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(pr-support.o)
 
-.ARM            0x0800d840      0x158
-                0x0800d840                __exidx_start = .
+.ARM            0x0800da00      0x170
+                0x0800da00                __exidx_start = .
  *(.ARM.exidx*)
+ .ARM.exidx.text._ZN5Robot13SendUsbPacketEPhm
+                0x0800dab8        0x8 build/robot.o
  .ARM.exidx.text._ZN5Robot15GetLcdBufferPtrEv
-                0x0800d8f8        0x0 build/robot.o
-                                  0x8 (size before relaxing)
+                0x0800dac0        0x8 build/robot.o
  .ARM.exidx.text._ZN5Robot27ReceiveUsbPacketUntilSizeIsEm
-                0x0800d8f8        0x0 build/robot.o
+                0x0800dac8        0x0 build/robot.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text._ZN5Robot27TransmitAndReceiveI2cPacketEh
-                0x0800d8f8        0x8 build/robot.o
+                0x0800dac8        0x8 build/robot.o
  .ARM.exidx.text._ZN5Robot16UpdateServoAngleERNS_13JointStatus_tEf
-                0x0800d900        0x8 build/robot.o
+                0x0800dad0        0x8 build/robot.o
  .ARM.exidx.text._ZN5Robot14SetJointEnableERNS_13JointStatus_tEb
-                0x0800d908        0x8 build/robot.o
+                0x0800dad8        0x8 build/robot.o
  .ARM.exidx.text._ZN5Robot19SetJointTorqueLimitERNS_13JointStatus_tEf
-                0x0800d910        0x8 build/robot.o
+                0x0800dae0        0x8 build/robot.o
  .ARM.exidx.text._ZN5Robot10SetJointIdERNS_13JointStatus_tEh
-                0x0800d918        0x8 build/robot.o
+                0x0800dae8        0x8 build/robot.o
  .ARM.exidx.text._ZN5Robot17SetJointInitAngleERNS_13JointStatus_tEf
-                0x0800d920        0x8 build/robot.o
+                0x0800daf0        0x8 build/robot.o
  .ARM.exidx.text._ZN5Robot10SetJointKpERNS_13JointStatus_tEf
-                0x0800d928        0x0 build/robot.o
+                0x0800daf8        0x0 build/robot.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text._ZN5Robot10SetJointKiERNS_13JointStatus_tEf
-                0x0800d928        0x0 build/robot.o
+                0x0800daf8        0x0 build/robot.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text._ZN5Robot10SetJointKvERNS_13JointStatus_tEf
-                0x0800d928        0x0 build/robot.o
+                0x0800daf8        0x0 build/robot.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text._ZN5Robot10SetJointKdERNS_13JointStatus_tEf
-                0x0800d928        0x0 build/robot.o
+                0x0800daf8        0x0 build/robot.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text._ZN5Robot17GetExtraDataRxPtrEv
-                0x0800d928        0x8 build/robot.o
+                0x0800daf8        0x8 build/robot.o
  .ARM.exidx.text._ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf
-                0x0800d930        0x8 build/robot.o
+                0x0800db00        0x8 build/robot.o
  .ARM.exidx.text._ZN6Screen10ChipSelectEb
-                0x0800d938        0x8 build/screen.o
+                0x0800db08        0x8 build/screen.o
  .ARM.exidx.text._ZN6Screen5ResetEb
-                0x0800d940        0x0 build/screen.o
+                0x0800db10        0x0 build/screen.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text._ZN6Screen16SetDataOrCommandEb
-                0x0800d940        0x0 build/screen.o
+                0x0800db10        0x0 build/screen.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text._ZN6Screen12WriteCommandEh
-                0x0800d940        0x8 build/screen.o
+                0x0800db10        0x8 build/screen.o
  .ARM.exidx.text._ZN6Screen10Write1ByteEh
-                0x0800d948        0x0 build/screen.o
+                0x0800db18        0x0 build/screen.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text._ZN6Screen9WriteDataEPhmb
-                0x0800d948        0x8 build/screen.o
+                0x0800db18        0x8 build/screen.o
  .ARM.exidx.text._ZN6Screen9SetWindowEtttt
-                0x0800d950        0x8 build/screen.o
+                0x0800db20        0x8 build/screen.o
+ .ARM.exidx.text._ZN6Screen16WriteFrameBufferEPhmb
+                0x0800db28        0x8 build/screen.o
  .ARM.exidx.text._ZN6Screen12SetBackLightEf
-                0x0800d958        0x8 build/screen.o
+                0x0800db30        0x8 build/screen.o
  .ARM.exidx.text._ZN6Screen4InitENS_13Orientation_tE
-                0x0800d960        0x8 build/screen.o
+                0x0800db38        0x8 build/screen.o
  .ARM.exidx.text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
-                0x0800d968        0x0 build/user.o
+                0x0800db40        0x0 build/user.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text._Z41__static_initialization_and_destruction_0ii
-                0x0800d968        0x8 build/user.o
+                0x0800db40        0x8 build/user.o
  .ARM.exidx.text.setPara
-                0x0800d970        0x8 build/user.o
+                0x0800db48        0x8 build/user.o
  .ARM.exidx.text.setAngle
-                0x0800d978        0x0 build/user.o
+                0x0800db50        0x0 build/user.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text._Z5setidPh
-                0x0800d978        0x8 build/user.o
+                0x0800db50        0x8 build/user.o
  .ARM.exidx.text._Z12setInitAnglePh
-                0x0800d980        0x8 build/user.o
+                0x0800db58        0x8 build/user.o
  .ARM.exidx.text.Main
-                0x0800d988        0x8 build/user.o
+                0x0800db60        0x8 build/user.o
  .ARM.exidx.text.HAL_SPI_TxCpltCallback
-                0x0800d990        0x8 build/user.o
+                0x0800db68        0x8 build/user.o
  .ARM.exidx.text._GLOBAL__sub_I_electron
-                0x0800d998        0x0 build/user.o
+                0x0800db70        0x0 build/user.o
                                   0x8 (size before relaxing)
- .ARM.exidx     0x0800d840        0x8 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
- .ARM.exidx     0x0800d848       0x78 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(unwind-arm.o)
+ .ARM.exidx     0x0800da00        0x8 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x0800da08       0x78 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(unwind-arm.o)
                                  0xd8 (size before relaxing)
- .ARM.exidx     0x0800d8c0       0x38 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(pr-support.o)
-                0x0800d998                __exidx_end = .
+ .ARM.exidx     0x0800da80       0x38 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(pr-support.o)
+                0x0800db70                __exidx_end = .
 
-.rel.dyn        0x0800d998        0x0
- .rel.iplt      0x0800d998        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x0800db70        0x0
+ .rel.iplt      0x0800db70        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.preinit_array  0x0800d998        0x0
-                0x0800d998                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0800db70        0x0
+                0x0800db70                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0800d998                PROVIDE (__preinit_array_end = .)
+                0x0800db70                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x0800d998        0x8
-                0x0800d998                PROVIDE (__init_array_start = .)
+.init_array     0x0800db70        0x8
+                0x0800db70                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x0800d998        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
- .init_array    0x0800d99c        0x4 build/user.o
-                0x0800d9a0                PROVIDE (__init_array_end = .)
+ .init_array    0x0800db70        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .init_array    0x0800db74        0x4 build/user.o
+                0x0800db78                PROVIDE (__init_array_end = .)
 
-.fini_array     0x0800d9a0        0x4
+.fini_array     0x0800db78        0x4
                 [!provide]                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0800d9a0        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x0800db78        0x4 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 [!provide]                PROVIDE (__fini_array_end = .)
-                0x0800d9a4                _sidata = LOADADDR (.data)
+                0x0800db7c                _sidata = LOADADDR (.data)
 
-.data           0x20000000      0x338 load address 0x0800d9a4
+.data           0x20000000      0x338 load address 0x0800db7c
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
@@ -4168,12 +4168,12 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc
                 0x200002d8       0x60 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-impure.o)
                 0x20000338                . = ALIGN (0x4)
                 0x20000338                _edata = .
-                0x0800dcdc                _siccmram = LOADADDR (.ccmram)
+                0x0800deb4                _siccmram = LOADADDR (.ccmram)
 
-.igot.plt       0x20000338        0x0 load address 0x0800dcdc
+.igot.plt       0x20000338        0x0 load address 0x0800deb4
  .igot.plt      0x20000338        0x0 c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.ccmram         0x10000000        0x0 load address 0x0800dcdc
+.ccmram         0x10000000        0x0 load address 0x0800deb4
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                _sccmram = .
  *(.ccmram)
@@ -4601,7 +4601,7 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc
 LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
 LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a
 
-.debug_info     0x00000000    0x44298
+.debug_info     0x00000000    0x44416
  .debug_info    0x00000000     0x11ad build/main.o
  .debug_info    0x000011ad      0x58b build/gpio.o
  .debug_info    0x00001738      0xb50 build/i2c.o
@@ -4648,12 +4648,12 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc
  .debug_info    0x000381fa     0x4e09 build/cmsis_os2.o
  .debug_info    0x0003d003      0x5c8 build/port.o
  .debug_info    0x0003d5cb      0x61a build/heap_4.o
- .debug_info    0x0003dbe5     0x21eb build/robot.o
- .debug_info    0x0003fdd0     0x232c build/screen.o
- .debug_info    0x000420fc     0x217a build/user.o
- .debug_info    0x00044276       0x22 build/startup_stm32f405xx.o
+ .debug_info    0x0003dbe5     0x21c7 build/robot.o
+ .debug_info    0x0003fdac     0x2379 build/screen.o
+ .debug_info    0x00042125     0x22cf build/user.o
+ .debug_info    0x000443f4       0x22 build/startup_stm32f405xx.o
 
-.debug_abbrev   0x00000000     0x7d8f
+.debug_abbrev   0x00000000     0x7d9f
  .debug_abbrev  0x00000000      0x298 build/main.o
  .debug_abbrev  0x00000298      0x151 build/gpio.o
  .debug_abbrev  0x000003e9      0x1d7 build/i2c.o
@@ -4702,10 +4702,10 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc
  .debug_abbrev  0x00006e9c      0x269 build/heap_4.o
  .debug_abbrev  0x00007105      0x45f build/robot.o
  .debug_abbrev  0x00007564      0x2cb build/screen.o
- .debug_abbrev  0x0000782f      0x54e build/user.o
- .debug_abbrev  0x00007d7d       0x12 build/startup_stm32f405xx.o
+ .debug_abbrev  0x0000782f      0x55e build/user.o
+ .debug_abbrev  0x00007d8d       0x12 build/startup_stm32f405xx.o
 
-.debug_loc      0x00000000    0x327b0
+.debug_loc      0x00000000    0x328b9
  .debug_loc     0x00000000      0x147 build/main.o
  .debug_loc     0x00000147       0x39 build/gpio.o
  .debug_loc     0x00000180       0xeb build/i2c.o
@@ -4751,9 +4751,9 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc
  .debug_loc     0x0002ae0f     0x5dbc build/cmsis_os2.o
  .debug_loc     0x00030bcb      0x1c0 build/port.o
  .debug_loc     0x00030d8b      0x4e4 build/heap_4.o
- .debug_loc     0x0003126f      0xd14 build/robot.o
- .debug_loc     0x00031f83      0x3db build/screen.o
- .debug_loc     0x0003235e      0x452 build/user.o
+ .debug_loc     0x0003126f      0xd07 build/robot.o
+ .debug_loc     0x00031f76      0x3db build/screen.o
+ .debug_loc     0x00032351      0x568 build/user.o
 
 .debug_aranges  0x00000000     0x2580
  .debug_aranges
@@ -4857,7 +4857,7 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc
  .debug_aranges
                 0x00002558       0x28 build/startup_stm32f405xx.o
 
-.debug_ranges   0x00000000     0x25d8
+.debug_ranges   0x00000000     0x2628
  .debug_ranges  0x00000000       0x30 build/main.o
  .debug_ranges  0x00000030       0x10 build/gpio.o
  .debug_ranges  0x00000040       0x20 build/i2c.o
@@ -4905,10 +4905,10 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc
  .debug_ranges  0x00002410       0x48 build/heap_4.o
  .debug_ranges  0x00002458       0xa0 build/robot.o
  .debug_ranges  0x000024f8       0x58 build/screen.o
- .debug_ranges  0x00002550       0x68 build/user.o
- .debug_ranges  0x000025b8       0x20 build/startup_stm32f405xx.o
+ .debug_ranges  0x00002550       0xb8 build/user.o
+ .debug_ranges  0x00002608       0x20 build/startup_stm32f405xx.o
 
-.debug_line     0x00000000    0x2cf33
+.debug_line     0x00000000    0x2d073
  .debug_line    0x00000000      0x4d4 build/main.o
  .debug_line    0x000004d4      0x231 build/gpio.o
  .debug_line    0x00000705      0x2d0 build/i2c.o
@@ -4955,10 +4955,10 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc
  .debug_line    0x00027781     0x2a06 build/cmsis_os2.o
  .debug_line    0x0002a187      0x719 build/port.o
  .debug_line    0x0002a8a0      0x750 build/heap_4.o
- .debug_line    0x0002aff0      0xb82 build/robot.o
- .debug_line    0x0002bb72      0xa56 build/screen.o
- .debug_line    0x0002c5c8      0x8f5 build/user.o
- .debug_line    0x0002cebd       0x76 build/startup_stm32f405xx.o
+ .debug_line    0x0002aff0      0xb6e build/robot.o
+ .debug_line    0x0002bb5e      0xa76 build/screen.o
+ .debug_line    0x0002c5d4      0xa29 build/user.o
+ .debug_line    0x0002cffd       0x76 build/startup_stm32f405xx.o
 
 .debug_str      0x00000000     0xbf27
  .debug_str     0x00000000      0xba2 build/main.o
@@ -5054,7 +5054,7 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc
  .debug_str     0x0000af20      0x2bf build/heap_4.o
                                 0x4f7 (size before relaxing)
  .debug_str     0x0000b1df      0xa15 build/robot.o
-                               0x1394 (size before relaxing)
+                               0x138d (size before relaxing)
  .debug_str     0x0000bbf4       0x7c build/screen.o
                                 0x9c9 (size before relaxing)
  .debug_str     0x0000bc70      0x293 build/user.o
@@ -5887,12 +5887,14 @@ RetargetInit                                      build/retarget.o
 Robot::GetExtraDataRxPtr()                        build/robot.o
                                                   build/user.o
 Robot::GetLcdBufferPtr()                          build/robot.o
+                                                  build/user.o
 Robot::GetPingPongBufferPtr()                     build/robot.o
 Robot::ReceiveUsbPacketUntilSizeIs(unsigned long) build/robot.o
                                                   build/user.o
 Robot::Robot(__SPI_HandleTypeDef*, I2C_HandleTypeDef*) build/user.o
 Robot::Robot(__SPI_HandleTypeDef*, I2C_HandleTypeDef*) build/user.o
 Robot::SendUsbPacket(unsigned char*, unsigned long) build/robot.o
+                                                  build/user.o
 Robot::SetJointEnable(Robot::JointStatus_t&, bool) build/robot.o
                                                   build/user.o
 Robot::SetJointId(Robot::JointStatus_t&, unsigned char) build/robot.o
@@ -5940,6 +5942,7 @@ Screen::Write1Byte(unsigned char)                 build/screen.o
 Screen::WriteCommand(unsigned char)               build/screen.o
 Screen::WriteData(unsigned char*, unsigned long, bool) build/screen.o
 Screen::WriteFrameBuffer(unsigned char*, unsigned long, bool) build/screen.o
+                                                  build/user.o
 SpiFlash_Init                                     build/w25q32.o
                                                   build/main.o
 StartDefaultTask                                  build/freertos.o
@@ -6307,6 +6310,7 @@ __aeabi_unwind_cpp_pr1                            c:/program files (x86)/gnu arm
                                                   c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(pr-support.o)
                                                   build/user.o
                                                   build/screen.o
+                                                  build/robot.o
 __aeabi_unwind_cpp_pr2                            c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(unwind-arm.o)
 __bss_end__                                       c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
 __bss_start__                                     c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
@@ -6782,7 +6786,6 @@ pcTimerGetName                                    build/timers.o
                                                   build/cmsis_os2.o
 printf                                            c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-printf.o)
                                                   build/user.o
-                                                  build/robot.o
                                                   build/main.o
 puts                                              c:/program files (x86)/gnu arm embedded toolchain/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-puts.o)
                                                   build/user.o

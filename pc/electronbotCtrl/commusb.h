@@ -10,7 +10,7 @@ public:
     ~commUSB();
     void print_dev(void);
     void test_my_usb_devices(int vid,int pid);
-    void openElectronbotUSB(int vid,int pid);
+    bool openElectronbotUSB(int vid,int pid);
     int ReadElectronbotUSB(uint8_t *ptr,uint32_t len);
     int WriteElectronbotUSB(uint8_t *ptr,uint32_t len);
     void CloseElectronbotUSB(void);

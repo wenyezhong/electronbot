@@ -30,7 +30,7 @@ uint8_t  newid;
 
 void setPara(uint8_t *ptr)
 {
-    // Robot::JointStatus_t *pJointStatus;
+    // Robot::JointStatus_t *pJointStatus; 
     uint8_t id = ptr[0];
     setKp=*((float*) (ptr + 2));
     setKi=*((float*) (ptr + 7));
@@ -105,8 +105,7 @@ void setAngle(uint8_t *ptr)
 }
 void setid(uint8_t *ptr)
 {
-    uint8_t id = ptr[0];
-   
+    uint8_t id = ptr[0];   
     newid=ptr[1];
     electron.SetJointId(electron.joint[id/2], newid);
 }
@@ -123,7 +122,8 @@ void setInitAngle(uint8_t *ptr)
 /* Default Entry -------------------------------------------------------*/
 void Main(void)
 {
-    int i;    
+    int i;
+    int p=0;
     HAL_Delay(1000);
     electron.lcd->Init(Screen::DEGREE_0);
     electron.lcd->SetWindow(0, 239, 0, 239);
@@ -131,10 +131,24 @@ void Main(void)
         electron.pUsbBuffer->extraDataTx[i]=32-i;
     /* electron.SetJointEnable(electron.joint[6], true);
     electron.UpdateJointAngle(electron.joint[6], 30); */
+
+    /* electron.UpdateJointAngle(electron.joint[1], 0);
+    electron.UpdateJointAngle(electron.joint[2], 0);
+    electron.UpdateJointAngle(electron.joint[3], 0);
+    electron.UpdateJointAngle(electron.joint[4], 0);
+    electron.UpdateJointAngle(electron.joint[5], 0);  */
+    electron.UpdateJointAngle(electron.joint[6], 0); 
     while(1)
     {
-        //electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);
-        // HAL_Delay(500);        
+        for (int j = 0; j < 6; j++)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
+                electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+            }
+        }            
+        electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);        
         electron.ReceiveUsbPacketUntilSizeIs(224); // last packet is 224bytes
         uint8_t* ptr = electron.GetExtraDataRxPtr();
         
@@ -157,24 +171,45 @@ void Main(void)
         }
         else
         {
-            printf("task\r\n");
+            printf("task  p=%d : %d\r\n",p,ptr[31]);
+            //for(p=0;p<4;p++)
+           
+            if (isEnabled != (bool) ptr[0])
+            {
+                isEnabled = ptr[0];
+                /* electron.SetJointEnable(electron.joint[1], isEnabled);
+                electron.SetJointEnable(electron.joint[2], isEnabled);
+                electron.SetJointEnable(electron.joint[3], isEnabled);
+                electron.SetJointEnable(electron.joint[4], isEnabled);
+                electron.SetJointEnable(electron.joint[5], isEnabled); */
+                // electron.SetJointEnable(electron.joint[6], isEnabled);
+            }
+            for (int j = 0; j < 6; j++)
+            {
+                jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+            }
+            //printf("33333\r\n");
+            while (electron.lcd->isBusy);
+            // memset(electron.GetLcdBufferPtr(),200,60*240*3);
+            //printf("222222\r\n");
+            /* for(i=0 ; i<100; i++)
+                printf("%.2x ",electron.GetLcdBufferPtr()[i]);
+            printf("\r\n");  */
+            if (p == 0)
+                electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3,false);
+            else
+                electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3, true);
+            if(p++>=3)
+                p=0;
+
+            
         }
+        HAL_Delay(1);
         
     }
     
-    /* electron.SetJointInitAngle(electron.joint[6], 0);
-    electron.SetJointKp(electron.joint[6], 150);
-    electron.SetJointKi(electron.joint[6], 0.8);
-    electron.SetJointKd(electron.joint[6], 300);
-    electron.SetJointTorqueLimit(electron.joint[6], 0.8); */
-    // electron.SetJointEnable(electron.joint[6], false);
-    // electron.UpdateJointAngle(electron.joint[6], 30);
-   /*  electron.UpdateJointAngle(electron.joint[1], 0);
-    electron.UpdateJointAngle(electron.joint[2], 0);
-    electron.UpdateJointAngle(electron.joint[3], 0);
-    electron.UpdateJointAngle(electron.joint[4], 0);
-    electron.UpdateJointAngle(electron.joint[5], 0); 
-    electron.UpdateJointAngle(electron.joint[6], 0); */   
+   
+ 
 
     float t = 0;    
     while (true)
@@ -213,11 +248,9 @@ void Main(void)
             while (electron.lcd->isBusy);
             printf("222222\r\n");
             if (p == 0)
-                electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),
-                                               60 * 240 * 3);
+                electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3,false);
             else
-                electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),
-                                               60 * 240 * 3, true);			
+                electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3, true);			
         }
         HAL_Delay(1);
 #endif
