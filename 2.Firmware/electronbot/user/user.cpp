@@ -119,6 +119,13 @@ void setInitAngle(uint8_t *ptr)
     
     electron.SetJointInitAngle(electron.joint[id/2], jointSetPoints[id/2]);
 }
+void JumpBootLoader(uint8_t *ptr)
+{
+    electron.pUsbBuffer->extraDataTx[31] = 0xef;
+    electron.pUsbBuffer->extraDataTx[30] = 0x01;
+    electron.pUsbBuffer->extraDataTx[29] = 0x00;
+    electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);
+}
 /* Default Entry -------------------------------------------------------*/
 void Main(void)
 {
@@ -168,6 +175,10 @@ void Main(void)
         else if(ptr[31] == 0xf1)
         {
              setInitAngle(ptr);
+        }
+        else if(ptr[31] == 0xfe)
+        {
+             JumpBootLoader(ptr);
         }
         else
         {

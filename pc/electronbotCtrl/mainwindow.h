@@ -5,12 +5,12 @@
 #include<QTimer>
 #include "commusb.h"
 #include "thread.h"
+#include "downloadfile.h"
+
 namespace Ui {
 class MainWindow;
 }
-#define BUFF_SIZE  43232
-#define PAR_INDEX  43200
-#define ONCE_SIZE  512
+
 
 class MainWindow : public QMainWindow
 {
@@ -47,7 +47,7 @@ private slots:
     void on_pushButton_set_init_angle_clicked();
 
 private:
-    Ui::MainWindow *ui;     
+     Ui::MainWindow *ui;
      QTimer *recvUSB_Timer;
      Thread *readUsbTread;
 
@@ -55,6 +55,7 @@ private:
      void initPara(void);
 public:
     commUSB *electronbot_usb;
+    downLoadFile *pDownLoadFile=nullptr;
     void sendPacket(void);
 };
 

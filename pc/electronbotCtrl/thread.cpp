@@ -3,7 +3,9 @@
 #include "commusb.h"
 #include<mainwindow.h>
 
-extern MainWindow *pWindows;
+//extern MainWindow *pWindows;
+
+extern commUSB *pcommUSB;
 void Thread::run()
 {
     int ret = 0;
@@ -11,7 +13,8 @@ void Thread::run()
     while(1)
     {
         //commUSB::ReadElectronbotUSB(a,32);
-        ret = pWindows->electronbot_usb->ReadElectronbotUSB((uint8_t *)a,32);
+//        ret = pWindows->electronbot_usb->ReadElectronbotUSB((uint8_t *)a,32);
+        ret = pcommUSB->ReadElectronbotUSB((uint8_t *)a,32);
         if(ret>=0)
         {
             //qDebug("tttttt");

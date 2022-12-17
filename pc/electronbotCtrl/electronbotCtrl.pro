@@ -29,12 +29,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     commusb.cpp \
-    thread.cpp
+    thread.cpp \
+    downloadfile.cpp
 
 HEADERS += \
         mainwindow.h \
     commusb.h \
-    thread.h
+    thread.h \
+    downloadfile.h
 
 FORMS += \
         mainwindow.ui

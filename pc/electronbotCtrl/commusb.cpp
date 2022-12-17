@@ -222,7 +222,7 @@ int commUSB::WriteElectronbotUSB(uint8_t *ptr,uint32_t len)
         //r = libusb_interrupt_transfer(handle, endpoint_out, report_buffer, 65, &size, 1000);
 
         if (res == 0) {
-            qDebug("write ok\n");
+//            qDebug("write ok\n");
         }
         else {
             qDebug("   %s\n", libusb_strerror((enum libusb_error)res));

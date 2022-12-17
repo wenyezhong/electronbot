@@ -17,7 +17,7 @@
 
 
 
-
+commUSB *pcommUSB;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -30,8 +30,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(recvUSB_Timer, SIGNAL(timeout()), this, SLOT(RecvUSBTask()));
     //recvUSB_Timer->start(500);
     electronbot_usb = new commUSB;
+    pcommUSB = electronbot_usb;
     //electronbot_usb->print_dev();
-    bool ret=electronbot_usb->openElectronbotUSB(0x1214,0x0D3a);
+    bool ret=electronbot_usb->openElectronbotUSB(0x1215,0x0D3b);
     if(ret)
     {
         ui->statusBar->showMessage(tr("已连接"));
@@ -48,11 +49,15 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(readUsbTread,SIGNAL(sendRecDat(BYTE*)),this,SLOT(recUsbDatas(BYTE*)));
     readUsbTread->start();
 
+    //pDownLoadFile = new downLoadFile(electronbot_usb);
+
 
 }
 
 MainWindow::~MainWindow()
 {
+    if(pDownLoadFile)
+        delete pDownLoadFile;
     delete electronbot_usb;
     delete recvUSB_Timer;
     delete ui;
@@ -68,22 +73,89 @@ void MainWindow::reconnectElectronbotUSB(void)
 void MainWindow::recUsbDatas(BYTE* ptr)
 {
     int i;
-    float head_angle=*(float*)&ptr[1];
-    float lroll_angle=*(float*)&ptr[5];
-    float lpitch_angle=*(float*)&ptr[9];
-    float rroll_angle=*(float*)&ptr[13];
-    float rpitch_angle=*(float*)&ptr[17];
-    float body_angle=*(float*)&ptr[21];
-    for(i=0;i<32;i++)
-        qDebug("%x ",ptr[i]);
-    QString val;
+    uint16_t cmd = *(uint16_t*)&ptr[30];
+    qDebug("cmd = %.4x",cmd);
+    switch(cmd)
+    {
+        case 0xef01:{
 
-    ui->lineEdit_head_angle->setText(QString::number(head_angle,'f',2));
-    ui->lineEdit_lroll_angle->setText(QString::number(lroll_angle,'f',2));
-    ui->lineEdit_lpitch_angle->setText(QString::number(lpitch_angle,'f',2));
-    ui->lineEdit_rroll_angle->setText(QString::number(rroll_angle,'f',2));
-    ui->lineEdit_rpitch_angle->setText(QString::number(rpitch_angle,'f',2));
-    ui->lineEdit_body_angle->setText(QString::number(body_angle,'f',2));
+            if(ptr[29]==0)
+            {
+                pDownLoadFile->QueryBootLoaderReady(txData);
+
+            }
+
+        }break;
+
+        case 0xef02:{
+
+            if(ptr[29]==0)
+            {
+                pDownLoadFile->NoticeEraseFlash(txData);
+
+            }
+
+        }break;
+
+        case 0xef03:{
+
+            if(ptr[29]==0)
+            {
+                pDownLoadFile->DownLoadAppData(txData);
+
+            }
+
+        }break;
+
+        case 0xef04:{
+
+            if(ptr[29]==0)
+            {
+                pDownLoadFile->NoticeComplete(txData);
+
+            }
+
+        }break;
+
+        case 0xef05:{
+
+            if(ptr[29]==0)
+            {
+                //pDownLoadFile->QueryBootLoaderReady(txData);
+                ui->statusBar->showMessage(ui->statusBar->currentMessage()+"     下载成功！");
+                delete pDownLoadFile;
+//                ui->statusBar->showMessage(tr("未连接"));
+//                ui->statusBar->setStyleSheet("background-color: rgb(0, 170, 0)");
+
+            }
+
+        }break;
+
+        default:{
+
+                float head_angle=*(float*)&ptr[1];
+                float lroll_angle=*(float*)&ptr[5];
+                float lpitch_angle=*(float*)&ptr[9];
+                float rroll_angle=*(float*)&ptr[13];
+                float rpitch_angle=*(float*)&ptr[17];
+                float body_angle=*(float*)&ptr[21];
+            //    for(i=0;i<32;i++)
+            //        qDebug("%x ",ptr[i]);
+                QString val;
+
+                ui->lineEdit_head_angle->setText(QString::number(head_angle,'f',2));
+                ui->lineEdit_lroll_angle->setText(QString::number(lroll_angle,'f',2));
+                ui->lineEdit_lpitch_angle->setText(QString::number(lpitch_angle,'f',2));
+                ui->lineEdit_rroll_angle->setText(QString::number(rroll_angle,'f',2));
+                ui->lineEdit_rpitch_angle->setText(QString::number(rpitch_angle,'f',2));
+                ui->lineEdit_body_angle->setText(QString::number(body_angle,'f',2));
+
+            }break;
+
+
+    }
+
+
 }
 void MainWindow::sendPacket(void)
 {
@@ -104,10 +176,14 @@ void MainWindow::sendPacket(void)
 }
 void MainWindow::on_pushButton_clicked()
 {
+    QString bmpFileName;
+    bmpFileName = QFileDialog::getOpenFileName(this,tr("Open Image"),"./",tr("JPEG Files(*.jpg);;Bmp Files(*.bmp)"));//xx/xx/xx.xx
+    qDebug("%s",bmpFileName.toStdString().data());
 
-    QPixmap *backgroundPixmap = new QPixmap("D:/gnuArm/electronbot/robot2.jpg");
+//    QPixmap *backgroundPixmap = new QPixmap("D:/gnuarmstm32/electronbot/robot2.jpg");
+    QPixmap *backgroundPixmap = new QPixmap(bmpFileName);
     QGraphicsScene *scene = new QGraphicsScene(this);
-    //scene->addPixmap(QPixmap("D:/gnuArm/electronbot/robot2.jpg"));
+    //scene->addPixmap(QPixmap("D:\gnuarmstm32\electronbot/robot2.jpg"));
 
     ui->graphicsView->resize(240, 240);
     ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -116,13 +192,9 @@ void MainWindow::on_pushButton_clicked()
     QPixmap sized = backgroundPixmap->scaled(
             QSize(ui->graphicsView->width(),
                   ui->graphicsView->height()),
-            Qt::KeepAspectRatio); // This scales the image too tall
+            Qt::KeepAspectRatioByExpanding); // This scales the image too tall
 
-    QImage sizedImage = QImage(sized.toImage());
-
-    //QImage sizedCroppedImage = QImage(sizedImage.copy(0,0,
-    //   (ui->graphicsView->width() - 1.5),
-    //   (ui->graphicsView->height() + 19)));
+    QImage sizedImage = QImage(sized.toImage()).convertToFormat(QImage::Format_RGB888);
 
 
     scene->addPixmap(QPixmap::fromImage(sizedImage));
@@ -133,7 +205,24 @@ void MainWindow::on_pushButton_clicked()
     //scene->
     //ui->graphicsView->
     uint8_t *ptr=(uint8_t *)malloc(1024*1024);//[=(uint8_t*)sizedImage.data_ptr();
-    memcpy(ptr,sizedImage.data_ptr(),240*240*3);
+    int step = sizedImage.bytesPerLine(); //image->width();
+    int wd = sizedImage.width();
+    int ht = sizedImage.height();
+
+    uchar* iptr = sizedImage.bits();
+    uchar* ptr_var = iptr;
+    qDebug()<<"step:"<<step;
+    qDebug()<<"h:"<<ht<<"w: "<<wd;
+//    uchar **pptr = new uchar*[ht];
+
+    for (int y = 0; y < sizedImage.height(); y++) {
+        memcpy(ptr+720*y,iptr+y*wd*3,240*3);
+        //ptr_var += step;
+        //pptr[y] = ptr_var; //&(((uchar*)ptr_var)[0]);
+    }
+
+
+    //memcpy(ptr,sizedImage.bits(),240*240*3);
     //memset(ptr,100,1024*1024);
     for(int i=0;i<4;i++)
     {
@@ -144,6 +233,64 @@ void MainWindow::on_pushButton_clicked()
     }
     free(ptr);
     //ui->graphicsView->show();
+#if 0
+    BITMAPFILEHEADER *pBITMAPFILEHEADER;
+    BMP_INFOHEADER *pBMP_INFOHEADER;
+    int w,h;
+    char data[1024];
+    QString bmpFileName;
+    QFile bmpFile;
+    bmpFileName = QFileDialog::getOpenFileName(this,tr("Open Image"),"./",tr("Image Files(*.bmp)"));//xx/xx/xx.xx
+    qDebug("%s",bmpFileName.toStdString().data());
+
+    bmpFile.setFileName(bmpFileName);
+    bmpFile.open(QIODevice::ReadOnly);
+
+    bmpFile.read(data,sizeof(BITMAPFILEHEADER)+sizeof(BMP_INFOHEADER));
+    pBITMAPFILEHEADER=(BITMAPFILEHEADER*)data;
+    pBMP_INFOHEADER=(BMP_INFOHEADER*)(data+sizeof(BITMAPFILEHEADER));
+    qDebug("offset = %d",pBITMAPFILEHEADER->bfOffBits);
+    qDebug("biSize = %d",pBMP_INFOHEADER->biSize);
+    qDebug("biWidth = %d  biHeight = %d",pBMP_INFOHEADER->biWidth,pBMP_INFOHEADER->biHeight);
+    qDebug("biPlanes = %d",pBMP_INFOHEADER->biPlanes);
+    qDebug("biBitCount = %d",pBMP_INFOHEADER->biBitCount);
+    qDebug("biCompression = %d",pBMP_INFOHEADER->biCompression);
+    qDebug("biSizeImage = %d",pBMP_INFOHEADER->biSizeImage);
+    qDebug("biClrUsed = %d",pBMP_INFOHEADER->biClrUsed);
+    qDebug("biClrImportant = %d",pBMP_INFOHEADER->biClrImportant);
+
+    w=pBMP_INFOHEADER->biWidth;
+    h=pBMP_INFOHEADER->biHeight;
+
+    char palette[256][4];
+    bmpFile.seek(sizeof(BITMAPFILEHEADER)+sizeof(BMP_INFOHEADER));
+    bmpFile.read(palette[0],1024);
+    bmpFile.seek(pBITMAPFILEHEADER->bfOffBits);
+    int i,j;
+    uint8_t r,g,b;
+    uint8_t index;
+
+    for(i=h; i >0; --i)
+    {
+        bmpFile.read(data,w);
+        for(j=0;j<w;j++)
+        {
+            index=(uint8_t)data[j];
+            r = (uint8_t)palette[index][2];
+            g = (uint8_t)palette[index][1];
+            b = (uint8_t)palette[index][0];
+//                qDebug("%x",index);
+//                qDebug("%x",r);
+//                qDebug("%x",g);
+//                qDebug("b=%x",b);
+//                painter.setPen(QColor(palette[index][0],palette[index][1],palette[index][2],palette[index][3]));
+            //painter.setPen(QColor(r,g,b));
+            //painter.drawPoint(j,i);
+        }
+
+    }
+    bmpFile.close();
+#endif
 }
 void MainWindow::RecvUSBTask()
 {
@@ -171,61 +318,66 @@ void MainWindow::on_openFile_clicked()
 
 void MainWindow::on_sendFile_clicked()
 {
-    uint8_t buf[512];
-    int i;
+//    uint8_t buf[512];
+//    int i;
     QString fileName=ui->lineEdit_path->text();
-    QFile file(fileName);//与文件建立联系
-    if(!file.exists())//判断是否建立成功
-    {
+    if(pDownLoadFile)
+        delete pDownLoadFile;
+    pDownLoadFile = new downLoadFile(electronbot_usb);
+    pDownLoadFile->seFilename(fileName);
+    pDownLoadFile->NoticeAppIntoBootLoader(txData);
+//    QFile file(fileName);//与文件建立联系
+//    if(!file.exists())//判断是否建立成功
+//    {
 
-        QString str = "world";
-        //qDebug()<<"hello "<<str<<"!"<<endl;
+//        QString str = "world";
+//        //qDebug()<<"hello "<<str<<"!"<<endl;
 
-    }
-    else
-    {
-        //this->showMaximized();//成功则窗口会最大化，这只是我用检测的方法
-        qDebug("read file\r\n");
-        fflush(stdout);
-        qint64 size=file.size();
-        qDebug("size=%ld\r\n",size);
-        int totalPackets = size%512?(size/512+1):(size/512);
-        qDebug("totalPackets=%d\r\n",totalPackets);
-        if(file.open(QIODevice::ReadOnly|QIODevice::Truncate))//打开文件，以只读的方式打开文本文件
-        {
-            /*QDateTime time= QDateTime::currentDateTime();//获取系统当前的时间
-            uint sTime = time.toTime_t();
-            qDebug("sTime=%d\r\n",sTime);*/
-            for(i=0;i<totalPackets;i++)
-            {
-                qint32 n=file.read((char*)buf,512);
-                electronbot_usb->WriteElectronbotUSB(buf,512);
-            }
-            /*time= QDateTime::currentDateTime();//获取系统当前的时间
-            uint eTime = time.toTime_t();
-            qDebug("op time=%d\r\n",eTime-sTime);*/
+//    }
+//    else
+//    {
+//        //this->showMaximized();//成功则窗口会最大化，这只是我用检测的方法
+//        qDebug("read file\r\n");
+//        qint64 size=file.size();
+//        qDebug("size=%ld\r\n",size);
+//        int totalPackets = size%512?(size/512+1):(size/512);
+//        qDebug("totalPackets=%d\r\n",totalPackets);
+//        if(file.open(QIODevice::ReadOnly|QIODevice::Truncate))//打开文件，以只读的方式打开文本文件
+//        {
+//            /*QDateTime time= QDateTime::currentDateTime();//获取系统当前的时间
+//            uint sTime = time.toTime_t();
+//            qDebug("sTime=%d\r\n",sTime);*/
+//            for(i=0;i<totalPackets;i++)
+//            {
+//                qint32 n=file.read((char*)buf,512);
+//                electronbot_usb->WriteElectronbotUSB(buf,512);
+//            }
+//            /*time= QDateTime::currentDateTime();//获取系统当前的时间
+//            uint eTime = time.toTime_t();
+//            qDebug("op time=%d\r\n",eTime-sTime);*/
 
 
-            //因为readline函数读取文件内容成功的话就会返回文件的字节数，如果失败就会返回-1
-            /*qDebug("len=%d\r\n",n);
-            if(n!=-1)
-            {
+//            //因为readline函数读取文件内容成功的话就会返回文件的字节数，如果失败就会返回-1
+//            /*qDebug("len=%d\r\n",n);
+//            if(n!=-1)
+//            {
 
-                for(i=0;i<n;i++)
-                    qDebug("%02x",buf[i]);
-                qDebug("\r\n");
+//                for(i=0;i<n;i++)
+//                    qDebug("%02x",buf[i]);
+//                qDebug("\r\n");
 
-            }*/
-            file.close();
-         }
-       else
-       {
-            qDebug()<<file.errorString();
-       }
-    }
+//            }*/
+//            file.close();
+//         }
+//       else
+//       {
+//            qDebug()<<file.errorString();
+//       }
+//    }
 
 
 }
+
 
 void MainWindow::initPara(void)
 {
