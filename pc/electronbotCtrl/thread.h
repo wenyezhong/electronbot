@@ -10,6 +10,8 @@ signals:
     int sendRecDat(BYTE*);
 protected:
     void run();
+public:
+    bool runFlag;
 };
 
 

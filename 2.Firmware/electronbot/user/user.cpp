@@ -176,7 +176,7 @@ void Main(void)
         {
              setInitAngle(ptr);
         }
-        else if(ptr[31] == 0xfe)
+        else if((ptr[31] == 0xfe)&&(ptr[30] == 0x01))
         {
              JumpBootLoader(ptr);
         }

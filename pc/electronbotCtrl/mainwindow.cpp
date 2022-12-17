@@ -32,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
     electronbot_usb = new commUSB;
     pcommUSB = electronbot_usb;
     //electronbot_usb->print_dev();
-    bool ret=electronbot_usb->openElectronbotUSB(0x1215,0x0D3b);
+    bool ret=electronbot_usb->openElectronbotUSB(USBD_CMPSIT_VID,USBD_CMPSIT_PID);
     if(ret)
     {
         ui->statusBar->showMessage(tr("已连接"));
@@ -47,6 +47,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     readUsbTread = new Thread;
     connect(readUsbTread,SIGNAL(sendRecDat(BYTE*)),this,SLOT(recUsbDatas(BYTE*)));
+    readUsbTread->runFlag = true;
     readUsbTread->start();
 
     //pDownLoadFile = new downLoadFile(electronbot_usb);
@@ -58,16 +59,38 @@ MainWindow::~MainWindow()
 {
     if(pDownLoadFile)
         delete pDownLoadFile;
-    delete electronbot_usb;
-    delete recvUSB_Timer;
+    if(electronbot_usb)
+        delete electronbot_usb;
+    if(recvUSB_Timer)
+        delete recvUSB_Timer;
+    if(readUsbTread)
+        delete readUsbTread;
     delete ui;
 }
 void MainWindow::reconnectElectronbotUSB(void)
 {
-    electronbot_usb->CloseElectronbotUSB();
+    readUsbTread->runFlag = false;
+    Sleep(500);
+    readUsbTread->terminate();
+
+    pcommUSB=nullptr;
     delete electronbot_usb;
+
     electronbot_usb = new commUSB;
-    electronbot_usb->openElectronbotUSB(0x1214,0x0D3a);
+    pcommUSB = electronbot_usb;
+    bool ret=electronbot_usb->openElectronbotUSB(USBD_CMPSIT_VID,USBD_CMPSIT_PID);
+    if(ret)
+    {
+        ui->statusBar->showMessage(tr("已连接"));
+        ui->statusBar->setStyleSheet("background-color: rgb(0, 170, 0)");
+    }
+    else
+    {
+        ui->statusBar->showMessage(tr("未连接"));
+        ui->statusBar->setStyleSheet("background-color: rgb(213, 0, 0)");
+    }
+    readUsbTread->runFlag = true;
+    readUsbTread->start();
 
 }
 void MainWindow::recUsbDatas(BYTE* ptr)
@@ -81,8 +104,9 @@ void MainWindow::recUsbDatas(BYTE* ptr)
 
             if(ptr[29]==0)
             {
+                //reconnectElectronbotUSB();
+//                Sleep(1000);
                 pDownLoadFile->QueryBootLoaderReady(txData);
-
             }
 
         }break;
@@ -101,6 +125,7 @@ void MainWindow::recUsbDatas(BYTE* ptr)
 
             if(ptr[29]==0)
             {
+
                 pDownLoadFile->DownLoadAppData(txData);
 
             }
@@ -111,8 +136,25 @@ void MainWindow::recUsbDatas(BYTE* ptr)
 
             if(ptr[29]==0)
             {
-                pDownLoadFile->NoticeComplete(txData);
+                //pDownLoadFile->NoticeComplete(txData);
+                uint16_t curPakcetNo = *(uint16_t*)&ptr[27];
+                ui->progressBar->setValue(curPakcetNo);
+                qDebug("curPakcetNo = %d",curPakcetNo);
+                if(pDownLoadFile->isTxCplt())
+                {
+                    qDebug("send txcplt notice");
+                    pDownLoadFile->NoticeComplete(txData);
+                }
+                else
+                {
+                    qDebug("DownLoadAppData");
+                    pDownLoadFile->DownLoadAppData(txData);
 
+                }
+
+            }
+            else {
+                qDebug("DownLoadAppData failed");
             }
 
         }break;
@@ -121,6 +163,9 @@ void MainWindow::recUsbDatas(BYTE* ptr)
 
             if(ptr[29]==0)
             {
+                uint16_t recvTotalPackets = *(uint16_t*)&ptr[28];
+                ui->progressBar->setValue(recvTotalPackets);
+                qDebug("recvTotalPackets = %d",recvTotalPackets);
                 //pDownLoadFile->QueryBootLoaderReady(txData);
                 ui->statusBar->showMessage(ui->statusBar->currentMessage()+"     下载成功！");
                 delete pDownLoadFile;
@@ -326,22 +371,25 @@ void MainWindow::on_sendFile_clicked()
     pDownLoadFile = new downLoadFile(electronbot_usb);
     pDownLoadFile->seFilename(fileName);
     pDownLoadFile->NoticeAppIntoBootLoader(txData);
-//    QFile file(fileName);//与文件建立联系
-//    if(!file.exists())//判断是否建立成功
-//    {
+    QFile file(fileName);//与文件建立联系
+    if(!file.exists())//判断是否建立成功
+    {
 
-//        QString str = "world";
-//        //qDebug()<<"hello "<<str<<"!"<<endl;
+        QString str = "world";
+        //qDebug()<<"hello "<<str<<"!"<<endl;
 
-//    }
-//    else
-//    {
-//        //this->showMaximized();//成功则窗口会最大化，这只是我用检测的方法
-//        qDebug("read file\r\n");
-//        qint64 size=file.size();
-//        qDebug("size=%ld\r\n",size);
-//        int totalPackets = size%512?(size/512+1):(size/512);
-//        qDebug("totalPackets=%d\r\n",totalPackets);
+    }
+    else
+    {
+        //this->showMaximized();//成功则窗口会最大化，这只是我用检测的方法
+        qDebug("read file\r\n");
+        qint64 size=file.size();
+        qDebug("size=%ld\r\n",size);
+        int totalPackets = size%SIZE_PER?(size/SIZE_PER+1):(size/SIZE_PER);
+        qDebug("totalPackets=%d\r\n",totalPackets);
+        ui->progressBar->setMinimum(0);
+        ui->progressBar->setMaximum(totalPackets);
+        ui->progressBar->setValue(0);
 //        if(file.open(QIODevice::ReadOnly|QIODevice::Truncate))//打开文件，以只读的方式打开文本文件
 //        {
 //            /*QDateTime time= QDateTime::currentDateTime();//获取系统当前的时间
@@ -373,7 +421,7 @@ void MainWindow::on_sendFile_clicked()
 //       {
 //            qDebug()<<file.errorString();
 //       }
-//    }
+    }
 
 
 }

@@ -1,0 +1,1601 @@
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text._write,"ax",%progbits
+  20              		.align	1
+  21              		.global	_write
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	_write:
+  27              	.LVL0:
+  28              	.LFB134:
+  29              		.file 1 "Src/main.c"
+   1:Src/main.c    **** /* USER CODE BEGIN Header */
+   2:Src/main.c    **** /**
+   3:Src/main.c    ****   ******************************************************************************
+   4:Src/main.c    ****   * @file           : main.c
+   5:Src/main.c    ****   * @brief          : Main program body
+   6:Src/main.c    ****   ******************************************************************************
+   7:Src/main.c    ****   * @attention
+   8:Src/main.c    ****   *
+   9:Src/main.c    ****   * Copyright (c) 2022 STMicroelectronics.
+  10:Src/main.c    ****   * All rights reserved.
+  11:Src/main.c    ****   *
+  12:Src/main.c    ****   * This software is licensed under terms that can be found in the LICENSE file
+  13:Src/main.c    ****   * in the root directory of this software component.
+  14:Src/main.c    ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  15:Src/main.c    ****   *
+  16:Src/main.c    ****   ******************************************************************************
+  17:Src/main.c    ****   */
+  18:Src/main.c    **** /* USER CODE END Header */
+  19:Src/main.c    **** /* Includes ------------------------------------------------------------------*/
+  20:Src/main.c    **** #include "main.h"
+  21:Src/main.c    **** #include "usart.h"
+  22:Src/main.c    **** #include "usb_device.h"
+  23:Src/main.c    **** #include "gpio.h"
+  24:Src/main.c    **** 
+  25:Src/main.c    **** /* Private includes ----------------------------------------------------------*/
+  26:Src/main.c    **** /* USER CODE BEGIN Includes */
+  27:Src/main.c    **** #include <stdio.h>
+  28:Src/main.c    **** #include "usbd_winUsb.h"
+  29:Src/main.c    **** #include "common_inc.h"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 2
+
+
+  30:Src/main.c    **** /* USER CODE END Includes */
+  31:Src/main.c    **** 
+  32:Src/main.c    **** /* Private typedef -----------------------------------------------------------*/
+  33:Src/main.c    **** /* USER CODE BEGIN PTD */
+  34:Src/main.c    **** 
+  35:Src/main.c    **** /* USER CODE END PTD */
+  36:Src/main.c    **** 
+  37:Src/main.c    **** /* Private define ------------------------------------------------------------*/
+  38:Src/main.c    **** /* USER CODE BEGIN PD */
+  39:Src/main.c    **** /* USER CODE END PD */
+  40:Src/main.c    **** 
+  41:Src/main.c    **** /* Private macro -------------------------------------------------------------*/
+  42:Src/main.c    **** /* USER CODE BEGIN PM */
+  43:Src/main.c    **** 
+  44:Src/main.c    **** /* USER CODE END PM */
+  45:Src/main.c    **** 
+  46:Src/main.c    **** /* Private variables ---------------------------------------------------------*/
+  47:Src/main.c    **** 
+  48:Src/main.c    **** /* USER CODE BEGIN PV */
+  49:Src/main.c    **** extern UsbBuffer_t usbBuffer;
+  50:Src/main.c    **** uint16_t recPacketNo;
+  51:Src/main.c    **** /* USER CODE END PV */
+  52:Src/main.c    **** 
+  53:Src/main.c    **** /* Private function prototypes -----------------------------------------------*/
+  54:Src/main.c    **** void SystemClock_Config(void);
+  55:Src/main.c    **** /* USER CODE BEGIN PFP */
+  56:Src/main.c    **** 
+  57:Src/main.c    **** /* USER CODE END PFP */
+  58:Src/main.c    **** 
+  59:Src/main.c    **** /* Private user code ---------------------------------------------------------*/
+  60:Src/main.c    **** /* USER CODE BEGIN 0 */
+  61:Src/main.c    **** int _write(int fd, char *ch, int len)
+  62:Src/main.c    **** {
+  30              		.loc 1 62 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 62 1 is_stmt 0 view .LVU1
+  35 0000 10B5     		push	{r4, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 8
+  38              		.cfi_offset 4, -8
+  39              		.cfi_offset 14, -4
+  40 0002 1446     		mov	r4, r2
+  63:Src/main.c    ****   HAL_UART_Transmit(&huart1, (uint8_t*)ch, len, 0xFFFF);
+  41              		.loc 1 63 3 is_stmt 1 view .LVU2
+  42 0004 4FF6FF73 		movw	r3, #65535
+  43 0008 92B2     		uxth	r2, r2
+  44              	.LVL1:
+  45              		.loc 1 63 3 is_stmt 0 view .LVU3
+  46 000a 0248     		ldr	r0, .L3
+  47              	.LVL2:
+  48              		.loc 1 63 3 view .LVU4
+  49 000c FFF7FEFF 		bl	HAL_UART_Transmit
+  50              	.LVL3:
+  64:Src/main.c    ****   return len;
+  51              		.loc 1 64 3 is_stmt 1 view .LVU5
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 3
+
+
+  65:Src/main.c    **** }
+  52              		.loc 1 65 1 is_stmt 0 view .LVU6
+  53 0010 2046     		mov	r0, r4
+  54 0012 10BD     		pop	{r4, pc}
+  55              	.LVL4:
+  56              	.L4:
+  57              		.loc 1 65 1 view .LVU7
+  58              		.align	2
+  59              	.L3:
+  60 0014 00000000 		.word	huart1
+  61              		.cfi_endproc
+  62              	.LFE134:
+  64              		.section	.text.SendUsbPacket,"ax",%progbits
+  65              		.align	1
+  66              		.global	SendUsbPacket
+  67              		.syntax unified
+  68              		.thumb
+  69              		.thumb_func
+  71              	SendUsbPacket:
+  72              	.LVL5:
+  73              	.LFB135:
+  66:Src/main.c    **** void SendUsbPacket(uint8_t* _data, uint32_t _len)
+  67:Src/main.c    **** {
+  74              		.loc 1 67 1 is_stmt 1 view -0
+  75              		.cfi_startproc
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 0, uses_anonymous_args = 0
+  78              		.loc 1 67 1 is_stmt 0 view .LVU9
+  79 0000 38B5     		push	{r3, r4, r5, lr}
+  80              	.LCFI1:
+  81              		.cfi_def_cfa_offset 16
+  82              		.cfi_offset 3, -16
+  83              		.cfi_offset 4, -12
+  84              		.cfi_offset 5, -8
+  85              		.cfi_offset 14, -4
+  86 0002 0546     		mov	r5, r0
+  87 0004 0C46     		mov	r4, r1
+  88              	.LVL6:
+  89              	.L6:
+  68:Src/main.c    ****     uint8_t ret;
+  90              		.loc 1 68 5 is_stmt 1 discriminator 1 view .LVU10
+  69:Src/main.c    ****     do
+  91              		.loc 1 69 5 discriminator 1 view .LVU11
+  70:Src/main.c    ****     {
+  71:Src/main.c    ****         // ret = CDC_Transmit_HS(_data, _len);
+  72:Src/main.c    ****         ret = WinUsb_Transmit_FS(_data, _len);
+  92              		.loc 1 72 9 discriminator 1 view .LVU12
+  93              		.loc 1 72 15 is_stmt 0 discriminator 1 view .LVU13
+  94 0006 A1B2     		uxth	r1, r4
+  95 0008 2846     		mov	r0, r5
+  96 000a FFF7FEFF 		bl	WinUsb_Transmit_FS
+  97              	.LVL7:
+  73:Src/main.c    ****     } while (ret != USBD_OK);
+  98              		.loc 1 73 13 is_stmt 1 discriminator 1 view .LVU14
+  99              		.loc 1 73 5 is_stmt 0 discriminator 1 view .LVU15
+ 100 000e 0028     		cmp	r0, #0
+ 101 0010 F9D1     		bne	.L6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 4
+
+
+  74:Src/main.c    **** }
+ 102              		.loc 1 74 1 view .LVU16
+ 103 0012 38BD     		pop	{r3, r4, r5, pc}
+ 104              		.loc 1 74 1 view .LVU17
+ 105              		.cfi_endproc
+ 106              	.LFE135:
+ 108              		.section	.text.ReceiveUsbPacketUntilSizeIs,"ax",%progbits
+ 109              		.align	1
+ 110              		.global	ReceiveUsbPacketUntilSizeIs
+ 111              		.syntax unified
+ 112              		.thumb
+ 113              		.thumb_func
+ 115              	ReceiveUsbPacketUntilSizeIs:
+ 116              	.LFB136:
+  75:Src/main.c    **** void ReceiveUsbPacketUntilSizeIs(uint32_t _count)
+  76:Src/main.c    **** {
+ 117              		.loc 1 76 1 is_stmt 1 view -0
+ 118              		.cfi_startproc
+ 119              		@ args = 0, pretend = 0, frame = 0
+ 120              		@ frame_needed = 0, uses_anonymous_args = 0
+ 121              		@ link register save eliminated.
+ 122              	.LVL8:
+ 123              	.L9:
+  77:Src/main.c    ****     while (usbBuffer.receivedPacketLen != _count);
+ 124              		.loc 1 77 50 discriminator 1 view .LVU19
+ 125              		.loc 1 77 11 discriminator 1 view .LVU20
+ 126              		.loc 1 77 21 is_stmt 0 discriminator 1 view .LVU21
+ 127 0000 054B     		ldr	r3, .L10
+ 128 0002 B3F8E031 		ldrh	r3, [r3, #480]
+ 129 0006 9BB2     		uxth	r3, r3
+ 130              		.loc 1 77 11 discriminator 1 view .LVU22
+ 131 0008 8342     		cmp	r3, r0
+ 132 000a F9D1     		bne	.L9
+  78:Src/main.c    ****     usbBuffer.receivedPacketLen = 0;
+ 133              		.loc 1 78 5 is_stmt 1 view .LVU23
+ 134              		.loc 1 78 33 is_stmt 0 view .LVU24
+ 135 000c 024B     		ldr	r3, .L10
+ 136 000e 0022     		movs	r2, #0
+ 137 0010 A3F8E021 		strh	r2, [r3, #480]	@ movhi
+  79:Src/main.c    **** }
+ 138              		.loc 1 79 1 view .LVU25
+ 139 0014 7047     		bx	lr
+ 140              	.L11:
+ 141 0016 00BF     		.align	2
+ 142              	.L10:
+ 143 0018 00500100 		.word	usbBuffer+86016
+ 144              		.cfi_endproc
+ 145              	.LFE136:
+ 147              		.section	.text.GetExtraDataRxPtr,"ax",%progbits
+ 148              		.align	1
+ 149              		.global	GetExtraDataRxPtr
+ 150              		.syntax unified
+ 151              		.thumb
+ 152              		.thumb_func
+ 154              	GetExtraDataRxPtr:
+ 155              	.LFB137:
+  80:Src/main.c    **** uint8_t* GetExtraDataRxPtr()
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 5
+
+
+  81:Src/main.c    **** {
+ 156              		.loc 1 81 1 is_stmt 1 view -0
+ 157              		.cfi_startproc
+ 158              		@ args = 0, pretend = 0, frame = 0
+ 159              		@ frame_needed = 0, uses_anonymous_args = 0
+ 160              		@ link register save eliminated.
+  82:Src/main.c    ****   uint8_t* ptr;
+ 161              		.loc 1 82 3 view .LVU27
+  83:Src/main.c    ****   ptr=usbBuffer.rxData[usbBuffer.pingPongIndex == 0 ? 1 : 0];
+ 162              		.loc 1 83 3 view .LVU28
+ 163              		.loc 1 83 33 is_stmt 0 view .LVU29
+ 164 0000 084A     		ldr	r2, .L13
+ 165 0002 02F5A833 		add	r3, r2, #86016
+ 166 0006 93F8E231 		ldrb	r3, [r3, #482]	@ zero_extendqisi2
+ 167              		.loc 1 83 57 view .LVU30
+ 168 000a B3FA83F3 		clz	r3, r3
+ 169 000e 5B09     		lsrs	r3, r3, #5
+ 170              		.loc 1 83 6 view .LVU31
+ 171 0010 4AF6E000 		movw	r0, #43232
+ 172 0014 03FB00F0 		mul	r0, r3, r0
+ 173 0018 2030     		adds	r0, r0, #32
+ 174 001a 1044     		add	r0, r0, r2
+ 175              	.LVL9:
+  84:Src/main.c    ****   return ptr + 60 * 240 * 3;
+ 176              		.loc 1 84 3 is_stmt 1 view .LVU32
+  85:Src/main.c    **** }
+ 177              		.loc 1 85 1 is_stmt 0 view .LVU33
+ 178 001c 00F52840 		add	r0, r0, #43008
+ 179              	.LVL10:
+ 180              		.loc 1 85 1 view .LVU34
+ 181 0020 C030     		adds	r0, r0, #192
+ 182              	.LVL11:
+ 183              		.loc 1 85 1 view .LVU35
+ 184 0022 7047     		bx	lr
+ 185              	.L14:
+ 186              		.align	2
+ 187              	.L13:
+ 188 0024 00000000 		.word	usbBuffer
+ 189              		.cfi_endproc
+ 190              	.LFE137:
+ 192              		.section	.text.JumpBootLoader,"ax",%progbits
+ 193              		.align	1
+ 194              		.global	JumpBootLoader
+ 195              		.syntax unified
+ 196              		.thumb
+ 197              		.thumb_func
+ 199              	JumpBootLoader:
+ 200              	.LVL12:
+ 201              	.LFB138:
+  86:Src/main.c    **** 
+  87:Src/main.c    **** void JumpBootLoader(uint8_t *ptr)
+  88:Src/main.c    **** {
+ 202              		.loc 1 88 1 is_stmt 1 view -0
+ 203              		.cfi_startproc
+ 204              		@ args = 0, pretend = 0, frame = 0
+ 205              		@ frame_needed = 0, uses_anonymous_args = 0
+ 206              		.loc 1 88 1 is_stmt 0 view .LVU37
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 6
+
+
+ 207 0000 08B5     		push	{r3, lr}
+ 208              	.LCFI2:
+ 209              		.cfi_def_cfa_offset 8
+ 210              		.cfi_offset 3, -8
+ 211              		.cfi_offset 14, -4
+  89:Src/main.c    ****     usbBuffer.extraDataTx[31] = 0xef;
+ 212              		.loc 1 89 5 is_stmt 1 view .LVU38
+ 213              		.loc 1 89 31 is_stmt 0 view .LVU39
+ 214 0002 0548     		ldr	r0, .L17
+ 215              	.LVL13:
+ 216              		.loc 1 89 31 view .LVU40
+ 217 0004 EF23     		movs	r3, #239
+ 218 0006 C377     		strb	r3, [r0, #31]
+  90:Src/main.c    ****     usbBuffer.extraDataTx[30] = 0x01;
+ 219              		.loc 1 90 5 is_stmt 1 view .LVU41
+ 220              		.loc 1 90 31 is_stmt 0 view .LVU42
+ 221 0008 0123     		movs	r3, #1
+ 222 000a 8377     		strb	r3, [r0, #30]
+  91:Src/main.c    ****     usbBuffer.extraDataTx[29] = 0x00;
+ 223              		.loc 1 91 5 is_stmt 1 view .LVU43
+ 224              		.loc 1 91 31 is_stmt 0 view .LVU44
+ 225 000c 0023     		movs	r3, #0
+ 226 000e 4377     		strb	r3, [r0, #29]
+  92:Src/main.c    ****     SendUsbPacket(usbBuffer.extraDataTx, 32);
+ 227              		.loc 1 92 5 is_stmt 1 view .LVU45
+ 228 0010 2021     		movs	r1, #32
+ 229 0012 FFF7FEFF 		bl	SendUsbPacket
+ 230              	.LVL14:
+  93:Src/main.c    ****     // HAL_Delay(120);
+  94:Src/main.c    ****     // NVIC_SystemReset();
+  95:Src/main.c    **** }
+ 231              		.loc 1 95 1 is_stmt 0 view .LVU46
+ 232 0016 08BD     		pop	{r3, pc}
+ 233              	.L18:
+ 234              		.align	2
+ 235              	.L17:
+ 236 0018 00000000 		.word	usbBuffer
+ 237              		.cfi_endproc
+ 238              	.LFE138:
+ 240              		.section	.text.QueryBootLoaderReply,"ax",%progbits
+ 241              		.align	1
+ 242              		.global	QueryBootLoaderReply
+ 243              		.syntax unified
+ 244              		.thumb
+ 245              		.thumb_func
+ 247              	QueryBootLoaderReply:
+ 248              	.LVL15:
+ 249              	.LFB139:
+  96:Src/main.c    **** void QueryBootLoaderReply(uint8_t *ptr)
+  97:Src/main.c    **** {
+ 250              		.loc 1 97 1 is_stmt 1 view -0
+ 251              		.cfi_startproc
+ 252              		@ args = 0, pretend = 0, frame = 0
+ 253              		@ frame_needed = 0, uses_anonymous_args = 0
+ 254              		.loc 1 97 1 is_stmt 0 view .LVU48
+ 255 0000 08B5     		push	{r3, lr}
+ 256              	.LCFI3:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 7
+
+
+ 257              		.cfi_def_cfa_offset 8
+ 258              		.cfi_offset 3, -8
+ 259              		.cfi_offset 14, -4
+  98:Src/main.c    ****   usbBuffer.extraDataTx[31] = 0xef;
+ 260              		.loc 1 98 3 is_stmt 1 view .LVU49
+ 261              		.loc 1 98 29 is_stmt 0 view .LVU50
+ 262 0002 0548     		ldr	r0, .L21
+ 263              	.LVL16:
+ 264              		.loc 1 98 29 view .LVU51
+ 265 0004 EF23     		movs	r3, #239
+ 266 0006 C377     		strb	r3, [r0, #31]
+  99:Src/main.c    ****   usbBuffer.extraDataTx[30] = 0x02;
+ 267              		.loc 1 99 3 is_stmt 1 view .LVU52
+ 268              		.loc 1 99 29 is_stmt 0 view .LVU53
+ 269 0008 0223     		movs	r3, #2
+ 270 000a 8377     		strb	r3, [r0, #30]
+ 100:Src/main.c    ****   usbBuffer.extraDataTx[29] = 0x00;
+ 271              		.loc 1 100 3 is_stmt 1 view .LVU54
+ 272              		.loc 1 100 29 is_stmt 0 view .LVU55
+ 273 000c 0023     		movs	r3, #0
+ 274 000e 4377     		strb	r3, [r0, #29]
+ 101:Src/main.c    ****   SendUsbPacket(usbBuffer.extraDataTx, 32);
+ 275              		.loc 1 101 3 is_stmt 1 view .LVU56
+ 276 0010 2021     		movs	r1, #32
+ 277 0012 FFF7FEFF 		bl	SendUsbPacket
+ 278              	.LVL17:
+ 102:Src/main.c    **** }
+ 279              		.loc 1 102 1 is_stmt 0 view .LVU57
+ 280 0016 08BD     		pop	{r3, pc}
+ 281              	.L22:
+ 282              		.align	2
+ 283              	.L21:
+ 284 0018 00000000 		.word	usbBuffer
+ 285              		.cfi_endproc
+ 286              	.LFE139:
+ 288              		.section	.text.EraseAppCodeReply,"ax",%progbits
+ 289              		.align	1
+ 290              		.global	EraseAppCodeReply
+ 291              		.syntax unified
+ 292              		.thumb
+ 293              		.thumb_func
+ 295              	EraseAppCodeReply:
+ 296              	.LVL18:
+ 297              	.LFB140:
+ 103:Src/main.c    **** void EraseAppCodeReply(uint8_t *ptr)
+ 104:Src/main.c    **** {
+ 298              		.loc 1 104 1 is_stmt 1 view -0
+ 299              		.cfi_startproc
+ 300              		@ args = 0, pretend = 0, frame = 0
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302              		.loc 1 104 1 is_stmt 0 view .LVU59
+ 303 0000 08B5     		push	{r3, lr}
+ 304              	.LCFI4:
+ 305              		.cfi_def_cfa_offset 8
+ 306              		.cfi_offset 3, -8
+ 307              		.cfi_offset 14, -4
+ 105:Src/main.c    ****   usbBuffer.extraDataTx[31] = 0xef;
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 8
+
+
+ 308              		.loc 1 105 3 is_stmt 1 view .LVU60
+ 309              		.loc 1 105 29 is_stmt 0 view .LVU61
+ 310 0002 0548     		ldr	r0, .L25
+ 311              	.LVL19:
+ 312              		.loc 1 105 29 view .LVU62
+ 313 0004 EF23     		movs	r3, #239
+ 314 0006 C377     		strb	r3, [r0, #31]
+ 106:Src/main.c    ****   usbBuffer.extraDataTx[30] = 0x03;
+ 315              		.loc 1 106 3 is_stmt 1 view .LVU63
+ 316              		.loc 1 106 29 is_stmt 0 view .LVU64
+ 317 0008 0323     		movs	r3, #3
+ 318 000a 8377     		strb	r3, [r0, #30]
+ 107:Src/main.c    ****   usbBuffer.extraDataTx[29] = 0x00;
+ 319              		.loc 1 107 3 is_stmt 1 view .LVU65
+ 320              		.loc 1 107 29 is_stmt 0 view .LVU66
+ 321 000c 0023     		movs	r3, #0
+ 322 000e 4377     		strb	r3, [r0, #29]
+ 108:Src/main.c    ****   SendUsbPacket(usbBuffer.extraDataTx, 32);
+ 323              		.loc 1 108 3 is_stmt 1 view .LVU67
+ 324 0010 2021     		movs	r1, #32
+ 325 0012 FFF7FEFF 		bl	SendUsbPacket
+ 326              	.LVL20:
+ 109:Src/main.c    **** }
+ 327              		.loc 1 109 1 is_stmt 0 view .LVU68
+ 328 0016 08BD     		pop	{r3, pc}
+ 329              	.L26:
+ 330              		.align	2
+ 331              	.L25:
+ 332 0018 00000000 		.word	usbBuffer
+ 333              		.cfi_endproc
+ 334              	.LFE140:
+ 336              		.section	.text.downLoadAppCodeReply,"ax",%progbits
+ 337              		.align	1
+ 338              		.global	downLoadAppCodeReply
+ 339              		.syntax unified
+ 340              		.thumb
+ 341              		.thumb_func
+ 343              	downLoadAppCodeReply:
+ 344              	.LVL21:
+ 345              	.LFB141:
+ 110:Src/main.c    **** void downLoadAppCodeReply(uint8_t *ptr,uint8_t pacektNo)
+ 111:Src/main.c    **** {
+ 346              		.loc 1 111 1 is_stmt 1 view -0
+ 347              		.cfi_startproc
+ 348              		@ args = 0, pretend = 0, frame = 0
+ 349              		@ frame_needed = 0, uses_anonymous_args = 0
+ 350              		.loc 1 111 1 is_stmt 0 view .LVU70
+ 351 0000 08B5     		push	{r3, lr}
+ 352              	.LCFI5:
+ 353              		.cfi_def_cfa_offset 8
+ 354              		.cfi_offset 3, -8
+ 355              		.cfi_offset 14, -4
+ 112:Src/main.c    ****   usbBuffer.extraDataTx[31] = 0xef;
+ 356              		.loc 1 112 3 is_stmt 1 view .LVU71
+ 357              		.loc 1 112 29 is_stmt 0 view .LVU72
+ 358 0002 0B4B     		ldr	r3, .L32
+ 359 0004 EF22     		movs	r2, #239
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 9
+
+
+ 360 0006 DA77     		strb	r2, [r3, #31]
+ 113:Src/main.c    ****   usbBuffer.extraDataTx[30] = 0x04;
+ 361              		.loc 1 113 3 is_stmt 1 view .LVU73
+ 362              		.loc 1 113 29 is_stmt 0 view .LVU74
+ 363 0008 0422     		movs	r2, #4
+ 364 000a 9A77     		strb	r2, [r3, #30]
+ 114:Src/main.c    ****   if(pacektNo == recPacketNo)
+ 365              		.loc 1 114 3 is_stmt 1 view .LVU75
+ 366              		.loc 1 114 15 is_stmt 0 view .LVU76
+ 367 000c 094B     		ldr	r3, .L32+4
+ 368 000e 1B88     		ldrh	r3, [r3]
+ 369              		.loc 1 114 5 view .LVU77
+ 370 0010 9942     		cmp	r1, r3
+ 371 0012 09D0     		beq	.L31
+ 115:Src/main.c    ****     usbBuffer.extraDataTx[29] = 0x00;
+ 116:Src/main.c    ****   else
+ 117:Src/main.c    ****     usbBuffer.extraDataTx[29] = 0x01;
+ 372              		.loc 1 117 5 is_stmt 1 view .LVU78
+ 373              		.loc 1 117 31 is_stmt 0 view .LVU79
+ 374 0014 064B     		ldr	r3, .L32
+ 375 0016 0122     		movs	r2, #1
+ 376 0018 5A77     		strb	r2, [r3, #29]
+ 377              	.L29:
+ 118:Src/main.c    ****   *(uint16_t*)&usbBuffer.extraDataTx[27] = pacektNo;
+ 378              		.loc 1 118 3 is_stmt 1 view .LVU80
+ 379              		.loc 1 118 42 is_stmt 0 view .LVU81
+ 380 001a 0548     		ldr	r0, .L32
+ 381              	.LVL22:
+ 382              		.loc 1 118 42 view .LVU82
+ 383 001c A0F81B10 		strh	r1, [r0, #27]	@ unaligned
+ 119:Src/main.c    ****   SendUsbPacket(usbBuffer.extraDataTx, 32);
+ 384              		.loc 1 119 3 is_stmt 1 view .LVU83
+ 385 0020 2021     		movs	r1, #32
+ 386              	.LVL23:
+ 387              		.loc 1 119 3 is_stmt 0 view .LVU84
+ 388 0022 FFF7FEFF 		bl	SendUsbPacket
+ 389              	.LVL24:
+ 120:Src/main.c    **** }
+ 390              		.loc 1 120 1 view .LVU85
+ 391 0026 08BD     		pop	{r3, pc}
+ 392              	.LVL25:
+ 393              	.L31:
+ 115:Src/main.c    ****   else
+ 394              		.loc 1 115 5 is_stmt 1 view .LVU86
+ 115:Src/main.c    ****   else
+ 395              		.loc 1 115 31 is_stmt 0 view .LVU87
+ 396 0028 014B     		ldr	r3, .L32
+ 397 002a 0022     		movs	r2, #0
+ 398 002c 5A77     		strb	r2, [r3, #29]
+ 399 002e F4E7     		b	.L29
+ 400              	.L33:
+ 401              		.align	2
+ 402              	.L32:
+ 403 0030 00000000 		.word	usbBuffer
+ 404 0034 00000000 		.word	.LANCHOR0
+ 405              		.cfi_endproc
+ 406              	.LFE141:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 10
+
+
+ 408              		.section	.text.NoticeCompleteReply,"ax",%progbits
+ 409              		.align	1
+ 410              		.global	NoticeCompleteReply
+ 411              		.syntax unified
+ 412              		.thumb
+ 413              		.thumb_func
+ 415              	NoticeCompleteReply:
+ 416              	.LVL26:
+ 417              	.LFB142:
+ 121:Src/main.c    **** 
+ 122:Src/main.c    **** void NoticeCompleteReply(uint8_t *ptr,uint8_t pacektNo)
+ 123:Src/main.c    **** {
+ 418              		.loc 1 123 1 is_stmt 1 view -0
+ 419              		.cfi_startproc
+ 420              		@ args = 0, pretend = 0, frame = 0
+ 421              		@ frame_needed = 0, uses_anonymous_args = 0
+ 422              		.loc 1 123 1 is_stmt 0 view .LVU89
+ 423 0000 08B5     		push	{r3, lr}
+ 424              	.LCFI6:
+ 425              		.cfi_def_cfa_offset 8
+ 426              		.cfi_offset 3, -8
+ 427              		.cfi_offset 14, -4
+ 124:Src/main.c    ****   usbBuffer.extraDataTx[31] = 0xef;
+ 428              		.loc 1 124 3 is_stmt 1 view .LVU90
+ 429              		.loc 1 124 29 is_stmt 0 view .LVU91
+ 430 0002 0548     		ldr	r0, .L36
+ 431              	.LVL27:
+ 432              		.loc 1 124 29 view .LVU92
+ 433 0004 EF23     		movs	r3, #239
+ 434 0006 C377     		strb	r3, [r0, #31]
+ 125:Src/main.c    ****   usbBuffer.extraDataTx[30] = 0x05; 
+ 435              		.loc 1 125 3 is_stmt 1 view .LVU93
+ 436              		.loc 1 125 29 is_stmt 0 view .LVU94
+ 437 0008 0523     		movs	r3, #5
+ 438 000a 8377     		strb	r3, [r0, #30]
+ 126:Src/main.c    ****   // usbBuffer.extraDataTx[29] = 0x00;  
+ 127:Src/main.c    ****   *(uint16_t*)&usbBuffer.extraDataTx[28] = pacektNo;
+ 439              		.loc 1 127 3 is_stmt 1 view .LVU95
+ 440              		.loc 1 127 42 is_stmt 0 view .LVU96
+ 441 000c 8183     		strh	r1, [r0, #28]	@ movhi
+ 128:Src/main.c    ****   SendUsbPacket(usbBuffer.extraDataTx, 32);
+ 442              		.loc 1 128 3 is_stmt 1 view .LVU97
+ 443 000e 2021     		movs	r1, #32
+ 444              	.LVL28:
+ 445              		.loc 1 128 3 is_stmt 0 view .LVU98
+ 446 0010 FFF7FEFF 		bl	SendUsbPacket
+ 447              	.LVL29:
+ 129:Src/main.c    **** 
+ 130:Src/main.c    **** }
+ 448              		.loc 1 130 1 view .LVU99
+ 449 0014 08BD     		pop	{r3, pc}
+ 450              	.L37:
+ 451 0016 00BF     		.align	2
+ 452              	.L36:
+ 453 0018 00000000 		.word	usbBuffer
+ 454              		.cfi_endproc
+ 455              	.LFE142:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 11
+
+
+ 457              		.section	.text.Error_Handler,"ax",%progbits
+ 458              		.align	1
+ 459              		.global	Error_Handler
+ 460              		.syntax unified
+ 461              		.thumb
+ 462              		.thumb_func
+ 464              	Error_Handler:
+ 465              	.LFB145:
+ 131:Src/main.c    **** /* USER CODE END 0 */
+ 132:Src/main.c    **** 
+ 133:Src/main.c    **** /**
+ 134:Src/main.c    ****   * @brief  The application entry point.
+ 135:Src/main.c    ****   * @retval int
+ 136:Src/main.c    ****   */
+ 137:Src/main.c    **** int main(void)
+ 138:Src/main.c    **** {
+ 139:Src/main.c    ****   /* USER CODE BEGIN 1 */
+ 140:Src/main.c    ****   uint16_t currentPacketNo;
+ 141:Src/main.c    ****   uint16_t perSize;
+ 142:Src/main.c    ****   /* USER CODE END 1 */
+ 143:Src/main.c    **** 
+ 144:Src/main.c    ****   /* MCU Configuration--------------------------------------------------------*/
+ 145:Src/main.c    **** 
+ 146:Src/main.c    ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+ 147:Src/main.c    ****   HAL_Init();
+ 148:Src/main.c    **** 
+ 149:Src/main.c    ****   /* USER CODE BEGIN Init */
+ 150:Src/main.c    **** 
+ 151:Src/main.c    ****   /* USER CODE END Init */
+ 152:Src/main.c    **** 
+ 153:Src/main.c    ****   /* Configure the system clock */
+ 154:Src/main.c    ****   SystemClock_Config();
+ 155:Src/main.c    **** 
+ 156:Src/main.c    ****   /* USER CODE BEGIN SysInit */
+ 157:Src/main.c    **** 
+ 158:Src/main.c    ****   /* USER CODE END SysInit */
+ 159:Src/main.c    **** 
+ 160:Src/main.c    ****   /* Initialize all configured peripherals */
+ 161:Src/main.c    ****   MX_GPIO_Init();
+ 162:Src/main.c    ****   MX_USB_DEVICE_Init();
+ 163:Src/main.c    ****   MX_USART1_UART_Init();
+ 164:Src/main.c    ****   /* USER CODE BEGIN 2 */
+ 165:Src/main.c    ****   printf("bootLoader begin...\r\n");
+ 166:Src/main.c    ****   /* USER CODE END 2 */
+ 167:Src/main.c    **** 
+ 168:Src/main.c    ****   /* Infinite loop */
+ 169:Src/main.c    ****   /* USER CODE BEGIN WHILE */
+ 170:Src/main.c    ****   while (1)
+ 171:Src/main.c    ****   {
+ 172:Src/main.c    ****     ReceiveUsbPacketUntilSizeIs(224);
+ 173:Src/main.c    ****     uint8_t* ptr = GetExtraDataRxPtr();
+ 174:Src/main.c    ****     uint16_t cmd = *(uint16_t*)(ptr+30);
+ 175:Src/main.c    ****     printf("cmd = %.4x\r\n",cmd);
+ 176:Src/main.c    ****     switch(cmd)
+ 177:Src/main.c    ****     {
+ 178:Src/main.c    ****       case 0xfe01:{
+ 179:Src/main.c    ****         
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 12
+
+
+ 180:Src/main.c    ****         printf("notice to bootLoader\r\n");
+ 181:Src/main.c    ****         JumpBootLoader(ptr);
+ 182:Src/main.c    ****         
+ 183:Src/main.c    ****       }break;
+ 184:Src/main.c    ****       case 0xfe02:{
+ 185:Src/main.c    ****         printf("query bootLoader\r\n");
+ 186:Src/main.c    ****         QueryBootLoaderReply(ptr);
+ 187:Src/main.c    **** 
+ 188:Src/main.c    ****       }break;
+ 189:Src/main.c    ****       case 0xfe03:{
+ 190:Src/main.c    ****         uint32_t totalSize = *(uint32_t*)(ptr+26);
+ 191:Src/main.c    ****         currentPacketNo = 0;
+ 192:Src/main.c    ****         printf("Erase app code\r\n");
+ 193:Src/main.c    ****         printf("totalSize = %u\r\n",totalSize);
+ 194:Src/main.c    ****         EraseAppCodeReply(ptr);
+ 195:Src/main.c    **** 
+ 196:Src/main.c    ****       }break;
+ 197:Src/main.c    ****       case 0xfe04:{
+ 198:Src/main.c    ****         recPacketNo = *(uint16_t*)(ptr+28);
+ 199:Src/main.c    ****         perSize = *(uint16_t*)(ptr+24);        
+ 200:Src/main.c    ****         printf("downLoad app code\r\n");
+ 201:Src/main.c    ****         printf("recPacketNo = %d  perSize=%d\r\n",recPacketNo,perSize);
+ 202:Src/main.c    ****         downLoadAppCodeReply(ptr,currentPacketNo);
+ 203:Src/main.c    ****         currentPacketNo ++;
+ 204:Src/main.c    **** 
+ 205:Src/main.c    ****       }break;
+ 206:Src/main.c    ****       case 0xfe05:{        
+ 207:Src/main.c    ****         printf("complete downLoad app\r\n");
+ 208:Src/main.c    ****         NoticeCompleteReply(ptr,currentPacketNo);
+ 209:Src/main.c    ****         //跳转应用区
+ 210:Src/main.c    **** 
+ 211:Src/main.c    ****       }break;
+ 212:Src/main.c    ****       default:break;
+ 213:Src/main.c    ****     }
+ 214:Src/main.c    ****     if(ptr[31] == 0xfe)
+ 215:Src/main.c    ****     {
+ 216:Src/main.c    ****       
+ 217:Src/main.c    ****     }
+ 218:Src/main.c    ****     /* USER CODE END WHILE */
+ 219:Src/main.c    **** 
+ 220:Src/main.c    ****     /* USER CODE BEGIN 3 */
+ 221:Src/main.c    ****   }
+ 222:Src/main.c    ****   /* USER CODE END 3 */
+ 223:Src/main.c    **** }
+ 224:Src/main.c    **** 
+ 225:Src/main.c    **** /**
+ 226:Src/main.c    ****   * @brief System Clock Configuration
+ 227:Src/main.c    ****   * @retval None
+ 228:Src/main.c    ****   */
+ 229:Src/main.c    **** void SystemClock_Config(void)
+ 230:Src/main.c    **** {
+ 231:Src/main.c    ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 232:Src/main.c    ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 233:Src/main.c    **** 
+ 234:Src/main.c    ****   /** Configure the main internal regulator output voltage
+ 235:Src/main.c    ****   */
+ 236:Src/main.c    ****   __HAL_RCC_PWR_CLK_ENABLE();
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 13
+
+
+ 237:Src/main.c    ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 238:Src/main.c    **** 
+ 239:Src/main.c    ****   /** Initializes the RCC Oscillators according to the specified parameters
+ 240:Src/main.c    ****   * in the RCC_OscInitTypeDef structure.
+ 241:Src/main.c    ****   */
+ 242:Src/main.c    ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+ 243:Src/main.c    ****   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+ 244:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 245:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+ 246:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLM = 4;
+ 247:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLN = 168;
+ 248:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+ 249:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLQ = 7;
+ 250:Src/main.c    ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 251:Src/main.c    ****   {
+ 252:Src/main.c    ****     Error_Handler();
+ 253:Src/main.c    ****   }
+ 254:Src/main.c    **** 
+ 255:Src/main.c    ****   /** Initializes the CPU, AHB and APB buses clocks
+ 256:Src/main.c    ****   */
+ 257:Src/main.c    ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+ 258:Src/main.c    ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 259:Src/main.c    ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 260:Src/main.c    ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 261:Src/main.c    ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+ 262:Src/main.c    ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+ 263:Src/main.c    **** 
+ 264:Src/main.c    ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+ 265:Src/main.c    ****   {
+ 266:Src/main.c    ****     Error_Handler();
+ 267:Src/main.c    ****   }
+ 268:Src/main.c    **** }
+ 269:Src/main.c    **** 
+ 270:Src/main.c    **** /* USER CODE BEGIN 4 */
+ 271:Src/main.c    **** 
+ 272:Src/main.c    **** /* USER CODE END 4 */
+ 273:Src/main.c    **** 
+ 274:Src/main.c    **** /**
+ 275:Src/main.c    ****   * @brief  This function is executed in case of error occurrence.
+ 276:Src/main.c    ****   * @retval None
+ 277:Src/main.c    ****   */
+ 278:Src/main.c    **** void Error_Handler(void)
+ 279:Src/main.c    **** {
+ 466              		.loc 1 279 1 is_stmt 1 view -0
+ 467              		.cfi_startproc
+ 468              		@ Volatile: function does not return.
+ 469              		@ args = 0, pretend = 0, frame = 0
+ 470              		@ frame_needed = 0, uses_anonymous_args = 0
+ 471              		@ link register save eliminated.
+ 280:Src/main.c    ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 281:Src/main.c    ****   /* User can add his own implementation to report the HAL error return state */
+ 282:Src/main.c    ****   __disable_irq();
+ 472              		.loc 1 282 3 view .LVU101
+ 473              	.LBB4:
+ 474              	.LBI4:
+ 475              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
+   1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 14
+
+
+   2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
+   3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
+   4:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @version  V5.0.4
+   5:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @date     09. April 2018
+   6:Drivers/CMSIS/Include/cmsis_gcc.h ****  ******************************************************************************/
+   7:Drivers/CMSIS/Include/cmsis_gcc.h **** /*
+   8:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
+   9:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  10:Drivers/CMSIS/Include/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
+  11:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  12:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
+  13:Drivers/CMSIS/Include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
+  14:Drivers/CMSIS/Include/cmsis_gcc.h ****  * You may obtain a copy of the License at
+  15:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  16:Drivers/CMSIS/Include/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
+  17:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  18:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Unless required by applicable law or agreed to in writing, software
+  19:Drivers/CMSIS/Include/cmsis_gcc.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+  20:Drivers/CMSIS/Include/cmsis_gcc.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  21:Drivers/CMSIS/Include/cmsis_gcc.h ****  * See the License for the specific language governing permissions and
+  22:Drivers/CMSIS/Include/cmsis_gcc.h ****  * limitations under the License.
+  23:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+  24:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  25:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __CMSIS_GCC_H
+  26:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_H
+  27:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  28:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ignore some GCC warnings */
+  29:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic push
+  30:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
+  31:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
+  32:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
+  33:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  34:Drivers/CMSIS/Include/cmsis_gcc.h **** /* Fallback for __has_builtin */
+  35:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __has_builtin
+  36:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
+  37:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  38:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  39:Drivers/CMSIS/Include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
+  40:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ASM
+  41:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ASM                                  __asm
+  42:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  43:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __INLINE
+  44:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __INLINE                               inline
+  45:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  46:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_INLINE
+  47:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_INLINE                        static inline
+  48:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  49:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_FORCEINLINE                 
+  50:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_FORCEINLINE                   __attribute__((always_inline)) static inline
+  51:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif                                           
+  52:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __NO_RETURN
+  53:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __NO_RETURN                            __attribute__((__noreturn__))
+  54:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  55:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __USED
+  56:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __USED                                 __attribute__((used))
+  57:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  58:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __WEAK
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 15
+
+
+  59:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __WEAK                                 __attribute__((weak))
+  60:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  61:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED
+  62:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED                               __attribute__((packed, aligned(1)))
+  63:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  64:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
+  65:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_STRUCT                        struct __attribute__((packed, aligned(1)))
+  66:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  67:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
+  68:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
+  69:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  70:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
+  71:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  72:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  73:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  74:Drivers/CMSIS/Include/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
+  75:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  76:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
+  77:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  78:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_WRITE
+  79:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  80:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  81:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  82:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_WRITE { uint16_t v; };
+  83:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  84:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))-
+  85:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  86:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
+  87:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  88:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  89:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  90:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
+  91:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  92:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
+  93:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  94:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
+  95:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  96:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  97:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  98:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
+  99:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 100:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))-
+ 101:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 102:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_READ
+ 103:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+ 104:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+ 105:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+ 106:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
+ 107:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 108:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(add
+ 109:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 110:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ALIGNED
+ 111:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ALIGNED(x)                           __attribute__((aligned(x)))
+ 112:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 113:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __RESTRICT
+ 114:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
+ 115:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 16
+
+
+ 116:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 117:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 118:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
+ 119:Drivers/CMSIS/Include/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
+ 120:Drivers/CMSIS/Include/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
+ 121:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
+ 122:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 123:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 124:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 125:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
+ 126:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+ 127:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 128:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 129:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
+ 130:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 131:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
+ 132:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 133:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 134:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 135:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 136:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Disable IRQ Interrupts
+ 137:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+ 138:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 139:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 140:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
+ 476              		.loc 2 140 27 view .LVU102
+ 477              	.LBB5:
+ 141:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 142:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
+ 478              		.loc 2 142 3 view .LVU103
+ 479              		.syntax unified
+ 480              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 481 0000 72B6     		cpsid i
+ 482              	@ 0 "" 2
+ 483              		.thumb
+ 484              		.syntax unified
+ 485              	.L39:
+ 486              	.LBE5:
+ 487              	.LBE4:
+ 283:Src/main.c    ****   while (1)
+ 488              		.loc 1 283 3 discriminator 1 view .LVU104
+ 284:Src/main.c    ****   {
+ 285:Src/main.c    ****   }
+ 489              		.loc 1 285 3 discriminator 1 view .LVU105
+ 283:Src/main.c    ****   while (1)
+ 490              		.loc 1 283 9 discriminator 1 view .LVU106
+ 491 0002 FEE7     		b	.L39
+ 492              		.cfi_endproc
+ 493              	.LFE145:
+ 495              		.section	.text.SystemClock_Config,"ax",%progbits
+ 496              		.align	1
+ 497              		.global	SystemClock_Config
+ 498              		.syntax unified
+ 499              		.thumb
+ 500              		.thumb_func
+ 502              	SystemClock_Config:
+ 503              	.LFB144:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 17
+
+
+ 230:Src/main.c    ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 504              		.loc 1 230 1 view -0
+ 505              		.cfi_startproc
+ 506              		@ args = 0, pretend = 0, frame = 80
+ 507              		@ frame_needed = 0, uses_anonymous_args = 0
+ 508 0000 00B5     		push	{lr}
+ 509              	.LCFI7:
+ 510              		.cfi_def_cfa_offset 4
+ 511              		.cfi_offset 14, -4
+ 512 0002 95B0     		sub	sp, sp, #84
+ 513              	.LCFI8:
+ 514              		.cfi_def_cfa_offset 88
+ 231:Src/main.c    ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 515              		.loc 1 231 3 view .LVU108
+ 231:Src/main.c    ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 516              		.loc 1 231 22 is_stmt 0 view .LVU109
+ 517 0004 3022     		movs	r2, #48
+ 518 0006 0021     		movs	r1, #0
+ 519 0008 08A8     		add	r0, sp, #32
+ 520 000a FFF7FEFF 		bl	memset
+ 521              	.LVL30:
+ 232:Src/main.c    **** 
+ 522              		.loc 1 232 3 is_stmt 1 view .LVU110
+ 232:Src/main.c    **** 
+ 523              		.loc 1 232 22 is_stmt 0 view .LVU111
+ 524 000e 0023     		movs	r3, #0
+ 525 0010 0393     		str	r3, [sp, #12]
+ 526 0012 0493     		str	r3, [sp, #16]
+ 527 0014 0593     		str	r3, [sp, #20]
+ 528 0016 0693     		str	r3, [sp, #24]
+ 529 0018 0793     		str	r3, [sp, #28]
+ 236:Src/main.c    ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 530              		.loc 1 236 3 is_stmt 1 view .LVU112
+ 531              	.LBB6:
+ 236:Src/main.c    ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 532              		.loc 1 236 3 view .LVU113
+ 533 001a 0193     		str	r3, [sp, #4]
+ 236:Src/main.c    ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 534              		.loc 1 236 3 view .LVU114
+ 535 001c 204A     		ldr	r2, .L46
+ 536 001e 116C     		ldr	r1, [r2, #64]
+ 537 0020 41F08051 		orr	r1, r1, #268435456
+ 538 0024 1164     		str	r1, [r2, #64]
+ 236:Src/main.c    ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 539              		.loc 1 236 3 view .LVU115
+ 540 0026 126C     		ldr	r2, [r2, #64]
+ 541 0028 02F08052 		and	r2, r2, #268435456
+ 542 002c 0192     		str	r2, [sp, #4]
+ 236:Src/main.c    ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 543              		.loc 1 236 3 view .LVU116
+ 544 002e 019A     		ldr	r2, [sp, #4]
+ 545              	.LBE6:
+ 236:Src/main.c    ****   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+ 546              		.loc 1 236 3 view .LVU117
+ 237:Src/main.c    **** 
+ 547              		.loc 1 237 3 view .LVU118
+ 548              	.LBB7:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 18
+
+
+ 237:Src/main.c    **** 
+ 549              		.loc 1 237 3 view .LVU119
+ 550 0030 0293     		str	r3, [sp, #8]
+ 237:Src/main.c    **** 
+ 551              		.loc 1 237 3 view .LVU120
+ 552 0032 1C4B     		ldr	r3, .L46+4
+ 553 0034 1A68     		ldr	r2, [r3]
+ 554 0036 42F48042 		orr	r2, r2, #16384
+ 555 003a 1A60     		str	r2, [r3]
+ 237:Src/main.c    **** 
+ 556              		.loc 1 237 3 view .LVU121
+ 557 003c 1B68     		ldr	r3, [r3]
+ 558 003e 03F48043 		and	r3, r3, #16384
+ 559 0042 0293     		str	r3, [sp, #8]
+ 237:Src/main.c    **** 
+ 560              		.loc 1 237 3 view .LVU122
+ 561 0044 029B     		ldr	r3, [sp, #8]
+ 562              	.LBE7:
+ 237:Src/main.c    **** 
+ 563              		.loc 1 237 3 view .LVU123
+ 242:Src/main.c    ****   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+ 564              		.loc 1 242 3 view .LVU124
+ 242:Src/main.c    ****   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+ 565              		.loc 1 242 36 is_stmt 0 view .LVU125
+ 566 0046 0123     		movs	r3, #1
+ 567 0048 0893     		str	r3, [sp, #32]
+ 243:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 568              		.loc 1 243 3 is_stmt 1 view .LVU126
+ 243:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 569              		.loc 1 243 30 is_stmt 0 view .LVU127
+ 570 004a 4FF48033 		mov	r3, #65536
+ 571 004e 0993     		str	r3, [sp, #36]
+ 244:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+ 572              		.loc 1 244 3 is_stmt 1 view .LVU128
+ 244:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+ 573              		.loc 1 244 34 is_stmt 0 view .LVU129
+ 574 0050 0223     		movs	r3, #2
+ 575 0052 0E93     		str	r3, [sp, #56]
+ 245:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLM = 4;
+ 576              		.loc 1 245 3 is_stmt 1 view .LVU130
+ 245:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLM = 4;
+ 577              		.loc 1 245 35 is_stmt 0 view .LVU131
+ 578 0054 4FF48002 		mov	r2, #4194304
+ 579 0058 0F92     		str	r2, [sp, #60]
+ 246:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLN = 168;
+ 580              		.loc 1 246 3 is_stmt 1 view .LVU132
+ 246:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLN = 168;
+ 581              		.loc 1 246 30 is_stmt 0 view .LVU133
+ 582 005a 0422     		movs	r2, #4
+ 583 005c 1092     		str	r2, [sp, #64]
+ 247:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+ 584              		.loc 1 247 3 is_stmt 1 view .LVU134
+ 247:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+ 585              		.loc 1 247 30 is_stmt 0 view .LVU135
+ 586 005e A822     		movs	r2, #168
+ 587 0060 1192     		str	r2, [sp, #68]
+ 248:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLQ = 7;
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 19
+
+
+ 588              		.loc 1 248 3 is_stmt 1 view .LVU136
+ 248:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLQ = 7;
+ 589              		.loc 1 248 30 is_stmt 0 view .LVU137
+ 590 0062 1293     		str	r3, [sp, #72]
+ 249:Src/main.c    ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 591              		.loc 1 249 3 is_stmt 1 view .LVU138
+ 249:Src/main.c    ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 592              		.loc 1 249 30 is_stmt 0 view .LVU139
+ 593 0064 0723     		movs	r3, #7
+ 594 0066 1393     		str	r3, [sp, #76]
+ 250:Src/main.c    ****   {
+ 595              		.loc 1 250 3 is_stmt 1 view .LVU140
+ 250:Src/main.c    ****   {
+ 596              		.loc 1 250 7 is_stmt 0 view .LVU141
+ 597 0068 08A8     		add	r0, sp, #32
+ 598 006a FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 599              	.LVL31:
+ 250:Src/main.c    ****   {
+ 600              		.loc 1 250 6 view .LVU142
+ 601 006e 98B9     		cbnz	r0, .L44
+ 257:Src/main.c    ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 602              		.loc 1 257 3 is_stmt 1 view .LVU143
+ 257:Src/main.c    ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 603              		.loc 1 257 31 is_stmt 0 view .LVU144
+ 604 0070 0F23     		movs	r3, #15
+ 605 0072 0393     		str	r3, [sp, #12]
+ 259:Src/main.c    ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 606              		.loc 1 259 3 is_stmt 1 view .LVU145
+ 259:Src/main.c    ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 607              		.loc 1 259 34 is_stmt 0 view .LVU146
+ 608 0074 0223     		movs	r3, #2
+ 609 0076 0493     		str	r3, [sp, #16]
+ 260:Src/main.c    ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+ 610              		.loc 1 260 3 is_stmt 1 view .LVU147
+ 260:Src/main.c    ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+ 611              		.loc 1 260 35 is_stmt 0 view .LVU148
+ 612 0078 0023     		movs	r3, #0
+ 613 007a 0593     		str	r3, [sp, #20]
+ 261:Src/main.c    ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+ 614              		.loc 1 261 3 is_stmt 1 view .LVU149
+ 261:Src/main.c    ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+ 615              		.loc 1 261 36 is_stmt 0 view .LVU150
+ 616 007c 4FF4A053 		mov	r3, #5120
+ 617 0080 0693     		str	r3, [sp, #24]
+ 262:Src/main.c    **** 
+ 618              		.loc 1 262 3 is_stmt 1 view .LVU151
+ 262:Src/main.c    **** 
+ 619              		.loc 1 262 36 is_stmt 0 view .LVU152
+ 620 0082 4FF48053 		mov	r3, #4096
+ 621 0086 0793     		str	r3, [sp, #28]
+ 264:Src/main.c    ****   {
+ 622              		.loc 1 264 3 is_stmt 1 view .LVU153
+ 264:Src/main.c    ****   {
+ 623              		.loc 1 264 7 is_stmt 0 view .LVU154
+ 624 0088 0521     		movs	r1, #5
+ 625 008a 03A8     		add	r0, sp, #12
+ 626 008c FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 20
+
+
+ 627              	.LVL32:
+ 264:Src/main.c    ****   {
+ 628              		.loc 1 264 6 view .LVU155
+ 629 0090 20B9     		cbnz	r0, .L45
+ 268:Src/main.c    **** 
+ 630              		.loc 1 268 1 view .LVU156
+ 631 0092 15B0     		add	sp, sp, #84
+ 632              	.LCFI9:
+ 633              		.cfi_remember_state
+ 634              		.cfi_def_cfa_offset 4
+ 635              		@ sp needed
+ 636 0094 5DF804FB 		ldr	pc, [sp], #4
+ 637              	.L44:
+ 638              	.LCFI10:
+ 639              		.cfi_restore_state
+ 252:Src/main.c    ****   }
+ 640              		.loc 1 252 5 is_stmt 1 view .LVU157
+ 641 0098 FFF7FEFF 		bl	Error_Handler
+ 642              	.LVL33:
+ 643              	.L45:
+ 266:Src/main.c    ****   }
+ 644              		.loc 1 266 5 view .LVU158
+ 645 009c FFF7FEFF 		bl	Error_Handler
+ 646              	.LVL34:
+ 647              	.L47:
+ 648              		.align	2
+ 649              	.L46:
+ 650 00a0 00380240 		.word	1073887232
+ 651 00a4 00700040 		.word	1073770496
+ 652              		.cfi_endproc
+ 653              	.LFE144:
+ 655              		.section	.rodata.main.str1.4,"aMS",%progbits,1
+ 656              		.align	2
+ 657              	.LC0:
+ 658 0000 626F6F74 		.ascii	"bootLoader begin...\015\000"
+ 658      4C6F6164 
+ 658      65722062 
+ 658      6567696E 
+ 658      2E2E2E0D 
+ 659 0015 000000   		.align	2
+ 660              	.LC1:
+ 661 0018 636D6420 		.ascii	"cmd = %.4x\015\012\000"
+ 661      3D20252E 
+ 661      34780D0A 
+ 661      00
+ 662 0025 000000   		.align	2
+ 663              	.LC2:
+ 664 0028 6E6F7469 		.ascii	"notice to bootLoader\015\000"
+ 664      63652074 
+ 664      6F20626F 
+ 664      6F744C6F 
+ 664      61646572 
+ 665 003e 0000     		.align	2
+ 666              	.LC3:
+ 667 0040 71756572 		.ascii	"query bootLoader\015\000"
+ 667      7920626F 
+ 667      6F744C6F 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 21
+
+
+ 667      61646572 
+ 667      0D00
+ 668 0052 0000     		.align	2
+ 669              	.LC4:
+ 670 0054 45726173 		.ascii	"Erase app code\015\000"
+ 670      65206170 
+ 670      7020636F 
+ 670      64650D00 
+ 671              		.align	2
+ 672              	.LC5:
+ 673 0064 746F7461 		.ascii	"totalSize = %u\015\012\000"
+ 673      6C53697A 
+ 673      65203D20 
+ 673      25750D0A 
+ 673      00
+ 674 0075 000000   		.align	2
+ 675              	.LC6:
+ 676 0078 646F776E 		.ascii	"downLoad app code\015\000"
+ 676      4C6F6164 
+ 676      20617070 
+ 676      20636F64 
+ 676      650D00
+ 677 008b 00       		.align	2
+ 678              	.LC7:
+ 679 008c 72656350 		.ascii	"recPacketNo = %d  perSize=%d\015\012\000"
+ 679      61636B65 
+ 679      744E6F20 
+ 679      3D202564 
+ 679      20207065 
+ 680 00ab 00       		.align	2
+ 681              	.LC8:
+ 682 00ac 636F6D70 		.ascii	"complete downLoad app\015\000"
+ 682      6C657465 
+ 682      20646F77 
+ 682      6E4C6F61 
+ 682      64206170 
+ 683              		.section	.text.main,"ax",%progbits
+ 684              		.align	1
+ 685              		.global	main
+ 686              		.syntax unified
+ 687              		.thumb
+ 688              		.thumb_func
+ 690              	main:
+ 691              	.LFB143:
+ 138:Src/main.c    ****   /* USER CODE BEGIN 1 */
+ 692              		.loc 1 138 1 view -0
+ 693              		.cfi_startproc
+ 694              		@ args = 0, pretend = 0, frame = 0
+ 695              		@ frame_needed = 0, uses_anonymous_args = 0
+ 696 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 697              	.LCFI11:
+ 698              		.cfi_def_cfa_offset 24
+ 699              		.cfi_offset 3, -24
+ 700              		.cfi_offset 4, -20
+ 701              		.cfi_offset 5, -16
+ 702              		.cfi_offset 6, -12
+ 703              		.cfi_offset 7, -8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 22
+
+
+ 704              		.cfi_offset 14, -4
+ 705 0002 0026     		movs	r6, #0
+ 140:Src/main.c    ****   uint16_t perSize;
+ 706              		.loc 1 140 3 view .LVU160
+ 141:Src/main.c    ****   /* USER CODE END 1 */
+ 707              		.loc 1 141 3 view .LVU161
+ 147:Src/main.c    **** 
+ 708              		.loc 1 147 3 view .LVU162
+ 709 0004 FFF7FEFF 		bl	HAL_Init
+ 710              	.LVL35:
+ 154:Src/main.c    **** 
+ 711              		.loc 1 154 3 view .LVU163
+ 712 0008 FFF7FEFF 		bl	SystemClock_Config
+ 713              	.LVL36:
+ 161:Src/main.c    ****   MX_USB_DEVICE_Init();
+ 714              		.loc 1 161 3 view .LVU164
+ 715 000c FFF7FEFF 		bl	MX_GPIO_Init
+ 716              	.LVL37:
+ 162:Src/main.c    ****   MX_USART1_UART_Init();
+ 717              		.loc 1 162 3 view .LVU165
+ 718 0010 FFF7FEFF 		bl	MX_USB_DEVICE_Init
+ 719              	.LVL38:
+ 163:Src/main.c    ****   /* USER CODE BEGIN 2 */
+ 720              		.loc 1 163 3 view .LVU166
+ 721 0014 FFF7FEFF 		bl	MX_USART1_UART_Init
+ 722              	.LVL39:
+ 165:Src/main.c    ****   /* USER CODE END 2 */
+ 723              		.loc 1 165 3 view .LVU167
+ 724 0018 2B48     		ldr	r0, .L58
+ 725 001a FFF7FEFF 		bl	puts
+ 726              	.LVL40:
+ 727 001e 05E0     		b	.L56
+ 728              	.LVL41:
+ 729              	.L55:
+ 730              	.LBB8:
+ 180:Src/main.c    ****         JumpBootLoader(ptr);
+ 731              		.loc 1 180 9 view .LVU168
+ 732 0020 2A48     		ldr	r0, .L58+4
+ 733 0022 FFF7FEFF 		bl	puts
+ 734              	.LVL42:
+ 181:Src/main.c    ****         
+ 735              		.loc 1 181 9 view .LVU169
+ 736 0026 2846     		mov	r0, r5
+ 737 0028 FFF7FEFF 		bl	JumpBootLoader
+ 738              	.LVL43:
+ 183:Src/main.c    ****       case 0xfe02:{
+ 739              		.loc 1 183 8 view .LVU170
+ 740              	.L56:
+ 183:Src/main.c    ****       case 0xfe02:{
+ 741              		.loc 1 183 8 is_stmt 0 view .LVU171
+ 742              	.LBE8:
+ 170:Src/main.c    ****   {
+ 743              		.loc 1 170 3 is_stmt 1 view .LVU172
+ 744              	.LBB11:
+ 172:Src/main.c    ****     uint8_t* ptr = GetExtraDataRxPtr();
+ 745              		.loc 1 172 5 view .LVU173
+ 746 002c E020     		movs	r0, #224
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 23
+
+
+ 747 002e FFF7FEFF 		bl	ReceiveUsbPacketUntilSizeIs
+ 748              	.LVL44:
+ 173:Src/main.c    ****     uint16_t cmd = *(uint16_t*)(ptr+30);
+ 749              		.loc 1 173 5 view .LVU174
+ 173:Src/main.c    ****     uint16_t cmd = *(uint16_t*)(ptr+30);
+ 750              		.loc 1 173 20 is_stmt 0 view .LVU175
+ 751 0032 FFF7FEFF 		bl	GetExtraDataRxPtr
+ 752              	.LVL45:
+ 753 0036 0546     		mov	r5, r0
+ 754              	.LVL46:
+ 174:Src/main.c    ****     printf("cmd = %.4x\r\n",cmd);
+ 755              		.loc 1 174 5 is_stmt 1 view .LVU176
+ 174:Src/main.c    ****     printf("cmd = %.4x\r\n",cmd);
+ 756              		.loc 1 174 14 is_stmt 0 view .LVU177
+ 757 0038 C48B     		ldrh	r4, [r0, #30]
+ 758              	.LVL47:
+ 175:Src/main.c    ****     switch(cmd)
+ 759              		.loc 1 175 5 is_stmt 1 view .LVU178
+ 760 003a 2146     		mov	r1, r4
+ 761 003c 2448     		ldr	r0, .L58+8
+ 762              	.LVL48:
+ 175:Src/main.c    ****     switch(cmd)
+ 763              		.loc 1 175 5 is_stmt 0 view .LVU179
+ 764 003e FFF7FEFF 		bl	printf
+ 765              	.LVL49:
+ 176:Src/main.c    ****     {
+ 766              		.loc 1 176 5 is_stmt 1 view .LVU180
+ 767 0042 A4F57E41 		sub	r1, r4, #65024
+ 768 0046 0139     		subs	r1, r1, #1
+ 769 0048 0429     		cmp	r1, #4
+ 770 004a EFD8     		bhi	.L56
+ 771 004c 01A3     		adr	r3, .L51
+ 772 004e 53F821F0 		ldr	pc, [r3, r1, lsl #2]
+ 773 0052 00BF     		.p2align 2
+ 774              	.L51:
+ 775 0054 21000000 		.word	.L55+1
+ 776 0058 69000000 		.word	.L54+1
+ 777 005c 77000000 		.word	.L53+1
+ 778 0060 93000000 		.word	.L52+1
+ 779 0064 B9000000 		.word	.L50+1
+ 780              		.p2align 1
+ 781              	.L54:
+ 185:Src/main.c    ****         QueryBootLoaderReply(ptr);
+ 782              		.loc 1 185 9 view .LVU181
+ 783 0068 1A48     		ldr	r0, .L58+12
+ 784 006a FFF7FEFF 		bl	puts
+ 785              	.LVL50:
+ 186:Src/main.c    **** 
+ 786              		.loc 1 186 9 view .LVU182
+ 787 006e 2846     		mov	r0, r5
+ 788 0070 FFF7FEFF 		bl	QueryBootLoaderReply
+ 789              	.LVL51:
+ 188:Src/main.c    ****       case 0xfe03:{
+ 790              		.loc 1 188 8 view .LVU183
+ 188:Src/main.c    ****       case 0xfe03:{
+ 791              		.loc 1 188 7 is_stmt 0 view .LVU184
+ 792 0074 DAE7     		b	.L56
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 24
+
+
+ 793              	.L53:
+ 794              	.LBB9:
+ 190:Src/main.c    ****         currentPacketNo = 0;
+ 795              		.loc 1 190 9 is_stmt 1 view .LVU185
+ 190:Src/main.c    ****         currentPacketNo = 0;
+ 796              		.loc 1 190 18 is_stmt 0 view .LVU186
+ 797 0076 D5F81A40 		ldr	r4, [r5, #26]
+ 798              	.LVL52:
+ 191:Src/main.c    ****         printf("Erase app code\r\n");
+ 799              		.loc 1 191 9 is_stmt 1 view .LVU187
+ 192:Src/main.c    ****         printf("totalSize = %u\r\n",totalSize);
+ 800              		.loc 1 192 9 view .LVU188
+ 801 007a 1748     		ldr	r0, .L58+16
+ 802 007c FFF7FEFF 		bl	puts
+ 803              	.LVL53:
+ 193:Src/main.c    ****         EraseAppCodeReply(ptr);
+ 804              		.loc 1 193 9 view .LVU189
+ 805 0080 2146     		mov	r1, r4
+ 806 0082 1648     		ldr	r0, .L58+20
+ 807 0084 FFF7FEFF 		bl	printf
+ 808              	.LVL54:
+ 194:Src/main.c    **** 
+ 809              		.loc 1 194 9 view .LVU190
+ 810 0088 2846     		mov	r0, r5
+ 811 008a FFF7FEFF 		bl	EraseAppCodeReply
+ 812              	.LVL55:
+ 813              	.LBE9:
+ 196:Src/main.c    ****       case 0xfe04:{
+ 814              		.loc 1 196 8 view .LVU191
+ 815              	.LBB10:
+ 191:Src/main.c    ****         printf("Erase app code\r\n");
+ 816              		.loc 1 191 25 is_stmt 0 view .LVU192
+ 817 008e 0026     		movs	r6, #0
+ 818              	.LBE10:
+ 196:Src/main.c    ****       case 0xfe04:{
+ 819              		.loc 1 196 7 view .LVU193
+ 820 0090 CCE7     		b	.L56
+ 821              	.LVL56:
+ 822              	.L52:
+ 198:Src/main.c    ****         perSize = *(uint16_t*)(ptr+24);        
+ 823              		.loc 1 198 9 is_stmt 1 view .LVU194
+ 198:Src/main.c    ****         perSize = *(uint16_t*)(ptr+24);        
+ 824              		.loc 1 198 21 is_stmt 0 view .LVU195
+ 825 0092 134C     		ldr	r4, .L58+24
+ 826              	.LVL57:
+ 198:Src/main.c    ****         perSize = *(uint16_t*)(ptr+24);        
+ 827              		.loc 1 198 21 view .LVU196
+ 828 0094 AB8B     		ldrh	r3, [r5, #28]
+ 829 0096 2380     		strh	r3, [r4]	@ movhi
+ 199:Src/main.c    ****         printf("downLoad app code\r\n");
+ 830              		.loc 1 199 9 is_stmt 1 view .LVU197
+ 199:Src/main.c    ****         printf("downLoad app code\r\n");
+ 831              		.loc 1 199 17 is_stmt 0 view .LVU198
+ 832 0098 2F8B     		ldrh	r7, [r5, #24]
+ 833              	.LVL58:
+ 200:Src/main.c    ****         printf("recPacketNo = %d  perSize=%d\r\n",recPacketNo,perSize);
+ 834              		.loc 1 200 9 is_stmt 1 view .LVU199
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 25
+
+
+ 835 009a 1248     		ldr	r0, .L58+28
+ 836 009c FFF7FEFF 		bl	puts
+ 837              	.LVL59:
+ 201:Src/main.c    ****         downLoadAppCodeReply(ptr,currentPacketNo);
+ 838              		.loc 1 201 9 view .LVU200
+ 839 00a0 3A46     		mov	r2, r7
+ 840 00a2 2188     		ldrh	r1, [r4]
+ 841 00a4 1048     		ldr	r0, .L58+32
+ 842 00a6 FFF7FEFF 		bl	printf
+ 843              	.LVL60:
+ 202:Src/main.c    ****         currentPacketNo ++;
+ 844              		.loc 1 202 9 view .LVU201
+ 845 00aa F1B2     		uxtb	r1, r6
+ 846 00ac 2846     		mov	r0, r5
+ 847 00ae FFF7FEFF 		bl	downLoadAppCodeReply
+ 848              	.LVL61:
+ 203:Src/main.c    **** 
+ 849              		.loc 1 203 9 view .LVU202
+ 203:Src/main.c    **** 
+ 850              		.loc 1 203 25 is_stmt 0 view .LVU203
+ 851 00b2 0136     		adds	r6, r6, #1
+ 852              	.LVL62:
+ 203:Src/main.c    **** 
+ 853              		.loc 1 203 25 view .LVU204
+ 854 00b4 B6B2     		uxth	r6, r6
+ 855              	.LVL63:
+ 205:Src/main.c    ****       case 0xfe05:{        
+ 856              		.loc 1 205 8 is_stmt 1 view .LVU205
+ 205:Src/main.c    ****       case 0xfe05:{        
+ 857              		.loc 1 205 7 is_stmt 0 view .LVU206
+ 858 00b6 B9E7     		b	.L56
+ 859              	.LVL64:
+ 860              	.L50:
+ 207:Src/main.c    ****         NoticeCompleteReply(ptr,currentPacketNo);
+ 861              		.loc 1 207 9 is_stmt 1 view .LVU207
+ 862 00b8 0C48     		ldr	r0, .L58+36
+ 863 00ba FFF7FEFF 		bl	puts
+ 864              	.LVL65:
+ 208:Src/main.c    ****         //跳转应用区
+ 865              		.loc 1 208 9 view .LVU208
+ 866 00be F1B2     		uxtb	r1, r6
+ 867 00c0 2846     		mov	r0, r5
+ 868 00c2 FFF7FEFF 		bl	NoticeCompleteReply
+ 869              	.LVL66:
+ 211:Src/main.c    ****       default:break;
+ 870              		.loc 1 211 8 view .LVU209
+ 214:Src/main.c    ****     {
+ 871              		.loc 1 214 5 view .LVU210
+ 217:Src/main.c    ****     /* USER CODE END WHILE */
+ 872              		.loc 1 217 5 view .LVU211
+ 873              	.LBE11:
+ 170:Src/main.c    ****   {
+ 874              		.loc 1 170 9 view .LVU212
+ 171:Src/main.c    ****     ReceiveUsbPacketUntilSizeIs(224);
+ 875              		.loc 1 171 3 is_stmt 0 view .LVU213
+ 876 00c6 B1E7     		b	.L56
+ 877              	.L59:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 26
+
+
+ 878              		.align	2
+ 879              	.L58:
+ 880 00c8 00000000 		.word	.LC0
+ 881 00cc 28000000 		.word	.LC2
+ 882 00d0 18000000 		.word	.LC1
+ 883 00d4 40000000 		.word	.LC3
+ 884 00d8 54000000 		.word	.LC4
+ 885 00dc 64000000 		.word	.LC5
+ 886 00e0 00000000 		.word	.LANCHOR0
+ 887 00e4 78000000 		.word	.LC6
+ 888 00e8 8C000000 		.word	.LC7
+ 889 00ec AC000000 		.word	.LC8
+ 890              		.cfi_endproc
+ 891              	.LFE143:
+ 893              		.global	recPacketNo
+ 894              		.section	.bss.recPacketNo,"aw",%nobits
+ 895              		.align	1
+ 896              		.set	.LANCHOR0,. + 0
+ 899              	recPacketNo:
+ 900 0000 0000     		.space	2
+ 901              		.text
+ 902              	.Letext0:
+ 903              		.file 3 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 904              		.file 4 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 905              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+ 906              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 907              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 908              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ 909              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 910              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 911              		.file 11 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
+ 912              		.file 12 "Inc/common_inc.h"
+ 913              		.file 13 "Inc/usart.h"
+ 914              		.file 14 "<built-in>"
+ 915              		.file 15 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 916              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 917              		.file 17 "Inc/gpio.h"
+ 918              		.file 18 "Inc/usb_device.h"
+ 919              		.file 19 "Middlewares/ST/STM32_USB_Device_Library/Class/winUsb/Inc/usbd_winUsb.h"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s 			page 27
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:20     .text._write:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:26     .text._write:00000000 _write
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:60     .text._write:00000014 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:65     .text.SendUsbPacket:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:71     .text.SendUsbPacket:00000000 SendUsbPacket
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:109    .text.ReceiveUsbPacketUntilSizeIs:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:115    .text.ReceiveUsbPacketUntilSizeIs:00000000 ReceiveUsbPacketUntilSizeIs
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:143    .text.ReceiveUsbPacketUntilSizeIs:00000018 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:148    .text.GetExtraDataRxPtr:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:154    .text.GetExtraDataRxPtr:00000000 GetExtraDataRxPtr
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:188    .text.GetExtraDataRxPtr:00000024 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:193    .text.JumpBootLoader:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:199    .text.JumpBootLoader:00000000 JumpBootLoader
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:236    .text.JumpBootLoader:00000018 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:241    .text.QueryBootLoaderReply:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:247    .text.QueryBootLoaderReply:00000000 QueryBootLoaderReply
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:284    .text.QueryBootLoaderReply:00000018 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:289    .text.EraseAppCodeReply:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:295    .text.EraseAppCodeReply:00000000 EraseAppCodeReply
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:332    .text.EraseAppCodeReply:00000018 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:337    .text.downLoadAppCodeReply:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:343    .text.downLoadAppCodeReply:00000000 downLoadAppCodeReply
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:403    .text.downLoadAppCodeReply:00000030 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:409    .text.NoticeCompleteReply:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:415    .text.NoticeCompleteReply:00000000 NoticeCompleteReply
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:453    .text.NoticeCompleteReply:00000018 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:458    .text.Error_Handler:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:464    .text.Error_Handler:00000000 Error_Handler
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:496    .text.SystemClock_Config:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:502    .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:650    .text.SystemClock_Config:000000a0 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:656    .rodata.main.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:684    .text.main:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:690    .text.main:00000000 main
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:775    .text.main:00000054 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:780    .text.main:00000068 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:880    .text.main:000000c8 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:899    .bss.recPacketNo:00000000 recPacketNo
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLMrAYt.s:895    .bss.recPacketNo:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_UART_Transmit
+huart1
+WinUsb_Transmit_FS
+usbBuffer
+memset
+HAL_RCC_OscConfig
+HAL_RCC_ClockConfig
+HAL_Init
+MX_GPIO_Init
+MX_USB_DEVICE_Init
+MX_USART1_UART_Init
+puts
+printf

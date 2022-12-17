@@ -14,6 +14,7 @@ downLoadFile::~downLoadFile()
     if(downLoadfile.isOpen())
         downLoadfile.close();
 }
+
 void downLoadFile::sendPacket(uint8_t *ptr)
 {
     int sendcnt=0;
@@ -37,6 +38,8 @@ void downLoadFile::seFilename(QString &filename)
     //sendpacket_to_terminal=callBack;
     downloadfileName = filename;
     qDebug()<<downloadfileName;
+    currentPacketNo = 0;
+    totalPackets = 0;
 }
 void downLoadFile::NoticeAppIntoBootLoader(uint8_t *ptr)
 {
@@ -44,7 +47,7 @@ void downLoadFile::NoticeAppIntoBootLoader(uint8_t *ptr)
     ptr[PAR_INDEX+30] = 0x01; //
     sendPacket(ptr);
     //test
-    NoticeEraseFlash(ptr);
+    //NoticeEraseFlash(ptr);
 }
 void downLoadFile::QueryBootLoaderReady(uint8_t *ptr)
 {
@@ -70,9 +73,9 @@ void downLoadFile::NoticeEraseFlash(uint8_t *ptr)
     {
         //this->showMaximized();//成功则窗口会最大化，这只是我用检测的方法
         qDebug("read file\r\n");
-        qint64 size=downLoadfile.size();
-        qDebug("size=%ld\r\n",size);
-        int totalPackets = size%SIZE_PER?(size/SIZE_PER+1):(size/SIZE_PER);
+        qint64 fileSize=downLoadfile.size();
+        qDebug("size=%ld\r\n",fileSize);
+        totalPackets = fileSize%SIZE_PER?(fileSize/SIZE_PER+1):(fileSize/SIZE_PER);
         qDebug("totalPackets=%d\r\n",totalPackets);
         if(downLoadfile.open(QIODevice::ReadOnly|QIODevice::Truncate))//打开文件，以只读的方式打开文本文件
         {
@@ -100,6 +103,11 @@ void downLoadFile::NoticeEraseFlash(uint8_t *ptr)
 
             }*/
             //downLoadfile.close();
+            *(uint32_t*)&ptr[PAR_INDEX+26] = fileSize;
+            ptr[PAR_INDEX+31] = 0xfe; //查询是否进入bootloader
+            ptr[PAR_INDEX+30] = 0x03; //
+
+            sendPacket(ptr);
          }
        else
        {
@@ -107,14 +115,12 @@ void downLoadFile::NoticeEraseFlash(uint8_t *ptr)
        }
     }
 
-    ptr[PAR_INDEX+31] = 0xfe; //查询是否进入bootloader
-    ptr[PAR_INDEX+30] = 0x03; //
 
-    sendPacket(ptr);
 
 }
 void downLoadFile::DownLoadAppData(uint8_t *ptr)
 {
+    qint32 n=downLoadfile.read((char*)ptr,SIZE_PER);
 //	size_t readLen;
 
 //	memset(updateProgramInfo.pSendCache,0,(CODE_CACHE_LEN+2));
@@ -133,8 +139,29 @@ void downLoadFile::DownLoadAppData(uint8_t *ptr)
 //	updateProgramInfo.packetSeq++;
 //	updateProgramInfo.pM_DownFileProgress->StepIt();
 //	sendPack(DOWN_APP_CMD,130,updateProgramInfo.pSendCache);
-//
 
+    ptr[PAR_INDEX+31] = 0xfe; //查询是否进入bootloader
+    ptr[PAR_INDEX+30] = 0x04; //
+    *(uint16_t*)&ptr[PAR_INDEX+28] = currentPacketNo;
+    *(uint16_t*)&ptr[PAR_INDEX+24] = SIZE_PER;
+    sendPacket(ptr);
+    currentPacketNo ++;
+//    if(currentPacketNo>=totalPackets)
+//    {
+//        qDebug("%d",n);
+//    }
+
+
+}
+bool downLoadFile::isTxCplt(void)
+{
+    if(currentPacketNo>=totalPackets)
+    {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 void downLoadFile::NoticeComplete(uint8_t *ptr)
 {

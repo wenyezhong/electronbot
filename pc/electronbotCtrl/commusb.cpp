@@ -113,6 +113,36 @@ bool commUSB::openElectronbotUSB(int vid,int pid)
                      m, conf_desc->interface[l].altsetting[n].endpoint[m].bEndpointAddress,
                      conf_desc->interface[l].altsetting[n].endpoint[m].bmAttributes,
                      conf_desc->interface[l].altsetting[n].endpoint[m].wMaxPacketSize);
+                 endpoint= &conf_desc->interface[l].altsetting[n].endpoint[m];
+                 if ((endpoint->bmAttributes & LIBUSB_TRANSFER_TYPE_MASK) & (LIBUSB_TRANSFER_TYPE_BULK))
+                 {
+                     if (endpoint->bEndpointAddress == WIN_USB_EPIN_ADDR)
+                     {
+                         iface_index = l;
+                         endpoint_in = endpoint->bEndpointAddress;
+                     }
+                     else if(endpoint->bEndpointAddress == WIN_USB_EPOUT_ADDR)
+                     {
+                         iface_index = l;
+                         endpoint_out = endpoint->bEndpointAddress;
+                     }
+//                     if (endpoint->bEndpointAddress & LIBUSB_ENDPOINT_IN)
+//                     {
+//                          if (!endpoint_in)
+//                          {
+//                              endpoint_in = endpoint->bEndpointAddress;
+//                              qDebug("endpoint_in = %x",endpoint_in);
+//                          }
+//                     }
+//                      else
+//                     {
+//                          if (!endpoint_out)
+//                          {
+//                              endpoint_out = endpoint->bEndpointAddress;
+//                              qDebug("endpoint_out = %x",endpoint_out);
+//                          }
+//                      }
+                 }
               }
          }
      }
@@ -150,9 +180,9 @@ bool commUSB::openElectronbotUSB(int vid,int pid)
          }
      }*/
 
-     endpoint_in = 0x83;
-     endpoint_out = 0x03;
-     iface_index = 1;
+//     endpoint_in = 0x83;
+//     endpoint_out = 0x03;
+//     iface_index = 1;
 
      /*释放配置描述符*/
      libusb_free_config_descriptor(conf_desc);
@@ -187,11 +217,11 @@ int commUSB::ReadElectronbotUSB(uint8_t *ptr,uint32_t len)
     int size=0;
     if(handle)
     {
-        res = libusb_bulk_transfer(handle, endpoint_in, ptr, len, &size, 1000);
+        res = libusb_bulk_transfer(handle, endpoint_in, ptr, len, &size, 100);
         if (res)
         {
-          qDebug("bulk transfer error\n");
-          qDebug("   %s\n", libusb_strerror((enum libusb_error)res));
+          //qDebug("bulk transfer error\n");
+          //qDebug("   %s\n", libusb_strerror((enum libusb_error)res));
         }
         else
         {

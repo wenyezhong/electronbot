@@ -22,6 +22,8 @@ class downLoadFile
 private:
     QString downloadfileName;
     QFile downLoadfile;
+    uint32_t totalPackets;
+    uint16_t currentPacketNo;
 
 public:
     downLoadFile(commUSB *pcomm);
@@ -32,6 +34,7 @@ public:
     void NoticeEraseFlash(uint8_t *ptr);
     void DownLoadAppData(uint8_t *ptr);
     void NoticeComplete(uint8_t *ptr);
+    bool isTxCplt(void);
 
 //    void (*sendpacket_to_terminal)(void);
 

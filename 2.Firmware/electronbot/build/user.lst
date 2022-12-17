@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
   41              		.cfi_offset 4, -12
   42              		.cfi_offset 5, -8
   43              		.cfi_offset 14, -4
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 2
 
 
   44 0002 0546     		mov	r5, r0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
   54:user/robot.h  ****             // electron.SetJointInitAngle(electron.joint[ANY], 0);
   55:user/robot.h  ****             // electron.SetJointKp(electron.joint[ANY], 50);
   56:user/robot.h  ****             // electron.SetJointKi(electron.joint[ANY], 0.8);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 3
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 3
 
 
   57:user/robot.h  ****             // electron.SetJointKd(electron.joint[ANY], 600);
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  111:user/robot.h  ****         };
  112:user/robot.h  **** 
  113:user/robot.h  ****         joint[6] = JointStatus_t{ // Body
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 4
 
 
  114:user/robot.h  ****             12,
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
   18:user/robot.h  **** 
   79              		.loc 1 18 9 is_stmt 1 discriminator 2 view .LVU11
   18:user/robot.h  **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 5
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 5
 
 
   80              		.loc 1 18 35 is_stmt 0 discriminator 2 view .LVU12
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  115              		.loc 1 28 18 is_stmt 0 discriminator 2 view .LVU21
  116 005c 05F1200C 		add	ip, r5, #32
  117 0060 04F11C0E 		add	lr, r4, #28
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 6
 
 
  118 0064 BEE80F00 		ldmia	lr!, {r0, r1, r2, r3}
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  162              	.LBE9:
  130:user/robot.h  **** 
  163              		.loc 1 130 5 discriminator 2 view .LVU32
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 7
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 7
 
 
  164 00ec 2846     		mov	r0, r5
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
   30:user/user.cpp **** 
   31:user/user.cpp **** void setPara(uint8_t *ptr)
   32:user/user.cpp **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 8
 
 
   33:user/user.cpp ****     // Robot::JointStatus_t *pJointStatus; 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
   87:user/user.cpp ****     
   88:user/user.cpp ****     for(int i=0 ; i<32; i++)
   89:user/user.cpp ****         printf("%.2x ",ptr[i]);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 9
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 9
 
 
   90:user/user.cpp ****     printf("\r\n");
@@ -515,7 +515,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  121:user/user.cpp **** }
  122:user/user.cpp **** void JumpBootLoader(uint8_t *ptr)
  123:user/user.cpp **** {
- 124:user/user.cpp ****     electron.pUsbBuffer->extraDataTx[31] = 0xfe;
+ 124:user/user.cpp ****     electron.pUsbBuffer->extraDataTx[31] = 0xef;
  125:user/user.cpp ****     electron.pUsbBuffer->extraDataTx[30] = 0x01;
  126:user/user.cpp ****     electron.pUsbBuffer->extraDataTx[29] = 0x00;
  127:user/user.cpp ****     electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  144:user/user.cpp ****     electron.UpdateJointAngle(electron.joint[3], 0);
  145:user/user.cpp ****     electron.UpdateJointAngle(electron.joint[4], 0);
  146:user/user.cpp ****     electron.UpdateJointAngle(electron.joint[5], 0);  */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 10
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 10
 
 
  147:user/user.cpp ****     electron.UpdateJointAngle(electron.joint[6], 0); 
@@ -573,7 +573,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  176:user/user.cpp ****         {
  177:user/user.cpp ****              setInitAngle(ptr);
  178:user/user.cpp ****         }
- 179:user/user.cpp ****         else if(ptr[31] == 0xfe)
+ 179:user/user.cpp ****         else if((ptr[31] == 0xfe)&&(ptr[30] == 0x01))
  180:user/user.cpp ****         {
  181:user/user.cpp ****              JumpBootLoader(ptr);
  182:user/user.cpp ****         }
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  201:user/user.cpp ****             }
  202:user/user.cpp ****             //printf("33333\r\n");
  203:user/user.cpp ****             while (electron.lcd->isBusy);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 11
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 11
 
 
  204:user/user.cpp ****             // memset(electron.GetLcdBufferPtr(),200,60*240*3);
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  258:user/user.cpp ****             printf("33333\r\n");
  259:user/user.cpp ****             while (electron.lcd->isBusy);
  260:user/user.cpp ****             printf("222222\r\n");
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 12
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 12
 
 
  261:user/user.cpp ****             if (p == 0)
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  210              	.L8:
  211              		.loc 3 294 1 view .LVU38
  212 0010 08BD     		pop	{r3, pc}
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 13
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 13
 
 
  213              	.LVL11:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  263              	.LCFI2:
  264              		.cfi_def_cfa_offset 16
  265              		.cfi_offset 4, -16
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 14
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 14
 
 
  266              		.cfi_offset 5, -12
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  306 0034 3A4B     		ldr	r3, .L33+20
  307 0036 1A70     		strb	r2, [r3]
   42:user/user.cpp ****     setki_flag = ptr[6];
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 15
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 15
 
 
  308              		.loc 3 42 5 is_stmt 1 view .LVU59
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  349              	.LBE14:
   49:user/user.cpp ****     printf("\r\n");
  350              		.loc 3 49 5 view .LVU73
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 16
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 16
 
 
   49:user/user.cpp ****     printf("\r\n");
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  389              	.LVL22:
  390              	.L18:
   80:user/user.cpp **** }
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 17
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 17
 
 
  391              		.loc 3 80 1 view .LVU90
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  433 00c8 124B     		ldr	r3, .L33+8
  434 00ca 93ED000A 		vldr.32	s0, [r3]
  435 00ce 0431     		adds	r1, r1, #4
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 18
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 18
 
 
  436 00d0 FFF7FEFF 		bl	_ZN5Robot10SetJointKvERNS_13JointStatus_tEf
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  481 0128 00000000 		.word	.LANCHOR9
  482 012c 00000000 		.word	.LANCHOR10
  483 0130 00000000 		.word	.LANCHOR11
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 19
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 19
 
 
  484 0134 00000000 		.word	.LC7
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
   86:user/user.cpp ****     isEnabled = ptr[5];
  532              		.loc 3 86 22 is_stmt 0 view .LVU120
  533 0016 4379     		ldrb	r3, [r0, #5]	@ zero_extendqisi2
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 20
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 20
 
 
  534 0018 003B     		subs	r3, r3, #0
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  575 0040 05EB8404 		add	r4, r5, r4, lsl #2
  576 0044 0434     		adds	r4, r4, #4
  103:user/user.cpp ****     electron.UpdateJointAngle(electron.joint[id/2], jointSetPoints[id/2]);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 21
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 21
 
 
  577              		.loc 3 103 30 view .LVU134
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  628              		.cfi_offset 14, -4
  108:user/user.cpp ****     uint8_t id = ptr[0];   
  629              		.loc 3 108 5 is_stmt 1 view .LVU140
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 22
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 22
 
 
  108:user/user.cpp ****     uint8_t id = ptr[0];   
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  676              		@ args = 0, pretend = 0, frame = 0
  677              		@ frame_needed = 0, uses_anonymous_args = 0
  113:user/user.cpp **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 23
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 23
 
 
  678              		.loc 3 113 1 is_stmt 0 view .LVU151
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  721 0024 1F2C     		cmp	r4, #31
  722 0026 F8DD     		ble	.L50
  723              	.LBE16:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 24
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 24
 
 
  118:user/user.cpp ****     printf("\r\n");
@@ -1438,25 +1438,25 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  771              		.loc 3 123 1 is_stmt 0 view .LVU171
  772 0000 08B5     		push	{r3, lr}
  773              		.save {r3, lr}
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 25
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 25
 
 
  774              	.LCFI6:
  775              		.cfi_def_cfa_offset 8
  776              		.cfi_offset 3, -8
  777              		.cfi_offset 14, -4
- 124:user/user.cpp ****     electron.pUsbBuffer->extraDataTx[31] = 0xfe;
+ 124:user/user.cpp ****     electron.pUsbBuffer->extraDataTx[31] = 0xef;
  778              		.loc 3 124 5 is_stmt 1 view .LVU172
- 124:user/user.cpp ****     electron.pUsbBuffer->extraDataTx[31] = 0xfe;
+ 124:user/user.cpp ****     electron.pUsbBuffer->extraDataTx[31] = 0xef;
  779              		.loc 3 124 14 is_stmt 0 view .LVU173
  780 0002 0648     		ldr	r0, .L55
  781              	.LVL59:
- 124:user/user.cpp ****     electron.pUsbBuffer->extraDataTx[31] = 0xfe;
+ 124:user/user.cpp ****     electron.pUsbBuffer->extraDataTx[31] = 0xef;
  782              		.loc 3 124 14 view .LVU174
  783 0004 0168     		ldr	r1, [r0]
- 124:user/user.cpp ****     electron.pUsbBuffer->extraDataTx[31] = 0xfe;
+ 124:user/user.cpp ****     electron.pUsbBuffer->extraDataTx[31] = 0xef;
  784              		.loc 3 124 42 view .LVU175
- 785 0006 FE23     		movs	r3, #254
+ 785 0006 EF23     		movs	r3, #239
  786 0008 CB77     		strb	r3, [r1, #31]
  125:user/user.cpp ****     electron.pUsbBuffer->extraDataTx[30] = 0x01;
  787              		.loc 3 125 5 is_stmt 1 view .LVU176
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  814              		.section	.text.Main,"ax",%progbits
  815              		.align	1
  816              		.global	Main
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 26
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 26
 
 
  817              		.syntax unified
@@ -1539,7 +1539,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  847              		.loc 3 135 5 is_stmt 1 view .LVU188
  135:user/user.cpp ****     electron.lcd->Init(Screen::DEGREE_0);
  848              		.loc 3 135 14 is_stmt 0 view .LVU189
- 849 000c 4F4C     		ldr	r4, .L82
+ 849 000c 514C     		ldr	r4, .L84
  135:user/user.cpp ****     electron.lcd->Init(Screen::DEGREE_0);
  850              		.loc 3 135 23 view .LVU190
  851 000e 0021     		movs	r1, #0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  862 0024 FFF7FEFF 		bl	_ZN6Screen9SetWindowEtttt
  863              	.LVL64:
  137:user/user.cpp ****     for(int i=0;i<32;i++)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 27
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 27
 
 
  864              		.loc 3 137 5 is_stmt 1 view .LVU193
@@ -1576,7 +1576,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  873              		.loc 3 138 9 discriminator 2 view .LVU196
  138:user/user.cpp ****         electron.pUsbBuffer->extraDataTx[i]=32-i;
  874              		.loc 3 138 18 is_stmt 0 discriminator 2 view .LVU197
- 875 002e 474A     		ldr	r2, .L82
+ 875 002e 494A     		ldr	r2, .L84
  876 0030 1268     		ldr	r2, [r2]
  138:user/user.cpp ****         electron.pUsbBuffer->extraDataTx[i]=32-i;
  877              		.loc 3 138 47 discriminator 2 view .LVU198
@@ -1599,15 +1599,15 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  889              		.loc 3 147 5 is_stmt 1 view .LVU203
  147:user/user.cpp ****     electron.UpdateJointAngle(electron.joint[6], 0); 
  890              		.loc 3 147 30 is_stmt 0 view .LVU204
- 891 003c 4348     		ldr	r0, .L82
- 892 003e 9FED440A 		vldr.32	s0, .L82+4
+ 891 003c 4548     		ldr	r0, .L84
+ 892 003e 9FED460A 		vldr.32	s0, .L84+4
  893 0042 00F1AC01 		add	r1, r0, #172
  894 0046 FFF7FEFF 		bl	_ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf
  895              	.LVL67:
  133:user/user.cpp ****     int p=0;
  896              		.loc 3 133 9 view .LVU205
  897 004a 0024     		movs	r4, #0
- 898 004c 36E0     		b	.L75
+ 898 004c 46E0     		b	.L75
  899              	.LVL68:
  900              	.L61:
  901              	.LBB18:
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  905              	.LVL69:
  906              	.L63:
  150:user/user.cpp ****         for (int j = 0; j < 6; j++)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 28
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 28
 
 
  907              		.loc 3 150 27 discriminator 1 view .LVU207
@@ -1642,7 +1642,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  921 005a 431C     		adds	r3, r0, #1
  154:user/user.cpp ****                 auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
  922              		.loc 3 154 23 discriminator 2 view .LVU212
- 923 005c 3B49     		ldr	r1, .L82
+ 923 005c 3D49     		ldr	r1, .L84
  924 005e C3EBC303 		rsb	r3, r3, r3, lsl #3
  925 0062 9B00     		lsls	r3, r3, #2
  926 0064 0833     		adds	r3, r3, #8
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  948              	.LVL74:
  949              	.L60:
  152:user/user.cpp ****             for (int i = 0; i < 4; i++)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 29
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 29
 
 
  950              		.loc 3 152 13 discriminator 2 view .LVU221
@@ -1688,7 +1688,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  953              		.loc 3 158 9 is_stmt 1 view .LVU222
  158:user/user.cpp ****         electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);        
  954              		.loc 3 158 41 is_stmt 0 view .LVU223
- 955 007a 344D     		ldr	r5, .L82
+ 955 007a 364D     		ldr	r5, .L84
  158:user/user.cpp ****         electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);        
  956              		.loc 3 158 31 view .LVU224
  957 007c 2022     		movs	r2, #32
@@ -1725,685 +1725,684 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 1
  162:user/user.cpp ****         if(ptr[31] == 0xee)  //设置参数
  981              		.loc 3 162 9 view .LVU232
  982 0098 EE2A     		cmp	r2, #238
- 983 009a 0AD0     		beq	.L78
+ 983 009a 1AD0     		beq	.L78
  984              	.LBE23:
  985              	.LBE18:
  166:user/user.cpp ****         else if(ptr[31] == 0xef)
  986              		.loc 3 166 14 is_stmt 1 view .LVU233
- 987              	.LBB53:
- 988              	.LBB45:
+ 987              	.LBB49:
+ 988              	.LBB41:
  989              	.LBB24:
  990 009c EF2A     		cmp	r2, #239
- 991 009e 0FD0     		beq	.L79
+ 991 009e 1FD0     		beq	.L79
  992              	.LBE24:
- 993              	.LBE45:
- 994              	.LBE53:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 30
+ 993              	.LBE41:
+ 994              	.LBE49:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 30
 
 
  171:user/user.cpp ****         else if(ptr[31] == 0xf0)
  995              		.loc 3 171 14 view .LVU234
- 996              	.LBB54:
- 997              	.LBB46:
- 998              	.LBB40:
+ 996              	.LBB50:
+ 997              	.LBB42:
+ 998              	.LBB37:
  999              	.LBB25:
  1000 00a0 F02A     		cmp	r2, #240
- 1001 00a2 10D0     		beq	.L80
+ 1001 00a2 20D0     		beq	.L80
  1002              	.LBE25:
- 1003              	.LBE40:
- 1004              	.LBE46:
- 1005              	.LBE54:
+ 1003              	.LBE37:
+ 1004              	.LBE42:
+ 1005              	.LBE50:
  175:user/user.cpp ****         else if(ptr[31] == 0xf1)
  1006              		.loc 3 175 14 view .LVU235
- 1007              	.LBB55:
- 1008              	.LBB47:
- 1009              	.LBB41:
- 1010              	.LBB36:
+ 1007              	.LBB51:
+ 1008              	.LBB43:
+ 1009              	.LBB38:
+ 1010              	.LBB34:
  1011              	.LBB26:
  1012 00a4 F12A     		cmp	r2, #241
- 1013 00a6 11D0     		beq	.L81
+ 1013 00a6 21D0     		beq	.L81
  1014              	.LBE26:
- 1015              	.LBE36:
- 1016              	.LBE41:
- 1017              	.LBE47:
- 1018              	.LBE55:
- 179:user/user.cpp ****         else if(ptr[31] == 0xfe)
+ 1015              	.LBE34:
+ 1016              	.LBE38:
+ 1017              	.LBE43:
+ 1018              	.LBE51:
+ 179:user/user.cpp ****         else if((ptr[31] == 0xfe)&&(ptr[30] == 0x01))
  1019              		.loc 3 179 14 view .LVU236
- 1020              	.LBB56:
- 1021              	.LBB48:
- 1022              	.LBB42:
- 1023              	.LBB37:
- 1024              	.LBB33:
+ 1020              	.LBB52:
+ 1021              	.LBB44:
+ 1022              	.LBB39:
+ 1023              	.LBB35:
+ 1024              	.LBB32:
  1025              	.LBB27:
  1026 00a8 FE2A     		cmp	r2, #254
- 1027 00aa 12D1     		bne	.L69
- 181:user/user.cpp ****              JumpBootLoader(ptr);
- 1028              		.loc 3 181 14 view .LVU237
- 181:user/user.cpp ****              JumpBootLoader(ptr);
- 1029              		.loc 3 181 28 is_stmt 0 view .LVU238
- 1030 00ac FFF7FEFF 		bl	_Z14JumpBootLoaderPh
- 1031              	.LVL80:
- 181:user/user.cpp ****              JumpBootLoader(ptr);
- 1032              		.loc 3 181 28 view .LVU239
- 1033 00b0 01E0     		b	.L65
- 1034              	.LVL81:
- 1035              	.L78:
- 181:user/user.cpp ****              JumpBootLoader(ptr);
- 1036              		.loc 3 181 28 view .LVU240
- 1037              	.LBE27:
- 1038              	.LBE33:
- 1039              	.LBE37:
- 1040              	.LBE42:
- 164:user/user.cpp ****             setPara(ptr);
- 1041              		.loc 3 164 13 is_stmt 1 view .LVU241
- 164:user/user.cpp ****             setPara(ptr);
- 1042              		.loc 3 164 20 is_stmt 0 view .LVU242
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 31
-
-
- 1043 00b2 FFF7FEFF 		bl	setPara
- 1044              	.LVL82:
- 1045              	.L65:
- 164:user/user.cpp ****             setPara(ptr);
- 1046              		.loc 3 164 20 view .LVU243
- 1047              	.LBE48:
- 218:user/user.cpp ****         HAL_Delay(1);
- 1048              		.loc 3 218 9 is_stmt 1 view .LVU244
- 218:user/user.cpp ****         HAL_Delay(1);
- 1049              		.loc 3 218 18 is_stmt 0 view .LVU245
- 1050 00b6 0120     		movs	r0, #1
- 1051 00b8 FFF7FEFF 		bl	HAL_Delay
- 1052              	.LVL83:
- 1053              	.LBE56:
- 148:user/user.cpp ****     while(1)
- 1054              		.loc 3 148 5 is_stmt 1 view .LVU246
- 1055              	.L75:
- 148:user/user.cpp ****     while(1)
- 1056              		.loc 3 148 5 view .LVU247
- 1057              	.LBB57:
- 150:user/user.cpp ****         for (int j = 0; j < 6; j++)
- 1058              		.loc 3 150 9 view .LVU248
- 1059              	.LBB49:
- 150:user/user.cpp ****         for (int j = 0; j < 6; j++)
- 1060              		.loc 3 150 18 is_stmt 0 view .LVU249
- 1061 00bc 0020     		movs	r0, #0
- 1062 00be C7E7     		b	.L63
- 1063              	.LVL84:
- 1064              	.L79:
- 150:user/user.cpp ****         for (int j = 0; j < 6; j++)
- 1065              		.loc 3 150 18 view .LVU250
- 1066              	.LBE49:
- 1067              	.LBB50:
- 1068              	.LBB43:
- 168:user/user.cpp ****             setAngle(ptr);
- 1069              		.loc 3 168 13 is_stmt 1 view .LVU251
- 168:user/user.cpp ****             setAngle(ptr);
- 1070              		.loc 3 168 21 is_stmt 0 view .LVU252
- 1071 00c0 FFF7FEFF 		bl	setAngle
- 1072              	.LVL85:
- 168:user/user.cpp ****             setAngle(ptr);
- 1073              		.loc 3 168 21 view .LVU253
- 1074 00c4 F7E7     		b	.L65
- 1075              	.LVL86:
- 1076              	.L80:
- 1077              	.LBB38:
- 173:user/user.cpp ****              setid(ptr);         
- 1078              		.loc 3 173 14 is_stmt 1 view .LVU254
- 173:user/user.cpp ****              setid(ptr);         
- 1079              		.loc 3 173 19 is_stmt 0 view .LVU255
- 1080 00c6 FFF7FEFF 		bl	_Z5setidPh
- 1081              	.LVL87:
- 173:user/user.cpp ****              setid(ptr);         
- 1082              		.loc 3 173 19 view .LVU256
- 1083 00ca F4E7     		b	.L65
- 1084              	.LVL88:
- 1085              	.L81:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 32
-
-
- 1086              	.LBB34:
- 177:user/user.cpp ****              setInitAngle(ptr);
- 1087              		.loc 3 177 14 is_stmt 1 view .LVU257
- 177:user/user.cpp ****              setInitAngle(ptr);
- 1088              		.loc 3 177 26 is_stmt 0 view .LVU258
- 1089 00cc FFF7FEFF 		bl	_Z12setInitAnglePh
- 1090              	.LVL89:
- 177:user/user.cpp ****              setInitAngle(ptr);
- 1091              		.loc 3 177 26 view .LVU259
- 1092 00d0 F1E7     		b	.L65
- 1093              	.LVL90:
- 1094              	.L69:
- 1095              	.LBB31:
- 1096              	.LBB28:
+ 1027 00aa 02D1     		bne	.L69
+ 179:user/user.cpp ****         else if((ptr[31] == 0xfe)&&(ptr[30] == 0x01))
+ 1028              		.loc 3 179 43 is_stmt 0 discriminator 1 view .LVU237
+ 1029 00ac 837F     		ldrb	r3, [r0, #30]	@ zero_extendqisi2
+ 179:user/user.cpp ****         else if((ptr[31] == 0xfe)&&(ptr[30] == 0x01))
+ 1030              		.loc 3 179 34 discriminator 1 view .LVU238
+ 1031 00ae 012B     		cmp	r3, #1
+ 1032 00b0 1FD0     		beq	.L82
+ 1033              	.L69:
+ 1034              	.LBB28:
  185:user/user.cpp ****             printf("task  p=%d : %d\r\n",p,ptr[31]);
- 1097              		.loc 3 185 13 is_stmt 1 view .LVU260
+ 1035              		.loc 3 185 13 is_stmt 1 view .LVU239
  185:user/user.cpp ****             printf("task  p=%d : %d\r\n",p,ptr[31]);
- 1098              		.loc 3 185 19 is_stmt 0 view .LVU261
- 1099 00d2 2146     		mov	r1, r4
- 1100 00d4 1F48     		ldr	r0, .L82+8
- 1101              	.LVL91:
+ 1036              		.loc 3 185 19 is_stmt 0 view .LVU240
+ 1037 00b2 2146     		mov	r1, r4
+ 1038 00b4 2948     		ldr	r0, .L84+8
+ 1039              	.LVL80:
  185:user/user.cpp ****             printf("task  p=%d : %d\r\n",p,ptr[31]);
- 1102              		.loc 3 185 19 view .LVU262
- 1103 00d6 FFF7FEFF 		bl	printf
- 1104              	.LVL92:
+ 1040              		.loc 3 185 19 view .LVU241
+ 1041 00b6 FFF7FEFF 		bl	printf
+ 1042              	.LVL81:
  188:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
- 1105              		.loc 3 188 13 is_stmt 1 view .LVU263
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 31
+
+
+ 1043              		.loc 3 188 13 is_stmt 1 view .LVU242
  188:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
- 1106              		.loc 3 188 27 is_stmt 0 view .LVU264
- 1107 00da 1F4B     		ldr	r3, .L82+12
- 1108 00dc 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1044              		.loc 3 188 27 is_stmt 0 view .LVU243
+ 1045 00ba 294B     		ldr	r3, .L84+12
+ 1046 00bc 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
  188:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
- 1109              		.loc 3 188 42 view .LVU265
- 1110 00de 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 1047              		.loc 3 188 42 view .LVU244
+ 1048 00be 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
  188:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
- 1111              		.loc 3 188 30 view .LVU266
- 1112 00e0 003B     		subs	r3, r3, #0
- 1113 00e2 18BF     		it	ne
- 1114 00e4 0123     		movne	r3, #1
+ 1049              		.loc 3 188 30 view .LVU245
+ 1050 00c0 003B     		subs	r3, r3, #0
+ 1051 00c2 18BF     		it	ne
+ 1052 00c4 0123     		movne	r3, #1
  188:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
- 1115              		.loc 3 188 13 view .LVU267
- 1116 00e6 9A42     		cmp	r2, r3
- 1117 00e8 01D0     		beq	.L70
+ 1053              		.loc 3 188 13 view .LVU246
+ 1054 00c6 9A42     		cmp	r2, r3
+ 1055 00c8 01D0     		beq	.L70
  190:user/user.cpp ****                 isEnabled = ptr[0];
- 1118              		.loc 3 190 17 is_stmt 1 view .LVU268
+ 1056              		.loc 3 190 17 is_stmt 1 view .LVU247
  190:user/user.cpp ****                 isEnabled = ptr[0];
- 1119              		.loc 3 190 27 is_stmt 0 view .LVU269
- 1120 00ea 1B4A     		ldr	r2, .L82+12
- 1121 00ec 1370     		strb	r3, [r2]
- 1122              	.L70:
- 1123              	.LBE28:
- 1124              	.LBE31:
- 1125              	.LBE34:
- 1126              	.LBE38:
- 1127              	.LBE43:
- 1128              	.LBE50:
- 1129              	.LBB51:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 33
-
-
- 1130              	.LBB22:
+ 1057              		.loc 3 190 27 is_stmt 0 view .LVU248
+ 1058 00ca 254A     		ldr	r2, .L84+12
+ 1059 00cc 1370     		strb	r3, [r2]
+ 1060              	.L70:
+ 190:user/user.cpp ****                 isEnabled = ptr[0];
+ 1061              		.loc 3 190 27 view .LVU249
+ 1062              	.LBE28:
+ 1063              	.LBE27:
+ 1064              	.LBE32:
+ 1065              	.LBE35:
+ 1066              	.LBE39:
+ 1067              	.LBE44:
+ 1068              	.LBB45:
+ 1069              	.LBB22:
  152:user/user.cpp ****             for (int i = 0; i < 4; i++)
- 1131              		.loc 3 152 22 discriminator 3 view .LVU270
- 1132 00ee 0023     		movs	r3, #0
- 1133              	.L72:
- 1134              	.LVL93:
+ 1070              		.loc 3 152 22 discriminator 3 view .LVU250
+ 1071 00ce 0023     		movs	r3, #0
+ 1072 00d0 1AE0     		b	.L72
+ 1073              	.LVL82:
+ 1074              	.L78:
  152:user/user.cpp ****             for (int i = 0; i < 4; i++)
- 1135              		.loc 3 152 22 discriminator 3 view .LVU271
- 1136              	.LBE22:
- 1137              	.LBE51:
- 1138              	.LBB52:
- 1139              	.LBB44:
- 1140              	.LBB39:
- 1141              	.LBB35:
- 1142              	.LBB32:
- 1143              	.LBB30:
- 1144              	.LBB29:
- 198:user/user.cpp ****             for (int j = 0; j < 6; j++)
- 1145              		.loc 3 198 31 is_stmt 1 discriminator 3 view .LVU272
- 1146 00f0 052B     		cmp	r3, #5
- 1147 00f2 08DC     		bgt	.L71
- 200:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
- 1148              		.loc 3 200 17 discriminator 2 view .LVU273
- 200:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
- 1149              		.loc 3 200 57 is_stmt 0 discriminator 2 view .LVU274
- 1150 00f4 9800     		lsls	r0, r3, #2
- 200:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
- 1151              		.loc 3 200 61 discriminator 2 view .LVU275
- 1152 00f6 411C     		adds	r1, r0, #1
- 1153 00f8 2944     		add	r1, r1, r5
- 200:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
- 1154              		.loc 3 200 37 discriminator 2 view .LVU276
- 1155 00fa 0968     		ldr	r1, [r1]	@ float
- 200:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
- 1156              		.loc 3 200 35 discriminator 2 view .LVU277
- 1157 00fc 174A     		ldr	r2, .L82+16
- 1158 00fe 0244     		add	r2, r2, r0
- 1159 0100 1160     		str	r1, [r2]	@ float
- 198:user/user.cpp ****             for (int j = 0; j < 6; j++)
- 1160              		.loc 3 198 13 is_stmt 1 discriminator 2 view .LVU278
- 1161 0102 0133     		adds	r3, r3, #1
- 1162              	.LVL94:
- 198:user/user.cpp ****             for (int j = 0; j < 6; j++)
- 1163              		.loc 3 198 13 is_stmt 0 discriminator 2 view .LVU279
- 1164 0104 F4E7     		b	.L72
- 1165              	.LVL95:
- 1166              	.L71:
- 198:user/user.cpp ****             for (int j = 0; j < 6; j++)
- 1167              		.loc 3 198 13 discriminator 2 view .LVU280
- 1168              	.LBE29:
- 203:user/user.cpp ****             while (electron.lcd->isBusy);
- 1169              		.loc 3 203 13 is_stmt 1 view .LVU281
- 203:user/user.cpp ****             while (electron.lcd->isBusy);
- 1170              		.loc 3 203 34 view .LVU282
- 203:user/user.cpp ****             while (electron.lcd->isBusy);
- 1171              		.loc 3 203 29 is_stmt 0 view .LVU283
- 1172 0106 114B     		ldr	r3, .L82
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 34
+ 1075              		.loc 3 152 22 discriminator 3 view .LVU251
+ 1076              	.LBE22:
+ 1077              	.LBE45:
+ 1078              	.LBB46:
+ 164:user/user.cpp ****             setPara(ptr);
+ 1079              		.loc 3 164 13 is_stmt 1 view .LVU252
+ 164:user/user.cpp ****             setPara(ptr);
+ 1080              		.loc 3 164 20 is_stmt 0 view .LVU253
+ 1081 00d2 FFF7FEFF 		bl	setPara
+ 1082              	.LVL83:
+ 1083              	.L65:
+ 164:user/user.cpp ****             setPara(ptr);
+ 1084              		.loc 3 164 20 view .LVU254
+ 1085              	.LBE46:
+ 218:user/user.cpp ****         HAL_Delay(1);
+ 1086              		.loc 3 218 9 is_stmt 1 view .LVU255
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 32
 
 
- 1173 0108 D3F8C850 		ldr	r5, [r3, #200]
+ 218:user/user.cpp ****         HAL_Delay(1);
+ 1087              		.loc 3 218 18 is_stmt 0 view .LVU256
+ 1088 00d6 0120     		movs	r0, #1
+ 1089 00d8 FFF7FEFF 		bl	HAL_Delay
+ 1090              	.LVL84:
+ 1091              	.LBE52:
+ 148:user/user.cpp ****     while(1)
+ 1092              		.loc 3 148 5 is_stmt 1 view .LVU257
+ 1093              	.L75:
+ 148:user/user.cpp ****     while(1)
+ 1094              		.loc 3 148 5 view .LVU258
+ 1095              	.LBB53:
+ 150:user/user.cpp ****         for (int j = 0; j < 6; j++)
+ 1096              		.loc 3 150 9 view .LVU259
+ 1097              	.LBB47:
+ 150:user/user.cpp ****         for (int j = 0; j < 6; j++)
+ 1098              		.loc 3 150 18 is_stmt 0 view .LVU260
+ 1099 00dc 0020     		movs	r0, #0
+ 1100 00de B7E7     		b	.L63
+ 1101              	.LVL85:
+ 1102              	.L79:
+ 150:user/user.cpp ****         for (int j = 0; j < 6; j++)
+ 1103              		.loc 3 150 18 view .LVU261
+ 1104              	.LBE47:
+ 1105              	.LBB48:
+ 1106              	.LBB40:
+ 168:user/user.cpp ****             setAngle(ptr);
+ 1107              		.loc 3 168 13 is_stmt 1 view .LVU262
+ 168:user/user.cpp ****             setAngle(ptr);
+ 1108              		.loc 3 168 21 is_stmt 0 view .LVU263
+ 1109 00e0 FFF7FEFF 		bl	setAngle
+ 1110              	.LVL86:
+ 168:user/user.cpp ****             setAngle(ptr);
+ 1111              		.loc 3 168 21 view .LVU264
+ 1112 00e4 F7E7     		b	.L65
+ 1113              	.LVL87:
+ 1114              	.L80:
+ 1115              	.LBB36:
+ 173:user/user.cpp ****              setid(ptr);         
+ 1116              		.loc 3 173 14 is_stmt 1 view .LVU265
+ 173:user/user.cpp ****              setid(ptr);         
+ 1117              		.loc 3 173 19 is_stmt 0 view .LVU266
+ 1118 00e6 FFF7FEFF 		bl	_Z5setidPh
+ 1119              	.LVL88:
+ 173:user/user.cpp ****              setid(ptr);         
+ 1120              		.loc 3 173 19 view .LVU267
+ 1121 00ea F4E7     		b	.L65
+ 1122              	.LVL89:
+ 1123              	.L81:
+ 1124              	.LBB33:
+ 177:user/user.cpp ****              setInitAngle(ptr);
+ 1125              		.loc 3 177 14 is_stmt 1 view .LVU268
+ 177:user/user.cpp ****              setInitAngle(ptr);
+ 1126              		.loc 3 177 26 is_stmt 0 view .LVU269
+ 1127 00ec FFF7FEFF 		bl	_Z12setInitAnglePh
+ 1128              	.LVL90:
+ 177:user/user.cpp ****              setInitAngle(ptr);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 33
+
+
+ 1129              		.loc 3 177 26 view .LVU270
+ 1130 00f0 F1E7     		b	.L65
+ 1131              	.LVL91:
+ 1132              	.L82:
+ 1133              	.LBB31:
+ 181:user/user.cpp ****              JumpBootLoader(ptr);
+ 1134              		.loc 3 181 14 is_stmt 1 view .LVU271
+ 181:user/user.cpp ****              JumpBootLoader(ptr);
+ 1135              		.loc 3 181 28 is_stmt 0 view .LVU272
+ 1136 00f2 FFF7FEFF 		bl	_Z14JumpBootLoaderPh
+ 1137              	.LVL92:
+ 181:user/user.cpp ****              JumpBootLoader(ptr);
+ 1138              		.loc 3 181 28 view .LVU273
+ 1139 00f6 EEE7     		b	.L65
+ 1140              	.LVL93:
+ 1141              	.L83:
+ 1142              	.LBB30:
+ 1143              	.LBB29:
+ 200:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+ 1144              		.loc 3 200 17 is_stmt 1 discriminator 2 view .LVU274
+ 200:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+ 1145              		.loc 3 200 57 is_stmt 0 discriminator 2 view .LVU275
+ 1146 00f8 9800     		lsls	r0, r3, #2
+ 200:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+ 1147              		.loc 3 200 61 discriminator 2 view .LVU276
+ 1148 00fa 411C     		adds	r1, r0, #1
+ 1149 00fc 2944     		add	r1, r1, r5
+ 200:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+ 1150              		.loc 3 200 37 discriminator 2 view .LVU277
+ 1151 00fe 0968     		ldr	r1, [r1]	@ float
+ 200:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+ 1152              		.loc 3 200 35 discriminator 2 view .LVU278
+ 1153 0100 184A     		ldr	r2, .L84+16
+ 1154 0102 0244     		add	r2, r2, r0
+ 1155 0104 1160     		str	r1, [r2]	@ float
+ 198:user/user.cpp ****             for (int j = 0; j < 6; j++)
+ 1156              		.loc 3 198 13 is_stmt 1 discriminator 2 view .LVU279
+ 1157 0106 0133     		adds	r3, r3, #1
+ 1158              	.LVL94:
+ 1159              	.L72:
+ 198:user/user.cpp ****             for (int j = 0; j < 6; j++)
+ 1160              		.loc 3 198 31 discriminator 3 view .LVU280
+ 1161 0108 052B     		cmp	r3, #5
+ 1162 010a F5DD     		ble	.L83
+ 1163              	.LVL95:
+ 1164              	.L71:
+ 198:user/user.cpp ****             for (int j = 0; j < 6; j++)
+ 1165              		.loc 3 198 31 is_stmt 0 discriminator 3 view .LVU281
+ 1166              	.LBE29:
  203:user/user.cpp ****             while (electron.lcd->isBusy);
- 1174              		.loc 3 203 34 view .LVU284
- 1175 010c 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
- 1176 010e 002B     		cmp	r3, #0
- 1177 0110 F9D1     		bne	.L71
+ 1167              		.loc 3 203 13 is_stmt 1 view .LVU282
+ 203:user/user.cpp ****             while (electron.lcd->isBusy);
+ 1168              		.loc 3 203 34 view .LVU283
+ 203:user/user.cpp ****             while (electron.lcd->isBusy);
+ 1169              		.loc 3 203 29 is_stmt 0 view .LVU284
+ 1170 010c 114B     		ldr	r3, .L84
+ 1171 010e D3F8C850 		ldr	r5, [r3, #200]
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 34
+
+
+ 203:user/user.cpp ****             while (electron.lcd->isBusy);
+ 1172              		.loc 3 203 34 view .LVU285
+ 1173 0112 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 1174 0114 002B     		cmp	r3, #0
+ 1175 0116 F9D1     		bne	.L71
  209:user/user.cpp ****             if (p == 0)
- 1178              		.loc 3 209 13 is_stmt 1 view .LVU285
- 1179 0112 74B9     		cbnz	r4, .L73
+ 1176              		.loc 3 209 13 is_stmt 1 view .LVU286
+ 1177 0118 74B9     		cbnz	r4, .L73
  210:user/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3,false);
- 1180              		.loc 3 210 17 view .LVU286
+ 1178              		.loc 3 210 17 view .LVU287
  210:user/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3,false);
- 1181              		.loc 3 210 47 is_stmt 0 view .LVU287
- 1182 0114 0D48     		ldr	r0, .L82
- 1183 0116 FFF7FEFF 		bl	_ZN5Robot15GetLcdBufferPtrEv
- 1184              	.LVL96:
- 1185 011a 0146     		mov	r1, r0
- 1186 011c 0023     		movs	r3, #0
- 1187 011e 4AF6C002 		movw	r2, #43200
- 1188 0122 2846     		mov	r0, r5
- 1189 0124 FFF7FEFF 		bl	_ZN6Screen16WriteFrameBufferEPhmb
- 1190              	.LVL97:
- 1191              	.L74:
+ 1179              		.loc 3 210 47 is_stmt 0 view .LVU288
+ 1180 011a 0E48     		ldr	r0, .L84
+ 1181 011c FFF7FEFF 		bl	_ZN5Robot15GetLcdBufferPtrEv
+ 1182              	.LVL96:
+ 1183 0120 0146     		mov	r1, r0
+ 1184 0122 0023     		movs	r3, #0
+ 1185 0124 4AF6C002 		movw	r2, #43200
+ 1186 0128 2846     		mov	r0, r5
+ 1187 012a FFF7FEFF 		bl	_ZN6Screen16WriteFrameBufferEPhmb
+ 1188              	.LVL97:
+ 1189              	.L74:
  213:user/user.cpp ****             if(p++>=3)
- 1192              		.loc 3 213 13 is_stmt 1 view .LVU288
+ 1190              		.loc 3 213 13 is_stmt 1 view .LVU289
  213:user/user.cpp ****             if(p++>=3)
- 1193              		.loc 3 213 17 is_stmt 0 view .LVU289
- 1194 0128 631C     		adds	r3, r4, #1
- 1195              	.LVL98:
+ 1191              		.loc 3 213 17 is_stmt 0 view .LVU290
+ 1192 012e 631C     		adds	r3, r4, #1
+ 1193              	.LVL98:
  213:user/user.cpp ****             if(p++>=3)
- 1196              		.loc 3 213 13 view .LVU290
- 1197 012a 022C     		cmp	r4, #2
- 1198 012c 0CDC     		bgt	.L76
+ 1194              		.loc 3 213 13 view .LVU291
+ 1195 0130 022C     		cmp	r4, #2
+ 1196 0132 0CDC     		bgt	.L76
  213:user/user.cpp ****             if(p++>=3)
- 1199              		.loc 3 213 17 view .LVU291
- 1200 012e 1C46     		mov	r4, r3
- 1201 0130 C1E7     		b	.L65
- 1202              	.LVL99:
- 1203              	.L73:
+ 1197              		.loc 3 213 17 view .LVU292
+ 1198 0134 1C46     		mov	r4, r3
+ 1199 0136 CEE7     		b	.L65
+ 1200              	.LVL99:
+ 1201              	.L73:
  212:user/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3, true);
- 1204              		.loc 3 212 17 is_stmt 1 view .LVU292
+ 1202              		.loc 3 212 17 is_stmt 1 view .LVU293
  212:user/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3, true);
- 1205              		.loc 3 212 47 is_stmt 0 view .LVU293
- 1206 0132 0648     		ldr	r0, .L82
- 1207 0134 FFF7FEFF 		bl	_ZN5Robot15GetLcdBufferPtrEv
- 1208              	.LVL100:
- 1209 0138 0146     		mov	r1, r0
- 1210 013a 0123     		movs	r3, #1
- 1211 013c 4AF6C002 		movw	r2, #43200
- 1212 0140 2846     		mov	r0, r5
- 1213 0142 FFF7FEFF 		bl	_ZN6Screen16WriteFrameBufferEPhmb
- 1214              	.LVL101:
- 1215 0146 EFE7     		b	.L74
- 1216              	.LVL102:
- 1217              	.L76:
+ 1203              		.loc 3 212 47 is_stmt 0 view .LVU294
+ 1204 0138 0648     		ldr	r0, .L84
+ 1205 013a FFF7FEFF 		bl	_ZN5Robot15GetLcdBufferPtrEv
+ 1206              	.LVL100:
+ 1207 013e 0146     		mov	r1, r0
+ 1208 0140 0123     		movs	r3, #1
+ 1209 0142 4AF6C002 		movw	r2, #43200
+ 1210 0146 2846     		mov	r0, r5
+ 1211 0148 FFF7FEFF 		bl	_ZN6Screen16WriteFrameBufferEPhmb
+ 1212              	.LVL101:
+ 1213 014c EFE7     		b	.L74
+ 1214              	.LVL102:
+ 1215              	.L76:
  214:user/user.cpp ****                 p=0;
- 1218              		.loc 3 214 18 view .LVU294
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 35
+ 1216              		.loc 3 214 18 view .LVU295
+ 1217 014e 0024     		movs	r4, #0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 35
 
 
- 1219 0148 0024     		movs	r4, #0
- 1220 014a B4E7     		b	.L65
- 1221              	.L83:
- 1222              		.align	2
- 1223              	.L82:
- 1224 014c 00000000 		.word	.LANCHOR1
- 1225 0150 00000000 		.word	0
- 1226 0154 00000000 		.word	.LC9
- 1227 0158 00000000 		.word	.LANCHOR13
- 1228 015c 00000000 		.word	.LANCHOR12
- 1229              	.LBE30:
- 1230              	.LBE32:
- 1231              	.LBE35:
- 1232              	.LBE39:
- 1233              	.LBE44:
- 1234              	.LBE52:
- 1235              	.LBE57:
- 1236              		.cfi_endproc
- 1237              	.LFE376:
- 1238              		.fnend
- 1240              		.section	.text.HAL_SPI_TxCpltCallback,"ax",%progbits
- 1241              		.align	1
- 1242              		.global	HAL_SPI_TxCpltCallback
- 1243              		.syntax unified
- 1244              		.thumb
- 1245              		.thumb_func
- 1247              	HAL_SPI_TxCpltCallback:
- 1248              		.fnstart
- 1249              	.LVL103:
- 1250              	.LFB377:
+ 1218 0150 C1E7     		b	.L65
+ 1219              	.L85:
+ 1220 0152 00BF     		.align	2
+ 1221              	.L84:
+ 1222 0154 00000000 		.word	.LANCHOR1
+ 1223 0158 00000000 		.word	0
+ 1224 015c 00000000 		.word	.LC9
+ 1225 0160 00000000 		.word	.LANCHOR13
+ 1226 0164 00000000 		.word	.LANCHOR12
+ 1227              	.LBE30:
+ 1228              	.LBE31:
+ 1229              	.LBE33:
+ 1230              	.LBE36:
+ 1231              	.LBE40:
+ 1232              	.LBE48:
+ 1233              	.LBE53:
+ 1234              		.cfi_endproc
+ 1235              	.LFE376:
+ 1236              		.fnend
+ 1238              		.section	.text.HAL_SPI_TxCpltCallback,"ax",%progbits
+ 1239              		.align	1
+ 1240              		.global	HAL_SPI_TxCpltCallback
+ 1241              		.syntax unified
+ 1242              		.thumb
+ 1243              		.thumb_func
+ 1245              	HAL_SPI_TxCpltCallback:
+ 1246              		.fnstart
+ 1247              	.LVL103:
+ 1248              	.LFB377:
  292:user/user.cpp **** {
- 1251              		.loc 3 292 1 is_stmt 1 view -0
- 1252              		.cfi_startproc
- 1253              		@ args = 0, pretend = 0, frame = 0
- 1254              		@ frame_needed = 0, uses_anonymous_args = 0
- 1255              		@ link register save eliminated.
+ 1249              		.loc 3 292 1 is_stmt 1 view -0
+ 1250              		.cfi_startproc
+ 1251              		@ args = 0, pretend = 0, frame = 0
+ 1252              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1253              		@ link register save eliminated.
  293:user/user.cpp ****     electron.lcd->isBusy = false;
- 1256              		.loc 3 293 5 view .LVU296
+ 1254              		.loc 3 293 5 view .LVU297
  293:user/user.cpp ****     electron.lcd->isBusy = false;
- 1257              		.loc 3 293 14 is_stmt 0 view .LVU297
- 1258 0000 024B     		ldr	r3, .L85
- 1259 0002 D3F8C830 		ldr	r3, [r3, #200]
+ 1255              		.loc 3 293 14 is_stmt 0 view .LVU298
+ 1256 0000 024B     		ldr	r3, .L87
+ 1257 0002 D3F8C830 		ldr	r3, [r3, #200]
  293:user/user.cpp ****     electron.lcd->isBusy = false;
- 1260              		.loc 3 293 26 view .LVU298
- 1261 0006 0022     		movs	r2, #0
- 1262 0008 1A70     		strb	r2, [r3]
- 1263              		.loc 3 294 1 view .LVU299
- 1264 000a 7047     		bx	lr
- 1265              	.L86:
- 1266              		.align	2
- 1267              	.L85:
- 1268 000c 00000000 		.word	.LANCHOR1
- 1269              		.cfi_endproc
- 1270              	.LFE377:
- 1271              		.cantunwind
- 1272              		.fnend
- 1274              		.section	.text._GLOBAL__sub_I_electron,"ax",%progbits
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 36
+ 1258              		.loc 3 293 26 view .LVU299
+ 1259 0006 0022     		movs	r2, #0
+ 1260 0008 1A70     		strb	r2, [r3]
+ 1261              		.loc 3 294 1 view .LVU300
+ 1262 000a 7047     		bx	lr
+ 1263              	.L88:
+ 1264              		.align	2
+ 1265              	.L87:
+ 1266 000c 00000000 		.word	.LANCHOR1
+ 1267              		.cfi_endproc
+ 1268              	.LFE377:
+ 1269              		.cantunwind
+ 1270              		.fnend
+ 1272              		.section	.text._GLOBAL__sub_I_electron,"ax",%progbits
+ 1273              		.align	1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 36
 
 
- 1275              		.align	1
- 1276              		.syntax unified
- 1277              		.thumb
- 1278              		.thumb_func
- 1280              	_GLOBAL__sub_I_electron:
- 1281              		.fnstart
- 1282              	.LFB379:
- 1283              		.loc 3 294 1 is_stmt 1 view -0
- 1284              		.cfi_startproc
- 1285              		@ args = 0, pretend = 0, frame = 0
- 1286              		@ frame_needed = 0, uses_anonymous_args = 0
- 1287 0000 08B5     		push	{r3, lr}
- 1288              	.LCFI9:
- 1289              		.cfi_def_cfa_offset 8
- 1290              		.cfi_offset 3, -8
- 1291              		.cfi_offset 14, -4
- 1292              		.loc 3 294 1 is_stmt 0 view .LVU301
- 1293 0002 4FF6FF71 		movw	r1, #65535
- 1294 0006 0120     		movs	r0, #1
- 1295 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
- 1296              	.LVL104:
- 1297 000c 08BD     		pop	{r3, pc}
- 1298              		.cfi_endproc
- 1299              	.LFE379:
- 1300              		.cantunwind
- 1301              		.fnend
- 1303              		.section	.init_array,"aw",%init_array
- 1304              		.align	2
- 1305 0000 00000000 		.word	_GLOBAL__sub_I_electron(target1)
- 1306              		.global	newid
- 1307              		.global	settq_flag
- 1308              		.global	setkd_flag
- 1309              		.global	setkv_flag
- 1310              		.global	setki_flag
- 1311              		.global	setkp_flag
- 1312              		.global	setTq
- 1313              		.global	setKd
- 1314              		.global	setKv
- 1315              		.global	setKi
- 1316              		.global	setKp
- 1317              		.global	isEnabled
- 1318              		.global	jointSetPoints
- 1319              		.global	electron
- 1320              		.section	.rodata
- 1321              		.align	2
- 1322              		.set	.LANCHOR0,. + 0
- 1323              	.LC0:
- 1324 0000 00       		.byte	0
- 1325 0001 000000   		.space	3
- 1326 0004 000034C3 		.word	-1020002304
- 1327 0008 00003443 		.word	1127481344
- 1328 000c 0000B442 		.word	1119092736
- 1329 0010 00000000 		.word	0
- 1330 0014 00000000 		.word	0
- 1331 0018 00       		.byte	0
- 1332 0019 000000   		.space	3
- 1333              	.LC1:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 37
+ 1274              		.syntax unified
+ 1275              		.thumb
+ 1276              		.thumb_func
+ 1278              	_GLOBAL__sub_I_electron:
+ 1279              		.fnstart
+ 1280              	.LFB379:
+ 1281              		.loc 3 294 1 is_stmt 1 view -0
+ 1282              		.cfi_startproc
+ 1283              		@ args = 0, pretend = 0, frame = 0
+ 1284              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1285 0000 08B5     		push	{r3, lr}
+ 1286              	.LCFI9:
+ 1287              		.cfi_def_cfa_offset 8
+ 1288              		.cfi_offset 3, -8
+ 1289              		.cfi_offset 14, -4
+ 1290              		.loc 3 294 1 is_stmt 0 view .LVU302
+ 1291 0002 4FF6FF71 		movw	r1, #65535
+ 1292 0006 0120     		movs	r0, #1
+ 1293 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 1294              	.LVL104:
+ 1295 000c 08BD     		pop	{r3, pc}
+ 1296              		.cfi_endproc
+ 1297              	.LFE379:
+ 1298              		.cantunwind
+ 1299              		.fnend
+ 1301              		.section	.init_array,"aw",%init_array
+ 1302              		.align	2
+ 1303 0000 00000000 		.word	_GLOBAL__sub_I_electron(target1)
+ 1304              		.global	newid
+ 1305              		.global	settq_flag
+ 1306              		.global	setkd_flag
+ 1307              		.global	setkv_flag
+ 1308              		.global	setki_flag
+ 1309              		.global	setkp_flag
+ 1310              		.global	setTq
+ 1311              		.global	setKd
+ 1312              		.global	setKv
+ 1313              		.global	setKi
+ 1314              		.global	setKp
+ 1315              		.global	isEnabled
+ 1316              		.global	jointSetPoints
+ 1317              		.global	electron
+ 1318              		.section	.rodata
+ 1319              		.align	2
+ 1320              		.set	.LANCHOR0,. + 0
+ 1321              	.LC0:
+ 1322 0000 00       		.byte	0
+ 1323 0001 000000   		.space	3
+ 1324 0004 000034C3 		.word	-1020002304
+ 1325 0008 00003443 		.word	1127481344
+ 1326 000c 0000B442 		.word	1119092736
+ 1327 0010 00000000 		.word	0
+ 1328 0014 00000000 		.word	0
+ 1329 0018 00       		.byte	0
+ 1330 0019 000000   		.space	3
+ 1331              	.LC1:
+ 1332 001c 02       		.byte	2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 37
 
 
- 1334 001c 02       		.byte	2
- 1335 001d 000000   		.space	3
- 1336 0020 00008C42 		.word	1116471296
- 1337 0024 0000BE42 		.word	1119748096
- 1338 0028 00000000 		.word	0
- 1339 002c 000070C1 		.word	-1049624576
- 1340 0030 00007041 		.word	1097859072
- 1341 0034 01       		.byte	1
- 1342 0035 000000   		.space	3
- 1343              	.LC2:
- 1344 0038 04       		.byte	4
- 1345 0039 000000   		.space	3
- 1346 003c 000010C1 		.word	-1055916032
- 1347 0040 00004040 		.word	1077936128
- 1348 0044 00000000 		.word	0
- 1349 0048 00000000 		.word	0
- 1350 004c 0000F041 		.word	1106247680
- 1351 0050 00       		.byte	0
- 1352 0051 000000   		.space	3
- 1353              	.LC3:
- 1354 0054 06       		.byte	6
- 1355 0055 000000   		.space	3
- 1356 0058 000080C1 		.word	-1048576000
- 1357 005c 0000EA42 		.word	1122631680
- 1358 0060 00000000 		.word	0
- 1359 0064 0000A0C1 		.word	-1046478848
- 1360 0068 00003443 		.word	1127481344
- 1361 006c 00       		.byte	0
- 1362 006d 000000   		.space	3
- 1363              	.LC4:
- 1364 0070 08       		.byte	8
- 1365 0071 000000   		.space	3
- 1366 0074 00000543 		.word	1124401152
- 1367 0078 00000D43 		.word	1124925440
- 1368 007c 00000000 		.word	0
- 1369 0080 00000000 		.word	0
- 1370 0084 0000F041 		.word	1106247680
- 1371 0088 01       		.byte	1
- 1372 0089 000000   		.space	3
- 1373              	.LC5:
- 1374 008c 0A       		.byte	10
- 1375 008d 000000   		.space	3
- 1376 0090 00007041 		.word	1097859072
- 1377 0094 00001643 		.word	1125515264
- 1378 0098 00000000 		.word	0
- 1379 009c 0000A0C1 		.word	-1046478848
- 1380 00a0 00003443 		.word	1127481344
- 1381 00a4 01       		.byte	1
- 1382 00a5 000000   		.space	3
- 1383              	.LC6:
- 1384 00a8 0C       		.byte	12
- 1385 00a9 000000   		.space	3
- 1386 00ac 00000000 		.word	0
- 1387 00b0 00003443 		.word	1127481344
- 1388 00b4 00000000 		.word	0
- 1389 00b8 0000B4C2 		.word	-1028390912
- 1390 00bc 0000B442 		.word	1119092736
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 38
+ 1333 001d 000000   		.space	3
+ 1334 0020 00008C42 		.word	1116471296
+ 1335 0024 0000BE42 		.word	1119748096
+ 1336 0028 00000000 		.word	0
+ 1337 002c 000070C1 		.word	-1049624576
+ 1338 0030 00007041 		.word	1097859072
+ 1339 0034 01       		.byte	1
+ 1340 0035 000000   		.space	3
+ 1341              	.LC2:
+ 1342 0038 04       		.byte	4
+ 1343 0039 000000   		.space	3
+ 1344 003c 000010C1 		.word	-1055916032
+ 1345 0040 00004040 		.word	1077936128
+ 1346 0044 00000000 		.word	0
+ 1347 0048 00000000 		.word	0
+ 1348 004c 0000F041 		.word	1106247680
+ 1349 0050 00       		.byte	0
+ 1350 0051 000000   		.space	3
+ 1351              	.LC3:
+ 1352 0054 06       		.byte	6
+ 1353 0055 000000   		.space	3
+ 1354 0058 000080C1 		.word	-1048576000
+ 1355 005c 0000EA42 		.word	1122631680
+ 1356 0060 00000000 		.word	0
+ 1357 0064 0000A0C1 		.word	-1046478848
+ 1358 0068 00003443 		.word	1127481344
+ 1359 006c 00       		.byte	0
+ 1360 006d 000000   		.space	3
+ 1361              	.LC4:
+ 1362 0070 08       		.byte	8
+ 1363 0071 000000   		.space	3
+ 1364 0074 00000543 		.word	1124401152
+ 1365 0078 00000D43 		.word	1124925440
+ 1366 007c 00000000 		.word	0
+ 1367 0080 00000000 		.word	0
+ 1368 0084 0000F041 		.word	1106247680
+ 1369 0088 01       		.byte	1
+ 1370 0089 000000   		.space	3
+ 1371              	.LC5:
+ 1372 008c 0A       		.byte	10
+ 1373 008d 000000   		.space	3
+ 1374 0090 00007041 		.word	1097859072
+ 1375 0094 00001643 		.word	1125515264
+ 1376 0098 00000000 		.word	0
+ 1377 009c 0000A0C1 		.word	-1046478848
+ 1378 00a0 00003443 		.word	1127481344
+ 1379 00a4 01       		.byte	1
+ 1380 00a5 000000   		.space	3
+ 1381              	.LC6:
+ 1382 00a8 0C       		.byte	12
+ 1383 00a9 000000   		.space	3
+ 1384 00ac 00000000 		.word	0
+ 1385 00b0 00003443 		.word	1127481344
+ 1386 00b4 00000000 		.word	0
+ 1387 00b8 0000B4C2 		.word	-1028390912
+ 1388 00bc 0000B442 		.word	1119092736
+ 1389 00c0 00       		.byte	0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 38
 
 
- 1391 00c0 00       		.byte	0
- 1392 00c1 000000   		.space	3
- 1393              		.section	.bss.electron,"aw",%nobits
- 1394              		.align	2
- 1395              		.set	.LANCHOR1,. + 0
- 1398              	electron:
- 1399 0000 00000000 		.space	260
- 1399      00000000 
- 1399      00000000 
- 1399      00000000 
- 1399      00000000 
- 1400              		.section	.bss.isEnabled,"aw",%nobits
- 1401              		.set	.LANCHOR13,. + 0
- 1404              	isEnabled:
- 1405 0000 00       		.space	1
- 1406              		.section	.bss.jointSetPoints,"aw",%nobits
- 1407              		.align	2
- 1408              		.set	.LANCHOR12,. + 0
- 1411              	jointSetPoints:
- 1412 0000 00000000 		.space	24
- 1412      00000000 
- 1412      00000000 
- 1412      00000000 
- 1412      00000000 
- 1413              		.section	.bss.newid,"aw",%nobits
- 1414              		.set	.LANCHOR14,. + 0
- 1417              	newid:
- 1418 0000 00       		.space	1
- 1419              		.section	.bss.setKd,"aw",%nobits
- 1420              		.align	2
- 1421              		.set	.LANCHOR5,. + 0
- 1424              	setKd:
- 1425 0000 00000000 		.space	4
- 1426              		.section	.bss.setKi,"aw",%nobits
- 1427              		.align	2
- 1428              		.set	.LANCHOR3,. + 0
- 1431              	setKi:
- 1432 0000 00000000 		.space	4
- 1433              		.section	.bss.setKp,"aw",%nobits
- 1434              		.align	2
- 1435              		.set	.LANCHOR2,. + 0
- 1438              	setKp:
- 1439 0000 00000000 		.space	4
- 1440              		.section	.bss.setKv,"aw",%nobits
- 1441              		.align	2
- 1442              		.set	.LANCHOR4,. + 0
- 1445              	setKv:
- 1446 0000 00000000 		.space	4
- 1447              		.section	.bss.setTq,"aw",%nobits
- 1448              		.align	2
- 1449              		.set	.LANCHOR6,. + 0
- 1452              	setTq:
- 1453 0000 00000000 		.space	4
- 1454              		.section	.bss.setkd_flag,"aw",%nobits
- 1455              		.set	.LANCHOR10,. + 0
- 1458              	setkd_flag:
- 1459 0000 00       		.space	1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 39
+ 1390 00c1 000000   		.space	3
+ 1391              		.section	.bss.electron,"aw",%nobits
+ 1392              		.align	2
+ 1393              		.set	.LANCHOR1,. + 0
+ 1396              	electron:
+ 1397 0000 00000000 		.space	260
+ 1397      00000000 
+ 1397      00000000 
+ 1397      00000000 
+ 1397      00000000 
+ 1398              		.section	.bss.isEnabled,"aw",%nobits
+ 1399              		.set	.LANCHOR13,. + 0
+ 1402              	isEnabled:
+ 1403 0000 00       		.space	1
+ 1404              		.section	.bss.jointSetPoints,"aw",%nobits
+ 1405              		.align	2
+ 1406              		.set	.LANCHOR12,. + 0
+ 1409              	jointSetPoints:
+ 1410 0000 00000000 		.space	24
+ 1410      00000000 
+ 1410      00000000 
+ 1410      00000000 
+ 1410      00000000 
+ 1411              		.section	.bss.newid,"aw",%nobits
+ 1412              		.set	.LANCHOR14,. + 0
+ 1415              	newid:
+ 1416 0000 00       		.space	1
+ 1417              		.section	.bss.setKd,"aw",%nobits
+ 1418              		.align	2
+ 1419              		.set	.LANCHOR5,. + 0
+ 1422              	setKd:
+ 1423 0000 00000000 		.space	4
+ 1424              		.section	.bss.setKi,"aw",%nobits
+ 1425              		.align	2
+ 1426              		.set	.LANCHOR3,. + 0
+ 1429              	setKi:
+ 1430 0000 00000000 		.space	4
+ 1431              		.section	.bss.setKp,"aw",%nobits
+ 1432              		.align	2
+ 1433              		.set	.LANCHOR2,. + 0
+ 1436              	setKp:
+ 1437 0000 00000000 		.space	4
+ 1438              		.section	.bss.setKv,"aw",%nobits
+ 1439              		.align	2
+ 1440              		.set	.LANCHOR4,. + 0
+ 1443              	setKv:
+ 1444 0000 00000000 		.space	4
+ 1445              		.section	.bss.setTq,"aw",%nobits
+ 1446              		.align	2
+ 1447              		.set	.LANCHOR6,. + 0
+ 1450              	setTq:
+ 1451 0000 00000000 		.space	4
+ 1452              		.section	.bss.setkd_flag,"aw",%nobits
+ 1453              		.set	.LANCHOR10,. + 0
+ 1456              	setkd_flag:
+ 1457 0000 00       		.space	1
+ 1458              		.section	.bss.setki_flag,"aw",%nobits
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 39
 
 
- 1460              		.section	.bss.setki_flag,"aw",%nobits
- 1461              		.set	.LANCHOR8,. + 0
- 1464              	setki_flag:
- 1465 0000 00       		.space	1
- 1466              		.section	.bss.setkp_flag,"aw",%nobits
- 1467              		.set	.LANCHOR7,. + 0
- 1470              	setkp_flag:
- 1471 0000 00       		.space	1
- 1472              		.section	.bss.setkv_flag,"aw",%nobits
- 1473              		.set	.LANCHOR9,. + 0
- 1476              	setkv_flag:
- 1477 0000 00       		.space	1
- 1478              		.section	.bss.settq_flag,"aw",%nobits
- 1479              		.set	.LANCHOR11,. + 0
- 1482              	settq_flag:
- 1483 0000 00       		.space	1
- 1484              		.text
- 1485              	.Letext0:
- 1486              		.file 4 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 1487              		.file 5 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 1488              		.file 6 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 1489              		.file 7 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 1490              		.file 8 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 1491              		.file 9 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\lib\\gcc\\arm-none-eabi\
- 1492              		.file 10 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
- 1493              		.file 11 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
- 1494              		.file 12 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
- 1495              		.file 13 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
- 1496              		.file 14 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
- 1497              		.file 15 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 1498              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 1499              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 1500              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
- 1501              		.file 19 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 1502              		.file 20 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 1503              		.file 21 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
- 1504              		.file 22 "user/common_inc.h"
- 1505              		.file 23 "Inc/spi.h"
- 1506              		.file 24 "Inc/i2c.h"
- 1507              		.file 25 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
- 1508              		.file 26 "<built-in>"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 40
+ 1459              		.set	.LANCHOR8,. + 0
+ 1462              	setki_flag:
+ 1463 0000 00       		.space	1
+ 1464              		.section	.bss.setkp_flag,"aw",%nobits
+ 1465              		.set	.LANCHOR7,. + 0
+ 1468              	setkp_flag:
+ 1469 0000 00       		.space	1
+ 1470              		.section	.bss.setkv_flag,"aw",%nobits
+ 1471              		.set	.LANCHOR9,. + 0
+ 1474              	setkv_flag:
+ 1475 0000 00       		.space	1
+ 1476              		.section	.bss.settq_flag,"aw",%nobits
+ 1477              		.set	.LANCHOR11,. + 0
+ 1480              	settq_flag:
+ 1481 0000 00       		.space	1
+ 1482              		.text
+ 1483              	.Letext0:
+ 1484              		.file 4 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1485              		.file 5 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1486              		.file 6 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1487              		.file 7 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1488              		.file 8 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1489              		.file 9 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\lib\\gcc\\arm-none-eabi\
+ 1490              		.file 10 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1491              		.file 11 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1492              		.file 12 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1493              		.file 13 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1494              		.file 14 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+ 1495              		.file 15 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 1496              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1497              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1498              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
+ 1499              		.file 19 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 1500              		.file 20 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 1501              		.file 21 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1502              		.file 22 "user/common_inc.h"
+ 1503              		.file 23 "Inc/spi.h"
+ 1504              		.file 24 "Inc/i2c.h"
+ 1505              		.file 25 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1506              		.file 26 "<built-in>"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 40
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 user.cpp
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:20     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:26     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 _ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:171    .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:000000f0 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:20     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:26     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 _ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:171    .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:000000f0 $d
 .ARM.exidx.text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:26     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 _ZN5RobotC1EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:180    .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:185    .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:230    .text._Z41__static_initialization_and_destruction_0ii:00000020 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:26     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 _ZN5RobotC1EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:180    .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:185    .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:230    .text._Z41__static_initialization_and_destruction_0ii:00000020 $d
 .ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:239    .rodata.setPara.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:246    .text.setPara:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:252    .text.setPara:00000000 setPara
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:474    .text.setPara:0000010c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:239    .rodata.setPara.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:246    .text.setPara:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:252    .text.setPara:00000000 setPara
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:474    .text.setPara:0000010c $d
           .ARM.exidx.text.setPara:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:492    .text.setAngle:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:498    .text.setAngle:00000000 setAngle
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:598    .text.setAngle:00000068 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:492    .text.setAngle:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:498    .text.setAngle:00000000 setAngle
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:598    .text.setAngle:00000068 $d
          .ARM.exidx.text.setAngle:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:608    .text._Z5setidPh:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:614    .text._Z5setidPh:00000000 _Z5setidPh
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:657    .text._Z5setidPh:00000020 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:608    .text._Z5setidPh:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:614    .text._Z5setidPh:00000000 _Z5setidPh
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:657    .text._Z5setidPh:00000020 $d
        .ARM.extab.text._Z5setidPh:00000000 $d
        .ARM.exidx.text._Z5setidPh:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:664    .text._Z12setInitAnglePh:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:670    .text._Z12setInitAnglePh:00000000 _Z12setInitAnglePh
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:748    .text._Z12setInitAnglePh:0000004c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:664    .text._Z12setInitAnglePh:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:670    .text._Z12setInitAnglePh:00000000 _Z12setInitAnglePh
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:748    .text._Z12setInitAnglePh:0000004c $d
 .ARM.exidx.text._Z12setInitAnglePh:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:757    .text._Z14JumpBootLoaderPh:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:763    .text._Z14JumpBootLoaderPh:00000000 _Z14JumpBootLoaderPh
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:805    .text._Z14JumpBootLoaderPh:0000001c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:757    .text._Z14JumpBootLoaderPh:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:763    .text._Z14JumpBootLoaderPh:00000000 _Z14JumpBootLoaderPh
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:805    .text._Z14JumpBootLoaderPh:0000001c $d
 .ARM.extab.text._Z14JumpBootLoaderPh:00000000 $d
 .ARM.exidx.text._Z14JumpBootLoaderPh:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:811    .rodata.Main.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:815    .text.Main:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:821    .text.Main:00000000 Main
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1224   .text.Main:0000014c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:811    .rodata.Main.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:815    .text.Main:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:821    .text.Main:00000000 Main
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1222   .text.Main:00000154 $d
              .ARM.exidx.text.Main:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1241   .text.HAL_SPI_TxCpltCallback:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1247   .text.HAL_SPI_TxCpltCallback:00000000 HAL_SPI_TxCpltCallback
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1268   .text.HAL_SPI_TxCpltCallback:0000000c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1239   .text.HAL_SPI_TxCpltCallback:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1245   .text.HAL_SPI_TxCpltCallback:00000000 HAL_SPI_TxCpltCallback
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1266   .text.HAL_SPI_TxCpltCallback:0000000c $d
 .ARM.exidx.text.HAL_SPI_TxCpltCallback:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1275   .text._GLOBAL__sub_I_electron:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1280   .text._GLOBAL__sub_I_electron:00000000 _GLOBAL__sub_I_electron
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1273   .text._GLOBAL__sub_I_electron:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1278   .text._GLOBAL__sub_I_electron:00000000 _GLOBAL__sub_I_electron
 .ARM.exidx.text._GLOBAL__sub_I_electron:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1304   .init_array:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1417   .bss.newid:00000000 newid
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1482   .bss.settq_flag:00000000 settq_flag
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1458   .bss.setkd_flag:00000000 setkd_flag
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1476   .bss.setkv_flag:00000000 setkv_flag
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1464   .bss.setki_flag:00000000 setki_flag
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1470   .bss.setkp_flag:00000000 setkp_flag
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1452   .bss.setTq:00000000 setTq
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1424   .bss.setKd:00000000 setKd
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1445   .bss.setKv:00000000 setKv
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1431   .bss.setKi:00000000 setKi
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s 			page 41
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1302   .init_array:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1415   .bss.newid:00000000 newid
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1480   .bss.settq_flag:00000000 settq_flag
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1456   .bss.setkd_flag:00000000 setkd_flag
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1474   .bss.setkv_flag:00000000 setkv_flag
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1462   .bss.setki_flag:00000000 setki_flag
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1468   .bss.setkp_flag:00000000 setkp_flag
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1450   .bss.setTq:00000000 setTq
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1422   .bss.setKd:00000000 setKd
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1443   .bss.setKv:00000000 setKv
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1429   .bss.setKi:00000000 setKi
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s 			page 41
 
 
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1438   .bss.setKp:00000000 setKp
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1404   .bss.isEnabled:00000000 isEnabled
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1411   .bss.jointSetPoints:00000000 jointSetPoints
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1398   .bss.electron:00000000 electron
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1321   .rodata:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1394   .bss.electron:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1405   .bss.isEnabled:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1407   .bss.jointSetPoints:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1418   .bss.newid:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1420   .bss.setKd:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1427   .bss.setKi:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1434   .bss.setKp:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1441   .bss.setKv:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1448   .bss.setTq:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1459   .bss.setkd_flag:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1465   .bss.setki_flag:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1471   .bss.setkp_flag:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1477   .bss.setkv_flag:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\cctm9Caj.s:1483   .bss.settq_flag:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1436   .bss.setKp:00000000 setKp
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1402   .bss.isEnabled:00000000 isEnabled
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1409   .bss.jointSetPoints:00000000 jointSetPoints
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1396   .bss.electron:00000000 electron
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1319   .rodata:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1392   .bss.electron:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1403   .bss.isEnabled:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1405   .bss.jointSetPoints:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1416   .bss.newid:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1418   .bss.setKd:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1425   .bss.setKi:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1432   .bss.setKp:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1439   .bss.setKv:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1446   .bss.setTq:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1457   .bss.setkd_flag:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1463   .bss.setki_flag:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1469   .bss.setkp_flag:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1475   .bss.setkv_flag:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctVoUqz.s:1481   .bss.settq_flag:00000000 $d
                            .group:00000000 _ZN5RobotC5EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
 
 UNDEFINED SYMBOLS

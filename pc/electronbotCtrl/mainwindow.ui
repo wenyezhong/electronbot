@@ -1554,6 +1554,13 @@
            <widget class="QLineEdit" name="lineEdit_path"/>
           </item>
           <item>
+           <widget class="QProgressBar" name="progressBar">
+            <property name="value">
+             <number>0</number>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="sendFile">
             <property name="text">
              <string>烧录</string>

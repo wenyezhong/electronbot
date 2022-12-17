@@ -10,7 +10,7 @@ void Thread::run()
 {
     int ret = 0;
     BYTE a[48]={0x01,0x02,0x03,0x04};
-    while(1)
+    while(runFlag)
     {
         //commUSB::ReadElectronbotUSB(a,32);
 //        ret = pWindows->electronbot_usb->ReadElectronbotUSB((uint8_t *)a,32);
@@ -20,6 +20,6 @@ void Thread::run()
             //qDebug("tttttt");
             emit sendRecDat(a);
         }
-        QThread::usleep(5);
+        QThread::usleep(50);
     }
 }
