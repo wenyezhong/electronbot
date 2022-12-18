@@ -1,0 +1,2885 @@
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"screen.cpp"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text._ZN6Screen10ChipSelectEb,"ax",%progbits
+  20              		.align	1
+  21              		.global	_ZN6Screen10ChipSelectEb
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	_ZN6Screen10ChipSelectEb:
+  27              		.fnstart
+  28              	.LVL0:
+  29              	.LFB136:
+  30              		.file 1 "user/screen.cpp"
+   1:user/screen.cpp **** #include "screen.h"
+   2:user/screen.cpp **** 
+   3:user/screen.cpp **** 
+   4:user/screen.cpp **** void Screen::Init(Orientation_t _orientation)
+   5:user/screen.cpp **** {
+   6:user/screen.cpp ****     // LCD_CS_GPIO_Port->BSRR = (uint32_t) LCD_CS_Pin << 16U;
+   7:user/screen.cpp ****     ChipSelect(true);
+   8:user/screen.cpp **** 
+   9:user/screen.cpp ****     HAL_Delay(5);
+  10:user/screen.cpp ****     Reset(true);
+  11:user/screen.cpp ****     HAL_Delay(10);
+  12:user/screen.cpp ****     Reset(false);
+  13:user/screen.cpp ****     HAL_Delay(120);
+  14:user/screen.cpp **** 
+  15:user/screen.cpp ****     /* Initial Sequence */
+  16:user/screen.cpp ****     WriteCommand(0xEF);
+  17:user/screen.cpp **** 
+  18:user/screen.cpp ****     WriteCommand(0xEB);
+  19:user/screen.cpp ****     Write1Byte(0x14);
+  20:user/screen.cpp **** 
+  21:user/screen.cpp ****     WriteCommand(0xFE);
+  22:user/screen.cpp ****     WriteCommand(0xEF);
+  23:user/screen.cpp **** 
+  24:user/screen.cpp ****     WriteCommand(0xEB);
+  25:user/screen.cpp ****     Write1Byte(0x14);
+  26:user/screen.cpp **** 
+  27:user/screen.cpp ****     WriteCommand(0x84);
+  28:user/screen.cpp ****     Write1Byte(0x40);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 2
+
+
+  29:user/screen.cpp **** 
+  30:user/screen.cpp ****     WriteCommand(0x85);
+  31:user/screen.cpp ****     Write1Byte(0xFF);
+  32:user/screen.cpp **** 
+  33:user/screen.cpp ****     WriteCommand(0x86);
+  34:user/screen.cpp ****     Write1Byte(0xFF);
+  35:user/screen.cpp **** 
+  36:user/screen.cpp ****     WriteCommand(0x87);
+  37:user/screen.cpp ****     Write1Byte(0xFF);
+  38:user/screen.cpp **** 
+  39:user/screen.cpp ****     WriteCommand(0x88);
+  40:user/screen.cpp ****     Write1Byte(0x0A);
+  41:user/screen.cpp **** 
+  42:user/screen.cpp ****     WriteCommand(0x89);
+  43:user/screen.cpp ****     Write1Byte(0x21);
+  44:user/screen.cpp **** 
+  45:user/screen.cpp ****     WriteCommand(0x8A);
+  46:user/screen.cpp ****     Write1Byte(0x00);
+  47:user/screen.cpp **** 
+  48:user/screen.cpp ****     WriteCommand(0x8B);
+  49:user/screen.cpp ****     Write1Byte(0x80);
+  50:user/screen.cpp **** 
+  51:user/screen.cpp ****     WriteCommand(0x8C);
+  52:user/screen.cpp ****     Write1Byte(0x01);
+  53:user/screen.cpp **** 
+  54:user/screen.cpp ****     WriteCommand(0x8D);
+  55:user/screen.cpp ****     Write1Byte(0x01);
+  56:user/screen.cpp **** 
+  57:user/screen.cpp ****     WriteCommand(0x8E);
+  58:user/screen.cpp ****     Write1Byte(0xFF);
+  59:user/screen.cpp **** 
+  60:user/screen.cpp ****     WriteCommand(0x8F);
+  61:user/screen.cpp ****     Write1Byte(0xFF);
+  62:user/screen.cpp **** 
+  63:user/screen.cpp **** 
+  64:user/screen.cpp ****     WriteCommand(0xB6);
+  65:user/screen.cpp ****     Write1Byte(0x00);
+  66:user/screen.cpp ****     Write1Byte(0x00);
+  67:user/screen.cpp **** 
+  68:user/screen.cpp ****     WriteCommand(0x36);
+  69:user/screen.cpp ****     switch (_orientation)
+  70:user/screen.cpp ****     {
+  71:user/screen.cpp ****         case DEGREE_0:
+  72:user/screen.cpp ****             Write1Byte(0x18);
+  73:user/screen.cpp ****             break;
+  74:user/screen.cpp ****         case DEGREE_90:
+  75:user/screen.cpp ****             Write1Byte(0x28);
+  76:user/screen.cpp ****             break;
+  77:user/screen.cpp ****         case DEGREE_180:
+  78:user/screen.cpp ****             Write1Byte(0x48);
+  79:user/screen.cpp ****             break;
+  80:user/screen.cpp ****         case DEGREE_270:
+  81:user/screen.cpp ****             Write1Byte(0x88);
+  82:user/screen.cpp ****             break;
+  83:user/screen.cpp ****     }
+  84:user/screen.cpp **** 
+  85:user/screen.cpp ****     WriteCommand(0x3A); // COLOR_MODE
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 3
+
+
+  86:user/screen.cpp ****     switch (colorMode)
+  87:user/screen.cpp ****     {
+  88:user/screen.cpp ****         case BIT_12:
+  89:user/screen.cpp ****             Write1Byte(0x03);
+  90:user/screen.cpp ****             break;
+  91:user/screen.cpp ****         case BIT_16:
+  92:user/screen.cpp ****             Write1Byte(0x05);
+  93:user/screen.cpp ****             break;
+  94:user/screen.cpp ****         case BIT_18:
+  95:user/screen.cpp ****             Write1Byte(0x06);
+  96:user/screen.cpp ****             break;
+  97:user/screen.cpp ****     }
+  98:user/screen.cpp **** 
+  99:user/screen.cpp ****     WriteCommand(0x90);
+ 100:user/screen.cpp ****     Write1Byte(0x08);
+ 101:user/screen.cpp ****     Write1Byte(0x08);
+ 102:user/screen.cpp ****     Write1Byte(0x08);
+ 103:user/screen.cpp ****     Write1Byte(0x08);
+ 104:user/screen.cpp **** 
+ 105:user/screen.cpp ****     WriteCommand(0xBD);
+ 106:user/screen.cpp ****     Write1Byte(0x06);
+ 107:user/screen.cpp **** 
+ 108:user/screen.cpp ****     WriteCommand(0xBC);
+ 109:user/screen.cpp ****     Write1Byte(0x00);
+ 110:user/screen.cpp **** 
+ 111:user/screen.cpp ****     WriteCommand(0xFF);
+ 112:user/screen.cpp ****     Write1Byte(0x60);
+ 113:user/screen.cpp ****     Write1Byte(0x01);
+ 114:user/screen.cpp ****     Write1Byte(0x04);
+ 115:user/screen.cpp **** 
+ 116:user/screen.cpp ****     WriteCommand(0xC3);
+ 117:user/screen.cpp ****     Write1Byte(0x13);
+ 118:user/screen.cpp ****     WriteCommand(0xC4);
+ 119:user/screen.cpp ****     Write1Byte(0x13);
+ 120:user/screen.cpp **** 
+ 121:user/screen.cpp ****     WriteCommand(0xC9);
+ 122:user/screen.cpp ****     Write1Byte(0x22);
+ 123:user/screen.cpp **** 
+ 124:user/screen.cpp ****     WriteCommand(0xBE);
+ 125:user/screen.cpp ****     Write1Byte(0x11);
+ 126:user/screen.cpp **** 
+ 127:user/screen.cpp ****     WriteCommand(0xE1);
+ 128:user/screen.cpp ****     Write1Byte(0x10);
+ 129:user/screen.cpp ****     Write1Byte(0x0E);
+ 130:user/screen.cpp **** 
+ 131:user/screen.cpp ****     WriteCommand(0xDF);
+ 132:user/screen.cpp ****     Write1Byte(0x21);
+ 133:user/screen.cpp ****     Write1Byte(0x0c);
+ 134:user/screen.cpp ****     Write1Byte(0x02);
+ 135:user/screen.cpp **** 
+ 136:user/screen.cpp ****     WriteCommand(0xF0);
+ 137:user/screen.cpp ****     Write1Byte(0x45);
+ 138:user/screen.cpp ****     Write1Byte(0x09);
+ 139:user/screen.cpp ****     Write1Byte(0x08);
+ 140:user/screen.cpp ****     Write1Byte(0x08);
+ 141:user/screen.cpp ****     Write1Byte(0x26);
+ 142:user/screen.cpp ****     Write1Byte(0x2A);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 4
+
+
+ 143:user/screen.cpp **** 
+ 144:user/screen.cpp ****     WriteCommand(0xF1);
+ 145:user/screen.cpp ****     Write1Byte(0x43);
+ 146:user/screen.cpp ****     Write1Byte(0x70);
+ 147:user/screen.cpp ****     Write1Byte(0x72);
+ 148:user/screen.cpp ****     Write1Byte(0x36);
+ 149:user/screen.cpp ****     Write1Byte(0x37);
+ 150:user/screen.cpp ****     Write1Byte(0x6F);
+ 151:user/screen.cpp **** 
+ 152:user/screen.cpp ****     WriteCommand(0xF2);
+ 153:user/screen.cpp ****     Write1Byte(0x45);
+ 154:user/screen.cpp ****     Write1Byte(0x09);
+ 155:user/screen.cpp ****     Write1Byte(0x08);
+ 156:user/screen.cpp ****     Write1Byte(0x08);
+ 157:user/screen.cpp ****     Write1Byte(0x26);
+ 158:user/screen.cpp ****     Write1Byte(0x2A);
+ 159:user/screen.cpp **** 
+ 160:user/screen.cpp ****     WriteCommand(0xF3);
+ 161:user/screen.cpp ****     Write1Byte(0x43);
+ 162:user/screen.cpp ****     Write1Byte(0x70);
+ 163:user/screen.cpp ****     Write1Byte(0x72);
+ 164:user/screen.cpp ****     Write1Byte(0x36);
+ 165:user/screen.cpp ****     Write1Byte(0x37);
+ 166:user/screen.cpp ****     Write1Byte(0x6F);
+ 167:user/screen.cpp **** 
+ 168:user/screen.cpp ****     WriteCommand(0xED);
+ 169:user/screen.cpp ****     Write1Byte(0x1B);
+ 170:user/screen.cpp ****     Write1Byte(0x0B);
+ 171:user/screen.cpp **** 
+ 172:user/screen.cpp ****     WriteCommand(0xAE);
+ 173:user/screen.cpp ****     Write1Byte(0x77);
+ 174:user/screen.cpp **** 
+ 175:user/screen.cpp ****     WriteCommand(0xCD);
+ 176:user/screen.cpp ****     Write1Byte(0x63);
+ 177:user/screen.cpp **** 
+ 178:user/screen.cpp ****     WriteCommand(0x70);
+ 179:user/screen.cpp ****     Write1Byte(0x07);
+ 180:user/screen.cpp ****     Write1Byte(0x07);
+ 181:user/screen.cpp ****     Write1Byte(0x04);
+ 182:user/screen.cpp ****     Write1Byte(0x0E);
+ 183:user/screen.cpp ****     Write1Byte(0x0F);
+ 184:user/screen.cpp ****     Write1Byte(0x09);
+ 185:user/screen.cpp ****     Write1Byte(0x07);
+ 186:user/screen.cpp ****     Write1Byte(0x08);
+ 187:user/screen.cpp ****     Write1Byte(0x03);
+ 188:user/screen.cpp **** 
+ 189:user/screen.cpp ****     WriteCommand(0xE8);
+ 190:user/screen.cpp ****     Write1Byte(0x34);
+ 191:user/screen.cpp **** 
+ 192:user/screen.cpp ****     WriteCommand(0x62);
+ 193:user/screen.cpp ****     Write1Byte(0x18);
+ 194:user/screen.cpp ****     Write1Byte(0x0D);
+ 195:user/screen.cpp ****     Write1Byte(0x71);
+ 196:user/screen.cpp ****     Write1Byte(0xED);
+ 197:user/screen.cpp ****     Write1Byte(0x70);
+ 198:user/screen.cpp ****     Write1Byte(0x70);
+ 199:user/screen.cpp ****     Write1Byte(0x18);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 5
+
+
+ 200:user/screen.cpp ****     Write1Byte(0x0F);
+ 201:user/screen.cpp ****     Write1Byte(0x71);
+ 202:user/screen.cpp ****     Write1Byte(0xEF);
+ 203:user/screen.cpp ****     Write1Byte(0x70);
+ 204:user/screen.cpp ****     Write1Byte(0x70);
+ 205:user/screen.cpp **** 
+ 206:user/screen.cpp ****     WriteCommand(0x63);
+ 207:user/screen.cpp ****     Write1Byte(0x18);
+ 208:user/screen.cpp ****     Write1Byte(0x11);
+ 209:user/screen.cpp ****     Write1Byte(0x71);
+ 210:user/screen.cpp ****     Write1Byte(0xF1);
+ 211:user/screen.cpp ****     Write1Byte(0x70);
+ 212:user/screen.cpp ****     Write1Byte(0x70);
+ 213:user/screen.cpp ****     Write1Byte(0x18);
+ 214:user/screen.cpp ****     Write1Byte(0x13);
+ 215:user/screen.cpp ****     Write1Byte(0x71);
+ 216:user/screen.cpp ****     Write1Byte(0xF3);
+ 217:user/screen.cpp ****     Write1Byte(0x70);
+ 218:user/screen.cpp ****     Write1Byte(0x70);
+ 219:user/screen.cpp **** 
+ 220:user/screen.cpp ****     WriteCommand(0x64);
+ 221:user/screen.cpp ****     Write1Byte(0x28);
+ 222:user/screen.cpp ****     Write1Byte(0x29);
+ 223:user/screen.cpp ****     Write1Byte(0xF1);
+ 224:user/screen.cpp ****     Write1Byte(0x01);
+ 225:user/screen.cpp ****     Write1Byte(0xF1);
+ 226:user/screen.cpp ****     Write1Byte(0x00);
+ 227:user/screen.cpp ****     Write1Byte(0x07);
+ 228:user/screen.cpp **** 
+ 229:user/screen.cpp ****     WriteCommand(0x66);
+ 230:user/screen.cpp ****     Write1Byte(0x3C);
+ 231:user/screen.cpp ****     Write1Byte(0x00);
+ 232:user/screen.cpp ****     Write1Byte(0xCD);
+ 233:user/screen.cpp ****     Write1Byte(0x67);
+ 234:user/screen.cpp ****     Write1Byte(0x45);
+ 235:user/screen.cpp ****     Write1Byte(0x45);
+ 236:user/screen.cpp ****     Write1Byte(0x10);
+ 237:user/screen.cpp ****     Write1Byte(0x00);
+ 238:user/screen.cpp ****     Write1Byte(0x00);
+ 239:user/screen.cpp ****     Write1Byte(0x00);
+ 240:user/screen.cpp **** 
+ 241:user/screen.cpp ****     WriteCommand(0x67);
+ 242:user/screen.cpp ****     Write1Byte(0x00);
+ 243:user/screen.cpp ****     Write1Byte(0x3C);
+ 244:user/screen.cpp ****     Write1Byte(0x00);
+ 245:user/screen.cpp ****     Write1Byte(0x00);
+ 246:user/screen.cpp ****     Write1Byte(0x00);
+ 247:user/screen.cpp ****     Write1Byte(0x01);
+ 248:user/screen.cpp ****     Write1Byte(0x54);
+ 249:user/screen.cpp ****     Write1Byte(0x10);
+ 250:user/screen.cpp ****     Write1Byte(0x32);
+ 251:user/screen.cpp ****     Write1Byte(0x98);
+ 252:user/screen.cpp **** 
+ 253:user/screen.cpp ****     WriteCommand(0x74);
+ 254:user/screen.cpp ****     Write1Byte(0x10);
+ 255:user/screen.cpp ****     Write1Byte(0x85);
+ 256:user/screen.cpp ****     Write1Byte(0x80);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 6
+
+
+ 257:user/screen.cpp ****     Write1Byte(0x00);
+ 258:user/screen.cpp ****     Write1Byte(0x00);
+ 259:user/screen.cpp ****     Write1Byte(0x4E);
+ 260:user/screen.cpp ****     Write1Byte(0x00);
+ 261:user/screen.cpp **** 
+ 262:user/screen.cpp ****     WriteCommand(0x98);
+ 263:user/screen.cpp ****     Write1Byte(0x3e);
+ 264:user/screen.cpp ****     Write1Byte(0x07);
+ 265:user/screen.cpp **** 
+ 266:user/screen.cpp ****     WriteCommand(0x35);
+ 267:user/screen.cpp ****     WriteCommand(0x21);
+ 268:user/screen.cpp **** 
+ 269:user/screen.cpp ****     WriteCommand(0x11);
+ 270:user/screen.cpp ****     HAL_Delay(120);
+ 271:user/screen.cpp ****     WriteCommand(0x29);
+ 272:user/screen.cpp ****     HAL_Delay(20);
+ 273:user/screen.cpp **** 
+ 274:user/screen.cpp ****     ChipSelect(false);
+ 275:user/screen.cpp **** 
+ 276:user/screen.cpp ****     SetBackLight(1);
+ 277:user/screen.cpp **** }
+ 278:user/screen.cpp **** 
+ 279:user/screen.cpp **** 
+ 280:user/screen.cpp **** void Screen::SetWindow(uint16_t _startX, uint16_t _endX, uint16_t _startY, uint16_t _endY)
+ 281:user/screen.cpp **** {
+ 282:user/screen.cpp ****     SetDataOrCommand(false);
+ 283:user/screen.cpp ****     ChipSelect(true);
+ 284:user/screen.cpp **** 
+ 285:user/screen.cpp ****     uint8_t data[4];
+ 286:user/screen.cpp **** 
+ 287:user/screen.cpp ****     WriteCommand(0x2A); // COL_ADDR_SET
+ 288:user/screen.cpp ****     data[0] = (_startX >> 8) & 0xFF;
+ 289:user/screen.cpp ****     data[1] = _startX & 0xFF;
+ 290:user/screen.cpp ****     data[2] = (_endX >> 8) & 0xFF;
+ 291:user/screen.cpp ****     data[3] = _endX & 0xFF;
+ 292:user/screen.cpp ****     WriteData(data, sizeof(data));
+ 293:user/screen.cpp **** 
+ 294:user/screen.cpp ****     WriteCommand(0x2B); // ROW_ADDR_SET
+ 295:user/screen.cpp ****     data[0] = (_startY >> 8) & 0xFF;
+ 296:user/screen.cpp ****     data[1] = _startY & 0xFF;
+ 297:user/screen.cpp ****     data[2] = (_endY >> 8) & 0xFF;
+ 298:user/screen.cpp ****     data[3] = _endY & 0xFF;
+ 299:user/screen.cpp ****     WriteData(data, sizeof(data));
+ 300:user/screen.cpp **** 
+ 301:user/screen.cpp ****     ChipSelect(false);
+ 302:user/screen.cpp **** }
+ 303:user/screen.cpp **** 
+ 304:user/screen.cpp **** 
+ 305:user/screen.cpp **** void Screen::WriteFrameBuffer(uint8_t* _buffer, uint32_t _len, bool _isAppend)
+ 306:user/screen.cpp **** {
+ 307:user/screen.cpp ****     isBusy = true;
+ 308:user/screen.cpp ****     SetDataOrCommand(false);
+ 309:user/screen.cpp ****     ChipSelect(true);
+ 310:user/screen.cpp ****     _isAppend ?
+ 311:user/screen.cpp ****     WriteCommand(0x3C) : // MEM_WR_CONT
+ 312:user/screen.cpp ****     WriteCommand(0x2C);  // MEM_WR
+ 313:user/screen.cpp ****     WriteData(_buffer, _len, true);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 7
+
+
+ 314:user/screen.cpp ****     while (isBusy);
+ 315:user/screen.cpp ****     // need to wait DMA transmit finish if used DMA
+ 316:user/screen.cpp ****     ChipSelect(false);
+ 317:user/screen.cpp **** 
+ 318:user/screen.cpp **** }
+ 319:user/screen.cpp **** 
+ 320:user/screen.cpp **** 
+ 321:user/screen.cpp **** void Screen::ChipSelect(bool _enable)
+ 322:user/screen.cpp **** {
+  31              		.loc 1 322 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		@ link register save eliminated.
+ 323:user/screen.cpp ****    _enable ? LCD_CS_GPIO_Port->BSRR = (uint32_t) LCD_CS_Pin << 16U :
+  36              		.loc 1 323 4 view .LVU1
+  37              		.loc 1 323 12 is_stmt 0 view .LVU2
+  38 0000 21B1     		cbz	r1, .L2
+  39              		.loc 1 323 37 discriminator 1 view .LVU3
+  40 0002 044B     		ldr	r3, .L4
+  41 0004 4FF40002 		mov	r2, #8388608
+  42 0008 9A61     		str	r2, [r3, #24]
+  43 000a 7047     		bx	lr
+  44              	.L2:
+ 324:user/screen.cpp ****            LCD_CS_GPIO_Port->BSRR = LCD_CS_Pin;
+  45              		.loc 1 324 35 view .LVU4
+  46 000c 014B     		ldr	r3, .L4
+  47 000e 8022     		movs	r2, #128
+  48 0010 9A61     		str	r2, [r3, #24]
+ 325:user/screen.cpp **** }
+  49              		.loc 1 325 1 view .LVU5
+  50 0012 7047     		bx	lr
+  51              	.L5:
+  52              		.align	2
+  53              	.L4:
+  54 0014 00040240 		.word	1073873920
+  55              		.cfi_endproc
+  56              	.LFE136:
+  57              		.cantunwind
+  58              		.fnend
+  60              		.section	.text._ZN6Screen5ResetEb,"ax",%progbits
+  61              		.align	1
+  62              		.global	_ZN6Screen5ResetEb
+  63              		.syntax unified
+  64              		.thumb
+  65              		.thumb_func
+  67              	_ZN6Screen5ResetEb:
+  68              		.fnstart
+  69              	.LVL1:
+  70              	.LFB137:
+ 326:user/screen.cpp **** 
+ 327:user/screen.cpp **** 
+ 328:user/screen.cpp **** void Screen::Reset(bool _enable)
+ 329:user/screen.cpp **** {
+  71              		.loc 1 329 1 is_stmt 1 view -0
+  72              		.cfi_startproc
+  73              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 8
+
+
+  74              		@ frame_needed = 0, uses_anonymous_args = 0
+  75              		@ link register save eliminated.
+ 330:user/screen.cpp ****     _enable ? LCD_RES_GPIO_Port->BSRR = (uint32_t) LCD_RES_Pin << 16U :
+  76              		.loc 1 330 5 view .LVU7
+  77              		.loc 1 330 13 is_stmt 0 view .LVU8
+  78 0000 21B1     		cbz	r1, .L7
+  79              		.loc 1 330 39 discriminator 1 view .LVU9
+  80 0002 044B     		ldr	r3, .L9
+  81 0004 4FF48002 		mov	r2, #4194304
+  82 0008 9A61     		str	r2, [r3, #24]
+  83 000a 7047     		bx	lr
+  84              	.L7:
+ 331:user/screen.cpp ****             LCD_RES_GPIO_Port->BSRR = LCD_RES_Pin;
+  85              		.loc 1 331 37 view .LVU10
+  86 000c 014B     		ldr	r3, .L9
+  87 000e 4022     		movs	r2, #64
+  88 0010 9A61     		str	r2, [r3, #24]
+ 332:user/screen.cpp **** }
+  89              		.loc 1 332 1 view .LVU11
+  90 0012 7047     		bx	lr
+  91              	.L10:
+  92              		.align	2
+  93              	.L9:
+  94 0014 00040240 		.word	1073873920
+  95              		.cfi_endproc
+  96              	.LFE137:
+  97              		.cantunwind
+  98              		.fnend
+ 100              		.section	.text._ZN6Screen16SetDataOrCommandEb,"ax",%progbits
+ 101              		.align	1
+ 102              		.global	_ZN6Screen16SetDataOrCommandEb
+ 103              		.syntax unified
+ 104              		.thumb
+ 105              		.thumb_func
+ 107              	_ZN6Screen16SetDataOrCommandEb:
+ 108              		.fnstart
+ 109              	.LVL2:
+ 110              	.LFB138:
+ 333:user/screen.cpp **** 
+ 334:user/screen.cpp **** 
+ 335:user/screen.cpp **** void Screen::SetDataOrCommand(bool _isData)
+ 336:user/screen.cpp **** {
+ 111              		.loc 1 336 1 is_stmt 1 view -0
+ 112              		.cfi_startproc
+ 113              		@ args = 0, pretend = 0, frame = 0
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115              		@ link register save eliminated.
+ 337:user/screen.cpp ****     _isData ? LCD_DC_GPIO_Port->BSRR = LCD_DC_Pin :
+ 116              		.loc 1 337 5 view .LVU13
+ 117              		.loc 1 337 13 is_stmt 0 view .LVU14
+ 118 0000 19B1     		cbz	r1, .L12
+ 119              		.loc 1 337 38 discriminator 1 view .LVU15
+ 120 0002 044B     		ldr	r3, .L14
+ 121 0004 1022     		movs	r2, #16
+ 122 0006 9A61     		str	r2, [r3, #24]
+ 123 0008 7047     		bx	lr
+ 124              	.L12:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 9
+
+
+ 338:user/screen.cpp ****             LCD_DC_GPIO_Port->BSRR = (uint32_t) LCD_DC_Pin << 16U;
+ 125              		.loc 1 338 36 view .LVU16
+ 126 000a 024B     		ldr	r3, .L14
+ 127 000c 4FF48012 		mov	r2, #1048576
+ 128 0010 9A61     		str	r2, [r3, #24]
+ 339:user/screen.cpp **** }
+ 129              		.loc 1 339 1 view .LVU17
+ 130 0012 7047     		bx	lr
+ 131              	.L15:
+ 132              		.align	2
+ 133              	.L14:
+ 134 0014 00040240 		.word	1073873920
+ 135              		.cfi_endproc
+ 136              	.LFE138:
+ 137              		.cantunwind
+ 138              		.fnend
+ 140              		.section	.text._ZN6Screen12WriteCommandEh,"ax",%progbits
+ 141              		.align	1
+ 142              		.global	_ZN6Screen12WriteCommandEh
+ 143              		.syntax unified
+ 144              		.thumb
+ 145              		.thumb_func
+ 147              	_ZN6Screen12WriteCommandEh:
+ 148              		.fnstart
+ 149              	.LVL3:
+ 150              	.LFB139:
+ 340:user/screen.cpp **** 
+ 341:user/screen.cpp **** 
+ 342:user/screen.cpp **** void Screen::WriteCommand(uint8_t _cmd)
+ 343:user/screen.cpp **** {
+ 151              		.loc 1 343 1 is_stmt 1 view -0
+ 152              		.cfi_startproc
+ 153              		@ args = 0, pretend = 0, frame = 8
+ 154              		@ frame_needed = 0, uses_anonymous_args = 0
+ 155              		.loc 1 343 1 is_stmt 0 view .LVU19
+ 156 0000 10B5     		push	{r4, lr}
+ 157              		.save {r4, lr}
+ 158              	.LCFI0:
+ 159              		.cfi_def_cfa_offset 8
+ 160              		.cfi_offset 4, -8
+ 161              		.cfi_offset 14, -4
+ 162              		.pad #8
+ 163 0002 82B0     		sub	sp, sp, #8
+ 164              	.LCFI1:
+ 165              		.cfi_def_cfa_offset 16
+ 166 0004 0446     		mov	r4, r0
+ 167 0006 8DF80710 		strb	r1, [sp, #7]
+ 344:user/screen.cpp ****     SetDataOrCommand(false);
+ 168              		.loc 1 344 5 is_stmt 1 view .LVU20
+ 169              		.loc 1 344 21 is_stmt 0 view .LVU21
+ 170 000a 0021     		movs	r1, #0
+ 171              	.LVL4:
+ 172              		.loc 1 344 21 view .LVU22
+ 173 000c FFF7FEFF 		bl	_ZN6Screen16SetDataOrCommandEb
+ 174              	.LVL5:
+ 345:user/screen.cpp ****     HAL_SPI_Transmit(spi, &_cmd, 1, 100);
+ 175              		.loc 1 345 5 is_stmt 1 view .LVU23
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 10
+
+
+ 176              		.loc 1 345 21 is_stmt 0 view .LVU24
+ 177 0010 6423     		movs	r3, #100
+ 178 0012 0122     		movs	r2, #1
+ 179 0014 0DF10701 		add	r1, sp, #7
+ 180 0018 6068     		ldr	r0, [r4, #4]
+ 181 001a FFF7FEFF 		bl	HAL_SPI_Transmit
+ 182              	.LVL6:
+ 346:user/screen.cpp ****     SetDataOrCommand(true);
+ 183              		.loc 1 346 5 is_stmt 1 view .LVU25
+ 184              		.loc 1 346 21 is_stmt 0 view .LVU26
+ 185 001e 0121     		movs	r1, #1
+ 186 0020 2046     		mov	r0, r4
+ 187 0022 FFF7FEFF 		bl	_ZN6Screen16SetDataOrCommandEb
+ 188              	.LVL7:
+ 347:user/screen.cpp **** }
+ 189              		.loc 1 347 1 view .LVU27
+ 190 0026 02B0     		add	sp, sp, #8
+ 191              	.LCFI2:
+ 192              		.cfi_def_cfa_offset 8
+ 193              		@ sp needed
+ 194 0028 10BD     		pop	{r4, pc}
+ 195              		.loc 1 347 1 view .LVU28
+ 196              		.cfi_endproc
+ 197              	.LFE139:
+ 198              		.fnend
+ 200              		.section	.text._ZN6Screen10Write1ByteEh,"ax",%progbits
+ 201              		.align	1
+ 202              		.global	_ZN6Screen10Write1ByteEh
+ 203              		.syntax unified
+ 204              		.thumb
+ 205              		.thumb_func
+ 207              	_ZN6Screen10Write1ByteEh:
+ 208              		.fnstart
+ 209              	.LVL8:
+ 210              	.LFB140:
+ 348:user/screen.cpp **** 
+ 349:user/screen.cpp **** 
+ 350:user/screen.cpp **** void Screen::Write1Byte(uint8_t _data)
+ 351:user/screen.cpp **** {
+ 211              		.loc 1 351 1 is_stmt 1 view -0
+ 212              		.cfi_startproc
+ 213              		@ args = 0, pretend = 0, frame = 8
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215              		.loc 1 351 1 is_stmt 0 view .LVU30
+ 216 0000 10B5     		push	{r4, lr}
+ 217              		.save {r4, lr}
+ 218              	.LCFI3:
+ 219              		.cfi_def_cfa_offset 8
+ 220              		.cfi_offset 4, -8
+ 221              		.cfi_offset 14, -4
+ 222              		.pad #8
+ 223 0002 82B0     		sub	sp, sp, #8
+ 224              	.LCFI4:
+ 225              		.cfi_def_cfa_offset 16
+ 226 0004 0446     		mov	r4, r0
+ 227 0006 8DF80710 		strb	r1, [sp, #7]
+ 352:user/screen.cpp ****     SetDataOrCommand(true);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 11
+
+
+ 228              		.loc 1 352 5 is_stmt 1 view .LVU31
+ 229              		.loc 1 352 21 is_stmt 0 view .LVU32
+ 230 000a 0121     		movs	r1, #1
+ 231              	.LVL9:
+ 232              		.loc 1 352 21 view .LVU33
+ 233 000c FFF7FEFF 		bl	_ZN6Screen16SetDataOrCommandEb
+ 234              	.LVL10:
+ 353:user/screen.cpp ****     HAL_SPI_Transmit(spi, &_data, 1, 100);
+ 235              		.loc 1 353 5 is_stmt 1 view .LVU34
+ 236              		.loc 1 353 21 is_stmt 0 view .LVU35
+ 237 0010 6423     		movs	r3, #100
+ 238 0012 0122     		movs	r2, #1
+ 239 0014 0DF10701 		add	r1, sp, #7
+ 240 0018 6068     		ldr	r0, [r4, #4]
+ 241 001a FFF7FEFF 		bl	HAL_SPI_Transmit
+ 242              	.LVL11:
+ 354:user/screen.cpp **** }
+ 243              		.loc 1 354 1 view .LVU36
+ 244 001e 02B0     		add	sp, sp, #8
+ 245              	.LCFI5:
+ 246              		.cfi_def_cfa_offset 8
+ 247              		@ sp needed
+ 248 0020 10BD     		pop	{r4, pc}
+ 249              		.loc 1 354 1 view .LVU37
+ 250              		.cfi_endproc
+ 251              	.LFE140:
+ 252              		.fnend
+ 254              		.section	.text._ZN6Screen9WriteDataEPhmb,"ax",%progbits
+ 255              		.align	1
+ 256              		.global	_ZN6Screen9WriteDataEPhmb
+ 257              		.syntax unified
+ 258              		.thumb
+ 259              		.thumb_func
+ 261              	_ZN6Screen9WriteDataEPhmb:
+ 262              		.fnstart
+ 263              	.LVL12:
+ 264              	.LFB141:
+ 355:user/screen.cpp **** 
+ 356:user/screen.cpp **** 
+ 357:user/screen.cpp **** void Screen::WriteData(uint8_t* _data, uint32_t _len, bool _useDma)
+ 358:user/screen.cpp **** {
+ 265              		.loc 1 358 1 is_stmt 1 view -0
+ 266              		.cfi_startproc
+ 267              		@ args = 0, pretend = 0, frame = 0
+ 268              		@ frame_needed = 0, uses_anonymous_args = 0
+ 269              		.loc 1 358 1 is_stmt 0 view .LVU39
+ 270 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 271              		.save {r3, r4, r5, r6, r7, lr}
+ 272              	.LCFI6:
+ 273              		.cfi_def_cfa_offset 24
+ 274              		.cfi_offset 3, -24
+ 275              		.cfi_offset 4, -20
+ 276              		.cfi_offset 5, -16
+ 277              		.cfi_offset 6, -12
+ 278              		.cfi_offset 7, -8
+ 279              		.cfi_offset 14, -4
+ 280 0002 0446     		mov	r4, r0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 12
+
+
+ 281 0004 0D46     		mov	r5, r1
+ 282 0006 1646     		mov	r6, r2
+ 283 0008 1F46     		mov	r7, r3
+ 359:user/screen.cpp ****     SetDataOrCommand(true);
+ 284              		.loc 1 359 5 is_stmt 1 view .LVU40
+ 285              		.loc 1 359 21 is_stmt 0 view .LVU41
+ 286 000a 0121     		movs	r1, #1
+ 287              	.LVL13:
+ 288              		.loc 1 359 21 view .LVU42
+ 289 000c FFF7FEFF 		bl	_ZN6Screen16SetDataOrCommandEb
+ 290              	.LVL14:
+ 360:user/screen.cpp ****     _useDma ? HAL_SPI_Transmit_DMA(spi, _data, _len) :
+ 291              		.loc 1 360 5 is_stmt 1 view .LVU43
+ 292              		.loc 1 360 13 is_stmt 0 view .LVU44
+ 293 0010 2FB1     		cbz	r7, .L21
+ 294              		.loc 1 360 35 discriminator 1 view .LVU45
+ 295 0012 B2B2     		uxth	r2, r6
+ 296 0014 2946     		mov	r1, r5
+ 297 0016 6068     		ldr	r0, [r4, #4]
+ 298 0018 FFF7FEFF 		bl	HAL_SPI_Transmit_DMA
+ 299              	.LVL15:
+ 300              	.L20:
+ 361:user/screen.cpp ****     HAL_SPI_Transmit(spi, _data, _len, 100);
+ 362:user/screen.cpp **** }
+ 301              		.loc 1 362 1 view .LVU46
+ 302 001c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 303              	.LVL16:
+ 304              	.L21:
+ 361:user/screen.cpp ****     HAL_SPI_Transmit(spi, _data, _len, 100);
+ 305              		.loc 1 361 21 view .LVU47
+ 306 001e 6423     		movs	r3, #100
+ 307 0020 B2B2     		uxth	r2, r6
+ 308 0022 2946     		mov	r1, r5
+ 309 0024 6068     		ldr	r0, [r4, #4]
+ 310 0026 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 311              	.LVL17:
+ 312              		.loc 1 362 1 view .LVU48
+ 313 002a F7E7     		b	.L20
+ 314              		.cfi_endproc
+ 315              	.LFE141:
+ 316              		.fnend
+ 318              		.section	.text._ZN6Screen9SetWindowEtttt,"ax",%progbits
+ 319              		.align	1
+ 320              		.global	_ZN6Screen9SetWindowEtttt
+ 321              		.syntax unified
+ 322              		.thumb
+ 323              		.thumb_func
+ 325              	_ZN6Screen9SetWindowEtttt:
+ 326              		.fnstart
+ 327              	.LVL18:
+ 328              	.LFB134:
+ 281:user/screen.cpp ****     SetDataOrCommand(false);
+ 329              		.loc 1 281 1 is_stmt 1 view -0
+ 330              		.cfi_startproc
+ 331              		@ args = 4, pretend = 0, frame = 8
+ 332              		@ frame_needed = 0, uses_anonymous_args = 0
+ 281:user/screen.cpp ****     SetDataOrCommand(false);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 13
+
+
+ 333              		.loc 1 281 1 is_stmt 0 view .LVU50
+ 334 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 335              		.save {r4, r5, r6, r7, r8, lr}
+ 336              	.LCFI7:
+ 337              		.cfi_def_cfa_offset 24
+ 338              		.cfi_offset 4, -24
+ 339              		.cfi_offset 5, -20
+ 340              		.cfi_offset 6, -16
+ 341              		.cfi_offset 7, -12
+ 342              		.cfi_offset 8, -8
+ 343              		.cfi_offset 14, -4
+ 344              		.pad #8
+ 345 0004 82B0     		sub	sp, sp, #8
+ 346              	.LCFI8:
+ 347              		.cfi_def_cfa_offset 32
+ 348 0006 0446     		mov	r4, r0
+ 349 0008 0F46     		mov	r7, r1
+ 350 000a 1646     		mov	r6, r2
+ 351 000c 1D46     		mov	r5, r3
+ 352 000e BDF82080 		ldrh	r8, [sp, #32]
+ 282:user/screen.cpp ****     ChipSelect(true);
+ 353              		.loc 1 282 5 is_stmt 1 view .LVU51
+ 282:user/screen.cpp ****     ChipSelect(true);
+ 354              		.loc 1 282 21 is_stmt 0 view .LVU52
+ 355 0012 0021     		movs	r1, #0
+ 356              	.LVL19:
+ 282:user/screen.cpp ****     ChipSelect(true);
+ 357              		.loc 1 282 21 view .LVU53
+ 358 0014 FFF7FEFF 		bl	_ZN6Screen16SetDataOrCommandEb
+ 359              	.LVL20:
+ 283:user/screen.cpp **** 
+ 360              		.loc 1 283 5 is_stmt 1 view .LVU54
+ 283:user/screen.cpp **** 
+ 361              		.loc 1 283 15 is_stmt 0 view .LVU55
+ 362 0018 0121     		movs	r1, #1
+ 363 001a 2046     		mov	r0, r4
+ 364 001c FFF7FEFF 		bl	_ZN6Screen10ChipSelectEb
+ 365              	.LVL21:
+ 285:user/screen.cpp **** 
+ 366              		.loc 1 285 5 is_stmt 1 view .LVU56
+ 287:user/screen.cpp ****     data[0] = (_startX >> 8) & 0xFF;
+ 367              		.loc 1 287 5 view .LVU57
+ 287:user/screen.cpp ****     data[0] = (_startX >> 8) & 0xFF;
+ 368              		.loc 1 287 17 is_stmt 0 view .LVU58
+ 369 0020 2A21     		movs	r1, #42
+ 370 0022 2046     		mov	r0, r4
+ 371 0024 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 372              	.LVL22:
+ 288:user/screen.cpp ****     data[1] = _startX & 0xFF;
+ 373              		.loc 1 288 5 is_stmt 1 view .LVU59
+ 288:user/screen.cpp ****     data[1] = _startX & 0xFF;
+ 374              		.loc 1 288 24 is_stmt 0 view .LVU60
+ 375 0028 3B0A     		lsrs	r3, r7, #8
+ 288:user/screen.cpp ****     data[1] = _startX & 0xFF;
+ 376              		.loc 1 288 13 view .LVU61
+ 377 002a 8DF80430 		strb	r3, [sp, #4]
+ 289:user/screen.cpp ****     data[2] = (_endX >> 8) & 0xFF;
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 14
+
+
+ 378              		.loc 1 289 5 is_stmt 1 view .LVU62
+ 289:user/screen.cpp ****     data[2] = (_endX >> 8) & 0xFF;
+ 379              		.loc 1 289 13 is_stmt 0 view .LVU63
+ 380 002e 8DF80570 		strb	r7, [sp, #5]
+ 290:user/screen.cpp ****     data[3] = _endX & 0xFF;
+ 381              		.loc 1 290 5 is_stmt 1 view .LVU64
+ 290:user/screen.cpp ****     data[3] = _endX & 0xFF;
+ 382              		.loc 1 290 22 is_stmt 0 view .LVU65
+ 383 0032 330A     		lsrs	r3, r6, #8
+ 290:user/screen.cpp ****     data[3] = _endX & 0xFF;
+ 384              		.loc 1 290 13 view .LVU66
+ 385 0034 8DF80630 		strb	r3, [sp, #6]
+ 291:user/screen.cpp ****     WriteData(data, sizeof(data));
+ 386              		.loc 1 291 5 is_stmt 1 view .LVU67
+ 291:user/screen.cpp ****     WriteData(data, sizeof(data));
+ 387              		.loc 1 291 13 is_stmt 0 view .LVU68
+ 388 0038 8DF80760 		strb	r6, [sp, #7]
+ 292:user/screen.cpp **** 
+ 389              		.loc 1 292 5 is_stmt 1 view .LVU69
+ 292:user/screen.cpp **** 
+ 390              		.loc 1 292 14 is_stmt 0 view .LVU70
+ 391 003c 0023     		movs	r3, #0
+ 392 003e 0422     		movs	r2, #4
+ 393 0040 0DEB0201 		add	r1, sp, r2
+ 394 0044 2046     		mov	r0, r4
+ 395 0046 FFF7FEFF 		bl	_ZN6Screen9WriteDataEPhmb
+ 396              	.LVL23:
+ 294:user/screen.cpp ****     data[0] = (_startY >> 8) & 0xFF;
+ 397              		.loc 1 294 5 is_stmt 1 view .LVU71
+ 294:user/screen.cpp ****     data[0] = (_startY >> 8) & 0xFF;
+ 398              		.loc 1 294 17 is_stmt 0 view .LVU72
+ 399 004a 2B21     		movs	r1, #43
+ 400 004c 2046     		mov	r0, r4
+ 401 004e FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 402              	.LVL24:
+ 295:user/screen.cpp ****     data[1] = _startY & 0xFF;
+ 403              		.loc 1 295 5 is_stmt 1 view .LVU73
+ 295:user/screen.cpp ****     data[1] = _startY & 0xFF;
+ 404              		.loc 1 295 24 is_stmt 0 view .LVU74
+ 405 0052 2B0A     		lsrs	r3, r5, #8
+ 295:user/screen.cpp ****     data[1] = _startY & 0xFF;
+ 406              		.loc 1 295 13 view .LVU75
+ 407 0054 8DF80430 		strb	r3, [sp, #4]
+ 296:user/screen.cpp ****     data[2] = (_endY >> 8) & 0xFF;
+ 408              		.loc 1 296 5 is_stmt 1 view .LVU76
+ 296:user/screen.cpp ****     data[2] = (_endY >> 8) & 0xFF;
+ 409              		.loc 1 296 13 is_stmt 0 view .LVU77
+ 410 0058 8DF80550 		strb	r5, [sp, #5]
+ 297:user/screen.cpp ****     data[3] = _endY & 0xFF;
+ 411              		.loc 1 297 5 is_stmt 1 view .LVU78
+ 297:user/screen.cpp ****     data[3] = _endY & 0xFF;
+ 412              		.loc 1 297 22 is_stmt 0 view .LVU79
+ 413 005c 4FEA1823 		lsr	r3, r8, #8
+ 297:user/screen.cpp ****     data[3] = _endY & 0xFF;
+ 414              		.loc 1 297 13 view .LVU80
+ 415 0060 8DF80630 		strb	r3, [sp, #6]
+ 298:user/screen.cpp ****     WriteData(data, sizeof(data));
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 15
+
+
+ 416              		.loc 1 298 5 is_stmt 1 view .LVU81
+ 298:user/screen.cpp ****     WriteData(data, sizeof(data));
+ 417              		.loc 1 298 13 is_stmt 0 view .LVU82
+ 418 0064 8DF80780 		strb	r8, [sp, #7]
+ 299:user/screen.cpp **** 
+ 419              		.loc 1 299 5 is_stmt 1 view .LVU83
+ 299:user/screen.cpp **** 
+ 420              		.loc 1 299 14 is_stmt 0 view .LVU84
+ 421 0068 0023     		movs	r3, #0
+ 422 006a 0422     		movs	r2, #4
+ 423 006c 0DEB0201 		add	r1, sp, r2
+ 424 0070 2046     		mov	r0, r4
+ 425 0072 FFF7FEFF 		bl	_ZN6Screen9WriteDataEPhmb
+ 426              	.LVL25:
+ 301:user/screen.cpp **** }
+ 427              		.loc 1 301 5 is_stmt 1 view .LVU85
+ 301:user/screen.cpp **** }
+ 428              		.loc 1 301 15 is_stmt 0 view .LVU86
+ 429 0076 0021     		movs	r1, #0
+ 430 0078 2046     		mov	r0, r4
+ 431 007a FFF7FEFF 		bl	_ZN6Screen10ChipSelectEb
+ 432              	.LVL26:
+ 302:user/screen.cpp **** 
+ 433              		.loc 1 302 1 view .LVU87
+ 434 007e 02B0     		add	sp, sp, #8
+ 435              	.LCFI9:
+ 436              		.cfi_def_cfa_offset 24
+ 437              		@ sp needed
+ 438 0080 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 302:user/screen.cpp **** 
+ 439              		.loc 1 302 1 view .LVU88
+ 440              		.cfi_endproc
+ 441              	.LFE134:
+ 442              		.fnend
+ 444              		.section	.text._ZN6Screen16WriteFrameBufferEPhmb,"ax",%progbits
+ 445              		.align	1
+ 446              		.global	_ZN6Screen16WriteFrameBufferEPhmb
+ 447              		.syntax unified
+ 448              		.thumb
+ 449              		.thumb_func
+ 451              	_ZN6Screen16WriteFrameBufferEPhmb:
+ 452              		.fnstart
+ 453              	.LVL27:
+ 454              	.LFB135:
+ 306:user/screen.cpp ****     isBusy = true;
+ 455              		.loc 1 306 1 is_stmt 1 view -0
+ 456              		.cfi_startproc
+ 457              		@ args = 0, pretend = 0, frame = 0
+ 458              		@ frame_needed = 0, uses_anonymous_args = 0
+ 306:user/screen.cpp ****     isBusy = true;
+ 459              		.loc 1 306 1 is_stmt 0 view .LVU90
+ 460 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 461              		.save {r4, r5, r6, r7, r8, lr}
+ 462              	.LCFI10:
+ 463              		.cfi_def_cfa_offset 24
+ 464              		.cfi_offset 4, -24
+ 465              		.cfi_offset 5, -20
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 16
+
+
+ 466              		.cfi_offset 6, -16
+ 467              		.cfi_offset 7, -12
+ 468              		.cfi_offset 8, -8
+ 469              		.cfi_offset 14, -4
+ 470 0004 0446     		mov	r4, r0
+ 471 0006 0D46     		mov	r5, r1
+ 472 0008 1646     		mov	r6, r2
+ 473 000a 1F46     		mov	r7, r3
+ 307:user/screen.cpp ****     SetDataOrCommand(false);
+ 474              		.loc 1 307 5 is_stmt 1 view .LVU91
+ 307:user/screen.cpp ****     SetDataOrCommand(false);
+ 475              		.loc 1 307 12 is_stmt 0 view .LVU92
+ 476 000c 4FF00108 		mov	r8, #1
+ 477 0010 80F80080 		strb	r8, [r0]
+ 308:user/screen.cpp ****     ChipSelect(true);
+ 478              		.loc 1 308 5 is_stmt 1 view .LVU93
+ 308:user/screen.cpp ****     ChipSelect(true);
+ 479              		.loc 1 308 21 is_stmt 0 view .LVU94
+ 480 0014 0021     		movs	r1, #0
+ 481              	.LVL28:
+ 308:user/screen.cpp ****     ChipSelect(true);
+ 482              		.loc 1 308 21 view .LVU95
+ 483 0016 FFF7FEFF 		bl	_ZN6Screen16SetDataOrCommandEb
+ 484              	.LVL29:
+ 309:user/screen.cpp ****     _isAppend ?
+ 485              		.loc 1 309 5 is_stmt 1 view .LVU96
+ 309:user/screen.cpp ****     _isAppend ?
+ 486              		.loc 1 309 15 is_stmt 0 view .LVU97
+ 487 001a 4146     		mov	r1, r8
+ 488 001c 2046     		mov	r0, r4
+ 489 001e FFF7FEFF 		bl	_ZN6Screen10ChipSelectEb
+ 490              	.LVL30:
+ 310:user/screen.cpp ****     WriteCommand(0x3C) : // MEM_WR_CONT
+ 491              		.loc 1 310 5 is_stmt 1 view .LVU98
+ 310:user/screen.cpp ****     WriteCommand(0x3C) : // MEM_WR_CONT
+ 492              		.loc 1 310 15 is_stmt 0 view .LVU99
+ 493 0022 97B1     		cbz	r7, .L27
+ 311:user/screen.cpp ****     WriteCommand(0x2C);  // MEM_WR
+ 494              		.loc 1 311 17 view .LVU100
+ 495 0024 3C21     		movs	r1, #60
+ 496 0026 2046     		mov	r0, r4
+ 497 0028 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 498              	.LVL31:
+ 499              	.L28:
+ 313:user/screen.cpp ****     while (isBusy);
+ 500              		.loc 1 313 5 is_stmt 1 view .LVU101
+ 313:user/screen.cpp ****     while (isBusy);
+ 501              		.loc 1 313 14 is_stmt 0 view .LVU102
+ 502 002c 0123     		movs	r3, #1
+ 503 002e 3246     		mov	r2, r6
+ 504 0030 2946     		mov	r1, r5
+ 505 0032 2046     		mov	r0, r4
+ 506 0034 FFF7FEFF 		bl	_ZN6Screen9WriteDataEPhmb
+ 507              	.LVL32:
+ 508              	.L29:
+ 314:user/screen.cpp ****     // need to wait DMA transmit finish if used DMA
+ 509              		.loc 1 314 5 is_stmt 1 view .LVU103
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 17
+
+
+ 314:user/screen.cpp ****     // need to wait DMA transmit finish if used DMA
+ 510              		.loc 1 314 12 view .LVU104
+ 511 0038 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 512 003a 002B     		cmp	r3, #0
+ 513 003c FCD1     		bne	.L29
+ 316:user/screen.cpp **** 
+ 514              		.loc 1 316 5 view .LVU105
+ 316:user/screen.cpp **** 
+ 515              		.loc 1 316 15 is_stmt 0 view .LVU106
+ 516 003e 0021     		movs	r1, #0
+ 517 0040 2046     		mov	r0, r4
+ 518 0042 FFF7FEFF 		bl	_ZN6Screen10ChipSelectEb
+ 519              	.LVL33:
+ 318:user/screen.cpp **** 
+ 520              		.loc 1 318 1 view .LVU107
+ 521 0046 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 522              	.LVL34:
+ 523              	.L27:
+ 312:user/screen.cpp ****     WriteData(_buffer, _len, true);
+ 524              		.loc 1 312 17 view .LVU108
+ 525 004a 2C21     		movs	r1, #44
+ 526 004c 2046     		mov	r0, r4
+ 527 004e FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 528              	.LVL35:
+ 529 0052 EBE7     		b	.L28
+ 530              		.cfi_endproc
+ 531              	.LFE135:
+ 532              		.fnend
+ 534              		.section	.text._ZN6Screen12SetBackLightEf,"ax",%progbits
+ 535              		.align	1
+ 536              		.global	_ZN6Screen12SetBackLightEf
+ 537              		.syntax unified
+ 538              		.thumb
+ 539              		.thumb_func
+ 541              	_ZN6Screen12SetBackLightEf:
+ 542              		.fnstart
+ 543              	.LVL36:
+ 544              	.LFB142:
+ 363:user/screen.cpp **** 
+ 364:user/screen.cpp **** 
+ 365:user/screen.cpp **** void Screen::SetBackLight(float _val)
+ 366:user/screen.cpp **** {
+ 545              		.loc 1 366 1 is_stmt 1 view -0
+ 546              		.cfi_startproc
+ 547              		@ args = 0, pretend = 0, frame = 0
+ 548              		@ frame_needed = 0, uses_anonymous_args = 0
+ 549              		.loc 1 366 1 is_stmt 0 view .LVU110
+ 550 0000 08B5     		push	{r3, lr}
+ 551              		.save {r3, lr}
+ 552              	.LCFI11:
+ 553              		.cfi_def_cfa_offset 8
+ 554              		.cfi_offset 3, -8
+ 555              		.cfi_offset 14, -4
+ 367:user/screen.cpp ****     if (_val < 0) _val = 0;
+ 556              		.loc 1 367 5 is_stmt 1 view .LVU111
+ 557              	.LVL37:
+ 368:user/screen.cpp ****     else if (_val > 1.0f) _val = 1.0f;
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 18
+
+
+ 369:user/screen.cpp **** 
+ 370:user/screen.cpp ****     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET);
+ 558              		.loc 1 370 5 view .LVU112
+ 559              		.loc 1 370 22 is_stmt 0 view .LVU113
+ 560 0002 0122     		movs	r2, #1
+ 561 0004 4FF40061 		mov	r1, #2048
+ 562 0008 0148     		ldr	r0, .L33
+ 563              	.LVL38:
+ 564              		.loc 1 370 22 view .LVU114
+ 565 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 566              	.LVL39:
+ 371:user/screen.cpp **** }
+ 567              		.loc 1 371 1 view .LVU115
+ 568 000e 08BD     		pop	{r3, pc}
+ 569              	.L34:
+ 570              		.align	2
+ 571              	.L33:
+ 572 0010 00000240 		.word	1073872896
+ 573              		.cfi_endproc
+ 574              	.LFE142:
+ 575              		.fnend
+ 577              		.section	.text._ZN6Screen4InitENS_13Orientation_tE,"ax",%progbits
+ 578              		.align	1
+ 579              		.global	_ZN6Screen4InitENS_13Orientation_tE
+ 580              		.syntax unified
+ 581              		.thumb
+ 582              		.thumb_func
+ 584              	_ZN6Screen4InitENS_13Orientation_tE:
+ 585              		.fnstart
+ 586              	.LVL40:
+ 587              	.LFB133:
+   5:user/screen.cpp ****     // LCD_CS_GPIO_Port->BSRR = (uint32_t) LCD_CS_Pin << 16U;
+ 588              		.loc 1 5 1 is_stmt 1 view -0
+ 589              		.cfi_startproc
+ 590              		@ args = 0, pretend = 0, frame = 0
+ 591              		@ frame_needed = 0, uses_anonymous_args = 0
+   5:user/screen.cpp ****     // LCD_CS_GPIO_Port->BSRR = (uint32_t) LCD_CS_Pin << 16U;
+ 592              		.loc 1 5 1 is_stmt 0 view .LVU117
+ 593 0000 38B5     		push	{r3, r4, r5, lr}
+ 594              		.save {r3, r4, r5, lr}
+ 595              	.LCFI12:
+ 596              		.cfi_def_cfa_offset 16
+ 597              		.cfi_offset 3, -16
+ 598              		.cfi_offset 4, -12
+ 599              		.cfi_offset 5, -8
+ 600              		.cfi_offset 14, -4
+ 601 0002 0446     		mov	r4, r0
+ 602 0004 0D46     		mov	r5, r1
+   7:user/screen.cpp **** 
+ 603              		.loc 1 7 5 is_stmt 1 view .LVU118
+   7:user/screen.cpp **** 
+ 604              		.loc 1 7 15 is_stmt 0 view .LVU119
+ 605 0006 0121     		movs	r1, #1
+ 606              	.LVL41:
+   7:user/screen.cpp **** 
+ 607              		.loc 1 7 15 view .LVU120
+ 608 0008 FFF7FEFF 		bl	_ZN6Screen10ChipSelectEb
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 19
+
+
+ 609              	.LVL42:
+   9:user/screen.cpp ****     Reset(true);
+ 610              		.loc 1 9 5 is_stmt 1 view .LVU121
+   9:user/screen.cpp ****     Reset(true);
+ 611              		.loc 1 9 14 is_stmt 0 view .LVU122
+ 612 000c 0520     		movs	r0, #5
+ 613 000e FFF7FEFF 		bl	HAL_Delay
+ 614              	.LVL43:
+  10:user/screen.cpp ****     HAL_Delay(10);
+ 615              		.loc 1 10 5 is_stmt 1 view .LVU123
+  10:user/screen.cpp ****     HAL_Delay(10);
+ 616              		.loc 1 10 10 is_stmt 0 view .LVU124
+ 617 0012 0121     		movs	r1, #1
+ 618 0014 2046     		mov	r0, r4
+ 619 0016 FFF7FEFF 		bl	_ZN6Screen5ResetEb
+ 620              	.LVL44:
+  11:user/screen.cpp ****     Reset(false);
+ 621              		.loc 1 11 5 is_stmt 1 view .LVU125
+  11:user/screen.cpp ****     Reset(false);
+ 622              		.loc 1 11 14 is_stmt 0 view .LVU126
+ 623 001a 0A20     		movs	r0, #10
+ 624 001c FFF7FEFF 		bl	HAL_Delay
+ 625              	.LVL45:
+  12:user/screen.cpp ****     HAL_Delay(120);
+ 626              		.loc 1 12 5 is_stmt 1 view .LVU127
+  12:user/screen.cpp ****     HAL_Delay(120);
+ 627              		.loc 1 12 10 is_stmt 0 view .LVU128
+ 628 0020 0021     		movs	r1, #0
+ 629 0022 2046     		mov	r0, r4
+ 630 0024 FFF7FEFF 		bl	_ZN6Screen5ResetEb
+ 631              	.LVL46:
+  13:user/screen.cpp **** 
+ 632              		.loc 1 13 5 is_stmt 1 view .LVU129
+  13:user/screen.cpp **** 
+ 633              		.loc 1 13 14 is_stmt 0 view .LVU130
+ 634 0028 7820     		movs	r0, #120
+ 635 002a FFF7FEFF 		bl	HAL_Delay
+ 636              	.LVL47:
+  16:user/screen.cpp **** 
+ 637              		.loc 1 16 5 is_stmt 1 view .LVU131
+  16:user/screen.cpp **** 
+ 638              		.loc 1 16 17 is_stmt 0 view .LVU132
+ 639 002e EF21     		movs	r1, #239
+ 640 0030 2046     		mov	r0, r4
+ 641 0032 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 642              	.LVL48:
+  18:user/screen.cpp ****     Write1Byte(0x14);
+ 643              		.loc 1 18 5 is_stmt 1 view .LVU133
+  18:user/screen.cpp ****     Write1Byte(0x14);
+ 644              		.loc 1 18 17 is_stmt 0 view .LVU134
+ 645 0036 EB21     		movs	r1, #235
+ 646 0038 2046     		mov	r0, r4
+ 647 003a FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 648              	.LVL49:
+  19:user/screen.cpp **** 
+ 649              		.loc 1 19 5 is_stmt 1 view .LVU135
+  19:user/screen.cpp **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 20
+
+
+ 650              		.loc 1 19 15 is_stmt 0 view .LVU136
+ 651 003e 1421     		movs	r1, #20
+ 652 0040 2046     		mov	r0, r4
+ 653 0042 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 654              	.LVL50:
+  21:user/screen.cpp ****     WriteCommand(0xEF);
+ 655              		.loc 1 21 5 is_stmt 1 view .LVU137
+  21:user/screen.cpp ****     WriteCommand(0xEF);
+ 656              		.loc 1 21 17 is_stmt 0 view .LVU138
+ 657 0046 FE21     		movs	r1, #254
+ 658 0048 2046     		mov	r0, r4
+ 659 004a FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 660              	.LVL51:
+  22:user/screen.cpp **** 
+ 661              		.loc 1 22 5 is_stmt 1 view .LVU139
+  22:user/screen.cpp **** 
+ 662              		.loc 1 22 17 is_stmt 0 view .LVU140
+ 663 004e EF21     		movs	r1, #239
+ 664 0050 2046     		mov	r0, r4
+ 665 0052 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 666              	.LVL52:
+  24:user/screen.cpp ****     Write1Byte(0x14);
+ 667              		.loc 1 24 5 is_stmt 1 view .LVU141
+  24:user/screen.cpp ****     Write1Byte(0x14);
+ 668              		.loc 1 24 17 is_stmt 0 view .LVU142
+ 669 0056 EB21     		movs	r1, #235
+ 670 0058 2046     		mov	r0, r4
+ 671 005a FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 672              	.LVL53:
+  25:user/screen.cpp **** 
+ 673              		.loc 1 25 5 is_stmt 1 view .LVU143
+  25:user/screen.cpp **** 
+ 674              		.loc 1 25 15 is_stmt 0 view .LVU144
+ 675 005e 1421     		movs	r1, #20
+ 676 0060 2046     		mov	r0, r4
+ 677 0062 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 678              	.LVL54:
+  27:user/screen.cpp ****     Write1Byte(0x40);
+ 679              		.loc 1 27 5 is_stmt 1 view .LVU145
+  27:user/screen.cpp ****     Write1Byte(0x40);
+ 680              		.loc 1 27 17 is_stmt 0 view .LVU146
+ 681 0066 8421     		movs	r1, #132
+ 682 0068 2046     		mov	r0, r4
+ 683 006a FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 684              	.LVL55:
+  28:user/screen.cpp **** 
+ 685              		.loc 1 28 5 is_stmt 1 view .LVU147
+  28:user/screen.cpp **** 
+ 686              		.loc 1 28 15 is_stmt 0 view .LVU148
+ 687 006e 4021     		movs	r1, #64
+ 688 0070 2046     		mov	r0, r4
+ 689 0072 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 690              	.LVL56:
+  30:user/screen.cpp ****     Write1Byte(0xFF);
+ 691              		.loc 1 30 5 is_stmt 1 view .LVU149
+  30:user/screen.cpp ****     Write1Byte(0xFF);
+ 692              		.loc 1 30 17 is_stmt 0 view .LVU150
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 21
+
+
+ 693 0076 8521     		movs	r1, #133
+ 694 0078 2046     		mov	r0, r4
+ 695 007a FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 696              	.LVL57:
+  31:user/screen.cpp **** 
+ 697              		.loc 1 31 5 is_stmt 1 view .LVU151
+  31:user/screen.cpp **** 
+ 698              		.loc 1 31 15 is_stmt 0 view .LVU152
+ 699 007e FF21     		movs	r1, #255
+ 700 0080 2046     		mov	r0, r4
+ 701 0082 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 702              	.LVL58:
+  33:user/screen.cpp ****     Write1Byte(0xFF);
+ 703              		.loc 1 33 5 is_stmt 1 view .LVU153
+  33:user/screen.cpp ****     Write1Byte(0xFF);
+ 704              		.loc 1 33 17 is_stmt 0 view .LVU154
+ 705 0086 8621     		movs	r1, #134
+ 706 0088 2046     		mov	r0, r4
+ 707 008a FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 708              	.LVL59:
+  34:user/screen.cpp **** 
+ 709              		.loc 1 34 5 is_stmt 1 view .LVU155
+  34:user/screen.cpp **** 
+ 710              		.loc 1 34 15 is_stmt 0 view .LVU156
+ 711 008e FF21     		movs	r1, #255
+ 712 0090 2046     		mov	r0, r4
+ 713 0092 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 714              	.LVL60:
+  36:user/screen.cpp ****     Write1Byte(0xFF);
+ 715              		.loc 1 36 5 is_stmt 1 view .LVU157
+  36:user/screen.cpp ****     Write1Byte(0xFF);
+ 716              		.loc 1 36 17 is_stmt 0 view .LVU158
+ 717 0096 8721     		movs	r1, #135
+ 718 0098 2046     		mov	r0, r4
+ 719 009a FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 720              	.LVL61:
+  37:user/screen.cpp **** 
+ 721              		.loc 1 37 5 is_stmt 1 view .LVU159
+  37:user/screen.cpp **** 
+ 722              		.loc 1 37 15 is_stmt 0 view .LVU160
+ 723 009e FF21     		movs	r1, #255
+ 724 00a0 2046     		mov	r0, r4
+ 725 00a2 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 726              	.LVL62:
+  39:user/screen.cpp ****     Write1Byte(0x0A);
+ 727              		.loc 1 39 5 is_stmt 1 view .LVU161
+  39:user/screen.cpp ****     Write1Byte(0x0A);
+ 728              		.loc 1 39 17 is_stmt 0 view .LVU162
+ 729 00a6 8821     		movs	r1, #136
+ 730 00a8 2046     		mov	r0, r4
+ 731 00aa FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 732              	.LVL63:
+  40:user/screen.cpp **** 
+ 733              		.loc 1 40 5 is_stmt 1 view .LVU163
+  40:user/screen.cpp **** 
+ 734              		.loc 1 40 15 is_stmt 0 view .LVU164
+ 735 00ae 0A21     		movs	r1, #10
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 22
+
+
+ 736 00b0 2046     		mov	r0, r4
+ 737 00b2 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 738              	.LVL64:
+  42:user/screen.cpp ****     Write1Byte(0x21);
+ 739              		.loc 1 42 5 is_stmt 1 view .LVU165
+  42:user/screen.cpp ****     Write1Byte(0x21);
+ 740              		.loc 1 42 17 is_stmt 0 view .LVU166
+ 741 00b6 8921     		movs	r1, #137
+ 742 00b8 2046     		mov	r0, r4
+ 743 00ba FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 744              	.LVL65:
+  43:user/screen.cpp **** 
+ 745              		.loc 1 43 5 is_stmt 1 view .LVU167
+  43:user/screen.cpp **** 
+ 746              		.loc 1 43 15 is_stmt 0 view .LVU168
+ 747 00be 2121     		movs	r1, #33
+ 748 00c0 2046     		mov	r0, r4
+ 749 00c2 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 750              	.LVL66:
+  45:user/screen.cpp ****     Write1Byte(0x00);
+ 751              		.loc 1 45 5 is_stmt 1 view .LVU169
+  45:user/screen.cpp ****     Write1Byte(0x00);
+ 752              		.loc 1 45 17 is_stmt 0 view .LVU170
+ 753 00c6 8A21     		movs	r1, #138
+ 754 00c8 2046     		mov	r0, r4
+ 755 00ca FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 756              	.LVL67:
+  46:user/screen.cpp **** 
+ 757              		.loc 1 46 5 is_stmt 1 view .LVU171
+  46:user/screen.cpp **** 
+ 758              		.loc 1 46 15 is_stmt 0 view .LVU172
+ 759 00ce 0021     		movs	r1, #0
+ 760 00d0 2046     		mov	r0, r4
+ 761 00d2 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 762              	.LVL68:
+  48:user/screen.cpp ****     Write1Byte(0x80);
+ 763              		.loc 1 48 5 is_stmt 1 view .LVU173
+  48:user/screen.cpp ****     Write1Byte(0x80);
+ 764              		.loc 1 48 17 is_stmt 0 view .LVU174
+ 765 00d6 8B21     		movs	r1, #139
+ 766 00d8 2046     		mov	r0, r4
+ 767 00da FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 768              	.LVL69:
+  49:user/screen.cpp **** 
+ 769              		.loc 1 49 5 is_stmt 1 view .LVU175
+  49:user/screen.cpp **** 
+ 770              		.loc 1 49 15 is_stmt 0 view .LVU176
+ 771 00de 8021     		movs	r1, #128
+ 772 00e0 2046     		mov	r0, r4
+ 773 00e2 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 774              	.LVL70:
+  51:user/screen.cpp ****     Write1Byte(0x01);
+ 775              		.loc 1 51 5 is_stmt 1 view .LVU177
+  51:user/screen.cpp ****     Write1Byte(0x01);
+ 776              		.loc 1 51 17 is_stmt 0 view .LVU178
+ 777 00e6 8C21     		movs	r1, #140
+ 778 00e8 2046     		mov	r0, r4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 23
+
+
+ 779 00ea FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 780              	.LVL71:
+  52:user/screen.cpp **** 
+ 781              		.loc 1 52 5 is_stmt 1 view .LVU179
+  52:user/screen.cpp **** 
+ 782              		.loc 1 52 15 is_stmt 0 view .LVU180
+ 783 00ee 0121     		movs	r1, #1
+ 784 00f0 2046     		mov	r0, r4
+ 785 00f2 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 786              	.LVL72:
+  54:user/screen.cpp ****     Write1Byte(0x01);
+ 787              		.loc 1 54 5 is_stmt 1 view .LVU181
+  54:user/screen.cpp ****     Write1Byte(0x01);
+ 788              		.loc 1 54 17 is_stmt 0 view .LVU182
+ 789 00f6 8D21     		movs	r1, #141
+ 790 00f8 2046     		mov	r0, r4
+ 791 00fa FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 792              	.LVL73:
+  55:user/screen.cpp **** 
+ 793              		.loc 1 55 5 is_stmt 1 view .LVU183
+  55:user/screen.cpp **** 
+ 794              		.loc 1 55 15 is_stmt 0 view .LVU184
+ 795 00fe 0121     		movs	r1, #1
+ 796 0100 2046     		mov	r0, r4
+ 797 0102 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 798              	.LVL74:
+  57:user/screen.cpp ****     Write1Byte(0xFF);
+ 799              		.loc 1 57 5 is_stmt 1 view .LVU185
+  57:user/screen.cpp ****     Write1Byte(0xFF);
+ 800              		.loc 1 57 17 is_stmt 0 view .LVU186
+ 801 0106 8E21     		movs	r1, #142
+ 802 0108 2046     		mov	r0, r4
+ 803 010a FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 804              	.LVL75:
+  58:user/screen.cpp **** 
+ 805              		.loc 1 58 5 is_stmt 1 view .LVU187
+  58:user/screen.cpp **** 
+ 806              		.loc 1 58 15 is_stmt 0 view .LVU188
+ 807 010e FF21     		movs	r1, #255
+ 808 0110 2046     		mov	r0, r4
+ 809 0112 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 810              	.LVL76:
+  60:user/screen.cpp ****     Write1Byte(0xFF);
+ 811              		.loc 1 60 5 is_stmt 1 view .LVU189
+  60:user/screen.cpp ****     Write1Byte(0xFF);
+ 812              		.loc 1 60 17 is_stmt 0 view .LVU190
+ 813 0116 8F21     		movs	r1, #143
+ 814 0118 2046     		mov	r0, r4
+ 815 011a FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 816              	.LVL77:
+  61:user/screen.cpp **** 
+ 817              		.loc 1 61 5 is_stmt 1 view .LVU191
+  61:user/screen.cpp **** 
+ 818              		.loc 1 61 15 is_stmt 0 view .LVU192
+ 819 011e FF21     		movs	r1, #255
+ 820 0120 2046     		mov	r0, r4
+ 821 0122 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 24
+
+
+ 822              	.LVL78:
+  64:user/screen.cpp ****     Write1Byte(0x00);
+ 823              		.loc 1 64 5 is_stmt 1 view .LVU193
+  64:user/screen.cpp ****     Write1Byte(0x00);
+ 824              		.loc 1 64 17 is_stmt 0 view .LVU194
+ 825 0126 B621     		movs	r1, #182
+ 826 0128 2046     		mov	r0, r4
+ 827 012a FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 828              	.LVL79:
+  65:user/screen.cpp ****     Write1Byte(0x00);
+ 829              		.loc 1 65 5 is_stmt 1 view .LVU195
+  65:user/screen.cpp ****     Write1Byte(0x00);
+ 830              		.loc 1 65 15 is_stmt 0 view .LVU196
+ 831 012e 0021     		movs	r1, #0
+ 832 0130 2046     		mov	r0, r4
+ 833 0132 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 834              	.LVL80:
+  66:user/screen.cpp **** 
+ 835              		.loc 1 66 5 is_stmt 1 view .LVU197
+  66:user/screen.cpp **** 
+ 836              		.loc 1 66 15 is_stmt 0 view .LVU198
+ 837 0136 0021     		movs	r1, #0
+ 838 0138 2046     		mov	r0, r4
+ 839 013a FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 840              	.LVL81:
+  68:user/screen.cpp ****     switch (_orientation)
+ 841              		.loc 1 68 5 is_stmt 1 view .LVU199
+  68:user/screen.cpp ****     switch (_orientation)
+ 842              		.loc 1 68 17 is_stmt 0 view .LVU200
+ 843 013e 3621     		movs	r1, #54
+ 844 0140 2046     		mov	r0, r4
+ 845 0142 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 846              	.LVL82:
+  69:user/screen.cpp ****     {
+ 847              		.loc 1 69 5 is_stmt 1 view .LVU201
+ 848 0146 032D     		cmp	r5, #3
+ 849 0148 09D8     		bhi	.L36
+ 850 014a DFE815F0 		tbh	[pc, r5, lsl #1]
+ 851              	.L38:
+ 852 014e 0400     		.2byte	(.L41-.L38)/2
+ 853 0150 6E02     		.2byte	(.L40-.L38)/2
+ 854 0152 7302     		.2byte	(.L39-.L38)/2
+ 855 0154 7802     		.2byte	(.L37-.L38)/2
+ 856              		.p2align 1
+ 857              	.L41:
+  71:user/screen.cpp ****             Write1Byte(0x18);
+ 858              		.loc 1 71 9 view .LVU202
+  72:user/screen.cpp ****             break;
+ 859              		.loc 1 72 13 view .LVU203
+  72:user/screen.cpp ****             break;
+ 860              		.loc 1 72 23 is_stmt 0 view .LVU204
+ 861 0156 1821     		movs	r1, #24
+ 862 0158 2046     		mov	r0, r4
+ 863 015a FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 864              	.LVL83:
+  73:user/screen.cpp ****         case DEGREE_90:
+ 865              		.loc 1 73 13 is_stmt 1 view .LVU205
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 25
+
+
+ 866              	.L36:
+  85:user/screen.cpp ****     switch (colorMode)
+ 867              		.loc 1 85 5 view .LVU206
+  85:user/screen.cpp ****     switch (colorMode)
+ 868              		.loc 1 85 17 is_stmt 0 view .LVU207
+ 869 015e 3A21     		movs	r1, #58
+ 870 0160 2046     		mov	r0, r4
+ 871 0162 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 872              	.LVL84:
+  86:user/screen.cpp ****     {
+ 873              		.loc 1 86 5 is_stmt 1 view .LVU208
+  86:user/screen.cpp ****     {
+ 874              		.loc 1 86 13 is_stmt 0 view .LVU209
+ 875 0166 637A     		ldrb	r3, [r4, #9]	@ zero_extendqisi2
+  86:user/screen.cpp ****     {
+ 876              		.loc 1 86 5 view .LVU210
+ 877 0168 012B     		cmp	r3, #1
+ 878 016a 00F07282 		beq	.L42
+ 879 016e 022B     		cmp	r3, #2
+ 880 0170 00F07482 		beq	.L43
+ 881 0174 002B     		cmp	r3, #0
+ 882 0176 00F06782 		beq	.L46
+ 883              	.L44:
+  99:user/screen.cpp ****     Write1Byte(0x08);
+ 884              		.loc 1 99 5 is_stmt 1 view .LVU211
+  99:user/screen.cpp ****     Write1Byte(0x08);
+ 885              		.loc 1 99 17 is_stmt 0 view .LVU212
+ 886 017a 9021     		movs	r1, #144
+ 887 017c 2046     		mov	r0, r4
+ 888 017e FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 889              	.LVL85:
+ 100:user/screen.cpp ****     Write1Byte(0x08);
+ 890              		.loc 1 100 5 is_stmt 1 view .LVU213
+ 100:user/screen.cpp ****     Write1Byte(0x08);
+ 891              		.loc 1 100 15 is_stmt 0 view .LVU214
+ 892 0182 0821     		movs	r1, #8
+ 893 0184 2046     		mov	r0, r4
+ 894 0186 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 895              	.LVL86:
+ 101:user/screen.cpp ****     Write1Byte(0x08);
+ 896              		.loc 1 101 5 is_stmt 1 view .LVU215
+ 101:user/screen.cpp ****     Write1Byte(0x08);
+ 897              		.loc 1 101 15 is_stmt 0 view .LVU216
+ 898 018a 0821     		movs	r1, #8
+ 899 018c 2046     		mov	r0, r4
+ 900 018e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 901              	.LVL87:
+ 102:user/screen.cpp ****     Write1Byte(0x08);
+ 902              		.loc 1 102 5 is_stmt 1 view .LVU217
+ 102:user/screen.cpp ****     Write1Byte(0x08);
+ 903              		.loc 1 102 15 is_stmt 0 view .LVU218
+ 904 0192 0821     		movs	r1, #8
+ 905 0194 2046     		mov	r0, r4
+ 906 0196 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 907              	.LVL88:
+ 103:user/screen.cpp **** 
+ 908              		.loc 1 103 5 is_stmt 1 view .LVU219
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 26
+
+
+ 103:user/screen.cpp **** 
+ 909              		.loc 1 103 15 is_stmt 0 view .LVU220
+ 910 019a 0821     		movs	r1, #8
+ 911 019c 2046     		mov	r0, r4
+ 912 019e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 913              	.LVL89:
+ 105:user/screen.cpp ****     Write1Byte(0x06);
+ 914              		.loc 1 105 5 is_stmt 1 view .LVU221
+ 105:user/screen.cpp ****     Write1Byte(0x06);
+ 915              		.loc 1 105 17 is_stmt 0 view .LVU222
+ 916 01a2 BD21     		movs	r1, #189
+ 917 01a4 2046     		mov	r0, r4
+ 918 01a6 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 919              	.LVL90:
+ 106:user/screen.cpp **** 
+ 920              		.loc 1 106 5 is_stmt 1 view .LVU223
+ 106:user/screen.cpp **** 
+ 921              		.loc 1 106 15 is_stmt 0 view .LVU224
+ 922 01aa 0621     		movs	r1, #6
+ 923 01ac 2046     		mov	r0, r4
+ 924 01ae FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 925              	.LVL91:
+ 108:user/screen.cpp ****     Write1Byte(0x00);
+ 926              		.loc 1 108 5 is_stmt 1 view .LVU225
+ 108:user/screen.cpp ****     Write1Byte(0x00);
+ 927              		.loc 1 108 17 is_stmt 0 view .LVU226
+ 928 01b2 BC21     		movs	r1, #188
+ 929 01b4 2046     		mov	r0, r4
+ 930 01b6 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 931              	.LVL92:
+ 109:user/screen.cpp **** 
+ 932              		.loc 1 109 5 is_stmt 1 view .LVU227
+ 109:user/screen.cpp **** 
+ 933              		.loc 1 109 15 is_stmt 0 view .LVU228
+ 934 01ba 0021     		movs	r1, #0
+ 935 01bc 2046     		mov	r0, r4
+ 936 01be FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 937              	.LVL93:
+ 111:user/screen.cpp ****     Write1Byte(0x60);
+ 938              		.loc 1 111 5 is_stmt 1 view .LVU229
+ 111:user/screen.cpp ****     Write1Byte(0x60);
+ 939              		.loc 1 111 17 is_stmt 0 view .LVU230
+ 940 01c2 FF21     		movs	r1, #255
+ 941 01c4 2046     		mov	r0, r4
+ 942 01c6 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 943              	.LVL94:
+ 112:user/screen.cpp ****     Write1Byte(0x01);
+ 944              		.loc 1 112 5 is_stmt 1 view .LVU231
+ 112:user/screen.cpp ****     Write1Byte(0x01);
+ 945              		.loc 1 112 15 is_stmt 0 view .LVU232
+ 946 01ca 6021     		movs	r1, #96
+ 947 01cc 2046     		mov	r0, r4
+ 948 01ce FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 949              	.LVL95:
+ 113:user/screen.cpp ****     Write1Byte(0x04);
+ 950              		.loc 1 113 5 is_stmt 1 view .LVU233
+ 113:user/screen.cpp ****     Write1Byte(0x04);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 27
+
+
+ 951              		.loc 1 113 15 is_stmt 0 view .LVU234
+ 952 01d2 0121     		movs	r1, #1
+ 953 01d4 2046     		mov	r0, r4
+ 954 01d6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 955              	.LVL96:
+ 114:user/screen.cpp **** 
+ 956              		.loc 1 114 5 is_stmt 1 view .LVU235
+ 114:user/screen.cpp **** 
+ 957              		.loc 1 114 15 is_stmt 0 view .LVU236
+ 958 01da 0421     		movs	r1, #4
+ 959 01dc 2046     		mov	r0, r4
+ 960 01de FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 961              	.LVL97:
+ 116:user/screen.cpp ****     Write1Byte(0x13);
+ 962              		.loc 1 116 5 is_stmt 1 view .LVU237
+ 116:user/screen.cpp ****     Write1Byte(0x13);
+ 963              		.loc 1 116 17 is_stmt 0 view .LVU238
+ 964 01e2 C321     		movs	r1, #195
+ 965 01e4 2046     		mov	r0, r4
+ 966 01e6 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 967              	.LVL98:
+ 117:user/screen.cpp ****     WriteCommand(0xC4);
+ 968              		.loc 1 117 5 is_stmt 1 view .LVU239
+ 117:user/screen.cpp ****     WriteCommand(0xC4);
+ 969              		.loc 1 117 15 is_stmt 0 view .LVU240
+ 970 01ea 1321     		movs	r1, #19
+ 971 01ec 2046     		mov	r0, r4
+ 972 01ee FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 973              	.LVL99:
+ 118:user/screen.cpp ****     Write1Byte(0x13);
+ 974              		.loc 1 118 5 is_stmt 1 view .LVU241
+ 118:user/screen.cpp ****     Write1Byte(0x13);
+ 975              		.loc 1 118 17 is_stmt 0 view .LVU242
+ 976 01f2 C421     		movs	r1, #196
+ 977 01f4 2046     		mov	r0, r4
+ 978 01f6 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 979              	.LVL100:
+ 119:user/screen.cpp **** 
+ 980              		.loc 1 119 5 is_stmt 1 view .LVU243
+ 119:user/screen.cpp **** 
+ 981              		.loc 1 119 15 is_stmt 0 view .LVU244
+ 982 01fa 1321     		movs	r1, #19
+ 983 01fc 2046     		mov	r0, r4
+ 984 01fe FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 985              	.LVL101:
+ 121:user/screen.cpp ****     Write1Byte(0x22);
+ 986              		.loc 1 121 5 is_stmt 1 view .LVU245
+ 121:user/screen.cpp ****     Write1Byte(0x22);
+ 987              		.loc 1 121 17 is_stmt 0 view .LVU246
+ 988 0202 C921     		movs	r1, #201
+ 989 0204 2046     		mov	r0, r4
+ 990 0206 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 991              	.LVL102:
+ 122:user/screen.cpp **** 
+ 992              		.loc 1 122 5 is_stmt 1 view .LVU247
+ 122:user/screen.cpp **** 
+ 993              		.loc 1 122 15 is_stmt 0 view .LVU248
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 28
+
+
+ 994 020a 2221     		movs	r1, #34
+ 995 020c 2046     		mov	r0, r4
+ 996 020e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 997              	.LVL103:
+ 124:user/screen.cpp ****     Write1Byte(0x11);
+ 998              		.loc 1 124 5 is_stmt 1 view .LVU249
+ 124:user/screen.cpp ****     Write1Byte(0x11);
+ 999              		.loc 1 124 17 is_stmt 0 view .LVU250
+ 1000 0212 BE21     		movs	r1, #190
+ 1001 0214 2046     		mov	r0, r4
+ 1002 0216 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1003              	.LVL104:
+ 125:user/screen.cpp **** 
+ 1004              		.loc 1 125 5 is_stmt 1 view .LVU251
+ 125:user/screen.cpp **** 
+ 1005              		.loc 1 125 15 is_stmt 0 view .LVU252
+ 1006 021a 1121     		movs	r1, #17
+ 1007 021c 2046     		mov	r0, r4
+ 1008 021e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1009              	.LVL105:
+ 127:user/screen.cpp ****     Write1Byte(0x10);
+ 1010              		.loc 1 127 5 is_stmt 1 view .LVU253
+ 127:user/screen.cpp ****     Write1Byte(0x10);
+ 1011              		.loc 1 127 17 is_stmt 0 view .LVU254
+ 1012 0222 E121     		movs	r1, #225
+ 1013 0224 2046     		mov	r0, r4
+ 1014 0226 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1015              	.LVL106:
+ 128:user/screen.cpp ****     Write1Byte(0x0E);
+ 1016              		.loc 1 128 5 is_stmt 1 view .LVU255
+ 128:user/screen.cpp ****     Write1Byte(0x0E);
+ 1017              		.loc 1 128 15 is_stmt 0 view .LVU256
+ 1018 022a 1021     		movs	r1, #16
+ 1019 022c 2046     		mov	r0, r4
+ 1020 022e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1021              	.LVL107:
+ 129:user/screen.cpp **** 
+ 1022              		.loc 1 129 5 is_stmt 1 view .LVU257
+ 129:user/screen.cpp **** 
+ 1023              		.loc 1 129 15 is_stmt 0 view .LVU258
+ 1024 0232 0E21     		movs	r1, #14
+ 1025 0234 2046     		mov	r0, r4
+ 1026 0236 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1027              	.LVL108:
+ 131:user/screen.cpp ****     Write1Byte(0x21);
+ 1028              		.loc 1 131 5 is_stmt 1 view .LVU259
+ 131:user/screen.cpp ****     Write1Byte(0x21);
+ 1029              		.loc 1 131 17 is_stmt 0 view .LVU260
+ 1030 023a DF21     		movs	r1, #223
+ 1031 023c 2046     		mov	r0, r4
+ 1032 023e FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1033              	.LVL109:
+ 132:user/screen.cpp ****     Write1Byte(0x0c);
+ 1034              		.loc 1 132 5 is_stmt 1 view .LVU261
+ 132:user/screen.cpp ****     Write1Byte(0x0c);
+ 1035              		.loc 1 132 15 is_stmt 0 view .LVU262
+ 1036 0242 2121     		movs	r1, #33
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 29
+
+
+ 1037 0244 2046     		mov	r0, r4
+ 1038 0246 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1039              	.LVL110:
+ 133:user/screen.cpp ****     Write1Byte(0x02);
+ 1040              		.loc 1 133 5 is_stmt 1 view .LVU263
+ 133:user/screen.cpp ****     Write1Byte(0x02);
+ 1041              		.loc 1 133 15 is_stmt 0 view .LVU264
+ 1042 024a 0C21     		movs	r1, #12
+ 1043 024c 2046     		mov	r0, r4
+ 1044 024e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1045              	.LVL111:
+ 134:user/screen.cpp **** 
+ 1046              		.loc 1 134 5 is_stmt 1 view .LVU265
+ 134:user/screen.cpp **** 
+ 1047              		.loc 1 134 15 is_stmt 0 view .LVU266
+ 1048 0252 0221     		movs	r1, #2
+ 1049 0254 2046     		mov	r0, r4
+ 1050 0256 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1051              	.LVL112:
+ 136:user/screen.cpp ****     Write1Byte(0x45);
+ 1052              		.loc 1 136 5 is_stmt 1 view .LVU267
+ 136:user/screen.cpp ****     Write1Byte(0x45);
+ 1053              		.loc 1 136 17 is_stmt 0 view .LVU268
+ 1054 025a F021     		movs	r1, #240
+ 1055 025c 2046     		mov	r0, r4
+ 1056 025e FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1057              	.LVL113:
+ 137:user/screen.cpp ****     Write1Byte(0x09);
+ 1058              		.loc 1 137 5 is_stmt 1 view .LVU269
+ 137:user/screen.cpp ****     Write1Byte(0x09);
+ 1059              		.loc 1 137 15 is_stmt 0 view .LVU270
+ 1060 0262 4521     		movs	r1, #69
+ 1061 0264 2046     		mov	r0, r4
+ 1062 0266 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1063              	.LVL114:
+ 138:user/screen.cpp ****     Write1Byte(0x08);
+ 1064              		.loc 1 138 5 is_stmt 1 view .LVU271
+ 138:user/screen.cpp ****     Write1Byte(0x08);
+ 1065              		.loc 1 138 15 is_stmt 0 view .LVU272
+ 1066 026a 0921     		movs	r1, #9
+ 1067 026c 2046     		mov	r0, r4
+ 1068 026e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1069              	.LVL115:
+ 139:user/screen.cpp ****     Write1Byte(0x08);
+ 1070              		.loc 1 139 5 is_stmt 1 view .LVU273
+ 139:user/screen.cpp ****     Write1Byte(0x08);
+ 1071              		.loc 1 139 15 is_stmt 0 view .LVU274
+ 1072 0272 0821     		movs	r1, #8
+ 1073 0274 2046     		mov	r0, r4
+ 1074 0276 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1075              	.LVL116:
+ 140:user/screen.cpp ****     Write1Byte(0x26);
+ 1076              		.loc 1 140 5 is_stmt 1 view .LVU275
+ 140:user/screen.cpp ****     Write1Byte(0x26);
+ 1077              		.loc 1 140 15 is_stmt 0 view .LVU276
+ 1078 027a 0821     		movs	r1, #8
+ 1079 027c 2046     		mov	r0, r4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 30
+
+
+ 1080 027e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1081              	.LVL117:
+ 141:user/screen.cpp ****     Write1Byte(0x2A);
+ 1082              		.loc 1 141 5 is_stmt 1 view .LVU277
+ 141:user/screen.cpp ****     Write1Byte(0x2A);
+ 1083              		.loc 1 141 15 is_stmt 0 view .LVU278
+ 1084 0282 2621     		movs	r1, #38
+ 1085 0284 2046     		mov	r0, r4
+ 1086 0286 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1087              	.LVL118:
+ 142:user/screen.cpp **** 
+ 1088              		.loc 1 142 5 is_stmt 1 view .LVU279
+ 142:user/screen.cpp **** 
+ 1089              		.loc 1 142 15 is_stmt 0 view .LVU280
+ 1090 028a 2A21     		movs	r1, #42
+ 1091 028c 2046     		mov	r0, r4
+ 1092 028e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1093              	.LVL119:
+ 144:user/screen.cpp ****     Write1Byte(0x43);
+ 1094              		.loc 1 144 5 is_stmt 1 view .LVU281
+ 144:user/screen.cpp ****     Write1Byte(0x43);
+ 1095              		.loc 1 144 17 is_stmt 0 view .LVU282
+ 1096 0292 F121     		movs	r1, #241
+ 1097 0294 2046     		mov	r0, r4
+ 1098 0296 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1099              	.LVL120:
+ 145:user/screen.cpp ****     Write1Byte(0x70);
+ 1100              		.loc 1 145 5 is_stmt 1 view .LVU283
+ 145:user/screen.cpp ****     Write1Byte(0x70);
+ 1101              		.loc 1 145 15 is_stmt 0 view .LVU284
+ 1102 029a 4321     		movs	r1, #67
+ 1103 029c 2046     		mov	r0, r4
+ 1104 029e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1105              	.LVL121:
+ 146:user/screen.cpp ****     Write1Byte(0x72);
+ 1106              		.loc 1 146 5 is_stmt 1 view .LVU285
+ 146:user/screen.cpp ****     Write1Byte(0x72);
+ 1107              		.loc 1 146 15 is_stmt 0 view .LVU286
+ 1108 02a2 7021     		movs	r1, #112
+ 1109 02a4 2046     		mov	r0, r4
+ 1110 02a6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1111              	.LVL122:
+ 147:user/screen.cpp ****     Write1Byte(0x36);
+ 1112              		.loc 1 147 5 is_stmt 1 view .LVU287
+ 147:user/screen.cpp ****     Write1Byte(0x36);
+ 1113              		.loc 1 147 15 is_stmt 0 view .LVU288
+ 1114 02aa 7221     		movs	r1, #114
+ 1115 02ac 2046     		mov	r0, r4
+ 1116 02ae FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1117              	.LVL123:
+ 148:user/screen.cpp ****     Write1Byte(0x37);
+ 1118              		.loc 1 148 5 is_stmt 1 view .LVU289
+ 148:user/screen.cpp ****     Write1Byte(0x37);
+ 1119              		.loc 1 148 15 is_stmt 0 view .LVU290
+ 1120 02b2 3621     		movs	r1, #54
+ 1121 02b4 2046     		mov	r0, r4
+ 1122 02b6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 31
+
+
+ 1123              	.LVL124:
+ 149:user/screen.cpp ****     Write1Byte(0x6F);
+ 1124              		.loc 1 149 5 is_stmt 1 view .LVU291
+ 149:user/screen.cpp ****     Write1Byte(0x6F);
+ 1125              		.loc 1 149 15 is_stmt 0 view .LVU292
+ 1126 02ba 3721     		movs	r1, #55
+ 1127 02bc 2046     		mov	r0, r4
+ 1128 02be FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1129              	.LVL125:
+ 150:user/screen.cpp **** 
+ 1130              		.loc 1 150 5 is_stmt 1 view .LVU293
+ 150:user/screen.cpp **** 
+ 1131              		.loc 1 150 15 is_stmt 0 view .LVU294
+ 1132 02c2 6F21     		movs	r1, #111
+ 1133 02c4 2046     		mov	r0, r4
+ 1134 02c6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1135              	.LVL126:
+ 152:user/screen.cpp ****     Write1Byte(0x45);
+ 1136              		.loc 1 152 5 is_stmt 1 view .LVU295
+ 152:user/screen.cpp ****     Write1Byte(0x45);
+ 1137              		.loc 1 152 17 is_stmt 0 view .LVU296
+ 1138 02ca F221     		movs	r1, #242
+ 1139 02cc 2046     		mov	r0, r4
+ 1140 02ce FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1141              	.LVL127:
+ 153:user/screen.cpp ****     Write1Byte(0x09);
+ 1142              		.loc 1 153 5 is_stmt 1 view .LVU297
+ 153:user/screen.cpp ****     Write1Byte(0x09);
+ 1143              		.loc 1 153 15 is_stmt 0 view .LVU298
+ 1144 02d2 4521     		movs	r1, #69
+ 1145 02d4 2046     		mov	r0, r4
+ 1146 02d6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1147              	.LVL128:
+ 154:user/screen.cpp ****     Write1Byte(0x08);
+ 1148              		.loc 1 154 5 is_stmt 1 view .LVU299
+ 154:user/screen.cpp ****     Write1Byte(0x08);
+ 1149              		.loc 1 154 15 is_stmt 0 view .LVU300
+ 1150 02da 0921     		movs	r1, #9
+ 1151 02dc 2046     		mov	r0, r4
+ 1152 02de FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1153              	.LVL129:
+ 155:user/screen.cpp ****     Write1Byte(0x08);
+ 1154              		.loc 1 155 5 is_stmt 1 view .LVU301
+ 155:user/screen.cpp ****     Write1Byte(0x08);
+ 1155              		.loc 1 155 15 is_stmt 0 view .LVU302
+ 1156 02e2 0821     		movs	r1, #8
+ 1157 02e4 2046     		mov	r0, r4
+ 1158 02e6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1159              	.LVL130:
+ 156:user/screen.cpp ****     Write1Byte(0x26);
+ 1160              		.loc 1 156 5 is_stmt 1 view .LVU303
+ 156:user/screen.cpp ****     Write1Byte(0x26);
+ 1161              		.loc 1 156 15 is_stmt 0 view .LVU304
+ 1162 02ea 0821     		movs	r1, #8
+ 1163 02ec 2046     		mov	r0, r4
+ 1164 02ee FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1165              	.LVL131:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 32
+
+
+ 157:user/screen.cpp ****     Write1Byte(0x2A);
+ 1166              		.loc 1 157 5 is_stmt 1 view .LVU305
+ 157:user/screen.cpp ****     Write1Byte(0x2A);
+ 1167              		.loc 1 157 15 is_stmt 0 view .LVU306
+ 1168 02f2 2621     		movs	r1, #38
+ 1169 02f4 2046     		mov	r0, r4
+ 1170 02f6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1171              	.LVL132:
+ 158:user/screen.cpp **** 
+ 1172              		.loc 1 158 5 is_stmt 1 view .LVU307
+ 158:user/screen.cpp **** 
+ 1173              		.loc 1 158 15 is_stmt 0 view .LVU308
+ 1174 02fa 2A21     		movs	r1, #42
+ 1175 02fc 2046     		mov	r0, r4
+ 1176 02fe FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1177              	.LVL133:
+ 160:user/screen.cpp ****     Write1Byte(0x43);
+ 1178              		.loc 1 160 5 is_stmt 1 view .LVU309
+ 160:user/screen.cpp ****     Write1Byte(0x43);
+ 1179              		.loc 1 160 17 is_stmt 0 view .LVU310
+ 1180 0302 F321     		movs	r1, #243
+ 1181 0304 2046     		mov	r0, r4
+ 1182 0306 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1183              	.LVL134:
+ 161:user/screen.cpp ****     Write1Byte(0x70);
+ 1184              		.loc 1 161 5 is_stmt 1 view .LVU311
+ 161:user/screen.cpp ****     Write1Byte(0x70);
+ 1185              		.loc 1 161 15 is_stmt 0 view .LVU312
+ 1186 030a 4321     		movs	r1, #67
+ 1187 030c 2046     		mov	r0, r4
+ 1188 030e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1189              	.LVL135:
+ 162:user/screen.cpp ****     Write1Byte(0x72);
+ 1190              		.loc 1 162 5 is_stmt 1 view .LVU313
+ 162:user/screen.cpp ****     Write1Byte(0x72);
+ 1191              		.loc 1 162 15 is_stmt 0 view .LVU314
+ 1192 0312 7021     		movs	r1, #112
+ 1193 0314 2046     		mov	r0, r4
+ 1194 0316 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1195              	.LVL136:
+ 163:user/screen.cpp ****     Write1Byte(0x36);
+ 1196              		.loc 1 163 5 is_stmt 1 view .LVU315
+ 163:user/screen.cpp ****     Write1Byte(0x36);
+ 1197              		.loc 1 163 15 is_stmt 0 view .LVU316
+ 1198 031a 7221     		movs	r1, #114
+ 1199 031c 2046     		mov	r0, r4
+ 1200 031e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1201              	.LVL137:
+ 164:user/screen.cpp ****     Write1Byte(0x37);
+ 1202              		.loc 1 164 5 is_stmt 1 view .LVU317
+ 164:user/screen.cpp ****     Write1Byte(0x37);
+ 1203              		.loc 1 164 15 is_stmt 0 view .LVU318
+ 1204 0322 3621     		movs	r1, #54
+ 1205 0324 2046     		mov	r0, r4
+ 1206 0326 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1207              	.LVL138:
+ 165:user/screen.cpp ****     Write1Byte(0x6F);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 33
+
+
+ 1208              		.loc 1 165 5 is_stmt 1 view .LVU319
+ 165:user/screen.cpp ****     Write1Byte(0x6F);
+ 1209              		.loc 1 165 15 is_stmt 0 view .LVU320
+ 1210 032a 3721     		movs	r1, #55
+ 1211 032c 2046     		mov	r0, r4
+ 1212 032e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1213              	.LVL139:
+ 166:user/screen.cpp **** 
+ 1214              		.loc 1 166 5 is_stmt 1 view .LVU321
+ 166:user/screen.cpp **** 
+ 1215              		.loc 1 166 15 is_stmt 0 view .LVU322
+ 1216 0332 6F21     		movs	r1, #111
+ 1217 0334 2046     		mov	r0, r4
+ 1218 0336 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1219              	.LVL140:
+ 168:user/screen.cpp ****     Write1Byte(0x1B);
+ 1220              		.loc 1 168 5 is_stmt 1 view .LVU323
+ 168:user/screen.cpp ****     Write1Byte(0x1B);
+ 1221              		.loc 1 168 17 is_stmt 0 view .LVU324
+ 1222 033a ED21     		movs	r1, #237
+ 1223 033c 2046     		mov	r0, r4
+ 1224 033e FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1225              	.LVL141:
+ 169:user/screen.cpp ****     Write1Byte(0x0B);
+ 1226              		.loc 1 169 5 is_stmt 1 view .LVU325
+ 169:user/screen.cpp ****     Write1Byte(0x0B);
+ 1227              		.loc 1 169 15 is_stmt 0 view .LVU326
+ 1228 0342 1B21     		movs	r1, #27
+ 1229 0344 2046     		mov	r0, r4
+ 1230 0346 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1231              	.LVL142:
+ 170:user/screen.cpp **** 
+ 1232              		.loc 1 170 5 is_stmt 1 view .LVU327
+ 170:user/screen.cpp **** 
+ 1233              		.loc 1 170 15 is_stmt 0 view .LVU328
+ 1234 034a 0B21     		movs	r1, #11
+ 1235 034c 2046     		mov	r0, r4
+ 1236 034e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1237              	.LVL143:
+ 172:user/screen.cpp ****     Write1Byte(0x77);
+ 1238              		.loc 1 172 5 is_stmt 1 view .LVU329
+ 172:user/screen.cpp ****     Write1Byte(0x77);
+ 1239              		.loc 1 172 17 is_stmt 0 view .LVU330
+ 1240 0352 AE21     		movs	r1, #174
+ 1241 0354 2046     		mov	r0, r4
+ 1242 0356 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1243              	.LVL144:
+ 173:user/screen.cpp **** 
+ 1244              		.loc 1 173 5 is_stmt 1 view .LVU331
+ 173:user/screen.cpp **** 
+ 1245              		.loc 1 173 15 is_stmt 0 view .LVU332
+ 1246 035a 7721     		movs	r1, #119
+ 1247 035c 2046     		mov	r0, r4
+ 1248 035e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1249              	.LVL145:
+ 175:user/screen.cpp ****     Write1Byte(0x63);
+ 1250              		.loc 1 175 5 is_stmt 1 view .LVU333
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 34
+
+
+ 175:user/screen.cpp ****     Write1Byte(0x63);
+ 1251              		.loc 1 175 17 is_stmt 0 view .LVU334
+ 1252 0362 CD21     		movs	r1, #205
+ 1253 0364 2046     		mov	r0, r4
+ 1254 0366 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1255              	.LVL146:
+ 176:user/screen.cpp **** 
+ 1256              		.loc 1 176 5 is_stmt 1 view .LVU335
+ 176:user/screen.cpp **** 
+ 1257              		.loc 1 176 15 is_stmt 0 view .LVU336
+ 1258 036a 6321     		movs	r1, #99
+ 1259 036c 2046     		mov	r0, r4
+ 1260 036e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1261              	.LVL147:
+ 178:user/screen.cpp ****     Write1Byte(0x07);
+ 1262              		.loc 1 178 5 is_stmt 1 view .LVU337
+ 178:user/screen.cpp ****     Write1Byte(0x07);
+ 1263              		.loc 1 178 17 is_stmt 0 view .LVU338
+ 1264 0372 7021     		movs	r1, #112
+ 1265 0374 2046     		mov	r0, r4
+ 1266 0376 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1267              	.LVL148:
+ 179:user/screen.cpp ****     Write1Byte(0x07);
+ 1268              		.loc 1 179 5 is_stmt 1 view .LVU339
+ 179:user/screen.cpp ****     Write1Byte(0x07);
+ 1269              		.loc 1 179 15 is_stmt 0 view .LVU340
+ 1270 037a 0721     		movs	r1, #7
+ 1271 037c 2046     		mov	r0, r4
+ 1272 037e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1273              	.LVL149:
+ 180:user/screen.cpp ****     Write1Byte(0x04);
+ 1274              		.loc 1 180 5 is_stmt 1 view .LVU341
+ 180:user/screen.cpp ****     Write1Byte(0x04);
+ 1275              		.loc 1 180 15 is_stmt 0 view .LVU342
+ 1276 0382 0721     		movs	r1, #7
+ 1277 0384 2046     		mov	r0, r4
+ 1278 0386 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1279              	.LVL150:
+ 181:user/screen.cpp ****     Write1Byte(0x0E);
+ 1280              		.loc 1 181 5 is_stmt 1 view .LVU343
+ 181:user/screen.cpp ****     Write1Byte(0x0E);
+ 1281              		.loc 1 181 15 is_stmt 0 view .LVU344
+ 1282 038a 0421     		movs	r1, #4
+ 1283 038c 2046     		mov	r0, r4
+ 1284 038e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1285              	.LVL151:
+ 182:user/screen.cpp ****     Write1Byte(0x0F);
+ 1286              		.loc 1 182 5 is_stmt 1 view .LVU345
+ 182:user/screen.cpp ****     Write1Byte(0x0F);
+ 1287              		.loc 1 182 15 is_stmt 0 view .LVU346
+ 1288 0392 0E21     		movs	r1, #14
+ 1289 0394 2046     		mov	r0, r4
+ 1290 0396 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1291              	.LVL152:
+ 183:user/screen.cpp ****     Write1Byte(0x09);
+ 1292              		.loc 1 183 5 is_stmt 1 view .LVU347
+ 183:user/screen.cpp ****     Write1Byte(0x09);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 35
+
+
+ 1293              		.loc 1 183 15 is_stmt 0 view .LVU348
+ 1294 039a 0F21     		movs	r1, #15
+ 1295 039c 2046     		mov	r0, r4
+ 1296 039e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1297              	.LVL153:
+ 184:user/screen.cpp ****     Write1Byte(0x07);
+ 1298              		.loc 1 184 5 is_stmt 1 view .LVU349
+ 184:user/screen.cpp ****     Write1Byte(0x07);
+ 1299              		.loc 1 184 15 is_stmt 0 view .LVU350
+ 1300 03a2 0921     		movs	r1, #9
+ 1301 03a4 2046     		mov	r0, r4
+ 1302 03a6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1303              	.LVL154:
+ 185:user/screen.cpp ****     Write1Byte(0x08);
+ 1304              		.loc 1 185 5 is_stmt 1 view .LVU351
+ 185:user/screen.cpp ****     Write1Byte(0x08);
+ 1305              		.loc 1 185 15 is_stmt 0 view .LVU352
+ 1306 03aa 0721     		movs	r1, #7
+ 1307 03ac 2046     		mov	r0, r4
+ 1308 03ae FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1309              	.LVL155:
+ 186:user/screen.cpp ****     Write1Byte(0x03);
+ 1310              		.loc 1 186 5 is_stmt 1 view .LVU353
+ 186:user/screen.cpp ****     Write1Byte(0x03);
+ 1311              		.loc 1 186 15 is_stmt 0 view .LVU354
+ 1312 03b2 0821     		movs	r1, #8
+ 1313 03b4 2046     		mov	r0, r4
+ 1314 03b6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1315              	.LVL156:
+ 187:user/screen.cpp **** 
+ 1316              		.loc 1 187 5 is_stmt 1 view .LVU355
+ 187:user/screen.cpp **** 
+ 1317              		.loc 1 187 15 is_stmt 0 view .LVU356
+ 1318 03ba 0321     		movs	r1, #3
+ 1319 03bc 2046     		mov	r0, r4
+ 1320 03be FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1321              	.LVL157:
+ 189:user/screen.cpp ****     Write1Byte(0x34);
+ 1322              		.loc 1 189 5 is_stmt 1 view .LVU357
+ 189:user/screen.cpp ****     Write1Byte(0x34);
+ 1323              		.loc 1 189 17 is_stmt 0 view .LVU358
+ 1324 03c2 E821     		movs	r1, #232
+ 1325 03c4 2046     		mov	r0, r4
+ 1326 03c6 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1327              	.LVL158:
+ 190:user/screen.cpp **** 
+ 1328              		.loc 1 190 5 is_stmt 1 view .LVU359
+ 190:user/screen.cpp **** 
+ 1329              		.loc 1 190 15 is_stmt 0 view .LVU360
+ 1330 03ca 3421     		movs	r1, #52
+ 1331 03cc 2046     		mov	r0, r4
+ 1332 03ce FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1333              	.LVL159:
+ 192:user/screen.cpp ****     Write1Byte(0x18);
+ 1334              		.loc 1 192 5 is_stmt 1 view .LVU361
+ 192:user/screen.cpp ****     Write1Byte(0x18);
+ 1335              		.loc 1 192 17 is_stmt 0 view .LVU362
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 36
+
+
+ 1336 03d2 6221     		movs	r1, #98
+ 1337 03d4 2046     		mov	r0, r4
+ 1338 03d6 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1339              	.LVL160:
+ 193:user/screen.cpp ****     Write1Byte(0x0D);
+ 1340              		.loc 1 193 5 is_stmt 1 view .LVU363
+ 193:user/screen.cpp ****     Write1Byte(0x0D);
+ 1341              		.loc 1 193 15 is_stmt 0 view .LVU364
+ 1342 03da 1821     		movs	r1, #24
+ 1343 03dc 2046     		mov	r0, r4
+ 1344 03de FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1345              	.LVL161:
+ 194:user/screen.cpp ****     Write1Byte(0x71);
+ 1346              		.loc 1 194 5 is_stmt 1 view .LVU365
+ 194:user/screen.cpp ****     Write1Byte(0x71);
+ 1347              		.loc 1 194 15 is_stmt 0 view .LVU366
+ 1348 03e2 0D21     		movs	r1, #13
+ 1349 03e4 2046     		mov	r0, r4
+ 1350 03e6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1351              	.LVL162:
+ 195:user/screen.cpp ****     Write1Byte(0xED);
+ 1352              		.loc 1 195 5 is_stmt 1 view .LVU367
+ 195:user/screen.cpp ****     Write1Byte(0xED);
+ 1353              		.loc 1 195 15 is_stmt 0 view .LVU368
+ 1354 03ea 7121     		movs	r1, #113
+ 1355 03ec 2046     		mov	r0, r4
+ 1356 03ee FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1357              	.LVL163:
+ 196:user/screen.cpp ****     Write1Byte(0x70);
+ 1358              		.loc 1 196 5 is_stmt 1 view .LVU369
+ 196:user/screen.cpp ****     Write1Byte(0x70);
+ 1359              		.loc 1 196 15 is_stmt 0 view .LVU370
+ 1360 03f2 ED21     		movs	r1, #237
+ 1361 03f4 2046     		mov	r0, r4
+ 1362 03f6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1363              	.LVL164:
+ 197:user/screen.cpp ****     Write1Byte(0x70);
+ 1364              		.loc 1 197 5 is_stmt 1 view .LVU371
+ 197:user/screen.cpp ****     Write1Byte(0x70);
+ 1365              		.loc 1 197 15 is_stmt 0 view .LVU372
+ 1366 03fa 7021     		movs	r1, #112
+ 1367 03fc 2046     		mov	r0, r4
+ 1368 03fe FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1369              	.LVL165:
+ 198:user/screen.cpp ****     Write1Byte(0x18);
+ 1370              		.loc 1 198 5 is_stmt 1 view .LVU373
+ 198:user/screen.cpp ****     Write1Byte(0x18);
+ 1371              		.loc 1 198 15 is_stmt 0 view .LVU374
+ 1372 0402 7021     		movs	r1, #112
+ 1373 0404 2046     		mov	r0, r4
+ 1374 0406 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1375              	.LVL166:
+ 199:user/screen.cpp ****     Write1Byte(0x0F);
+ 1376              		.loc 1 199 5 is_stmt 1 view .LVU375
+ 199:user/screen.cpp ****     Write1Byte(0x0F);
+ 1377              		.loc 1 199 15 is_stmt 0 view .LVU376
+ 1378 040a 1821     		movs	r1, #24
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 37
+
+
+ 1379 040c 2046     		mov	r0, r4
+ 1380 040e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1381              	.LVL167:
+ 200:user/screen.cpp ****     Write1Byte(0x71);
+ 1382              		.loc 1 200 5 is_stmt 1 view .LVU377
+ 200:user/screen.cpp ****     Write1Byte(0x71);
+ 1383              		.loc 1 200 15 is_stmt 0 view .LVU378
+ 1384 0412 0F21     		movs	r1, #15
+ 1385 0414 2046     		mov	r0, r4
+ 1386 0416 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1387              	.LVL168:
+ 201:user/screen.cpp ****     Write1Byte(0xEF);
+ 1388              		.loc 1 201 5 is_stmt 1 view .LVU379
+ 201:user/screen.cpp ****     Write1Byte(0xEF);
+ 1389              		.loc 1 201 15 is_stmt 0 view .LVU380
+ 1390 041a 7121     		movs	r1, #113
+ 1391 041c 2046     		mov	r0, r4
+ 1392 041e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1393              	.LVL169:
+ 202:user/screen.cpp ****     Write1Byte(0x70);
+ 1394              		.loc 1 202 5 is_stmt 1 view .LVU381
+ 202:user/screen.cpp ****     Write1Byte(0x70);
+ 1395              		.loc 1 202 15 is_stmt 0 view .LVU382
+ 1396 0422 EF21     		movs	r1, #239
+ 1397 0424 2046     		mov	r0, r4
+ 1398 0426 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1399              	.LVL170:
+ 203:user/screen.cpp ****     Write1Byte(0x70);
+ 1400              		.loc 1 203 5 is_stmt 1 view .LVU383
+ 203:user/screen.cpp ****     Write1Byte(0x70);
+ 1401              		.loc 1 203 15 is_stmt 0 view .LVU384
+ 1402 042a 7021     		movs	r1, #112
+ 1403 042c 2046     		mov	r0, r4
+ 1404 042e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1405              	.LVL171:
+ 204:user/screen.cpp **** 
+ 1406              		.loc 1 204 5 is_stmt 1 view .LVU385
+ 204:user/screen.cpp **** 
+ 1407              		.loc 1 204 15 is_stmt 0 view .LVU386
+ 1408 0432 7021     		movs	r1, #112
+ 1409 0434 2046     		mov	r0, r4
+ 1410 0436 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1411              	.LVL172:
+ 206:user/screen.cpp ****     Write1Byte(0x18);
+ 1412              		.loc 1 206 5 is_stmt 1 view .LVU387
+ 206:user/screen.cpp ****     Write1Byte(0x18);
+ 1413              		.loc 1 206 17 is_stmt 0 view .LVU388
+ 1414 043a 6321     		movs	r1, #99
+ 1415 043c 2046     		mov	r0, r4
+ 1416 043e FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1417              	.LVL173:
+ 207:user/screen.cpp ****     Write1Byte(0x11);
+ 1418              		.loc 1 207 5 is_stmt 1 view .LVU389
+ 207:user/screen.cpp ****     Write1Byte(0x11);
+ 1419              		.loc 1 207 15 is_stmt 0 view .LVU390
+ 1420 0442 1821     		movs	r1, #24
+ 1421 0444 2046     		mov	r0, r4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 38
+
+
+ 1422 0446 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1423              	.LVL174:
+ 208:user/screen.cpp ****     Write1Byte(0x71);
+ 1424              		.loc 1 208 5 is_stmt 1 view .LVU391
+ 208:user/screen.cpp ****     Write1Byte(0x71);
+ 1425              		.loc 1 208 15 is_stmt 0 view .LVU392
+ 1426 044a 1121     		movs	r1, #17
+ 1427 044c 2046     		mov	r0, r4
+ 1428 044e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1429              	.LVL175:
+ 209:user/screen.cpp ****     Write1Byte(0xF1);
+ 1430              		.loc 1 209 5 is_stmt 1 view .LVU393
+ 209:user/screen.cpp ****     Write1Byte(0xF1);
+ 1431              		.loc 1 209 15 is_stmt 0 view .LVU394
+ 1432 0452 7121     		movs	r1, #113
+ 1433 0454 2046     		mov	r0, r4
+ 1434 0456 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1435              	.LVL176:
+ 210:user/screen.cpp ****     Write1Byte(0x70);
+ 1436              		.loc 1 210 5 is_stmt 1 view .LVU395
+ 210:user/screen.cpp ****     Write1Byte(0x70);
+ 1437              		.loc 1 210 15 is_stmt 0 view .LVU396
+ 1438 045a F121     		movs	r1, #241
+ 1439 045c 2046     		mov	r0, r4
+ 1440 045e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1441              	.LVL177:
+ 211:user/screen.cpp ****     Write1Byte(0x70);
+ 1442              		.loc 1 211 5 is_stmt 1 view .LVU397
+ 211:user/screen.cpp ****     Write1Byte(0x70);
+ 1443              		.loc 1 211 15 is_stmt 0 view .LVU398
+ 1444 0462 7021     		movs	r1, #112
+ 1445 0464 2046     		mov	r0, r4
+ 1446 0466 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1447              	.LVL178:
+ 212:user/screen.cpp ****     Write1Byte(0x18);
+ 1448              		.loc 1 212 5 is_stmt 1 view .LVU399
+ 212:user/screen.cpp ****     Write1Byte(0x18);
+ 1449              		.loc 1 212 15 is_stmt 0 view .LVU400
+ 1450 046a 7021     		movs	r1, #112
+ 1451 046c 2046     		mov	r0, r4
+ 1452 046e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1453              	.LVL179:
+ 213:user/screen.cpp ****     Write1Byte(0x13);
+ 1454              		.loc 1 213 5 is_stmt 1 view .LVU401
+ 213:user/screen.cpp ****     Write1Byte(0x13);
+ 1455              		.loc 1 213 15 is_stmt 0 view .LVU402
+ 1456 0472 1821     		movs	r1, #24
+ 1457 0474 2046     		mov	r0, r4
+ 1458 0476 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1459              	.LVL180:
+ 214:user/screen.cpp ****     Write1Byte(0x71);
+ 1460              		.loc 1 214 5 is_stmt 1 view .LVU403
+ 214:user/screen.cpp ****     Write1Byte(0x71);
+ 1461              		.loc 1 214 15 is_stmt 0 view .LVU404
+ 1462 047a 1321     		movs	r1, #19
+ 1463 047c 2046     		mov	r0, r4
+ 1464 047e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 39
+
+
+ 1465              	.LVL181:
+ 215:user/screen.cpp ****     Write1Byte(0xF3);
+ 1466              		.loc 1 215 5 is_stmt 1 view .LVU405
+ 215:user/screen.cpp ****     Write1Byte(0xF3);
+ 1467              		.loc 1 215 15 is_stmt 0 view .LVU406
+ 1468 0482 7121     		movs	r1, #113
+ 1469 0484 2046     		mov	r0, r4
+ 1470 0486 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1471              	.LVL182:
+ 216:user/screen.cpp ****     Write1Byte(0x70);
+ 1472              		.loc 1 216 5 is_stmt 1 view .LVU407
+ 216:user/screen.cpp ****     Write1Byte(0x70);
+ 1473              		.loc 1 216 15 is_stmt 0 view .LVU408
+ 1474 048a F321     		movs	r1, #243
+ 1475 048c 2046     		mov	r0, r4
+ 1476 048e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1477              	.LVL183:
+ 217:user/screen.cpp ****     Write1Byte(0x70);
+ 1478              		.loc 1 217 5 is_stmt 1 view .LVU409
+ 217:user/screen.cpp ****     Write1Byte(0x70);
+ 1479              		.loc 1 217 15 is_stmt 0 view .LVU410
+ 1480 0492 7021     		movs	r1, #112
+ 1481 0494 2046     		mov	r0, r4
+ 1482 0496 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1483              	.LVL184:
+ 218:user/screen.cpp **** 
+ 1484              		.loc 1 218 5 is_stmt 1 view .LVU411
+ 218:user/screen.cpp **** 
+ 1485              		.loc 1 218 15 is_stmt 0 view .LVU412
+ 1486 049a 7021     		movs	r1, #112
+ 1487 049c 2046     		mov	r0, r4
+ 1488 049e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1489              	.LVL185:
+ 220:user/screen.cpp ****     Write1Byte(0x28);
+ 1490              		.loc 1 220 5 is_stmt 1 view .LVU413
+ 220:user/screen.cpp ****     Write1Byte(0x28);
+ 1491              		.loc 1 220 17 is_stmt 0 view .LVU414
+ 1492 04a2 6421     		movs	r1, #100
+ 1493 04a4 2046     		mov	r0, r4
+ 1494 04a6 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1495              	.LVL186:
+ 221:user/screen.cpp ****     Write1Byte(0x29);
+ 1496              		.loc 1 221 5 is_stmt 1 view .LVU415
+ 221:user/screen.cpp ****     Write1Byte(0x29);
+ 1497              		.loc 1 221 15 is_stmt 0 view .LVU416
+ 1498 04aa 2821     		movs	r1, #40
+ 1499 04ac 2046     		mov	r0, r4
+ 1500 04ae FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1501              	.LVL187:
+ 222:user/screen.cpp ****     Write1Byte(0xF1);
+ 1502              		.loc 1 222 5 is_stmt 1 view .LVU417
+ 222:user/screen.cpp ****     Write1Byte(0xF1);
+ 1503              		.loc 1 222 15 is_stmt 0 view .LVU418
+ 1504 04b2 2921     		movs	r1, #41
+ 1505 04b4 2046     		mov	r0, r4
+ 1506 04b6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1507              	.LVL188:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 40
+
+
+ 223:user/screen.cpp ****     Write1Byte(0x01);
+ 1508              		.loc 1 223 5 is_stmt 1 view .LVU419
+ 223:user/screen.cpp ****     Write1Byte(0x01);
+ 1509              		.loc 1 223 15 is_stmt 0 view .LVU420
+ 1510 04ba F121     		movs	r1, #241
+ 1511 04bc 2046     		mov	r0, r4
+ 1512 04be FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1513              	.LVL189:
+ 224:user/screen.cpp ****     Write1Byte(0xF1);
+ 1514              		.loc 1 224 5 is_stmt 1 view .LVU421
+ 224:user/screen.cpp ****     Write1Byte(0xF1);
+ 1515              		.loc 1 224 15 is_stmt 0 view .LVU422
+ 1516 04c2 0121     		movs	r1, #1
+ 1517 04c4 2046     		mov	r0, r4
+ 1518 04c6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1519              	.LVL190:
+ 225:user/screen.cpp ****     Write1Byte(0x00);
+ 1520              		.loc 1 225 5 is_stmt 1 view .LVU423
+ 225:user/screen.cpp ****     Write1Byte(0x00);
+ 1521              		.loc 1 225 15 is_stmt 0 view .LVU424
+ 1522 04ca F121     		movs	r1, #241
+ 1523 04cc 2046     		mov	r0, r4
+ 1524 04ce FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1525              	.LVL191:
+ 226:user/screen.cpp ****     Write1Byte(0x07);
+ 1526              		.loc 1 226 5 is_stmt 1 view .LVU425
+ 226:user/screen.cpp ****     Write1Byte(0x07);
+ 1527              		.loc 1 226 15 is_stmt 0 view .LVU426
+ 1528 04d2 0021     		movs	r1, #0
+ 1529 04d4 2046     		mov	r0, r4
+ 1530 04d6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1531              	.LVL192:
+ 227:user/screen.cpp **** 
+ 1532              		.loc 1 227 5 is_stmt 1 view .LVU427
+ 227:user/screen.cpp **** 
+ 1533              		.loc 1 227 15 is_stmt 0 view .LVU428
+ 1534 04da 0721     		movs	r1, #7
+ 1535 04dc 2046     		mov	r0, r4
+ 1536 04de FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1537              	.LVL193:
+ 229:user/screen.cpp ****     Write1Byte(0x3C);
+ 1538              		.loc 1 229 5 is_stmt 1 view .LVU429
+ 229:user/screen.cpp ****     Write1Byte(0x3C);
+ 1539              		.loc 1 229 17 is_stmt 0 view .LVU430
+ 1540 04e2 6621     		movs	r1, #102
+ 1541 04e4 2046     		mov	r0, r4
+ 1542 04e6 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1543              	.LVL194:
+ 230:user/screen.cpp ****     Write1Byte(0x00);
+ 1544              		.loc 1 230 5 is_stmt 1 view .LVU431
+ 230:user/screen.cpp ****     Write1Byte(0x00);
+ 1545              		.loc 1 230 15 is_stmt 0 view .LVU432
+ 1546 04ea 3C21     		movs	r1, #60
+ 1547 04ec 2046     		mov	r0, r4
+ 1548 04ee FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1549              	.LVL195:
+ 231:user/screen.cpp ****     Write1Byte(0xCD);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 41
+
+
+ 1550              		.loc 1 231 5 is_stmt 1 view .LVU433
+ 231:user/screen.cpp ****     Write1Byte(0xCD);
+ 1551              		.loc 1 231 15 is_stmt 0 view .LVU434
+ 1552 04f2 0021     		movs	r1, #0
+ 1553 04f4 2046     		mov	r0, r4
+ 1554 04f6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1555              	.LVL196:
+ 232:user/screen.cpp ****     Write1Byte(0x67);
+ 1556              		.loc 1 232 5 is_stmt 1 view .LVU435
+ 232:user/screen.cpp ****     Write1Byte(0x67);
+ 1557              		.loc 1 232 15 is_stmt 0 view .LVU436
+ 1558 04fa CD21     		movs	r1, #205
+ 1559 04fc 2046     		mov	r0, r4
+ 1560 04fe FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1561              	.LVL197:
+ 233:user/screen.cpp ****     Write1Byte(0x45);
+ 1562              		.loc 1 233 5 is_stmt 1 view .LVU437
+ 233:user/screen.cpp ****     Write1Byte(0x45);
+ 1563              		.loc 1 233 15 is_stmt 0 view .LVU438
+ 1564 0502 6721     		movs	r1, #103
+ 1565 0504 2046     		mov	r0, r4
+ 1566 0506 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1567              	.LVL198:
+ 234:user/screen.cpp ****     Write1Byte(0x45);
+ 1568              		.loc 1 234 5 is_stmt 1 view .LVU439
+ 234:user/screen.cpp ****     Write1Byte(0x45);
+ 1569              		.loc 1 234 15 is_stmt 0 view .LVU440
+ 1570 050a 4521     		movs	r1, #69
+ 1571 050c 2046     		mov	r0, r4
+ 1572 050e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1573              	.LVL199:
+ 235:user/screen.cpp ****     Write1Byte(0x10);
+ 1574              		.loc 1 235 5 is_stmt 1 view .LVU441
+ 235:user/screen.cpp ****     Write1Byte(0x10);
+ 1575              		.loc 1 235 15 is_stmt 0 view .LVU442
+ 1576 0512 4521     		movs	r1, #69
+ 1577 0514 2046     		mov	r0, r4
+ 1578 0516 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1579              	.LVL200:
+ 236:user/screen.cpp ****     Write1Byte(0x00);
+ 1580              		.loc 1 236 5 is_stmt 1 view .LVU443
+ 236:user/screen.cpp ****     Write1Byte(0x00);
+ 1581              		.loc 1 236 15 is_stmt 0 view .LVU444
+ 1582 051a 1021     		movs	r1, #16
+ 1583 051c 2046     		mov	r0, r4
+ 1584 051e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1585              	.LVL201:
+ 237:user/screen.cpp ****     Write1Byte(0x00);
+ 1586              		.loc 1 237 5 is_stmt 1 view .LVU445
+ 237:user/screen.cpp ****     Write1Byte(0x00);
+ 1587              		.loc 1 237 15 is_stmt 0 view .LVU446
+ 1588 0522 0021     		movs	r1, #0
+ 1589 0524 2046     		mov	r0, r4
+ 1590 0526 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1591              	.LVL202:
+ 238:user/screen.cpp ****     Write1Byte(0x00);
+ 1592              		.loc 1 238 5 is_stmt 1 view .LVU447
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 42
+
+
+ 238:user/screen.cpp ****     Write1Byte(0x00);
+ 1593              		.loc 1 238 15 is_stmt 0 view .LVU448
+ 1594 052a 0021     		movs	r1, #0
+ 1595 052c 2046     		mov	r0, r4
+ 1596 052e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1597              	.LVL203:
+ 239:user/screen.cpp **** 
+ 1598              		.loc 1 239 5 is_stmt 1 view .LVU449
+ 239:user/screen.cpp **** 
+ 1599              		.loc 1 239 15 is_stmt 0 view .LVU450
+ 1600 0532 0021     		movs	r1, #0
+ 1601 0534 2046     		mov	r0, r4
+ 1602 0536 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1603              	.LVL204:
+ 241:user/screen.cpp ****     Write1Byte(0x00);
+ 1604              		.loc 1 241 5 is_stmt 1 view .LVU451
+ 241:user/screen.cpp ****     Write1Byte(0x00);
+ 1605              		.loc 1 241 17 is_stmt 0 view .LVU452
+ 1606 053a 6721     		movs	r1, #103
+ 1607 053c 2046     		mov	r0, r4
+ 1608 053e FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1609              	.LVL205:
+ 242:user/screen.cpp ****     Write1Byte(0x3C);
+ 1610              		.loc 1 242 5 is_stmt 1 view .LVU453
+ 242:user/screen.cpp ****     Write1Byte(0x3C);
+ 1611              		.loc 1 242 15 is_stmt 0 view .LVU454
+ 1612 0542 0021     		movs	r1, #0
+ 1613 0544 2046     		mov	r0, r4
+ 1614 0546 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1615              	.LVL206:
+ 243:user/screen.cpp ****     Write1Byte(0x00);
+ 1616              		.loc 1 243 5 is_stmt 1 view .LVU455
+ 243:user/screen.cpp ****     Write1Byte(0x00);
+ 1617              		.loc 1 243 15 is_stmt 0 view .LVU456
+ 1618 054a 3C21     		movs	r1, #60
+ 1619 054c 2046     		mov	r0, r4
+ 1620 054e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1621              	.LVL207:
+ 244:user/screen.cpp ****     Write1Byte(0x00);
+ 1622              		.loc 1 244 5 is_stmt 1 view .LVU457
+ 244:user/screen.cpp ****     Write1Byte(0x00);
+ 1623              		.loc 1 244 15 is_stmt 0 view .LVU458
+ 1624 0552 0021     		movs	r1, #0
+ 1625 0554 2046     		mov	r0, r4
+ 1626 0556 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1627              	.LVL208:
+ 245:user/screen.cpp ****     Write1Byte(0x00);
+ 1628              		.loc 1 245 5 is_stmt 1 view .LVU459
+ 245:user/screen.cpp ****     Write1Byte(0x00);
+ 1629              		.loc 1 245 15 is_stmt 0 view .LVU460
+ 1630 055a 0021     		movs	r1, #0
+ 1631 055c 2046     		mov	r0, r4
+ 1632 055e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1633              	.LVL209:
+ 246:user/screen.cpp ****     Write1Byte(0x01);
+ 1634              		.loc 1 246 5 is_stmt 1 view .LVU461
+ 246:user/screen.cpp ****     Write1Byte(0x01);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 43
+
+
+ 1635              		.loc 1 246 15 is_stmt 0 view .LVU462
+ 1636 0562 0021     		movs	r1, #0
+ 1637 0564 2046     		mov	r0, r4
+ 1638 0566 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1639              	.LVL210:
+ 247:user/screen.cpp ****     Write1Byte(0x54);
+ 1640              		.loc 1 247 5 is_stmt 1 view .LVU463
+ 247:user/screen.cpp ****     Write1Byte(0x54);
+ 1641              		.loc 1 247 15 is_stmt 0 view .LVU464
+ 1642 056a 0121     		movs	r1, #1
+ 1643 056c 2046     		mov	r0, r4
+ 1644 056e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1645              	.LVL211:
+ 248:user/screen.cpp ****     Write1Byte(0x10);
+ 1646              		.loc 1 248 5 is_stmt 1 view .LVU465
+ 248:user/screen.cpp ****     Write1Byte(0x10);
+ 1647              		.loc 1 248 15 is_stmt 0 view .LVU466
+ 1648 0572 5421     		movs	r1, #84
+ 1649 0574 2046     		mov	r0, r4
+ 1650 0576 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1651              	.LVL212:
+ 249:user/screen.cpp ****     Write1Byte(0x32);
+ 1652              		.loc 1 249 5 is_stmt 1 view .LVU467
+ 249:user/screen.cpp ****     Write1Byte(0x32);
+ 1653              		.loc 1 249 15 is_stmt 0 view .LVU468
+ 1654 057a 1021     		movs	r1, #16
+ 1655 057c 2046     		mov	r0, r4
+ 1656 057e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1657              	.LVL213:
+ 250:user/screen.cpp ****     Write1Byte(0x98);
+ 1658              		.loc 1 250 5 is_stmt 1 view .LVU469
+ 250:user/screen.cpp ****     Write1Byte(0x98);
+ 1659              		.loc 1 250 15 is_stmt 0 view .LVU470
+ 1660 0582 3221     		movs	r1, #50
+ 1661 0584 2046     		mov	r0, r4
+ 1662 0586 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1663              	.LVL214:
+ 251:user/screen.cpp **** 
+ 1664              		.loc 1 251 5 is_stmt 1 view .LVU471
+ 251:user/screen.cpp **** 
+ 1665              		.loc 1 251 15 is_stmt 0 view .LVU472
+ 1666 058a 9821     		movs	r1, #152
+ 1667 058c 2046     		mov	r0, r4
+ 1668 058e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1669              	.LVL215:
+ 253:user/screen.cpp ****     Write1Byte(0x10);
+ 1670              		.loc 1 253 5 is_stmt 1 view .LVU473
+ 253:user/screen.cpp ****     Write1Byte(0x10);
+ 1671              		.loc 1 253 17 is_stmt 0 view .LVU474
+ 1672 0592 7421     		movs	r1, #116
+ 1673 0594 2046     		mov	r0, r4
+ 1674 0596 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1675              	.LVL216:
+ 254:user/screen.cpp ****     Write1Byte(0x85);
+ 1676              		.loc 1 254 5 is_stmt 1 view .LVU475
+ 254:user/screen.cpp ****     Write1Byte(0x85);
+ 1677              		.loc 1 254 15 is_stmt 0 view .LVU476
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 44
+
+
+ 1678 059a 1021     		movs	r1, #16
+ 1679 059c 2046     		mov	r0, r4
+ 1680 059e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1681              	.LVL217:
+ 255:user/screen.cpp ****     Write1Byte(0x80);
+ 1682              		.loc 1 255 5 is_stmt 1 view .LVU477
+ 255:user/screen.cpp ****     Write1Byte(0x80);
+ 1683              		.loc 1 255 15 is_stmt 0 view .LVU478
+ 1684 05a2 8521     		movs	r1, #133
+ 1685 05a4 2046     		mov	r0, r4
+ 1686 05a6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1687              	.LVL218:
+ 256:user/screen.cpp ****     Write1Byte(0x00);
+ 1688              		.loc 1 256 5 is_stmt 1 view .LVU479
+ 256:user/screen.cpp ****     Write1Byte(0x00);
+ 1689              		.loc 1 256 15 is_stmt 0 view .LVU480
+ 1690 05aa 8021     		movs	r1, #128
+ 1691 05ac 2046     		mov	r0, r4
+ 1692 05ae FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1693              	.LVL219:
+ 257:user/screen.cpp ****     Write1Byte(0x00);
+ 1694              		.loc 1 257 5 is_stmt 1 view .LVU481
+ 257:user/screen.cpp ****     Write1Byte(0x00);
+ 1695              		.loc 1 257 15 is_stmt 0 view .LVU482
+ 1696 05b2 0021     		movs	r1, #0
+ 1697 05b4 2046     		mov	r0, r4
+ 1698 05b6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1699              	.LVL220:
+ 258:user/screen.cpp ****     Write1Byte(0x4E);
+ 1700              		.loc 1 258 5 is_stmt 1 view .LVU483
+ 258:user/screen.cpp ****     Write1Byte(0x4E);
+ 1701              		.loc 1 258 15 is_stmt 0 view .LVU484
+ 1702 05ba 0021     		movs	r1, #0
+ 1703 05bc 2046     		mov	r0, r4
+ 1704 05be FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1705              	.LVL221:
+ 259:user/screen.cpp ****     Write1Byte(0x00);
+ 1706              		.loc 1 259 5 is_stmt 1 view .LVU485
+ 259:user/screen.cpp ****     Write1Byte(0x00);
+ 1707              		.loc 1 259 15 is_stmt 0 view .LVU486
+ 1708 05c2 4E21     		movs	r1, #78
+ 1709 05c4 2046     		mov	r0, r4
+ 1710 05c6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1711              	.LVL222:
+ 260:user/screen.cpp **** 
+ 1712              		.loc 1 260 5 is_stmt 1 view .LVU487
+ 260:user/screen.cpp **** 
+ 1713              		.loc 1 260 15 is_stmt 0 view .LVU488
+ 1714 05ca 0021     		movs	r1, #0
+ 1715 05cc 2046     		mov	r0, r4
+ 1716 05ce FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1717              	.LVL223:
+ 262:user/screen.cpp ****     Write1Byte(0x3e);
+ 1718              		.loc 1 262 5 is_stmt 1 view .LVU489
+ 262:user/screen.cpp ****     Write1Byte(0x3e);
+ 1719              		.loc 1 262 17 is_stmt 0 view .LVU490
+ 1720 05d2 9821     		movs	r1, #152
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 45
+
+
+ 1721 05d4 2046     		mov	r0, r4
+ 1722 05d6 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1723              	.LVL224:
+ 263:user/screen.cpp ****     Write1Byte(0x07);
+ 1724              		.loc 1 263 5 is_stmt 1 view .LVU491
+ 263:user/screen.cpp ****     Write1Byte(0x07);
+ 1725              		.loc 1 263 15 is_stmt 0 view .LVU492
+ 1726 05da 3E21     		movs	r1, #62
+ 1727 05dc 2046     		mov	r0, r4
+ 1728 05de FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1729              	.LVL225:
+ 264:user/screen.cpp **** 
+ 1730              		.loc 1 264 5 is_stmt 1 view .LVU493
+ 264:user/screen.cpp **** 
+ 1731              		.loc 1 264 15 is_stmt 0 view .LVU494
+ 1732 05e2 0721     		movs	r1, #7
+ 1733 05e4 2046     		mov	r0, r4
+ 1734 05e6 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1735              	.LVL226:
+ 266:user/screen.cpp ****     WriteCommand(0x21);
+ 1736              		.loc 1 266 5 is_stmt 1 view .LVU495
+ 266:user/screen.cpp ****     WriteCommand(0x21);
+ 1737              		.loc 1 266 17 is_stmt 0 view .LVU496
+ 1738 05ea 3521     		movs	r1, #53
+ 1739 05ec 2046     		mov	r0, r4
+ 1740 05ee FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1741              	.LVL227:
+ 267:user/screen.cpp **** 
+ 1742              		.loc 1 267 5 is_stmt 1 view .LVU497
+ 267:user/screen.cpp **** 
+ 1743              		.loc 1 267 17 is_stmt 0 view .LVU498
+ 1744 05f2 2121     		movs	r1, #33
+ 1745 05f4 2046     		mov	r0, r4
+ 1746 05f6 FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1747              	.LVL228:
+ 269:user/screen.cpp ****     HAL_Delay(120);
+ 1748              		.loc 1 269 5 is_stmt 1 view .LVU499
+ 269:user/screen.cpp ****     HAL_Delay(120);
+ 1749              		.loc 1 269 17 is_stmt 0 view .LVU500
+ 1750 05fa 1121     		movs	r1, #17
+ 1751 05fc 2046     		mov	r0, r4
+ 1752 05fe FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ 1753              	.LVL229:
+ 270:user/screen.cpp ****     WriteCommand(0x29);
+ 1754              		.loc 1 270 5 is_stmt 1 view .LVU501
+ 270:user/screen.cpp ****     WriteCommand(0x29);
+ 1755              		.loc 1 270 14 is_stmt 0 view .LVU502
+ 1756 0602 7820     		movs	r0, #120
+ 1757 0604 FFF7FEFF 		bl	HAL_Delay
+ 1758              	.LVL230:
+ 271:user/screen.cpp ****     HAL_Delay(20);
+ 1759              		.loc 1 271 5 is_stmt 1 view .LVU503
+ 271:user/screen.cpp ****     HAL_Delay(20);
+ 1760              		.loc 1 271 17 is_stmt 0 view .LVU504
+ 1761 0608 2921     		movs	r1, #41
+ 1762 060a 2046     		mov	r0, r4
+ 1763 060c FFF7FEFF 		bl	_ZN6Screen12WriteCommandEh
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 46
+
+
+ 1764              	.LVL231:
+ 272:user/screen.cpp **** 
+ 1765              		.loc 1 272 5 is_stmt 1 view .LVU505
+ 272:user/screen.cpp **** 
+ 1766              		.loc 1 272 14 is_stmt 0 view .LVU506
+ 1767 0610 1420     		movs	r0, #20
+ 1768 0612 FFF7FEFF 		bl	HAL_Delay
+ 1769              	.LVL232:
+ 274:user/screen.cpp **** 
+ 1770              		.loc 1 274 5 is_stmt 1 view .LVU507
+ 274:user/screen.cpp **** 
+ 1771              		.loc 1 274 15 is_stmt 0 view .LVU508
+ 1772 0616 0021     		movs	r1, #0
+ 1773 0618 2046     		mov	r0, r4
+ 1774 061a FFF7FEFF 		bl	_ZN6Screen10ChipSelectEb
+ 1775              	.LVL233:
+ 276:user/screen.cpp **** }
+ 1776              		.loc 1 276 5 is_stmt 1 view .LVU509
+ 276:user/screen.cpp **** }
+ 1777              		.loc 1 276 17 is_stmt 0 view .LVU510
+ 1778 061e B7EE000A 		vmov.f32	s0, #1.0e+0
+ 1779 0622 2046     		mov	r0, r4
+ 1780 0624 FFF7FEFF 		bl	_ZN6Screen12SetBackLightEf
+ 1781              	.LVL234:
+ 277:user/screen.cpp **** 
+ 1782              		.loc 1 277 1 view .LVU511
+ 1783 0628 38BD     		pop	{r3, r4, r5, pc}
+ 1784              	.LVL235:
+ 1785              	.L40:
+  74:user/screen.cpp ****             Write1Byte(0x28);
+ 1786              		.loc 1 74 9 is_stmt 1 view .LVU512
+  75:user/screen.cpp ****             break;
+ 1787              		.loc 1 75 13 view .LVU513
+  75:user/screen.cpp ****             break;
+ 1788              		.loc 1 75 23 is_stmt 0 view .LVU514
+ 1789 062a 2821     		movs	r1, #40
+ 1790 062c 2046     		mov	r0, r4
+ 1791 062e FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1792              	.LVL236:
+  76:user/screen.cpp ****         case DEGREE_180:
+ 1793              		.loc 1 76 13 is_stmt 1 view .LVU515
+ 1794 0632 94E5     		b	.L36
+ 1795              	.L39:
+  77:user/screen.cpp ****             Write1Byte(0x48);
+ 1796              		.loc 1 77 9 view .LVU516
+  78:user/screen.cpp ****             break;
+ 1797              		.loc 1 78 13 view .LVU517
+  78:user/screen.cpp ****             break;
+ 1798              		.loc 1 78 23 is_stmt 0 view .LVU518
+ 1799 0634 4821     		movs	r1, #72
+ 1800 0636 2046     		mov	r0, r4
+ 1801 0638 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1802              	.LVL237:
+  79:user/screen.cpp ****         case DEGREE_270:
+ 1803              		.loc 1 79 13 is_stmt 1 view .LVU519
+ 1804 063c 8FE5     		b	.L36
+ 1805              	.L37:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 47
+
+
+  80:user/screen.cpp ****             Write1Byte(0x88);
+ 1806              		.loc 1 80 9 view .LVU520
+  81:user/screen.cpp ****             break;
+ 1807              		.loc 1 81 13 view .LVU521
+  81:user/screen.cpp ****             break;
+ 1808              		.loc 1 81 23 is_stmt 0 view .LVU522
+ 1809 063e 8821     		movs	r1, #136
+ 1810 0640 2046     		mov	r0, r4
+ 1811 0642 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1812              	.LVL238:
+  82:user/screen.cpp ****     }
+ 1813              		.loc 1 82 13 is_stmt 1 view .LVU523
+ 1814 0646 8AE5     		b	.L36
+ 1815              	.L46:
+  88:user/screen.cpp ****             Write1Byte(0x03);
+ 1816              		.loc 1 88 9 view .LVU524
+  89:user/screen.cpp ****             break;
+ 1817              		.loc 1 89 13 view .LVU525
+  89:user/screen.cpp ****             break;
+ 1818              		.loc 1 89 23 is_stmt 0 view .LVU526
+ 1819 0648 0321     		movs	r1, #3
+ 1820 064a 2046     		mov	r0, r4
+ 1821 064c FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1822              	.LVL239:
+  90:user/screen.cpp ****         case BIT_16:
+ 1823              		.loc 1 90 13 is_stmt 1 view .LVU527
+ 1824 0650 93E5     		b	.L44
+ 1825              	.L42:
+  91:user/screen.cpp ****             Write1Byte(0x05);
+ 1826              		.loc 1 91 9 view .LVU528
+  92:user/screen.cpp ****             break;
+ 1827              		.loc 1 92 13 view .LVU529
+  92:user/screen.cpp ****             break;
+ 1828              		.loc 1 92 23 is_stmt 0 view .LVU530
+ 1829 0652 0521     		movs	r1, #5
+ 1830 0654 2046     		mov	r0, r4
+ 1831 0656 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1832              	.LVL240:
+  93:user/screen.cpp ****         case BIT_18:
+ 1833              		.loc 1 93 13 is_stmt 1 view .LVU531
+ 1834 065a 8EE5     		b	.L44
+ 1835              	.L43:
+  94:user/screen.cpp ****             Write1Byte(0x06);
+ 1836              		.loc 1 94 9 view .LVU532
+  95:user/screen.cpp ****             break;
+ 1837              		.loc 1 95 13 view .LVU533
+  95:user/screen.cpp ****             break;
+ 1838              		.loc 1 95 23 is_stmt 0 view .LVU534
+ 1839 065c 0621     		movs	r1, #6
+ 1840 065e 2046     		mov	r0, r4
+ 1841 0660 FFF7FEFF 		bl	_ZN6Screen10Write1ByteEh
+ 1842              	.LVL241:
+  96:user/screen.cpp ****     }
+ 1843              		.loc 1 96 13 is_stmt 1 view .LVU535
+ 1844 0664 89E5     		b	.L44
+ 1845              		.cfi_endproc
+ 1846              	.LFE133:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 48
+
+
+ 1847              		.fnend
+ 1849              		.text
+ 1850              	.Letext0:
+ 1851              		.file 2 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1852              		.file 3 "e:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1853              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+ 1854              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1855              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 1856              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1857              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 1858              		.file 9 "user/screen.h"
+ 1859              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s 			page 49
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 screen.cpp
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:20     .text._ZN6Screen10ChipSelectEb:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:26     .text._ZN6Screen10ChipSelectEb:00000000 _ZN6Screen10ChipSelectEb
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:54     .text._ZN6Screen10ChipSelectEb:00000014 $d
+.ARM.exidx.text._ZN6Screen10ChipSelectEb:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:61     .text._ZN6Screen5ResetEb:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:67     .text._ZN6Screen5ResetEb:00000000 _ZN6Screen5ResetEb
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:94     .text._ZN6Screen5ResetEb:00000014 $d
+.ARM.exidx.text._ZN6Screen5ResetEb:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:101    .text._ZN6Screen16SetDataOrCommandEb:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:107    .text._ZN6Screen16SetDataOrCommandEb:00000000 _ZN6Screen16SetDataOrCommandEb
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:134    .text._ZN6Screen16SetDataOrCommandEb:00000014 $d
+.ARM.exidx.text._ZN6Screen16SetDataOrCommandEb:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:141    .text._ZN6Screen12WriteCommandEh:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:147    .text._ZN6Screen12WriteCommandEh:00000000 _ZN6Screen12WriteCommandEh
+.ARM.exidx.text._ZN6Screen12WriteCommandEh:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:201    .text._ZN6Screen10Write1ByteEh:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:207    .text._ZN6Screen10Write1ByteEh:00000000 _ZN6Screen10Write1ByteEh
+.ARM.exidx.text._ZN6Screen10Write1ByteEh:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:255    .text._ZN6Screen9WriteDataEPhmb:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:261    .text._ZN6Screen9WriteDataEPhmb:00000000 _ZN6Screen9WriteDataEPhmb
+.ARM.exidx.text._ZN6Screen9WriteDataEPhmb:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:319    .text._ZN6Screen9SetWindowEtttt:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:325    .text._ZN6Screen9SetWindowEtttt:00000000 _ZN6Screen9SetWindowEtttt
+.ARM.exidx.text._ZN6Screen9SetWindowEtttt:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:445    .text._ZN6Screen16WriteFrameBufferEPhmb:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:451    .text._ZN6Screen16WriteFrameBufferEPhmb:00000000 _ZN6Screen16WriteFrameBufferEPhmb
+.ARM.exidx.text._ZN6Screen16WriteFrameBufferEPhmb:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:535    .text._ZN6Screen12SetBackLightEf:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:541    .text._ZN6Screen12SetBackLightEf:00000000 _ZN6Screen12SetBackLightEf
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:572    .text._ZN6Screen12SetBackLightEf:00000010 $d
+.ARM.extab.text._ZN6Screen12SetBackLightEf:00000000 $d
+.ARM.exidx.text._ZN6Screen12SetBackLightEf:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:578    .text._ZN6Screen4InitENS_13Orientation_tE:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:584    .text._ZN6Screen4InitENS_13Orientation_tE:00000000 _ZN6Screen4InitENS_13Orientation_tE
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:852    .text._ZN6Screen4InitENS_13Orientation_tE:0000014e $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccLCoed4.s:856    .text._ZN6Screen4InitENS_13Orientation_tE:00000156 $t
+.ARM.exidx.text._ZN6Screen4InitENS_13Orientation_tE:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_SPI_Transmit
+__aeabi_unwind_cpp_pr0
+HAL_SPI_Transmit_DMA
+HAL_GPIO_WritePin
+__aeabi_unwind_cpp_pr1
+HAL_Delay

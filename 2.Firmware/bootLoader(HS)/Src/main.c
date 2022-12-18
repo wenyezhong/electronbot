@@ -36,6 +36,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define  ProgAddr_Start  0x8008000
+#define  SIZE_PER  4096
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -48,6 +50,7 @@
 /* USER CODE BEGIN PV */
 extern UsbBuffer_t usbBuffer;
 uint16_t recPacketNo;
+uint16_t perSize;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -58,6 +61,30 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+//uint32_t _reboot_cookie __attribute__ ((section (".noinit")));
+// extern char _estack;
+void early_start_checks(void) {
+  uint32_t _reboot_cookie;
+  _reboot_cookie=*(uint32_t *)0x800801c;
+  if(_reboot_cookie == 0xcafebeef) 
+  {
+  //   __set_MSP((uintptr_t)&_estack);  //没有ucos 不需要此行代码
+    // printf("tttt begin...\r\n");
+    __set_MSP(*(uint32_t *)0x8008000);
+    void (*electronbotApp)(void) = (void (*)(void))(*((uint32_t *)0x8008004));
+    electronbotApp();
+ 
+  } 
+
+  /* The bootloader might fail to properly clean up after itself,
+  so if we're not sure that the system is in a clean state we
+  just reset it again */
+/*   if(_reboot_cookie != 42) 
+  {
+    _reboot_cookie = 42;
+    NVIC_SystemReset();
+  }*/
+} 
 int _write(int fd, char *ch, int len)
 {
   HAL_UART_Transmit(&huart1, (uint8_t*)ch, len, 0xFFFF);
@@ -83,7 +110,12 @@ uint8_t* GetExtraDataRxPtr()
   ptr=usbBuffer.rxData[usbBuffer.pingPongIndex == 0 ? 1 : 0];
   return ptr + 60 * 240 * 3;
 }
-
+uint8_t* GetDataRxPtr()
+{
+  uint8_t* ptr;
+  ptr=usbBuffer.rxData[usbBuffer.pingPongIndex == 0 ? 1 : 0];
+  return ptr;
+}
 void JumpBootLoader(uint8_t *ptr)
 {
     usbBuffer.extraDataTx[31] = 0xef;
@@ -102,6 +134,32 @@ void QueryBootLoaderReply(uint8_t *ptr)
 }
 void EraseAppCodeReply(uint8_t *ptr)
 {
+  int i;
+  uint32_t sectorError;
+  uint8_t sectorSize[12]={16,16,16,16,64,128,128,128,128,128,128,128};
+  uint32_t calcSize=0;
+  FLASH_EraseInitTypeDef EraseInit;
+  uint32_t totalSize = *(uint32_t*)(ptr+26);
+  uint32_t totalKB = totalSize%1024?(totalSize/1024+1):(totalSize/1024);
+  printf("totalSize = %ld  totalKB = %ld\r\n",totalSize,totalKB);
+  for(i=2;i<12;i++)  //应用区从0x8004000开始，即是从第一个扇区开始擦除
+  {
+      calcSize += sectorSize[i];
+      if(calcSize >= totalKB)
+      {
+        // EraseInit.NbSectors = i;
+        break;
+      }
+  }
+  printf("index = %d\r\n",i);
+  HAL_FLASH_Unlock();
+  EraseInit.TypeErase=FLASH_TYPEERASE_SECTORS;
+  EraseInit.Banks=FLASH_BANK_1;
+  EraseInit.Sector = 2;
+  EraseInit.NbSectors = i-1;
+  EraseInit.VoltageRange = FLASH_VOLTAGE_RANGE_3;
+  HAL_StatusTypeDef ret=HAL_FLASHEx_Erase(&EraseInit,&sectorError);
+  printf("ret = %d  sectorError = %ld\r\n",ret,sectorError);
   usbBuffer.extraDataTx[31] = 0xef;
   usbBuffer.extraDataTx[30] = 0x03;
   usbBuffer.extraDataTx[29] = 0x00;
@@ -109,6 +167,10 @@ void EraseAppCodeReply(uint8_t *ptr)
 }
 void downLoadAppCodeReply(uint8_t *ptr,uint8_t pacektNo)
 {
+  int i;
+  uint8_t *codeData=GetDataRxPtr();
+  for(i = 0; i < perSize; i += 4)
+    HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD,(ProgAddr_Start+recPacketNo*perSize+i),*(uint32_t*)&codeData[i]);
   usbBuffer.extraDataTx[31] = 0xef;
   usbBuffer.extraDataTx[30] = 0x04;
   if(pacektNo == recPacketNo)
@@ -118,14 +180,22 @@ void downLoadAppCodeReply(uint8_t *ptr,uint8_t pacektNo)
   *(uint16_t*)&usbBuffer.extraDataTx[27] = pacektNo;
   SendUsbPacket(usbBuffer.extraDataTx, 32);
 }
+// typedef  void (*pFunction)(void);
 
 void NoticeCompleteReply(uint8_t *ptr,uint8_t pacektNo)
 {
+  HAL_FLASH_Lock();
   usbBuffer.extraDataTx[31] = 0xef;
   usbBuffer.extraDataTx[30] = 0x05; 
   // usbBuffer.extraDataTx[29] = 0x00;  
   *(uint16_t*)&usbBuffer.extraDataTx[28] = pacektNo;
   SendUsbPacket(usbBuffer.extraDataTx, 32);
+  HAL_Delay(50);
+  NVIC_SystemReset();
+ 
+  /*  __set_MSP(*(uint32_t *)0x8008000);
+    void (*electronbotApp)(void) = (void (*)(void))(*((uint32_t *)0x8008004));
+    electronbotApp(); */
 
 }
 /* USER CODE END 0 */
@@ -137,8 +207,8 @@ void NoticeCompleteReply(uint8_t *ptr,uint8_t pacektNo)
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  uint16_t currentPacketNo;
-  uint16_t perSize;
+  uint16_t currentPacketNo=0;
+  
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -187,16 +257,14 @@ int main(void)
 
       }break;
       case 0xfe03:{
-        uint32_t totalSize = *(uint32_t*)(ptr+26);
         currentPacketNo = 0;
-        printf("Erase app code\r\n");
-        printf("totalSize = %u\r\n",totalSize);
+        printf("Erase app code\r\n");        
         EraseAppCodeReply(ptr);
 
       }break;
       case 0xfe04:{
         recPacketNo = *(uint16_t*)(ptr+28);
-        perSize = *(uint16_t*)(ptr+24);        
+        perSize = *(uint16_t*)(ptr+24);
         printf("downLoad app code\r\n");
         printf("recPacketNo = %d  perSize=%d\r\n",recPacketNo,perSize);
         downLoadAppCodeReply(ptr,currentPacketNo);

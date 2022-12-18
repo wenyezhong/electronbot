@@ -2,8 +2,8 @@
 #define COMMUSB_H
 
 #include"libusb.h"
-#define USBD_CMPSIT_VID     0x1215
-#define USBD_CMPSIT_PID     0x0D3b
+#define USBD_CMPSIT_VID     0x1217
+#define USBD_CMPSIT_PID     0x0D39
 
 #define WIN_USB_EPIN_ADDR   0x83
 #define WIN_USB_EPOUT_ADDR  0x03

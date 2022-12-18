@@ -175,6 +175,7 @@ void MainWindow::recUsbDatas(BYTE* ptr)
 
             if(ptr[29]==0)
             {
+                reconnectElectronbotUSB();
                 uint16_t recvTotalPackets = *(uint16_t*)&ptr[28];
                 ui->progressBar->setValue(recvTotalPackets);
                 qDebug("recvTotalPackets = %d",recvTotalPackets);

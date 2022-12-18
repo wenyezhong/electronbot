@@ -57,11 +57,21 @@ bool commUSB::openElectronbotUSB(int vid,int pid)
     uint8_t endpoint_num, nb_ifaces,res;
     uint8_t i,j;
 
-     handle = libusb_open_device_with_vid_pid(NULL, vid, pid);
+     handle = libusb_open_device_with_vid_pid(NULL, 0x1217, 0x0D39);
      if (handle == NULL)
      {
-         qDebug("open devices failed");
-         return false;
+         qDebug("open devices 1 failed");
+         //libusb_free_device_list(devs,1);
+         //libusb_exit(NULL);
+         //libusb_init(NULL);
+         //libusb_get_device_list(NULL,&devs);
+         print_dev();
+         handle = libusb_open_device_with_vid_pid(NULL, 0x1219, 0x0D3b);
+         if (handle == NULL)
+         {
+            qDebug("open devices 2 failed");
+            return false;
+         }
      }
      else
      {
