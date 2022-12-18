@@ -90,8 +90,8 @@ void JumpBootLoader(uint8_t *ptr)
     usbBuffer.extraDataTx[30] = 0x01;
     usbBuffer.extraDataTx[29] = 0x00;
     SendUsbPacket(usbBuffer.extraDataTx, 32);
-    // HAL_Delay(120);
-    // NVIC_SystemReset();
+    HAL_Delay(50);
+    NVIC_SystemReset();
 }
 void QueryBootLoaderReply(uint8_t *ptr)
 {

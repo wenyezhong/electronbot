@@ -48,6 +48,7 @@ MainWindow::MainWindow(QWidget *parent) :
     readUsbTread = new Thread;
     connect(readUsbTread,SIGNAL(sendRecDat(BYTE*)),this,SLOT(recUsbDatas(BYTE*)));
     readUsbTread->runFlag = true;
+    readUsbTread->usbReadFlag = true;
     readUsbTread->start();
 
     //pDownLoadFile = new downLoadFile(electronbot_usb);
@@ -57,6 +58,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    
     if(pDownLoadFile)
         delete pDownLoadFile;
     if(electronbot_usb)
@@ -64,20 +66,31 @@ MainWindow::~MainWindow()
     if(recvUSB_Timer)
         delete recvUSB_Timer;
     if(readUsbTread)
+    {
+        readUsbTread->runFlag = false;
+        readUsbTread->exit();
+        //qDebug("sfdds");
+        readUsbTread->wait();
+        //qDebug("eee");
         delete readUsbTread;
+    }
     delete ui;
 }
 void MainWindow::reconnectElectronbotUSB(void)
 {
-    readUsbTread->runFlag = false;
+    readUsbTread->usbReadFlag = false;
+    //readUsbTread->runFlag = false;
+    Sleep(100);
+    //readUsbTread->disconnect(readUsbTread,SIGNAL(sendRecDat(BYTE*)),this,SLOT(recUsbDatas(BYTE*)));
+    //readUsbTread->exit();
+    //readUsbTread->wait();
+    //delete readUsbTread;
+    electronbot_usb->CloseElectronbotUSB();
+    //pcommUSB=nullptr;
+    //delete electronbot_usb;
     Sleep(500);
-    readUsbTread->terminate();
-
-    pcommUSB=nullptr;
-    delete electronbot_usb;
-
-    electronbot_usb = new commUSB;
-    pcommUSB = electronbot_usb;
+    //electronbot_usb = new commUSB;
+    //pcommUSB = electronbot_usb;
     bool ret=electronbot_usb->openElectronbotUSB(USBD_CMPSIT_VID,USBD_CMPSIT_PID);
     if(ret)
     {
@@ -89,9 +102,9 @@ void MainWindow::reconnectElectronbotUSB(void)
         ui->statusBar->showMessage(tr("未连接"));
         ui->statusBar->setStyleSheet("background-color: rgb(213, 0, 0)");
     }
-    readUsbTread->runFlag = true;
-    readUsbTread->start();
-
+    //readUsbTread = new Thread;
+    //connect(readUsbTread,SIGNAL(sendRecDat(BYTE*)),this,SLOT(recUsbDatas(BYTE*)));
+    readUsbTread->usbReadFlag = true;
 }
 void MainWindow::recUsbDatas(BYTE* ptr)
 {
@@ -104,8 +117,7 @@ void MainWindow::recUsbDatas(BYTE* ptr)
 
             if(ptr[29]==0)
             {
-                //reconnectElectronbotUSB();
-//                Sleep(1000);
+                reconnectElectronbotUSB();
                 pDownLoadFile->QueryBootLoaderReady(txData);
             }
 
@@ -168,7 +180,7 @@ void MainWindow::recUsbDatas(BYTE* ptr)
                 qDebug("recvTotalPackets = %d",recvTotalPackets);
                 //pDownLoadFile->QueryBootLoaderReady(txData);
                 ui->statusBar->showMessage(ui->statusBar->currentMessage()+"     下载成功！");
-                delete pDownLoadFile;
+                //delete pDownLoadFile;
 //                ui->statusBar->showMessage(tr("未连接"));
 //                ui->statusBar->setStyleSheet("background-color: rgb(0, 170, 0)");
 
@@ -366,9 +378,13 @@ void MainWindow::on_sendFile_clicked()
 //    uint8_t buf[512];
 //    int i;
     QString fileName=ui->lineEdit_path->text();
-    if(pDownLoadFile)
-        delete pDownLoadFile;
-    pDownLoadFile = new downLoadFile(electronbot_usb);
+    qDebug()<<fileName;
+    qDebug("11111!");
+   if(!pDownLoadFile)
+   {
+       pDownLoadFile = new downLoadFile(electronbot_usb);
+   }
+
     pDownLoadFile->seFilename(fileName);
     pDownLoadFile->NoticeAppIntoBootLoader(txData);
     QFile file(fileName);//与文件建立联系
@@ -376,7 +392,7 @@ void MainWindow::on_sendFile_clicked()
     {
 
         QString str = "world";
-        //qDebug()<<"hello "<<str<<"!"<<endl;
+        qDebug()<<"hello "<<str<<"!"<<endl;
 
     }
     else

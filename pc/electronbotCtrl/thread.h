@@ -12,6 +12,7 @@ protected:
     void run();
 public:
     bool runFlag;
+    bool usbReadFlag;
 };
 
 

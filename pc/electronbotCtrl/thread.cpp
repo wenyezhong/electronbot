@@ -14,11 +14,14 @@ void Thread::run()
     {
         //commUSB::ReadElectronbotUSB(a,32);
 //        ret = pWindows->electronbot_usb->ReadElectronbotUSB((uint8_t *)a,32);
-        ret = pcommUSB->ReadElectronbotUSB((uint8_t *)a,32);
-        if(ret>=0)
+        if(usbReadFlag)
         {
-            //qDebug("tttttt");
-            emit sendRecDat(a);
+            ret = pcommUSB->ReadElectronbotUSB((uint8_t *)a,32);
+            if(ret>=0)
+            {
+                //qDebug("tttttt");
+                emit sendRecDat(a);
+            }
         }
         QThread::usleep(50);
     }

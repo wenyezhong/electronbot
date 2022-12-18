@@ -8,11 +8,15 @@ downLoadFile::downLoadFile(commUSB *pcomm)
 {
     //sendpacket_to_terminal=callBackFun;
     pcomm_usb = pcomm;
+    //downloadfileName = "F:/electronbot.bin";
 }
 downLoadFile::~downLoadFile()
 {
-    if(downLoadfile.isOpen())
-        downLoadfile.close();
+    pcomm_usb = nullptr;
+    if(downLoad_file.isOpen())
+    {
+        downLoad_file.close();
+    }
 }
 
 void downLoadFile::sendPacket(uint8_t *ptr)
@@ -37,12 +41,14 @@ void downLoadFile::seFilename(QString &filename)
 {
     //sendpacket_to_terminal=callBack;
     downloadfileName = filename;
-    qDebug()<<downloadfileName;
     currentPacketNo = 0;
     totalPackets = 0;
 }
 void downLoadFile::NoticeAppIntoBootLoader(uint8_t *ptr)
 {
+    currentPacketNo = 0;
+    totalPackets = 0;
+    qDebug()<<"NoticeAppIntoBootLoader";
     ptr[PAR_INDEX+31] = 0xfe; //通知进入bootloader
     ptr[PAR_INDEX+30] = 0x01; //
     sendPacket(ptr);
@@ -51,6 +57,8 @@ void downLoadFile::NoticeAppIntoBootLoader(uint8_t *ptr)
 }
 void downLoadFile::QueryBootLoaderReady(uint8_t *ptr)
 {
+    currentPacketNo = 0;
+    totalPackets = 0;
     ptr[PAR_INDEX+31] = 0xfe; //查询是否进入bootloader
     ptr[PAR_INDEX+30] = 0x02; //
 
@@ -60,9 +68,9 @@ void downLoadFile::QueryBootLoaderReady(uint8_t *ptr)
 void downLoadFile::NoticeEraseFlash(uint8_t *ptr)
 {
     uint32_t i;
-    downLoadfile.setFileName(downloadfileName);
+    downLoad_file.setFileName(downloadfileName);
 
-    if(!downLoadfile.exists())//判断是否建立成功
+    if(!downLoad_file.exists())//判断是否建立成功
     {
 
         //QString str = "world";
@@ -73,11 +81,11 @@ void downLoadFile::NoticeEraseFlash(uint8_t *ptr)
     {
         //this->showMaximized();//成功则窗口会最大化，这只是我用检测的方法
         qDebug("read file\r\n");
-        qint64 fileSize=downLoadfile.size();
+        qint64 fileSize=downLoad_file.size();
         qDebug("size=%ld\r\n",fileSize);
         totalPackets = fileSize%SIZE_PER?(fileSize/SIZE_PER+1):(fileSize/SIZE_PER);
         qDebug("totalPackets=%d\r\n",totalPackets);
-        if(downLoadfile.open(QIODevice::ReadOnly|QIODevice::Truncate))//打开文件，以只读的方式打开文本文件
+        if(downLoad_file.open(QIODevice::ReadOnly|QIODevice::Truncate))//打开文件，以只读的方式打开文本文件
         {
             /*QDateTime time= QDateTime::currentDateTime();//获取系统当前的时间
             uint sTime = time.toTime_t();
@@ -111,7 +119,7 @@ void downLoadFile::NoticeEraseFlash(uint8_t *ptr)
          }
        else
        {
-            qDebug()<<downLoadfile.errorString();
+            qDebug()<<downLoad_file.errorString();
        }
     }
 
@@ -120,7 +128,7 @@ void downLoadFile::NoticeEraseFlash(uint8_t *ptr)
 }
 void downLoadFile::DownLoadAppData(uint8_t *ptr)
 {
-    qint32 n=downLoadfile.read((char*)ptr,SIZE_PER);
+    qint32 n=downLoad_file.read((char*)ptr,SIZE_PER);
 //	size_t readLen;
 
 //	memset(updateProgramInfo.pSendCache,0,(CODE_CACHE_LEN+2));
@@ -165,10 +173,12 @@ bool downLoadFile::isTxCplt(void)
 }
 void downLoadFile::NoticeComplete(uint8_t *ptr)
 {
+    if(downLoad_file.isOpen())
+        downLoad_file.close();
     ptr[PAR_INDEX+31] = 0xfe; //查询是否进入bootloader
     ptr[PAR_INDEX+30] = 0x05; //
 
     sendPacket(ptr);
-    downLoadfile.close();
+
 
 }

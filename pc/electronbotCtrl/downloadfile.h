@@ -21,7 +21,7 @@ class downLoadFile
 
 private:
     QString downloadfileName;
-    QFile downLoadfile;
+    QFile downLoad_file;
     uint32_t totalPackets;
     uint16_t currentPacketNo;
 
