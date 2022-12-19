@@ -65,7 +65,7 @@ void SystemClock_Config(void);
 // extern char _estack;
 void early_start_checks(void) {
   uint32_t _reboot_cookie;
-  _reboot_cookie=*(uint32_t *)0x800801c;
+  _reboot_cookie=*(uint32_t *)0x8008188;
   if(_reboot_cookie == 0xcafebeef) 
   {
   //   __set_MSP((uintptr_t)&_estack);  //没有ucos 不需要此行代码
@@ -229,11 +229,12 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USB_DEVICE_Init();
+  
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   printf("bootLoader begin...\r\n");
   /* USER CODE END 2 */
+  MX_USB_DEVICE_Init();
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */

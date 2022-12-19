@@ -122,27 +122,28 @@ void setInitAngle(uint8_t *ptr)
 
 void JumpBootLoader(uint8_t *ptr)
 {
-    FLASH_EraseInitTypeDef EraseInit;
-    uint32_t sectorError;
+    
     electron.pUsbBuffer->extraDataTx[31] = 0xef;
     electron.pUsbBuffer->extraDataTx[30] = 0x01;
     electron.pUsbBuffer->extraDataTx[29] = 0x00;
     electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);
+    HAL_Delay(50);    
+    // vTaskSuspendAll();
     HAL_FLASH_Unlock();
+    /* FLASH_EraseInitTypeDef EraseInit;
+    uint32_t sectorError;
     EraseInit.TypeErase=FLASH_TYPEERASE_SECTORS;
     EraseInit.Banks=FLASH_BANK_1;
     EraseInit.Sector = 2;
     EraseInit.NbSectors = 1;
-    EraseInit.VoltageRange = FLASH_VOLTAGE_RANGE_3;
-    HAL_FLASHEx_Erase(&EraseInit,&sectorError);
+    EraseInit.VoltageRange = FLASH_VOLTAGE_RANGE_3; 
+    HAL_FLASHEx_Erase(&EraseInit,&sectorError); */  //不能擦除，否则不能跳转
+    HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD,0x8008188,0x00ffff00);  //糊乱写一个数据，只要能破坏原数据即可    
     HAL_FLASH_Lock();
-    HAL_Delay(20);
-    HAL_DeInit(); 
-    __disable_irq();
-    __set_MSP((uintptr_t)&_estack);  //没有ucos 不需要此行代码    
-     void (*bootLoader)(void) = (void (*)(void))(*((uint32_t *)0x8000004));
-    bootLoader();
-    // NVIC_SystemReset();
+    // __set_MSP((uintptr_t)&_estack);  //没有ucos 不需要此行代码   
+    /*  void (*bootLoader)(void) = (void (*)(void))(*((uint32_t *)0x8000004));
+    bootLoader(); */
+    NVIC_SystemReset();
 }
 /* Default Entry -------------------------------------------------------*/
 void Main(void)
@@ -165,15 +166,7 @@ void Main(void)
     electron.UpdateJointAngle(electron.joint[6], 0); 
     while(1)
     {
-        for (int j = 0; j < 6; j++)
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
-                electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
-            }
-        }            
-        electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);        
+             
         electron.ReceiveUsbPacketUntilSizeIs(224); // last packet is 224bytes
         uint8_t* ptr = electron.GetExtraDataRxPtr();
         
@@ -218,6 +211,15 @@ void Main(void)
             {
                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
             }
+            for (int j = 0; j < 6; j++)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
+                    electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+                }
+            }            
+            electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);   
             //printf("33333\r\n");
             while (electron.lcd->isBusy);
             // memset(electron.GetLcdBufferPtr(),200,60*240*3);

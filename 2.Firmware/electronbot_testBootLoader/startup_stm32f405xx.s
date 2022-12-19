@@ -134,7 +134,7 @@ g_pfnVectors:
   .word  MemManage_Handler
   .word  BusFault_Handler
   .word  UsageFault_Handler
-  .word  0xcafebeef
+  .word  0
   .word  0
   .word  0
   .word  0
@@ -227,6 +227,7 @@ g_pfnVectors:
   .word     0                                 /* Reserved                  */                   
   .word     HASH_RNG_IRQHandler               /* Hash and Rng                 */
   .word     FPU_IRQHandler                    /* FPU                          */
+  .word  0xcafebeef
 
                       
 /*******************************************************************************

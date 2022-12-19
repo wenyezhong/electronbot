@@ -65,7 +65,7 @@ bool commUSB::openElectronbotUSB(int vid,int pid)
          //libusb_exit(NULL);
          //libusb_init(NULL);
          //libusb_get_device_list(NULL,&devs);
-         print_dev();
+         //print_dev();
          handle = libusb_open_device_with_vid_pid(NULL, 0x1219, 0x0D3b);
          if (handle == NULL)
          {

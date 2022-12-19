@@ -19,6 +19,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
@@ -199,6 +200,7 @@ public:
     QHBoxLayout *horizontalLayout;
     QPushButton *openFile;
     QLineEdit *lineEdit_path;
+    QProgressBar *progressBar;
     QPushButton *sendFile;
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_45;
@@ -1356,6 +1358,12 @@ public:
 
         horizontalLayout->addWidget(lineEdit_path);
 
+        progressBar = new QProgressBar(horizontalLayoutWidget);
+        progressBar->setObjectName(QString::fromUtf8("progressBar"));
+        progressBar->setValue(0);
+
+        horizontalLayout->addWidget(progressBar);
+
         sendFile = new QPushButton(horizontalLayoutWidget);
         sendFile->setObjectName(QString::fromUtf8("sendFile"));
 
@@ -1743,7 +1751,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
