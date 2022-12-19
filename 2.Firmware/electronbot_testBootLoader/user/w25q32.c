@@ -58,7 +58,7 @@ void SpiFlash_Init(void)
     {
 
     } */
-    // FlashChip_Erase();
+    //FlashChip_Erase();
 
 #if 0    
     FlashEnter_DeepPowerDown();

@@ -88,7 +88,7 @@ void MainWindow::reconnectElectronbotUSB(void)
     electronbot_usb->CloseElectronbotUSB();
     //pcommUSB=nullptr;
     //delete electronbot_usb;
-    Sleep(100);
+    Sleep(500);
     //electronbot_usb = new commUSB;
     //pcommUSB = electronbot_usb;
     bool ret=electronbot_usb->openElectronbotUSB(USBD_CMPSIT_VID,USBD_CMPSIT_PID);
