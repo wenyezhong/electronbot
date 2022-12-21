@@ -1,0 +1,2763 @@
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"user.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+  18              		.align	1
+  19              		.syntax unified
+  20              		.code	16
+  21              		.thumb_func
+  23              	_Z41__static_initialization_and_destruction_0ii:
+  24              		.fnstart
+  25              	.LVL0:
+  26              	.LFB293:
+  27              		.file 1 "Src/user.cpp"
+   1:Src/user.cpp  **** #include <cstring>
+   2:Src/user.cpp  **** #include "common_inc.h"
+   3:Src/user.cpp  **** #include "configurations.h"
+   4:Src/user.cpp  **** #include <stdio.h>
+   5:Src/user.cpp  **** #include <cmath>
+   6:Src/user.cpp  **** Motor motor;
+   7:Src/user.cpp  **** BoardConfig_t boardConfig;
+   8:Src/user.cpp  **** 
+   9:Src/user.cpp  **** 
+  10:Src/user.cpp  **** /* Default Entry -------------------------------------------------------*/
+  11:Src/user.cpp  **** void Main()
+  12:Src/user.cpp  **** {
+  13:Src/user.cpp  ****     // Read data from Flash
+  14:Src/user.cpp  ****     EEPROM eeprom;
+  15:Src/user.cpp  ****     eeprom.get(0, boardConfig);
+  16:Src/user.cpp  ****     if (boardConfig.configStatus != CONFIG_OK) // use default settings
+  17:Src/user.cpp  ****     {
+  18:Src/user.cpp  ****         boardConfig = BoardConfig_t{
+  19:Src/user.cpp  ****             .configStatus = CONFIG_OK,
+  20:Src/user.cpp  ****             .nodeId = 12, // 7bit address, has to be even number
+  21:Src/user.cpp  ****             .initPos = 90,
+  22:Src/user.cpp  ****             .toqueLimit =  0.5,
+  23:Src/user.cpp  ****             .velocityLimit=0,
+  24:Src/user.cpp  ****             .adcValAtAngleMin=250,
+  25:Src/user.cpp  ****             .adcValAtAngleMax=3000,
+  26:Src/user.cpp  ****             .mechanicalAngleMin=0,
+  27:Src/user.cpp  ****             .mechanicalAngleMax=180,
+  28:Src/user.cpp  ****             .dceKp = 10,
+  29:Src/user.cpp  ****             .dceKv = 0,
+  30:Src/user.cpp  ****             .dceKi = 0,
+  31:Src/user.cpp  ****             .dceKd = 50,
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 2
+
+
+  32:Src/user.cpp  ****             .enableMotorOnBoot=false
+  33:Src/user.cpp  ****         };
+  34:Src/user.cpp  ****         eeprom.put(0, boardConfig);
+  35:Src/user.cpp  ****     }
+  36:Src/user.cpp  ****     //printf("id = %d\r\n",boardConfig.nodeId);
+  37:Src/user.cpp  ****     motor.SetTorqueLimit(boardConfig.toqueLimit);
+  38:Src/user.cpp  ****     motor.mechanicalAngleMin = boardConfig.mechanicalAngleMin;
+  39:Src/user.cpp  ****     motor.mechanicalAngleMax = boardConfig.mechanicalAngleMax;
+  40:Src/user.cpp  ****     motor.adcValAtAngleMin = boardConfig.adcValAtAngleMin;
+  41:Src/user.cpp  ****     motor.adcValAtAngleMax = boardConfig.adcValAtAngleMax;
+  42:Src/user.cpp  ****     motor.dce.kp = boardConfig.dceKp;
+  43:Src/user.cpp  ****     motor.dce.ki = boardConfig.dceKi;
+  44:Src/user.cpp  ****     motor.dce.kv = boardConfig.dceKv;
+  45:Src/user.cpp  ****     motor.dce.kd = boardConfig.dceKd;
+  46:Src/user.cpp  ****     motor.dce.setPointPos = boardConfig.initPos;
+  47:Src/user.cpp  ****     motor.SetEnable(boardConfig.enableMotorOnBoot);
+  48:Src/user.cpp  **** 
+  49:Src/user.cpp  ****     // Init PWM
+  50:Src/user.cpp  ****     HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  51:Src/user.cpp  ****     HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+  52:Src/user.cpp  ****     __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 0);
+  53:Src/user.cpp  ****     __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_2, 0);
+  54:Src/user.cpp  **** 
+  55:Src/user.cpp  ****     //printf("id = %d\r\n",boardConfig.nodeId);
+  56:Src/user.cpp  ****     //int dat=ceil(motor.mechanicalAngleMin);
+  57:Src/user.cpp  ****     //printf("mechanicalAngleMin=%d\r\n",dat);
+  58:Src/user.cpp  ****     //dat=ceil(motor.mechanicalAngleMax);
+  59:Src/user.cpp  ****     //printf("mechanicalAngleMax=%d\r\n",dat);
+  60:Src/user.cpp  ****     //printf("adcValAtAngleMin = %d\r\n",boardConfig.adcValAtAngleMin);
+  61:Src/user.cpp  ****     //printf("adcValAtAngleMax = %d\r\n",boardConfig.adcValAtAngleMax);
+  62:Src/user.cpp  ****     // Start receive data
+  63:Src/user.cpp  ****     MY_I2C1_Init(boardConfig.nodeId);
+  64:Src/user.cpp  ****     HAL_Delay(10);  
+  65:Src/user.cpp  ****     HAL_I2C_Slave_Receive_IT(&hi2c1, (uint8_t*) i2cDataRx, 5);
+  66:Src/user.cpp  **** 
+  67:Src/user.cpp  ****     // Start control loop at 200Hz
+  68:Src/user.cpp  ****     HAL_TIM_Base_Start_IT(&htim14);
+  69:Src/user.cpp  ****    
+  70:Src/user.cpp  ****     while (1)
+  71:Src/user.cpp  ****     {
+  72:Src/user.cpp  ****         if (boardConfig.configStatus == CONFIG_COMMIT)
+  73:Src/user.cpp  ****         {
+  74:Src/user.cpp  ****             //printf("id = %d\r\n",boardConfig.nodeId);
+  75:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_OK;
+  76:Src/user.cpp  ****             eeprom.put(0, boardConfig);
+  77:Src/user.cpp  ****             //printf("id = %d\r\n",boardConfig.nodeId);
+  78:Src/user.cpp  ****         } else if (boardConfig.configStatus == CONFIG_RESTORE)
+  79:Src/user.cpp  ****         {
+  80:Src/user.cpp  ****             eeprom.put(0, boardConfig);
+  81:Src/user.cpp  ****             HAL_NVIC_SystemReset();
+  82:Src/user.cpp  ****         }
+  83:Src/user.cpp  **** 
+  84:Src/user.cpp  ****         HAL_Delay(10);
+  85:Src/user.cpp  ****     }
+  86:Src/user.cpp  **** }
+  87:Src/user.cpp  **** 
+  88:Src/user.cpp  **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 3
+
+
+  89:Src/user.cpp  **** /* Callbacks -------------------------------------------------------*/
+  90:Src/user.cpp  **** void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* AdcHandle)
+  91:Src/user.cpp  **** {
+  92:Src/user.cpp  **** 
+  93:Src/user.cpp  **** }
+  94:Src/user.cpp  **** 
+  95:Src/user.cpp  **** 
+  96:Src/user.cpp  **** // Command handler
+  97:Src/user.cpp  **** void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef* hi2c)
+  98:Src/user.cpp  **** {
+  99:Src/user.cpp  ****     HAL_StatusTypeDef state = HAL_ERROR;
+ 100:Src/user.cpp  **** 
+ 101:Src/user.cpp  ****     float valF = *((float*) (i2cDataRx + 1));
+ 102:Src/user.cpp  **** 
+ 103:Src/user.cpp  ****     i2cDataTx[0] = i2cDataRx[0];
+ 104:Src/user.cpp  ****     
+ 105:Src/user.cpp  ****     switch (i2cDataRx[0])
+ 106:Src/user.cpp  ****     {
+ 107:Src/user.cpp  ****         case 0x01:  // Set angle
+ 108:Src/user.cpp  ****         {
+ 109:Src/user.cpp  ****             motor.dce.setPointPos = valF;
+ 110:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 111:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 112:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 113:Src/user.cpp  ****             break;
+ 114:Src/user.cpp  ****         }
+ 115:Src/user.cpp  ****         case 0x02: // Set velocity
+ 116:Src/user.cpp  ****         {
+ 117:Src/user.cpp  ****             motor.dce.setPointVel = valF;
+ 118:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.velocity);
+ 119:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 120:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 121:Src/user.cpp  ****             break;
+ 122:Src/user.cpp  ****         }
+ 123:Src/user.cpp  ****         case 0x03: // Set torque
+ 124:Src/user.cpp  ****         {
+ 125:Src/user.cpp  ****             motor.SetTorqueLimit(valF);
+ 126:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 127:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 128:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 129:Src/user.cpp  ****             break;
+ 130:Src/user.cpp  ****         }
+ 131:Src/user.cpp  ****         case 0x11: // Get angle
+ 132:Src/user.cpp  ****         {
+ 133:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 134:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 135:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 136:Src/user.cpp  ****             break;
+ 137:Src/user.cpp  ****         }
+ 138:Src/user.cpp  ****         case 0x12: // Get velocity
+ 139:Src/user.cpp  ****         {
+ 140:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.velocity);
+ 141:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 142:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 143:Src/user.cpp  ****             break;
+ 144:Src/user.cpp  ****         }
+ 145:Src/user.cpp  ****         case 0x21: // Set id
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 4
+
+
+ 146:Src/user.cpp  ****         {
+ 147:Src/user.cpp  ****             boardConfig.nodeId = i2cDataRx[1];
+ 148:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 149:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 150:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 151:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 152:Src/user.cpp  ****             break;
+ 153:Src/user.cpp  ****         }
+ 154:Src/user.cpp  ****         case 0x22: // Set kp
+ 155:Src/user.cpp  ****         {
+ 156:Src/user.cpp  ****             motor.dce.kp = valF;
+ 157:Src/user.cpp  ****             boardConfig.dceKp = valF;
+ 158:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 159:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 160:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 161:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 162:Src/user.cpp  ****             break;
+ 163:Src/user.cpp  ****         }
+ 164:Src/user.cpp  ****         case 0x23: // Set ki
+ 165:Src/user.cpp  ****         {
+ 166:Src/user.cpp  ****             motor.dce.ki = valF;
+ 167:Src/user.cpp  ****             boardConfig.dceKi = valF;
+ 168:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 169:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 170:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 171:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 172:Src/user.cpp  ****             break;            
+ 173:Src/user.cpp  ****         }
+ 174:Src/user.cpp  ****         case 0x24: // Set kv
+ 175:Src/user.cpp  ****         {
+ 176:Src/user.cpp  ****             motor.dce.kv = valF;
+ 177:Src/user.cpp  ****             boardConfig.dceKv = valF;
+ 178:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 179:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 180:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 181:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 182:Src/user.cpp  ****             break;
+ 183:Src/user.cpp  ****         }
+ 184:Src/user.cpp  ****         case 0x25: // Set kd
+ 185:Src/user.cpp  ****         {
+ 186:Src/user.cpp  ****             motor.dce.kd = valF;
+ 187:Src/user.cpp  ****             boardConfig.dceKd = valF;
+ 188:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 189:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 190:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 191:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 192:Src/user.cpp  ****             break;
+ 193:Src/user.cpp  ****         }
+ 194:Src/user.cpp  ****         case 0x26: // Set torque limit
+ 195:Src/user.cpp  ****         {
+ 196:Src/user.cpp  ****             motor.SetTorqueLimit(valF);
+ 197:Src/user.cpp  ****             boardConfig.toqueLimit = valF;
+ 198:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 199:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 200:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 201:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 202:Src/user.cpp  ****             break;
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 5
+
+
+ 203:Src/user.cpp  ****         }
+ 204:Src/user.cpp  ****         case 0x27: // Set init pos
+ 205:Src/user.cpp  ****         {
+ 206:Src/user.cpp  ****             boardConfig.initPos = valF;
+ 207:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 208:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 209:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 210:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 211:Src/user.cpp  ****             break;
+ 212:Src/user.cpp  ****         }
+ 213:Src/user.cpp  ****         case 0xff:
+ 214:Src/user.cpp  ****             motor.SetEnable(i2cDataRx[1] != 0);
+ 215:Src/user.cpp  ****             break;
+ 216:Src/user.cpp  ****         default:
+ 217:Src/user.cpp  ****             break;
+ 218:Src/user.cpp  ****     }
+ 219:Src/user.cpp  **** 
+ 220:Src/user.cpp  ****     do
+ 221:Src/user.cpp  ****     {
+ 222:Src/user.cpp  ****         state = HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t*) i2cDataTx, 5, 10000);
+ 223:Src/user.cpp  ****     } while (state != HAL_OK);
+ 224:Src/user.cpp  **** 
+ 225:Src/user.cpp  ****     do
+ 226:Src/user.cpp  ****     {
+ 227:Src/user.cpp  ****         state = HAL_I2C_Slave_Receive_IT(&hi2c1, (uint8_t*) i2cDataRx, 5);
+ 228:Src/user.cpp  ****     } while (state != HAL_OK);
+ 229:Src/user.cpp  ****     //printf("cmd = %x\r\n",i2cDataRx[0]);
+ 230:Src/user.cpp  **** }
+ 231:Src/user.cpp  **** 
+ 232:Src/user.cpp  **** 
+ 233:Src/user.cpp  **** // Control loop
+ 234:Src/user.cpp  **** void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+ 235:Src/user.cpp  **** {
+ 236:Src/user.cpp  ****     if(htim->Instance == TIM14)
+ 237:Src/user.cpp  ****     {
+ 238:Src/user.cpp  ****         // Read sensor data        
+ 239:Src/user.cpp  ****         HAL_ADC_Start(&hadc);   
+ 240:Src/user.cpp  ****         
+ 241:Src/user.cpp  ****         motor.angle = motor.mechanicalAngleMin +
+ 242:Src/user.cpp  ****                         (motor.mechanicalAngleMax - motor.mechanicalAngleMin) *
+ 243:Src/user.cpp  ****                         ((float) adcData[0] - (float) motor.adcValAtAngleMin) /
+ 244:Src/user.cpp  ****                         ((float) motor.adcValAtAngleMax - (float) motor.adcValAtAngleMin);
+ 245:Src/user.cpp  ****         // Calculate PID
+ 246:Src/user.cpp  ****         //printf("%f\r\n",motor.angle);
+ 247:Src/user.cpp  ****         //int dat=ceil(motor.angle);
+ 248:Src/user.cpp  ****         //printf("%d\r\n",dat);
+ 249:Src/user.cpp  ****         motor.CalcDceOutput(motor.angle, 0);
+ 250:Src/user.cpp  ****         motor.SetPwm((int16_t) motor.dce.output);
+ 251:Src/user.cpp  ****     }   
+ 252:Src/user.cpp  **** }...
+  28              		.loc 1 252 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              		.loc 1 252 1 is_stmt 0 view .LVU1
+  34 0000 0128     		cmp	r0, #1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 6
+
+
+  35 0002 00D0     		beq	.L3
+  36              	.L1:
+  37              		@ sp needed
+  38 0004 7047     		bx	lr
+  39              	.L3:
+  40              		.loc 1 252 1 discriminator 1 view .LVU2
+  41 0006 034B     		ldr	r3, .L4
+  42 0008 9942     		cmp	r1, r3
+  43 000a FBD1     		bne	.L1
+  44              	.LVL1:
+  45              	.LBB14:
+  46              	.LBI14:
+  47              		.file 2 "Inc/motor.h"
+   1:Inc/motor.h   **** #ifndef SERVODRIVE_FW_MOTOR_H
+   2:Inc/motor.h   **** #define SERVODRIVE_FW_MOTOR_H
+   3:Inc/motor.h   **** 
+   4:Inc/motor.h   **** #include <cstdint>
+   5:Inc/motor.h   **** 
+   6:Inc/motor.h   **** class Motor
+   7:Inc/motor.h   **** {
+   8:Inc/motor.h   **** public:
+   9:Inc/motor.h   ****     Motor()
+  48              		.loc 2 9 5 is_stmt 1 view .LVU3
+  49              	.LBB15:
+  50              	.LBB16:
+  10:Inc/motor.h   ****     {}
+  51              		.loc 2 10 5 is_stmt 0 view .LVU4
+  52 000c 024B     		ldr	r3, .L4+4
+  53 000e 034A     		ldr	r2, .L4+8
+  54 0010 1A60     		str	r2, [r3]
+  55              	.LVL2:
+  56              		.loc 2 10 5 view .LVU5
+  57              	.LBE16:
+  58              	.LBE15:
+  59              	.LBE14:
+  60              		.loc 1 252 1 view .LVU6
+  61 0012 F7E7     		b	.L1
+  62              	.L5:
+  63              		.align	2
+  64              	.L4:
+  65 0014 FFFF0000 		.word	65535
+  66 0018 00000000 		.word	.LANCHOR0
+  67 001c 0000FA43 		.word	1140457472
+  68              		.cfi_endproc
+  69              	.LFE293:
+  70              		.cantunwind
+  71              		.fnend
+  73              		.section	.text.HAL_ADC_ConvCpltCallback,"ax",%progbits
+  74              		.align	1
+  75              		.global	HAL_ADC_ConvCpltCallback
+  76              		.syntax unified
+  77              		.code	16
+  78              		.thumb_func
+  80              	HAL_ADC_ConvCpltCallback:
+  81              		.fnstart
+  82              	.LVL3:
+  83              	.LFB288:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 7
+
+
+  91:Src/user.cpp  **** {
+  84              		.loc 1 91 1 is_stmt 1 view -0
+  85              		.cfi_startproc
+  86              		@ args = 0, pretend = 0, frame = 0
+  87              		@ frame_needed = 0, uses_anonymous_args = 0
+  88              		@ link register save eliminated.
+  93:Src/user.cpp  **** }
+  89              		.loc 1 93 1 is_stmt 0 view .LVU8
+  90              		@ sp needed
+  91 0000 7047     		bx	lr
+  92              		.cfi_endproc
+  93              	.LFE288:
+  94              		.cantunwind
+  95              		.fnend
+  97              		.section	.text.HAL_I2C_SlaveRxCpltCallback,"ax",%progbits
+  98              		.align	1
+  99              		.global	HAL_I2C_SlaveRxCpltCallback
+ 100              		.syntax unified
+ 101              		.code	16
+ 102              		.thumb_func
+ 104              	HAL_I2C_SlaveRxCpltCallback:
+ 105              		.fnstart
+ 106              	.LVL4:
+ 107              	.LFB289:
+  98:Src/user.cpp  **** {
+ 108              		.loc 1 98 1 is_stmt 1 view -0
+ 109              		.cfi_startproc
+ 110              		@ args = 0, pretend = 0, frame = 0
+ 111              		@ frame_needed = 0, uses_anonymous_args = 0
+  98:Src/user.cpp  **** {
+ 112              		.loc 1 98 1 is_stmt 0 view .LVU10
+ 113 0000 10B5     		push	{r4, lr}
+ 114              		.save {r4, lr}
+ 115              	.LCFI0:
+ 116              		.cfi_def_cfa_offset 8
+ 117              		.cfi_offset 4, -8
+ 118              		.cfi_offset 14, -4
+  99:Src/user.cpp  ****     HAL_StatusTypeDef state = HAL_ERROR;
+ 119              		.loc 1 99 5 is_stmt 1 view .LVU11
+ 120              	.LVL5:
+ 101:Src/user.cpp  ****     float valF = *((float*) (i2cDataRx + 1));
+ 121              		.loc 1 101 5 view .LVU12
+ 101:Src/user.cpp  ****     float valF = *((float*) (i2cDataRx + 1));
+ 122              		.loc 1 101 11 is_stmt 0 view .LVU13
+ 123 0002 764B     		ldr	r3, .L38
+ 124 0004 5878     		ldrb	r0, [r3, #1]
+ 125              	.LVL6:
+ 101:Src/user.cpp  ****     float valF = *((float*) (i2cDataRx + 1));
+ 126              		.loc 1 101 11 view .LVU14
+ 127 0006 9978     		ldrb	r1, [r3, #2]
+ 128 0008 0902     		lsls	r1, r1, #8
+ 129 000a 0843     		orrs	r0, r1
+ 130 000c DA78     		ldrb	r2, [r3, #3]
+ 131 000e 1204     		lsls	r2, r2, #16
+ 132 0010 0243     		orrs	r2, r0
+ 133 0012 1C79     		ldrb	r4, [r3, #4]
+ 134 0014 2406     		lsls	r4, r4, #24
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 8
+
+
+ 135 0016 1443     		orrs	r4, r2
+ 136              	.LVL7:
+ 103:Src/user.cpp  ****     i2cDataTx[0] = i2cDataRx[0];
+ 137              		.loc 1 103 5 is_stmt 1 view .LVU15
+ 103:Src/user.cpp  ****     i2cDataTx[0] = i2cDataRx[0];
+ 138              		.loc 1 103 31 is_stmt 0 view .LVU16
+ 139 0018 1B78     		ldrb	r3, [r3]
+ 103:Src/user.cpp  ****     i2cDataTx[0] = i2cDataRx[0];
+ 140              		.loc 1 103 18 view .LVU17
+ 141 001a 714A     		ldr	r2, .L38+4
+ 142 001c 1370     		strb	r3, [r2]
+ 105:Src/user.cpp  ****     switch (i2cDataRx[0])
+ 143              		.loc 1 105 5 is_stmt 1 view .LVU18
+ 144              	.LBB17:
+ 145 001e 272B     		cmp	r3, #39
+ 146 0020 07D8     		bhi	.L8
+ 147 0022 002B     		cmp	r3, #0
+ 148 0024 0FD0     		beq	.L34
+ 149 0026 272B     		cmp	r3, #39
+ 150 0028 0DD8     		bhi	.L34
+ 151 002a 9B00     		lsls	r3, r3, #2
+ 152 002c 6D4A     		ldr	r2, .L38+8
+ 153 002e D358     		ldr	r3, [r2, r3]
+ 154 0030 9F46     		mov	pc, r3
+ 155              		.section	.rodata.HAL_I2C_SlaveRxCpltCallback,"a",%progbits
+ 156              		.align	2
+ 157              	.L11:
+ 158 0000 46000000 		.word	.L34
+ 159 0004 66000000 		.word	.L22
+ 160 0008 80000000 		.word	.L21
+ 161 000c 9A000000 		.word	.L20
+ 162 0010 46000000 		.word	.L34
+ 163 0014 46000000 		.word	.L34
+ 164 0018 46000000 		.word	.L34
+ 165 001c 46000000 		.word	.L34
+ 166 0020 46000000 		.word	.L34
+ 167 0024 46000000 		.word	.L34
+ 168 0028 46000000 		.word	.L34
+ 169 002c 46000000 		.word	.L34
+ 170 0030 46000000 		.word	.L34
+ 171 0034 46000000 		.word	.L34
+ 172 0038 46000000 		.word	.L34
+ 173 003c 46000000 		.word	.L34
+ 174 0040 46000000 		.word	.L34
+ 175 0044 B8000000 		.word	.L36
+ 176 0048 CE000000 		.word	.L37
+ 177 004c 46000000 		.word	.L34
+ 178 0050 46000000 		.word	.L34
+ 179 0054 46000000 		.word	.L34
+ 180 0058 46000000 		.word	.L34
+ 181 005c 46000000 		.word	.L34
+ 182 0060 46000000 		.word	.L34
+ 183 0064 46000000 		.word	.L34
+ 184 0068 46000000 		.word	.L34
+ 185 006c 46000000 		.word	.L34
+ 186 0070 46000000 		.word	.L34
+ 187 0074 46000000 		.word	.L34
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 9
+
+
+ 188 0078 46000000 		.word	.L34
+ 189 007c 46000000 		.word	.L34
+ 190 0080 46000000 		.word	.L34
+ 191 0084 E4000000 		.word	.L17
+ 192 0088 06010000 		.word	.L16
+ 193 008c 28010000 		.word	.L15
+ 194 0090 4C010000 		.word	.L14
+ 195 0094 70010000 		.word	.L13
+ 196 0098 94010000 		.word	.L12
+ 197 009c BC010000 		.word	.L10
+ 198              		.section	.text.HAL_I2C_SlaveRxCpltCallback
+ 199              	.L8:
+ 200 0032 FF2B     		cmp	r3, #255
+ 201 0034 07D1     		bne	.L34
+ 202              	.LBB18:
+ 213:Src/user.cpp  ****         case 0xff:
+ 203              		.loc 1 213 9 view .LVU19
+ 214:Src/user.cpp  ****             motor.SetEnable(i2cDataRx[1] != 0);
+ 204              		.loc 1 214 13 view .LVU20
+ 214:Src/user.cpp  ****             motor.SetEnable(i2cDataRx[1] != 0);
+ 205              		.loc 1 214 40 is_stmt 0 view .LVU21
+ 206 0036 694B     		ldr	r3, .L38
+ 207 0038 5978     		ldrb	r1, [r3, #1]
+ 214:Src/user.cpp  ****             motor.SetEnable(i2cDataRx[1] != 0);
+ 208              		.loc 1 214 28 view .LVU22
+ 209 003a 4B1E     		subs	r3, r1, #1
+ 210 003c 9941     		sbcs	r1, r1, r3
+ 211 003e C9B2     		uxtb	r1, r1
+ 212 0040 6948     		ldr	r0, .L38+12
+ 213 0042 FFF7FEFF 		bl	_ZN5Motor9SetEnableEb
+ 214              	.LVL8:
+ 215:Src/user.cpp  ****             break;
+ 215              		.loc 1 215 13 is_stmt 1 view .LVU23
+ 216              	.L34:
+ 215:Src/user.cpp  ****             break;
+ 217              		.loc 1 215 13 is_stmt 0 view .LVU24
+ 218              	.LBE18:
+ 219              	.LBE17:
+ 220:Src/user.cpp  ****     do
+ 220              		.loc 1 220 5 is_stmt 1 view .LVU25
+ 222:Src/user.cpp  ****         state = HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t*) i2cDataTx, 5, 10000);
+ 221              		.loc 1 222 9 view .LVU26
+ 222:Src/user.cpp  ****         state = HAL_I2C_Slave_Transmit(&hi2c1, (uint8_t*) i2cDataTx, 5, 10000);
+ 222              		.loc 1 222 39 is_stmt 0 view .LVU27
+ 223 0046 694B     		ldr	r3, .L38+16
+ 224 0048 0522     		movs	r2, #5
+ 225 004a 6549     		ldr	r1, .L38+4
+ 226 004c 6848     		ldr	r0, .L38+20
+ 227 004e FFF7FEFF 		bl	HAL_I2C_Slave_Transmit
+ 228              	.LVL9:
+ 223:Src/user.cpp  ****     } while (state != HAL_OK);
+ 229              		.loc 1 223 20 is_stmt 1 view .LVU28
+ 230 0052 0028     		cmp	r0, #0
+ 231 0054 F7D1     		bne	.L34
+ 232              	.L35:
+ 225:Src/user.cpp  ****     do
+ 233              		.loc 1 225 5 view .LVU29
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 10
+
+
+ 227:Src/user.cpp  ****         state = HAL_I2C_Slave_Receive_IT(&hi2c1, (uint8_t*) i2cDataRx, 5);
+ 234              		.loc 1 227 9 view .LVU30
+ 227:Src/user.cpp  ****         state = HAL_I2C_Slave_Receive_IT(&hi2c1, (uint8_t*) i2cDataRx, 5);
+ 235              		.loc 1 227 41 is_stmt 0 view .LVU31
+ 236 0056 0522     		movs	r2, #5
+ 237 0058 6049     		ldr	r1, .L38
+ 238 005a 6548     		ldr	r0, .L38+20
+ 239              	.LVL10:
+ 227:Src/user.cpp  ****         state = HAL_I2C_Slave_Receive_IT(&hi2c1, (uint8_t*) i2cDataRx, 5);
+ 240              		.loc 1 227 41 view .LVU32
+ 241 005c FFF7FEFF 		bl	HAL_I2C_Slave_Receive_IT
+ 242              	.LVL11:
+ 228:Src/user.cpp  ****     } while (state != HAL_OK);
+ 243              		.loc 1 228 20 is_stmt 1 view .LVU33
+ 244 0060 0028     		cmp	r0, #0
+ 245 0062 F8D1     		bne	.L35
+ 230:Src/user.cpp  **** }
+ 246              		.loc 1 230 1 is_stmt 0 view .LVU34
+ 247              		@ sp needed
+ 248              	.LVL12:
+ 230:Src/user.cpp  **** }
+ 249              		.loc 1 230 1 view .LVU35
+ 250 0064 10BD     		pop	{r4, pc}
+ 251              	.LVL13:
+ 252              	.L22:
+ 253              	.LBB46:
+ 254              	.LBB43:
+ 107:Src/user.cpp  ****         case 0x01:  // Set angle
+ 255              		.loc 1 107 9 is_stmt 1 view .LVU36
+ 108:Src/user.cpp  ****         {
+ 256              		.loc 1 108 9 view .LVU37
+ 257              	.LBB19:
+ 109:Src/user.cpp  ****             motor.dce.setPointPos = valF;
+ 258              		.loc 1 109 13 view .LVU38
+ 109:Src/user.cpp  ****             motor.dce.setPointPos = valF;
+ 259              		.loc 1 109 35 is_stmt 0 view .LVU39
+ 260 0066 604B     		ldr	r3, .L38+12
+ 261 0068 5C61     		str	r4, [r3, #20]
+ 110:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 262              		.loc 1 110 13 is_stmt 1 view .LVU40
+ 263              	.LVL14:
+ 111:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 264              		.loc 1 111 13 view .LVU41
+ 265              	.LBB20:
+ 111:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 266              		.loc 1 111 22 is_stmt 0 view .LVU42
+ 267 006a 0022     		movs	r2, #0
+ 268              	.LVL15:
+ 269              	.L24:
+ 111:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 270              		.loc 1 111 31 is_stmt 1 discriminator 3 view .LVU43
+ 271 006c 032A     		cmp	r2, #3
+ 272 006e EADC     		bgt	.L34
+ 112:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 273              		.loc 1 112 17 discriminator 2 view .LVU44
+ 112:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 274              		.loc 1 112 40 is_stmt 0 discriminator 2 view .LVU45
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 11
+
+
+ 275 0070 5D4B     		ldr	r3, .L38+12
+ 276 0072 3033     		adds	r3, r3, #48
+ 277 0074 9B18     		adds	r3, r3, r2
+ 112:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 278              		.loc 1 112 29 discriminator 2 view .LVU46
+ 279 0076 0132     		adds	r2, r2, #1
+ 280              	.LVL16:
+ 112:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 281              		.loc 1 112 36 discriminator 2 view .LVU47
+ 282 0078 1978     		ldrb	r1, [r3]
+ 112:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 283              		.loc 1 112 34 discriminator 2 view .LVU48
+ 284 007a 594B     		ldr	r3, .L38+4
+ 285 007c 9954     		strb	r1, [r3, r2]
+ 111:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 286              		.loc 1 111 13 is_stmt 1 discriminator 2 view .LVU49
+ 287              	.LVL17:
+ 111:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 288              		.loc 1 111 13 is_stmt 0 discriminator 2 view .LVU50
+ 289 007e F5E7     		b	.L24
+ 290              	.LVL18:
+ 291              	.L21:
+ 111:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 292              		.loc 1 111 13 discriminator 2 view .LVU51
+ 293              	.LBE20:
+ 294              	.LBE19:
+ 115:Src/user.cpp  ****         case 0x02: // Set velocity
+ 295              		.loc 1 115 9 is_stmt 1 view .LVU52
+ 116:Src/user.cpp  ****         {
+ 296              		.loc 1 116 9 view .LVU53
+ 297              	.LBB21:
+ 117:Src/user.cpp  ****             motor.dce.setPointVel = valF;
+ 298              		.loc 1 117 13 view .LVU54
+ 117:Src/user.cpp  ****             motor.dce.setPointVel = valF;
+ 299              		.loc 1 117 35 is_stmt 0 view .LVU55
+ 300 0080 594B     		ldr	r3, .L38+12
+ 301 0082 9C61     		str	r4, [r3, #24]
+ 118:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.velocity);
+ 302              		.loc 1 118 13 is_stmt 1 view .LVU56
+ 303              	.LVL19:
+ 119:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 304              		.loc 1 119 13 view .LVU57
+ 305              	.LBB22:
+ 119:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 306              		.loc 1 119 22 is_stmt 0 view .LVU58
+ 307 0084 0022     		movs	r2, #0
+ 308              	.LVL20:
+ 309              	.L25:
+ 119:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 310              		.loc 1 119 31 is_stmt 1 discriminator 3 view .LVU59
+ 311 0086 032A     		cmp	r2, #3
+ 312 0088 DDDC     		bgt	.L34
+ 120:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 313              		.loc 1 120 17 discriminator 2 view .LVU60
+ 120:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 314              		.loc 1 120 40 is_stmt 0 discriminator 2 view .LVU61
+ 315 008a 574B     		ldr	r3, .L38+12
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 12
+
+
+ 316 008c 3433     		adds	r3, r3, #52
+ 317 008e 9B18     		adds	r3, r3, r2
+ 120:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 318              		.loc 1 120 29 discriminator 2 view .LVU62
+ 319 0090 0132     		adds	r2, r2, #1
+ 320              	.LVL21:
+ 120:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 321              		.loc 1 120 36 discriminator 2 view .LVU63
+ 322 0092 1978     		ldrb	r1, [r3]
+ 120:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 323              		.loc 1 120 34 discriminator 2 view .LVU64
+ 324 0094 524B     		ldr	r3, .L38+4
+ 325 0096 9954     		strb	r1, [r3, r2]
+ 119:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 326              		.loc 1 119 13 is_stmt 1 discriminator 2 view .LVU65
+ 327              	.LVL22:
+ 119:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 328              		.loc 1 119 13 is_stmt 0 discriminator 2 view .LVU66
+ 329 0098 F5E7     		b	.L25
+ 330              	.LVL23:
+ 331              	.L20:
+ 119:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 332              		.loc 1 119 13 discriminator 2 view .LVU67
+ 333              	.LBE22:
+ 334              	.LBE21:
+ 123:Src/user.cpp  ****         case 0x03: // Set torque
+ 335              		.loc 1 123 9 is_stmt 1 view .LVU68
+ 124:Src/user.cpp  ****         {
+ 336              		.loc 1 124 9 view .LVU69
+ 337              	.LBB23:
+ 125:Src/user.cpp  ****             motor.SetTorqueLimit(valF);
+ 338              		.loc 1 125 13 view .LVU70
+ 125:Src/user.cpp  ****             motor.SetTorqueLimit(valF);
+ 339              		.loc 1 125 33 is_stmt 0 view .LVU71
+ 340 009a 211C     		adds	r1, r4, #0
+ 341 009c 5248     		ldr	r0, .L38+12
+ 342 009e FFF7FEFF 		bl	_ZN5Motor14SetTorqueLimitEf
+ 343              	.LVL24:
+ 126:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 344              		.loc 1 126 13 is_stmt 1 view .LVU72
+ 127:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 345              		.loc 1 127 13 view .LVU73
+ 346              	.LBB24:
+ 127:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 347              		.loc 1 127 22 is_stmt 0 view .LVU74
+ 348 00a2 0022     		movs	r2, #0
+ 349              	.LVL25:
+ 350              	.L26:
+ 127:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 351              		.loc 1 127 31 is_stmt 1 discriminator 3 view .LVU75
+ 352 00a4 032A     		cmp	r2, #3
+ 353 00a6 CEDC     		bgt	.L34
+ 128:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 354              		.loc 1 128 17 discriminator 2 view .LVU76
+ 128:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 355              		.loc 1 128 40 is_stmt 0 discriminator 2 view .LVU77
+ 356 00a8 4F4B     		ldr	r3, .L38+12
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 13
+
+
+ 357 00aa 3033     		adds	r3, r3, #48
+ 358 00ac 9B18     		adds	r3, r3, r2
+ 128:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 359              		.loc 1 128 29 discriminator 2 view .LVU78
+ 360 00ae 0132     		adds	r2, r2, #1
+ 361              	.LVL26:
+ 128:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 362              		.loc 1 128 36 discriminator 2 view .LVU79
+ 363 00b0 1978     		ldrb	r1, [r3]
+ 128:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 364              		.loc 1 128 34 discriminator 2 view .LVU80
+ 365 00b2 4B4B     		ldr	r3, .L38+4
+ 366 00b4 9954     		strb	r1, [r3, r2]
+ 127:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 367              		.loc 1 127 13 is_stmt 1 discriminator 2 view .LVU81
+ 368              	.LVL27:
+ 127:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 369              		.loc 1 127 13 is_stmt 0 discriminator 2 view .LVU82
+ 370 00b6 F5E7     		b	.L26
+ 371              	.LVL28:
+ 372              	.L36:
+ 127:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 373              		.loc 1 127 13 discriminator 2 view .LVU83
+ 374              	.LBE24:
+ 375              	.LBE23:
+ 376              	.LBE43:
+ 105:Src/user.cpp  ****     switch (i2cDataRx[0])
+ 377              		.loc 1 105 5 view .LVU84
+ 378 00b8 0022     		movs	r2, #0
+ 379              	.L19:
+ 380              	.LVL29:
+ 381              	.LBB44:
+ 382              	.LBB25:
+ 383              	.LBB26:
+ 134:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 384              		.loc 1 134 31 is_stmt 1 discriminator 3 view .LVU85
+ 385 00ba 032A     		cmp	r2, #3
+ 386 00bc C3DC     		bgt	.L34
+ 135:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 387              		.loc 1 135 17 discriminator 2 view .LVU86
+ 135:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 388              		.loc 1 135 40 is_stmt 0 discriminator 2 view .LVU87
+ 389 00be 4A4B     		ldr	r3, .L38+12
+ 390 00c0 3033     		adds	r3, r3, #48
+ 391 00c2 9B18     		adds	r3, r3, r2
+ 135:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 392              		.loc 1 135 29 discriminator 2 view .LVU88
+ 393 00c4 0132     		adds	r2, r2, #1
+ 394              	.LVL30:
+ 135:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 395              		.loc 1 135 36 discriminator 2 view .LVU89
+ 396 00c6 1978     		ldrb	r1, [r3]
+ 135:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 397              		.loc 1 135 34 discriminator 2 view .LVU90
+ 398 00c8 454B     		ldr	r3, .L38+4
+ 399 00ca 9954     		strb	r1, [r3, r2]
+ 134:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 14
+
+
+ 400              		.loc 1 134 13 is_stmt 1 discriminator 2 view .LVU91
+ 401              	.LVL31:
+ 134:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 402              		.loc 1 134 13 is_stmt 0 discriminator 2 view .LVU92
+ 403 00cc F5E7     		b	.L19
+ 404              	.LVL32:
+ 405              	.L37:
+ 134:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 406              		.loc 1 134 13 discriminator 2 view .LVU93
+ 407              	.LBE26:
+ 408              	.LBE25:
+ 409              	.LBE44:
+ 105:Src/user.cpp  ****     switch (i2cDataRx[0])
+ 410              		.loc 1 105 5 view .LVU94
+ 411 00ce 0022     		movs	r2, #0
+ 412              	.L18:
+ 413              	.LVL33:
+ 414              	.LBB45:
+ 415              	.LBB27:
+ 416              	.LBB28:
+ 141:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 417              		.loc 1 141 31 is_stmt 1 discriminator 3 view .LVU95
+ 418 00d0 032A     		cmp	r2, #3
+ 419 00d2 B8DC     		bgt	.L34
+ 142:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 420              		.loc 1 142 17 discriminator 2 view .LVU96
+ 142:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 421              		.loc 1 142 40 is_stmt 0 discriminator 2 view .LVU97
+ 422 00d4 444B     		ldr	r3, .L38+12
+ 423 00d6 3433     		adds	r3, r3, #52
+ 424 00d8 9B18     		adds	r3, r3, r2
+ 142:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 425              		.loc 1 142 29 discriminator 2 view .LVU98
+ 426 00da 0132     		adds	r2, r2, #1
+ 427              	.LVL34:
+ 142:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 428              		.loc 1 142 36 discriminator 2 view .LVU99
+ 429 00dc 1978     		ldrb	r1, [r3]
+ 142:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 430              		.loc 1 142 34 discriminator 2 view .LVU100
+ 431 00de 404B     		ldr	r3, .L38+4
+ 432 00e0 9954     		strb	r1, [r3, r2]
+ 141:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 433              		.loc 1 141 13 is_stmt 1 discriminator 2 view .LVU101
+ 434              	.LVL35:
+ 141:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 435              		.loc 1 141 13 is_stmt 0 discriminator 2 view .LVU102
+ 436 00e2 F5E7     		b	.L18
+ 437              	.LVL36:
+ 438              	.L17:
+ 141:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 439              		.loc 1 141 13 discriminator 2 view .LVU103
+ 440              	.LBE28:
+ 441              	.LBE27:
+ 145:Src/user.cpp  ****         case 0x21: // Set id
+ 442              		.loc 1 145 9 is_stmt 1 view .LVU104
+ 146:Src/user.cpp  ****         {
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 15
+
+
+ 443              		.loc 1 146 9 view .LVU105
+ 444              	.LBB29:
+ 147:Src/user.cpp  ****             boardConfig.nodeId = i2cDataRx[1];
+ 445              		.loc 1 147 13 view .LVU106
+ 147:Src/user.cpp  ****             boardConfig.nodeId = i2cDataRx[1];
+ 446              		.loc 1 147 45 is_stmt 0 view .LVU107
+ 447 00e4 3D4B     		ldr	r3, .L38
+ 448 00e6 5A78     		ldrb	r2, [r3, #1]
+ 147:Src/user.cpp  ****             boardConfig.nodeId = i2cDataRx[1];
+ 449              		.loc 1 147 32 view .LVU108
+ 450 00e8 424B     		ldr	r3, .L38+24
+ 451 00ea 5A70     		strb	r2, [r3, #1]
+ 148:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 452              		.loc 1 148 13 is_stmt 1 view .LVU109
+ 148:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 453              		.loc 1 148 38 is_stmt 0 view .LVU110
+ 454 00ec 0222     		movs	r2, #2
+ 455 00ee 1A70     		strb	r2, [r3]
+ 149:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 456              		.loc 1 149 13 is_stmt 1 view .LVU111
+ 457              	.LVL37:
+ 150:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 458              		.loc 1 150 13 view .LVU112
+ 459              	.LBB30:
+ 150:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 460              		.loc 1 150 22 is_stmt 0 view .LVU113
+ 461 00f0 0022     		movs	r2, #0
+ 462              	.LVL38:
+ 463              	.L27:
+ 150:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 464              		.loc 1 150 31 is_stmt 1 discriminator 3 view .LVU114
+ 465 00f2 032A     		cmp	r2, #3
+ 466 00f4 A7DC     		bgt	.L34
+ 151:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 467              		.loc 1 151 17 discriminator 2 view .LVU115
+ 151:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 468              		.loc 1 151 40 is_stmt 0 discriminator 2 view .LVU116
+ 469 00f6 3C4B     		ldr	r3, .L38+12
+ 470 00f8 3033     		adds	r3, r3, #48
+ 471 00fa 9B18     		adds	r3, r3, r2
+ 151:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 472              		.loc 1 151 29 discriminator 2 view .LVU117
+ 473 00fc 0132     		adds	r2, r2, #1
+ 474              	.LVL39:
+ 151:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 475              		.loc 1 151 36 discriminator 2 view .LVU118
+ 476 00fe 1978     		ldrb	r1, [r3]
+ 151:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 477              		.loc 1 151 34 discriminator 2 view .LVU119
+ 478 0100 374B     		ldr	r3, .L38+4
+ 479 0102 9954     		strb	r1, [r3, r2]
+ 150:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 480              		.loc 1 150 13 is_stmt 1 discriminator 2 view .LVU120
+ 481              	.LVL40:
+ 150:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 482              		.loc 1 150 13 is_stmt 0 discriminator 2 view .LVU121
+ 483 0104 F5E7     		b	.L27
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 16
+
+
+ 484              	.LVL41:
+ 485              	.L16:
+ 150:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 486              		.loc 1 150 13 discriminator 2 view .LVU122
+ 487              	.LBE30:
+ 488              	.LBE29:
+ 154:Src/user.cpp  ****         case 0x22: // Set kp
+ 489              		.loc 1 154 9 is_stmt 1 view .LVU123
+ 155:Src/user.cpp  ****         {
+ 490              		.loc 1 155 9 view .LVU124
+ 491              	.LBB31:
+ 156:Src/user.cpp  ****             motor.dce.kp = valF;
+ 492              		.loc 1 156 13 view .LVU125
+ 156:Src/user.cpp  ****             motor.dce.kp = valF;
+ 493              		.loc 1 156 26 is_stmt 0 view .LVU126
+ 494 0106 384B     		ldr	r3, .L38+12
+ 495 0108 5C60     		str	r4, [r3, #4]
+ 157:Src/user.cpp  ****             boardConfig.dceKp = valF;
+ 496              		.loc 1 157 13 is_stmt 1 view .LVU127
+ 157:Src/user.cpp  ****             boardConfig.dceKp = valF;
+ 497              		.loc 1 157 31 is_stmt 0 view .LVU128
+ 498 010a 3A4B     		ldr	r3, .L38+24
+ 499 010c DC61     		str	r4, [r3, #28]
+ 158:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 500              		.loc 1 158 13 is_stmt 1 view .LVU129
+ 158:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 501              		.loc 1 158 38 is_stmt 0 view .LVU130
+ 502 010e 0222     		movs	r2, #2
+ 503 0110 1A70     		strb	r2, [r3]
+ 159:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 504              		.loc 1 159 13 is_stmt 1 view .LVU131
+ 505              	.LVL42:
+ 160:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 506              		.loc 1 160 13 view .LVU132
+ 507              	.LBB32:
+ 160:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 508              		.loc 1 160 22 is_stmt 0 view .LVU133
+ 509 0112 0022     		movs	r2, #0
+ 510              	.LVL43:
+ 511              	.L28:
+ 160:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 512              		.loc 1 160 31 is_stmt 1 discriminator 3 view .LVU134
+ 513 0114 032A     		cmp	r2, #3
+ 514 0116 96DC     		bgt	.L34
+ 161:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 515              		.loc 1 161 17 discriminator 2 view .LVU135
+ 161:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 516              		.loc 1 161 40 is_stmt 0 discriminator 2 view .LVU136
+ 517 0118 334B     		ldr	r3, .L38+12
+ 518 011a 3033     		adds	r3, r3, #48
+ 519 011c 9B18     		adds	r3, r3, r2
+ 161:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 520              		.loc 1 161 29 discriminator 2 view .LVU137
+ 521 011e 0132     		adds	r2, r2, #1
+ 522              	.LVL44:
+ 161:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 523              		.loc 1 161 36 discriminator 2 view .LVU138
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 17
+
+
+ 524 0120 1978     		ldrb	r1, [r3]
+ 161:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 525              		.loc 1 161 34 discriminator 2 view .LVU139
+ 526 0122 2F4B     		ldr	r3, .L38+4
+ 527 0124 9954     		strb	r1, [r3, r2]
+ 160:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 528              		.loc 1 160 13 is_stmt 1 discriminator 2 view .LVU140
+ 529              	.LVL45:
+ 160:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 530              		.loc 1 160 13 is_stmt 0 discriminator 2 view .LVU141
+ 531 0126 F5E7     		b	.L28
+ 532              	.LVL46:
+ 533              	.L15:
+ 160:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 534              		.loc 1 160 13 discriminator 2 view .LVU142
+ 535              	.LBE32:
+ 536              	.LBE31:
+ 164:Src/user.cpp  ****         case 0x23: // Set ki
+ 537              		.loc 1 164 9 is_stmt 1 view .LVU143
+ 165:Src/user.cpp  ****         {
+ 538              		.loc 1 165 9 view .LVU144
+ 539              	.LBB33:
+ 166:Src/user.cpp  ****             motor.dce.ki = valF;
+ 540              		.loc 1 166 13 view .LVU145
+ 166:Src/user.cpp  ****             motor.dce.ki = valF;
+ 541              		.loc 1 166 26 is_stmt 0 view .LVU146
+ 542 0128 2F4B     		ldr	r3, .L38+12
+ 543 012a DC60     		str	r4, [r3, #12]
+ 167:Src/user.cpp  ****             boardConfig.dceKi = valF;
+ 544              		.loc 1 167 13 is_stmt 1 view .LVU147
+ 167:Src/user.cpp  ****             boardConfig.dceKi = valF;
+ 545              		.loc 1 167 31 is_stmt 0 view .LVU148
+ 546 012c 314B     		ldr	r3, .L38+24
+ 547 012e 5C62     		str	r4, [r3, #36]
+ 168:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 548              		.loc 1 168 13 is_stmt 1 view .LVU149
+ 168:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 549              		.loc 1 168 38 is_stmt 0 view .LVU150
+ 550 0130 0222     		movs	r2, #2
+ 551 0132 1A70     		strb	r2, [r3]
+ 169:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 552              		.loc 1 169 13 is_stmt 1 view .LVU151
+ 553              	.LVL47:
+ 170:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 554              		.loc 1 170 13 view .LVU152
+ 555              	.LBB34:
+ 170:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 556              		.loc 1 170 22 is_stmt 0 view .LVU153
+ 557 0134 0022     		movs	r2, #0
+ 558              	.LVL48:
+ 559              	.L29:
+ 170:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 560              		.loc 1 170 31 is_stmt 1 discriminator 3 view .LVU154
+ 561 0136 032A     		cmp	r2, #3
+ 562 0138 00DD     		ble	.LCB445
+ 563 013a 84E7     		b	.L34	@long jump
+ 564              	.LCB445:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 18
+
+
+ 171:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 565              		.loc 1 171 17 discriminator 2 view .LVU155
+ 171:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 566              		.loc 1 171 40 is_stmt 0 discriminator 2 view .LVU156
+ 567 013c 2A4B     		ldr	r3, .L38+12
+ 568 013e 3033     		adds	r3, r3, #48
+ 569 0140 9B18     		adds	r3, r3, r2
+ 171:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 570              		.loc 1 171 29 discriminator 2 view .LVU157
+ 571 0142 0132     		adds	r2, r2, #1
+ 572              	.LVL49:
+ 171:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 573              		.loc 1 171 36 discriminator 2 view .LVU158
+ 574 0144 1978     		ldrb	r1, [r3]
+ 171:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 575              		.loc 1 171 34 discriminator 2 view .LVU159
+ 576 0146 264B     		ldr	r3, .L38+4
+ 577 0148 9954     		strb	r1, [r3, r2]
+ 170:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 578              		.loc 1 170 13 is_stmt 1 discriminator 2 view .LVU160
+ 579              	.LVL50:
+ 170:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 580              		.loc 1 170 13 is_stmt 0 discriminator 2 view .LVU161
+ 581 014a F4E7     		b	.L29
+ 582              	.LVL51:
+ 583              	.L14:
+ 170:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 584              		.loc 1 170 13 discriminator 2 view .LVU162
+ 585              	.LBE34:
+ 586              	.LBE33:
+ 174:Src/user.cpp  ****         case 0x24: // Set kv
+ 587              		.loc 1 174 9 is_stmt 1 view .LVU163
+ 175:Src/user.cpp  ****         {
+ 588              		.loc 1 175 9 view .LVU164
+ 589              	.LBB35:
+ 176:Src/user.cpp  ****             motor.dce.kv = valF;
+ 590              		.loc 1 176 13 view .LVU165
+ 176:Src/user.cpp  ****             motor.dce.kv = valF;
+ 591              		.loc 1 176 26 is_stmt 0 view .LVU166
+ 592 014c 264B     		ldr	r3, .L38+12
+ 593 014e 9C60     		str	r4, [r3, #8]
+ 177:Src/user.cpp  ****             boardConfig.dceKv = valF;
+ 594              		.loc 1 177 13 is_stmt 1 view .LVU167
+ 177:Src/user.cpp  ****             boardConfig.dceKv = valF;
+ 595              		.loc 1 177 31 is_stmt 0 view .LVU168
+ 596 0150 284B     		ldr	r3, .L38+24
+ 597 0152 1C62     		str	r4, [r3, #32]
+ 178:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 598              		.loc 1 178 13 is_stmt 1 view .LVU169
+ 178:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 599              		.loc 1 178 38 is_stmt 0 view .LVU170
+ 600 0154 0222     		movs	r2, #2
+ 601 0156 1A70     		strb	r2, [r3]
+ 179:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 602              		.loc 1 179 13 is_stmt 1 view .LVU171
+ 603              	.LVL52:
+ 180:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 19
+
+
+ 604              		.loc 1 180 13 view .LVU172
+ 605              	.LBB36:
+ 180:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 606              		.loc 1 180 22 is_stmt 0 view .LVU173
+ 607 0158 0022     		movs	r2, #0
+ 608              	.LVL53:
+ 609              	.L30:
+ 180:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 610              		.loc 1 180 31 is_stmt 1 discriminator 3 view .LVU174
+ 611 015a 032A     		cmp	r2, #3
+ 612 015c 00DD     		ble	.LCB489
+ 613 015e 72E7     		b	.L34	@long jump
+ 614              	.LCB489:
+ 181:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 615              		.loc 1 181 17 discriminator 2 view .LVU175
+ 181:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 616              		.loc 1 181 40 is_stmt 0 discriminator 2 view .LVU176
+ 617 0160 214B     		ldr	r3, .L38+12
+ 618 0162 3033     		adds	r3, r3, #48
+ 619 0164 9B18     		adds	r3, r3, r2
+ 181:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 620              		.loc 1 181 29 discriminator 2 view .LVU177
+ 621 0166 0132     		adds	r2, r2, #1
+ 622              	.LVL54:
+ 181:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 623              		.loc 1 181 36 discriminator 2 view .LVU178
+ 624 0168 1978     		ldrb	r1, [r3]
+ 181:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 625              		.loc 1 181 34 discriminator 2 view .LVU179
+ 626 016a 1D4B     		ldr	r3, .L38+4
+ 627 016c 9954     		strb	r1, [r3, r2]
+ 180:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 628              		.loc 1 180 13 is_stmt 1 discriminator 2 view .LVU180
+ 629              	.LVL55:
+ 180:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 630              		.loc 1 180 13 is_stmt 0 discriminator 2 view .LVU181
+ 631 016e F4E7     		b	.L30
+ 632              	.LVL56:
+ 633              	.L13:
+ 180:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 634              		.loc 1 180 13 discriminator 2 view .LVU182
+ 635              	.LBE36:
+ 636              	.LBE35:
+ 184:Src/user.cpp  ****         case 0x25: // Set kd
+ 637              		.loc 1 184 9 is_stmt 1 view .LVU183
+ 185:Src/user.cpp  ****         {
+ 638              		.loc 1 185 9 view .LVU184
+ 639              	.LBB37:
+ 186:Src/user.cpp  ****             motor.dce.kd = valF;
+ 640              		.loc 1 186 13 view .LVU185
+ 186:Src/user.cpp  ****             motor.dce.kd = valF;
+ 641              		.loc 1 186 26 is_stmt 0 view .LVU186
+ 642 0170 1D4B     		ldr	r3, .L38+12
+ 643 0172 1C61     		str	r4, [r3, #16]
+ 187:Src/user.cpp  ****             boardConfig.dceKd = valF;
+ 644              		.loc 1 187 13 is_stmt 1 view .LVU187
+ 187:Src/user.cpp  ****             boardConfig.dceKd = valF;
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 20
+
+
+ 645              		.loc 1 187 31 is_stmt 0 view .LVU188
+ 646 0174 1F4B     		ldr	r3, .L38+24
+ 647 0176 9C62     		str	r4, [r3, #40]
+ 188:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 648              		.loc 1 188 13 is_stmt 1 view .LVU189
+ 188:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 649              		.loc 1 188 38 is_stmt 0 view .LVU190
+ 650 0178 0222     		movs	r2, #2
+ 651 017a 1A70     		strb	r2, [r3]
+ 189:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 652              		.loc 1 189 13 is_stmt 1 view .LVU191
+ 653              	.LVL57:
+ 190:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 654              		.loc 1 190 13 view .LVU192
+ 655              	.LBB38:
+ 190:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 656              		.loc 1 190 22 is_stmt 0 view .LVU193
+ 657 017c 0022     		movs	r2, #0
+ 658              	.LVL58:
+ 659              	.L31:
+ 190:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 660              		.loc 1 190 31 is_stmt 1 discriminator 3 view .LVU194
+ 661 017e 032A     		cmp	r2, #3
+ 662 0180 00DD     		ble	.LCB533
+ 663 0182 60E7     		b	.L34	@long jump
+ 664              	.LCB533:
+ 191:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 665              		.loc 1 191 17 discriminator 2 view .LVU195
+ 191:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 666              		.loc 1 191 40 is_stmt 0 discriminator 2 view .LVU196
+ 667 0184 184B     		ldr	r3, .L38+12
+ 668 0186 3033     		adds	r3, r3, #48
+ 669 0188 9B18     		adds	r3, r3, r2
+ 191:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 670              		.loc 1 191 29 discriminator 2 view .LVU197
+ 671 018a 0132     		adds	r2, r2, #1
+ 672              	.LVL59:
+ 191:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 673              		.loc 1 191 36 discriminator 2 view .LVU198
+ 674 018c 1978     		ldrb	r1, [r3]
+ 191:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 675              		.loc 1 191 34 discriminator 2 view .LVU199
+ 676 018e 144B     		ldr	r3, .L38+4
+ 677 0190 9954     		strb	r1, [r3, r2]
+ 190:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 678              		.loc 1 190 13 is_stmt 1 discriminator 2 view .LVU200
+ 679              	.LVL60:
+ 190:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 680              		.loc 1 190 13 is_stmt 0 discriminator 2 view .LVU201
+ 681 0192 F4E7     		b	.L31
+ 682              	.LVL61:
+ 683              	.L12:
+ 190:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 684              		.loc 1 190 13 discriminator 2 view .LVU202
+ 685              	.LBE38:
+ 686              	.LBE37:
+ 194:Src/user.cpp  ****         case 0x26: // Set torque limit
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 21
+
+
+ 687              		.loc 1 194 9 is_stmt 1 view .LVU203
+ 195:Src/user.cpp  ****         {
+ 688              		.loc 1 195 9 view .LVU204
+ 689              	.LBB39:
+ 196:Src/user.cpp  ****             motor.SetTorqueLimit(valF);
+ 690              		.loc 1 196 13 view .LVU205
+ 196:Src/user.cpp  ****             motor.SetTorqueLimit(valF);
+ 691              		.loc 1 196 33 is_stmt 0 view .LVU206
+ 692 0194 211C     		adds	r1, r4, #0
+ 693 0196 1448     		ldr	r0, .L38+12
+ 694 0198 FFF7FEFF 		bl	_ZN5Motor14SetTorqueLimitEf
+ 695              	.LVL62:
+ 197:Src/user.cpp  ****             boardConfig.toqueLimit = valF;
+ 696              		.loc 1 197 13 is_stmt 1 view .LVU207
+ 197:Src/user.cpp  ****             boardConfig.toqueLimit = valF;
+ 697              		.loc 1 197 36 is_stmt 0 view .LVU208
+ 698 019c 154B     		ldr	r3, .L38+24
+ 699 019e 9C60     		str	r4, [r3, #8]
+ 198:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 700              		.loc 1 198 13 is_stmt 1 view .LVU209
+ 198:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 701              		.loc 1 198 38 is_stmt 0 view .LVU210
+ 702 01a0 0222     		movs	r2, #2
+ 703 01a2 1A70     		strb	r2, [r3]
+ 199:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 704              		.loc 1 199 13 is_stmt 1 view .LVU211
+ 705              	.LVL63:
+ 200:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 706              		.loc 1 200 13 view .LVU212
+ 707              	.LBB40:
+ 200:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 708              		.loc 1 200 22 is_stmt 0 view .LVU213
+ 709 01a4 0022     		movs	r2, #0
+ 710              	.LVL64:
+ 711              	.L32:
+ 200:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 712              		.loc 1 200 31 is_stmt 1 discriminator 3 view .LVU214
+ 713 01a6 032A     		cmp	r2, #3
+ 714 01a8 00DD     		ble	.LCB578
+ 715 01aa 4CE7     		b	.L34	@long jump
+ 716              	.LCB578:
+ 201:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 717              		.loc 1 201 17 discriminator 2 view .LVU215
+ 201:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 718              		.loc 1 201 40 is_stmt 0 discriminator 2 view .LVU216
+ 719 01ac 0E4B     		ldr	r3, .L38+12
+ 720 01ae 3033     		adds	r3, r3, #48
+ 721 01b0 9B18     		adds	r3, r3, r2
+ 201:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 722              		.loc 1 201 29 discriminator 2 view .LVU217
+ 723 01b2 0132     		adds	r2, r2, #1
+ 724              	.LVL65:
+ 201:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 725              		.loc 1 201 36 discriminator 2 view .LVU218
+ 726 01b4 1978     		ldrb	r1, [r3]
+ 201:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 727              		.loc 1 201 34 discriminator 2 view .LVU219
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 22
+
+
+ 728 01b6 0A4B     		ldr	r3, .L38+4
+ 729 01b8 9954     		strb	r1, [r3, r2]
+ 200:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 730              		.loc 1 200 13 is_stmt 1 discriminator 2 view .LVU220
+ 731              	.LVL66:
+ 200:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 732              		.loc 1 200 13 is_stmt 0 discriminator 2 view .LVU221
+ 733 01ba F4E7     		b	.L32
+ 734              	.LVL67:
+ 735              	.L10:
+ 200:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 736              		.loc 1 200 13 discriminator 2 view .LVU222
+ 737              	.LBE40:
+ 738              	.LBE39:
+ 204:Src/user.cpp  ****         case 0x27: // Set init pos
+ 739              		.loc 1 204 9 is_stmt 1 view .LVU223
+ 205:Src/user.cpp  ****         {
+ 740              		.loc 1 205 9 view .LVU224
+ 741              	.LBB41:
+ 206:Src/user.cpp  ****             boardConfig.initPos = valF;
+ 742              		.loc 1 206 13 view .LVU225
+ 206:Src/user.cpp  ****             boardConfig.initPos = valF;
+ 743              		.loc 1 206 33 is_stmt 0 view .LVU226
+ 744 01bc 0D4B     		ldr	r3, .L38+24
+ 745 01be 5C60     		str	r4, [r3, #4]
+ 207:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 746              		.loc 1 207 13 is_stmt 1 view .LVU227
+ 207:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_COMMIT;
+ 747              		.loc 1 207 38 is_stmt 0 view .LVU228
+ 748 01c0 0222     		movs	r2, #2
+ 749 01c2 1A70     		strb	r2, [r3]
+ 208:Src/user.cpp  ****             auto* b = (unsigned char*) &(motor.angle);
+ 750              		.loc 1 208 13 is_stmt 1 view .LVU229
+ 751              	.LVL68:
+ 209:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 752              		.loc 1 209 13 view .LVU230
+ 753              	.LBB42:
+ 209:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 754              		.loc 1 209 22 is_stmt 0 view .LVU231
+ 755 01c4 0022     		movs	r2, #0
+ 756              	.LVL69:
+ 757              	.L33:
+ 209:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 758              		.loc 1 209 31 is_stmt 1 discriminator 3 view .LVU232
+ 759 01c6 032A     		cmp	r2, #3
+ 760 01c8 00DD     		ble	.LCB619
+ 761 01ca 3CE7     		b	.L34	@long jump
+ 762              	.LCB619:
+ 210:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 763              		.loc 1 210 17 discriminator 2 view .LVU233
+ 210:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 764              		.loc 1 210 40 is_stmt 0 discriminator 2 view .LVU234
+ 765 01cc 064B     		ldr	r3, .L38+12
+ 766 01ce 3033     		adds	r3, r3, #48
+ 767 01d0 9B18     		adds	r3, r3, r2
+ 210:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 768              		.loc 1 210 29 discriminator 2 view .LVU235
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 23
+
+
+ 769 01d2 0132     		adds	r2, r2, #1
+ 770              	.LVL70:
+ 210:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 771              		.loc 1 210 36 discriminator 2 view .LVU236
+ 772 01d4 1978     		ldrb	r1, [r3]
+ 210:Src/user.cpp  ****                 i2cDataTx[i + 1] = *(b + i);
+ 773              		.loc 1 210 34 discriminator 2 view .LVU237
+ 774 01d6 024B     		ldr	r3, .L38+4
+ 775 01d8 9954     		strb	r1, [r3, r2]
+ 209:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 776              		.loc 1 209 13 is_stmt 1 discriminator 2 view .LVU238
+ 777              	.LVL71:
+ 209:Src/user.cpp  ****             for (int i = 0; i < 4; i++)
+ 778              		.loc 1 209 13 is_stmt 0 discriminator 2 view .LVU239
+ 779 01da F4E7     		b	.L33
+ 780              	.L39:
+ 781              		.align	2
+ 782              	.L38:
+ 783 01dc 00000000 		.word	i2cDataRx
+ 784 01e0 00000000 		.word	i2cDataTx
+ 785 01e4 00000000 		.word	.L11
+ 786 01e8 00000000 		.word	.LANCHOR0
+ 787 01ec 10270000 		.word	10000
+ 788 01f0 00000000 		.word	hi2c1
+ 789 01f4 00000000 		.word	.LANCHOR1
+ 790              	.LBE42:
+ 791              	.LBE41:
+ 792              	.LBE45:
+ 793              	.LBE46:
+ 794              		.cfi_endproc
+ 795              	.LFE289:
+ 796              		.fnend
+ 798              		.global	__aeabi_fsub
+ 799              		.global	__aeabi_ui2f
+ 800              		.global	__aeabi_fmul
+ 801              		.global	__aeabi_fdiv
+ 802              		.global	__aeabi_fadd
+ 803              		.global	__aeabi_f2iz
+ 804              		.section	.text.HAL_TIM_PeriodElapsedCallback,"ax",%progbits
+ 805              		.align	1
+ 806              		.global	HAL_TIM_PeriodElapsedCallback
+ 807              		.syntax unified
+ 808              		.code	16
+ 809              		.thumb_func
+ 811              	HAL_TIM_PeriodElapsedCallback:
+ 812              		.fnstart
+ 813              	.LVL72:
+ 814              	.LFB290:
+ 235:Src/user.cpp  **** {
+ 815              		.loc 1 235 1 is_stmt 1 view -0
+ 816              		.cfi_startproc
+ 817              		@ args = 0, pretend = 0, frame = 0
+ 818              		@ frame_needed = 0, uses_anonymous_args = 0
+ 235:Src/user.cpp  **** {
+ 819              		.loc 1 235 1 is_stmt 0 view .LVU241
+ 820 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 821              		.save {r4, r5, r6, r7, lr}
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 24
+
+
+ 822              	.LCFI1:
+ 823              		.cfi_def_cfa_offset 20
+ 824              		.cfi_offset 4, -20
+ 825              		.cfi_offset 5, -16
+ 826              		.cfi_offset 6, -12
+ 827              		.cfi_offset 7, -8
+ 828              		.cfi_offset 14, -4
+ 829 0002 C646     		mov	lr, r8
+ 830 0004 00B5     		push	{lr}
+ 831              		.save {r8}
+ 832              	.LCFI2:
+ 833              		.cfi_def_cfa_offset 24
+ 834              		.cfi_offset 8, -24
+ 236:Src/user.cpp  ****     if(htim->Instance == TIM14)
+ 835              		.loc 1 236 5 is_stmt 1 view .LVU242
+ 236:Src/user.cpp  ****     if(htim->Instance == TIM14)
+ 836              		.loc 1 236 14 is_stmt 0 view .LVU243
+ 837 0006 0268     		ldr	r2, [r0]
+ 236:Src/user.cpp  ****     if(htim->Instance == TIM14)
+ 838              		.loc 1 236 5 view .LVU244
+ 839 0008 1E4B     		ldr	r3, .L43
+ 840 000a 9A42     		cmp	r2, r3
+ 841 000c 02D0     		beq	.L42
+ 842              	.LVL73:
+ 843              	.L40:
+ 844              		.loc 1 252 1 view .LVU245
+ 845              		@ sp needed
+ 846 000e 80BC     		pop	{r7}
+ 847 0010 B846     		mov	r8, r7
+ 848 0012 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 849              	.LVL74:
+ 850              	.L42:
+ 239:Src/user.cpp  ****         HAL_ADC_Start(&hadc);   
+ 851              		.loc 1 239 9 is_stmt 1 view .LVU246
+ 239:Src/user.cpp  ****         HAL_ADC_Start(&hadc);   
+ 852              		.loc 1 239 22 is_stmt 0 view .LVU247
+ 853 0014 1C48     		ldr	r0, .L43+4
+ 854              	.LVL75:
+ 239:Src/user.cpp  ****         HAL_ADC_Start(&hadc);   
+ 855              		.loc 1 239 22 view .LVU248
+ 856 0016 FFF7FEFF 		bl	HAL_ADC_Start
+ 857              	.LVL76:
+ 241:Src/user.cpp  ****         motor.angle = motor.mechanicalAngleMin +
+ 858              		.loc 1 241 9 is_stmt 1 view .LVU249
+ 241:Src/user.cpp  ****         motor.angle = motor.mechanicalAngleMin +
+ 859              		.loc 1 241 29 is_stmt 0 view .LVU250
+ 860 001a 1C4C     		ldr	r4, .L43+8
+ 861 001c A76B     		ldr	r7, [r4, #56]
+ 242:Src/user.cpp  ****                         (motor.mechanicalAngleMax - motor.mechanicalAngleMin) *
+ 862              		.loc 1 242 51 view .LVU251
+ 863 001e 391C     		adds	r1, r7, #0
+ 864 0020 E06B     		ldr	r0, [r4, #60]
+ 865 0022 FFF7FEFF 		bl	__aeabi_fsub
+ 866              	.LVL77:
+ 867 0026 061C     		adds	r6, r0, #0
+ 243:Src/user.cpp  ****                         ((float) adcData[0] - (float) motor.adcValAtAngleMin) /
+ 868              		.loc 1 243 43 view .LVU252
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 25
+
+
+ 869 0028 194B     		ldr	r3, .L43+12
+ 870 002a 1888     		ldrh	r0, [r3]
+ 243:Src/user.cpp  ****                         ((float) adcData[0] - (float) motor.adcValAtAngleMin) /
+ 871              		.loc 1 243 26 view .LVU253
+ 872 002c FFF7FEFF 		bl	__aeabi_ui2f
+ 873              	.LVL78:
+ 874 0030 8046     		mov	r8, r0
+ 243:Src/user.cpp  ****                         ((float) adcData[0] - (float) motor.adcValAtAngleMin) /
+ 875              		.loc 1 243 61 view .LVU254
+ 876 0032 A08D     		ldrh	r0, [r4, #44]
+ 243:Src/user.cpp  ****                         ((float) adcData[0] - (float) motor.adcValAtAngleMin) /
+ 877              		.loc 1 243 47 view .LVU255
+ 878 0034 FFF7FEFF 		bl	__aeabi_ui2f
+ 879              	.LVL79:
+ 880 0038 051C     		adds	r5, r0, #0
+ 243:Src/user.cpp  ****                         ((float) adcData[0] - (float) motor.adcValAtAngleMin) /
+ 881              		.loc 1 243 45 view .LVU256
+ 882 003a 011C     		adds	r1, r0, #0
+ 883 003c 4046     		mov	r0, r8
+ 884 003e FFF7FEFF 		bl	__aeabi_fsub
+ 885              	.LVL80:
+ 886 0042 011C     		adds	r1, r0, #0
+ 242:Src/user.cpp  ****                         (motor.mechanicalAngleMax - motor.mechanicalAngleMin) *
+ 887              		.loc 1 242 79 view .LVU257
+ 888 0044 301C     		adds	r0, r6, #0
+ 889 0046 FFF7FEFF 		bl	__aeabi_fmul
+ 890              	.LVL81:
+ 891 004a 061C     		adds	r6, r0, #0
+ 244:Src/user.cpp  ****                         ((float) motor.adcValAtAngleMax - (float) motor.adcValAtAngleMin);
+ 892              		.loc 1 244 40 view .LVU258
+ 893 004c E08D     		ldrh	r0, [r4, #46]
+ 244:Src/user.cpp  ****                         ((float) motor.adcValAtAngleMax - (float) motor.adcValAtAngleMin);
+ 894              		.loc 1 244 26 view .LVU259
+ 895 004e FFF7FEFF 		bl	__aeabi_ui2f
+ 896              	.LVL82:
+ 244:Src/user.cpp  ****                         ((float) motor.adcValAtAngleMax - (float) motor.adcValAtAngleMin);
+ 897              		.loc 1 244 57 view .LVU260
+ 898 0052 291C     		adds	r1, r5, #0
+ 899 0054 FFF7FEFF 		bl	__aeabi_fsub
+ 900              	.LVL83:
+ 901 0058 011C     		adds	r1, r0, #0
+ 243:Src/user.cpp  ****                         ((float) adcData[0] - (float) motor.adcValAtAngleMin) /
+ 902              		.loc 1 243 79 view .LVU261
+ 903 005a 301C     		adds	r0, r6, #0
+ 904 005c FFF7FEFF 		bl	__aeabi_fdiv
+ 905              	.LVL84:
+ 906 0060 011C     		adds	r1, r0, #0
+ 241:Src/user.cpp  ****         motor.angle = motor.mechanicalAngleMin +
+ 907              		.loc 1 241 48 view .LVU262
+ 908 0062 381C     		adds	r0, r7, #0
+ 909 0064 FFF7FEFF 		bl	__aeabi_fadd
+ 910              	.LVL85:
+ 911 0068 011C     		adds	r1, r0, #0
+ 241:Src/user.cpp  ****         motor.angle = motor.mechanicalAngleMin +
+ 912              		.loc 1 241 21 view .LVU263
+ 913 006a 2063     		str	r0, [r4, #48]
+ 249:Src/user.cpp  ****         motor.CalcDceOutput(motor.angle, 0);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 26
+
+
+ 914              		.loc 1 249 9 is_stmt 1 view .LVU264
+ 249:Src/user.cpp  ****         motor.CalcDceOutput(motor.angle, 0);
+ 915              		.loc 1 249 28 is_stmt 0 view .LVU265
+ 916 006c 0022     		movs	r2, #0
+ 917 006e 2000     		movs	r0, r4
+ 918 0070 FFF7FEFF 		bl	_ZN5Motor13CalcDceOutputEff
+ 919              	.LVL86:
+ 250:Src/user.cpp  ****         motor.SetPwm((int16_t) motor.dce.output);
+ 920              		.loc 1 250 9 is_stmt 1 view .LVU266
+ 250:Src/user.cpp  ****         motor.SetPwm((int16_t) motor.dce.output);
+ 921              		.loc 1 250 21 is_stmt 0 view .LVU267
+ 922 0074 A06A     		ldr	r0, [r4, #40]
+ 923 0076 FFF7FEFF 		bl	__aeabi_f2iz
+ 924              	.LVL87:
+ 925 007a 01B2     		sxth	r1, r0
+ 926 007c 2000     		movs	r0, r4
+ 927 007e FFF7FEFF 		bl	_ZN5Motor6SetPwmEs
+ 928              	.LVL88:
+ 929              		.loc 1 252 1 view .LVU268
+ 930 0082 C4E7     		b	.L40
+ 931              	.L44:
+ 932              		.align	2
+ 933              	.L43:
+ 934 0084 00200040 		.word	1073750016
+ 935 0088 00000000 		.word	hadc
+ 936 008c 00000000 		.word	.LANCHOR0
+ 937 0090 00000000 		.word	adcData
+ 938              		.cfi_endproc
+ 939              	.LFE290:
+ 940              		.fnend
+ 942              		.section	.text._ZN6EEPROM3putI8Config_tEERKT_iS4_,"axG",%progbits,_ZN6EEPROM3putI8Config_tEERKT_iS
+ 943              		.align	1
+ 944              		.weak	_ZN6EEPROM3putI8Config_tEERKT_iS4_
+ 945              		.syntax unified
+ 946              		.code	16
+ 947              		.thumb_func
+ 949              	_ZN6EEPROM3putI8Config_tEERKT_iS4_:
+ 950              		.fnstart
+ 951              	.LVL89:
+ 952              	.LFB292:
+ 953              		.file 3 "Inc/random_flash_interface.h"
+   1:Inc/random_flash_interface.h **** #ifndef FlashStorage_STM32_h
+   2:Inc/random_flash_interface.h **** #define FlashStorage_STM32_h
+   3:Inc/random_flash_interface.h **** 
+   4:Inc/random_flash_interface.h **** 
+   5:Inc/random_flash_interface.h **** #if !(defined(STM32F0) || defined(STM32F1) || defined(STM32F2) || defined(STM32F3) || defined(STM32
+   6:Inc/random_flash_interface.h ****        defined(STM32L0) || defined(STM32L1) || defined(STM32L4) || defined(STM32H7) || defined(STM3
+   7:Inc/random_flash_interface.h ****        defined(STM32WB) || defined(STM32MP1) || defined(STM32L5))
+   8:Inc/random_flash_interface.h **** #error This code is intended to run on STM32F/L/H/G/WB/MP1 platform! Please check your Tools->Board
+   9:Inc/random_flash_interface.h **** #endif
+  10:Inc/random_flash_interface.h **** 
+  11:Inc/random_flash_interface.h **** // Only use this with emulated EEPROM, without integrated EEPROM
+  12:Inc/random_flash_interface.h **** #if !defined(DATA_EEPROM_BASE)
+  13:Inc/random_flash_interface.h **** 
+  14:Inc/random_flash_interface.h **** #include <cstdint>
+  15:Inc/random_flash_interface.h **** #include "random_flash_utils.h"
+  16:Inc/random_flash_interface.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 27
+
+
+  17:Inc/random_flash_interface.h **** class EEPROM
+  18:Inc/random_flash_interface.h **** {
+  19:Inc/random_flash_interface.h **** public:
+  20:Inc/random_flash_interface.h **** 
+  21:Inc/random_flash_interface.h ****     EEPROM() : _initialized(false), _dirtyBuffer(false), _commitASAP(true), _validEEPROM(true)
+  22:Inc/random_flash_interface.h ****     {}
+  23:Inc/random_flash_interface.h **** 
+  24:Inc/random_flash_interface.h ****     /**
+  25:Inc/random_flash_interface.h ****      * Read an eeprom cell
+  26:Inc/random_flash_interface.h ****      * @param index
+  27:Inc/random_flash_interface.h ****      * @return value
+  28:Inc/random_flash_interface.h ****      */
+  29:Inc/random_flash_interface.h ****     uint8_t read(int address)
+  30:Inc/random_flash_interface.h ****     {
+  31:Inc/random_flash_interface.h ****         if (!_initialized)
+  32:Inc/random_flash_interface.h ****             init();
+  33:Inc/random_flash_interface.h **** 
+  34:Inc/random_flash_interface.h ****         return eeprom_buffered_read_byte(address);
+  35:Inc/random_flash_interface.h ****     }
+  36:Inc/random_flash_interface.h **** 
+  37:Inc/random_flash_interface.h ****     /**
+  38:Inc/random_flash_interface.h ****      * Update an eeprom cell
+  39:Inc/random_flash_interface.h ****      * @param index
+  40:Inc/random_flash_interface.h ****      * @param value
+  41:Inc/random_flash_interface.h ****      */
+  42:Inc/random_flash_interface.h ****     void update(int address, uint8_t value)
+  43:Inc/random_flash_interface.h ****     {
+  44:Inc/random_flash_interface.h ****         if (!_initialized)
+  45:Inc/random_flash_interface.h ****             init();
+  46:Inc/random_flash_interface.h **** 
+  47:Inc/random_flash_interface.h ****         if (eeprom_buffered_read_byte(address) != value)
+  48:Inc/random_flash_interface.h ****         {
+  49:Inc/random_flash_interface.h ****             _dirtyBuffer = true;
+  50:Inc/random_flash_interface.h ****             eeprom_buffered_write_byte(address, value);
+  51:Inc/random_flash_interface.h ****         }
+  52:Inc/random_flash_interface.h ****     }
+  53:Inc/random_flash_interface.h **** 
+  54:Inc/random_flash_interface.h ****     /**
+  55:Inc/random_flash_interface.h ****      * Write value to an eeprom cell
+  56:Inc/random_flash_interface.h ****      * @param index
+  57:Inc/random_flash_interface.h ****      * @param value
+  58:Inc/random_flash_interface.h ****      */
+  59:Inc/random_flash_interface.h ****     void write(int address, uint8_t value)
+  60:Inc/random_flash_interface.h ****     {
+  61:Inc/random_flash_interface.h ****         update(address, value);
+  62:Inc/random_flash_interface.h ****     }
+  63:Inc/random_flash_interface.h **** 
+  64:Inc/random_flash_interface.h ****     /**
+  65:Inc/random_flash_interface.h ****      * Update eeprom cells from an object
+  66:Inc/random_flash_interface.h ****      * @param index
+  67:Inc/random_flash_interface.h ****      * @param value
+  68:Inc/random_flash_interface.h ****      */
+  69:Inc/random_flash_interface.h ****     //Functionality to 'get' and 'put' objects to and from EEPROM.
+  70:Inc/random_flash_interface.h ****     template<typename T>
+  71:Inc/random_flash_interface.h ****     T &get(int _offset, T &_t)
+  72:Inc/random_flash_interface.h ****     {
+  73:Inc/random_flash_interface.h ****         // Copy the data from the flash to the buffer if not yet
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 28
+
+
+  74:Inc/random_flash_interface.h ****         if (!_initialized)
+  75:Inc/random_flash_interface.h ****             init();
+  76:Inc/random_flash_interface.h **** 
+  77:Inc/random_flash_interface.h ****         uint16_t offset = _offset;
+  78:Inc/random_flash_interface.h ****         uint8_t* _pointer = (uint8_t*) &_t;
+  79:Inc/random_flash_interface.h **** 
+  80:Inc/random_flash_interface.h ****         for (uint16_t count = sizeof(T); count; --count, ++offset)
+  81:Inc/random_flash_interface.h ****         {
+  82:Inc/random_flash_interface.h ****             *_pointer++ = eeprom_buffered_read_byte(offset);
+  83:Inc/random_flash_interface.h ****         }
+  84:Inc/random_flash_interface.h **** 
+  85:Inc/random_flash_interface.h ****         return _t;
+  86:Inc/random_flash_interface.h ****     }
+  87:Inc/random_flash_interface.h **** 
+  88:Inc/random_flash_interface.h ****     template<typename T>
+  89:Inc/random_flash_interface.h ****     const T &put(int idx, const T &t)
+ 954              		.loc 3 89 14 is_stmt 1 view -0
+ 955              		.cfi_startproc
+ 956              		@ args = 0, pretend = 0, frame = 8
+ 957              		@ frame_needed = 0, uses_anonymous_args = 0
+ 958              		.loc 3 89 14 is_stmt 0 view .LVU270
+ 959 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 960              		.save {r4, r5, r6, r7, lr}
+ 961              	.LCFI3:
+ 962              		.cfi_def_cfa_offset 20
+ 963              		.cfi_offset 4, -20
+ 964              		.cfi_offset 5, -16
+ 965              		.cfi_offset 6, -12
+ 966              		.cfi_offset 7, -8
+ 967              		.cfi_offset 14, -4
+ 968              		.pad #12
+ 969 0002 83B0     		sub	sp, sp, #12
+ 970              	.LCFI4:
+ 971              		.cfi_def_cfa_offset 32
+ 972 0004 0700     		movs	r7, r0
+ 973 0006 0C00     		movs	r4, r1
+ 974 0008 0192     		str	r2, [sp, #4]
+  90:Inc/random_flash_interface.h ****     {
+  91:Inc/random_flash_interface.h ****         // Copy the data from the flash to the buffer if not yet
+  92:Inc/random_flash_interface.h ****         if (!_initialized)
+ 975              		.loc 3 92 14 view .LVU271
+ 976 000a 0378     		ldrb	r3, [r0]
+ 977              		.loc 3 92 9 view .LVU272
+ 978 000c 002B     		cmp	r3, #0
+ 979 000e 03D0     		beq	.L51
+ 980              	.LVL90:
+ 981              	.L46:
+  93:Inc/random_flash_interface.h ****             init();
+  94:Inc/random_flash_interface.h **** 
+  95:Inc/random_flash_interface.h ****         uint16_t offset = idx;
+ 982              		.loc 3 95 18 view .LVU273
+ 983 0010 A4B2     		uxth	r4, r4
+ 984              	.LVL91:
+  96:Inc/random_flash_interface.h **** 
+  97:Inc/random_flash_interface.h ****         const uint8_t* _pointer = (const uint8_t*) &t;
+ 985              		.loc 3 97 24 view .LVU274
+ 986 0012 019B     		ldr	r3, [sp, #4]
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 29
+
+
+ 987              	.LBB50:
+  98:Inc/random_flash_interface.h **** 
+  99:Inc/random_flash_interface.h ****         for (uint16_t count = sizeof(T); count; --count, ++offset)
+ 988              		.loc 3 99 23 view .LVU275
+ 989 0014 3026     		movs	r6, #48
+ 990 0016 0EE0     		b	.L48
+ 991              	.LVL92:
+ 992              	.L51:
+ 993              		.loc 3 99 23 view .LVU276
+ 994              	.LBE50:
+ 995              	.LBB51:
+ 996              	.LBI51:
+ 100:Inc/random_flash_interface.h ****         {
+ 101:Inc/random_flash_interface.h ****             eeprom_buffered_write_byte(offset, *_pointer++);
+ 102:Inc/random_flash_interface.h ****         }
+ 103:Inc/random_flash_interface.h **** 
+ 104:Inc/random_flash_interface.h ****         if (_commitASAP)
+ 105:Inc/random_flash_interface.h ****         {
+ 106:Inc/random_flash_interface.h ****             // Save the data from the buffer to the flash right away
+ 107:Inc/random_flash_interface.h ****             eeprom_buffer_flush();
+ 108:Inc/random_flash_interface.h **** 
+ 109:Inc/random_flash_interface.h ****             _dirtyBuffer = false;
+ 110:Inc/random_flash_interface.h ****             _validEEPROM = true;
+ 111:Inc/random_flash_interface.h ****         } else
+ 112:Inc/random_flash_interface.h ****         {
+ 113:Inc/random_flash_interface.h ****             // Delay saving the data from the buffer to the flash. Just flag and wait for commit() 
+ 114:Inc/random_flash_interface.h ****             _dirtyBuffer = true;
+ 115:Inc/random_flash_interface.h ****         }
+ 116:Inc/random_flash_interface.h **** 
+ 117:Inc/random_flash_interface.h ****         return t;
+ 118:Inc/random_flash_interface.h ****     }
+ 119:Inc/random_flash_interface.h **** 
+ 120:Inc/random_flash_interface.h ****     /**
+ 121:Inc/random_flash_interface.h ****      * Check whether the eeprom data is valid
+ 122:Inc/random_flash_interface.h ****      * @return true, if eeprom data is valid (has been written at least once), false if not
+ 123:Inc/random_flash_interface.h ****      */
+ 124:Inc/random_flash_interface.h ****     bool isValid()
+ 125:Inc/random_flash_interface.h ****     {
+ 126:Inc/random_flash_interface.h ****         return _validEEPROM;
+ 127:Inc/random_flash_interface.h ****     }
+ 128:Inc/random_flash_interface.h **** 
+ 129:Inc/random_flash_interface.h ****     /**
+ 130:Inc/random_flash_interface.h ****      * Write previously made eeprom changes to the underlying flash storage
+ 131:Inc/random_flash_interface.h ****      * Use this with care: Each and every commit will harm the flash and reduce it's lifetime (like
+ 132:Inc/random_flash_interface.h ****      */
+ 133:Inc/random_flash_interface.h ****     void commit()
+ 134:Inc/random_flash_interface.h ****     {
+ 135:Inc/random_flash_interface.h ****         if (!_initialized)
+ 136:Inc/random_flash_interface.h ****             init();
+ 137:Inc/random_flash_interface.h **** 
+ 138:Inc/random_flash_interface.h ****         if (_dirtyBuffer)
+ 139:Inc/random_flash_interface.h ****         {
+ 140:Inc/random_flash_interface.h ****             // Save the data from the buffer to the flash
+ 141:Inc/random_flash_interface.h ****             eeprom_buffer_flush();
+ 142:Inc/random_flash_interface.h **** 
+ 143:Inc/random_flash_interface.h ****             _dirtyBuffer = false;
+ 144:Inc/random_flash_interface.h ****             _validEEPROM = true;
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 30
+
+
+ 145:Inc/random_flash_interface.h ****         }
+ 146:Inc/random_flash_interface.h ****     }
+ 147:Inc/random_flash_interface.h **** 
+ 148:Inc/random_flash_interface.h ****     uint16_t length()
+ 149:Inc/random_flash_interface.h ****     { return E2END + 1; }
+ 150:Inc/random_flash_interface.h **** 
+ 151:Inc/random_flash_interface.h ****     void setCommitASAP(bool value = true)
+ 152:Inc/random_flash_interface.h ****     { _commitASAP = value; }
+ 153:Inc/random_flash_interface.h ****     bool getCommitASAP()
+ 154:Inc/random_flash_interface.h ****     { return _commitASAP; }
+ 155:Inc/random_flash_interface.h **** 
+ 156:Inc/random_flash_interface.h **** private:
+ 157:Inc/random_flash_interface.h **** 
+ 158:Inc/random_flash_interface.h ****     void init()
+ 997              		.loc 3 158 10 is_stmt 1 view .LVU277
+ 998              	.LBB52:
+ 159:Inc/random_flash_interface.h ****     {
+ 160:Inc/random_flash_interface.h ****         // Copy the data from the flash to the buffer
+ 161:Inc/random_flash_interface.h ****         eeprom_buffer_fill();
+ 999              		.loc 3 161 9 view .LVU278
+ 1000              		.loc 3 161 27 is_stmt 0 view .LVU279
+ 1001 0018 FFF7FEFF 		bl	eeprom_buffer_fill
+ 1002              	.LVL93:
+ 162:Inc/random_flash_interface.h ****         _initialized = true;
+ 1003              		.loc 3 162 9 is_stmt 1 view .LVU280
+ 1004              		.loc 3 162 22 is_stmt 0 view .LVU281
+ 1005 001c 0123     		movs	r3, #1
+ 1006 001e 3B70     		strb	r3, [r7]
+ 163:Inc/random_flash_interface.h ****     }
+ 1007              		.loc 3 163 5 view .LVU282
+ 1008 0020 F6E7     		b	.L46
+ 1009              	.LVL94:
+ 1010              	.L52:
+ 1011              		.loc 3 163 5 view .LVU283
+ 1012              	.LBE52:
+ 1013              	.LBE51:
+ 1014              	.LBB53:
+ 101:Inc/random_flash_interface.h ****         }
+ 1015              		.loc 3 101 39 discriminator 2 view .LVU284
+ 1016 0022 5D1C     		adds	r5, r3, #1
+ 1017              	.LVL95:
+ 101:Inc/random_flash_interface.h ****         }
+ 1018              		.loc 3 101 39 discriminator 2 view .LVU285
+ 1019 0024 1978     		ldrb	r1, [r3]
+ 1020 0026 2000     		movs	r0, r4
+ 1021 0028 FFF7FEFF 		bl	eeprom_buffered_write_byte
+ 1022              	.LVL96:
+  99:Inc/random_flash_interface.h ****         {
+ 1023              		.loc 3 99 9 is_stmt 1 discriminator 2 view .LVU286
+ 1024 002c 013E     		subs	r6, r6, #1
+ 1025              	.LVL97:
+  99:Inc/random_flash_interface.h ****         {
+ 1026              		.loc 3 99 9 is_stmt 0 discriminator 2 view .LVU287
+ 1027 002e B6B2     		uxth	r6, r6
+ 1028              	.LVL98:
+  99:Inc/random_flash_interface.h ****         {
+ 1029              		.loc 3 99 9 discriminator 2 view .LVU288
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 31
+
+
+ 1030 0030 0134     		adds	r4, r4, #1
+ 1031              	.LVL99:
+  99:Inc/random_flash_interface.h ****         {
+ 1032              		.loc 3 99 9 discriminator 2 view .LVU289
+ 1033 0032 A4B2     		uxth	r4, r4
+ 1034              	.LVL100:
+ 101:Inc/random_flash_interface.h ****         }
+ 1035              		.loc 3 101 39 discriminator 2 view .LVU290
+ 1036 0034 2B00     		movs	r3, r5
+ 1037              	.LVL101:
+ 1038              	.L48:
+  99:Inc/random_flash_interface.h ****         {
+ 1039              		.loc 3 99 42 is_stmt 1 discriminator 3 view .LVU291
+ 1040 0036 002E     		cmp	r6, #0
+ 1041 0038 F3D1     		bne	.L52
+  99:Inc/random_flash_interface.h ****         {
+ 1042              		.loc 3 99 42 is_stmt 0 discriminator 3 view .LVU292
+ 1043              	.LBE53:
+ 104:Inc/random_flash_interface.h ****         {
+ 1044              		.loc 3 104 13 view .LVU293
+ 1045 003a BB78     		ldrb	r3, [r7, #2]
+ 1046              	.LVL102:
+ 104:Inc/random_flash_interface.h ****         {
+ 1047              		.loc 3 104 9 view .LVU294
+ 1048 003c 002B     		cmp	r3, #0
+ 1049 003e 04D1     		bne	.L53
+ 114:Inc/random_flash_interface.h ****         }
+ 1050              		.loc 3 114 26 view .LVU295
+ 1051 0040 0123     		movs	r3, #1
+ 1052 0042 7B70     		strb	r3, [r7, #1]
+ 1053              	.L50:
+ 118:Inc/random_flash_interface.h **** 
+ 1054              		.loc 3 118 5 view .LVU296
+ 1055 0044 0198     		ldr	r0, [sp, #4]
+ 1056 0046 03B0     		add	sp, sp, #12
+ 1057              		@ sp needed
+ 1058              	.LVL103:
+ 1059              	.LVL104:
+ 1060              	.LVL105:
+ 118:Inc/random_flash_interface.h **** 
+ 1061              		.loc 3 118 5 view .LVU297
+ 1062 0048 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1063              	.LVL106:
+ 1064              	.L53:
+ 107:Inc/random_flash_interface.h **** 
+ 1065              		.loc 3 107 32 view .LVU298
+ 1066 004a FFF7FEFF 		bl	eeprom_buffer_flush
+ 1067              	.LVL107:
+ 109:Inc/random_flash_interface.h ****             _validEEPROM = true;
+ 1068              		.loc 3 109 26 view .LVU299
+ 1069 004e 0023     		movs	r3, #0
+ 1070 0050 7B70     		strb	r3, [r7, #1]
+ 110:Inc/random_flash_interface.h ****         } else
+ 1071              		.loc 3 110 26 view .LVU300
+ 1072 0052 0133     		adds	r3, r3, #1
+ 1073 0054 FB70     		strb	r3, [r7, #3]
+ 1074 0056 F5E7     		b	.L50
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 32
+
+
+ 1075              		.cfi_endproc
+ 1076              	.LFE292:
+ 1077              		.fnend
+ 1079              		.section	.text.Main,"ax",%progbits
+ 1080              		.align	1
+ 1081              		.global	Main
+ 1082              		.syntax unified
+ 1083              		.code	16
+ 1084              		.thumb_func
+ 1086              	Main:
+ 1087              		.fnstart
+ 1088              	.LFB287:
+  12:Src/user.cpp  **** {
+ 1089              		.loc 1 12 1 is_stmt 1 view -0
+ 1090              		.cfi_startproc
+ 1091              		@ args = 0, pretend = 0, frame = 8
+ 1092              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1093 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1094              		.save {r4, r5, r6, r7, lr}
+ 1095              	.LCFI5:
+ 1096              		.cfi_def_cfa_offset 20
+ 1097              		.cfi_offset 4, -20
+ 1098              		.cfi_offset 5, -16
+ 1099              		.cfi_offset 6, -12
+ 1100              		.cfi_offset 7, -8
+ 1101              		.cfi_offset 14, -4
+ 1102              		.pad #12
+ 1103 0002 83B0     		sub	sp, sp, #12
+ 1104              	.LCFI6:
+ 1105              		.cfi_def_cfa_offset 32
+  14:Src/user.cpp  ****     EEPROM eeprom;
+ 1106              		.loc 1 14 5 view .LVU302
+ 1107              	.LVL108:
+ 1108              	.LBB72:
+ 1109              	.LBI72:
+  21:Inc/random_flash_interface.h ****     {}
+ 1110              		.loc 3 21 5 view .LVU303
+ 1111              	.LBB73:
+ 1112              	.LBB74:
+  21:Inc/random_flash_interface.h ****     {}
+ 1113              		.loc 3 21 94 is_stmt 0 view .LVU304
+ 1114 0004 01AB     		add	r3, sp, #4
+ 1115              	.LVL109:
+  21:Inc/random_flash_interface.h ****     {}
+ 1116              		.loc 3 21 94 view .LVU305
+ 1117 0006 0022     		movs	r2, #0
+ 1118 0008 1A70     		strb	r2, [r3]
+ 1119 000a 5A70     		strb	r2, [r3, #1]
+ 1120 000c 0132     		adds	r2, r2, #1
+ 1121 000e 9A70     		strb	r2, [r3, #2]
+ 1122 0010 DA70     		strb	r2, [r3, #3]
+ 1123              	.LVL110:
+  21:Inc/random_flash_interface.h ****     {}
+ 1124              		.loc 3 21 94 view .LVU306
+ 1125              	.LBE74:
+ 1126              	.LBE73:
+ 1127              	.LBE72:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 33
+
+
+  15:Src/user.cpp  ****     eeprom.get(0, boardConfig);
+ 1128              		.loc 1 15 5 is_stmt 1 view .LVU307
+ 1129              	.LBB75:
+ 1130              	.LBI75:
+  71:Inc/random_flash_interface.h ****     {
+ 1131              		.loc 3 71 8 view .LVU308
+ 1132              	.LBB76:
+ 1133              	.LBB77:
+ 1134              	.LBI77:
+ 158:Inc/random_flash_interface.h ****     {
+ 1135              		.loc 3 158 10 view .LVU309
+ 1136              	.LBB78:
+ 161:Inc/random_flash_interface.h ****         _initialized = true;
+ 1137              		.loc 3 161 9 view .LVU310
+ 161:Inc/random_flash_interface.h ****         _initialized = true;
+ 1138              		.loc 3 161 27 is_stmt 0 view .LVU311
+ 1139 0012 FFF7FEFF 		bl	eeprom_buffer_fill
+ 1140              	.LVL111:
+ 162:Inc/random_flash_interface.h ****     }
+ 1141              		.loc 3 162 9 is_stmt 1 view .LVU312
+ 162:Inc/random_flash_interface.h ****     }
+ 1142              		.loc 3 162 22 is_stmt 0 view .LVU313
+ 1143 0016 01AB     		add	r3, sp, #4
+ 1144              	.LVL112:
+ 162:Inc/random_flash_interface.h ****     }
+ 1145              		.loc 3 162 22 view .LVU314
+ 1146 0018 0122     		movs	r2, #1
+ 1147 001a 1A70     		strb	r2, [r3]
+ 1148              	.LVL113:
+ 162:Inc/random_flash_interface.h ****     }
+ 1149              		.loc 3 162 22 view .LVU315
+ 1150              	.LBE78:
+ 1151              	.LBE77:
+ 1152              	.LBB79:
+  80:Inc/random_flash_interface.h ****         {
+ 1153              		.loc 3 80 23 view .LVU316
+ 1154 001c 3026     		movs	r6, #48
+ 1155              	.LBE79:
+  78:Inc/random_flash_interface.h **** 
+ 1156              		.loc 3 78 18 view .LVU317
+ 1157 001e 5E4D     		ldr	r5, .L79
+  77:Inc/random_flash_interface.h ****         uint8_t* _pointer = (uint8_t*) &_t;
+ 1158              		.loc 3 77 18 view .LVU318
+ 1159 0020 0024     		movs	r4, #0
+ 1160 0022 09E0     		b	.L57
+ 1161              	.LVL114:
+ 1162              	.L72:
+ 1163              	.LBB80:
+  82:Inc/random_flash_interface.h ****         }
+ 1164              		.loc 3 82 25 view .LVU319
+ 1165 0024 6F1C     		adds	r7, r5, #1
+ 1166              	.LVL115:
+  82:Inc/random_flash_interface.h ****         }
+ 1167              		.loc 3 82 52 view .LVU320
+ 1168 0026 2000     		movs	r0, r4
+ 1169 0028 FFF7FEFF 		bl	eeprom_buffered_read_byte
+ 1170              	.LVL116:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 34
+
+
+  82:Inc/random_flash_interface.h ****         }
+ 1171              		.loc 3 82 25 view .LVU321
+ 1172 002c 2870     		strb	r0, [r5]
+  80:Inc/random_flash_interface.h ****         {
+ 1173              		.loc 3 80 9 is_stmt 1 view .LVU322
+ 1174 002e 013E     		subs	r6, r6, #1
+ 1175              	.LVL117:
+  80:Inc/random_flash_interface.h ****         {
+ 1176              		.loc 3 80 9 is_stmt 0 view .LVU323
+ 1177 0030 B6B2     		uxth	r6, r6
+ 1178              	.LVL118:
+  80:Inc/random_flash_interface.h ****         {
+ 1179              		.loc 3 80 9 view .LVU324
+ 1180 0032 0134     		adds	r4, r4, #1
+ 1181              	.LVL119:
+  80:Inc/random_flash_interface.h ****         {
+ 1182              		.loc 3 80 9 view .LVU325
+ 1183 0034 A4B2     		uxth	r4, r4
+ 1184              	.LVL120:
+  82:Inc/random_flash_interface.h ****         }
+ 1185              		.loc 3 82 25 view .LVU326
+ 1186 0036 3D00     		movs	r5, r7
+ 1187              	.LVL121:
+ 1188              	.L57:
+  80:Inc/random_flash_interface.h ****         {
+ 1189              		.loc 3 80 42 is_stmt 1 view .LVU327
+ 1190 0038 002E     		cmp	r6, #0
+ 1191 003a F3D1     		bne	.L72
+ 1192              	.LVL122:
+  80:Inc/random_flash_interface.h ****         {
+ 1193              		.loc 3 80 42 is_stmt 0 view .LVU328
+ 1194              	.LBE80:
+ 1195              	.LBE76:
+ 1196              	.LBE75:
+  16:Src/user.cpp  ****     if (boardConfig.configStatus != CONFIG_OK) // use default settings
+ 1197              		.loc 1 16 5 is_stmt 1 view .LVU329
+  16:Src/user.cpp  ****     if (boardConfig.configStatus != CONFIG_OK) // use default settings
+ 1198              		.loc 1 16 21 is_stmt 0 view .LVU330
+ 1199 003c 564B     		ldr	r3, .L79
+ 1200 003e 1B78     		ldrb	r3, [r3]
+  16:Src/user.cpp  ****     if (boardConfig.configStatus != CONFIG_OK) // use default settings
+ 1201              		.loc 1 16 5 view .LVU331
+ 1202 0040 012B     		cmp	r3, #1
+ 1203 0042 38D1     		bne	.L73
+ 1204              	.L58:
+  37:Src/user.cpp  ****     motor.SetTorqueLimit(boardConfig.toqueLimit);
+ 1205              		.loc 1 37 5 is_stmt 1 view .LVU332
+  37:Src/user.cpp  ****     motor.SetTorqueLimit(boardConfig.toqueLimit);
+ 1206              		.loc 1 37 25 is_stmt 0 view .LVU333
+ 1207 0044 544C     		ldr	r4, .L79
+ 1208 0046 554D     		ldr	r5, .L79+4
+ 1209 0048 A168     		ldr	r1, [r4, #8]
+ 1210 004a 2800     		movs	r0, r5
+ 1211 004c FFF7FEFF 		bl	_ZN5Motor14SetTorqueLimitEf
+ 1212              	.LVL123:
+  38:Src/user.cpp  ****     motor.mechanicalAngleMin = boardConfig.mechanicalAngleMin;
+ 1213              		.loc 1 38 5 is_stmt 1 view .LVU334
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 35
+
+
+  38:Src/user.cpp  ****     motor.mechanicalAngleMin = boardConfig.mechanicalAngleMin;
+ 1214              		.loc 1 38 30 is_stmt 0 view .LVU335
+ 1215 0050 6369     		ldr	r3, [r4, #20]
+ 1216 0052 AB63     		str	r3, [r5, #56]
+  39:Src/user.cpp  ****     motor.mechanicalAngleMax = boardConfig.mechanicalAngleMax;
+ 1217              		.loc 1 39 5 is_stmt 1 view .LVU336
+  39:Src/user.cpp  ****     motor.mechanicalAngleMax = boardConfig.mechanicalAngleMax;
+ 1218              		.loc 1 39 30 is_stmt 0 view .LVU337
+ 1219 0054 A369     		ldr	r3, [r4, #24]
+ 1220 0056 EB63     		str	r3, [r5, #60]
+  40:Src/user.cpp  ****     motor.adcValAtAngleMin = boardConfig.adcValAtAngleMin;
+ 1221              		.loc 1 40 5 is_stmt 1 view .LVU338
+  40:Src/user.cpp  ****     motor.adcValAtAngleMin = boardConfig.adcValAtAngleMin;
+ 1222              		.loc 1 40 42 is_stmt 0 view .LVU339
+ 1223 0058 238A     		ldrh	r3, [r4, #16]
+  40:Src/user.cpp  ****     motor.adcValAtAngleMin = boardConfig.adcValAtAngleMin;
+ 1224              		.loc 1 40 28 view .LVU340
+ 1225 005a AB85     		strh	r3, [r5, #44]
+  41:Src/user.cpp  ****     motor.adcValAtAngleMax = boardConfig.adcValAtAngleMax;
+ 1226              		.loc 1 41 5 is_stmt 1 view .LVU341
+  41:Src/user.cpp  ****     motor.adcValAtAngleMax = boardConfig.adcValAtAngleMax;
+ 1227              		.loc 1 41 42 is_stmt 0 view .LVU342
+ 1228 005c 638A     		ldrh	r3, [r4, #18]
+  41:Src/user.cpp  ****     motor.adcValAtAngleMax = boardConfig.adcValAtAngleMax;
+ 1229              		.loc 1 41 28 view .LVU343
+ 1230 005e EB85     		strh	r3, [r5, #46]
+  42:Src/user.cpp  ****     motor.dce.kp = boardConfig.dceKp;
+ 1231              		.loc 1 42 5 is_stmt 1 view .LVU344
+  42:Src/user.cpp  ****     motor.dce.kp = boardConfig.dceKp;
+ 1232              		.loc 1 42 18 is_stmt 0 view .LVU345
+ 1233 0060 E369     		ldr	r3, [r4, #28]
+ 1234 0062 6B60     		str	r3, [r5, #4]
+  43:Src/user.cpp  ****     motor.dce.ki = boardConfig.dceKi;
+ 1235              		.loc 1 43 5 is_stmt 1 view .LVU346
+  43:Src/user.cpp  ****     motor.dce.ki = boardConfig.dceKi;
+ 1236              		.loc 1 43 18 is_stmt 0 view .LVU347
+ 1237 0064 636A     		ldr	r3, [r4, #36]
+ 1238 0066 EB60     		str	r3, [r5, #12]
+  44:Src/user.cpp  ****     motor.dce.kv = boardConfig.dceKv;
+ 1239              		.loc 1 44 5 is_stmt 1 view .LVU348
+  44:Src/user.cpp  ****     motor.dce.kv = boardConfig.dceKv;
+ 1240              		.loc 1 44 18 is_stmt 0 view .LVU349
+ 1241 0068 236A     		ldr	r3, [r4, #32]
+ 1242 006a AB60     		str	r3, [r5, #8]
+  45:Src/user.cpp  ****     motor.dce.kd = boardConfig.dceKd;
+ 1243              		.loc 1 45 5 is_stmt 1 view .LVU350
+  45:Src/user.cpp  ****     motor.dce.kd = boardConfig.dceKd;
+ 1244              		.loc 1 45 18 is_stmt 0 view .LVU351
+ 1245 006c A36A     		ldr	r3, [r4, #40]
+ 1246 006e 2B61     		str	r3, [r5, #16]
+  46:Src/user.cpp  ****     motor.dce.setPointPos = boardConfig.initPos;
+ 1247              		.loc 1 46 5 is_stmt 1 view .LVU352
+  46:Src/user.cpp  ****     motor.dce.setPointPos = boardConfig.initPos;
+ 1248              		.loc 1 46 27 is_stmt 0 view .LVU353
+ 1249 0070 6368     		ldr	r3, [r4, #4]
+ 1250 0072 6B61     		str	r3, [r5, #20]
+  47:Src/user.cpp  ****     motor.SetEnable(boardConfig.enableMotorOnBoot);
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 36
+
+
+ 1251              		.loc 1 47 5 is_stmt 1 view .LVU354
+  47:Src/user.cpp  ****     motor.SetEnable(boardConfig.enableMotorOnBoot);
+ 1252              		.loc 1 47 20 is_stmt 0 view .LVU355
+ 1253 0074 2C23     		movs	r3, #44
+ 1254 0076 E15C     		ldrb	r1, [r4, r3]
+ 1255 0078 2800     		movs	r0, r5
+ 1256 007a FFF7FEFF 		bl	_ZN5Motor9SetEnableEb
+ 1257              	.LVL124:
+  50:Src/user.cpp  ****     HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+ 1258              		.loc 1 50 5 is_stmt 1 view .LVU356
+  50:Src/user.cpp  ****     HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+ 1259              		.loc 1 50 22 is_stmt 0 view .LVU357
+ 1260 007e 484D     		ldr	r5, .L79+8
+ 1261 0080 0021     		movs	r1, #0
+ 1262 0082 2800     		movs	r0, r5
+ 1263 0084 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 1264              	.LVL125:
+  51:Src/user.cpp  ****     HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+ 1265              		.loc 1 51 5 is_stmt 1 view .LVU358
+  51:Src/user.cpp  ****     HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+ 1266              		.loc 1 51 22 is_stmt 0 view .LVU359
+ 1267 0088 0421     		movs	r1, #4
+ 1268 008a 2800     		movs	r0, r5
+ 1269 008c FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 1270              	.LVL126:
+  52:Src/user.cpp  ****     __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 0);
+ 1271              		.loc 1 52 5 is_stmt 1 view .LVU360
+ 1272 0090 2B68     		ldr	r3, [r5]
+ 1273 0092 0022     		movs	r2, #0
+ 1274 0094 5A63     		str	r2, [r3, #52]
+  53:Src/user.cpp  ****     __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_2, 0);
+ 1275              		.loc 1 53 5 view .LVU361
+ 1276 0096 9A63     		str	r2, [r3, #56]
+  63:Src/user.cpp  ****     MY_I2C1_Init(boardConfig.nodeId);
+ 1277              		.loc 1 63 5 view .LVU362
+  63:Src/user.cpp  ****     MY_I2C1_Init(boardConfig.nodeId);
+ 1278              		.loc 1 63 30 is_stmt 0 view .LVU363
+ 1279 0098 6078     		ldrb	r0, [r4, #1]
+  63:Src/user.cpp  ****     MY_I2C1_Init(boardConfig.nodeId);
+ 1280              		.loc 1 63 17 view .LVU364
+ 1281 009a FFF7FEFF 		bl	MY_I2C1_Init
+ 1282              	.LVL127:
+  64:Src/user.cpp  ****     HAL_Delay(10);  
+ 1283              		.loc 1 64 5 is_stmt 1 view .LVU365
+  64:Src/user.cpp  ****     HAL_Delay(10);  
+ 1284              		.loc 1 64 14 is_stmt 0 view .LVU366
+ 1285 009e 0A20     		movs	r0, #10
+ 1286 00a0 FFF7FEFF 		bl	HAL_Delay
+ 1287              	.LVL128:
+  65:Src/user.cpp  ****     HAL_I2C_Slave_Receive_IT(&hi2c1, (uint8_t*) i2cDataRx, 5);
+ 1288              		.loc 1 65 5 is_stmt 1 view .LVU367
+  65:Src/user.cpp  ****     HAL_I2C_Slave_Receive_IT(&hi2c1, (uint8_t*) i2cDataRx, 5);
+ 1289              		.loc 1 65 29 is_stmt 0 view .LVU368
+ 1290 00a4 0522     		movs	r2, #5
+ 1291 00a6 3F49     		ldr	r1, .L79+12
+ 1292 00a8 3F48     		ldr	r0, .L79+16
+ 1293 00aa FFF7FEFF 		bl	HAL_I2C_Slave_Receive_IT
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 37
+
+
+ 1294              	.LVL129:
+  68:Src/user.cpp  ****     HAL_TIM_Base_Start_IT(&htim14);
+ 1295              		.loc 1 68 5 is_stmt 1 view .LVU369
+  68:Src/user.cpp  ****     HAL_TIM_Base_Start_IT(&htim14);
+ 1296              		.loc 1 68 26 is_stmt 0 view .LVU370
+ 1297 00ae 3F48     		ldr	r0, .L79+20
+ 1298 00b0 FFF7FEFF 		bl	HAL_TIM_Base_Start_IT
+ 1299              	.LVL130:
+ 1300 00b4 36E0     		b	.L71
+ 1301              	.L73:
+  18:Src/user.cpp  ****         boardConfig = BoardConfig_t{
+ 1302              		.loc 1 18 9 is_stmt 1 view .LVU371
+  18:Src/user.cpp  ****         boardConfig = BoardConfig_t{
+ 1303              		.loc 1 18 21 is_stmt 0 view .LVU372
+ 1304 00b6 384A     		ldr	r2, .L79
+ 1305 00b8 3D4B     		ldr	r3, .L79+24
+ 1306 00ba 1100     		movs	r1, r2
+ 1307 00bc 31CB     		ldmia	r3!, {r0, r4, r5}
+ 1308 00be 31C1     		stmia	r1!, {r0, r4, r5}
+ 1309 00c0 31CB     		ldmia	r3!, {r0, r4, r5}
+ 1310 00c2 31C1     		stmia	r1!, {r0, r4, r5}
+ 1311 00c4 31CB     		ldmia	r3!, {r0, r4, r5}
+ 1312 00c6 31C1     		stmia	r1!, {r0, r4, r5}
+ 1313 00c8 31CB     		ldmia	r3!, {r0, r4, r5}
+ 1314 00ca 31C1     		stmia	r1!, {r0, r4, r5}
+  34:Src/user.cpp  ****         eeprom.put(0, boardConfig);
+ 1315              		.loc 1 34 9 is_stmt 1 view .LVU373
+  34:Src/user.cpp  ****         eeprom.put(0, boardConfig);
+ 1316              		.loc 1 34 34 is_stmt 0 view .LVU374
+ 1317 00cc 0021     		movs	r1, #0
+ 1318 00ce 01A8     		add	r0, sp, #4
+ 1319 00d0 FFF7FEFF 		bl	_ZN6EEPROM3putI8Config_tEERKT_iS4_
+ 1320              	.LVL131:
+ 1321 00d4 B6E7     		b	.L58
+ 1322              	.L76:
+  75:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_OK;
+ 1323              		.loc 1 75 13 is_stmt 1 view .LVU375
+  75:Src/user.cpp  ****             boardConfig.configStatus = CONFIG_OK;
+ 1324              		.loc 1 75 38 is_stmt 0 view .LVU376
+ 1325 00d6 304B     		ldr	r3, .L79
+ 1326 00d8 0122     		movs	r2, #1
+ 1327 00da 1A70     		strb	r2, [r3]
+  76:Src/user.cpp  ****             eeprom.put(0, boardConfig);
+ 1328              		.loc 1 76 13 is_stmt 1 view .LVU377
+ 1329              	.LVL132:
+ 1330              	.LBB81:
+ 1331              	.LBI81:
+  89:Inc/random_flash_interface.h ****     {
+ 1332              		.loc 3 89 14 view .LVU378
+ 1333              	.LBB82:
+  92:Inc/random_flash_interface.h ****             init();
+ 1334              		.loc 3 92 14 is_stmt 0 view .LVU379
+ 1335 00dc 01AB     		add	r3, sp, #4
+ 1336              	.LVL133:
+  92:Inc/random_flash_interface.h ****             init();
+ 1337              		.loc 3 92 14 view .LVU380
+ 1338 00de 1B78     		ldrb	r3, [r3]
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 38
+
+
+ 1339              	.LVL134:
+  92:Inc/random_flash_interface.h ****             init();
+ 1340              		.loc 3 92 9 view .LVU381
+ 1341 00e0 002B     		cmp	r3, #0
+ 1342 00e2 0FD0     		beq	.L74
+ 1343              	.L60:
+ 1344              	.LVL135:
+  95:Inc/random_flash_interface.h **** 
+ 1345              		.loc 3 95 18 view .LVU382
+ 1346 00e4 3500     		movs	r5, r6
+ 1347              	.LBB83:
+  99:Inc/random_flash_interface.h ****         {
+ 1348              		.loc 3 99 23 view .LVU383
+ 1349 00e6 3024     		movs	r4, #48
+ 1350              	.LBE83:
+  97:Inc/random_flash_interface.h **** 
+ 1351              		.loc 3 97 24 view .LVU384
+ 1352 00e8 2B4B     		ldr	r3, .L79
+ 1353              	.LVL136:
+ 1354              	.L62:
+ 1355              	.LBB84:
+  99:Inc/random_flash_interface.h ****         {
+ 1356              		.loc 3 99 42 is_stmt 1 view .LVU385
+ 1357 00ea 002C     		cmp	r4, #0
+ 1358 00ec 10D0     		beq	.L61
+ 101:Inc/random_flash_interface.h ****         }
+ 1359              		.loc 3 101 39 is_stmt 0 view .LVU386
+ 1360 00ee 5F1C     		adds	r7, r3, #1
+ 1361              	.LVL137:
+ 101:Inc/random_flash_interface.h ****         }
+ 1362              		.loc 3 101 39 view .LVU387
+ 1363 00f0 1978     		ldrb	r1, [r3]
+ 1364 00f2 2800     		movs	r0, r5
+ 1365 00f4 FFF7FEFF 		bl	eeprom_buffered_write_byte
+ 1366              	.LVL138:
+  99:Inc/random_flash_interface.h ****         {
+ 1367              		.loc 3 99 9 is_stmt 1 view .LVU388
+ 1368 00f8 013C     		subs	r4, r4, #1
+ 1369              	.LVL139:
+  99:Inc/random_flash_interface.h ****         {
+ 1370              		.loc 3 99 9 is_stmt 0 view .LVU389
+ 1371 00fa A4B2     		uxth	r4, r4
+ 1372              	.LVL140:
+  99:Inc/random_flash_interface.h ****         {
+ 1373              		.loc 3 99 9 view .LVU390
+ 1374 00fc 0135     		adds	r5, r5, #1
+ 1375              	.LVL141:
+  99:Inc/random_flash_interface.h ****         {
+ 1376              		.loc 3 99 9 view .LVU391
+ 1377 00fe ADB2     		uxth	r5, r5
+ 1378              	.LVL142:
+ 101:Inc/random_flash_interface.h ****         }
+ 1379              		.loc 3 101 39 view .LVU392
+ 1380 0100 3B00     		movs	r3, r7
+  99:Inc/random_flash_interface.h ****         {
+ 1381              		.loc 3 99 9 view .LVU393
+ 1382 0102 F2E7     		b	.L62
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 39
+
+
+ 1383              	.LVL143:
+ 1384              	.L74:
+  99:Inc/random_flash_interface.h ****         {
+ 1385              		.loc 3 99 9 view .LVU394
+ 1386              	.LBE84:
+ 1387              	.LBB85:
+ 1388              	.LBI85:
+ 158:Inc/random_flash_interface.h ****     {
+ 1389              		.loc 3 158 10 is_stmt 1 view .LVU395
+ 1390              	.LBB86:
+ 161:Inc/random_flash_interface.h ****         _initialized = true;
+ 1391              		.loc 3 161 9 view .LVU396
+ 161:Inc/random_flash_interface.h ****         _initialized = true;
+ 1392              		.loc 3 161 27 is_stmt 0 view .LVU397
+ 1393 0104 FFF7FEFF 		bl	eeprom_buffer_fill
+ 1394              	.LVL144:
+ 162:Inc/random_flash_interface.h ****     }
+ 1395              		.loc 3 162 9 is_stmt 1 view .LVU398
+ 162:Inc/random_flash_interface.h ****     }
+ 1396              		.loc 3 162 22 is_stmt 0 view .LVU399
+ 1397 0108 01AB     		add	r3, sp, #4
+ 1398              	.LVL145:
+ 162:Inc/random_flash_interface.h ****     }
+ 1399              		.loc 3 162 22 view .LVU400
+ 1400 010a 0122     		movs	r2, #1
+ 1401 010c 1A70     		strb	r2, [r3]
+ 1402              		.loc 3 163 5 view .LVU401
+ 1403 010e E9E7     		b	.L60
+ 1404              	.LVL146:
+ 1405              	.L61:
+ 1406              		.loc 3 163 5 view .LVU402
+ 1407              	.LBE86:
+ 1408              	.LBE85:
+ 104:Inc/random_flash_interface.h ****         {
+ 1409              		.loc 3 104 13 view .LVU403
+ 1410 0110 01AB     		add	r3, sp, #4
+ 1411              	.LVL147:
+ 104:Inc/random_flash_interface.h ****         {
+ 1412              		.loc 3 104 13 view .LVU404
+ 1413 0112 9B78     		ldrb	r3, [r3, #2]
+ 1414              	.LVL148:
+ 104:Inc/random_flash_interface.h ****         {
+ 1415              		.loc 3 104 9 view .LVU405
+ 1416 0114 002B     		cmp	r3, #0
+ 1417 0116 1FD1     		bne	.L75
+ 114:Inc/random_flash_interface.h ****         }
+ 1418              		.loc 3 114 26 view .LVU406
+ 1419 0118 01AB     		add	r3, sp, #4
+ 1420              	.LVL149:
+ 114:Inc/random_flash_interface.h ****         }
+ 1421              		.loc 3 114 26 view .LVU407
+ 1422 011a 0122     		movs	r2, #1
+ 1423 011c 5A70     		strb	r2, [r3, #1]
+ 1424              	.LVL150:
+ 1425              	.L65:
+ 114:Inc/random_flash_interface.h ****         }
+ 1426              		.loc 3 114 26 view .LVU408
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 40
+
+
+ 1427              	.LBE82:
+ 1428              	.LBE81:
+  84:Src/user.cpp  ****         HAL_Delay(10);
+ 1429              		.loc 1 84 9 is_stmt 1 view .LVU409
+  84:Src/user.cpp  ****         HAL_Delay(10);
+ 1430              		.loc 1 84 18 is_stmt 0 view .LVU410
+ 1431 011e 0A20     		movs	r0, #10
+ 1432 0120 FFF7FEFF 		bl	HAL_Delay
+ 1433              	.LVL151:
+ 1434              	.L71:
+  70:Src/user.cpp  ****     while (1)
+ 1435              		.loc 1 70 5 is_stmt 1 view .LVU411
+  72:Src/user.cpp  ****         if (boardConfig.configStatus == CONFIG_COMMIT)
+ 1436              		.loc 1 72 9 view .LVU412
+  72:Src/user.cpp  ****         if (boardConfig.configStatus == CONFIG_COMMIT)
+ 1437              		.loc 1 72 25 is_stmt 0 view .LVU413
+ 1438 0124 1C4B     		ldr	r3, .L79
+ 1439 0126 1B78     		ldrb	r3, [r3]
+  72:Src/user.cpp  ****         if (boardConfig.configStatus == CONFIG_COMMIT)
+ 1440              		.loc 1 72 9 view .LVU414
+ 1441 0128 022B     		cmp	r3, #2
+ 1442 012a D4D0     		beq	.L76
+  78:Src/user.cpp  ****         } else if (boardConfig.configStatus == CONFIG_RESTORE)
+ 1443              		.loc 1 78 16 is_stmt 1 view .LVU415
+ 1444 012c 002B     		cmp	r3, #0
+ 1445 012e F6D1     		bne	.L65
+  80:Src/user.cpp  ****             eeprom.put(0, boardConfig);
+ 1446              		.loc 1 80 13 view .LVU416
+ 1447              	.LVL152:
+ 1448              	.LBB88:
+ 1449              	.LBI88:
+  89:Inc/random_flash_interface.h ****     {
+ 1450              		.loc 3 89 14 view .LVU417
+ 1451              	.LBB89:
+  92:Inc/random_flash_interface.h ****             init();
+ 1452              		.loc 3 92 14 is_stmt 0 view .LVU418
+ 1453 0130 01AB     		add	r3, sp, #4
+ 1454              	.LVL153:
+  92:Inc/random_flash_interface.h ****             init();
+ 1455              		.loc 3 92 14 view .LVU419
+ 1456 0132 1B78     		ldrb	r3, [r3]
+ 1457              	.LVL154:
+  92:Inc/random_flash_interface.h ****             init();
+ 1458              		.loc 3 92 9 view .LVU420
+ 1459 0134 002B     		cmp	r3, #0
+ 1460 0136 17D0     		beq	.L77
+ 1461              	.L66:
+ 1462              	.LVL155:
+  95:Inc/random_flash_interface.h **** 
+ 1463              		.loc 3 95 18 view .LVU421
+ 1464 0138 3500     		movs	r5, r6
+ 1465              	.LBB90:
+  99:Inc/random_flash_interface.h ****         {
+ 1466              		.loc 3 99 23 view .LVU422
+ 1467 013a 3024     		movs	r4, #48
+ 1468              	.LBE90:
+  97:Inc/random_flash_interface.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 41
+
+
+ 1469              		.loc 3 97 24 view .LVU423
+ 1470 013c 164B     		ldr	r3, .L79
+ 1471              	.LVL156:
+ 1472              	.L68:
+ 1473              	.LBB91:
+  99:Inc/random_flash_interface.h ****         {
+ 1474              		.loc 3 99 42 is_stmt 1 view .LVU424
+ 1475 013e 002C     		cmp	r4, #0
+ 1476 0140 18D0     		beq	.L67
+ 101:Inc/random_flash_interface.h ****         }
+ 1477              		.loc 3 101 39 is_stmt 0 view .LVU425
+ 1478 0142 5F1C     		adds	r7, r3, #1
+ 1479              	.LVL157:
+ 101:Inc/random_flash_interface.h ****         }
+ 1480              		.loc 3 101 39 view .LVU426
+ 1481 0144 1978     		ldrb	r1, [r3]
+ 1482 0146 2800     		movs	r0, r5
+ 1483 0148 FFF7FEFF 		bl	eeprom_buffered_write_byte
+ 1484              	.LVL158:
+  99:Inc/random_flash_interface.h ****         {
+ 1485              		.loc 3 99 9 is_stmt 1 view .LVU427
+ 1486 014c 013C     		subs	r4, r4, #1
+ 1487              	.LVL159:
+  99:Inc/random_flash_interface.h ****         {
+ 1488              		.loc 3 99 9 is_stmt 0 view .LVU428
+ 1489 014e A4B2     		uxth	r4, r4
+ 1490              	.LVL160:
+  99:Inc/random_flash_interface.h ****         {
+ 1491              		.loc 3 99 9 view .LVU429
+ 1492 0150 0135     		adds	r5, r5, #1
+ 1493              	.LVL161:
+  99:Inc/random_flash_interface.h ****         {
+ 1494              		.loc 3 99 9 view .LVU430
+ 1495 0152 ADB2     		uxth	r5, r5
+ 1496              	.LVL162:
+ 101:Inc/random_flash_interface.h ****         }
+ 1497              		.loc 3 101 39 view .LVU431
+ 1498 0154 3B00     		movs	r3, r7
+  99:Inc/random_flash_interface.h ****         {
+ 1499              		.loc 3 99 9 view .LVU432
+ 1500 0156 F2E7     		b	.L68
+ 1501              	.LVL163:
+ 1502              	.L75:
+  99:Inc/random_flash_interface.h ****         {
+ 1503              		.loc 3 99 9 view .LVU433
+ 1504              	.LBE91:
+ 1505              	.LBE89:
+ 1506              	.LBE88:
+ 1507              	.LBB96:
+ 1508              	.LBB87:
+ 107:Inc/random_flash_interface.h **** 
+ 1509              		.loc 3 107 32 view .LVU434
+ 1510 0158 FFF7FEFF 		bl	eeprom_buffer_flush
+ 1511              	.LVL164:
+ 109:Inc/random_flash_interface.h ****             _validEEPROM = true;
+ 1512              		.loc 3 109 26 view .LVU435
+ 1513 015c 01AB     		add	r3, sp, #4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 42
+
+
+ 1514              	.LVL165:
+ 109:Inc/random_flash_interface.h ****             _validEEPROM = true;
+ 1515              		.loc 3 109 26 view .LVU436
+ 1516 015e 0022     		movs	r2, #0
+ 1517 0160 5A70     		strb	r2, [r3, #1]
+ 110:Inc/random_flash_interface.h ****         } else
+ 1518              		.loc 3 110 26 view .LVU437
+ 1519 0162 0132     		adds	r2, r2, #1
+ 1520 0164 DA70     		strb	r2, [r3, #3]
+ 1521 0166 DAE7     		b	.L65
+ 1522              	.LVL166:
+ 1523              	.L77:
+ 110:Inc/random_flash_interface.h ****         } else
+ 1524              		.loc 3 110 26 view .LVU438
+ 1525              	.LBE87:
+ 1526              	.LBE96:
+ 1527              	.LBB97:
+ 1528              	.LBB94:
+ 1529              	.LBB92:
+ 1530              	.LBI92:
+ 158:Inc/random_flash_interface.h ****     {
+ 1531              		.loc 3 158 10 is_stmt 1 view .LVU439
+ 1532              	.LBB93:
+ 161:Inc/random_flash_interface.h ****         _initialized = true;
+ 1533              		.loc 3 161 9 view .LVU440
+ 161:Inc/random_flash_interface.h ****         _initialized = true;
+ 1534              		.loc 3 161 27 is_stmt 0 view .LVU441
+ 1535 0168 FFF7FEFF 		bl	eeprom_buffer_fill
+ 1536              	.LVL167:
+ 162:Inc/random_flash_interface.h ****     }
+ 1537              		.loc 3 162 9 is_stmt 1 view .LVU442
+ 162:Inc/random_flash_interface.h ****     }
+ 1538              		.loc 3 162 22 is_stmt 0 view .LVU443
+ 1539 016c 01AB     		add	r3, sp, #4
+ 1540              	.LVL168:
+ 162:Inc/random_flash_interface.h ****     }
+ 1541              		.loc 3 162 22 view .LVU444
+ 1542 016e 0122     		movs	r2, #1
+ 1543 0170 1A70     		strb	r2, [r3]
+ 1544              		.loc 3 163 5 view .LVU445
+ 1545 0172 E1E7     		b	.L66
+ 1546              	.LVL169:
+ 1547              	.L67:
+ 1548              		.loc 3 163 5 view .LVU446
+ 1549              	.LBE93:
+ 1550              	.LBE92:
+ 104:Inc/random_flash_interface.h ****         {
+ 1551              		.loc 3 104 13 view .LVU447
+ 1552 0174 01AB     		add	r3, sp, #4
+ 1553              	.LVL170:
+ 104:Inc/random_flash_interface.h ****         {
+ 1554              		.loc 3 104 13 view .LVU448
+ 1555 0176 9B78     		ldrb	r3, [r3, #2]
+ 1556              	.LVL171:
+ 104:Inc/random_flash_interface.h ****         {
+ 1557              		.loc 3 104 9 view .LVU449
+ 1558 0178 002B     		cmp	r3, #0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 43
+
+
+ 1559 017a 05D1     		bne	.L78
+ 114:Inc/random_flash_interface.h ****         }
+ 1560              		.loc 3 114 26 view .LVU450
+ 1561 017c 01AB     		add	r3, sp, #4
+ 1562              	.LVL172:
+ 114:Inc/random_flash_interface.h ****         }
+ 1563              		.loc 3 114 26 view .LVU451
+ 1564 017e 0122     		movs	r2, #1
+ 1565 0180 5A70     		strb	r2, [r3, #1]
+ 1566              	.L70:
+ 1567              	.LVL173:
+ 114:Inc/random_flash_interface.h ****         }
+ 1568              		.loc 3 114 26 view .LVU452
+ 1569              	.LBE94:
+ 1570              	.LBE97:
+  81:Src/user.cpp  ****             HAL_NVIC_SystemReset();
+ 1571              		.loc 1 81 13 is_stmt 1 view .LVU453
+  81:Src/user.cpp  ****             HAL_NVIC_SystemReset();
+ 1572              		.loc 1 81 33 is_stmt 0 view .LVU454
+ 1573 0182 FFF7FEFF 		bl	HAL_NVIC_SystemReset
+ 1574              	.LVL174:
+ 1575 0186 CAE7     		b	.L65
+ 1576              	.LVL175:
+ 1577              	.L78:
+ 1578              	.LBB98:
+ 1579              	.LBB95:
+ 107:Inc/random_flash_interface.h **** 
+ 1580              		.loc 3 107 32 view .LVU455
+ 1581 0188 FFF7FEFF 		bl	eeprom_buffer_flush
+ 1582              	.LVL176:
+ 109:Inc/random_flash_interface.h ****             _validEEPROM = true;
+ 1583              		.loc 3 109 26 view .LVU456
+ 1584 018c 01AB     		add	r3, sp, #4
+ 1585              	.LVL177:
+ 109:Inc/random_flash_interface.h ****             _validEEPROM = true;
+ 1586              		.loc 3 109 26 view .LVU457
+ 1587 018e 0022     		movs	r2, #0
+ 1588 0190 5A70     		strb	r2, [r3, #1]
+ 110:Inc/random_flash_interface.h ****         } else
+ 1589              		.loc 3 110 26 view .LVU458
+ 1590 0192 0132     		adds	r2, r2, #1
+ 1591 0194 DA70     		strb	r2, [r3, #3]
+ 1592 0196 F4E7     		b	.L70
+ 1593              	.L80:
+ 1594              		.align	2
+ 1595              	.L79:
+ 1596 0198 00000000 		.word	.LANCHOR1
+ 1597 019c 00000000 		.word	.LANCHOR0
+ 1598 01a0 00000000 		.word	htim3
+ 1599 01a4 00000000 		.word	i2cDataRx
+ 1600 01a8 00000000 		.word	hi2c1
+ 1601 01ac 00000000 		.word	htim14
+ 1602 01b0 00000000 		.word	.LANCHOR2
+ 1603              	.LBE95:
+ 1604              	.LBE98:
+ 1605              		.cfi_endproc
+ 1606              	.LFE287:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 44
+
+
+ 1607              		.fnend
+ 1609              		.section	.text._GLOBAL__sub_I_motor,"ax",%progbits
+ 1610              		.align	1
+ 1611              		.syntax unified
+ 1612              		.code	16
+ 1613              		.thumb_func
+ 1615              	_GLOBAL__sub_I_motor:
+ 1616              		.fnstart
+ 1617              	.LFB294:
+ 1618              		.loc 1 252 1 is_stmt 1 view -0
+ 1619              		.cfi_startproc
+ 1620              		@ args = 0, pretend = 0, frame = 0
+ 1621              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1622 0000 10B5     		push	{r4, lr}
+ 1623              	.LCFI7:
+ 1624              		.cfi_def_cfa_offset 8
+ 1625              		.cfi_offset 4, -8
+ 1626              		.cfi_offset 14, -4
+ 1627              		.loc 1 252 1 is_stmt 0 view .LVU460
+ 1628 0002 0249     		ldr	r1, .L82
+ 1629 0004 0120     		movs	r0, #1
+ 1630 0006 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 1631              	.LVL178:
+ 1632              		@ sp needed
+ 1633 000a 10BD     		pop	{r4, pc}
+ 1634              	.L83:
+ 1635              		.align	2
+ 1636              	.L82:
+ 1637 000c FFFF0000 		.word	65535
+ 1638              		.cfi_endproc
+ 1639              	.LFE294:
+ 1640              		.cantunwind
+ 1641              		.fnend
+ 1643              		.section	.init_array,"aw",%init_array
+ 1644              		.align	2
+ 1645 0000 00000000 		.word	_GLOBAL__sub_I_motor(target1)
+ 1646              		.global	boardConfig
+ 1647              		.global	motor
+ 1648              		.section	.rodata
+ 1649              		.align	2
+ 1650              		.set	.LANCHOR2,. + 0
+ 1651              	.LC0:
+ 1652 0000 01       		.byte	1
+ 1653 0001 0C       		.byte	12
+ 1654 0002 0000     		.space	2
+ 1655 0004 0000B442 		.word	1119092736
+ 1656 0008 0000003F 		.word	1056964608
+ 1657 000c 00000000 		.word	0
+ 1658 0010 FA00     		.short	250
+ 1659 0012 B80B     		.short	3000
+ 1660 0014 00000000 		.word	0
+ 1661 0018 00003443 		.word	1127481344
+ 1662 001c 00002041 		.word	1092616192
+ 1663 0020 00000000 		.word	0
+ 1664 0024 00000000 		.word	0
+ 1665 0028 00004842 		.word	1112014848
+ 1666 002c 00       		.byte	0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 45
+
+
+ 1667 002d 000000   		.space	3
+ 1668              		.section	.bss.boardConfig,"aw",%nobits
+ 1669              		.align	2
+ 1670              		.set	.LANCHOR1,. + 0
+ 1673              	boardConfig:
+ 1674 0000 00000000 		.space	48
+ 1674      00000000 
+ 1674      00000000 
+ 1674      00000000 
+ 1674      00000000 
+ 1675              		.section	.bss.motor,"aw",%nobits
+ 1676              		.align	2
+ 1677              		.set	.LANCHOR0,. + 0
+ 1680              	motor:
+ 1681 0000 00000000 		.space	88
+ 1681      00000000 
+ 1681      00000000 
+ 1681      00000000 
+ 1681      00000000 
+ 1682              		.text
+ 1683              	.Letext0:
+ 1684              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1685              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1686              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1687              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1688              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1689              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\lib\\gcc\\arm-none-eabi\
+ 1690              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1691              		.file 11 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1692              		.file 12 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1693              		.file 13 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1694              		.file 14 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f042x6.h"
+ 1695              		.file 15 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h"
+ 1696              		.file 16 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
+ 1697              		.file 17 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h"
+ 1698              		.file 18 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_adc.h"
+ 1699              		.file 19 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h"
+ 1700              		.file 20 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h"
+ 1701              		.file 21 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
+ 1702              		.file 22 "Inc/adc.h"
+ 1703              		.file 23 "Inc/i2c.h"
+ 1704              		.file 24 "Inc/tim.h"
+ 1705              		.file 25 "Inc/configurations.h"
+ 1706              		.file 26 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1707              		.file 27 "Inc/random_flash_utils.h"
+ 1708              		.file 28 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h"
+ 1709              		.file 29 "<built-in>"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 46
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 user.cpp
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:18     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:23     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:65     .text._Z41__static_initialization_and_destruction_0ii:00000014 $d
+.ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:74     .text.HAL_ADC_ConvCpltCallback:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:80     .text.HAL_ADC_ConvCpltCallback:00000000 HAL_ADC_ConvCpltCallback
+.ARM.exidx.text.HAL_ADC_ConvCpltCallback:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:98     .text.HAL_I2C_SlaveRxCpltCallback:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:104    .text.HAL_I2C_SlaveRxCpltCallback:00000000 HAL_I2C_SlaveRxCpltCallback
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:156    .rodata.HAL_I2C_SlaveRxCpltCallback:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:783    .text.HAL_I2C_SlaveRxCpltCallback:000001dc $d
+.ARM.exidx.text.HAL_I2C_SlaveRxCpltCallback:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:805    .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:811    .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:934    .text.HAL_TIM_PeriodElapsedCallback:00000084 $d
+.ARM.exidx.text.HAL_TIM_PeriodElapsedCallback:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:943    .text._ZN6EEPROM3putI8Config_tEERKT_iS4_:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:949    .text._ZN6EEPROM3putI8Config_tEERKT_iS4_:00000000 _ZN6EEPROM3putI8Config_tEERKT_iS4_
+.ARM.exidx.text._ZN6EEPROM3putI8Config_tEERKT_iS4_:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:1080   .text.Main:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:1086   .text.Main:00000000 Main
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:1596   .text.Main:00000198 $d
+             .ARM.exidx.text.Main:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:1610   .text._GLOBAL__sub_I_motor:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:1615   .text._GLOBAL__sub_I_motor:00000000 _GLOBAL__sub_I_motor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:1637   .text._GLOBAL__sub_I_motor:0000000c $d
+.ARM.exidx.text._GLOBAL__sub_I_motor:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:1644   .init_array:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:1673   .bss.boardConfig:00000000 boardConfig
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:1680   .bss.motor:00000000 motor
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:1649   .rodata:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:1669   .bss.boardConfig:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s:1676   .bss.motor:00000000 $d
+
+UNDEFINED SYMBOLS
+_ZN5Motor9SetEnableEb
+HAL_I2C_Slave_Transmit
+HAL_I2C_Slave_Receive_IT
+_ZN5Motor14SetTorqueLimitEf
+i2cDataRx
+i2cDataTx
+hi2c1
+__aeabi_unwind_cpp_pr0
+__aeabi_fsub
+__aeabi_ui2f
+__aeabi_fmul
+__aeabi_fdiv
+__aeabi_fadd
+__aeabi_f2iz
+HAL_ADC_Start
+_ZN5Motor13CalcDceOutputEff
+_ZN5Motor6SetPwmEs
+hadc
+adcData
+eeprom_buffer_fill
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGE9anW.s 			page 47
+
+
+eeprom_buffered_write_byte
+eeprom_buffer_flush
+eeprom_buffered_read_byte
+HAL_TIM_PWM_Start
+MY_I2C1_Init
+HAL_Delay
+HAL_TIM_Base_Start_IT
+HAL_NVIC_SystemReset
+htim3
+htim14
