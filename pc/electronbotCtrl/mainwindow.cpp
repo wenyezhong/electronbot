@@ -447,34 +447,34 @@ void MainWindow::on_sendFile_clicked()
 void MainWindow::initPara(void)
 {
     //head
-    ui->lineEdit_head_kp->setText("30");
-    ui->lineEdit_head_ki->setText("0.4");
+    ui->lineEdit_head_kp->setText("10");
+    ui->lineEdit_head_ki->setText("0");
     ui->lineEdit_head_kv->setText("0");
-    ui->lineEdit_head_kd->setText("200");
+    ui->lineEdit_head_kd->setText("50");
     ui->lineEdit_head_tq->setText("0.5");
     //left roll
-    ui->lineEdit_lroll_kp->setText("50");
-    ui->lineEdit_lroll_ki->setText("0.8");
+    ui->lineEdit_lroll_kp->setText("10");
+    ui->lineEdit_lroll_ki->setText("0");
     ui->lineEdit_lroll_kv->setText("0");
-    ui->lineEdit_lroll_kd->setText("600");
-    ui->lineEdit_lroll_tq->setText("1.0");
+    ui->lineEdit_lroll_kd->setText("50");
+    ui->lineEdit_lroll_tq->setText("0.5");
     //left pitch
-    ui->lineEdit_lpitch_kp->setText("50");
-    ui->lineEdit_lpitch_ki->setText("0.8");
+    ui->lineEdit_lpitch_kp->setText("10");
+    ui->lineEdit_lpitch_ki->setText("0");
     ui->lineEdit_lpitch_kv->setText("0");
-    ui->lineEdit_lpitch_kd->setText("300");
+    ui->lineEdit_lpitch_kd->setText("50");
     ui->lineEdit_lpitch_tq->setText("0.5");
     //right roll
-    ui->lineEdit_rroll_kp->setText("50");
-    ui->lineEdit_rroll_ki->setText("0.8");
+    ui->lineEdit_rroll_kp->setText("10");
+    ui->lineEdit_rroll_ki->setText("0");
     ui->lineEdit_rroll_kv->setText("0");
-    ui->lineEdit_rroll_kd->setText("600");
-    ui->lineEdit_rroll_tq->setText("1.0");
+    ui->lineEdit_rroll_kd->setText("50");
+    ui->lineEdit_rroll_tq->setText("0.5");
     //right pitch
-    ui->lineEdit_rpitch_kp->setText("50");
-    ui->lineEdit_rpitch_ki->setText("0.8");
+    ui->lineEdit_rpitch_kp->setText("10");
+    ui->lineEdit_rpitch_ki->setText("0");
     ui->lineEdit_rpitch_kv->setText("0");
-    ui->lineEdit_rpitch_kd->setText("300");
+    ui->lineEdit_rpitch_kd->setText("50");
     ui->lineEdit_rpitch_tq->setText("0.5");
     //body
     ui->lineEdit_body_kp->setText("150");

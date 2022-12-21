@@ -62,7 +62,7 @@ void MX_FREERTOS_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void TransmitAndReceiveI2cPacket(uint8_t _id)
+/* void TransmitAndReceiveI2cPacket(uint8_t _id)
 {
     HAL_StatusTypeDef state = HAL_ERROR;
     do
@@ -74,7 +74,7 @@ void TransmitAndReceiveI2cPacket(uint8_t _id)
         state = HAL_I2C_Master_Receive(&hi2c1, _id, i2cRxData, 5, 50);
     } while (state != HAL_OK);
 }
-
+ */
 /* int _write(int fd, char *ch, int len)
 {
   // int i;  

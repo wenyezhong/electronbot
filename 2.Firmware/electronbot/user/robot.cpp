@@ -41,14 +41,16 @@ void Robot::ReceiveUsbPacketUntilSizeIs(uint32_t _count)
 
 void Robot::UpdateServoAngle(Robot::JointStatus_t &_joint, float _angleSetPoint)
 {
-    if (_angleSetPoint >= _joint.angleMin && _angleSetPoint <= _joint.angleMax)
+    //if (_angleSetPoint >= _joint.angleMin && _angleSetPoint <= _joint.angleMax)
     {
         auto* b = (unsigned char*) (&_angleSetPoint);
 
         i2cTxData[0] = 0x01;
         for (int i = 0; i < 4; i++)
-            i2cTxData[i + 1] = *(b + i);
-
+        {
+            i2cTxData[i + 1] = *(b + i);            
+        }
+        
         TransmitAndReceiveI2cPacket(_joint.id);
 
         _joint.angle = *(float*) (i2cRxData + 1);

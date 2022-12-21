@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
   41              		.cfi_offset 4, -12
   42              		.cfi_offset 5, -8
   43              		.cfi_offset 14, -4
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 2
 
 
   44 0002 0546     		mov	r5, r0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
   54:user/robot.h  ****             // electron.SetJointInitAngle(electron.joint[ANY], 0);
   55:user/robot.h  ****             // electron.SetJointKp(electron.joint[ANY], 50);
   56:user/robot.h  ****             // electron.SetJointKi(electron.joint[ANY], 0.8);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 3
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 3
 
 
   57:user/robot.h  ****             // electron.SetJointKd(electron.joint[ANY], 600);
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  111:user/robot.h  ****         };
  112:user/robot.h  **** 
  113:user/robot.h  ****         joint[6] = JointStatus_t{ // Body
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 4
 
 
  114:user/robot.h  ****             12,
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
   18:user/robot.h  **** 
   79              		.loc 1 18 9 is_stmt 1 discriminator 2 view .LVU11
   18:user/robot.h  **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 5
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 5
 
 
   80              		.loc 1 18 35 is_stmt 0 discriminator 2 view .LVU12
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  115              		.loc 1 28 18 is_stmt 0 discriminator 2 view .LVU21
  116 005c 05F1200C 		add	ip, r5, #32
  117 0060 04F11C0E 		add	lr, r4, #28
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 6
 
 
  118 0064 BEE80F00 		ldmia	lr!, {r0, r1, r2, r3}
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  162              	.LBE13:
  130:user/robot.h  **** 
  163              		.loc 1 130 5 discriminator 2 view .LVU32
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 7
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 7
 
 
  164 00ec 2846     		mov	r0, r5
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
   30:user/user.cpp **** 
   31:user/user.cpp **** void setPara(uint8_t *ptr)
   32:user/user.cpp **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 8
 
 
   33:user/user.cpp ****     // Robot::JointStatus_t *pJointStatus; 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
   87:user/user.cpp ****     
   88:user/user.cpp ****     for(int i=0 ; i<32; i++)
   89:user/user.cpp ****         printf("%.2x ",ptr[i]);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 9
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 9
 
 
   90:user/user.cpp ****     printf("\r\n");
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  144:user/user.cpp ****     /*  void (*bootLoader)(void) = (void (*)(void))(*((uint32_t *)0x8000004));
  145:user/user.cpp ****     bootLoader(); */
  146:user/user.cpp ****     NVIC_SystemReset();
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 10
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 10
 
 
  147:user/user.cpp **** }
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  201:user/user.cpp ****             {
  202:user/user.cpp ****                 isEnabled = ptr[0];
  203:user/user.cpp ****                 /* electron.SetJointEnable(electron.joint[1], isEnabled);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 11
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 11
 
 
  204:user/user.cpp ****                 electron.SetJointEnable(electron.joint[2], isEnabled);
@@ -636,111 +636,120 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  236:user/user.cpp **** 
  237:user/user.cpp ****             
  238:user/user.cpp ****         }
- 239:user/user.cpp ****         HAL_Delay(1);
- 240:user/user.cpp ****         
- 241:user/user.cpp ****     }
- 242:user/user.cpp ****     
- 243:user/user.cpp ****    
- 244:user/user.cpp ****  
- 245:user/user.cpp **** 
- 246:user/user.cpp ****     float t = 0;    
- 247:user/user.cpp ****     while (true)
- 248:user/user.cpp ****     {
- 249:user/user.cpp **** #if 1
- 250:user/user.cpp ****         for (int p = 0; p < 4; p++)
- 251:user/user.cpp ****         {
- 252:user/user.cpp ****             // send joint angles
- 253:user/user.cpp ****             for (int j = 0; j < 6; j++)
- 254:user/user.cpp ****                 for (int i = 0; i < 4; i++)
- 255:user/user.cpp ****                 {
- 256:user/user.cpp ****                     auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
- 257:user/user.cpp ****                     electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
- 258:user/user.cpp ****                 }
- 259:user/user.cpp ****             
- 260:user/user.cpp ****             electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);           
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 12
+ 239:user/user.cpp ****         for (int j = 0; j < 6; j++)
+ 240:user/user.cpp ****         {
+ 241:user/user.cpp ****             for (int i = 0; i < 4; i++)
+ 242:user/user.cpp ****             {
+ 243:user/user.cpp ****                 auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
+ 244:user/user.cpp ****                 electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+ 245:user/user.cpp ****             }
+ 246:user/user.cpp ****         }            
+ 247:user/user.cpp ****         electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);   
+ 248:user/user.cpp ****         HAL_Delay(1);
+ 249:user/user.cpp ****         
+ 250:user/user.cpp ****     }
+ 251:user/user.cpp ****     
+ 252:user/user.cpp ****    
+ 253:user/user.cpp ****  
+ 254:user/user.cpp **** 
+ 255:user/user.cpp ****     float t = 0;    
+ 256:user/user.cpp ****     while (true)
+ 257:user/user.cpp ****     {
+ 258:user/user.cpp **** #if 1
+ 259:user/user.cpp ****         for (int p = 0; p < 4; p++)
+ 260:user/user.cpp ****         {
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 12
 
 
- 261:user/user.cpp ****             electron.ReceiveUsbPacketUntilSizeIs(224); // last packet is 224bytes           
- 262:user/user.cpp ****             // get joint angles
- 263:user/user.cpp ****             uint8_t* ptr = electron.GetExtraDataRxPtr();
- 264:user/user.cpp **** 			
- 265:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
- 266:user/user.cpp ****             {
- 267:user/user.cpp ****                 isEnabled = ptr[0];
- 268:user/user.cpp ****                 /* electron.SetJointEnable(electron.joint[1], isEnabled);
- 269:user/user.cpp ****                 electron.SetJointEnable(electron.joint[2], isEnabled);
- 270:user/user.cpp ****                 electron.SetJointEnable(electron.joint[3], isEnabled);
- 271:user/user.cpp ****                 electron.SetJointEnable(electron.joint[4], isEnabled);
- 272:user/user.cpp ****                 electron.SetJointEnable(electron.joint[5], isEnabled); */
- 273:user/user.cpp ****                 // electron.SetJointEnable(electron.joint[6], isEnabled);
- 274:user/user.cpp ****             }
- 275:user/user.cpp ****             for (int j = 0; j < 6; j++)
- 276:user/user.cpp ****             {
- 277:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
- 278:user/user.cpp ****             }
- 279:user/user.cpp ****             printf("33333\r\n");
- 280:user/user.cpp ****             while (electron.lcd->isBusy);
- 281:user/user.cpp ****             printf("222222\r\n");
- 282:user/user.cpp ****             if (p == 0)
- 283:user/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3,false);
- 284:user/user.cpp ****             else
- 285:user/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3, true);			
- 286:user/user.cpp ****         }
- 287:user/user.cpp ****         HAL_Delay(1);
- 288:user/user.cpp **** #endif
- 289:user/user.cpp **** 
- 290:user/user.cpp **** 
- 291:user/user.cpp ****         t += 0.01;
- 292:user/user.cpp **** 
- 293:user/user.cpp ****        /*  electron.UpdateJointAngle(electron.joint[1], jointSetPoints[0]);
- 294:user/user.cpp ****         electron.UpdateJointAngle(electron.joint[2], jointSetPoints[1]);
- 295:user/user.cpp ****         electron.UpdateJointAngle(electron.joint[3], jointSetPoints[2]);
- 296:user/user.cpp ****         electron.UpdateJointAngle(electron.joint[4], jointSetPoints[3]);
- 297:user/user.cpp ****         electron.UpdateJointAngle(electron.joint[5], jointSetPoints[4]);
- 298:user/user.cpp ****         electron.UpdateJointAngle(electron.joint[6], jointSetPoints[5]); */
+ 261:user/user.cpp ****             // send joint angles
+ 262:user/user.cpp ****             for (int j = 0; j < 6; j++)
+ 263:user/user.cpp ****                 for (int i = 0; i < 4; i++)
+ 264:user/user.cpp ****                 {
+ 265:user/user.cpp ****                     auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
+ 266:user/user.cpp ****                     electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+ 267:user/user.cpp ****                 }
+ 268:user/user.cpp ****             
+ 269:user/user.cpp ****             electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);           
+ 270:user/user.cpp ****             electron.ReceiveUsbPacketUntilSizeIs(224); // last packet is 224bytes           
+ 271:user/user.cpp ****             // get joint angles
+ 272:user/user.cpp ****             uint8_t* ptr = electron.GetExtraDataRxPtr();
+ 273:user/user.cpp **** 			
+ 274:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
+ 275:user/user.cpp ****             {
+ 276:user/user.cpp ****                 isEnabled = ptr[0];
+ 277:user/user.cpp ****                 /* electron.SetJointEnable(electron.joint[1], isEnabled);
+ 278:user/user.cpp ****                 electron.SetJointEnable(electron.joint[2], isEnabled);
+ 279:user/user.cpp ****                 electron.SetJointEnable(electron.joint[3], isEnabled);
+ 280:user/user.cpp ****                 electron.SetJointEnable(electron.joint[4], isEnabled);
+ 281:user/user.cpp ****                 electron.SetJointEnable(electron.joint[5], isEnabled); */
+ 282:user/user.cpp ****                 // electron.SetJointEnable(electron.joint[6], isEnabled);
+ 283:user/user.cpp ****             }
+ 284:user/user.cpp ****             for (int j = 0; j < 6; j++)
+ 285:user/user.cpp ****             {
+ 286:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+ 287:user/user.cpp ****             }
+ 288:user/user.cpp ****             printf("33333\r\n");
+ 289:user/user.cpp ****             while (electron.lcd->isBusy);
+ 290:user/user.cpp ****             printf("222222\r\n");
+ 291:user/user.cpp ****             if (p == 0)
+ 292:user/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3,false);
+ 293:user/user.cpp ****             else
+ 294:user/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3, true);			
+ 295:user/user.cpp ****         }
+ 296:user/user.cpp ****         HAL_Delay(1);
+ 297:user/user.cpp **** #endif
+ 298:user/user.cpp **** 
  299:user/user.cpp **** 
- 300:user/user.cpp ****         HAL_Delay(1);
+ 300:user/user.cpp ****         t += 0.01;
  301:user/user.cpp **** 
- 302:user/user.cpp **** //      electron.UpdateJointAngle(electron.joint[ANY], 65 + 75 * std::sin(t));
- 303:user/user.cpp **** 
- 304:user/user.cpp ****         printf("%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n",
- 305:user/user.cpp ****                jointSetPoints[0], jointSetPoints[1], jointSetPoints[2],
- 306:user/user.cpp ****                jointSetPoints[3], jointSetPoints[4], jointSetPoints[5]);
- 307:user/user.cpp ****     }
- 308:user/user.cpp **** }
- 309:user/user.cpp **** 
+ 302:user/user.cpp ****        /*  electron.UpdateJointAngle(electron.joint[1], jointSetPoints[0]);
+ 303:user/user.cpp ****         electron.UpdateJointAngle(electron.joint[2], jointSetPoints[1]);
+ 304:user/user.cpp ****         electron.UpdateJointAngle(electron.joint[3], jointSetPoints[2]);
+ 305:user/user.cpp ****         electron.UpdateJointAngle(electron.joint[4], jointSetPoints[3]);
+ 306:user/user.cpp ****         electron.UpdateJointAngle(electron.joint[5], jointSetPoints[4]);
+ 307:user/user.cpp ****         electron.UpdateJointAngle(electron.joint[6], jointSetPoints[5]); */
+ 308:user/user.cpp **** 
+ 309:user/user.cpp ****         HAL_Delay(1);
  310:user/user.cpp **** 
- 311:user/user.cpp **** extern "C"
- 312:user/user.cpp **** void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef* hspi)
- 313:user/user.cpp **** {
- 314:user/user.cpp ****     electron.lcd->isBusy = false;
- 315:user/user.cpp **** }...
- 190              		.loc 3 315 1 is_stmt 1 view -0
+ 311:user/user.cpp **** //      electron.UpdateJointAngle(electron.joint[ANY], 65 + 75 * std::sin(t));
+ 312:user/user.cpp **** 
+ 313:user/user.cpp ****         printf("%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n",
+ 314:user/user.cpp ****                jointSetPoints[0], jointSetPoints[1], jointSetPoints[2],
+ 315:user/user.cpp ****                jointSetPoints[3], jointSetPoints[4], jointSetPoints[5]);
+ 316:user/user.cpp ****     }
+ 317:user/user.cpp **** }
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 13
+
+
+ 318:user/user.cpp **** 
+ 319:user/user.cpp **** 
+ 320:user/user.cpp **** extern "C"
+ 321:user/user.cpp **** void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef* hspi)
+ 322:user/user.cpp **** {
+ 323:user/user.cpp ****     electron.lcd->isBusy = false;
+ 324:user/user.cpp **** }...
+ 190              		.loc 3 324 1 is_stmt 1 view -0
  191              		.cfi_startproc
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 13
-
-
  192              		@ args = 0, pretend = 0, frame = 0
  193              		@ frame_needed = 0, uses_anonymous_args = 0
- 194              		.loc 3 315 1 is_stmt 0 view .LVU35
+ 194              		.loc 3 324 1 is_stmt 0 view .LVU35
  195 0000 0128     		cmp	r0, #1
  196 0002 00D0     		beq	.L14
  197 0004 7047     		bx	lr
  198              	.L14:
- 199              		.loc 3 315 1 discriminator 1 view .LVU36
+ 199              		.loc 3 324 1 discriminator 1 view .LVU36
  200 0006 08B5     		push	{r3, lr}
  201              	.LCFI1:
  202              		.cfi_def_cfa_offset 8
  203              		.cfi_offset 3, -8
  204              		.cfi_offset 14, -4
- 205              		.loc 3 315 1 discriminator 1 view .LVU37
+ 205              		.loc 3 324 1 discriminator 1 view .LVU37
  206 0008 4FF6FF73 		movw	r3, #65535
  207 000c 9942     		cmp	r1, r3
  208 000e 00D0     		beq	.L15
  209              	.LVL10:
  210              	.L8:
- 211              		.loc 3 315 1 view .LVU38
+ 211              		.loc 3 324 1 view .LVU38
  212 0010 08BD     		pop	{r3, pc}
  213              	.LVL11:
  214              	.L15:
@@ -757,7 +766,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  222              		.loc 3 7 30 view .LVU41
  223 0018 FFF7FEFF 		bl	_ZN5RobotC1EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
  224              	.LVL14:
- 225              		.loc 3 315 1 view .LVU42
+ 225              		.loc 3 324 1 view .LVU42
  226 001c F8E7     		b	.L8
  227              	.L17:
  228 001e 00BF     		.align	2
@@ -769,6 +778,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  234              	.LFE378:
  235              		.cantunwind
  236              		.fnend
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 14
+
+
  238              		.section	.rodata.setPara.str1.4,"aMS",%progbits,1
  239              		.align	2
  240              	.LC7:
@@ -778,9 +790,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  243              	.LC8:
  244 0008 0D00     		.ascii	"\015\000"
  245              		.section	.text.setPara,"ax",%progbits
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 14
-
-
  246              		.align	1
  247              		.global	setPara
  248              		.syntax unified
@@ -829,6 +838,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  284 0014 3E4B     		ldr	r3, .L33+4
  285 0016 1A60     		str	r2, [r3]	@ float
   37:user/user.cpp ****     setKv=*((float*) (ptr + 12));
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 15
+
+
  286              		.loc 3 37 5 is_stmt 1 view .LVU51
   37:user/user.cpp ****     setKv=*((float*) (ptr + 12));
  287              		.loc 3 37 10 is_stmt 0 view .LVU52
@@ -838,9 +850,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
   38:user/user.cpp ****     setKd=*((float*) (ptr + 17));
  291              		.loc 3 38 5 is_stmt 1 view .LVU53
   38:user/user.cpp ****     setKd=*((float*) (ptr + 17));
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 15
-
-
  292              		.loc 3 38 10 is_stmt 0 view .LVU54
  293 001e 00F11103 		add	r3, r0, #17
  294 0022 1A68     		ldr	r2, [r3]	@ float
@@ -889,6 +898,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  325 004a 427D     		ldrb	r2, [r0, #21]	@ zero_extendqisi2
  326 004c 384B     		ldr	r3, .L33+36
  327 004e 1A70     		strb	r2, [r3]
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 16
+
+
   47:user/user.cpp ****     for(int i=0 ; i<32; i++)
  328              		.loc 3 47 5 is_stmt 1 view .LVU67
  329              	.LVL17:
@@ -898,9 +910,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  332 0050 0024     		movs	r4, #0
  333 0052 04E0     		b	.L20
  334              	.LVL18:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 16
-
-
  335              	.L27:
   48:user/user.cpp ****         printf("%.2x ",ptr[i]);
  336              		.loc 3 48 9 is_stmt 1 discriminator 2 view .LVU69
@@ -949,6 +958,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  368              	.L22:
   66:user/user.cpp ****     if(setkv_flag)        
  369              		.loc 3 66 5 is_stmt 1 view .LVU81
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 17
+
+
   66:user/user.cpp ****     if(setkv_flag)        
  370              		.loc 3 66 8 is_stmt 0 view .LVU82
  371 0074 2C4B     		ldr	r3, .L33+28
@@ -958,9 +970,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  374 0078 03BB     		cbnz	r3, .L30
  375              	.L23:
   68:user/user.cpp ****     if(setkd_flag)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 17
-
-
  376              		.loc 3 68 5 is_stmt 1 view .LVU84
   68:user/user.cpp ****     if(setkd_flag)
  377              		.loc 3 68 8 is_stmt 0 view .LVU85
@@ -1009,6 +1018,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  410              		.loc 3 65 9 is_stmt 1 view .LVU95
   65:user/user.cpp ****         electron.SetJointKi(electron.joint[id/2], setKi);
  411              		.loc 3 65 46 is_stmt 0 view .LVU96
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 18
+
+
  412 00a2 7308     		lsrs	r3, r6, #1
   65:user/user.cpp ****         electron.SetJointKi(electron.joint[id/2], setKi);
  413              		.loc 3 65 48 view .LVU97
@@ -1018,9 +1030,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
   65:user/user.cpp ****         electron.SetJointKi(electron.joint[id/2], setKi);
  417              		.loc 3 65 28 view .LVU98
  418 00ae 184B     		ldr	r3, .L33+4
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 18
-
-
  419 00b0 93ED000A 		vldr.32	s0, [r3]
  420 00b4 0431     		adds	r1, r1, #4
  421 00b6 FFF7FEFF 		bl	_ZN5Robot10SetJointKiERNS_13JointStatus_tEf
@@ -1069,6 +1078,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  455              		.loc 3 71 9 is_stmt 1 view .LVU107
   71:user/user.cpp ****         electron.SetJointTorqueLimit(electron.joint[id/2], setTq);
  456              		.loc 3 71 55 is_stmt 0 view .LVU108
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 19
+
+
  457 00f0 7608     		lsrs	r6, r6, #1
  458              	.LVL28:
   71:user/user.cpp ****         electron.SetJointTorqueLimit(electron.joint[id/2], setTq);
@@ -1078,9 +1090,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  462 00f8 00EB8601 		add	r1, r0, r6, lsl #2
   71:user/user.cpp ****         electron.SetJointTorqueLimit(electron.joint[id/2], setTq);
  463              		.loc 3 71 37 view .LVU110
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 19
-
-
  464 00fc 074B     		ldr	r3, .L33+16
  465 00fe 93ED000A 		vldr.32	s0, [r3]
  466 0102 0431     		adds	r1, r1, #4
@@ -1129,6 +1138,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  508              		.save {r4, r5, r6, lr}
  509              	.LCFI3:
  510              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 20
+
+
  511              		.cfi_offset 4, -16
  512              		.cfi_offset 5, -12
  513              		.cfi_offset 6, -8
@@ -1138,9 +1150,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  516              		.loc 3 83 5 is_stmt 1 view .LVU114
   83:user/user.cpp ****     uint8_t id = ptr[0];
  517              		.loc 3 83 13 is_stmt 0 view .LVU115
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 20
-
-
  518 0004 0346     		mov	r3, r0
  519 0006 13F8016B 		ldrb	r6, [r3], #1	@ zero_extendqisi2
  520              	.LVL31:
@@ -1189,6 +1198,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  553              	.LVL36:
   88:user/user.cpp ****     for(int i=0 ; i<32; i++)
  554              		.loc 3 88 5 is_stmt 1 discriminator 2 view .LVU126
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 21
+
+
  555 002e 0134     		adds	r4, r4, #1
  556              	.LVL37:
  557              	.L37:
@@ -1198,9 +1210,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  560 0032 F8DD     		ble	.L39
  561              	.LBE19:
   90:user/user.cpp ****     printf("\r\n");
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 21
-
-
  562              		.loc 3 90 5 view .LVU128
   90:user/user.cpp ****     printf("\r\n");
  563              		.loc 3 90 11 is_stmt 0 view .LVU129
@@ -1249,6 +1258,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  598 0068 00000000 		.word	.LANCHOR12
  599 006c 00000000 		.word	.LANCHOR13
  600 0070 00000000 		.word	.LC7
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 22
+
+
  601 0074 08000000 		.word	.LC8
  602 0078 00000000 		.word	.LANCHOR1
  603              		.cfi_endproc
@@ -1258,9 +1270,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  608              		.align	1
  609              		.global	_Z5setidPh
  610              		.syntax unified
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 22
-
-
  611              		.thumb
  612              		.thumb_func
  614              	_Z5setidPh:
@@ -1309,6 +1318,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  647 0012 00EB8101 		add	r1, r0, r1, lsl #2
  110:user/user.cpp ****     electron.SetJointId(electron.joint[id/2], newid);
  648              		.loc 3 110 24 view .LVU148
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 23
+
+
  649 0016 0431     		adds	r1, r1, #4
  650 0018 FFF7FEFF 		bl	_ZN5Robot10SetJointIdERNS_13JointStatus_tEh
  651              	.LVL47:
@@ -1318,9 +1330,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  654              	.L45:
  655 001e 00BF     		.align	2
  656              	.L44:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 23
-
-
  657 0020 00000000 		.word	.LANCHOR14
  658 0024 00000000 		.word	.LANCHOR1
  659              		.cfi_endproc
@@ -1369,6 +1378,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  697              		.loc 3 115 25 view .LVU156
  698 000c 1A68     		ldr	r2, [r3]	@ float
  699 000e 0F4B     		ldr	r3, .L51
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 24
+
+
  700 0010 03EB8603 		add	r3, r3, r6, lsl #2
  701 0014 1A60     		str	r2, [r3]	@ float
  702              	.LVL51:
@@ -1378,9 +1390,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  116:user/user.cpp ****     for(int i=0 ; i<32; i++)
  705              		.loc 3 116 13 is_stmt 0 view .LVU158
  706 0016 0024     		movs	r4, #0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 24
-
-
  707 0018 04E0     		b	.L48
  708              	.LVL52:
  709              	.L50:
@@ -1429,6 +1438,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  742 0048 70BD     		pop	{r4, r5, r6, pc}
  743              	.LVL57:
  744              	.L52:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 25
+
+
  121:user/user.cpp **** }
  745              		.loc 3 121 1 view .LVU169
  746 004a 00BF     		.align	2
@@ -1438,9 +1450,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  750 0054 08000000 		.word	.LC8
  751 0058 00000000 		.word	.LANCHOR1
  752              		.cfi_endproc
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 25
-
-
  753              	.LFE374:
  754              		.fnend
  756              		.section	.text._Z14JumpBootLoaderPh,"ax",%progbits
@@ -1489,6 +1498,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  791              		.loc 3 128 5 is_stmt 1 view .LVU178
  128:user/user.cpp ****     electron.pUsbBuffer->extraDataTx[29] = 0x00;
  792              		.loc 3 128 42 is_stmt 0 view .LVU179
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 26
+
+
  793 000e 0023     		movs	r3, #0
  794 0010 4B77     		strb	r3, [r1, #29]
  129:user/user.cpp ****     electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);
@@ -1498,9 +1510,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  797 0012 2022     		movs	r2, #32
  798 0014 FFF7FEFF 		bl	_ZN5Robot13SendUsbPacketEPhm
  799              	.LVL60:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 26
-
-
  130:user/user.cpp ****     HAL_Delay(50);    
  800              		.loc 3 130 5 is_stmt 1 view .LVU182
  130:user/user.cpp ****     HAL_Delay(50);    
@@ -1549,6 +1558,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
   12:Drivers/CMSIS/Include/core_cm4.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
   13:Drivers/CMSIS/Include/core_cm4.h ****  * not use this file except in compliance with the License.
   14:Drivers/CMSIS/Include/core_cm4.h ****  * You may obtain a copy of the License at
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 27
+
+
   15:Drivers/CMSIS/Include/core_cm4.h ****  *
   16:Drivers/CMSIS/Include/core_cm4.h ****  * www.apache.org/licenses/LICENSE-2.0
   17:Drivers/CMSIS/Include/core_cm4.h ****  *
@@ -1558,9 +1570,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
   21:Drivers/CMSIS/Include/core_cm4.h ****  * See the License for the specific language governing permissions and
   22:Drivers/CMSIS/Include/core_cm4.h ****  * limitations under the License.
   23:Drivers/CMSIS/Include/core_cm4.h ****  */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 27
-
-
   24:Drivers/CMSIS/Include/core_cm4.h **** 
   25:Drivers/CMSIS/Include/core_cm4.h **** #if   defined ( __ICCARM__ )
   26:Drivers/CMSIS/Include/core_cm4.h ****   #pragma system_include         /* treat file as system include file for MISRA check */
@@ -1609,6 +1618,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
   69:Drivers/CMSIS/Include/core_cm4.h ****                                     __CM4_CMSIS_VERSION_SUB           )  /*!< \deprecated CMSIS HAL
   70:Drivers/CMSIS/Include/core_cm4.h **** 
   71:Drivers/CMSIS/Include/core_cm4.h **** #define __CORTEX_M                (4U)                                   /*!< Cortex-M Core */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 28
+
+
   72:Drivers/CMSIS/Include/core_cm4.h **** 
   73:Drivers/CMSIS/Include/core_cm4.h **** /** __FPU_USED indicates whether an FPU is used or not.
   74:Drivers/CMSIS/Include/core_cm4.h ****     For this, __FPU_PRESENT has to be checked prior to making use of FPU specific registers and fun
@@ -1618,9 +1630,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
   78:Drivers/CMSIS/Include/core_cm4.h ****     #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
   79:Drivers/CMSIS/Include/core_cm4.h ****       #define __FPU_USED       1U
   80:Drivers/CMSIS/Include/core_cm4.h ****     #else
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 28
-
-
   81:Drivers/CMSIS/Include/core_cm4.h ****       #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)
   82:Drivers/CMSIS/Include/core_cm4.h ****       #define __FPU_USED       0U
   83:Drivers/CMSIS/Include/core_cm4.h ****     #endif
@@ -1669,6 +1678,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  126:Drivers/CMSIS/Include/core_cm4.h ****     #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
  127:Drivers/CMSIS/Include/core_cm4.h ****       #define __FPU_USED       1U
  128:Drivers/CMSIS/Include/core_cm4.h ****     #else
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 29
+
+
  129:Drivers/CMSIS/Include/core_cm4.h ****       #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)
  130:Drivers/CMSIS/Include/core_cm4.h ****       #define __FPU_USED       0U
  131:Drivers/CMSIS/Include/core_cm4.h ****     #endif
@@ -1678,9 +1690,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  135:Drivers/CMSIS/Include/core_cm4.h **** 
  136:Drivers/CMSIS/Include/core_cm4.h **** #elif defined ( __TASKING__ )
  137:Drivers/CMSIS/Include/core_cm4.h ****   #if defined __FPU_VFP__
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 29
-
-
  138:Drivers/CMSIS/Include/core_cm4.h ****     #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
  139:Drivers/CMSIS/Include/core_cm4.h ****       #define __FPU_USED       1U
  140:Drivers/CMSIS/Include/core_cm4.h ****     #else
@@ -1729,6 +1738,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  183:Drivers/CMSIS/Include/core_cm4.h ****     #define __CM4_REV               0x0000U
  184:Drivers/CMSIS/Include/core_cm4.h ****     #warning "__CM4_REV not defined in device header file; using default!"
  185:Drivers/CMSIS/Include/core_cm4.h ****   #endif
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 30
+
+
  186:Drivers/CMSIS/Include/core_cm4.h **** 
  187:Drivers/CMSIS/Include/core_cm4.h ****   #ifndef __FPU_PRESENT
  188:Drivers/CMSIS/Include/core_cm4.h ****     #define __FPU_PRESENT             0U
@@ -1738,9 +1750,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  192:Drivers/CMSIS/Include/core_cm4.h ****   #ifndef __MPU_PRESENT
  193:Drivers/CMSIS/Include/core_cm4.h ****     #define __MPU_PRESENT             0U
  194:Drivers/CMSIS/Include/core_cm4.h ****     #warning "__MPU_PRESENT not defined in device header file; using default!"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 30
-
-
  195:Drivers/CMSIS/Include/core_cm4.h ****   #endif
  196:Drivers/CMSIS/Include/core_cm4.h **** 
  197:Drivers/CMSIS/Include/core_cm4.h ****   #ifndef __NVIC_PRIO_BITS
@@ -1789,6 +1798,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  240:Drivers/CMSIS/Include/core_cm4.h ****   - Core Debug Register
  241:Drivers/CMSIS/Include/core_cm4.h ****   - Core MPU Register
  242:Drivers/CMSIS/Include/core_cm4.h ****   - Core FPU Register
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 31
+
+
  243:Drivers/CMSIS/Include/core_cm4.h ****  ******************************************************************************/
  244:Drivers/CMSIS/Include/core_cm4.h **** /**
  245:Drivers/CMSIS/Include/core_cm4.h ****   \defgroup CMSIS_core_register Defines and Type Definitions
@@ -1798,9 +1810,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  249:Drivers/CMSIS/Include/core_cm4.h **** /**
  250:Drivers/CMSIS/Include/core_cm4.h ****   \ingroup    CMSIS_core_register
  251:Drivers/CMSIS/Include/core_cm4.h ****   \defgroup   CMSIS_CORE  Status and Control Registers
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 31
-
-
  252:Drivers/CMSIS/Include/core_cm4.h ****   \brief      Core Register type definitions.
  253:Drivers/CMSIS/Include/core_cm4.h ****   @{
  254:Drivers/CMSIS/Include/core_cm4.h ****  */
@@ -1849,6 +1858,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  297:Drivers/CMSIS/Include/core_cm4.h ****  */
  298:Drivers/CMSIS/Include/core_cm4.h **** typedef union
  299:Drivers/CMSIS/Include/core_cm4.h **** {
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 32
+
+
  300:Drivers/CMSIS/Include/core_cm4.h ****   struct
  301:Drivers/CMSIS/Include/core_cm4.h ****   {
  302:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t ISR:9;                      /*!< bit:  0.. 8  Exception number */
@@ -1858,9 +1870,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  306:Drivers/CMSIS/Include/core_cm4.h **** } IPSR_Type;
  307:Drivers/CMSIS/Include/core_cm4.h **** 
  308:Drivers/CMSIS/Include/core_cm4.h **** /* IPSR Register Definitions */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 32
-
-
  309:Drivers/CMSIS/Include/core_cm4.h **** #define IPSR_ISR_Pos                        0U                                            /*!< IPSR
  310:Drivers/CMSIS/Include/core_cm4.h **** #define IPSR_ISR_Msk                       (0x1FFUL /*<< IPSR_ISR_Pos*/)                  /*!< IPSR
  311:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1909,6 +1918,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  354:Drivers/CMSIS/Include/core_cm4.h **** 
  355:Drivers/CMSIS/Include/core_cm4.h **** #define xPSR_T_Pos                         24U                                            /*!< xPSR
  356:Drivers/CMSIS/Include/core_cm4.h **** #define xPSR_T_Msk                         (1UL << xPSR_T_Pos)                            /*!< xPSR
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 33
+
+
  357:Drivers/CMSIS/Include/core_cm4.h **** 
  358:Drivers/CMSIS/Include/core_cm4.h **** #define xPSR_GE_Pos                        16U                                            /*!< xPSR
  359:Drivers/CMSIS/Include/core_cm4.h **** #define xPSR_GE_Msk                        (0xFUL << xPSR_GE_Pos)                         /*!< xPSR
@@ -1918,9 +1930,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  363:Drivers/CMSIS/Include/core_cm4.h **** 
  364:Drivers/CMSIS/Include/core_cm4.h **** #define xPSR_ISR_Pos                        0U                                            /*!< xPSR
  365:Drivers/CMSIS/Include/core_cm4.h **** #define xPSR_ISR_Msk                       (0x1FFUL /*<< xPSR_ISR_Pos*/)                  /*!< xPSR
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 33
-
-
  366:Drivers/CMSIS/Include/core_cm4.h **** 
  367:Drivers/CMSIS/Include/core_cm4.h **** 
  368:Drivers/CMSIS/Include/core_cm4.h **** /**
@@ -1969,6 +1978,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  411:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RSERVED1[24U];
  412:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t ISPR[8U];               /*!< Offset: 0x100 (R/W)  Interrupt Set Pending Register *
  413:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED2[24U];
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 34
+
+
  414:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t ICPR[8U];               /*!< Offset: 0x180 (R/W)  Interrupt Clear Pending Register
  415:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED3[24U];
  416:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t IABR[8U];               /*!< Offset: 0x200 (R/W)  Interrupt Active bit Register */
@@ -1978,9 +1990,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  420:Drivers/CMSIS/Include/core_cm4.h ****   __OM  uint32_t STIR;                   /*!< Offset: 0xE00 ( /W)  Software Trigger Interrupt Regis
  421:Drivers/CMSIS/Include/core_cm4.h **** }  NVIC_Type;
  422:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 34
-
-
  423:Drivers/CMSIS/Include/core_cm4.h **** /* Software Triggered Interrupt Register Definitions */
  424:Drivers/CMSIS/Include/core_cm4.h **** #define NVIC_STIR_INTID_Pos                 0U                                         /*!< STIR: I
  425:Drivers/CMSIS/Include/core_cm4.h **** #define NVIC_STIR_INTID_Msk                (0x1FFUL /*<< NVIC_STIR_INTID_Pos*/)        /*!< STIR: I
@@ -2029,6 +2038,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  468:Drivers/CMSIS/Include/core_cm4.h **** 
  469:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CPUID_VARIANT_Pos              20U                                            /*!< SCB 
  470:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CPUID_VARIANT_Msk              (0xFUL << SCB_CPUID_VARIANT_Pos)               /*!< SCB 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 35
+
+
  471:Drivers/CMSIS/Include/core_cm4.h **** 
  472:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CPUID_ARCHITECTURE_Pos         16U                                            /*!< SCB 
  473:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CPUID_ARCHITECTURE_Msk         (0xFUL << SCB_CPUID_ARCHITECTURE_Pos)          /*!< SCB 
@@ -2038,9 +2050,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  477:Drivers/CMSIS/Include/core_cm4.h **** 
  478:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CPUID_REVISION_Pos              0U                                            /*!< SCB 
  479:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CPUID_REVISION_Msk             (0xFUL /*<< SCB_CPUID_REVISION_Pos*/)          /*!< SCB 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 35
-
-
  480:Drivers/CMSIS/Include/core_cm4.h **** 
  481:Drivers/CMSIS/Include/core_cm4.h **** /* SCB Interrupt Control State Register Definitions */
  482:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_NMIPENDSET_Pos            31U                                            /*!< SCB 
@@ -2089,6 +2098,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  525:Drivers/CMSIS/Include/core_cm4.h **** 
  526:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_AIRCR_PRIGROUP_Pos              8U                                            /*!< SCB 
  527:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_AIRCR_PRIGROUP_Msk             (7UL << SCB_AIRCR_PRIGROUP_Pos)                /*!< SCB 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 36
+
+
  528:Drivers/CMSIS/Include/core_cm4.h **** 
  529:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_AIRCR_SYSRESETREQ_Pos           2U                                            /*!< SCB 
  530:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_AIRCR_SYSRESETREQ_Msk          (1UL << SCB_AIRCR_SYSRESETREQ_Pos)             /*!< SCB 
@@ -2098,9 +2110,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  534:Drivers/CMSIS/Include/core_cm4.h **** 
  535:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_AIRCR_VECTRESET_Pos             0U                                            /*!< SCB 
  536:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_AIRCR_VECTRESET_Msk            (1UL /*<< SCB_AIRCR_VECTRESET_Pos*/)           /*!< SCB 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 36
-
-
  537:Drivers/CMSIS/Include/core_cm4.h **** 
  538:Drivers/CMSIS/Include/core_cm4.h **** /* SCB System Control Register Definitions */
  539:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SCR_SEVONPEND_Pos               4U                                            /*!< SCB 
@@ -2149,6 +2158,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  582:Drivers/CMSIS/Include/core_cm4.h **** 
  583:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_MEMFAULTPENDED_Pos       13U                                            /*!< SCB 
  584:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_MEMFAULTPENDED_Msk       (1UL << SCB_SHCSR_MEMFAULTPENDED_Pos)          /*!< SCB 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 37
+
+
  585:Drivers/CMSIS/Include/core_cm4.h **** 
  586:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_USGFAULTPENDED_Pos       12U                                            /*!< SCB 
  587:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_USGFAULTPENDED_Msk       (1UL << SCB_SHCSR_USGFAULTPENDED_Pos)          /*!< SCB 
@@ -2158,9 +2170,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  591:Drivers/CMSIS/Include/core_cm4.h **** 
  592:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_PENDSVACT_Pos            10U                                            /*!< SCB 
  593:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_PENDSVACT_Msk            (1UL << SCB_SHCSR_PENDSVACT_Pos)               /*!< SCB 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 37
-
-
  594:Drivers/CMSIS/Include/core_cm4.h **** 
  595:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_MONITORACT_Pos            8U                                            /*!< SCB 
  596:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_MONITORACT_Msk           (1UL << SCB_SHCSR_MONITORACT_Pos)              /*!< SCB 
@@ -2209,6 +2218,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  639:Drivers/CMSIS/Include/core_cm4.h **** /* BusFault Status Register (part of SCB Configurable Fault Status Register) */
  640:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_BFARVALID_Pos            (SCB_CFSR_BUSFAULTSR_Pos + 7U)                  /*!< SCB 
  641:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_BFARVALID_Msk            (1UL << SCB_CFSR_BFARVALID_Pos)                 /*!< SCB 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 38
+
+
  642:Drivers/CMSIS/Include/core_cm4.h **** 
  643:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_LSPERR_Pos               (SCB_CFSR_BUSFAULTSR_Pos + 5U)                  /*!< SCB 
  644:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_LSPERR_Msk               (1UL << SCB_CFSR_LSPERR_Pos)                    /*!< SCB 
@@ -2218,9 +2230,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  648:Drivers/CMSIS/Include/core_cm4.h **** 
  649:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_UNSTKERR_Pos             (SCB_CFSR_BUSFAULTSR_Pos + 3U)                  /*!< SCB 
  650:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_UNSTKERR_Msk             (1UL << SCB_CFSR_UNSTKERR_Pos)                  /*!< SCB 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 38
-
-
  651:Drivers/CMSIS/Include/core_cm4.h **** 
  652:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_IMPRECISERR_Pos          (SCB_CFSR_BUSFAULTSR_Pos + 2U)                  /*!< SCB 
  653:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_IMPRECISERR_Msk          (1UL << SCB_CFSR_IMPRECISERR_Pos)               /*!< SCB 
@@ -2269,6 +2278,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  696:Drivers/CMSIS/Include/core_cm4.h **** 
  697:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_DFSR_DWTTRAP_Pos                2U                                            /*!< SCB 
  698:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_DFSR_DWTTRAP_Msk               (1UL << SCB_DFSR_DWTTRAP_Pos)                  /*!< SCB 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 39
+
+
  699:Drivers/CMSIS/Include/core_cm4.h **** 
  700:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_DFSR_BKPT_Pos                   1U                                            /*!< SCB 
  701:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_DFSR_BKPT_Msk                  (1UL << SCB_DFSR_BKPT_Pos)                     /*!< SCB 
@@ -2278,9 +2290,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  705:Drivers/CMSIS/Include/core_cm4.h **** 
  706:Drivers/CMSIS/Include/core_cm4.h **** /*@} end of group CMSIS_SCB */
  707:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 39
-
-
  708:Drivers/CMSIS/Include/core_cm4.h **** 
  709:Drivers/CMSIS/Include/core_cm4.h **** /**
  710:Drivers/CMSIS/Include/core_cm4.h ****   \ingroup  CMSIS_core_register
@@ -2329,6 +2338,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  753:Drivers/CMSIS/Include/core_cm4.h ****   @{
  754:Drivers/CMSIS/Include/core_cm4.h ****  */
  755:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 40
+
+
  756:Drivers/CMSIS/Include/core_cm4.h **** /**
  757:Drivers/CMSIS/Include/core_cm4.h ****   \brief  Structure type to access the System Timer (SysTick).
  758:Drivers/CMSIS/Include/core_cm4.h ****  */
@@ -2338,9 +2350,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  762:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t LOAD;                   /*!< Offset: 0x004 (R/W)  SysTick Reload Value Register */
  763:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t VAL;                    /*!< Offset: 0x008 (R/W)  SysTick Current Value Register *
  764:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t CALIB;                  /*!< Offset: 0x00C (R/ )  SysTick Calibration Register */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 40
-
-
  765:Drivers/CMSIS/Include/core_cm4.h **** } SysTick_Type;
  766:Drivers/CMSIS/Include/core_cm4.h **** 
  767:Drivers/CMSIS/Include/core_cm4.h **** /* SysTick Control / Status Register Definitions */
@@ -2389,6 +2398,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  810:Drivers/CMSIS/Include/core_cm4.h ****  */
  811:Drivers/CMSIS/Include/core_cm4.h **** typedef struct
  812:Drivers/CMSIS/Include/core_cm4.h **** {
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 41
+
+
  813:Drivers/CMSIS/Include/core_cm4.h ****   __OM  union
  814:Drivers/CMSIS/Include/core_cm4.h ****   {
  815:Drivers/CMSIS/Include/core_cm4.h ****     __OM  uint8_t    u8;                 /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
@@ -2398,9 +2410,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  819:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED0[864U];
  820:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t TER;                    /*!< Offset: 0xE00 (R/W)  ITM Trace Enable Register */
  821:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED1[15U];
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 41
-
-
  822:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t TPR;                    /*!< Offset: 0xE40 (R/W)  ITM Trace Privilege Register */
  823:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED2[15U];
  824:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t TCR;                    /*!< Offset: 0xE80 (R/W)  ITM Trace Control Register */
@@ -2449,6 +2458,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  867:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_TCR_DWTENA_Pos                  3U                                            /*!< ITM 
  868:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_TCR_DWTENA_Msk                 (1UL << ITM_TCR_DWTENA_Pos)                    /*!< ITM 
  869:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 42
+
+
  870:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_TCR_SYNCENA_Pos                 2U                                            /*!< ITM 
  871:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_TCR_SYNCENA_Msk                (1UL << ITM_TCR_SYNCENA_Pos)                   /*!< ITM 
  872:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -2458,9 +2470,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  876:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_TCR_ITMENA_Pos                  0U                                            /*!< ITM 
  877:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_TCR_ITMENA_Msk                 (1UL /*<< ITM_TCR_ITMENA_Pos*/)                /*!< ITM 
  878:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 42
-
-
  879:Drivers/CMSIS/Include/core_cm4.h **** /* ITM Integration Write Register Definitions */
  880:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_IWR_ATVALIDM_Pos                0U                                            /*!< ITM 
  881:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_IWR_ATVALIDM_Msk               (1UL /*<< ITM_IWR_ATVALIDM_Pos*/)              /*!< ITM 
@@ -2509,6 +2518,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  924:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t COMP0;                  /*!< Offset: 0x020 (R/W)  Comparator Register 0 */
  925:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t MASK0;                  /*!< Offset: 0x024 (R/W)  Mask Register 0 */
  926:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t FUNCTION0;              /*!< Offset: 0x028 (R/W)  Function Register 0 */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 43
+
+
  927:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED0[1U];
  928:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t COMP1;                  /*!< Offset: 0x030 (R/W)  Comparator Register 1 */
  929:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t MASK1;                  /*!< Offset: 0x034 (R/W)  Mask Register 1 */
@@ -2518,9 +2530,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  933:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t MASK2;                  /*!< Offset: 0x044 (R/W)  Mask Register 2 */
  934:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t FUNCTION2;              /*!< Offset: 0x048 (R/W)  Function Register 2 */
  935:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED2[1U];
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 43
-
-
  936:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t COMP3;                  /*!< Offset: 0x050 (R/W)  Comparator Register 3 */
  937:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t MASK3;                  /*!< Offset: 0x054 (R/W)  Mask Register 3 */
  938:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t FUNCTION3;              /*!< Offset: 0x058 (R/W)  Function Register 3 */
@@ -2569,6 +2578,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  981:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_SYNCTAP_Pos               10U                                         /*!< DWT CTR
  982:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_SYNCTAP_Msk               (0x3UL << DWT_CTRL_SYNCTAP_Pos)             /*!< DWT CTR
  983:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 44
+
+
  984:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_CYCTAP_Pos                 9U                                         /*!< DWT CTR
  985:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_CYCTAP_Msk                (0x1UL << DWT_CTRL_CYCTAP_Pos)              /*!< DWT CTR
  986:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -2578,9 +2590,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  990:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_POSTPRESET_Pos             1U                                         /*!< DWT CTR
  991:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_POSTPRESET_Msk            (0xFUL << DWT_CTRL_POSTPRESET_Pos)          /*!< DWT CTR
  992:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 44
-
-
  993:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_CYCCNTENA_Pos              0U                                         /*!< DWT CTR
  994:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_CYCCNTENA_Msk             (0x1UL /*<< DWT_CTRL_CYCCNTENA_Pos*/)       /*!< DWT CTR
  995:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -2629,6 +2638,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1038:Drivers/CMSIS/Include/core_cm4.h **** 
 1039:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_FUNCTION_CYCMATCH_Pos           7U                                         /*!< DWT FUN
 1040:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_FUNCTION_CYCMATCH_Msk          (0x1UL << DWT_FUNCTION_CYCMATCH_Pos)        /*!< DWT FUN
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 45
+
+
 1041:Drivers/CMSIS/Include/core_cm4.h **** 
 1042:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_FUNCTION_EMITRANGE_Pos          5U                                         /*!< DWT FUN
 1043:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_FUNCTION_EMITRANGE_Msk         (0x1UL << DWT_FUNCTION_EMITRANGE_Pos)       /*!< DWT FUN
@@ -2638,9 +2650,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1047:Drivers/CMSIS/Include/core_cm4.h **** 
 1048:Drivers/CMSIS/Include/core_cm4.h **** /*@}*/ /* end of group CMSIS_DWT */
 1049:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 45
-
-
 1050:Drivers/CMSIS/Include/core_cm4.h **** 
 1051:Drivers/CMSIS/Include/core_cm4.h **** /**
 1052:Drivers/CMSIS/Include/core_cm4.h ****   \ingroup  CMSIS_core_register
@@ -2689,6 +2698,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1095:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_SPPR_TXMODE_Msk                (0x3UL /*<< TPI_SPPR_TXMODE_Pos*/)          /*!< TPI SPP
 1096:Drivers/CMSIS/Include/core_cm4.h **** 
 1097:Drivers/CMSIS/Include/core_cm4.h **** /* TPI Formatter and Flush Status Register Definitions */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 46
+
+
 1098:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FFSR_FtNonStop_Pos              3U                                         /*!< TPI FFS
 1099:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FFSR_FtNonStop_Msk             (0x1UL << TPI_FFSR_FtNonStop_Pos)           /*!< TPI FFS
 1100:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -2698,9 +2710,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1104:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FFSR_FtStopped_Pos              1U                                         /*!< TPI FFS
 1105:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FFSR_FtStopped_Msk             (0x1UL << TPI_FFSR_FtStopped_Pos)           /*!< TPI FFS
 1106:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 46
-
-
 1107:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FFSR_FlInProg_Pos               0U                                         /*!< TPI FFS
 1108:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FFSR_FlInProg_Msk              (0x1UL /*<< TPI_FFSR_FlInProg_Pos*/)        /*!< TPI FFS
 1109:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -2749,6 +2758,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1152:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO1_ITM_ATVALID_Msk          (0x3UL << TPI_FIFO1_ITM_ATVALID_Pos)        /*!< TPI FIF
 1153:Drivers/CMSIS/Include/core_cm4.h **** 
 1154:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO1_ITM_bytecount_Pos        27U                                         /*!< TPI FIF
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 47
+
+
 1155:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO1_ITM_bytecount_Msk        (0x3UL << TPI_FIFO1_ITM_bytecount_Pos)      /*!< TPI FIF
 1156:Drivers/CMSIS/Include/core_cm4.h **** 
 1157:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO1_ETM_ATVALID_Pos          26U                                         /*!< TPI FIF
@@ -2758,9 +2770,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1161:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO1_ETM_bytecount_Msk        (0x3UL << TPI_FIFO1_ETM_bytecount_Pos)      /*!< TPI FIF
 1162:Drivers/CMSIS/Include/core_cm4.h **** 
 1163:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO1_ITM2_Pos                 16U                                         /*!< TPI FIF
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 47
-
-
 1164:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO1_ITM2_Msk                 (0xFFUL << TPI_FIFO1_ITM2_Pos)              /*!< TPI FIF
 1165:Drivers/CMSIS/Include/core_cm4.h **** 
 1166:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO1_ITM1_Pos                  8U                                         /*!< TPI FIF
@@ -2809,6 +2818,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1209:Drivers/CMSIS/Include/core_cm4.h **** /*@}*/ /* end of group CMSIS_TPI */
 1210:Drivers/CMSIS/Include/core_cm4.h **** 
 1211:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 48
+
+
 1212:Drivers/CMSIS/Include/core_cm4.h **** #if defined (__MPU_PRESENT) && (__MPU_PRESENT == 1U)
 1213:Drivers/CMSIS/Include/core_cm4.h **** /**
 1214:Drivers/CMSIS/Include/core_cm4.h ****   \ingroup  CMSIS_core_register
@@ -2818,9 +2830,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1218:Drivers/CMSIS/Include/core_cm4.h ****  */
 1219:Drivers/CMSIS/Include/core_cm4.h **** 
 1220:Drivers/CMSIS/Include/core_cm4.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 48
-
-
 1221:Drivers/CMSIS/Include/core_cm4.h ****   \brief  Structure type to access the Memory Protection Unit (MPU).
 1222:Drivers/CMSIS/Include/core_cm4.h ****  */
 1223:Drivers/CMSIS/Include/core_cm4.h **** typedef struct
@@ -2869,6 +2878,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1266:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RBAR_ADDR_Msk                  (0x7FFFFFFUL << MPU_RBAR_ADDR_Pos)             /*!< MPU 
 1267:Drivers/CMSIS/Include/core_cm4.h **** 
 1268:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RBAR_VALID_Pos                  4U                                            /*!< MPU 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 49
+
+
 1269:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RBAR_VALID_Msk                 (1UL << MPU_RBAR_VALID_Pos)                    /*!< MPU 
 1270:Drivers/CMSIS/Include/core_cm4.h **** 
 1271:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RBAR_REGION_Pos                 0U                                            /*!< MPU 
@@ -2878,9 +2890,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1275:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_ATTRS_Pos                 16U                                            /*!< MPU 
 1276:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_ATTRS_Msk                 (0xFFFFUL << MPU_RASR_ATTRS_Pos)               /*!< MPU 
 1277:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 49
-
-
 1278:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_XN_Pos                    28U                                            /*!< MPU 
 1279:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_XN_Msk                    (1UL << MPU_RASR_XN_Pos)                       /*!< MPU 
 1280:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -2929,6 +2938,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1323:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t FPCAR;                  /*!< Offset: 0x008 (R/W)  Floating-Point Context Address R
 1324:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t FPDSCR;                 /*!< Offset: 0x00C (R/W)  Floating-Point Default Status Co
 1325:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t MVFR0;                  /*!< Offset: 0x010 (R/ )  Media and FP Feature Register 0 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 50
+
+
 1326:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t MVFR1;                  /*!< Offset: 0x014 (R/ )  Media and FP Feature Register 1 
 1327:Drivers/CMSIS/Include/core_cm4.h **** } FPU_Type;
 1328:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -2938,9 +2950,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1332:Drivers/CMSIS/Include/core_cm4.h **** 
 1333:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_LSPEN_Pos                30U                                            /*!< FPCC
 1334:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_LSPEN_Msk                (1UL << FPU_FPCCR_LSPEN_Pos)                   /*!< FPCC
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 50
-
-
 1335:Drivers/CMSIS/Include/core_cm4.h **** 
 1336:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_MONRDY_Pos                8U                                            /*!< FPCC
 1337:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_MONRDY_Msk               (1UL << FPU_FPCCR_MONRDY_Pos)                  /*!< FPCC
@@ -2989,6 +2998,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1380:Drivers/CMSIS/Include/core_cm4.h **** 
 1381:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR0_Square_root_Pos          20U                                            /*!< MVFR
 1382:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR0_Square_root_Msk          (0xFUL << FPU_MVFR0_Square_root_Pos)           /*!< MVFR
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 51
+
+
 1383:Drivers/CMSIS/Include/core_cm4.h **** 
 1384:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR0_Divide_Pos               16U                                            /*!< MVFR
 1385:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR0_Divide_Msk               (0xFUL << FPU_MVFR0_Divide_Pos)                /*!< MVFR
@@ -2998,9 +3010,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1389:Drivers/CMSIS/Include/core_cm4.h **** 
 1390:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR0_Double_precision_Pos      8U                                            /*!< MVFR
 1391:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR0_Double_precision_Msk     (0xFUL << FPU_MVFR0_Double_precision_Pos)      /*!< MVFR
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 51
-
-
 1392:Drivers/CMSIS/Include/core_cm4.h **** 
 1393:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR0_Single_precision_Pos      4U                                            /*!< MVFR
 1394:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR0_Single_precision_Msk     (0xFUL << FPU_MVFR0_Single_precision_Pos)      /*!< MVFR
@@ -3049,6 +3058,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1437:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_S_RESET_ST_Pos     25U                                            /*!< Core
 1438:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_S_RESET_ST_Msk     (1UL << CoreDebug_DHCSR_S_RESET_ST_Pos)        /*!< Core
 1439:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 52
+
+
 1440:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_S_RETIRE_ST_Pos    24U                                            /*!< Core
 1441:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_S_RETIRE_ST_Msk    (1UL << CoreDebug_DHCSR_S_RETIRE_ST_Pos)       /*!< Core
 1442:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -3058,9 +3070,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1446:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_S_SLEEP_Pos        18U                                            /*!< Core
 1447:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_S_SLEEP_Msk        (1UL << CoreDebug_DHCSR_S_SLEEP_Pos)           /*!< Core
 1448:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 52
-
-
 1449:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_S_HALT_Pos         17U                                            /*!< Core
 1450:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_S_HALT_Msk         (1UL << CoreDebug_DHCSR_S_HALT_Pos)            /*!< Core
 1451:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -3109,6 +3118,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1494:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DEMCR_VC_HARDERR_Msk     (1UL << CoreDebug_DEMCR_VC_HARDERR_Pos)        /*!< Core
 1495:Drivers/CMSIS/Include/core_cm4.h **** 
 1496:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DEMCR_VC_INTERR_Pos       9U                                            /*!< Core
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 53
+
+
 1497:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DEMCR_VC_INTERR_Msk      (1UL << CoreDebug_DEMCR_VC_INTERR_Pos)         /*!< Core
 1498:Drivers/CMSIS/Include/core_cm4.h **** 
 1499:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DEMCR_VC_BUSERR_Pos       8U                                            /*!< Core
@@ -3118,9 +3130,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1503:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DEMCR_VC_STATERR_Msk     (1UL << CoreDebug_DEMCR_VC_STATERR_Pos)        /*!< Core
 1504:Drivers/CMSIS/Include/core_cm4.h **** 
 1505:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DEMCR_VC_CHKERR_Pos       6U                                            /*!< Core
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 53
-
-
 1506:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DEMCR_VC_CHKERR_Msk      (1UL << CoreDebug_DEMCR_VC_CHKERR_Pos)         /*!< Core
 1507:Drivers/CMSIS/Include/core_cm4.h **** 
 1508:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DEMCR_VC_NOCPERR_Pos      5U                                            /*!< Core
@@ -3169,6 +3178,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1551:Drivers/CMSIS/Include/core_cm4.h ****  */
 1552:Drivers/CMSIS/Include/core_cm4.h **** 
 1553:Drivers/CMSIS/Include/core_cm4.h **** /* Memory mapping of Core Hardware */
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 54
+
+
 1554:Drivers/CMSIS/Include/core_cm4.h **** #define SCS_BASE            (0xE000E000UL)                            /*!< System Control Space Bas
 1555:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_BASE            (0xE0000000UL)                            /*!< ITM Base Address */
 1556:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_BASE            (0xE0001000UL)                            /*!< DWT Base Address */
@@ -3178,9 +3190,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1560:Drivers/CMSIS/Include/core_cm4.h **** #define NVIC_BASE           (SCS_BASE +  0x0100UL)                    /*!< NVIC Base Address */
 1561:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_BASE            (SCS_BASE +  0x0D00UL)                    /*!< System Control Block Bas
 1562:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 54
-
-
 1563:Drivers/CMSIS/Include/core_cm4.h **** #define SCnSCB              ((SCnSCB_Type    *)     SCS_BASE      )   /*!< System control Register 
 1564:Drivers/CMSIS/Include/core_cm4.h **** #define SCB                 ((SCB_Type       *)     SCB_BASE      )   /*!< SCB configuration struct
 1565:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick             ((SysTick_Type   *)     SysTick_BASE  )   /*!< SysTick configuration st
@@ -3229,6 +3238,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1608:Drivers/CMSIS/Include/core_cm4.h ****     #define CMSIS_NVIC_VIRTUAL_HEADER_FILE "cmsis_nvic_virtual.h"
 1609:Drivers/CMSIS/Include/core_cm4.h ****   #endif
 1610:Drivers/CMSIS/Include/core_cm4.h ****   #include CMSIS_NVIC_VIRTUAL_HEADER_FILE
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 55
+
+
 1611:Drivers/CMSIS/Include/core_cm4.h **** #else
 1612:Drivers/CMSIS/Include/core_cm4.h ****   #define NVIC_SetPriorityGrouping    __NVIC_SetPriorityGrouping
 1613:Drivers/CMSIS/Include/core_cm4.h ****   #define NVIC_GetPriorityGrouping    __NVIC_GetPriorityGrouping
@@ -3238,9 +3250,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1617:Drivers/CMSIS/Include/core_cm4.h ****   #define NVIC_GetPendingIRQ          __NVIC_GetPendingIRQ
 1618:Drivers/CMSIS/Include/core_cm4.h ****   #define NVIC_SetPendingIRQ          __NVIC_SetPendingIRQ
 1619:Drivers/CMSIS/Include/core_cm4.h ****   #define NVIC_ClearPendingIRQ        __NVIC_ClearPendingIRQ
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 55
-
-
 1620:Drivers/CMSIS/Include/core_cm4.h ****   #define NVIC_GetActive              __NVIC_GetActive
 1621:Drivers/CMSIS/Include/core_cm4.h ****   #define NVIC_SetPriority            __NVIC_SetPriority
 1622:Drivers/CMSIS/Include/core_cm4.h ****   #define NVIC_GetPriority            __NVIC_GetPriority
@@ -3289,6 +3298,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1665:Drivers/CMSIS/Include/core_cm4.h ****                 ((uint32_t)0x5FAUL << SCB_AIRCR_VECTKEY_Pos) |
 1666:Drivers/CMSIS/Include/core_cm4.h ****                 (PriorityGroupTmp << SCB_AIRCR_PRIGROUP_Pos)  );              /* Insert write key a
 1667:Drivers/CMSIS/Include/core_cm4.h ****   SCB->AIRCR =  reg_value;
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 56
+
+
 1668:Drivers/CMSIS/Include/core_cm4.h **** }
 1669:Drivers/CMSIS/Include/core_cm4.h **** 
 1670:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -3298,9 +3310,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1674:Drivers/CMSIS/Include/core_cm4.h ****   \return                Priority grouping field (SCB->AIRCR [10:8] PRIGROUP field).
 1675:Drivers/CMSIS/Include/core_cm4.h ****  */
 1676:Drivers/CMSIS/Include/core_cm4.h **** __STATIC_INLINE uint32_t __NVIC_GetPriorityGrouping(void)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 56
-
-
 1677:Drivers/CMSIS/Include/core_cm4.h **** {
 1678:Drivers/CMSIS/Include/core_cm4.h ****   return ((uint32_t)((SCB->AIRCR & SCB_AIRCR_PRIGROUP_Msk) >> SCB_AIRCR_PRIGROUP_Pos));
 1679:Drivers/CMSIS/Include/core_cm4.h **** }
@@ -3349,6 +3358,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1722:Drivers/CMSIS/Include/core_cm4.h ****   \note    IRQn must not be negative.
 1723:Drivers/CMSIS/Include/core_cm4.h ****  */
 1724:Drivers/CMSIS/Include/core_cm4.h **** __STATIC_INLINE void __NVIC_DisableIRQ(IRQn_Type IRQn)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 57
+
+
 1725:Drivers/CMSIS/Include/core_cm4.h **** {
 1726:Drivers/CMSIS/Include/core_cm4.h ****   if ((int32_t)(IRQn) >= 0)
 1727:Drivers/CMSIS/Include/core_cm4.h ****   {
@@ -3358,9 +3370,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1731:Drivers/CMSIS/Include/core_cm4.h ****   }
 1732:Drivers/CMSIS/Include/core_cm4.h **** }
 1733:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 57
-
-
 1734:Drivers/CMSIS/Include/core_cm4.h **** 
 1735:Drivers/CMSIS/Include/core_cm4.h **** /**
 1736:Drivers/CMSIS/Include/core_cm4.h ****   \brief   Get Pending Interrupt
@@ -3409,6 +3418,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1779:Drivers/CMSIS/Include/core_cm4.h ****   if ((int32_t)(IRQn) >= 0)
 1780:Drivers/CMSIS/Include/core_cm4.h ****   {
 1781:Drivers/CMSIS/Include/core_cm4.h ****     NVIC->ICPR[(((uint32_t)IRQn) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 58
+
+
 1782:Drivers/CMSIS/Include/core_cm4.h ****   }
 1783:Drivers/CMSIS/Include/core_cm4.h **** }
 1784:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -3418,9 +3430,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1788:Drivers/CMSIS/Include/core_cm4.h ****   \details Reads the active register in the NVIC and returns the active bit for the device specific
 1789:Drivers/CMSIS/Include/core_cm4.h ****   \param [in]      IRQn  Device specific interrupt number.
 1790:Drivers/CMSIS/Include/core_cm4.h ****   \return             0  Interrupt status is not active.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 58
-
-
 1791:Drivers/CMSIS/Include/core_cm4.h ****   \return             1  Interrupt status is active.
 1792:Drivers/CMSIS/Include/core_cm4.h ****   \note    IRQn must not be negative.
 1793:Drivers/CMSIS/Include/core_cm4.h ****  */
@@ -3469,6 +3478,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1836:Drivers/CMSIS/Include/core_cm4.h ****                       Value is aligned automatically to the implemented priority bits of the microc
 1837:Drivers/CMSIS/Include/core_cm4.h ****  */
 1838:Drivers/CMSIS/Include/core_cm4.h **** __STATIC_INLINE uint32_t __NVIC_GetPriority(IRQn_Type IRQn)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 59
+
+
 1839:Drivers/CMSIS/Include/core_cm4.h **** {
 1840:Drivers/CMSIS/Include/core_cm4.h **** 
 1841:Drivers/CMSIS/Include/core_cm4.h ****   if ((int32_t)(IRQn) >= 0)
@@ -3478,9 +3490,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1845:Drivers/CMSIS/Include/core_cm4.h ****   else
 1846:Drivers/CMSIS/Include/core_cm4.h ****   {
 1847:Drivers/CMSIS/Include/core_cm4.h ****     return(((uint32_t)SCB->SHP[(((uint32_t)IRQn) & 0xFUL)-4UL] >> (8U - __NVIC_PRIO_BITS)));
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 59
-
-
 1848:Drivers/CMSIS/Include/core_cm4.h ****   }
 1849:Drivers/CMSIS/Include/core_cm4.h **** }
 1850:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -3529,6 +3538,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1893:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t PreemptPriorityBits;
 1894:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t SubPriorityBits;
 1895:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 60
+
+
 1896:Drivers/CMSIS/Include/core_cm4.h ****   PreemptPriorityBits = ((7UL - PriorityGroupTmp) > (uint32_t)(__NVIC_PRIO_BITS)) ? (uint32_t)(__NV
 1897:Drivers/CMSIS/Include/core_cm4.h ****   SubPriorityBits     = ((PriorityGroupTmp + (uint32_t)(__NVIC_PRIO_BITS)) < (uint32_t)7UL) ? (uint
 1898:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -3538,9 +3550,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1902:Drivers/CMSIS/Include/core_cm4.h **** 
 1903:Drivers/CMSIS/Include/core_cm4.h **** 
 1904:Drivers/CMSIS/Include/core_cm4.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 60
-
-
 1905:Drivers/CMSIS/Include/core_cm4.h ****   \brief   Set Interrupt Vector
 1906:Drivers/CMSIS/Include/core_cm4.h ****   \details Sets an interrupt vector in SRAM based interrupt vector table.
 1907:Drivers/CMSIS/Include/core_cm4.h ****            The interrupt number can be positive to specify a device specific interrupt,
@@ -3589,6 +3598,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
    4:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @version  V5.0.4
    5:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @date     09. April 2018
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 61
+
+
    6:Drivers/CMSIS/Include/cmsis_gcc.h ****  ******************************************************************************/
    7:Drivers/CMSIS/Include/cmsis_gcc.h **** /*
    8:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
@@ -3598,9 +3610,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
   12:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
   13:Drivers/CMSIS/Include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
   14:Drivers/CMSIS/Include/cmsis_gcc.h ****  * You may obtain a copy of the License at
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 61
-
-
   15:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
   16:Drivers/CMSIS/Include/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
   17:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
@@ -3649,6 +3658,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
   60:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   61:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED
   62:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED                               __attribute__((packed, aligned(1)))
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 62
+
+
   63:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   64:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
   65:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_STRUCT                        struct __attribute__((packed, aligned(1)))
@@ -3658,9 +3670,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
   69:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   70:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
   71:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 62
-
-
   72:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
   73:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
   74:Drivers/CMSIS/Include/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
@@ -3709,6 +3718,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  117:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  118:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
  119:Drivers/CMSIS/Include/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 63
+
+
  120:Drivers/CMSIS/Include/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
  121:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
  122:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
@@ -3718,9 +3730,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  126:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
  127:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  128:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 63
-
-
  129:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
  130:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  131:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
@@ -3769,6 +3778,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  174:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  175:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  176:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 64
+
+
  177:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Control Register
  178:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Writes the given value to the Control Register.
  179:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    control  Control Register value to set
@@ -3778,9 +3790,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  183:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR control, %0" : : "r" (control) : "memory");
  184:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  185:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 64
-
-
  186:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  187:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
  188:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -3829,6 +3838,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  231:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               xPSR Register value
  232:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  233:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_xPSR(void)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 65
+
+
  234:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  235:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  236:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -3838,9 +3850,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  240:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  241:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  242:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 65
-
-
  243:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Process Stack Pointer
  244:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the Process Stack Pointer (PSP).
  245:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               PSP Register value
@@ -3889,6 +3898,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  288:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  289:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_PSP_NS(uint32_t topOfProcStack)
  290:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 66
+
+
  291:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR psp_ns, %0" : : "r" (topOfProcStack) : );
  292:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  293:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -3898,9 +3910,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  297:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Main Stack Pointer
  298:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the Main Stack Pointer (MSP).
  299:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               MSP Register value
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 66
-
-
  300:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  301:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_MSP(void)
  302:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -3949,6 +3958,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  345:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR msp_ns, %0" : : "r" (topOfMainStack) : );
  346:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  347:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 67
+
+
  348:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  349:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  350:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
@@ -3958,9 +3970,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  354:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               SP Register value
  355:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  356:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_SP_NS(void)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 67
-
-
  357:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  358:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  359:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -4009,6 +4018,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  402:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
  403:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  404:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 68
+
+
  405:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  406:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  407:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -4018,9 +4030,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  411:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  412:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_PRIMASK(uint32_t priMask)
  413:Drivers/CMSIS/Include/cmsis_gcc.h **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 68
-
-
  414:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR primask, %0" : : "r" (priMask) : "memory");
  415:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  416:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -4069,6 +4078,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  459:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Base Priority register value
  460:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  461:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_BASEPRI(void)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 69
+
+
  462:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  463:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  464:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -4078,9 +4090,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  468:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  469:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  470:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 69
-
-
  471:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  472:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Base Priority (non-secure)
  473:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the non-secure Base Priority register when in secure state.
@@ -4129,6 +4138,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  516:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_BASEPRI_MAX(uint32_t basePri)
  517:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  518:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR basepri_max, %0" : : "r" (basePri) : "memory");
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 70
+
+
  519:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  520:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  521:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -4138,9 +4150,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  525:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Fault Mask register value
  526:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  527:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_FAULTMASK(void)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 70
-
-
  528:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  529:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  530:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -4189,6 +4198,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  573:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  574:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  575:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 71
+
+
  576:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
  577:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    ) */
  578:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -4198,9 +4210,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  582:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  583:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  584:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Process Stack Pointer Limit
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 71
-
-
  585:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
  586:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence zero is returned always in non-secure
  587:Drivers/CMSIS/Include/cmsis_gcc.h ****   mode.
@@ -4249,6 +4258,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  630:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
  631:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence the write is silently ignored in non-secure
  632:Drivers/CMSIS/Include/cmsis_gcc.h ****   mode.
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 72
+
+
  633:Drivers/CMSIS/Include/cmsis_gcc.h ****   
  634:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Process Stack Pointer Limit (PSPLIM).
  635:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ProcStackPtrLimit  Process Stack Pointer Limit value to set
@@ -4258,9 +4270,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  639:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
  640:Drivers/CMSIS/Include/cmsis_gcc.h ****     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
  641:Drivers/CMSIS/Include/cmsis_gcc.h ****   // without main extensions, the non-secure PSPLIM is RAZ/WI
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 72
-
-
  642:Drivers/CMSIS/Include/cmsis_gcc.h ****   (void)ProcStackPtrLimit;
  643:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
  644:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR psplim, %0" : : "r" (ProcStackPtrLimit));
@@ -4309,6 +4318,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  687:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msplim" : "=r" (result) );
  688:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
  689:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 73
+
+
  690:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  691:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  692:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -4318,9 +4330,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  696:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
  697:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence zero is returned always.
  698:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 73
-
-
  699:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the non-secure Main Stack Pointer Limit(MSPLIM) when in sec
  700:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               MSPLIM Register value
  701:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
@@ -4369,6 +4378,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  744:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    MainStackPtrLimit  Main Stack Pointer value to set
  745:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  746:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_MSPLIM_NS(uint32_t MainStackPtrLimit)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 74
+
+
  747:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  748:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)))
  749:Drivers/CMSIS/Include/cmsis_gcc.h ****   // without main extensions, the non-secure MSPLIM is RAZ/WI
@@ -4378,9 +4390,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  753:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  754:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  755:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 74
-
-
  756:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  757:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif /* ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
  758:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    ) */
@@ -4429,6 +4438,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  801:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
  802:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("VMSR fpscr, %0" : : "r" (fpscr) : "vfpcc", "memory");
  803:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 75
+
+
  804:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
  805:Drivers/CMSIS/Include/cmsis_gcc.h ****   (void)fpscr;
  806:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -4438,9 +4450,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  810:Drivers/CMSIS/Include/cmsis_gcc.h **** /*@} end of CMSIS_Core_RegAccFunctions */
  811:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  812:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 75
-
-
  813:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ##########################  Core Instruction Access  ######################### */
  814:Drivers/CMSIS/Include/cmsis_gcc.h **** /** \defgroup CMSIS_Core_InstructionInterface CMSIS Core Instruction Interface
  815:Drivers/CMSIS/Include/cmsis_gcc.h ****   Access to dedicated instructions
@@ -4489,6 +4498,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  858:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  859:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  860:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 76
+
+
  861:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Instruction Synchronization Barrier
  862:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Instruction Synchronization Barrier flushes the pipeline in the processor,
  863:Drivers/CMSIS/Include/cmsis_gcc.h ****            so that all instructions following the ISB are fetched from cache or memory,
@@ -4498,9 +4510,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  867:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  868:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("isb 0xF":::"memory");
  869:Drivers/CMSIS/Include/cmsis_gcc.h **** }
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 76
-
-
  870:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  871:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  872:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -4549,6 +4558,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  859              		.syntax unified
  860              	@ 879 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
  861 0044 BFF34F8F 		dsb 0xF
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 77
+
+
  862              	@ 0 "" 2
  863              		.thumb
  864              		.syntax unified
@@ -4558,9 +4570,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
 1947:Drivers/CMSIS/Include/core_cm4.h **** 
 1948:Drivers/CMSIS/Include/core_cm4.h ****   for(;;)                                                           /* wait until reset */
  868              		.loc 4 1948 3 view .LVU203
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 77
-
-
 1949:Drivers/CMSIS/Include/core_cm4.h ****   {
 1950:Drivers/CMSIS/Include/core_cm4.h ****     __NOP();
  869              		.loc 4 1950 5 view .LVU204
@@ -4609,6 +4618,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  904              		.thumb_func
  906              	Main:
  907              		.fnstart
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 78
+
+
  908              	.LFB376:
  150:user/user.cpp **** {
  909              		.loc 3 150 1 view -0
@@ -4618,9 +4630,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  913 0000 30B5     		push	{r4, r5, lr}
  914              		.save {r4, r5, lr}
  915              	.LCFI7:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 78
-
-
  916              		.cfi_def_cfa_offset 12
  917              		.cfi_offset 4, -12
  918              		.cfi_offset 5, -8
@@ -4645,7 +4654,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  932              		.loc 3 154 5 is_stmt 1 view .LVU211
  154:user/user.cpp ****     electron.lcd->Init(Screen::DEGREE_0);
  933              		.loc 3 154 14 is_stmt 0 view .LVU212
- 934 000c 524C     		ldr	r4, .L86
+ 934 000c 614C     		ldr	r4, .L90
  154:user/user.cpp ****     electron.lcd->Init(Screen::DEGREE_0);
  935              		.loc 3 154 23 view .LVU213
  936 000e 0021     		movs	r1, #0
@@ -4669,6 +4678,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  156:user/user.cpp ****     for(int i=0;i<32;i++)
  951              		.loc 3 156 13 is_stmt 0 view .LVU217
  952 0028 0023     		movs	r3, #0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 79
+
+
  953              	.LVL69:
  954              	.L60:
  156:user/user.cpp ****     for(int i=0;i<32;i++)
@@ -4678,11 +4690,8 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  157:user/user.cpp ****         electron.pUsbBuffer->extraDataTx[i]=32-i;
  958              		.loc 3 157 9 discriminator 2 view .LVU219
  157:user/user.cpp ****         electron.pUsbBuffer->extraDataTx[i]=32-i;
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 79
-
-
  959              		.loc 3 157 18 is_stmt 0 discriminator 2 view .LVU220
- 960 002e 4A4A     		ldr	r2, .L86
+ 960 002e 594A     		ldr	r2, .L90
  961 0030 1268     		ldr	r2, [r2]
  157:user/user.cpp ****         electron.pUsbBuffer->extraDataTx[i]=32-i;
  962              		.loc 3 157 47 discriminator 2 view .LVU221
@@ -4705,17 +4714,17 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  974              		.loc 3 166 5 is_stmt 1 view .LVU226
  166:user/user.cpp ****     electron.UpdateJointAngle(electron.joint[6], 0); 
  975              		.loc 3 166 30 is_stmt 0 view .LVU227
- 976 003c 4648     		ldr	r0, .L86
- 977 003e 9FED470A 		vldr.32	s0, .L86+4
+ 976 003c 5548     		ldr	r0, .L90
+ 977 003e 9FED560A 		vldr.32	s0, .L90+4
  978 0042 00F1AC01 		add	r1, r0, #172
  979 0046 FFF7FEFF 		bl	_ZN5Robot16UpdateJointAngleERNS_13JointStatus_tEf
  980              	.LVL71:
  152:user/user.cpp ****     int p=0;
  981              		.loc 3 152 9 view .LVU228
  982 004a 0024     		movs	r4, #0
- 983 004c 04E0     		b	.L76
+ 983 004c 70E0     		b	.L80
  984              	.LVL72:
- 985              	.L80:
+ 985              	.L85:
  986              	.LBB34:
  987              	.LBB35:
  175:user/user.cpp ****             setPara(ptr);
@@ -4728,787 +4737,888 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 1
  175:user/user.cpp ****             setPara(ptr);
  993              		.loc 3 175 20 view .LVU231
  994              	.LBE35:
- 239:user/user.cpp ****         HAL_Delay(1);
+ 239:user/user.cpp ****         for (int j = 0; j < 6; j++)
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 80
+
+
  995              		.loc 3 239 9 is_stmt 1 view .LVU232
- 239:user/user.cpp ****         HAL_Delay(1);
- 996              		.loc 3 239 18 is_stmt 0 view .LVU233
- 997 0052 0120     		movs	r0, #1
- 998 0054 FFF7FEFF 		bl	HAL_Delay
- 999              	.LVL74:
- 1000              	.LBE34:
- 167:user/user.cpp ****     while(1)
- 1001              		.loc 3 167 5 is_stmt 1 view .LVU234
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 80
-
-
- 1002              	.L76:
- 167:user/user.cpp ****     while(1)
- 1003              		.loc 3 167 5 view .LVU235
- 1004              	.LBB67:
- 170:user/user.cpp ****         electron.ReceiveUsbPacketUntilSizeIs(224); // last packet is 224bytes
- 1005              		.loc 3 170 9 view .LVU236
- 170:user/user.cpp ****         electron.ReceiveUsbPacketUntilSizeIs(224); // last packet is 224bytes
- 1006              		.loc 3 170 45 is_stmt 0 view .LVU237
- 1007 0058 3F4D     		ldr	r5, .L86
- 1008 005a E021     		movs	r1, #224
- 1009 005c 2846     		mov	r0, r5
- 1010 005e FFF7FEFF 		bl	_ZN5Robot27ReceiveUsbPacketUntilSizeIsEm
- 1011              	.LVL75:
- 171:user/user.cpp ****         uint8_t* ptr = electron.GetExtraDataRxPtr();
- 1012              		.loc 3 171 9 is_stmt 1 view .LVU238
- 171:user/user.cpp ****         uint8_t* ptr = electron.GetExtraDataRxPtr();
- 1013              		.loc 3 171 50 is_stmt 0 view .LVU239
- 1014 0062 2846     		mov	r0, r5
- 1015 0064 FFF7FEFF 		bl	_ZN5Robot17GetExtraDataRxPtrEv
- 1016              	.LVL76:
- 1017 0068 0546     		mov	r5, r0
+ 996              	.LBB61:
+ 239:user/user.cpp ****         for (int j = 0; j < 6; j++)
+ 997              		.loc 3 239 18 is_stmt 0 view .LVU233
+ 998 0052 0020     		movs	r0, #0
+ 999 0054 60E0     		b	.L79
+ 1000              	.LVL74:
+ 1001              	.L86:
+ 239:user/user.cpp ****         for (int j = 0; j < 6; j++)
+ 1002              		.loc 3 239 18 view .LVU234
+ 1003              	.LBE61:
+ 1004              	.LBB65:
+ 1005              	.LBB36:
+ 179:user/user.cpp ****             setAngle(ptr);
+ 1006              		.loc 3 179 13 is_stmt 1 view .LVU235
+ 179:user/user.cpp ****             setAngle(ptr);
+ 1007              		.loc 3 179 21 is_stmt 0 view .LVU236
+ 1008 0056 FFF7FEFF 		bl	setAngle
+ 1009              	.LVL75:
+ 179:user/user.cpp ****             setAngle(ptr);
+ 1010              		.loc 3 179 21 view .LVU237
+ 1011 005a FAE7     		b	.L62
+ 1012              	.LVL76:
+ 1013              	.L87:
+ 1014              	.LBB37:
+ 184:user/user.cpp ****              setid(ptr);         
+ 1015              		.loc 3 184 14 is_stmt 1 view .LVU238
+ 184:user/user.cpp ****              setid(ptr);         
+ 1016              		.loc 3 184 19 is_stmt 0 view .LVU239
+ 1017 005c FFF7FEFF 		bl	_Z5setidPh
  1018              	.LVL77:
- 173:user/user.cpp ****         if(ptr[31] == 0xee)  //设置参数
- 1019              		.loc 3 173 9 is_stmt 1 view .LVU240
- 1020              	.LBB61:
- 173:user/user.cpp ****         if(ptr[31] == 0xee)  //设置参数
- 1021              		.loc 3 173 18 is_stmt 0 view .LVU241
- 1022 006a C27F     		ldrb	r2, [r0, #31]	@ zero_extendqisi2
- 173:user/user.cpp ****         if(ptr[31] == 0xee)  //设置参数
- 1023              		.loc 3 173 9 view .LVU242
- 1024 006c EE2A     		cmp	r2, #238
- 1025 006e EED0     		beq	.L80
- 1026              	.LBE61:
- 1027              	.LBE67:
- 177:user/user.cpp ****         else if(ptr[31] == 0xef)
- 1028              		.loc 3 177 14 is_stmt 1 view .LVU243
- 1029              	.LBB68:
- 1030              	.LBB62:
- 1031              	.LBB36:
- 1032 0070 EF2A     		cmp	r2, #239
- 1033 0072 22D0     		beq	.L81
- 1034              	.LBE36:
- 1035              	.LBE62:
- 1036              	.LBE68:
- 182:user/user.cpp ****         else if(ptr[31] == 0xf0)
- 1037              		.loc 3 182 14 view .LVU244
- 1038              	.LBB69:
- 1039              	.LBB63:
- 1040              	.LBB57:
- 1041              	.LBB37:
- 1042 0074 F02A     		cmp	r2, #240
- 1043 0076 23D0     		beq	.L82
- 1044              	.LBE37:
- 1045              	.LBE57:
- 1046              	.LBE63:
- 1047              	.LBE69:
- 186:user/user.cpp ****         else if(ptr[31] == 0xf1)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 81
-
-
- 1048              		.loc 3 186 14 view .LVU245
- 1049              	.LBB70:
- 1050              	.LBB64:
- 1051              	.LBB58:
- 1052              	.LBB53:
- 1053              	.LBB38:
- 1054 0078 F12A     		cmp	r2, #241
- 1055 007a 24D0     		beq	.L83
- 1056              	.LBE38:
- 1057              	.LBE53:
- 1058              	.LBE58:
- 1059              	.LBE64:
- 1060              	.LBE70:
- 190:user/user.cpp ****         else if((ptr[31] == 0xfe)&&(ptr[30] == 0x01))
- 1061              		.loc 3 190 14 view .LVU246
- 1062              	.LBB71:
- 1063              	.LBB65:
- 1064              	.LBB59:
- 1065              	.LBB54:
- 1066              	.LBB50:
- 1067              	.LBB39:
- 1068 007c FE2A     		cmp	r2, #254
- 1069 007e 02D1     		bne	.L66
- 190:user/user.cpp ****         else if((ptr[31] == 0xfe)&&(ptr[30] == 0x01))
- 1070              		.loc 3 190 43 is_stmt 0 discriminator 1 view .LVU247
- 1071 0080 837F     		ldrb	r3, [r0, #30]	@ zero_extendqisi2
- 190:user/user.cpp ****         else if((ptr[31] == 0xfe)&&(ptr[30] == 0x01))
- 1072              		.loc 3 190 34 discriminator 1 view .LVU248
- 1073 0082 012B     		cmp	r3, #1
- 1074 0084 22D0     		beq	.L84
- 1075              	.L66:
- 1076              	.LBB40:
- 197:user/user.cpp ****             printf("task  p=%d : %d\r\n",p,ptr[31]);
- 1077              		.loc 3 197 13 is_stmt 1 view .LVU249
- 197:user/user.cpp ****             printf("task  p=%d : %d\r\n",p,ptr[31]);
- 1078              		.loc 3 197 19 is_stmt 0 view .LVU250
- 1079 0086 2146     		mov	r1, r4
- 1080 0088 3548     		ldr	r0, .L86+8
- 1081              	.LVL78:
- 197:user/user.cpp ****             printf("task  p=%d : %d\r\n",p,ptr[31]);
- 1082              		.loc 3 197 19 view .LVU251
- 1083 008a FFF7FEFF 		bl	printf
- 1084              	.LVL79:
- 200:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
- 1085              		.loc 3 200 13 is_stmt 1 view .LVU252
- 200:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
- 1086              		.loc 3 200 27 is_stmt 0 view .LVU253
- 1087 008e 354B     		ldr	r3, .L86+12
- 1088 0090 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
- 200:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
- 1089              		.loc 3 200 42 view .LVU254
- 1090 0092 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
- 200:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
- 1091              		.loc 3 200 30 view .LVU255
- 1092 0094 003B     		subs	r3, r3, #0
- 1093 0096 18BF     		it	ne
- 1094 0098 0123     		movne	r3, #1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 82
-
-
- 200:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
- 1095              		.loc 3 200 13 view .LVU256
- 1096 009a 9A42     		cmp	r2, r3
- 1097 009c 01D0     		beq	.L67
- 202:user/user.cpp ****                 isEnabled = ptr[0];
- 1098              		.loc 3 202 17 is_stmt 1 view .LVU257
- 202:user/user.cpp ****                 isEnabled = ptr[0];
- 1099              		.loc 3 202 27 is_stmt 0 view .LVU258
- 1100 009e 314A     		ldr	r2, .L86+12
- 1101 00a0 1370     		strb	r3, [r2]
- 1102              	.L67:
- 1103              	.LBE40:
- 1104              	.LBE39:
- 1105              	.LBE50:
- 1106              	.LBE54:
- 1107              	.LBE59:
- 1108              	.LBE65:
- 1109              	.LBE71:
- 152:user/user.cpp ****     int p=0;
- 1110              		.loc 3 152 9 discriminator 3 view .LVU259
- 1111 00a2 0023     		movs	r3, #0
- 1112              	.L69:
- 1113              	.LVL80:
- 1114              	.LBB72:
- 1115              	.LBB66:
- 1116              	.LBB60:
- 1117              	.LBB55:
- 1118              	.LBB51:
- 1119              	.LBB48:
- 1120              	.LBB46:
- 1121              	.LBB41:
- 210:user/user.cpp ****             for (int j = 0; j < 6; j++)
- 1122              		.loc 3 210 31 is_stmt 1 discriminator 3 view .LVU260
- 1123 00a4 052B     		cmp	r3, #5
- 1124 00a6 17DC     		bgt	.L77
- 212:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
- 1125              		.loc 3 212 17 discriminator 2 view .LVU261
- 212:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
- 1126              		.loc 3 212 57 is_stmt 0 discriminator 2 view .LVU262
- 1127 00a8 9800     		lsls	r0, r3, #2
- 212:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
- 1128              		.loc 3 212 61 discriminator 2 view .LVU263
- 1129 00aa 411C     		adds	r1, r0, #1
- 1130 00ac 2944     		add	r1, r1, r5
- 212:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
- 1131              		.loc 3 212 37 discriminator 2 view .LVU264
- 1132 00ae 0968     		ldr	r1, [r1]	@ float
- 212:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
- 1133              		.loc 3 212 35 discriminator 2 view .LVU265
- 1134 00b0 2D4A     		ldr	r2, .L86+16
- 1135 00b2 0244     		add	r2, r2, r0
- 1136 00b4 1160     		str	r1, [r2]	@ float
- 210:user/user.cpp ****             for (int j = 0; j < 6; j++)
- 1137              		.loc 3 210 13 is_stmt 1 discriminator 2 view .LVU266
- 1138 00b6 0133     		adds	r3, r3, #1
- 1139              	.LVL81:
- 210:user/user.cpp ****             for (int j = 0; j < 6; j++)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 83
-
-
- 1140              		.loc 3 210 13 is_stmt 0 discriminator 2 view .LVU267
- 1141 00b8 F4E7     		b	.L69
- 1142              	.LVL82:
- 1143              	.L81:
- 210:user/user.cpp ****             for (int j = 0; j < 6; j++)
- 1144              		.loc 3 210 13 discriminator 2 view .LVU268
- 1145              	.LBE41:
- 1146              	.LBE46:
- 1147              	.LBE48:
- 1148              	.LBE51:
- 1149              	.LBE55:
- 179:user/user.cpp ****             setAngle(ptr);
- 1150              		.loc 3 179 13 is_stmt 1 view .LVU269
- 179:user/user.cpp ****             setAngle(ptr);
- 1151              		.loc 3 179 21 is_stmt 0 view .LVU270
- 1152 00ba FFF7FEFF 		bl	setAngle
- 1153              	.LVL83:
- 179:user/user.cpp ****             setAngle(ptr);
- 1154              		.loc 3 179 21 view .LVU271
- 1155 00be C8E7     		b	.L62
- 1156              	.LVL84:
- 1157              	.L82:
- 1158              	.LBB56:
  184:user/user.cpp ****              setid(ptr);         
- 1159              		.loc 3 184 14 is_stmt 1 view .LVU272
- 184:user/user.cpp ****              setid(ptr);         
- 1160              		.loc 3 184 19 is_stmt 0 view .LVU273
- 1161 00c0 FFF7FEFF 		bl	_Z5setidPh
- 1162              	.LVL85:
- 184:user/user.cpp ****              setid(ptr);         
- 1163              		.loc 3 184 19 view .LVU274
- 1164 00c4 C5E7     		b	.L62
- 1165              	.LVL86:
- 1166              	.L83:
- 1167              	.LBB52:
+ 1019              		.loc 3 184 19 view .LVU240
+ 1020 0060 F7E7     		b	.L62
+ 1021              	.LVL78:
+ 1022              	.L88:
+ 1023              	.LBB38:
  188:user/user.cpp ****              setInitAngle(ptr);
- 1168              		.loc 3 188 14 is_stmt 1 view .LVU275
+ 1024              		.loc 3 188 14 is_stmt 1 view .LVU241
  188:user/user.cpp ****              setInitAngle(ptr);
- 1169              		.loc 3 188 26 is_stmt 0 view .LVU276
- 1170 00c6 FFF7FEFF 		bl	_Z12setInitAnglePh
- 1171              	.LVL87:
+ 1025              		.loc 3 188 26 is_stmt 0 view .LVU242
+ 1026 0062 FFF7FEFF 		bl	_Z12setInitAnglePh
+ 1027              	.LVL79:
  188:user/user.cpp ****              setInitAngle(ptr);
- 1172              		.loc 3 188 26 view .LVU277
- 1173 00ca C2E7     		b	.L62
- 1174              	.LVL88:
- 1175              	.L84:
- 1176              	.LBB49:
+ 1028              		.loc 3 188 26 view .LVU243
+ 1029 0066 F4E7     		b	.L62
+ 1030              	.LVL80:
+ 1031              	.L89:
+ 1032              	.LBB39:
  192:user/user.cpp ****              printf("app JumpBootLoader\r\n");
- 1177              		.loc 3 192 14 is_stmt 1 view .LVU278
+ 1033              		.loc 3 192 14 is_stmt 1 view .LVU244
  192:user/user.cpp ****              printf("app JumpBootLoader\r\n");
- 1178              		.loc 3 192 20 is_stmt 0 view .LVU279
- 1179 00cc 2748     		ldr	r0, .L86+20
- 1180              	.LVL89:
+ 1034              		.loc 3 192 20 is_stmt 0 view .LVU245
+ 1035 0068 4C48     		ldr	r0, .L90+8
+ 1036              	.LVL81:
  192:user/user.cpp ****              printf("app JumpBootLoader\r\n");
- 1181              		.loc 3 192 20 view .LVU280
- 1182 00ce FFF7FEFF 		bl	puts
- 1183              	.LVL90:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 84
+ 1037              		.loc 3 192 20 view .LVU246
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 81
 
 
+ 1038 006a FFF7FEFF 		bl	puts
+ 1039              	.LVL82:
  193:user/user.cpp ****              JumpBootLoader(ptr);
- 1184              		.loc 3 193 14 is_stmt 1 view .LVU281
+ 1040              		.loc 3 193 14 is_stmt 1 view .LVU247
  193:user/user.cpp ****              JumpBootLoader(ptr);
- 1185              		.loc 3 193 28 is_stmt 0 view .LVU282
- 1186 00d2 2846     		mov	r0, r5
- 1187 00d4 FFF7FEFF 		bl	_Z14JumpBootLoaderPh
- 1188              	.LVL91:
- 1189              	.L77:
- 1190              	.LBB47:
- 1191              	.LBB42:
+ 1041              		.loc 3 193 28 is_stmt 0 view .LVU248
+ 1042 006e 2846     		mov	r0, r5
+ 1043 0070 FFF7FEFF 		bl	_Z14JumpBootLoaderPh
+ 1044              	.LVL83:
+ 1045              	.L81:
+ 1046              	.LBB40:
+ 1047              	.LBB41:
  214:user/user.cpp ****             for (int j = 0; j < 6; j++)
- 1192              		.loc 3 214 22 view .LVU283
- 1193 00d8 0020     		movs	r0, #0
- 1194 00da 11E0     		b	.L68
- 1195              	.LVL92:
- 1196              	.L85:
- 1197              	.LBB43:
- 1198              	.LBB44:
- 218:user/user.cpp ****                     auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
- 1199              		.loc 3 218 21 is_stmt 1 discriminator 2 view .LVU284
- 218:user/user.cpp ****                     auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
- 1200              		.loc 3 218 67 is_stmt 0 discriminator 2 view .LVU285
- 1201 00dc 431C     		adds	r3, r0, #1
- 218:user/user.cpp ****                     auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
- 1202              		.loc 3 218 27 discriminator 2 view .LVU286
- 1203 00de 1E49     		ldr	r1, .L86
- 1204 00e0 C3EBC303 		rsb	r3, r3, r3, lsl #3
- 1205 00e4 9B00     		lsls	r3, r3, #2
- 1206 00e6 0833     		adds	r3, r3, #8
- 1207 00e8 0B44     		add	r3, r3, r1
- 1208 00ea 0833     		adds	r3, r3, #8
- 1209              	.LVL93:
- 219:user/user.cpp ****                     electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
- 1210              		.loc 3 219 21 is_stmt 1 discriminator 2 view .LVU287
- 219:user/user.cpp ****                     electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
- 1211              		.loc 3 219 30 is_stmt 0 discriminator 2 view .LVU288
- 1212 00ec 0D68     		ldr	r5, [r1]
- 219:user/user.cpp ****                     electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
- 1213              		.loc 3 219 60 discriminator 2 view .LVU289
- 1214 00ee 02EB8001 		add	r1, r2, r0, lsl #2
- 219:user/user.cpp ****                     electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
- 1215              		.loc 3 219 64 discriminator 2 view .LVU290
- 1216 00f2 0131     		adds	r1, r1, #1
- 219:user/user.cpp ****                     electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
- 1217              		.loc 3 219 71 discriminator 2 view .LVU291
- 1218 00f4 9B5C     		ldrb	r3, [r3, r2]	@ zero_extendqisi2
- 1219              	.LVL94:
- 219:user/user.cpp ****                     electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
- 1220              		.loc 3 219 69 discriminator 2 view .LVU292
- 1221 00f6 6B54     		strb	r3, [r5, r1]
- 1222              	.LBE44:
+ 1048              		.loc 3 214 22 view .LVU249
+ 1049 0074 0020     		movs	r0, #0
+ 1050 0076 00E0     		b	.L68
+ 1051              	.LVL84:
+ 1052              	.L71:
+ 214:user/user.cpp ****             for (int j = 0; j < 6; j++)
+ 1053              		.loc 3 214 13 is_stmt 1 discriminator 2 view .LVU250
+ 1054 0078 0130     		adds	r0, r0, #1
+ 1055              	.LVL85:
+ 1056              	.L68:
+ 214:user/user.cpp ****             for (int j = 0; j < 6; j++)
+ 1057              		.loc 3 214 31 discriminator 1 view .LVU251
+ 1058 007a 0528     		cmp	r0, #5
+ 1059 007c 12DC     		bgt	.L70
+ 1060              	.LBB42:
  216:user/user.cpp ****                 for (int i = 0; i < 4; i++)
- 1223              		.loc 3 216 17 is_stmt 1 discriminator 2 view .LVU293
- 1224 00f8 0132     		adds	r2, r2, #1
- 1225              	.LVL95:
- 1226              	.L72:
+ 1061              		.loc 3 216 26 is_stmt 0 view .LVU252
+ 1062 007e 0022     		movs	r2, #0
+ 1063              	.L72:
+ 1064              	.LVL86:
  216:user/user.cpp ****                 for (int i = 0; i < 4; i++)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 85
+ 1065              		.loc 3 216 35 is_stmt 1 discriminator 3 view .LVU253
+ 1066 0080 032A     		cmp	r2, #3
+ 1067 0082 F9DC     		bgt	.L71
+ 1068              	.LBB43:
+ 218:user/user.cpp ****                     auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
+ 1069              		.loc 3 218 21 discriminator 2 view .LVU254
+ 218:user/user.cpp ****                     auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
+ 1070              		.loc 3 218 67 is_stmt 0 discriminator 2 view .LVU255
+ 1071 0084 431C     		adds	r3, r0, #1
+ 218:user/user.cpp ****                     auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
+ 1072              		.loc 3 218 27 discriminator 2 view .LVU256
+ 1073 0086 4349     		ldr	r1, .L90
+ 1074 0088 C3EBC303 		rsb	r3, r3, r3, lsl #3
+ 1075 008c 9B00     		lsls	r3, r3, #2
+ 1076 008e 0833     		adds	r3, r3, #8
+ 1077 0090 0B44     		add	r3, r3, r1
+ 1078 0092 0833     		adds	r3, r3, #8
+ 1079              	.LVL87:
+ 219:user/user.cpp ****                     electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+ 1080              		.loc 3 219 21 is_stmt 1 discriminator 2 view .LVU257
+ 219:user/user.cpp ****                     electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+ 1081              		.loc 3 219 30 is_stmt 0 discriminator 2 view .LVU258
+ 1082 0094 0D68     		ldr	r5, [r1]
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 82
 
 
- 1227              		.loc 3 216 35 discriminator 3 view .LVU294
- 1228 00fa 032A     		cmp	r2, #3
- 1229 00fc EEDD     		ble	.L85
- 1230              	.LBE43:
- 214:user/user.cpp ****             for (int j = 0; j < 6; j++)
- 1231              		.loc 3 214 13 discriminator 2 view .LVU295
- 1232 00fe 0130     		adds	r0, r0, #1
- 1233              	.LVL96:
- 1234              	.L68:
- 214:user/user.cpp ****             for (int j = 0; j < 6; j++)
- 1235              		.loc 3 214 31 discriminator 1 view .LVU296
- 1236 0100 0528     		cmp	r0, #5
- 1237 0102 01DC     		bgt	.L70
- 1238              	.LBB45:
+ 219:user/user.cpp ****                     electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+ 1083              		.loc 3 219 60 discriminator 2 view .LVU259
+ 1084 0096 02EB8001 		add	r1, r2, r0, lsl #2
+ 219:user/user.cpp ****                     electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+ 1085              		.loc 3 219 64 discriminator 2 view .LVU260
+ 1086 009a 0131     		adds	r1, r1, #1
+ 219:user/user.cpp ****                     electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+ 1087              		.loc 3 219 71 discriminator 2 view .LVU261
+ 1088 009c 9B5C     		ldrb	r3, [r3, r2]	@ zero_extendqisi2
+ 1089              	.LVL88:
+ 219:user/user.cpp ****                     electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+ 1090              		.loc 3 219 69 discriminator 2 view .LVU262
+ 1091 009e 6B54     		strb	r3, [r5, r1]
+ 1092              	.LBE43:
  216:user/user.cpp ****                 for (int i = 0; i < 4; i++)
- 1239              		.loc 3 216 26 is_stmt 0 view .LVU297
- 1240 0104 0022     		movs	r2, #0
- 1241 0106 F8E7     		b	.L72
- 1242              	.L70:
- 1243              	.LBE45:
- 1244              	.LBE42:
+ 1093              		.loc 3 216 17 is_stmt 1 discriminator 2 view .LVU263
+ 1094 00a0 0132     		adds	r2, r2, #1
+ 1095              	.LVL89:
+ 216:user/user.cpp ****                 for (int i = 0; i < 4; i++)
+ 1096              		.loc 3 216 17 is_stmt 0 discriminator 2 view .LVU264
+ 1097 00a2 EDE7     		b	.L72
+ 1098              	.LVL90:
+ 1099              	.L70:
+ 216:user/user.cpp ****                 for (int i = 0; i < 4; i++)
+ 1100              		.loc 3 216 17 discriminator 2 view .LVU265
+ 1101              	.LBE42:
+ 1102              	.LBE41:
  222:user/user.cpp ****             electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);   
- 1245              		.loc 3 222 13 is_stmt 1 view .LVU298
+ 1103              		.loc 3 222 13 is_stmt 1 view .LVU266
  222:user/user.cpp ****             electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);   
- 1246              		.loc 3 222 45 is_stmt 0 view .LVU299
- 1247 0108 1348     		ldr	r0, .L86
- 1248              	.LVL97:
+ 1104              		.loc 3 222 45 is_stmt 0 view .LVU267
+ 1105 00a4 3B48     		ldr	r0, .L90
+ 1106              	.LVL91:
  222:user/user.cpp ****             electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);   
- 1249              		.loc 3 222 35 view .LVU300
- 1250 010a 2022     		movs	r2, #32
- 1251 010c 0168     		ldr	r1, [r0]
- 1252 010e FFF7FEFF 		bl	_ZN5Robot13SendUsbPacketEPhm
- 1253              	.LVL98:
- 1254              	.L73:
+ 1107              		.loc 3 222 35 view .LVU268
+ 1108 00a6 2022     		movs	r2, #32
+ 1109 00a8 0168     		ldr	r1, [r0]
+ 1110 00aa FFF7FEFF 		bl	_ZN5Robot13SendUsbPacketEPhm
+ 1111              	.LVL92:
+ 1112              	.L73:
  224:user/user.cpp ****             while (electron.lcd->isBusy);
- 1255              		.loc 3 224 13 is_stmt 1 view .LVU301
+ 1113              		.loc 3 224 13 is_stmt 1 view .LVU269
  224:user/user.cpp ****             while (electron.lcd->isBusy);
- 1256              		.loc 3 224 34 view .LVU302
+ 1114              		.loc 3 224 34 view .LVU270
  224:user/user.cpp ****             while (electron.lcd->isBusy);
- 1257              		.loc 3 224 29 is_stmt 0 view .LVU303
- 1258 0112 114B     		ldr	r3, .L86
- 1259 0114 D3F8C850 		ldr	r5, [r3, #200]
+ 1115              		.loc 3 224 29 is_stmt 0 view .LVU271
+ 1116 00ae 394B     		ldr	r3, .L90
+ 1117 00b0 D3F8C850 		ldr	r5, [r3, #200]
  224:user/user.cpp ****             while (electron.lcd->isBusy);
- 1260              		.loc 3 224 34 view .LVU304
- 1261 0118 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
- 1262 011a 002B     		cmp	r3, #0
- 1263 011c F9D1     		bne	.L73
+ 1118              		.loc 3 224 34 view .LVU272
+ 1119 00b4 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 1120 00b6 002B     		cmp	r3, #0
+ 1121 00b8 F9D1     		bne	.L73
  230:user/user.cpp ****             if (p == 0)
- 1264              		.loc 3 230 13 is_stmt 1 view .LVU305
- 1265 011e 74B9     		cbnz	r4, .L74
+ 1122              		.loc 3 230 13 is_stmt 1 view .LVU273
+ 1123 00ba 74B9     		cbnz	r4, .L74
  231:user/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3,false);
- 1266              		.loc 3 231 17 view .LVU306
- 231:user/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3,false);
- 1267              		.loc 3 231 47 is_stmt 0 view .LVU307
- 1268 0120 0D48     		ldr	r0, .L86
- 1269 0122 FFF7FEFF 		bl	_ZN5Robot15GetLcdBufferPtrEv
- 1270              	.LVL99:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 86
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 83
 
 
- 1271 0126 0146     		mov	r1, r0
- 1272 0128 0023     		movs	r3, #0
- 1273 012a 4AF6C002 		movw	r2, #43200
- 1274 012e 2846     		mov	r0, r5
- 1275 0130 FFF7FEFF 		bl	_ZN6Screen16WriteFrameBufferEPhmb
- 1276              	.LVL100:
- 1277              	.L75:
+ 1124              		.loc 3 231 17 view .LVU274
+ 231:user/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3,false);
+ 1125              		.loc 3 231 47 is_stmt 0 view .LVU275
+ 1126 00bc 3548     		ldr	r0, .L90
+ 1127 00be FFF7FEFF 		bl	_ZN5Robot15GetLcdBufferPtrEv
+ 1128              	.LVL93:
+ 1129 00c2 0146     		mov	r1, r0
+ 1130 00c4 0023     		movs	r3, #0
+ 1131 00c6 4AF6C002 		movw	r2, #43200
+ 1132 00ca 2846     		mov	r0, r5
+ 1133 00cc FFF7FEFF 		bl	_ZN6Screen16WriteFrameBufferEPhmb
+ 1134              	.LVL94:
+ 1135              	.L75:
  234:user/user.cpp ****             if(p++>=3)
- 1278              		.loc 3 234 13 is_stmt 1 view .LVU308
+ 1136              		.loc 3 234 13 is_stmt 1 view .LVU276
  234:user/user.cpp ****             if(p++>=3)
- 1279              		.loc 3 234 17 is_stmt 0 view .LVU309
- 1280 0134 631C     		adds	r3, r4, #1
- 1281              	.LVL101:
+ 1137              		.loc 3 234 17 is_stmt 0 view .LVU277
+ 1138 00d0 631C     		adds	r3, r4, #1
+ 1139              	.LVL95:
  234:user/user.cpp ****             if(p++>=3)
- 1282              		.loc 3 234 13 view .LVU310
- 1283 0136 022C     		cmp	r4, #2
- 1284 0138 0CDC     		bgt	.L78
+ 1140              		.loc 3 234 13 view .LVU278
+ 1141 00d2 022C     		cmp	r4, #2
+ 1142 00d4 0CDC     		bgt	.L82
  234:user/user.cpp ****             if(p++>=3)
- 1285              		.loc 3 234 17 view .LVU311
- 1286 013a 1C46     		mov	r4, r3
- 1287 013c 89E7     		b	.L62
- 1288              	.LVL102:
- 1289              	.L74:
+ 1143              		.loc 3 234 17 view .LVU279
+ 1144 00d6 1C46     		mov	r4, r3
+ 1145 00d8 BBE7     		b	.L62
+ 1146              	.LVL96:
+ 1147              	.L74:
  233:user/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3, true);
- 1290              		.loc 3 233 17 is_stmt 1 view .LVU312
+ 1148              		.loc 3 233 17 is_stmt 1 view .LVU280
  233:user/user.cpp ****                 electron.lcd->WriteFrameBuffer(electron.GetLcdBufferPtr(),60 * 240 * 3, true);
- 1291              		.loc 3 233 47 is_stmt 0 view .LVU313
- 1292 013e 0648     		ldr	r0, .L86
- 1293 0140 FFF7FEFF 		bl	_ZN5Robot15GetLcdBufferPtrEv
- 1294              	.LVL103:
- 1295 0144 0146     		mov	r1, r0
- 1296 0146 0123     		movs	r3, #1
- 1297 0148 4AF6C002 		movw	r2, #43200
- 1298 014c 2846     		mov	r0, r5
- 1299 014e FFF7FEFF 		bl	_ZN6Screen16WriteFrameBufferEPhmb
- 1300              	.LVL104:
- 1301 0152 EFE7     		b	.L75
- 1302              	.LVL105:
- 1303              	.L78:
+ 1149              		.loc 3 233 47 is_stmt 0 view .LVU281
+ 1150 00da 2E48     		ldr	r0, .L90
+ 1151 00dc FFF7FEFF 		bl	_ZN5Robot15GetLcdBufferPtrEv
+ 1152              	.LVL97:
+ 1153 00e0 0146     		mov	r1, r0
+ 1154 00e2 0123     		movs	r3, #1
+ 1155 00e4 4AF6C002 		movw	r2, #43200
+ 1156 00e8 2846     		mov	r0, r5
+ 1157 00ea FFF7FEFF 		bl	_ZN6Screen16WriteFrameBufferEPhmb
+ 1158              	.LVL98:
+ 1159 00ee EFE7     		b	.L75
+ 1160              	.LVL99:
+ 1161              	.L82:
  235:user/user.cpp ****                 p=0;
- 1304              		.loc 3 235 18 view .LVU314
- 1305 0154 0024     		movs	r4, #0
- 1306 0156 7CE7     		b	.L62
- 1307              	.L87:
- 1308              		.align	2
- 1309              	.L86:
- 1310 0158 00000000 		.word	.LANCHOR1
- 1311 015c 00000000 		.word	0
- 1312 0160 14000000 		.word	.LC10
- 1313 0164 00000000 		.word	.LANCHOR13
- 1314 0168 00000000 		.word	.LANCHOR12
- 1315 016c 00000000 		.word	.LC9
- 1316              	.LBE47:
- 1317              	.LBE49:
- 1318              	.LBE52:
- 1319              	.LBE56:
- 1320              	.LBE60:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 87
+ 1162              		.loc 3 235 18 view .LVU282
+ 1163 00f0 0024     		movs	r4, #0
+ 1164 00f2 AEE7     		b	.L62
+ 1165              	.LVL100:
+ 1166              	.L84:
+ 235:user/user.cpp ****                 p=0;
+ 1167              		.loc 3 235 18 view .LVU283
+ 1168              	.LBE40:
+ 1169              	.LBE39:
+ 1170              	.LBE38:
+ 1171              	.LBE37:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 84
 
 
- 1321              	.LBE66:
- 1322              	.LBE72:
- 1323              		.cfi_endproc
- 1324              	.LFE376:
- 1325              		.fnend
- 1327              		.section	.text.HAL_SPI_TxCpltCallback,"ax",%progbits
- 1328              		.align	1
- 1329              		.global	HAL_SPI_TxCpltCallback
- 1330              		.syntax unified
- 1331              		.thumb
- 1332              		.thumb_func
- 1334              	HAL_SPI_TxCpltCallback:
- 1335              		.fnstart
- 1336              	.LVL106:
- 1337              	.LFB377:
- 313:user/user.cpp **** {
- 1338              		.loc 3 313 1 is_stmt 1 view -0
- 1339              		.cfi_startproc
- 1340              		@ args = 0, pretend = 0, frame = 0
- 1341              		@ frame_needed = 0, uses_anonymous_args = 0
- 1342              		@ link register save eliminated.
- 314:user/user.cpp ****     electron.lcd->isBusy = false;
- 1343              		.loc 3 314 5 view .LVU316
- 314:user/user.cpp ****     electron.lcd->isBusy = false;
- 1344              		.loc 3 314 14 is_stmt 0 view .LVU317
- 1345 0000 024B     		ldr	r3, .L89
- 1346 0002 D3F8C830 		ldr	r3, [r3, #200]
- 314:user/user.cpp ****     electron.lcd->isBusy = false;
- 1347              		.loc 3 314 26 view .LVU318
- 1348 0006 0022     		movs	r2, #0
- 1349 0008 1A70     		strb	r2, [r3]
- 1350              		.loc 3 315 1 view .LVU319
- 1351 000a 7047     		bx	lr
- 1352              	.L90:
- 1353              		.align	2
- 1354              	.L89:
- 1355 000c 00000000 		.word	.LANCHOR1
- 1356              		.cfi_endproc
- 1357              	.LFE377:
- 1358              		.cantunwind
- 1359              		.fnend
- 1361              		.section	.text._GLOBAL__sub_I_electron,"ax",%progbits
- 1362              		.align	1
- 1363              		.syntax unified
- 1364              		.thumb
- 1365              		.thumb_func
- 1367              	_GLOBAL__sub_I_electron:
- 1368              		.fnstart
- 1369              	.LFB379:
- 1370              		.loc 3 315 1 is_stmt 1 view -0
- 1371              		.cfi_startproc
- 1372              		@ args = 0, pretend = 0, frame = 0
- 1373              		@ frame_needed = 0, uses_anonymous_args = 0
- 1374 0000 08B5     		push	{r3, lr}
- 1375              	.LCFI9:
- 1376              		.cfi_def_cfa_offset 8
- 1377              		.cfi_offset 3, -8
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 88
+ 1172              	.LBE36:
+ 1173              	.LBE65:
+ 1174              	.LBB66:
+ 1175              	.LBB62:
+ 1176              	.LBB63:
+ 243:user/user.cpp ****                 auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
+ 1177              		.loc 3 243 17 is_stmt 1 discriminator 2 view .LVU284
+ 243:user/user.cpp ****                 auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
+ 1178              		.loc 3 243 63 is_stmt 0 discriminator 2 view .LVU285
+ 1179 00f4 431C     		adds	r3, r0, #1
+ 243:user/user.cpp ****                 auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
+ 1180              		.loc 3 243 23 discriminator 2 view .LVU286
+ 1181 00f6 2749     		ldr	r1, .L90
+ 1182 00f8 C3EBC303 		rsb	r3, r3, r3, lsl #3
+ 1183 00fc 9B00     		lsls	r3, r3, #2
+ 1184 00fe 0833     		adds	r3, r3, #8
+ 1185 0100 0B44     		add	r3, r3, r1
+ 1186 0102 0833     		adds	r3, r3, #8
+ 1187              	.LVL101:
+ 244:user/user.cpp ****                 electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+ 1188              		.loc 3 244 17 is_stmt 1 discriminator 2 view .LVU287
+ 244:user/user.cpp ****                 electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+ 1189              		.loc 3 244 26 is_stmt 0 discriminator 2 view .LVU288
+ 1190 0104 0D68     		ldr	r5, [r1]
+ 244:user/user.cpp ****                 electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+ 1191              		.loc 3 244 56 discriminator 2 view .LVU289
+ 1192 0106 02EB8001 		add	r1, r2, r0, lsl #2
+ 244:user/user.cpp ****                 electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+ 1193              		.loc 3 244 60 discriminator 2 view .LVU290
+ 1194 010a 0131     		adds	r1, r1, #1
+ 244:user/user.cpp ****                 electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+ 1195              		.loc 3 244 67 discriminator 2 view .LVU291
+ 1196 010c 9B5C     		ldrb	r3, [r3, r2]	@ zero_extendqisi2
+ 1197              	.LVL102:
+ 244:user/user.cpp ****                 electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+ 1198              		.loc 3 244 65 discriminator 2 view .LVU292
+ 1199 010e 6B54     		strb	r3, [r5, r1]
+ 1200              	.LBE63:
+ 241:user/user.cpp ****             for (int i = 0; i < 4; i++)
+ 1201              		.loc 3 241 13 is_stmt 1 discriminator 2 view .LVU293
+ 1202 0110 0132     		adds	r2, r2, #1
+ 1203              	.LVL103:
+ 1204              	.L78:
+ 241:user/user.cpp ****             for (int i = 0; i < 4; i++)
+ 1205              		.loc 3 241 31 discriminator 3 view .LVU294
+ 1206 0112 032A     		cmp	r2, #3
+ 1207 0114 EEDD     		ble	.L84
+ 1208              	.LBE62:
+ 239:user/user.cpp ****         for (int j = 0; j < 6; j++)
+ 1209              		.loc 3 239 9 discriminator 2 view .LVU295
+ 1210 0116 0130     		adds	r0, r0, #1
+ 1211              	.LVL104:
+ 1212              	.L79:
+ 239:user/user.cpp ****         for (int j = 0; j < 6; j++)
+ 1213              		.loc 3 239 27 discriminator 1 view .LVU296
+ 1214 0118 0528     		cmp	r0, #5
+ 1215 011a 01DC     		bgt	.L76
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 85
 
 
- 1378              		.cfi_offset 14, -4
- 1379              		.loc 3 315 1 is_stmt 0 view .LVU321
- 1380 0002 4FF6FF71 		movw	r1, #65535
- 1381 0006 0120     		movs	r0, #1
- 1382 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
- 1383              	.LVL107:
- 1384 000c 08BD     		pop	{r3, pc}
- 1385              		.cfi_endproc
- 1386              	.LFE379:
- 1387              		.cantunwind
- 1388              		.fnend
- 1390              		.section	.init_array,"aw",%init_array
- 1391              		.align	2
- 1392 0000 00000000 		.word	_GLOBAL__sub_I_electron(target1)
- 1393              		.global	newid
- 1394              		.global	settq_flag
- 1395              		.global	setkd_flag
- 1396              		.global	setkv_flag
- 1397              		.global	setki_flag
- 1398              		.global	setkp_flag
- 1399              		.global	setTq
- 1400              		.global	setKd
- 1401              		.global	setKv
- 1402              		.global	setKi
- 1403              		.global	setKp
- 1404              		.global	isEnabled
- 1405              		.global	jointSetPoints
- 1406              		.global	electron
- 1407              		.section	.rodata
- 1408              		.align	2
- 1409              		.set	.LANCHOR0,. + 0
- 1410              	.LC0:
- 1411 0000 00       		.byte	0
- 1412 0001 000000   		.space	3
- 1413 0004 000034C3 		.word	-1020002304
- 1414 0008 00003443 		.word	1127481344
- 1415 000c 0000B442 		.word	1119092736
- 1416 0010 00000000 		.word	0
- 1417 0014 00000000 		.word	0
- 1418 0018 00       		.byte	0
- 1419 0019 000000   		.space	3
- 1420              	.LC1:
- 1421 001c 02       		.byte	2
- 1422 001d 000000   		.space	3
- 1423 0020 00008C42 		.word	1116471296
- 1424 0024 0000BE42 		.word	1119748096
- 1425 0028 00000000 		.word	0
- 1426 002c 000070C1 		.word	-1049624576
- 1427 0030 00007041 		.word	1097859072
- 1428 0034 01       		.byte	1
- 1429 0035 000000   		.space	3
- 1430              	.LC2:
- 1431 0038 04       		.byte	4
- 1432 0039 000000   		.space	3
- 1433 003c 000010C1 		.word	-1055916032
- 1434 0040 00004040 		.word	1077936128
- 1435 0044 00000000 		.word	0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 89
+ 1216              	.LBB64:
+ 241:user/user.cpp ****             for (int i = 0; i < 4; i++)
+ 1217              		.loc 3 241 22 is_stmt 0 view .LVU297
+ 1218 011c 0022     		movs	r2, #0
+ 1219 011e F8E7     		b	.L78
+ 1220              	.L76:
+ 1221              	.LBE64:
+ 1222              	.LBE66:
+ 247:user/user.cpp ****         electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);   
+ 1223              		.loc 3 247 9 is_stmt 1 view .LVU298
+ 247:user/user.cpp ****         electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);   
+ 1224              		.loc 3 247 41 is_stmt 0 view .LVU299
+ 1225 0120 1C48     		ldr	r0, .L90
+ 1226              	.LVL105:
+ 247:user/user.cpp ****         electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);   
+ 1227              		.loc 3 247 31 view .LVU300
+ 1228 0122 2022     		movs	r2, #32
+ 1229 0124 0168     		ldr	r1, [r0]
+ 1230 0126 FFF7FEFF 		bl	_ZN5Robot13SendUsbPacketEPhm
+ 1231              	.LVL106:
+ 248:user/user.cpp ****         HAL_Delay(1);
+ 1232              		.loc 3 248 9 is_stmt 1 view .LVU301
+ 248:user/user.cpp ****         HAL_Delay(1);
+ 1233              		.loc 3 248 18 is_stmt 0 view .LVU302
+ 1234 012a 0120     		movs	r0, #1
+ 1235 012c FFF7FEFF 		bl	HAL_Delay
+ 1236              	.LVL107:
+ 1237              	.LBE34:
+ 167:user/user.cpp ****     while(1)
+ 1238              		.loc 3 167 5 is_stmt 1 view .LVU303
+ 1239              	.L80:
+ 167:user/user.cpp ****     while(1)
+ 1240              		.loc 3 167 5 view .LVU304
+ 1241              	.LBB73:
+ 170:user/user.cpp ****         electron.ReceiveUsbPacketUntilSizeIs(224); // last packet is 224bytes
+ 1242              		.loc 3 170 9 view .LVU305
+ 170:user/user.cpp ****         electron.ReceiveUsbPacketUntilSizeIs(224); // last packet is 224bytes
+ 1243              		.loc 3 170 45 is_stmt 0 view .LVU306
+ 1244 0130 184D     		ldr	r5, .L90
+ 1245 0132 E021     		movs	r1, #224
+ 1246 0134 2846     		mov	r0, r5
+ 1247 0136 FFF7FEFF 		bl	_ZN5Robot27ReceiveUsbPacketUntilSizeIsEm
+ 1248              	.LVL108:
+ 171:user/user.cpp ****         uint8_t* ptr = electron.GetExtraDataRxPtr();
+ 1249              		.loc 3 171 9 is_stmt 1 view .LVU307
+ 171:user/user.cpp ****         uint8_t* ptr = electron.GetExtraDataRxPtr();
+ 1250              		.loc 3 171 50 is_stmt 0 view .LVU308
+ 1251 013a 2846     		mov	r0, r5
+ 1252 013c FFF7FEFF 		bl	_ZN5Robot17GetExtraDataRxPtrEv
+ 1253              	.LVL109:
+ 1254 0140 0546     		mov	r5, r0
+ 1255              	.LVL110:
+ 173:user/user.cpp ****         if(ptr[31] == 0xee)  //设置参数
+ 1256              		.loc 3 173 9 is_stmt 1 view .LVU309
+ 1257              	.LBB67:
+ 173:user/user.cpp ****         if(ptr[31] == 0xee)  //设置参数
+ 1258              		.loc 3 173 18 is_stmt 0 view .LVU310
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 86
 
 
- 1436 0048 00000000 		.word	0
- 1437 004c 0000F041 		.word	1106247680
- 1438 0050 00       		.byte	0
- 1439 0051 000000   		.space	3
- 1440              	.LC3:
- 1441 0054 06       		.byte	6
- 1442 0055 000000   		.space	3
- 1443 0058 000080C1 		.word	-1048576000
- 1444 005c 0000EA42 		.word	1122631680
- 1445 0060 00000000 		.word	0
- 1446 0064 0000A0C1 		.word	-1046478848
- 1447 0068 00003443 		.word	1127481344
- 1448 006c 00       		.byte	0
- 1449 006d 000000   		.space	3
- 1450              	.LC4:
- 1451 0070 08       		.byte	8
- 1452 0071 000000   		.space	3
- 1453 0074 00000543 		.word	1124401152
- 1454 0078 00000D43 		.word	1124925440
- 1455 007c 00000000 		.word	0
- 1456 0080 00000000 		.word	0
- 1457 0084 0000F041 		.word	1106247680
- 1458 0088 01       		.byte	1
- 1459 0089 000000   		.space	3
- 1460              	.LC5:
- 1461 008c 0A       		.byte	10
- 1462 008d 000000   		.space	3
- 1463 0090 00007041 		.word	1097859072
- 1464 0094 00001643 		.word	1125515264
- 1465 0098 00000000 		.word	0
- 1466 009c 0000A0C1 		.word	-1046478848
- 1467 00a0 00003443 		.word	1127481344
- 1468 00a4 01       		.byte	1
- 1469 00a5 000000   		.space	3
- 1470              	.LC6:
- 1471 00a8 0C       		.byte	12
- 1472 00a9 000000   		.space	3
- 1473 00ac 00000000 		.word	0
- 1474 00b0 00003443 		.word	1127481344
- 1475 00b4 00000000 		.word	0
- 1476 00b8 0000B4C2 		.word	-1028390912
- 1477 00bc 0000B442 		.word	1119092736
- 1478 00c0 00       		.byte	0
- 1479 00c1 000000   		.space	3
- 1480              		.section	.bss.electron,"aw",%nobits
+ 1259 0142 C27F     		ldrb	r2, [r0, #31]	@ zero_extendqisi2
+ 173:user/user.cpp ****         if(ptr[31] == 0xee)  //设置参数
+ 1260              		.loc 3 173 9 view .LVU311
+ 1261 0144 EE2A     		cmp	r2, #238
+ 1262 0146 82D0     		beq	.L85
+ 1263              	.LBE67:
+ 1264              	.LBE73:
+ 177:user/user.cpp ****         else if(ptr[31] == 0xef)
+ 1265              		.loc 3 177 14 is_stmt 1 view .LVU312
+ 1266              	.LBB74:
+ 1267              	.LBB68:
+ 1268              	.LBB56:
+ 1269 0148 EF2A     		cmp	r2, #239
+ 1270 014a 84D0     		beq	.L86
+ 1271              	.LBE56:
+ 1272              	.LBE68:
+ 1273              	.LBE74:
+ 182:user/user.cpp ****         else if(ptr[31] == 0xf0)
+ 1274              		.loc 3 182 14 view .LVU313
+ 1275              	.LBB75:
+ 1276              	.LBB69:
+ 1277              	.LBB57:
+ 1278              	.LBB52:
+ 1279 014c F02A     		cmp	r2, #240
+ 1280 014e 85D0     		beq	.L87
+ 1281              	.LBE52:
+ 1282              	.LBE57:
+ 1283              	.LBE69:
+ 1284              	.LBE75:
+ 186:user/user.cpp ****         else if(ptr[31] == 0xf1)
+ 1285              		.loc 3 186 14 view .LVU314
+ 1286              	.LBB76:
+ 1287              	.LBB70:
+ 1288              	.LBB58:
+ 1289              	.LBB53:
+ 1290              	.LBB49:
+ 1291 0150 F12A     		cmp	r2, #241
+ 1292 0152 86D0     		beq	.L88
+ 1293              	.LBE49:
+ 1294              	.LBE53:
+ 1295              	.LBE58:
+ 1296              	.LBE70:
+ 1297              	.LBE76:
+ 190:user/user.cpp ****         else if((ptr[31] == 0xfe)&&(ptr[30] == 0x01))
+ 1298              		.loc 3 190 14 view .LVU315
+ 1299              	.LBB77:
+ 1300              	.LBB71:
+ 1301              	.LBB59:
+ 1302              	.LBB54:
+ 1303              	.LBB50:
+ 1304              	.LBB47:
+ 1305 0154 FE2A     		cmp	r2, #254
+ 1306 0156 02D1     		bne	.L66
+ 190:user/user.cpp ****         else if((ptr[31] == 0xfe)&&(ptr[30] == 0x01))
+ 1307              		.loc 3 190 43 is_stmt 0 discriminator 1 view .LVU316
+ 1308 0158 837F     		ldrb	r3, [r0, #30]	@ zero_extendqisi2
+ 190:user/user.cpp ****         else if((ptr[31] == 0xfe)&&(ptr[30] == 0x01))
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 87
+
+
+ 1309              		.loc 3 190 34 discriminator 1 view .LVU317
+ 1310 015a 012B     		cmp	r3, #1
+ 1311 015c 84D0     		beq	.L89
+ 1312              	.L66:
+ 1313              	.LBB45:
+ 197:user/user.cpp ****             printf("task  p=%d : %d\r\n",p,ptr[31]);
+ 1314              		.loc 3 197 13 is_stmt 1 view .LVU318
+ 197:user/user.cpp ****             printf("task  p=%d : %d\r\n",p,ptr[31]);
+ 1315              		.loc 3 197 19 is_stmt 0 view .LVU319
+ 1316 015e 2146     		mov	r1, r4
+ 1317 0160 0F48     		ldr	r0, .L90+12
+ 1318              	.LVL111:
+ 197:user/user.cpp ****             printf("task  p=%d : %d\r\n",p,ptr[31]);
+ 1319              		.loc 3 197 19 view .LVU320
+ 1320 0162 FFF7FEFF 		bl	printf
+ 1321              	.LVL112:
+ 200:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
+ 1322              		.loc 3 200 13 is_stmt 1 view .LVU321
+ 200:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
+ 1323              		.loc 3 200 27 is_stmt 0 view .LVU322
+ 1324 0166 0F4B     		ldr	r3, .L90+16
+ 1325 0168 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 200:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
+ 1326              		.loc 3 200 42 view .LVU323
+ 1327 016a 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 200:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
+ 1328              		.loc 3 200 30 view .LVU324
+ 1329 016c 003B     		subs	r3, r3, #0
+ 1330 016e 18BF     		it	ne
+ 1331 0170 0123     		movne	r3, #1
+ 200:user/user.cpp ****             if (isEnabled != (bool) ptr[0])
+ 1332              		.loc 3 200 13 view .LVU325
+ 1333 0172 9A42     		cmp	r2, r3
+ 1334 0174 01D0     		beq	.L67
+ 202:user/user.cpp ****                 isEnabled = ptr[0];
+ 1335              		.loc 3 202 17 is_stmt 1 view .LVU326
+ 202:user/user.cpp ****                 isEnabled = ptr[0];
+ 1336              		.loc 3 202 27 is_stmt 0 view .LVU327
+ 1337 0176 0B4A     		ldr	r2, .L90+16
+ 1338 0178 1370     		strb	r3, [r2]
+ 1339              	.L67:
+ 1340              	.LBE45:
+ 1341              	.LBE47:
+ 1342              	.LBE50:
+ 1343              	.LBE54:
+ 1344              	.LBE59:
+ 1345              	.LBE71:
+ 1346              	.LBE77:
+ 152:user/user.cpp ****     int p=0;
+ 1347              		.loc 3 152 9 discriminator 3 view .LVU328
+ 1348 017a 0023     		movs	r3, #0
+ 1349              	.L69:
+ 1350              	.LVL113:
+ 1351              	.LBB78:
+ 1352              	.LBB72:
+ 1353              	.LBB60:
+ 1354              	.LBB55:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 88
+
+
+ 1355              	.LBB51:
+ 1356              	.LBB48:
+ 1357              	.LBB46:
+ 1358              	.LBB44:
+ 210:user/user.cpp ****             for (int j = 0; j < 6; j++)
+ 1359              		.loc 3 210 31 is_stmt 1 discriminator 3 view .LVU329
+ 1360 017c 052B     		cmp	r3, #5
+ 1361 017e 3FF779AF 		bgt	.L81
+ 212:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+ 1362              		.loc 3 212 17 discriminator 2 view .LVU330
+ 212:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+ 1363              		.loc 3 212 57 is_stmt 0 discriminator 2 view .LVU331
+ 1364 0182 9800     		lsls	r0, r3, #2
+ 212:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+ 1365              		.loc 3 212 61 discriminator 2 view .LVU332
+ 1366 0184 411C     		adds	r1, r0, #1
+ 1367 0186 2944     		add	r1, r1, r5
+ 212:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+ 1368              		.loc 3 212 37 discriminator 2 view .LVU333
+ 1369 0188 0968     		ldr	r1, [r1]	@ float
+ 212:user/user.cpp ****                 jointSetPoints[j] = *((float*) (ptr + 4 * j + 1));
+ 1370              		.loc 3 212 35 discriminator 2 view .LVU334
+ 1371 018a 074A     		ldr	r2, .L90+20
+ 1372 018c 0244     		add	r2, r2, r0
+ 1373 018e 1160     		str	r1, [r2]	@ float
+ 210:user/user.cpp ****             for (int j = 0; j < 6; j++)
+ 1374              		.loc 3 210 13 is_stmt 1 discriminator 2 view .LVU335
+ 1375 0190 0133     		adds	r3, r3, #1
+ 1376              	.LVL114:
+ 210:user/user.cpp ****             for (int j = 0; j < 6; j++)
+ 1377              		.loc 3 210 13 is_stmt 0 discriminator 2 view .LVU336
+ 1378 0192 F3E7     		b	.L69
+ 1379              	.L91:
+ 1380              		.align	2
+ 1381              	.L90:
+ 1382 0194 00000000 		.word	.LANCHOR1
+ 1383 0198 00000000 		.word	0
+ 1384 019c 00000000 		.word	.LC9
+ 1385 01a0 14000000 		.word	.LC10
+ 1386 01a4 00000000 		.word	.LANCHOR13
+ 1387 01a8 00000000 		.word	.LANCHOR12
+ 1388              	.LBE44:
+ 1389              	.LBE46:
+ 1390              	.LBE48:
+ 1391              	.LBE51:
+ 1392              	.LBE55:
+ 1393              	.LBE60:
+ 1394              	.LBE72:
+ 1395              	.LBE78:
+ 1396              		.cfi_endproc
+ 1397              	.LFE376:
+ 1398              		.fnend
+ 1400              		.section	.text.HAL_SPI_TxCpltCallback,"ax",%progbits
+ 1401              		.align	1
+ 1402              		.global	HAL_SPI_TxCpltCallback
+ 1403              		.syntax unified
+ 1404              		.thumb
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 89
+
+
+ 1405              		.thumb_func
+ 1407              	HAL_SPI_TxCpltCallback:
+ 1408              		.fnstart
+ 1409              	.LVL115:
+ 1410              	.LFB377:
+ 322:user/user.cpp **** {
+ 1411              		.loc 3 322 1 is_stmt 1 view -0
+ 1412              		.cfi_startproc
+ 1413              		@ args = 0, pretend = 0, frame = 0
+ 1414              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1415              		@ link register save eliminated.
+ 323:user/user.cpp ****     electron.lcd->isBusy = false;
+ 1416              		.loc 3 323 5 view .LVU338
+ 323:user/user.cpp ****     electron.lcd->isBusy = false;
+ 1417              		.loc 3 323 14 is_stmt 0 view .LVU339
+ 1418 0000 024B     		ldr	r3, .L93
+ 1419 0002 D3F8C830 		ldr	r3, [r3, #200]
+ 323:user/user.cpp ****     electron.lcd->isBusy = false;
+ 1420              		.loc 3 323 26 view .LVU340
+ 1421 0006 0022     		movs	r2, #0
+ 1422 0008 1A70     		strb	r2, [r3]
+ 1423              		.loc 3 324 1 view .LVU341
+ 1424 000a 7047     		bx	lr
+ 1425              	.L94:
+ 1426              		.align	2
+ 1427              	.L93:
+ 1428 000c 00000000 		.word	.LANCHOR1
+ 1429              		.cfi_endproc
+ 1430              	.LFE377:
+ 1431              		.cantunwind
+ 1432              		.fnend
+ 1434              		.section	.text._GLOBAL__sub_I_electron,"ax",%progbits
+ 1435              		.align	1
+ 1436              		.syntax unified
+ 1437              		.thumb
+ 1438              		.thumb_func
+ 1440              	_GLOBAL__sub_I_electron:
+ 1441              		.fnstart
+ 1442              	.LFB379:
+ 1443              		.loc 3 324 1 is_stmt 1 view -0
+ 1444              		.cfi_startproc
+ 1445              		@ args = 0, pretend = 0, frame = 0
+ 1446              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1447 0000 08B5     		push	{r3, lr}
+ 1448              	.LCFI9:
+ 1449              		.cfi_def_cfa_offset 8
+ 1450              		.cfi_offset 3, -8
+ 1451              		.cfi_offset 14, -4
+ 1452              		.loc 3 324 1 is_stmt 0 view .LVU343
+ 1453 0002 4FF6FF71 		movw	r1, #65535
+ 1454 0006 0120     		movs	r0, #1
+ 1455 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 1456              	.LVL116:
+ 1457 000c 08BD     		pop	{r3, pc}
+ 1458              		.cfi_endproc
+ 1459              	.LFE379:
+ 1460              		.cantunwind
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 90
+
+
+ 1461              		.fnend
+ 1463              		.section	.init_array,"aw",%init_array
+ 1464              		.align	2
+ 1465 0000 00000000 		.word	_GLOBAL__sub_I_electron(target1)
+ 1466              		.global	newid
+ 1467              		.global	settq_flag
+ 1468              		.global	setkd_flag
+ 1469              		.global	setkv_flag
+ 1470              		.global	setki_flag
+ 1471              		.global	setkp_flag
+ 1472              		.global	setTq
+ 1473              		.global	setKd
+ 1474              		.global	setKv
+ 1475              		.global	setKi
+ 1476              		.global	setKp
+ 1477              		.global	isEnabled
+ 1478              		.global	jointSetPoints
+ 1479              		.global	electron
+ 1480              		.section	.rodata
  1481              		.align	2
- 1482              		.set	.LANCHOR1,. + 0
- 1485              	electron:
- 1486 0000 00000000 		.space	260
- 1486      00000000 
- 1486      00000000 
- 1486      00000000 
- 1486      00000000 
- 1487              		.section	.bss.isEnabled,"aw",%nobits
- 1488              		.set	.LANCHOR13,. + 0
- 1491              	isEnabled:
- 1492 0000 00       		.space	1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 90
+ 1482              		.set	.LANCHOR0,. + 0
+ 1483              	.LC0:
+ 1484 0000 00       		.byte	0
+ 1485 0001 000000   		.space	3
+ 1486 0004 000034C3 		.word	-1020002304
+ 1487 0008 00003443 		.word	1127481344
+ 1488 000c 0000B442 		.word	1119092736
+ 1489 0010 00000000 		.word	0
+ 1490 0014 00000000 		.word	0
+ 1491 0018 00       		.byte	0
+ 1492 0019 000000   		.space	3
+ 1493              	.LC1:
+ 1494 001c 02       		.byte	2
+ 1495 001d 000000   		.space	3
+ 1496 0020 00008C42 		.word	1116471296
+ 1497 0024 0000BE42 		.word	1119748096
+ 1498 0028 00000000 		.word	0
+ 1499 002c 000070C1 		.word	-1049624576
+ 1500 0030 00007041 		.word	1097859072
+ 1501 0034 01       		.byte	1
+ 1502 0035 000000   		.space	3
+ 1503              	.LC2:
+ 1504 0038 04       		.byte	4
+ 1505 0039 000000   		.space	3
+ 1506 003c 000010C1 		.word	-1055916032
+ 1507 0040 00004040 		.word	1077936128
+ 1508 0044 00000000 		.word	0
+ 1509 0048 00000000 		.word	0
+ 1510 004c 0000F041 		.word	1106247680
+ 1511 0050 00       		.byte	0
+ 1512 0051 000000   		.space	3
+ 1513              	.LC3:
+ 1514 0054 06       		.byte	6
+ 1515 0055 000000   		.space	3
+ 1516 0058 000080C1 		.word	-1048576000
+ 1517 005c 0000EA42 		.word	1122631680
+ 1518 0060 00000000 		.word	0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 91
 
 
- 1493              		.section	.bss.jointSetPoints,"aw",%nobits
- 1494              		.align	2
- 1495              		.set	.LANCHOR12,. + 0
- 1498              	jointSetPoints:
- 1499 0000 00000000 		.space	24
- 1499      00000000 
- 1499      00000000 
- 1499      00000000 
- 1499      00000000 
- 1500              		.section	.bss.newid,"aw",%nobits
- 1501              		.set	.LANCHOR14,. + 0
- 1504              	newid:
- 1505 0000 00       		.space	1
- 1506              		.section	.bss.setKd,"aw",%nobits
- 1507              		.align	2
- 1508              		.set	.LANCHOR5,. + 0
- 1511              	setKd:
- 1512 0000 00000000 		.space	4
- 1513              		.section	.bss.setKi,"aw",%nobits
- 1514              		.align	2
- 1515              		.set	.LANCHOR3,. + 0
- 1518              	setKi:
- 1519 0000 00000000 		.space	4
- 1520              		.section	.bss.setKp,"aw",%nobits
- 1521              		.align	2
- 1522              		.set	.LANCHOR2,. + 0
- 1525              	setKp:
- 1526 0000 00000000 		.space	4
- 1527              		.section	.bss.setKv,"aw",%nobits
- 1528              		.align	2
- 1529              		.set	.LANCHOR4,. + 0
- 1532              	setKv:
- 1533 0000 00000000 		.space	4
- 1534              		.section	.bss.setTq,"aw",%nobits
- 1535              		.align	2
- 1536              		.set	.LANCHOR6,. + 0
- 1539              	setTq:
- 1540 0000 00000000 		.space	4
- 1541              		.section	.bss.setkd_flag,"aw",%nobits
- 1542              		.set	.LANCHOR10,. + 0
- 1545              	setkd_flag:
- 1546 0000 00       		.space	1
- 1547              		.section	.bss.setki_flag,"aw",%nobits
- 1548              		.set	.LANCHOR8,. + 0
- 1551              	setki_flag:
- 1552 0000 00       		.space	1
- 1553              		.section	.bss.setkp_flag,"aw",%nobits
- 1554              		.set	.LANCHOR7,. + 0
- 1557              	setkp_flag:
- 1558 0000 00       		.space	1
- 1559              		.section	.bss.setkv_flag,"aw",%nobits
- 1560              		.set	.LANCHOR9,. + 0
- 1563              	setkv_flag:
- 1564 0000 00       		.space	1
- 1565              		.section	.bss.settq_flag,"aw",%nobits
- 1566              		.set	.LANCHOR11,. + 0
- 1569              	settq_flag:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 91
+ 1519 0064 0000A0C1 		.word	-1046478848
+ 1520 0068 00003443 		.word	1127481344
+ 1521 006c 00       		.byte	0
+ 1522 006d 000000   		.space	3
+ 1523              	.LC4:
+ 1524 0070 08       		.byte	8
+ 1525 0071 000000   		.space	3
+ 1526 0074 00000543 		.word	1124401152
+ 1527 0078 00000D43 		.word	1124925440
+ 1528 007c 00000000 		.word	0
+ 1529 0080 00000000 		.word	0
+ 1530 0084 0000F041 		.word	1106247680
+ 1531 0088 01       		.byte	1
+ 1532 0089 000000   		.space	3
+ 1533              	.LC5:
+ 1534 008c 0A       		.byte	10
+ 1535 008d 000000   		.space	3
+ 1536 0090 00007041 		.word	1097859072
+ 1537 0094 00001643 		.word	1125515264
+ 1538 0098 00000000 		.word	0
+ 1539 009c 0000A0C1 		.word	-1046478848
+ 1540 00a0 00003443 		.word	1127481344
+ 1541 00a4 01       		.byte	1
+ 1542 00a5 000000   		.space	3
+ 1543              	.LC6:
+ 1544 00a8 0C       		.byte	12
+ 1545 00a9 000000   		.space	3
+ 1546 00ac 00000000 		.word	0
+ 1547 00b0 00003443 		.word	1127481344
+ 1548 00b4 00000000 		.word	0
+ 1549 00b8 0000B4C2 		.word	-1028390912
+ 1550 00bc 0000B442 		.word	1119092736
+ 1551 00c0 00       		.byte	0
+ 1552 00c1 000000   		.space	3
+ 1553              		.section	.bss.electron,"aw",%nobits
+ 1554              		.align	2
+ 1555              		.set	.LANCHOR1,. + 0
+ 1558              	electron:
+ 1559 0000 00000000 		.space	260
+ 1559      00000000 
+ 1559      00000000 
+ 1559      00000000 
+ 1559      00000000 
+ 1560              		.section	.bss.isEnabled,"aw",%nobits
+ 1561              		.set	.LANCHOR13,. + 0
+ 1564              	isEnabled:
+ 1565 0000 00       		.space	1
+ 1566              		.section	.bss.jointSetPoints,"aw",%nobits
+ 1567              		.align	2
+ 1568              		.set	.LANCHOR12,. + 0
+ 1571              	jointSetPoints:
+ 1572 0000 00000000 		.space	24
+ 1572      00000000 
+ 1572      00000000 
+ 1572      00000000 
+ 1572      00000000 
+ 1573              		.section	.bss.newid,"aw",%nobits
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 92
 
 
- 1570 0000 00       		.space	1
- 1571              		.text
- 1572              	.Letext0:
- 1573              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 1574              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 1575              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 1576              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 1577              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
- 1578              		.file 11 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\lib\\gcc\\arm-none-eabi
- 1579              		.file 12 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
- 1580              		.file 13 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
- 1581              		.file 14 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
- 1582              		.file 15 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
- 1583              		.file 16 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
- 1584              		.file 17 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 1585              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 1586              		.file 19 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 1587              		.file 20 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
- 1588              		.file 21 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 1589              		.file 22 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 1590              		.file 23 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
- 1591              		.file 24 "user/common_inc.h"
- 1592              		.file 25 "Inc/spi.h"
- 1593              		.file 26 "Inc/i2c.h"
- 1594              		.file 27 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
- 1595              		.file 28 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h"
- 1596              		.file 29 "<built-in>"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 92
+ 1574              		.set	.LANCHOR14,. + 0
+ 1577              	newid:
+ 1578 0000 00       		.space	1
+ 1579              		.section	.bss.setKd,"aw",%nobits
+ 1580              		.align	2
+ 1581              		.set	.LANCHOR5,. + 0
+ 1584              	setKd:
+ 1585 0000 00000000 		.space	4
+ 1586              		.section	.bss.setKi,"aw",%nobits
+ 1587              		.align	2
+ 1588              		.set	.LANCHOR3,. + 0
+ 1591              	setKi:
+ 1592 0000 00000000 		.space	4
+ 1593              		.section	.bss.setKp,"aw",%nobits
+ 1594              		.align	2
+ 1595              		.set	.LANCHOR2,. + 0
+ 1598              	setKp:
+ 1599 0000 00000000 		.space	4
+ 1600              		.section	.bss.setKv,"aw",%nobits
+ 1601              		.align	2
+ 1602              		.set	.LANCHOR4,. + 0
+ 1605              	setKv:
+ 1606 0000 00000000 		.space	4
+ 1607              		.section	.bss.setTq,"aw",%nobits
+ 1608              		.align	2
+ 1609              		.set	.LANCHOR6,. + 0
+ 1612              	setTq:
+ 1613 0000 00000000 		.space	4
+ 1614              		.section	.bss.setkd_flag,"aw",%nobits
+ 1615              		.set	.LANCHOR10,. + 0
+ 1618              	setkd_flag:
+ 1619 0000 00       		.space	1
+ 1620              		.section	.bss.setki_flag,"aw",%nobits
+ 1621              		.set	.LANCHOR8,. + 0
+ 1624              	setki_flag:
+ 1625 0000 00       		.space	1
+ 1626              		.section	.bss.setkp_flag,"aw",%nobits
+ 1627              		.set	.LANCHOR7,. + 0
+ 1630              	setkp_flag:
+ 1631 0000 00       		.space	1
+ 1632              		.section	.bss.setkv_flag,"aw",%nobits
+ 1633              		.set	.LANCHOR9,. + 0
+ 1636              	setkv_flag:
+ 1637 0000 00       		.space	1
+ 1638              		.section	.bss.settq_flag,"aw",%nobits
+ 1639              		.set	.LANCHOR11,. + 0
+ 1642              	settq_flag:
+ 1643 0000 00       		.space	1
+ 1644              		.text
+ 1645              	.Letext0:
+ 1646              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1647              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1648              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1649              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1650              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1651              		.file 11 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\lib\\gcc\\arm-none-eabi
+ 1652              		.file 12 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 93
+
+
+ 1653              		.file 13 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1654              		.file 14 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1655              		.file 15 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1656              		.file 16 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+ 1657              		.file 17 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 1658              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1659              		.file 19 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1660              		.file 20 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
+ 1661              		.file 21 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 1662              		.file 22 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 1663              		.file 23 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1664              		.file 24 "user/common_inc.h"
+ 1665              		.file 25 "Inc/spi.h"
+ 1666              		.file 26 "Inc/i2c.h"
+ 1667              		.file 27 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
+ 1668              		.file 28 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h"
+ 1669              		.file 29 "<built-in>"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 94
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 user.cpp
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:20     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:26     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 _ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:171    .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:000000f0 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:20     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:26     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 _ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:171    .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:000000f0 $d
 .ARM.exidx.text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:26     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 _ZN5RobotC1EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:180    .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:185    .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:230    .text._Z41__static_initialization_and_destruction_0ii:00000020 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:26     .text._ZN5RobotC2EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef:00000000 _ZN5RobotC1EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:180    .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:185    .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:230    .text._Z41__static_initialization_and_destruction_0ii:00000020 $d
 .ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:239    .rodata.setPara.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:246    .text.setPara:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:252    .text.setPara:00000000 setPara
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:474    .text.setPara:0000010c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:239    .rodata.setPara.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:246    .text.setPara:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:252    .text.setPara:00000000 setPara
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:474    .text.setPara:0000010c $d
           .ARM.exidx.text.setPara:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:492    .text.setAngle:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:498    .text.setAngle:00000000 setAngle
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:598    .text.setAngle:00000068 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:492    .text.setAngle:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:498    .text.setAngle:00000000 setAngle
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:598    .text.setAngle:00000068 $d
          .ARM.exidx.text.setAngle:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:608    .text._Z5setidPh:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:614    .text._Z5setidPh:00000000 _Z5setidPh
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:657    .text._Z5setidPh:00000020 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:608    .text._Z5setidPh:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:614    .text._Z5setidPh:00000000 _Z5setidPh
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:657    .text._Z5setidPh:00000020 $d
        .ARM.extab.text._Z5setidPh:00000000 $d
        .ARM.exidx.text._Z5setidPh:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:664    .text._Z12setInitAnglePh:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:670    .text._Z12setInitAnglePh:00000000 _Z12setInitAnglePh
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:748    .text._Z12setInitAnglePh:0000004c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:664    .text._Z12setInitAnglePh:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:670    .text._Z12setInitAnglePh:00000000 _Z12setInitAnglePh
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:748    .text._Z12setInitAnglePh:0000004c $d
 .ARM.exidx.text._Z12setInitAnglePh:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:757    .text._Z14JumpBootLoaderPh:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:763    .text._Z14JumpBootLoaderPh:00000000 _Z14JumpBootLoaderPh
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:881    .text._Z14JumpBootLoaderPh:0000004c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:757    .text._Z14JumpBootLoaderPh:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:763    .text._Z14JumpBootLoaderPh:00000000 _Z14JumpBootLoaderPh
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:881    .text._Z14JumpBootLoaderPh:0000004c $d
 .ARM.exidx.text._Z14JumpBootLoaderPh:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:893    .rodata.Main.str1.4:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:900    .text.Main:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:906    .text.Main:00000000 Main
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1310   .text.Main:00000158 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:893    .rodata.Main.str1.4:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:900    .text.Main:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:906    .text.Main:00000000 Main
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1382   .text.Main:00000194 $d
              .ARM.exidx.text.Main:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1328   .text.HAL_SPI_TxCpltCallback:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1334   .text.HAL_SPI_TxCpltCallback:00000000 HAL_SPI_TxCpltCallback
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1355   .text.HAL_SPI_TxCpltCallback:0000000c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1401   .text.HAL_SPI_TxCpltCallback:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1407   .text.HAL_SPI_TxCpltCallback:00000000 HAL_SPI_TxCpltCallback
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1428   .text.HAL_SPI_TxCpltCallback:0000000c $d
 .ARM.exidx.text.HAL_SPI_TxCpltCallback:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1362   .text._GLOBAL__sub_I_electron:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1367   .text._GLOBAL__sub_I_electron:00000000 _GLOBAL__sub_I_electron
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1435   .text._GLOBAL__sub_I_electron:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1440   .text._GLOBAL__sub_I_electron:00000000 _GLOBAL__sub_I_electron
 .ARM.exidx.text._GLOBAL__sub_I_electron:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1391   .init_array:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1504   .bss.newid:00000000 newid
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1569   .bss.settq_flag:00000000 settq_flag
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1545   .bss.setkd_flag:00000000 setkd_flag
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1563   .bss.setkv_flag:00000000 setkv_flag
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1551   .bss.setki_flag:00000000 setki_flag
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1557   .bss.setkp_flag:00000000 setkp_flag
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1539   .bss.setTq:00000000 setTq
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1511   .bss.setKd:00000000 setKd
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1532   .bss.setKv:00000000 setKv
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1518   .bss.setKi:00000000 setKi
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1525   .bss.setKp:00000000 setKp
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s 			page 93
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1464   .init_array:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1577   .bss.newid:00000000 newid
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1642   .bss.settq_flag:00000000 settq_flag
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1618   .bss.setkd_flag:00000000 setkd_flag
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1636   .bss.setkv_flag:00000000 setkv_flag
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1624   .bss.setki_flag:00000000 setki_flag
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1630   .bss.setkp_flag:00000000 setkp_flag
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1612   .bss.setTq:00000000 setTq
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1584   .bss.setKd:00000000 setKd
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1605   .bss.setKv:00000000 setKv
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1591   .bss.setKi:00000000 setKi
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1598   .bss.setKp:00000000 setKp
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s 			page 95
 
 
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1491   .bss.isEnabled:00000000 isEnabled
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1498   .bss.jointSetPoints:00000000 jointSetPoints
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1485   .bss.electron:00000000 electron
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1408   .rodata:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1481   .bss.electron:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1492   .bss.isEnabled:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1494   .bss.jointSetPoints:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1505   .bss.newid:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1507   .bss.setKd:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1514   .bss.setKi:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1521   .bss.setKp:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1528   .bss.setKv:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1535   .bss.setTq:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1546   .bss.setkd_flag:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1552   .bss.setki_flag:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1558   .bss.setkp_flag:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1564   .bss.setkv_flag:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccRgEe7X.s:1570   .bss.settq_flag:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1564   .bss.isEnabled:00000000 isEnabled
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1571   .bss.jointSetPoints:00000000 jointSetPoints
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1558   .bss.electron:00000000 electron
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1481   .rodata:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1554   .bss.electron:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1565   .bss.isEnabled:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1567   .bss.jointSetPoints:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1578   .bss.newid:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1580   .bss.setKd:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1587   .bss.setKi:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1594   .bss.setKp:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1601   .bss.setKv:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1608   .bss.setTq:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1619   .bss.setkd_flag:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1625   .bss.setki_flag:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1631   .bss.setkp_flag:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1637   .bss.setkv_flag:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccTFSEet.s:1643   .bss.settq_flag:00000000 $d
                            .group:00000000 _ZN5RobotC5EP19__SPI_HandleTypeDefP17I2C_HandleTypeDef
 
 UNDEFINED SYMBOLS
@@ -5536,7 +5646,7 @@ HAL_FLASH_Program
 HAL_FLASH_Lock
 _ZN6Screen4InitENS_13Orientation_tE
 _ZN6Screen9SetWindowEtttt
-_ZN5Robot27ReceiveUsbPacketUntilSizeIsEm
-_ZN5Robot17GetExtraDataRxPtrEv
 _ZN5Robot15GetLcdBufferPtrEv
 _ZN6Screen16WriteFrameBufferEPhmb
+_ZN5Robot27ReceiveUsbPacketUntilSizeIsEm
+_ZN5Robot17GetExtraDataRxPtrEv

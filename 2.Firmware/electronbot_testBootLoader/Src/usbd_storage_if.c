@@ -273,7 +273,7 @@ int8_t STORAGE_Write_HS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t b
   // printf("w pageAddr=%d  blk_len=%d\r\n",blk_addr,blk_len);
   //for( i = 0; i < blk_len; i++)  
   {
-    write_sector(blk_addr,buf,blk_len*STORAGE_BLK_SIZ);
+    //write_sector(blk_addr,buf,blk_len*STORAGE_BLK_SIZ);
     /*  FlashSector_Erase(blk_addr);
      FlashPage_Write(blk_addr*STORAGE_BLK_SIZ,buf,STORAGE_BLK_SIZ); */
   } 

@@ -236,6 +236,15 @@ void Main(void)
 
             
         }
+        for (int j = 0; j < 6; j++)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
+                electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+            }
+        }            
+        electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);   
         HAL_Delay(1);
         
     }

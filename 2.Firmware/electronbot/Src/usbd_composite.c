@@ -16,7 +16,7 @@
 
 
 #if 1
-#define USBD_CMPSIT_VID     0x1215
+#define USBD_CMPSIT_VID     0x1219
 #define USBD_CMPSIT_LANGID_STRING     1033
 #define USBD_CMPSIT_MANUFACTURER_STRING     "wenyz@wolfGroup"
 #define USBD_CMPSIT_PID_FS     0x0D3b

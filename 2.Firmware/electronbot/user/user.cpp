@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 Robot electron(&hspi1, &hi2c1);
-float jointSetPoints[6];
+float jointSetPoints[7];
 bool isEnabled = false;
 
 float setKp;
@@ -81,26 +81,54 @@ void setPara(uint8_t *ptr)
 void setAngle(uint8_t *ptr)
 {
     uint8_t id = ptr[0];
-    // float angle=*((float*) (ptr + 1));
+   
     jointSetPoints[id/2] = *((float*) (ptr + 1));
     isEnabled = ptr[5];
-    
+    printf("id = %d\r\n",id);
     for(int i=0 ; i<32; i++)
         printf("%.2x ",ptr[i]);
     printf("\r\n");
-   /* switch(id)
+    /* switch(id)
     {
-        case 2:JointStatus=electron.joint[1];break;
-        case 4:JointStatus=electron.joint[2];break;
-        case 6:JointStatus=electron.joint[3];break;
-        case 8:JointStatus=electron.joint[4];break;
-        case 10:JointStatus=electron.joint[5];break;
-        case 12:JointStatus=electron.joint[6];break;
-        default:JointStatus=electron.joint[0];break;
+        case 2:{
+            jointSetPoints[1]=*((float*) (ptr + 1));
+            electron.UpdateJointAngle(electron.joint[1], jointSetPoints[1]);
+            electron.SetJointEnable(electron.joint[1], isEnabled);
+        }break;
+        case 4:{
+            jointSetPoints[2]=*((float*) (ptr + 1));
+            electron.UpdateJointAngle(electron.joint[2], jointSetPoints[2]);
+            electron.SetJointEnable(electron.joint[2], isEnabled);
+        }break;
+        case 6:{
+            jointSetPoints[3]=*((float*) (ptr + 1));
+            electron.UpdateJointAngle(electron.joint[3], jointSetPoints[3]);
+             electron.SetJointEnable(electron.joint[3], isEnabled);
+        }break;
+        case 8:{
+            jointSetPoints[4]=*((float*) (ptr + 1));
+            electron.UpdateJointAngle(electron.joint[4], jointSetPoints[4]);
+            electron.SetJointEnable(electron.joint[1], isEnabled);
+        }break;
+        case 10:{
+            jointSetPoints[5]=*((float*) (ptr + 1));
+            electron.UpdateJointAngle(electron.joint[5], jointSetPoints[5]);
+            electron.SetJointEnable(electron.joint[5], isEnabled);
+        }break;
+        case 12:{
+            jointSetPoints[6]=*((float*) (ptr + 1));
+            electron.UpdateJointAngle(electron.joint[6], jointSetPoints[6]);
+            electron.SetJointEnable(electron.joint[6], isEnabled);
+        }break;
+        default:{
+            jointSetPoints[0]=*((float*) (ptr + 1));
+            electron.UpdateJointAngle(electron.joint[0], jointSetPoints[0]);
+            electron.SetJointEnable(electron.joint[0], isEnabled);
+        }break;
     } */
     // printf("id = %.2x\r\n",JointStatus.id);
-    // printf("id = %d\r\n",id);
-    electron.UpdateJointAngle(electron.joint[id/2], jointSetPoints[id/2]);
+    // printf("id = %d\r\n",id);  
+    electron.UpdateJointAngle(electron.joint[id/2], jointSetPoints[id/2]);   
     electron.SetJointEnable(electron.joint[id/2], isEnabled);
 }
 void setid(uint8_t *ptr)
@@ -144,18 +172,10 @@ void Main(void)
     electron.UpdateJointAngle(electron.joint[3], 0);
     electron.UpdateJointAngle(electron.joint[4], 0);
     electron.UpdateJointAngle(electron.joint[5], 0);  */
-    electron.UpdateJointAngle(electron.joint[6], 0); 
+    //electron.UpdateJointAngle(electron.joint[6], 0); 
     while(1)
     {
-        for (int j = 0; j < 6; j++)
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
-                electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
-            }
-        }            
-        electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);        
+        
         electron.ReceiveUsbPacketUntilSizeIs(224); // last packet is 224bytes
         uint8_t* ptr = electron.GetExtraDataRxPtr();
         
@@ -215,6 +235,15 @@ void Main(void)
 
             
         }
+        for (int j = 0; j < 6; j++)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                auto* b = (unsigned char*) &(electron.joint[j + 1].angle);
+                electron.pUsbBuffer->extraDataTx[j * 4 + i + 1] = *(b + i);
+            }
+        }            
+        electron.SendUsbPacket(electron.pUsbBuffer->extraDataTx, 32);
         HAL_Delay(1);
         
     }

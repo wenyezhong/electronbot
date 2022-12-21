@@ -16,7 +16,7 @@ void Main(void)
     
     if (boardConfig.configStatus != CONFIG_OK) // use default settings
     {
-        // printf("config not\r\n");
+        printf("config not\r\n");
         boardConfig = BoardConfig_t{
             .configStatus = CONFIG_OK,
             .nodeId = 12, // 7bit address, has to be even number
@@ -37,7 +37,7 @@ void Main(void)
     }
     else
     {
-        // printf("configed\r\n");
+        printf("configed\r\n");
     }
     motor.SetTorqueLimit(boardConfig.toqueLimit); 
     motor.mechanicalAngleMin = boardConfig.mechanicalAngleMin;
