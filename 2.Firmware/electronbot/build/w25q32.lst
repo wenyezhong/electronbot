@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
   41              		.cfi_def_cfa_offset 16
   42 0004 8DF80700 		strb	r0, [sp, #7]
   16:user/w25q32.c ****     HAL_SPI_Transmit(&hspi1, &dat, 1, 0xff);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 2
 
 
   43              		.loc 1 16 5 is_stmt 1 view .LVU2
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
   93 000e 0DF10F02 		add	r2, sp, #15
   94 0012 0DF10E01 		add	r1, sp, #14
   95 0016 0448     		ldr	r0, .L7
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 3
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 3
 
 
   96 0018 FFF7FEFF 		bl	HAL_SPI_TransmitReceive
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
   53:user/w25q32.c ****     else if((flashInfo.DeviceID[0]==0x40)&&(flashInfo.DeviceID[1]==0x16))
   54:user/w25q32.c ****     {
   55:user/w25q32.c ****         printf("\tFlashType:W25Q32  FlashSize:32Mbit\r\n\tTotal 64 Blocks  16 Sectors/Block  4KB/Se
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 4
 
 
   56:user/w25q32.c ****     }
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  152 0014 FFF7FEFF 		bl	SPI2_Read
  153              	.LVL8:
   79:user/w25q32.c ****         if(retry++>FLASH_BUSY_TIMEOUT)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 5
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 5
 
 
  154              		.loc 1 79 9 is_stmt 1 view .LVU22
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  202 0000 30B5     		push	{r4, r5, lr}
  203              	.LCFI7:
  204              		.cfi_def_cfa_offset 12
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 6
 
 
  205              		.cfi_offset 4, -12
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  243 0030 04A9     		add	r1, sp, #16
  244 0032 0A48     		ldr	r0, .L17+4
  245 0034 FFF7FEFF 		bl	HAL_SPI_TransmitReceive
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 7
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 7
 
 
  246              	.LVL16:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  294              		.loc 1 111 1 is_stmt 1 view -0
  295              		.cfi_startproc
  296              		@ args = 0, pretend = 0, frame = 16
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 8
 
 
  297              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  334 0022 0022     		movs	r2, #0
  335 0024 8DF81320 		strb	r2, [sp, #19]
  129:user/w25q32.c ****     tx_data[4] = DUMMY_BYTE;
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 9
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 9
 
 
  336              		.loc 1 129 5 is_stmt 1 view .LVU74
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  384              		.align	1
  385              		.global	SpiFlash_Init
  386              		.syntax unified
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 10
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 10
 
 
  387              		.thumb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  437              		.cfi_offset 4, -8
  438              		.cfi_offset 14, -4
  139:user/w25q32.c ****     FLASH_CS_Low();
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 11
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 11
 
 
  439              		.loc 1 139 5 view .LVU94
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  489 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
  490              	.LVL30:
  491              		.loc 1 145 19 view .LVU101
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 12
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 12
 
 
  146:user/w25q32.c ****     SPI2_Write(RDP_CMD);   
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  540              		.loc 1 153 5 view .LVU109
  541 000e AB20     		movs	r0, #171
  542 0010 FFF7FEFF 		bl	SPI2_Write
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 13
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 13
 
 
  543              	.LVL34:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  590              		.loc 1 162 1 is_stmt 1 view -0
  591              		.cfi_startproc
  592              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 14
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 14
 
 
  593              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  643              		.cfi_offset 14, -4
  169:user/w25q32.c ****     FLASH_CS_Low();
  644              		.loc 1 169 5 view .LVU126
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 15
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 15
 
 
  645 0002 074C     		ldr	r4, .L43
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  695 0004 084D     		ldr	r5, .L47
  696 0006 0022     		movs	r2, #0
  697 0008 1021     		movs	r1, #16
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 16
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 16
 
 
  698 000a 2846     		mov	r0, r5
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  739              		@ args = 0, pretend = 0, frame = 0
  740              		@ frame_needed = 0, uses_anonymous_args = 0
  741              		.loc 1 190 1 is_stmt 0 view .LVU141
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 17
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 17
 
 
  742 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  786 0030 FFF7FEFF 		bl	SPI2_Write
  787              	.LVL62:
  201:user/w25q32.c ****     for(i=0;i<pageSize;i++)
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 18
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 18
 
 
  788              		.loc 1 201 5 view .LVU153
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  205:user/w25q32.c **** void FlashChip_Erase(void)
  206:user/w25q32.c **** {
  837              		.loc 1 206 1 is_stmt 1 view -0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 19
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 19
 
 
  838              		.cfi_startproc
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  888              	.LFB147:
  213:user/w25q32.c **** /*---- F L A S H   B L O C K _   E R A S E ----
  214:user/w25q32.c **** �����ܡ���****
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 20
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 20
 
 
  215:user/w25q32.c **** ����������block: 0~256
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  926              		.loc 1 231 5 view .LVU184
  927 0024 0020     		movs	r0, #0
  928 0026 FFF7FEFF 		bl	SPI2_Write
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 21
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 21
 
 
  929              	.LVL80:
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  972              		.loc 1 244 5 view .LVU191
  973              		.loc 1 244 9 is_stmt 0 view .LVU192
  974 0002 0403     		lsls	r4, r0, #12
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 22
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 22
 
 
  975              	.LVL84:
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  1020 0042 00BF     		.align	2
  1021              	.L65:
  1022 0044 00000240 		.word	1073872896
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 23
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 23
 
 
  1023              		.cfi_endproc
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  1071 0020 FFF7FEFF 		bl	SPI2_Write
  1072              	.LVL99:
  262:user/w25q32.c ****     SPI2_Write(addr_tmp>>8);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 24
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 24
 
 
  1073              		.loc 1 262 5 view .LVU216
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  1118 0050 00000240 		.word	1073872896
  1119              		.cfi_endproc
  1120              	.LFE149:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 25
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 25
 
 
  1122              		.section	.text.FlashPage_Read,"ax",%progbits
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  281:user/w25q32.c ****     SPI2_Write(READ_CMD); 
  1164              		.loc 1 281 5 view .LVU239
  1165 0018 0320     		movs	r0, #3
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 26
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 26
 
 
  1166 001a FFF7FEFF 		bl	SPI2_Write
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  1209              		.loc 1 288 1 is_stmt 0 view .LVU254
  1210 004c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
  1211              	.LVL122:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 27
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 27
 
 
  1212              	.L78:
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  1261 001a FFF7FEFF 		bl	SPI2_Write
  1262              	.LVL127:
  296:user/w25q32.c ****     SPI2_Write(addr_tmp>>16);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 28
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 28
 
 
  1263              		.loc 1 296 5 view .LVU265
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  1307 0050 FFF7FEFF 		bl	HAL_GPIO_WritePin
  1308              	.LVL137:
  303:user/w25q32.c **** }
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 29
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 29
 
 
  1309              		.loc 1 303 1 is_stmt 0 view .LVU280
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  313:user/w25q32.c ****         FlashPage_Read(page_addr+i,buf+i*256,256);
  1356              		.loc 1 313 9 is_stmt 1 discriminator 3 view .LVU291
  1357 000a 2819     		adds	r0, r5, r4
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 30
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 30
 
 
  1358 000c 4FF48072 		mov	r2, #256
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  1403              		.loc 1 320 5 view .LVU301
  321:user/w25q32.c ****     // addr = blk_addr*4096;
  322:user/w25q32.c ****     FlashSector_Erase(blk_addr);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 31
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 31
 
 
  1404              		.loc 1 322 5 view .LVU302
@@ -1858,79 +1858,79 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 1
  1449              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
  1450              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
  1451              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 32
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 32
 
 
  1452              		.file 9 "user/w25q32.h"
  1453              		.file 10 "Inc/spi.h"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 33
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 33
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 w25q32.c
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:20     .text.SPI2_Write:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:26     .text.SPI2_Write:00000000 SPI2_Write
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:61     .text.SPI2_Write:0000001c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:66     .text.SPI2_Read:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:72     .text.SPI2_Read:00000000 SPI2_Read
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:109    .text.SPI2_Read:00000028 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:114    .text.FlashWait_Busy:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:120    .text.FlashWait_Busy:00000000 FlashWait_Busy
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:183    .text.FlashWait_Busy:00000038 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:188    .text.FlashGet_Info:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:194    .text.FlashGet_Info:00000000 FlashGet_Info
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:279    .text.FlashGet_Info:00000058 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:285    .text.FlashGet_ElectronicInfo:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:291    .text.FlashGet_ElectronicInfo:00000000 FlashGet_ElectronicInfo
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:378    .text.FlashGet_ElectronicInfo:0000005c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:384    .text.SpiFlash_Init:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:390    .text.SpiFlash_Init:00000000 SpiFlash_Init
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:422    .text.FlashEnter_DeepPowerDown:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:428    .text.FlashEnter_DeepPowerDown:00000000 FlashEnter_DeepPowerDown
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:462    .text.FlashEnter_DeepPowerDown:00000020 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:467    .text.FlashReleaseFrom_DeepPowerDown:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:473    .text.FlashReleaseFrom_DeepPowerDown:00000000 FlashReleaseFrom_DeepPowerDown
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:507    .text.FlashReleaseFrom_DeepPowerDown:00000020 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:512    .text.FlashReleaseFrom_DeepPowerDownE:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:518    .text.FlashReleaseFrom_DeepPowerDownE:00000000 FlashReleaseFrom_DeepPowerDownE
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:577    .text.FlashReleaseFrom_DeepPowerDownE:0000003c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:582    .text.FlashWriteEnable:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:588    .text.FlashWriteEnable:00000000 FlashWriteEnable
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:622    .text.FlashWriteEnable:00000020 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:627    .text.FlashWriteDisable:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:633    .text.FlashWriteDisable:00000000 FlashWriteDisable
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:667    .text.FlashWriteDisable:00000020 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:672    .text.FlashWrite_StaRegister:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:678    .text.FlashWrite_StaRegister:00000000 FlashWrite_StaRegister
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:723    .text.FlashWrite_StaRegister:00000028 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:728    .text.FlashPage_Write:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:734    .text.FlashPage_Write:00000000 FlashPage_Write
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:824    .text.FlashPage_Write:00000054 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:829    .text.FlashChip_Erase:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:835    .text.FlashChip_Erase:00000000 FlashChip_Erase
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:875    .text.FlashChip_Erase:00000028 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:880    .text.FlashBlock_Erase:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:886    .text.FlashBlock_Erase:00000000 FlashBlock_Erase
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:945    .text.FlashBlock_Erase:0000003c $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:950    .text.FlashSector_Erase:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:956    .text.FlashSector_Erase:00000000 FlashSector_Erase
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:1022   .text.FlashSector_Erase:00000044 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:1027   .text.FlashRead:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:1033   .text.FlashRead:00000000 FlashRead
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:1118   .text.FlashRead:00000050 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:1123   .text.FlashPage_Read:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:1129   .text.FlashPage_Read:00000000 FlashPage_Read
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:1216   .text.FlashPage_Read:00000050 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:1221   .text.FlashFastRead:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:1227   .text.FlashFastRead:00000000 FlashFastRead
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s 			page 34
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:20     .text.SPI2_Write:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:26     .text.SPI2_Write:00000000 SPI2_Write
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:61     .text.SPI2_Write:0000001c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:66     .text.SPI2_Read:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:72     .text.SPI2_Read:00000000 SPI2_Read
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:109    .text.SPI2_Read:00000028 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:114    .text.FlashWait_Busy:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:120    .text.FlashWait_Busy:00000000 FlashWait_Busy
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:183    .text.FlashWait_Busy:00000038 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:188    .text.FlashGet_Info:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:194    .text.FlashGet_Info:00000000 FlashGet_Info
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:279    .text.FlashGet_Info:00000058 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:285    .text.FlashGet_ElectronicInfo:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:291    .text.FlashGet_ElectronicInfo:00000000 FlashGet_ElectronicInfo
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:378    .text.FlashGet_ElectronicInfo:0000005c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:384    .text.SpiFlash_Init:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:390    .text.SpiFlash_Init:00000000 SpiFlash_Init
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:422    .text.FlashEnter_DeepPowerDown:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:428    .text.FlashEnter_DeepPowerDown:00000000 FlashEnter_DeepPowerDown
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:462    .text.FlashEnter_DeepPowerDown:00000020 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:467    .text.FlashReleaseFrom_DeepPowerDown:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:473    .text.FlashReleaseFrom_DeepPowerDown:00000000 FlashReleaseFrom_DeepPowerDown
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:507    .text.FlashReleaseFrom_DeepPowerDown:00000020 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:512    .text.FlashReleaseFrom_DeepPowerDownE:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:518    .text.FlashReleaseFrom_DeepPowerDownE:00000000 FlashReleaseFrom_DeepPowerDownE
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:577    .text.FlashReleaseFrom_DeepPowerDownE:0000003c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:582    .text.FlashWriteEnable:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:588    .text.FlashWriteEnable:00000000 FlashWriteEnable
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:622    .text.FlashWriteEnable:00000020 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:627    .text.FlashWriteDisable:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:633    .text.FlashWriteDisable:00000000 FlashWriteDisable
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:667    .text.FlashWriteDisable:00000020 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:672    .text.FlashWrite_StaRegister:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:678    .text.FlashWrite_StaRegister:00000000 FlashWrite_StaRegister
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:723    .text.FlashWrite_StaRegister:00000028 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:728    .text.FlashPage_Write:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:734    .text.FlashPage_Write:00000000 FlashPage_Write
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:824    .text.FlashPage_Write:00000054 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:829    .text.FlashChip_Erase:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:835    .text.FlashChip_Erase:00000000 FlashChip_Erase
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:875    .text.FlashChip_Erase:00000028 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:880    .text.FlashBlock_Erase:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:886    .text.FlashBlock_Erase:00000000 FlashBlock_Erase
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:945    .text.FlashBlock_Erase:0000003c $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:950    .text.FlashSector_Erase:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:956    .text.FlashSector_Erase:00000000 FlashSector_Erase
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:1022   .text.FlashSector_Erase:00000044 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:1027   .text.FlashRead:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:1033   .text.FlashRead:00000000 FlashRead
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:1118   .text.FlashRead:00000050 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:1123   .text.FlashPage_Read:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:1129   .text.FlashPage_Read:00000000 FlashPage_Read
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:1216   .text.FlashPage_Read:00000050 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:1221   .text.FlashFastRead:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:1227   .text.FlashFastRead:00000000 FlashFastRead
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s 			page 34
 
 
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:1316   .text.FlashFastRead:00000058 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:1321   .text.read_sector:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:1327   .text.read_sector:00000000 read_sector
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:1379   .text.write_sector:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccmy1UvN.s:1385   .text.write_sector:00000000 write_sector
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:1316   .text.FlashFastRead:00000058 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:1321   .text.read_sector:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:1327   .text.read_sector:00000000 read_sector
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:1379   .text.write_sector:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\cctXst5M.s:1385   .text.write_sector:00000000 write_sector
 
 UNDEFINED SYMBOLS
 HAL_SPI_Transmit

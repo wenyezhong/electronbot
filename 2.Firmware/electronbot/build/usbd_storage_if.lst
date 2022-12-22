@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 1
   28:Src/usbd_storage_if.c **** /* Private typedef -----------------------------------------------------------*/
   29:Src/usbd_storage_if.c **** /* Private define ------------------------------------------------------------*/
   30:Src/usbd_storage_if.c **** /* Private macro -------------------------------------------------------------*/
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s 			page 2
 
 
   31:Src/usbd_storage_if.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 1
   85:Src/usbd_storage_if.c **** 
   86:Src/usbd_storage_if.c **** /**
   87:Src/usbd_storage_if.c ****   * @}
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 3
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s 			page 3
 
 
   88:Src/usbd_storage_if.c ****   */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 1
  142:Src/usbd_storage_if.c **** 
  143:Src/usbd_storage_if.c **** static int8_t STORAGE_Init_HS(uint8_t lun);
  144:Src/usbd_storage_if.c **** static int8_t STORAGE_GetCapacity_HS(uint8_t lun, uint32_t *block_num, uint16_t *block_size);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s 			page 4
 
 
  145:Src/usbd_storage_if.c **** static int8_t STORAGE_IsReady_HS(uint8_t lun);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 1
   42              	.LFE134:
   44              		.section	.text.STORAGE_GetCapacity_HS,"ax",%progbits
   45              		.align	1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 5
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s 			page 5
 
 
   46              		.syntax unified
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 1
  204:Src/usbd_storage_if.c **** 
  205:Src/usbd_storage_if.c **** /**
  206:Src/usbd_storage_if.c ****   * @brief   Checks whether the medium is ready.
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s 			page 6
 
 
  207:Src/usbd_storage_if.c ****   * @param  lun:  Logical unit number.
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 1
  118              		.loc 1 229 1 view .LVU22
  119 0002 7047     		bx	lr
  120              		.cfi_endproc
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 7
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s 			page 7
 
 
  121              	.LFE137:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 1
  269:Src/usbd_storage_if.c ****   UNUSED(lun);
  138              		.loc 1 269 3 view .LVU25
  270:Src/usbd_storage_if.c ****   UNUSED(buf);
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s 			page 8
 
 
  139              		.loc 1 270 3 view .LVU26
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 1
  170              	.LFE140:
  172              		.section	.text.STORAGE_Read_HS,"ax",%progbits
  173              		.align	1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 9
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s 			page 9
 
 
  174              		.syntax unified
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 1
  221 0008 00000000 		.word	STORAGE_IsReady_HS
  222 000c 00000000 		.word	STORAGE_IsWriteProtected_HS
  223 0010 00000000 		.word	STORAGE_Read_HS
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 10
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s 			page 10
 
 
  224 0014 00000000 		.word	STORAGE_Write_HS
@@ -563,29 +563,29 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 1
  239              		.file 5 "Inc/usbd_storage_if.h"
  240              		.file 6 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
  241              		.file 7 "user/w25q32.h"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s 			page 11
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usbd_storage_if.c
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:20     .text.STORAGE_Init_HS:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:25     .text.STORAGE_Init_HS:00000000 STORAGE_Init_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:45     .text.STORAGE_GetCapacity_HS:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:50     .text.STORAGE_GetCapacity_HS:00000000 STORAGE_GetCapacity_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:77     .text.STORAGE_IsReady_HS:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:82     .text.STORAGE_IsReady_HS:00000000 STORAGE_IsReady_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:101    .text.STORAGE_IsWriteProtected_HS:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:106    .text.STORAGE_IsWriteProtected_HS:00000000 STORAGE_IsWriteProtected_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:124    .text.STORAGE_Write_HS:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:129    .text.STORAGE_Write_HS:00000000 STORAGE_Write_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:153    .text.STORAGE_GetMaxLun_HS:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:158    .text.STORAGE_GetMaxLun_HS:00000000 STORAGE_GetMaxLun_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:173    .text.STORAGE_Read_HS:00000000 $t
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:178    .text.STORAGE_Read_HS:00000000 STORAGE_Read_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:218    .data.USBD_Storage_Interface_fops_HS:00000000 USBD_Storage_Interface_fops_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:231    .rodata.STORAGE_Inquirydata_HS:00000000 STORAGE_Inquirydata_HS
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:215    .data.USBD_Storage_Interface_fops_HS:00000000 $d
-C:\Users\ADMINI~1\AppData\Local\Temp\ccDxr3B8.s:228    .rodata.STORAGE_Inquirydata_HS:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:20     .text.STORAGE_Init_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:25     .text.STORAGE_Init_HS:00000000 STORAGE_Init_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:45     .text.STORAGE_GetCapacity_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:50     .text.STORAGE_GetCapacity_HS:00000000 STORAGE_GetCapacity_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:77     .text.STORAGE_IsReady_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:82     .text.STORAGE_IsReady_HS:00000000 STORAGE_IsReady_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:101    .text.STORAGE_IsWriteProtected_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:106    .text.STORAGE_IsWriteProtected_HS:00000000 STORAGE_IsWriteProtected_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:124    .text.STORAGE_Write_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:129    .text.STORAGE_Write_HS:00000000 STORAGE_Write_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:153    .text.STORAGE_GetMaxLun_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:158    .text.STORAGE_GetMaxLun_HS:00000000 STORAGE_GetMaxLun_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:173    .text.STORAGE_Read_HS:00000000 $t
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:178    .text.STORAGE_Read_HS:00000000 STORAGE_Read_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:218    .data.USBD_Storage_Interface_fops_HS:00000000 USBD_Storage_Interface_fops_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:231    .rodata.STORAGE_Inquirydata_HS:00000000 STORAGE_Inquirydata_HS
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:215    .data.USBD_Storage_Interface_fops_HS:00000000 $d
+C:\Users\ADMINI~1\AppData\Local\Temp\ccBDEcHq.s:228    .rodata.STORAGE_Inquirydata_HS:00000000 $d
 
 UNDEFINED SYMBOLS
 read_sector

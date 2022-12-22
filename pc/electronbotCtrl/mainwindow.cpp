@@ -201,6 +201,12 @@ void MainWindow::recUsbDatas(BYTE* ptr)
             //        qDebug("%x ",ptr[i]);
                 QString val;
 
+                if(readId < 12)
+                {
+                    float readAngle = *(float*)&ptr[readId*2-3];
+                    ui->lineEdit_angle_read->setText(QString::number(readAngle,'f',2));
+                }
+
                 ui->lineEdit_head_angle->setText(QString::number(head_angle,'f',2));
                 ui->lineEdit_lroll_angle->setText(QString::number(lroll_angle,'f',2));
                 ui->lineEdit_lpitch_angle->setText(QString::number(lpitch_angle,'f',2));
@@ -360,7 +366,7 @@ void MainWindow::RecvUSBTask()
 
 void MainWindow::on_openFile_clicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(this,QStringLiteral("文件对话框！"),"F:",QStringLiteral("二进制文件(*bin);;""本本文件(*txt)"));
+    QString fileName = QFileDialog::getOpenFileName(this,QStringLiteral("文件对话框！"),nullptr,QStringLiteral("二进制文件(*bin);;""本本文件(*txt)"));
     if(fileName.length() == 0)
     {
         QMessageBox::information(NULL, tr("Path"), tr("You didn't select any files."));
@@ -376,11 +382,9 @@ void MainWindow::on_openFile_clicked()
 
 void MainWindow::on_sendFile_clicked()
 {
-//    uint8_t buf[512];
-//    int i;
+
     QString fileName=ui->lineEdit_path->text();
-    qDebug()<<fileName;
-    qDebug("11111!");
+    qDebug()<<fileName;   
    if(!pDownLoadFile)
    {
        pDownLoadFile = new downLoadFile(electronbot_usb);
@@ -392,8 +396,8 @@ void MainWindow::on_sendFile_clicked()
     if(!file.exists())//判断是否建立成功
     {
 
-        QString str = "world";
-        qDebug()<<"hello "<<str<<"!"<<endl;
+        //QString str = "world";
+        //qDebug()<<"hello "<<str<<"!"<<endl;
 
     }
     else
@@ -698,7 +702,7 @@ void MainWindow::on_pushButton_set_id_clicked()
     int newid = ui->lineEdit_id_new->text().toInt();
 
 
-    txData[PAR_INDEX+31] = 0xf0; //设置角度
+    txData[PAR_INDEX+31] = 0xf0; //设置ID
     txData[PAR_INDEX] = oldid;
     txData[PAR_INDEX+1] = newid;
     sendPacket();
@@ -714,6 +718,62 @@ void MainWindow::on_pushButton_set_init_angle_clicked()
     txData[PAR_INDEX+31] = 0xf1; //设置初始角度
     txData[PAR_INDEX] = id;
     *(float*)&txData[PAR_INDEX+1] = angle;
+    sendPacket();
+
+}
+//  id  angle       cmd
+//   0   xxx        31
+void MainWindow::on_pushButton_sendAngle_read_clicked()
+{
+    int id = ui->lineEdit_id_read->text().toInt();
+    readId = id;
+    txData[PAR_INDEX+31] = 0xf2; //读取角度
+    txData[PAR_INDEX] = id;
+
+    sendPacket();
+
+}
+
+void MainWindow::on_horizontalSlider_RRoll_valueChanged(int value)
+{
+    int val=ui->horizontalSlider_RRoll->value();
+    qDebug("val=%d",val);
+
+
+}
+
+void MainWindow::on_horizontalSlider_RPitch_valueChanged(int value)
+{
+    int val=ui->horizontalSlider_RPitch->value();
+    qDebug("val=%d",val);
+
+
+}
+
+void MainWindow::on_horizontalSlider_RPitch_sliderReleased()
+{
+    int val=ui->horizontalSlider_RPitch->value();
+    int id = 10;
+    float angle = val;
+
+    txData[PAR_INDEX+31] = 0xef; //设置角度
+    txData[PAR_INDEX] = id;
+    *(float*)&txData[PAR_INDEX+1] = angle;
+    txData[PAR_INDEX+5]=1;
+    sendPacket();
+
+}
+
+void MainWindow::on_horizontalSlider_RRoll_sliderReleased()
+{
+    int val=ui->horizontalSlider_RRoll->value();
+    int id = 8;
+    float angle = val;
+
+    txData[PAR_INDEX+31] = 0xef; //设置角度
+    txData[PAR_INDEX] = id;
+    *(float*)&txData[PAR_INDEX+1] = angle;
+    txData[PAR_INDEX+5]=1;
     sendPacket();
 
 }

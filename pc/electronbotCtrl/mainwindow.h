@@ -46,6 +46,16 @@ private slots:
 
     void on_pushButton_set_init_angle_clicked();
 
+    void on_pushButton_sendAngle_read_clicked();
+
+    void on_horizontalSlider_RRoll_valueChanged(int value);
+
+    void on_horizontalSlider_RPitch_valueChanged(int value);
+
+    void on_horizontalSlider_RPitch_sliderReleased();
+
+    void on_horizontalSlider_RRoll_sliderReleased();
+
 private:
      Ui::MainWindow *ui;
      QTimer *recvUSB_Timer;
@@ -54,6 +64,7 @@ private:
      uint8_t txData[60 * 240 * 3 + 32];
      void initPara(void);
 public:
+     int readId=0xff;
     commUSB *electronbot_usb;
     downLoadFile *pDownLoadFile=nullptr;
     void sendPacket(void);

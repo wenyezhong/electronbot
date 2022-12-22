@@ -78,12 +78,12 @@ public:
 
         joint[4] = JointStatus_t{ // Right arm roll
             8,
-            133,
-            141,
+            48,
+            88,
             0,
             0,
             30,
-            true
+            false
             // electron.SetJointId(electron.joint[ANY], 8);
             // electron.SetJointInitAngle(electron.joint[ANY], 0);
             // electron.SetJointKp(electron.joint[ANY], 50);
@@ -95,8 +95,8 @@ public:
 
         joint[5] = JointStatus_t{ // Right arm pitch
             10,
-            15,
-            150,
+            10,
+            170,
             0,
             -20,
             180,

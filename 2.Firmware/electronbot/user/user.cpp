@@ -147,6 +147,16 @@ void setInitAngle(uint8_t *ptr)
     
     electron.SetJointInitAngle(electron.joint[id/2], jointSetPoints[id/2]);
 }
+void readAngle(uint8_t *ptr)
+{
+    uint8_t id = ptr[0];
+    //jointSetPoints[id/2]=*((float*) (ptr + 1));
+    for(int i=0 ; i<32; i++)
+        printf("%.2x ",ptr[i]);
+    printf("\r\n");
+    
+    electron.UpdateJointAngle(electron.joint[id/2]);
+}
 void JumpBootLoader(uint8_t *ptr)
 {
     electron.pUsbBuffer->extraDataTx[31] = 0xef;
@@ -195,6 +205,10 @@ void Main(void)
         else if(ptr[31] == 0xf1)
         {
              setInitAngle(ptr);
+        }
+        else if(ptr[31] == 0xf2)
+        {
+             readAngle(ptr);
         }
         else if((ptr[31] == 0xfe)&&(ptr[30] == 0x01))
         {

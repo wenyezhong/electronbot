@@ -224,38 +224,45 @@ public:
     QLabel *label_36;
     QLineEdit *lineEdit_id_init_angle;
     QPushButton *pushButton_set_init_angle;
+    QWidget *horizontalLayoutWidget_5;
+    QHBoxLayout *horizontalLayout_54;
+    QLabel *label_49;
+    QLineEdit *lineEdit_id_read;
+    QLabel *label_50;
+    QLineEdit *lineEdit_angle_read;
+    QPushButton *pushButton_sendAngle_read;
     QWidget *tab_2;
     QGraphicsView *graphicsView;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *verticalLayout_14;
     QHBoxLayout *horizontalLayout_48;
     QLabel *label_37;
-    QSlider *horizontalSlider;
+    QSlider *horizontalSlider_Head;
     QLabel *label_38;
     QLineEdit *lineEdit_head_angle;
     QHBoxLayout *horizontalLayout_53;
     QLabel *label_47;
-    QSlider *horizontalSlider_6;
+    QSlider *horizontalSlider_LRoll;
     QLabel *label_48;
     QLineEdit *lineEdit_lroll_angle;
     QHBoxLayout *horizontalLayout_49;
     QLabel *label_39;
-    QSlider *horizontalSlider_2;
+    QSlider *horizontalSlider_LPitch;
     QLabel *label_40;
     QLineEdit *lineEdit_lpitch_angle;
     QHBoxLayout *horizontalLayout_51;
     QLabel *label_43;
-    QSlider *horizontalSlider_4;
+    QSlider *horizontalSlider_RRoll;
     QLabel *label_44;
     QLineEdit *lineEdit_rroll_angle;
     QHBoxLayout *horizontalLayout_52;
     QLabel *label_45;
-    QSlider *horizontalSlider_5;
+    QSlider *horizontalSlider_RPitch;
     QLabel *label_46;
     QLineEdit *lineEdit_rpitch_angle;
     QHBoxLayout *horizontalLayout_50;
     QLabel *label_41;
-    QSlider *horizontalSlider_3;
+    QSlider *horizontalSlider_Body;
     QLabel *label_42;
     QLineEdit *lineEdit_body_angle;
     QPushButton *pushButton;
@@ -1499,6 +1506,49 @@ public:
         horizontalLayout_47->setStretch(0, 1);
         horizontalLayout_47->setStretch(1, 2);
         horizontalLayout_47->setStretch(4, 2);
+        horizontalLayoutWidget_5 = new QWidget(tab);
+        horizontalLayoutWidget_5->setObjectName(QString::fromUtf8("horizontalLayoutWidget_5"));
+        horizontalLayoutWidget_5->setGeometry(QRect(10, 270, 321, 31));
+        horizontalLayout_54 = new QHBoxLayout(horizontalLayoutWidget_5);
+        horizontalLayout_54->setSpacing(6);
+        horizontalLayout_54->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_54->setObjectName(QString::fromUtf8("horizontalLayout_54"));
+        horizontalLayout_54->setContentsMargins(0, 0, 0, 0);
+        label_49 = new QLabel(horizontalLayoutWidget_5);
+        label_49->setObjectName(QString::fromUtf8("label_49"));
+
+        horizontalLayout_54->addWidget(label_49);
+
+        lineEdit_id_read = new QLineEdit(horizontalLayoutWidget_5);
+        lineEdit_id_read->setObjectName(QString::fromUtf8("lineEdit_id_read"));
+        lineEdit_id_read->setInputMethodHints(Qt::ImhDigitsOnly);
+        lineEdit_id_read->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        horizontalLayout_54->addWidget(lineEdit_id_read);
+
+        label_50 = new QLabel(horizontalLayoutWidget_5);
+        label_50->setObjectName(QString::fromUtf8("label_50"));
+
+        horizontalLayout_54->addWidget(label_50);
+
+        lineEdit_angle_read = new QLineEdit(horizontalLayoutWidget_5);
+        lineEdit_angle_read->setObjectName(QString::fromUtf8("lineEdit_angle_read"));
+        lineEdit_angle_read->setInputMethodHints(Qt::ImhDigitsOnly);
+        lineEdit_angle_read->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        lineEdit_angle_read->setReadOnly(true);
+
+        horizontalLayout_54->addWidget(lineEdit_angle_read);
+
+        pushButton_sendAngle_read = new QPushButton(horizontalLayoutWidget_5);
+        pushButton_sendAngle_read->setObjectName(QString::fromUtf8("pushButton_sendAngle_read"));
+
+        horizontalLayout_54->addWidget(pushButton_sendAngle_read);
+
+        horizontalLayout_54->setStretch(0, 1);
+        horizontalLayout_54->setStretch(1, 2);
+        horizontalLayout_54->setStretch(2, 2);
+        horizontalLayout_54->setStretch(3, 6);
+        horizontalLayout_54->setStretch(4, 2);
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
@@ -1522,11 +1572,13 @@ public:
 
         horizontalLayout_48->addWidget(label_37);
 
-        horizontalSlider = new QSlider(verticalLayoutWidget_2);
-        horizontalSlider->setObjectName(QString::fromUtf8("horizontalSlider"));
-        horizontalSlider->setOrientation(Qt::Horizontal);
+        horizontalSlider_Head = new QSlider(verticalLayoutWidget_2);
+        horizontalSlider_Head->setObjectName(QString::fromUtf8("horizontalSlider_Head"));
+        horizontalSlider_Head->setMinimum(-15);
+        horizontalSlider_Head->setMaximum(15);
+        horizontalSlider_Head->setOrientation(Qt::Horizontal);
 
-        horizontalLayout_48->addWidget(horizontalSlider);
+        horizontalLayout_48->addWidget(horizontalSlider_Head);
 
         label_38 = new QLabel(verticalLayoutWidget_2);
         label_38->setObjectName(QString::fromUtf8("label_38"));
@@ -1557,11 +1609,12 @@ public:
 
         horizontalLayout_53->addWidget(label_47);
 
-        horizontalSlider_6 = new QSlider(verticalLayoutWidget_2);
-        horizontalSlider_6->setObjectName(QString::fromUtf8("horizontalSlider_6"));
-        horizontalSlider_6->setOrientation(Qt::Horizontal);
+        horizontalSlider_LRoll = new QSlider(verticalLayoutWidget_2);
+        horizontalSlider_LRoll->setObjectName(QString::fromUtf8("horizontalSlider_LRoll"));
+        horizontalSlider_LRoll->setMaximum(30);
+        horizontalSlider_LRoll->setOrientation(Qt::Horizontal);
 
-        horizontalLayout_53->addWidget(horizontalSlider_6);
+        horizontalLayout_53->addWidget(horizontalSlider_LRoll);
 
         label_48 = new QLabel(verticalLayoutWidget_2);
         label_48->setObjectName(QString::fromUtf8("label_48"));
@@ -1592,11 +1645,14 @@ public:
 
         horizontalLayout_49->addWidget(label_39);
 
-        horizontalSlider_2 = new QSlider(verticalLayoutWidget_2);
-        horizontalSlider_2->setObjectName(QString::fromUtf8("horizontalSlider_2"));
-        horizontalSlider_2->setOrientation(Qt::Horizontal);
+        horizontalSlider_LPitch = new QSlider(verticalLayoutWidget_2);
+        horizontalSlider_LPitch->setObjectName(QString::fromUtf8("horizontalSlider_LPitch"));
+        horizontalSlider_LPitch->setMinimum(-20);
+        horizontalSlider_LPitch->setMaximum(180);
+        horizontalSlider_LPitch->setValue(-20);
+        horizontalSlider_LPitch->setOrientation(Qt::Horizontal);
 
-        horizontalLayout_49->addWidget(horizontalSlider_2);
+        horizontalLayout_49->addWidget(horizontalSlider_LPitch);
 
         label_40 = new QLabel(verticalLayoutWidget_2);
         label_40->setObjectName(QString::fromUtf8("label_40"));
@@ -1627,11 +1683,12 @@ public:
 
         horizontalLayout_51->addWidget(label_43);
 
-        horizontalSlider_4 = new QSlider(verticalLayoutWidget_2);
-        horizontalSlider_4->setObjectName(QString::fromUtf8("horizontalSlider_4"));
-        horizontalSlider_4->setOrientation(Qt::Horizontal);
+        horizontalSlider_RRoll = new QSlider(verticalLayoutWidget_2);
+        horizontalSlider_RRoll->setObjectName(QString::fromUtf8("horizontalSlider_RRoll"));
+        horizontalSlider_RRoll->setMaximum(30);
+        horizontalSlider_RRoll->setOrientation(Qt::Horizontal);
 
-        horizontalLayout_51->addWidget(horizontalSlider_4);
+        horizontalLayout_51->addWidget(horizontalSlider_RRoll);
 
         label_44 = new QLabel(verticalLayoutWidget_2);
         label_44->setObjectName(QString::fromUtf8("label_44"));
@@ -1662,11 +1719,14 @@ public:
 
         horizontalLayout_52->addWidget(label_45);
 
-        horizontalSlider_5 = new QSlider(verticalLayoutWidget_2);
-        horizontalSlider_5->setObjectName(QString::fromUtf8("horizontalSlider_5"));
-        horizontalSlider_5->setOrientation(Qt::Horizontal);
+        horizontalSlider_RPitch = new QSlider(verticalLayoutWidget_2);
+        horizontalSlider_RPitch->setObjectName(QString::fromUtf8("horizontalSlider_RPitch"));
+        horizontalSlider_RPitch->setMinimum(-20);
+        horizontalSlider_RPitch->setMaximum(180);
+        horizontalSlider_RPitch->setValue(-20);
+        horizontalSlider_RPitch->setOrientation(Qt::Horizontal);
 
-        horizontalLayout_52->addWidget(horizontalSlider_5);
+        horizontalLayout_52->addWidget(horizontalSlider_RPitch);
 
         label_46 = new QLabel(verticalLayoutWidget_2);
         label_46->setObjectName(QString::fromUtf8("label_46"));
@@ -1697,11 +1757,13 @@ public:
 
         horizontalLayout_50->addWidget(label_41);
 
-        horizontalSlider_3 = new QSlider(verticalLayoutWidget_2);
-        horizontalSlider_3->setObjectName(QString::fromUtf8("horizontalSlider_3"));
-        horizontalSlider_3->setOrientation(Qt::Horizontal);
+        horizontalSlider_Body = new QSlider(verticalLayoutWidget_2);
+        horizontalSlider_Body->setObjectName(QString::fromUtf8("horizontalSlider_Body"));
+        horizontalSlider_Body->setMinimum(-90);
+        horizontalSlider_Body->setMaximum(90);
+        horizontalSlider_Body->setOrientation(Qt::Horizontal);
 
-        horizontalLayout_50->addWidget(horizontalSlider_3);
+        horizontalLayout_50->addWidget(horizontalSlider_Body);
 
         label_42 = new QLabel(verticalLayoutWidget_2);
         label_42->setObjectName(QString::fromUtf8("label_42"));
@@ -1751,7 +1813,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1844,17 +1906,20 @@ public:
         label_5->setText(QApplication::translate("MainWindow", "id\357\274\232", nullptr));
         label_36->setText(QApplication::translate("MainWindow", "\345\210\235\345\247\213\350\247\222\345\272\246\357\274\232", nullptr));
         pushButton_set_init_angle->setText(QApplication::translate("MainWindow", "\350\256\276\347\275\256", nullptr));
+        label_49->setText(QApplication::translate("MainWindow", "id\357\274\232", nullptr));
+        label_50->setText(QApplication::translate("MainWindow", "\350\247\222\345\272\246\357\274\232", nullptr));
+        pushButton_sendAngle_read->setText(QApplication::translate("MainWindow", "\350\257\273\345\217\226", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "\351\205\215\347\275\256", nullptr));
         label_37->setText(QApplication::translate("MainWindow", "Head\357\274\232", nullptr));
-        label_38->setText(QApplication::translate("MainWindow", "(-90~90)", nullptr));
+        label_38->setText(QApplication::translate("MainWindow", "(-15~15)", nullptr));
         label_47->setText(QApplication::translate("MainWindow", "LRoll\357\274\232", nullptr));
-        label_48->setText(QApplication::translate("MainWindow", "(-90~90)", nullptr));
+        label_48->setText(QApplication::translate("MainWindow", "(0~30)", nullptr));
         label_39->setText(QApplication::translate("MainWindow", "LPitch\357\274\232", nullptr));
-        label_40->setText(QApplication::translate("MainWindow", "(-90~90)", nullptr));
+        label_40->setText(QApplication::translate("MainWindow", "(-20~180)", nullptr));
         label_43->setText(QApplication::translate("MainWindow", "RRoll\357\274\232", nullptr));
-        label_44->setText(QApplication::translate("MainWindow", "(-90~90)", nullptr));
+        label_44->setText(QApplication::translate("MainWindow", "(0~30)", nullptr));
         label_45->setText(QApplication::translate("MainWindow", "RPitch\357\274\232", nullptr));
-        label_46->setText(QApplication::translate("MainWindow", "(-90~90)", nullptr));
+        label_46->setText(QApplication::translate("MainWindow", "(-20~180)", nullptr));
         label_41->setText(QApplication::translate("MainWindow", "Body\357\274\232", nullptr));
         label_42->setText(QApplication::translate("MainWindow", "(-90~90)", nullptr));
         pushButton->setText(QApplication::translate("MainWindow", "LoadImg", nullptr));
