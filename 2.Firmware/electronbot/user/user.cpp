@@ -3,6 +3,7 @@
 #include "screen.h"
 #include "robot.h"
 #include <stdio.h>
+#include "fatfs.h"
 
 Robot electron(&hspi1, &hi2c1);
 float jointSetPoints[7];
@@ -22,6 +23,15 @@ uint8_t settq_flag;
 
 uint8_t  newid;
 // float initAngle;
+
+FATFS fs;                       /* FatFs 文件系统对象 */
+FIL file;                       /* 文件对象 */
+FRESULT f_res;                  /* 文件操作结果 */
+UINT fnum;                      /* 文件成功读写数量 */
+BYTE ReadBuffer[1024] = {0};    /* 读缓冲区 */
+BYTE WriteBuffer[] =            /* 写缓冲区 */
+    "This is STM32 working with FatFs\r\n";
+
 
 /* Thread Definitions -----------------------------------------------------*/
 

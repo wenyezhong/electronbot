@@ -20,6 +20,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "dma.h"
+#include "fatfs.h"
 #include "i2c.h"
 #include "spi.h"
 #include "usart.h"
@@ -116,30 +117,10 @@ int main(void)
   MX_I2C1_Init();
   MX_USART1_UART_Init();
   MX_SPI1_Init();
+  MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
-  
-  /* // while(HAL_DMA_GetState(&hdma_usart1_tx)==HAL_DMA_STATE_BUSY)
-  HAL_Delay(1000);
-  HAL_UART_Transmit_DMA(&huart1, "tx_buffer", 9);
-  // while(HAL_DMA_GetState(&hdma_usart1_tx)==HAL_DMA_STATE_BUSY)
-  HAL_Delay(1000);
-  HAL_UART_Transmit_DMA(&huart1, "rx_buffer", 9);
-  // while(HAL_DMA_GetState(&hdma_usart1_tx)==HAL_DMA_STATE_BUSY)
-  HAL_Delay(1000);
-  HAL_UART_Transmit_DMA(&huart1, "ex_buffer", 9);
-  HAL_Delay(1000);
-  printf("ennnnn...\r\n"); */
-  SpiFlash_Init(); 
-  printf("hello electronbot coming...\r\n");
- /*  i2cTxData[0]=0x01;
-  *(float*)&i2cTxData[1]=30.0f;
-  TransmitAndReceiveI2cPacket(12);
-  printf("tttt\r\n");
-  for(i =0;i<5;i++)
-        printf("%.2x ",i2cRxData[i]);
-    printf("\r\n");
-    while(1); */
-  /* USER CODE END 2
+
+  /* USER CODE END 2 */
 
   /* Init scheduler */
   osKernelInitialize();  /* Call init function for freertos objects (in freertos.c) */

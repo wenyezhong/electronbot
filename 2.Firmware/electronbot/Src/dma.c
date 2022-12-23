@@ -44,14 +44,14 @@ void MX_DMA_Init(void)
 
   /* DMA interrupt init */
   /* DMA2_Stream2_IRQn interrupt configuration */
-/*   HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 9, 0);
-  HAL_NVIC_EnableIRQ(DMA2_Stream2_IRQn); */
+  HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 9, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream2_IRQn);
   /* DMA2_Stream3_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 6, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream3_IRQn);
   /* DMA2_Stream7_IRQn interrupt configuration */
- /*  HAL_NVIC_SetPriority(DMA2_Stream7_IRQn, 9, 0);
-  HAL_NVIC_EnableIRQ(DMA2_Stream7_IRQn); */
+  HAL_NVIC_SetPriority(DMA2_Stream7_IRQn, 9, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream7_IRQn);
 
 }
 
