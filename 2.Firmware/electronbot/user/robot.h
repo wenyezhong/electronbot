@@ -44,8 +44,8 @@ public:
 
         joint[2] = JointStatus_t{ // Left arm roll
             4,
-            -9,
-            3,
+            50,
+            110,
             0,
             0,
             30,
@@ -61,8 +61,8 @@ public:
 
         joint[3] = JointStatus_t{ // Left arm pitch
             6,
-            -16,
-            117,
+            0,
+            180,
             0,
             -20,
             180,

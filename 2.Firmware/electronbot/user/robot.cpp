@@ -41,7 +41,7 @@ void Robot::ReceiveUsbPacketUntilSizeIs(uint32_t _count)
 
 void Robot::UpdateServoAngle(Robot::JointStatus_t &_joint, float _angleSetPoint)
 {
-    if (_angleSetPoint >= _joint.angleMin && _angleSetPoint <= _joint.angleMax)
+    //if (_angleSetPoint >= _joint.angleMin && _angleSetPoint <= _joint.angleMax)
     {
         auto* b = (unsigned char*) (&_angleSetPoint);
 
@@ -237,7 +237,7 @@ void Robot::UpdateJointAngle(Robot::JointStatus_t &_joint)
 {
     UpdateServoAngle(_joint);
 
-    float jAngle = _joint.inverted ?
+    /* float jAngle = _joint.inverted ?
                    (_joint.angleMax - _joint.angle) /
                    (_joint.angleMax - _joint.angleMin) *
                    (_joint.modelAngelMax - _joint.modelAngelMin) + _joint.modelAngelMin :
@@ -245,13 +245,13 @@ void Robot::UpdateJointAngle(Robot::JointStatus_t &_joint)
                    (_joint.angleMax - _joint.angleMin) *
                    (_joint.modelAngelMax - _joint.modelAngelMin) + _joint.modelAngelMin;
 
-    _joint.angle = jAngle;
+    _joint.angle = jAngle; */
 }
 
 
 void Robot::UpdateJointAngle(Robot::JointStatus_t &_joint, float _angleSetPoint)
 {
-    float sAngle = _joint.inverted ?
+    /* float sAngle = _joint.inverted ?
                    (_angleSetPoint - _joint.modelAngelMin) /
                    (_joint.modelAngelMax - _joint.modelAngelMin) *
                    (_joint.angleMin - _joint.angleMax) + _joint.angleMax :
@@ -259,11 +259,11 @@ void Robot::UpdateJointAngle(Robot::JointStatus_t &_joint, float _angleSetPoint)
                    (_joint.modelAngelMax - _joint.modelAngelMin) *
                    (_joint.angleMax - _joint.angleMin) + _joint.angleMin;
 
-    UpdateServoAngle(_joint, sAngle);
-    //UpdateServoAngle(_joint, _angleSetPoint);
+    UpdateServoAngle(_joint, sAngle); */
+    UpdateServoAngle(_joint, _angleSetPoint);
     // printf("id=%d\r\n",_joint.id);
 
-    float jAngle = _joint.inverted ?
+    /* float jAngle = _joint.inverted ?
                    (_joint.angleMax - _joint.angle) /
                    (_joint.angleMax - _joint.angleMin) *
                    (_joint.modelAngelMax - _joint.modelAngelMin) + _joint.modelAngelMin :
@@ -271,5 +271,5 @@ void Robot::UpdateJointAngle(Robot::JointStatus_t &_joint, float _angleSetPoint)
                    (_joint.angleMax - _joint.angleMin) *
                    (_joint.modelAngelMax - _joint.modelAngelMin) + _joint.modelAngelMin;
 
-    _joint.angle = jAngle;
+    _joint.angle = jAngle; */
 }

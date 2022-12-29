@@ -63,7 +63,7 @@
   */
 
 /*---------- -----------*/
-#define USBD_MAX_NUM_INTERFACES     1U
+#define USBD_MAX_NUM_INTERFACES     2U
 /*---------- -----------*/
 #define USBD_MAX_NUM_CONFIGURATION     1U
 /*---------- -----------*/
@@ -75,7 +75,9 @@
 /*---------- -----------*/
 #define USBD_SELF_POWERED     1U
 /*---------- -----------*/
-#define MSC_MEDIA_PACKET     512U
+#define MSC_MEDIA_PACKET     4096
+
+#define USBD_SUPPORT_USER_STRING_DESC 1U
 
 /****************************************/
 /* #define for FS and HS identification */
@@ -93,10 +95,10 @@
 /* Memory management macros make sure to use static memory allocation */
 /** Alias for memory allocation. */
 
-#define USBD_malloc         (void *)USBD_static_malloc
+#define USBD_malloc         malloc //(void *)USBD_static_malloc
 
 /** Alias for memory release. */
-#define USBD_free           USBD_static_free
+#define USBD_free           free   // USBD_static_free
 
 /** Alias for memory set. */
 #define USBD_memset         memset
